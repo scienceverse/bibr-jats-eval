@@ -1,0 +1,1216 @@
+{
+ "paper_id": "10.1371_journal.pcbi.1014556",
+ "info": {
+  "title": "CellExLink: End-to-end cell-type recognition and normalization in biomedical text",
+  "doi": "10.1371/journal.pcbi.1014556",
+  "file_name": "10.1371_journal.pcbi.1014556.pdf",
+  "abstract": "Cell types are described in biomedical literature using diverse names, abbreviations, and phenotype phrases, which complicates their recognition and normalization. We developed CellExLink, an end-to-end pipeline that identifies cell-type mentions and normalizes them to Cell Ontology (CL) identifiers. The recognizer was fine-tuned and evaluated on five heterogeneous biomedical corpora spanning full-length articles, article excerpts, figure captions, abstracts, and anatomical text passages. These resources include fine-grained phenotype-defined populations, heterogeneous cell populations, and abbreviated mentions. Across the five corpora, CellExLink achieved macro-average exact- and relaxed-span F1 scores of 0.766 and 0.855, respectively. For CL identifier normalization on gold-standard mention spans, F1 scores ranged from 0.690 to 0.874. In strict end-to-end evaluation, which required both an exact mention span and the correct CL identifier, F1 scores ranged from 0.552 on a figure-caption corpus to 0.725 on a corpus of full-text article excerpts. CellExLink outperformed the evaluated off-the-shelf systems in cell mention recognition, CL identifier normalization, and end-to-end extraction. By converting unannotated biomedical text into cell-type spans linked to standardized CL identifiers, CellExLink provides a practical foundation for downstream applications, including literature curation, relation extraction, and knowledge graph construction."
+ },
+ "author": [
+  {
+   "author_id": 1,
+   "given": "Alimire",
+   "family": "Nabijiang",
+   "affiliation": "Department of Mathematics and Statistics, University of Massachusetts Amherst, Amherst, Massachusetts, United States of America",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 2,
+   "given": "Leili",
+   "family": "Shahriyari",
+   "affiliation": "Department of Mathematics and Statistics, University of Massachusetts Amherst, Amherst, Massachusetts, United States of America",
+   "email": "",
+   "orcid": "",
+   "corresponding": true
+  }
+ ],
+ "section": [
+  {
+   "section_id": 1,
+   "section_type": "abstract",
+   "header": "Abstract",
+   "level": 1,
+   "parent_section_id": null,
+   "classification_score": 1.0
+  }
+ ],
+ "text": [
+  {
+   "text_id": 1,
+   "section_id": 1,
+   "paragraph_id": 1,
+   "text": "Cell types are described in biomedical literature using diverse names, abbreviations, and phenotype phrases, which complicates their recognition and normalization. We developed CellExLink, an end-to-end pipeline that identifies cell-type mentions and normalizes them to Cell Ontology (CL) identifiers. The recognizer was fine-tuned and evaluated on five heterogeneous biomedical corpora spanning full-length articles, article excerpts, figure captions, abstracts, and anatomical text passages. These resources include fine-grained phenotype-defined populations, heterogeneous cell populations, and abbreviated mentions. Across the five corpora, CellExLink achieved macro-average exact- and relaxed-span F1 scores of 0.766 and 0.855, respectively. For CL identifier normalization on gold-standard mention spans, F1 scores ranged from 0.690 to 0.874. In strict end-to-end evaluation, which required both an exact mention span and the correct CL identifier, F1 scores ranged from 0.552 on a figure-caption corpus to 0.725 on a corpus of full-text article excerpts. CellExLink outperformed the evaluated off-the-shelf systems in cell mention recognition, CL identifier normalization, and end-to-end extraction. By converting unannotated biomedical text into cell-type spans linked to standardized CL identifiers, CellExLink provides a practical foundation for downstream applications, including literature curation, relation extraction, and knowledge graph construction.",
+   "page_number": 1
+  }
+ ],
+ "bib": [
+  {
+   "bib_id": 1,
+   "authors": [
+    {
+     "family": "Zeng",
+     "given": "H"
+    }
+   ],
+   "year": "2022",
+   "title": "What is a cell type and how to define it?",
+   "container": "Cell",
+   "volume": "185",
+   "first_page": "2739",
+   "doi": "10.1016/j.cell.2022.06.031"
+  },
+  {
+   "bib_id": 2,
+   "authors": [
+    {
+     "family": "Regev",
+     "given": "A"
+    },
+    {
+     "family": "Teichmann",
+     "given": "SA"
+    },
+    {
+     "family": "Lander",
+     "given": "ES"
+    },
+    {
+     "family": "Amit",
+     "given": "I"
+    },
+    {
+     "family": "Benoist",
+     "given": "C"
+    },
+    {
+     "family": "Birney",
+     "given": "E"
+    }
+   ],
+   "year": "2017",
+   "title": "The human cell atlas",
+   "container": "Elife",
+   "volume": "6",
+   "doi": "10.7554/eLife.27041"
+  },
+  {
+   "bib_id": 3,
+   "authors": [
+    {
+     "family": "Mohammadi",
+     "given": "S"
+    },
+    {
+     "family": "Davila-Velderrain",
+     "given": "J"
+    },
+    {
+     "family": "Kellis",
+     "given": "M"
+    }
+   ],
+   "year": "2019",
+   "title": "Reconstruction of Cell-type-Specific Interactomes at Single-Cell Resolution",
+   "container": "Cell Syst",
+   "volume": "9",
+   "doi": "10.1016/j.cels.2019.10.007"
+  },
+  {
+   "bib_id": 4,
+   "authors": [
+    {
+     "family": "Liu",
+     "given": "L"
+    },
+    {
+     "family": "Chen",
+     "given": "A"
+    },
+    {
+     "family": "Li",
+     "given": "Y"
+    },
+    {
+     "family": "Mulder",
+     "given": "J"
+    },
+    {
+     "family": "Heyn",
+     "given": "H"
+    },
+    {
+     "family": "Xu",
+     "given": "X"
+    }
+   ],
+   "year": "2024",
+   "title": "Spatiotemporal omics for biology and medicine",
+   "container": "Cell",
+   "volume": "187",
+   "first_page": "4488",
+   "doi": "10.1016/j.cell.2024.07.040"
+  },
+  {
+   "bib_id": 5,
+   "authors": [
+    {
+     "family": "Bożyk",
+     "given": "A"
+    },
+    {
+     "family": "Wojas-Krawczyk",
+     "given": "K"
+    },
+    {
+     "family": "Krawczyk",
+     "given": "P"
+    },
+    {
+     "family": "Milanowski",
+     "given": "J"
+    }
+   ],
+   "year": "2022",
+   "title": "Tumor microenvironment-a short review of cellular and interaction diversity",
+   "container": "Biology (Basel)",
+   "volume": "11",
+   "first_page": "929",
+   "doi": "10.3390/biology11060929"
+  },
+  {
+   "bib_id": 6,
+   "authors": [
+    {
+     "family": "Armingol",
+     "given": "E"
+    },
+    {
+     "family": "Officer",
+     "given": "A"
+    },
+    {
+     "family": "Harismendy",
+     "given": "O"
+    },
+    {
+     "family": "Lewis",
+     "given": "NE"
+    }
+   ],
+   "year": "2021",
+   "title": "Deciphering cell-cell interactions and communication from gene expression",
+   "container": "Nat Rev Genet",
+   "volume": "22",
+   "first_page": "71",
+   "last_page": "88",
+   "doi": "10.1038/s41576-020-00292-x"
+  },
+  {
+   "bib_id": 7,
+   "authors": [
+    {
+     "family": "Hanahan",
+     "given": "D"
+    }
+   ],
+   "year": "2022",
+   "title": "Hallmarks of cancer: new dimensions",
+   "container": "Cancer Discov",
+   "volume": "12",
+   "first_page": "31",
+   "last_page": "46",
+   "doi": "10.1158/2159-8290.CD-21-1059"
+  },
+  {
+   "bib_id": 8,
+   "authors": [
+    {
+     "family": "de Visser",
+     "given": "KE"
+    },
+    {
+     "family": "Joyce",
+     "given": "JA"
+    }
+   ],
+   "year": "2023",
+   "title": "The evolving tumor microenvironment: from cancer initiation to metastatic outgrowth",
+   "container": "Cancer Cell",
+   "volume": "41",
+   "first_page": "374",
+   "last_page": "403",
+   "doi": "10.1016/j.ccell.2023.02.016"
+  },
+  {
+   "bib_id": 9,
+   "authors": [
+    {
+     "family": "Hinshaw",
+     "given": "DC"
+    },
+    {
+     "family": "Shevde",
+     "given": "LA"
+    }
+   ],
+   "year": "2019",
+   "title": "The tumor microenvironment innately modulates cancer progression",
+   "container": "Cancer Res",
+   "volume": "79",
+   "first_page": "4557",
+   "doi": "10.1158/0008-5472.CAN-18-3962"
+  },
+  {
+   "bib_id": 10,
+   "authors": [
+    {
+     "family": "Kirshtein",
+     "given": "A"
+    },
+    {
+     "family": "Akbarinejad",
+     "given": "S"
+    },
+    {
+     "family": "Hao",
+     "given": "W"
+    },
+    {
+     "family": "Le",
+     "given": "T"
+    },
+    {
+     "family": "Su",
+     "given": "S"
+    },
+    {
+     "family": "Aronow",
+     "given": "RA"
+    }
+   ],
+   "year": "2020",
+   "title": "Data driven mathematical model of colon cancer progression",
+   "container": "J Clin Med",
+   "volume": "9",
+   "first_page": "3947",
+   "doi": "10.3390/jcm9123947"
+  },
+  {
+   "bib_id": 11,
+   "authors": [
+    {
+     "family": "Budithi",
+     "given": "A"
+    },
+    {
+     "family": "Su",
+     "given": "S"
+    },
+    {
+     "family": "Kirshtein",
+     "given": "A"
+    },
+    {
+     "family": "Shahriyari",
+     "given": "L"
+    }
+   ],
+   "year": "2021",
+   "title": "Data driven mathematical model of FOLFIRI treatment for colon cancer",
+   "container": "Cancers (Basel)",
+   "volume": "13",
+   "first_page": "2632",
+   "doi": "10.3390/cancers13112632"
+  },
+  {
+   "bib_id": 12,
+   "authors": [
+    {
+     "family": "Chelliah",
+     "given": "V"
+    },
+    {
+     "family": "Lazarou",
+     "given": "G"
+    },
+    {
+     "family": "Bhatnagar",
+     "given": "S"
+    },
+    {
+     "family": "Gibbs",
+     "given": "JP"
+    },
+    {
+     "family": "Nijsen",
+     "given": "M"
+    },
+    {
+     "family": "Ray",
+     "given": "A"
+    }
+   ],
+   "year": "2021",
+   "title": "Quantitative systems pharmacology approaches for immuno-oncology: adding virtual patients to the development paradigm",
+   "container": "Clin Pharmacol Ther",
+   "volume": "109",
+   "first_page": "605",
+   "doi": "10.1002/cpt.1987"
+  },
+  {
+   "bib_id": 13,
+   "authors": [
+    {
+     "family": "Gong",
+     "given": "C"
+    },
+    {
+     "family": "Ruiz-Martinez",
+     "given": "A"
+    },
+    {
+     "family": "Kimko",
+     "given": "H"
+    },
+    {
+     "family": "Popel",
+     "given": "AS"
+    }
+   ],
+   "year": "2021",
+   "title": "A spatial quantitative systems pharmacology platform spQSP-IO for simulations of tumor-immune interactions and effects of checkpoint inhibitor immunotherapy",
+   "container": "Cancers (Basel)",
+   "volume": "13",
+   "first_page": "3751",
+   "doi": "10.3390/cancers13153751"
+  },
+  {
+   "bib_id": 14,
+   "authors": [
+    {
+     "family": "Arulraj",
+     "given": "T"
+    },
+    {
+     "family": "Wang",
+     "given": "H"
+    },
+    {
+     "family": "Ippolito",
+     "given": "A"
+    },
+    {
+     "family": "Zhang",
+     "given": "S"
+    },
+    {
+     "family": "Fertig",
+     "given": "EJ"
+    },
+    {
+     "family": "Popel",
+     "given": "AS"
+    }
+   ],
+   "year": "2024",
+   "title": "Leveraging multi-omics data to empower quantitative systems pharmacology in immuno-oncology",
+   "container": "Briefings in Bioinformatics",
+   "volume": "25"
+  },
+  {
+   "bib_id": 15,
+   "authors": [
+    {
+     "family": "Mohammad Mirzaei",
+     "given": "N"
+    },
+    {
+     "family": "Shahriyari",
+     "given": "L"
+    }
+   ],
+   "year": "2024",
+   "title": "Modeling cancer progression: an integrated workflow extending data-driven kinetic models to bio-mechanical PDE models",
+   "container": "Phys Biol",
+   "volume": "21",
+   "doi": "10.1088/1478-3975/ad2777"
+  },
+  {
+   "bib_id": 16,
+   "authors": [
+    {
+     "family": "Mohammad Mirzaei",
+     "given": "N"
+    },
+    {
+     "family": "Hao",
+     "given": "W"
+    },
+    {
+     "family": "Shahriyari",
+     "given": "L"
+    }
+   ],
+   "year": "2023",
+   "title": "Investigating the spatial interaction of immune cells in colon cancer",
+   "container": "iScience",
+   "volume": "26",
+   "first_page": "106596",
+   "doi": "10.1016/j.isci.2023.106596"
+  },
+  {
+   "bib_id": 17,
+   "authors": [
+    {
+     "family": "Alonso",
+     "given": "MA"
+    },
+    {
+     "family": "Gómez-Rodríguez",
+     "given": "C"
+    },
+    {
+     "family": "Vilares",
+     "given": "J"
+    }
+   ],
+   "year": "2021",
+   "title": "On the use of parsing for named entity recognition",
+   "container": "Appl Sci",
+   "volume": "11",
+   "first_page": "1090",
+   "doi": "10.3390/app11031090"
+  },
+  {
+   "bib_id": 18,
+   "authors": [
+    {
+     "family": "Diehl",
+     "given": "AD"
+    },
+    {
+     "family": "Meehan",
+     "given": "TF"
+    },
+    {
+     "family": "Bradford",
+     "given": "YM"
+    },
+    {
+     "family": "Brush",
+     "given": "MH"
+    },
+    {
+     "family": "Dahdul",
+     "given": "WM"
+    },
+    {
+     "family": "Dougall",
+     "given": "DS"
+    }
+   ],
+   "year": "2016",
+   "title": "The cell ontology 2016: enhanced content, modularization, and ontology interoperability",
+   "container": "J Biomed Semantics",
+   "volume": "7",
+   "first_page": "44"
+  },
+  {
+   "bib_id": 19,
+   "authors": [
+    {
+     "family": "Wei",
+     "given": "C-H"
+    },
+    {
+     "family": "Allot",
+     "given": "A"
+    },
+    {
+     "family": "Lai",
+     "given": "P-T"
+    },
+    {
+     "family": "Leaman",
+     "given": "R"
+    },
+    {
+     "family": "Tian",
+     "given": "S"
+    },
+    {
+     "family": "Luo",
+     "given": "L"
+    }
+   ],
+   "year": "2024",
+   "title": "PubTator 3.0: an AI-powered literature resource for unlocking biomedical knowledge",
+   "container": "Nucleic Acids Res",
+   "volume": "52",
+   "doi": "10.1093/nar/gkae235"
+  },
+  {
+   "bib_id": 20,
+   "authors": [
+    {
+     "family": "Sänger",
+     "given": "M"
+    },
+    {
+     "family": "Garda",
+     "given": "S"
+    },
+    {
+     "family": "Wang",
+     "given": "XD"
+    },
+    {
+     "family": "Weber-Genzel",
+     "given": "L"
+    },
+    {
+     "family": "Droop",
+     "given": "P"
+    },
+    {
+     "family": "Fuchs",
+     "given": "B"
+    }
+   ],
+   "year": "2024",
+   "title": "HunFlair2 in a cross-corpus evaluation of biomedical named entity recognition and normalization tools",
+   "container": "Bioinformatics",
+   "volume": "40",
+   "doi": "10.1093/bioinformatics/btae564"
+  },
+  {
+   "bib_id": 21,
+   "authors": [
+    {
+     "family": "Wei",
+     "given": "C-H"
+    },
+    {
+     "family": "Luo",
+     "given": "L"
+    },
+    {
+     "family": "Islamaj",
+     "given": "R"
+    },
+    {
+     "family": "Lai",
+     "given": "P-T"
+    },
+    {
+     "family": "Lu",
+     "given": "Z"
+    }
+   ],
+   "year": "2023",
+   "title": "GNorm2: an improved gene name recognition and normalization system",
+   "container": "Bioinformatics",
+   "volume": "39",
+   "doi": "10.1093/bioinformatics/btad599"
+  },
+  {
+   "bib_id": 22,
+   "authors": [
+    {
+     "family": "Liu",
+     "given": "Y"
+    },
+    {
+     "family": "Bian",
+     "given": "J"
+    },
+    {
+     "family": "Zhai",
+     "given": "W"
+    },
+    {
+     "family": "Zheng",
+     "given": "J"
+    },
+    {
+     "family": "Zhang",
+     "given": "Y"
+    },
+    {
+     "family": "Zhu",
+     "given": "S"
+    }
+   ],
+   "year": "2025",
+   "title": "Vaner2: towards more general biomedical named entity recognition using multi-task large language model encoders",
+   "container": "Health Inf Sci Syst",
+   "volume": "14",
+   "first_page": "4",
+   "doi": "10.1007/s13755-025-00400-3"
+  },
+  {
+   "bib_id": 23,
+   "authors": [
+    {
+     "family": "Sung",
+     "given": "M"
+    },
+    {
+     "family": "Jeong",
+     "given": "M"
+    },
+    {
+     "family": "Choi",
+     "given": "Y"
+    },
+    {
+     "family": "Kim",
+     "given": "D"
+    },
+    {
+     "family": "Lee",
+     "given": "J"
+    },
+    {
+     "family": "Kang",
+     "given": "J"
+    }
+   ],
+   "year": "2022",
+   "title": "BERN2: an advanced neural biomedical named entity recognition and normalization tool",
+   "container": "Bioinformatics",
+   "volume": "38",
+   "first_page": "4837",
+   "doi": "10.1093/bioinformatics/btac598"
+  },
+  {
+   "bib_id": 24,
+   "doi": "10.18653/v1/w19-5034"
+  },
+  {
+   "bib_id": 25,
+   "authors": [
+    {
+     "family": "Hoyt",
+     "given": "CT"
+    },
+    {
+     "family": "Gyori",
+     "given": "BM"
+    },
+    {
+     "family": "Mungall",
+     "given": "C"
+    },
+    {
+     "family": "Domingo-Fernández",
+     "given": "D"
+    }
+   ],
+   "year": "2026",
+   "doi": "10.5281/zenodo.18230567"
+  },
+  {
+   "bib_id": 26,
+   "authors": [
+    {
+     "family": "Inayatullah",
+     "given": "M"
+    },
+    {
+     "family": "Dwivedi",
+     "given": "AK"
+    },
+    {
+     "family": "Tiwari",
+     "given": "VK"
+    }
+   ],
+   "year": "2025",
+   "title": "Advances in single-cell omics: transformative applications in basic and clinical research",
+   "container": "Curr Opin Cell Biol",
+   "volume": "95",
+   "first_page": "102548",
+   "doi": "10.1016/j.ceb.2025.102548"
+  },
+  {
+   "bib_id": 27,
+   "authors": [
+    {
+     "family": "Rotenberg",
+     "given": "NH"
+    },
+    {
+     "family": "Leaman",
+     "given": "R"
+    },
+    {
+     "family": "Islamaj",
+     "given": "R"
+    },
+    {
+     "family": "Kuivaniemi",
+     "given": "H"
+    },
+    {
+     "family": "Tromp",
+     "given": "G"
+    },
+    {
+     "family": "Fluharty",
+     "given": "B"
+    }
+   ],
+   "year": "2026",
+   "title": "Cell phenotypes in the biomedical literature: a systematic analysis and text mining corpus",
+   "container": "bioRxiv",
+   "volume": "2026",
+   "first_page": "2026"
+  },
+  {
+   "bib_id": 28,
+   "authors": [
+    {
+     "family": "Pyysalo",
+     "given": "S"
+    },
+    {
+     "family": "Ananiadou",
+     "given": "S"
+    }
+   ],
+   "year": "2014",
+   "title": "Anatomical entity mention recognition at literature scale",
+   "container": "Bioinformatics",
+   "volume": "30",
+   "first_page": "868",
+   "doi": "10.1093/bioinformatics/btt580"
+  },
+  {
+   "bib_id": 29,
+   "authors": [
+    {
+     "family": "Verspoor",
+     "given": "K"
+    },
+    {
+     "family": "Cohen",
+     "given": "KB"
+    },
+    {
+     "family": "Lanfranchi",
+     "given": "A"
+    },
+    {
+     "family": "Warner",
+     "given": "C"
+    },
+    {
+     "family": "Johnson",
+     "given": "HL"
+    },
+    {
+     "family": "Roeder",
+     "given": "C"
+    }
+   ],
+   "year": "2012",
+   "title": "A corpus of full-text journal articles is a robust evaluation tool for revealing differences in performance of biomedical natural language processing tools",
+   "container": "BMC Bioinformatics",
+   "volume": "13",
+   "first_page": "207",
+   "doi": "10.1186/1471-2105-13-207"
+  },
+  {
+   "bib_id": 30,
+   "doi": "10.3115/1567594.1567610"
+  },
+  {
+   "bib_id": 31
+  },
+  {
+   "bib_id": 32,
+   "authors": [
+    {
+     "family": "Gu",
+     "given": "Y"
+    },
+    {
+     "family": "Tinn",
+     "given": "R"
+    },
+    {
+     "family": "Cheng",
+     "given": "H"
+    },
+    {
+     "family": "Lucas",
+     "given": "M"
+    },
+    {
+     "family": "Usuyama",
+     "given": "N"
+    },
+    {
+     "family": "Liu",
+     "given": "X"
+    }
+   ],
+   "year": "2021",
+   "title": "Domain-specific language model pretraining for biomedical natural language processing",
+   "container": "ACM Trans Comput Healthcare",
+   "volume": "3",
+   "first_page": "1",
+   "last_page": "23",
+   "doi": "10.1145/3458754"
+  },
+  {
+   "bib_id": 33,
+   "authors": [
+    {
+     "family": "Fang",
+     "given": "L"
+    },
+    {
+     "family": "Chen",
+     "given": "Q"
+    },
+    {
+     "family": "Wei",
+     "given": "CH"
+    },
+    {
+     "family": "Lu",
+     "given": "Z"
+    },
+    {
+     "family": "Wang",
+     "given": "K"
+    }
+   ],
+   "year": "2023"
+  },
+  {
+   "bib_id": 34,
+   "authors": [
+    {
+     "family": "Touvron",
+     "given": "H"
+    },
+    {
+     "family": "Martin",
+     "given": "L"
+    },
+    {
+     "family": "Stone",
+     "given": "K"
+    },
+    {
+     "family": "Albert",
+     "given": "P"
+    },
+    {
+     "family": "Almahairi",
+     "given": "A"
+    },
+    {
+     "family": "Babaei",
+     "given": "Y"
+    }
+   ],
+   "year": "2023"
+  },
+  {
+   "bib_id": 35
+  },
+  {
+   "bib_id": 36,
+   "authors": [
+    {
+     "family": "Wu",
+     "given": "C"
+    },
+    {
+     "family": "Lin",
+     "given": "W"
+    },
+    {
+     "family": "Zhang",
+     "given": "X"
+    },
+    {
+     "family": "Zhang",
+     "given": "Y"
+    },
+    {
+     "family": "Xie",
+     "given": "W"
+    },
+    {
+     "family": "Wang",
+     "given": "Y"
+    }
+   ],
+   "year": "2024",
+   "title": "PMC-LLaMA: toward building open-source language models for medicine",
+   "container": "J Am Med Inform Assoc",
+   "volume": "31",
+   "first_page": "1833",
+   "doi": "10.1093/jamia/ocae045"
+  },
+  {
+   "bib_id": 37,
+   "authors": [
+    {
+     "family": "Achiam",
+     "given": "J"
+    },
+    {
+     "family": "Adler",
+     "given": "S"
+    },
+    {
+     "family": "Agarwal",
+     "given": "S"
+    },
+    {
+     "family": "Ahmad",
+     "given": "L"
+    },
+    {
+     "family": "Akkaya",
+     "given": "I"
+    },
+    {
+     "family": "Aleman",
+     "given": "FL"
+    }
+   ],
+   "year": "2023"
+  },
+  {
+   "bib_id": 38,
+   "authors": [
+    {
+     "family": "Chen",
+     "given": "Q"
+    },
+    {
+     "family": "Hu",
+     "given": "Y"
+    },
+    {
+     "family": "Peng",
+     "given": "X"
+    },
+    {
+     "family": "Xie",
+     "given": "Q"
+    },
+    {
+     "family": "Jin",
+     "given": "Q"
+    },
+    {
+     "family": "Gilson",
+     "given": "A"
+    }
+   ],
+   "year": "2025",
+   "title": "Benchmarking large language models for biomedical natural language processing applications and recommendations",
+   "container": "Nat Commun",
+   "volume": "16",
+   "first_page": "3280",
+   "doi": "10.1038/s41467-025-56989-2"
+  },
+  {
+   "bib_id": 39,
+   "authors": [
+    {
+     "family": "Hu",
+     "given": "Y"
+    },
+    {
+     "family": "Chen",
+     "given": "Q"
+    },
+    {
+     "family": "Du",
+     "given": "J"
+    },
+    {
+     "family": "Peng",
+     "given": "X"
+    },
+    {
+     "family": "Keloth",
+     "given": "VK"
+    },
+    {
+     "family": "Zuo",
+     "given": "X"
+    }
+   ],
+   "year": "2024",
+   "title": "Improving large language models for clinical named entity recognition via prompt engineering",
+   "container": "J Am Med Inform Assoc",
+   "volume": "31",
+   "first_page": "1812",
+   "doi": "10.1093/jamia/ocad259"
+  },
+  {
+   "bib_id": 40,
+   "authors": [
+    {
+     "family": "Nabijiang",
+     "given": "A"
+    },
+    {
+     "family": "Shahriyari",
+     "given": "L"
+    }
+   ],
+   "doi": "10.1371/journal.pcbi.1014556"
+  },
+  {
+   "bib_id": 41
+  },
+  {
+   "bib_id": 42,
+   "authors": [
+    {
+     "family": "Sohn",
+     "given": "S"
+    },
+    {
+     "family": "Comeau",
+     "given": "DC"
+    },
+    {
+     "family": "Kim",
+     "given": "W"
+    },
+    {
+     "family": "Wilbur",
+     "given": "WJ"
+    }
+   ],
+   "year": "2008",
+   "title": "Abbreviation definition identification based on automatic precision estimates",
+   "container": "BMC Bioinformatics",
+   "volume": "9",
+   "first_page": "402",
+   "doi": "10.1186/1471-2105-9-402"
+  },
+  {
+   "bib_id": 43,
+   "authors": [
+    {
+     "family": "Tan",
+     "given": "S"
+    }
+   ],
+   "year": "2025",
+   "title": "Obophenotype/cell-ontology: 2025-12-17 release",
+   "doi": "10.5281/zenodo.17966975"
+  },
+  {
+   "bib_id": 44,
+   "authors": [
+    {
+     "family": "Noy",
+     "given": "NF"
+    },
+    {
+     "family": "Shah",
+     "given": "NH"
+    },
+    {
+     "family": "Whetzel",
+     "given": "PL"
+    },
+    {
+     "family": "Dai",
+     "given": "B"
+    },
+    {
+     "family": "Dorf",
+     "given": "M"
+    },
+    {
+     "family": "Griffith",
+     "given": "N"
+    }
+   ],
+   "year": "2009",
+   "title": "BioPortal: ontologies and integrated data resources at the click of a mouse",
+   "container": "Nucleic Acids Res",
+   "volume": "37",
+   "doi": "10.1093/nar/gkp440"
+  },
+  {
+   "bib_id": 45,
+   "authors": [
+    {
+     "family": "Jin",
+     "given": "Q"
+    },
+    {
+     "family": "Kim",
+     "given": "W"
+    },
+    {
+     "family": "Chen",
+     "given": "Q"
+    },
+    {
+     "family": "Comeau",
+     "given": "DC"
+    },
+    {
+     "family": "Yeganova",
+     "given": "L"
+    },
+    {
+     "family": "Wilbur",
+     "given": "WJ"
+    }
+   ],
+   "year": "2023",
+   "title": "MedCPT: Contrastive Pre-trained Transformers with large-scale PubMed search logs for zero-shot biomedical information retrieval",
+   "container": "Bioinformatics",
+   "volume": "39",
+   "doi": "10.1093/bioinformatics/btad651"
+  },
+  {
+   "bib_id": 46,
+   "authors": [
+    {
+     "family": "Remy",
+     "given": "F"
+    },
+    {
+     "family": "Demuynck",
+     "given": "K"
+    },
+    {
+     "family": "Demeester",
+     "given": "T"
+    }
+   ],
+   "year": "2024",
+   "title": "BioLORD-2023: semantic textual representations fusing large language models and clinical knowledge graph insights",
+   "container": "J Am Med Inform Assoc",
+   "volume": "31",
+   "first_page": "1844",
+   "doi": "10.1093/jamia/ocae029"
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-core-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "jats_doi": "10.1371/journal.pcbi.1014556"
+ }
+}

@@ -1,0 +1,2579 @@
+{
+ "paper_id": "10.1371_journal.pcbi.1014481",
+ "info": {
+  "title": "cpm: A python library for theory-driven modelling in computational psychiatry",
+  "doi": "10.1371/journal.pcbi.1014481",
+  "file_name": "10.1371_journal.pcbi.1014481.pdf",
+  "abstract": "The Computational Psychiatry Modelling (cpm) toolbox is a Python library for theory-driven modelling in computational psychiatry and cognitive (neuro-)science. cpm integrates a wide range of established approaches into a single framework. It is designed to be accessible to both expert and non-expert modellers in order to conduct cutting-edge computational modelling, while adhering to best practices. The toolbox provides a flexible, modular architecture that adjusts to different needs. It covers a wide range of problems (such as risky decision-making, reward/punishment learning, perceptual metacognition), models (including those based on associative, reinforcement learning, and signal detection theories), and methods (such as hierarchical parameter estimation using empirical and variational Bayesian techniques). Such a customisable toolbox aims to lower the barrier for beginners and to facilitate access to advanced modelling approaches in psychiatry and beyond."
+ },
+ "author": [
+  {
+   "author_id": 1,
+   "given": "Lenard",
+   "family": "Dome",
+   "affiliation": "Department of Psychiatry and Psychotherapy, Faculty of Medicine, University Tübingen, Tübingen, Germany; German Center for Mental Health (DZPG), Tübingen, Germany",
+   "email": "",
+   "orcid": "",
+   "corresponding": true
+  },
+  {
+   "author_id": 2,
+   "given": "Frank H.",
+   "family": "Hezemans",
+   "affiliation": "Department of Psychiatry and Psychotherapy, Faculty of Medicine, University Tübingen, Tübingen, Germany; German Center for Mental Health (DZPG), Tübingen, Germany; Max Planck Institute for Biological Cybernetics, Tübingen, Germany; Institute of Cognitive Science, Osnabrück University, Osnabrück, Germany",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 3,
+   "given": "Kenza",
+   "family": "Kadri",
+   "affiliation": "Department of Psychiatry and Psychotherapy, Faculty of Medicine, University Tübingen, Tübingen, Germany; German Center for Mental Health (DZPG), Tübingen, Germany",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 4,
+   "given": "Ben J.",
+   "family": "Wagner",
+   "affiliation": "Department of Psychiatry and Psychotherapy, Faculty of Medicine, University Tübingen, Tübingen, Germany; German Center for Mental Health (DZPG), Tübingen, Germany; Max Planck Institute for Biological Cybernetics, Tübingen, Germany",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 5,
+   "given": "Andrew",
+   "family": "Webb",
+   "affiliation": "Max Planck Institute for Biological Cybernetics, Tübingen, Germany",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 6,
+   "given": "Tobias U.",
+   "family": "Hauser",
+   "affiliation": "Department of Psychiatry and Psychotherapy, Faculty of Medicine, University Tübingen, Tübingen, Germany; German Center for Mental Health (DZPG), Tübingen, Germany; Max Planck UCL Centre for Computational Psychiatry and Ageing Research, University College London, London, United Kingdom",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  }
+ ],
+ "section": [
+  {
+   "section_id": 1,
+   "section_type": "abstract",
+   "header": "Abstract",
+   "level": 1,
+   "parent_section_id": null,
+   "classification_score": 1.0
+  }
+ ],
+ "text": [
+  {
+   "text_id": 1,
+   "section_id": 1,
+   "paragraph_id": 1,
+   "text": "The Computational Psychiatry Modelling (cpm) toolbox is a Python library for theory-driven modelling in computational psychiatry and cognitive (neuro-)science. cpm integrates a wide range of established approaches into a single framework. It is designed to be accessible to both expert and non-expert modellers in order to conduct cutting-edge computational modelling, while adhering to best practices. The toolbox provides a flexible, modular architecture that adjusts to different needs. It covers a wide range of problems (such as risky decision-making, reward/punishment learning, perceptual metacognition), models (including those based on associative, reinforcement learning, and signal detection theories), and methods (such as hierarchical parameter estimation using empirical and variational Bayesian techniques). Such a customisable toolbox aims to lower the barrier for beginners and to facilitate access to advanced modelling approaches in psychiatry and beyond.",
+   "page_number": 1
+  }
+ ],
+ "bib": [
+  {
+   "bib_id": 1,
+   "authors": [
+    {
+     "family": "Hauser",
+     "given": "TU"
+    },
+    {
+     "family": "Will",
+     "given": "G-J"
+    },
+    {
+     "family": "Dubois",
+     "given": "M"
+    },
+    {
+     "family": "Dolan",
+     "given": "RJ"
+    }
+   ],
+   "year": "2019",
+   "title": "Annual research review: developmental computational psychiatry",
+   "container": "J Child Psychol Psychiatry",
+   "volume": "60",
+   "first_page": "412",
+   "doi": "10.1111/jcpp.12964"
+  },
+  {
+   "bib_id": 2,
+   "title": "Computational psychiatry",
+   "container": "Trends Cogn Sci",
+   "volume": "16",
+   "first_page": "72"
+  },
+  {
+   "bib_id": 3,
+   "authors": [
+    {
+     "family": "Huys",
+     "given": "QJM"
+    },
+    {
+     "family": "Maia",
+     "given": "TV"
+    },
+    {
+     "family": "Frank",
+     "given": "MJ"
+    }
+   ],
+   "year": "2016",
+   "title": "Computational psychiatry as a bridge from neuroscience to clinical applications",
+   "container": "Nat Neurosci",
+   "volume": "19",
+   "first_page": "404",
+   "doi": "10.1038/nn.4238"
+  },
+  {
+   "bib_id": 4,
+   "authors": [
+    {
+     "family": "Moutoussis",
+     "given": "M"
+    },
+    {
+     "family": "Eldar",
+     "given": "E"
+    },
+    {
+     "family": "Dolan",
+     "given": "RJ"
+    }
+   ],
+   "year": "2017",
+   "title": "Building a new field of computational psychiatry",
+   "container": "Biol Psychiatry",
+   "volume": "82",
+   "first_page": "388",
+   "doi": "10.1016/j.biopsych.2016.10.007"
+  },
+  {
+   "bib_id": 5,
+   "authors": [
+    {
+     "family": "Hauser",
+     "given": "TU"
+    },
+    {
+     "family": "Skvortsova",
+     "given": "V"
+    },
+    {
+     "family": "De Choudhury",
+     "given": "M"
+    },
+    {
+     "family": "Koutsouleris",
+     "given": "N"
+    }
+   ],
+   "year": "2022",
+   "title": "The promise of a model-based psychiatry: building computational models of mental ill health",
+   "container": "Lancet Digit Health",
+   "volume": "4",
+   "doi": "10.1016/S2589-7500(22)00152-2"
+  },
+  {
+   "bib_id": 6,
+   "authors": [
+    {
+     "family": "van Rooij",
+     "given": "I"
+    }
+   ],
+   "year": "2022",
+   "title": "Psychological models and their distractors",
+   "container": "Nat Rev Psychol",
+   "volume": "1",
+   "first_page": "127"
+  },
+  {
+   "bib_id": 7,
+   "authors": [
+    {
+     "family": "Haines",
+     "given": "N"
+    },
+    {
+     "family": "Kvam",
+     "given": "PD"
+    },
+    {
+     "family": "Irving",
+     "given": "L"
+    },
+    {
+     "family": "Smith",
+     "given": "CT"
+    },
+    {
+     "family": "Beauchaine",
+     "given": "TP"
+    },
+    {
+     "family": "Pitt",
+     "given": "MA"
+    }
+   ],
+   "year": "2025",
+   "title": "A tutorial on using generative models to advance psychological science: lessons from the reliability paradox",
+   "container": "Psychol Methods",
+   "doi": "10.1037/met0000674"
+  },
+  {
+   "bib_id": 8,
+   "authors": [
+    {
+     "family": "Haslbeck",
+     "given": "JMB"
+    },
+    {
+     "family": "Ryan",
+     "given": "O"
+    },
+    {
+     "family": "Robinaugh",
+     "given": "DJ"
+    },
+    {
+     "family": "Waldorp",
+     "given": "LJ"
+    },
+    {
+     "family": "Borsboom",
+     "given": "D"
+    }
+   ],
+   "year": "2022",
+   "title": "Modeling psychopathology: From data models to formal theories",
+   "container": "Psychol Methods",
+   "volume": "27",
+   "first_page": "930",
+   "doi": "10.1037/met0000303"
+  },
+  {
+   "bib_id": 9,
+   "authors": [
+    {
+     "family": "Wills",
+     "given": "AJ"
+    },
+    {
+     "family": "Pothos",
+     "given": "EM"
+    }
+   ],
+   "year": "2012",
+   "title": "On the adequacy of current empirical evaluations of formal models of categorization",
+   "container": "Psychol Bull",
+   "volume": "138",
+   "first_page": "102",
+   "doi": "10.1037/a0025715"
+  },
+  {
+   "bib_id": 10,
+   "authors": [
+    {
+     "family": "Guest",
+     "given": "O"
+    },
+    {
+     "family": "Martin",
+     "given": "AE"
+    }
+   ],
+   "year": "2021",
+   "title": "How computational modeling can force theory building in psychological science",
+   "container": "Perspect Psychol Sci",
+   "volume": "16",
+   "first_page": "789",
+   "last_page": "802",
+   "doi": "10.1177/1745691620970585"
+  },
+  {
+   "bib_id": 11,
+   "authors": [
+    {
+     "family": "Wills",
+     "given": "AJ"
+    },
+    {
+     "family": "O’Connell",
+     "given": "G"
+    },
+    {
+     "family": "Edmunds",
+     "given": "CE"
+    },
+    {
+     "family": "Inkster",
+     "given": "AB"
+    }
+   ],
+   "year": "2017",
+   "title": "Progress in modeling through distributed collaboration: concepts, tools and category-learning examples",
+   "container": "Psychology of learning and motivation",
+   "first_page": "79",
+   "last_page": "115"
+  },
+  {
+   "bib_id": 12,
+   "authors": [
+    {
+     "family": "Iigaya",
+     "given": "K"
+    },
+    {
+     "family": "Hauser",
+     "given": "TU"
+    },
+    {
+     "family": "Kurth-Nelson",
+     "given": "Z"
+    },
+    {
+     "family": "O’Doherty",
+     "given": "JP"
+    },
+    {
+     "family": "Dayan",
+     "given": "P"
+    },
+    {
+     "family": "Dolan",
+     "given": "RJ"
+    }
+   ],
+   "year": "2020",
+   "title": "The value of what’s to come: neural mechanisms coupling prediction error and the utility of anticipation",
+   "container": "Sci Adv",
+   "volume": "6",
+   "doi": "10.1126/sciadv.aba3828"
+  },
+  {
+   "bib_id": 13,
+   "authors": [
+    {
+     "family": "Dubois",
+     "given": "M"
+    },
+    {
+     "family": "Hauser",
+     "given": "TU"
+    }
+   ],
+   "year": "2022",
+   "title": "Value-free random exploration is linked to impulsivity",
+   "container": "Nat Commun",
+   "volume": "13",
+   "first_page": "4542",
+   "doi": "10.1038/s41467-022-31918-9"
+  },
+  {
+   "bib_id": 14,
+   "authors": [
+    {
+     "family": "Hauser",
+     "given": "TU"
+    },
+    {
+     "family": "Moutoussis",
+     "given": "M"
+    },
+    {
+     "family": "Iannaccone",
+     "given": "R"
+    },
+    {
+     "family": "Brem",
+     "given": "S"
+    },
+    {
+     "family": "Walitza",
+     "given": "S"
+    },
+    {
+     "family": "Drechsler",
+     "given": "R"
+    }
+   ],
+   "year": "2017",
+   "title": "Increased decision thresholds enhance information gathering performance in juvenile Obsessive-Compulsive Disorder (OCD)",
+   "container": "PLoS Comput Biol",
+   "volume": "13",
+   "doi": "10.1371/journal.pcbi.1005440"
+  },
+  {
+   "bib_id": 15,
+   "authors": [
+    {
+     "family": "Schmack",
+     "given": "K"
+    },
+    {
+     "family": "Bosc",
+     "given": "M"
+    },
+    {
+     "family": "Ott",
+     "given": "T"
+    },
+    {
+     "family": "Sturgill",
+     "given": "JF"
+    },
+    {
+     "family": "Kepecs",
+     "given": "A"
+    }
+   ],
+   "year": "2021",
+   "title": "Striatal dopamine mediates hallucination-like perception in mice",
+   "container": "Science",
+   "volume": "372",
+   "doi": "10.1126/science.abf4740"
+  },
+  {
+   "bib_id": 16,
+   "authors": [
+    {
+     "family": "Cooper",
+     "given": "RP"
+    },
+    {
+     "family": "Guest",
+     "given": "O"
+    }
+   ],
+   "year": "2014",
+   "title": "Implementations are not specifications: specification, replication and experimentation in computational cognitive modeling",
+   "container": "Cogn Syst Res",
+   "volume": "27",
+   "first_page": "42"
+  },
+  {
+   "bib_id": 17,
+   "authors": [
+    {
+     "family": "Palminteri",
+     "given": "S"
+    },
+    {
+     "family": "Wyart",
+     "given": "V"
+    },
+    {
+     "family": "Koechlin",
+     "given": "E"
+    }
+   ],
+   "year": "2017",
+   "title": "The importance of falsification in computational cognitive modeling",
+   "container": "Trends Cogn Sci",
+   "volume": "21",
+   "first_page": "425",
+   "doi": "10.1016/j.tics.2017.03.011"
+  },
+  {
+   "bib_id": 18,
+   "authors": [
+    {
+     "family": "Wilson",
+     "given": "RC"
+    },
+    {
+     "family": "Collins",
+     "given": "AG"
+    }
+   ],
+   "year": "2019",
+   "title": "Ten simple rules for the computational modeling of behavioral data",
+   "container": "Elife",
+   "volume": "8",
+   "doi": "10.7554/eLife.49547"
+  },
+  {
+   "bib_id": 19,
+   "authors": [
+    {
+     "family": "Ferrante",
+     "given": "M"
+    },
+    {
+     "family": "Redish",
+     "given": "AD"
+    },
+    {
+     "family": "Oquendo",
+     "given": "MA"
+    },
+    {
+     "family": "Averbeck",
+     "given": "BB"
+    },
+    {
+     "family": "Kinnane",
+     "given": "ME"
+    },
+    {
+     "family": "Gordon",
+     "given": "JA"
+    }
+   ],
+   "year": "2019",
+   "title": "Computational psychiatry: a report from the 2017 NIMH workshop on opportunities and challenges",
+   "container": "Mol Psychiatry",
+   "volume": "24",
+   "first_page": "479",
+   "doi": "10.1038/s41380-018-0063-z"
+  },
+  {
+   "bib_id": 20,
+   "authors": [
+    {
+     "family": "Friston",
+     "given": "KJ"
+    },
+    {
+     "family": "Holmes",
+     "given": "AP"
+    },
+    {
+     "family": "Poline",
+     "given": "JB"
+    },
+    {
+     "family": "Grasby",
+     "given": "PJ"
+    },
+    {
+     "family": "Williams",
+     "given": "SCR"
+    },
+    {
+     "family": "Frackowiak",
+     "given": "RSJ"
+    }
+   ],
+   "year": "1995",
+   "title": "Analysis of fMRI time-series revisited",
+   "container": "NeuroImage",
+   "volume": "2",
+   "first_page": "45",
+   "last_page": "53",
+   "doi": "10.1006/nimg.1995.1007"
+  },
+  {
+   "bib_id": 21,
+   "authors": [
+    {
+     "family": "Friston K a r",
+     "given": "l"
+    },
+    {
+     "family": "Ashburner",
+     "given": "J"
+    },
+    {
+     "family": "Frith",
+     "given": "CD"
+    },
+    {
+     "family": "Poline",
+     "given": "JB"
+    },
+    {
+     "family": "Heather",
+     "given": "JD"
+    },
+    {
+     "family": "Frackowiak",
+     "given": "RSJ"
+    }
+   ],
+   "year": "1995",
+   "title": "Spatial registration and normalization of images",
+   "container": "Human Brain Mapping",
+   "volume": "3",
+   "first_page": "165",
+   "doi": "10.1002/hbm.460030303"
+  },
+  {
+   "bib_id": 22,
+   "authors": [
+    {
+     "family": "Smith",
+     "given": "SM"
+    },
+    {
+     "family": "Jenkinson",
+     "given": "M"
+    },
+    {
+     "family": "Woolrich",
+     "given": "MW"
+    },
+    {
+     "family": "Beckmann",
+     "given": "CF"
+    },
+    {
+     "family": "Behrens",
+     "given": "TEJ"
+    },
+    {
+     "family": "Johansen-Berg",
+     "given": "H"
+    }
+   ],
+   "year": "2004",
+   "title": "Advances in functional and structural MR image analysis and implementation as FSL",
+   "container": "Neuroimage",
+   "doi": "10.1016/j.neuroimage.2004.07.051"
+  },
+  {
+   "bib_id": 23,
+   "authors": [
+    {
+     "family": "Pedregosa",
+     "given": "F"
+    },
+    {
+     "family": "Varoquaux",
+     "given": "G"
+    },
+    {
+     "family": "Gramfort",
+     "given": "A"
+    },
+    {
+     "family": "Michel",
+     "given": "V"
+    },
+    {
+     "family": "Thirion",
+     "given": "B"
+    },
+    {
+     "family": "Grisel",
+     "given": "O"
+    }
+   ],
+   "year": "2011",
+   "title": "Scikit-learn: machine learning in Python",
+   "container": "J Mach Learn Res",
+   "volume": "12",
+   "first_page": "2825"
+  },
+  {
+   "bib_id": 24,
+   "authors": [
+    {
+     "family": "Abadi",
+     "given": "M"
+    },
+    {
+     "family": "Agarwal",
+     "given": "A"
+    },
+    {
+     "family": "Barham",
+     "given": "P"
+    },
+    {
+     "family": "Brevdo",
+     "given": "E"
+    },
+    {
+     "family": "Chen",
+     "given": "Z"
+    },
+    {
+     "family": "Citro",
+     "given": "C"
+    }
+   ],
+   "year": "2016",
+   "doi": "10.48550/arXiv.1603.04467"
+  },
+  {
+   "bib_id": 25
+  },
+  {
+   "bib_id": 26,
+   "authors": [
+    {
+     "family": "Bzdok",
+     "given": "D"
+    },
+    {
+     "family": "Meyer-Lindenberg",
+     "given": "A"
+    }
+   ],
+   "year": "2018",
+   "title": "Machine learning for precision psychiatry: opportunities and challenges",
+   "container": "Biol Psychiatry Cogn Neurosci Neuroimaging",
+   "volume": "3",
+   "first_page": "223",
+   "doi": "10.1016/j.bpsc.2017.11.007"
+  },
+  {
+   "bib_id": 27,
+   "authors": [
+    {
+     "family": "Rutledge",
+     "given": "RB"
+    },
+    {
+     "family": "Chekroud",
+     "given": "AM"
+    },
+    {
+     "family": "Huys",
+     "given": "QJ"
+    }
+   ],
+   "year": "2019",
+   "title": "Machine learning and big data in psychiatry: toward clinical applications",
+   "container": "Curr Opin Neurobiol",
+   "volume": "55",
+   "first_page": "152",
+   "doi": "10.1016/j.conb.2019.02.006"
+  },
+  {
+   "bib_id": 28,
+   "authors": [
+    {
+     "family": "Rutherford",
+     "given": "S"
+    },
+    {
+     "family": "Kia",
+     "given": "SM"
+    },
+    {
+     "family": "Wolfers",
+     "given": "T"
+    },
+    {
+     "family": "Fraza",
+     "given": "C"
+    },
+    {
+     "family": "Zabihi",
+     "given": "M"
+    },
+    {
+     "family": "Dinga",
+     "given": "R"
+    }
+   ],
+   "year": "2022",
+   "title": "The normative modeling framework for computational psychiatry",
+   "container": "Nat Protoc",
+   "volume": "17",
+   "first_page": "1711",
+   "doi": "10.1038/s41596-022-00696-5"
+  },
+  {
+   "bib_id": 29,
+   "authors": [
+    {
+     "family": "Huys",
+     "given": "QJM"
+    },
+    {
+     "family": "Browning",
+     "given": "M"
+    },
+    {
+     "family": "Paulus",
+     "given": "MP"
+    },
+    {
+     "family": "Frank",
+     "given": "MJ"
+    }
+   ],
+   "year": "2021",
+   "title": "Advances in the computational understanding of mental illness",
+   "container": "Neuropsychopharmacology",
+   "volume": "46",
+   "first_page": "3",
+   "last_page": "19",
+   "doi": "10.1038/s41386-020-0746-4"
+  },
+  {
+   "bib_id": 30,
+   "authors": [
+    {
+     "family": "Daw",
+     "given": "ND"
+    },
+    {
+     "family": "Gershman",
+     "given": "SJ"
+    },
+    {
+     "family": "Seymour",
+     "given": "B"
+    },
+    {
+     "family": "Dayan",
+     "given": "P"
+    },
+    {
+     "family": "Dolan",
+     "given": "RJ"
+    }
+   ],
+   "year": "2011",
+   "title": "Model-based influences on humans’ choices and striatal prediction errors",
+   "container": "Neuron",
+   "volume": "69",
+   "first_page": "1204",
+   "doi": "10.1016/j.neuron.2011.02.027"
+  },
+  {
+   "bib_id": 31,
+   "authors": [
+    {
+     "family": "Guitart-Masip",
+     "given": "M"
+    },
+    {
+     "family": "Huys",
+     "given": "QJM"
+    },
+    {
+     "family": "Fuentemilla",
+     "given": "L"
+    },
+    {
+     "family": "Dayan",
+     "given": "P"
+    },
+    {
+     "family": "Duzel",
+     "given": "E"
+    },
+    {
+     "family": "Dolan",
+     "given": "RJ"
+    }
+   ],
+   "year": "2012",
+   "title": "Go and no-go learning in reward and punishment: interactions between affect and effect",
+   "container": "Neuroimage",
+   "volume": "62",
+   "first_page": "154",
+   "doi": "10.1016/j.neuroimage.2012.04.024"
+  },
+  {
+   "bib_id": 32,
+   "authors": [
+    {
+     "family": "Rouault",
+     "given": "M"
+    },
+    {
+     "family": "Seow",
+     "given": "T"
+    },
+    {
+     "family": "Gillan",
+     "given": "CM"
+    },
+    {
+     "family": "Fleming",
+     "given": "SM"
+    }
+   ],
+   "year": "2018",
+   "title": "Psychiatric symptom dimensions are associated with dissociable shifts in metacognition but not task performance",
+   "container": "Biol Psychiatry",
+   "volume": "84",
+   "first_page": "443",
+   "doi": "10.1016/j.biopsych.2017.12.017"
+  },
+  {
+   "bib_id": 33,
+   "authors": [
+    {
+     "family": "Allen",
+     "given": "K"
+    },
+    {
+     "family": "Brändle",
+     "given": "F"
+    },
+    {
+     "family": "Botvinick",
+     "given": "M"
+    },
+    {
+     "family": "Fan",
+     "given": "JE"
+    },
+    {
+     "family": "Gershman",
+     "given": "SJ"
+    },
+    {
+     "family": "Gopnik",
+     "given": "A"
+    }
+   ],
+   "year": "2024",
+   "title": "Using games to understand the mind",
+   "container": "Nat Hum Behav",
+   "volume": "8",
+   "first_page": "1035",
+   "doi": "10.1038/s41562-024-01878-9"
+  },
+  {
+   "bib_id": 34,
+   "authors": [
+    {
+     "family": "Tversky",
+     "given": "A"
+    },
+    {
+     "family": "Kahneman",
+     "given": "D"
+    }
+   ],
+   "year": "1992",
+   "title": "Advances in prospect theory: cumulative representation of uncertainty",
+   "container": "J Risk Uncertainty",
+   "volume": "5",
+   "first_page": "297",
+   "last_page": "323",
+   "doi": "10.1007/bf00122574"
+  },
+  {
+   "bib_id": 35,
+   "authors": [
+    {
+     "family": "Hewitt",
+     "given": "SRC"
+    },
+    {
+     "family": "Norbury",
+     "given": "A"
+    },
+    {
+     "family": "Huys",
+     "given": "QJM"
+    },
+    {
+     "family": "Hauser",
+     "given": "TU"
+    }
+   ],
+   "year": "2025",
+   "title": "Day-to-day fluctuations in motivation drive effort-based decision-making",
+   "container": "Proc Natl Acad Sci U S A",
+   "volume": "122",
+   "doi": "10.1073/pnas.2417964122"
+  },
+  {
+   "bib_id": 36,
+   "authors": [
+    {
+     "family": "Rescorla",
+     "given": "RA"
+    },
+    {
+     "family": "Wagner",
+     "given": "AR."
+    },
+    {
+     "family": "Black",
+     "given": "AH"
+    },
+    {
+     "family": "Prokasy",
+     "given": "WF"
+    }
+   ],
+   "year": "1972",
+   "title": "A theory of Pavlovian conditioning: variations in the effectiveness of reinforcement and nonreinforcement.",
+   "container": "Classical conditioning II: current research and theory",
+   "first_page": "64",
+   "last_page": "99"
+  },
+  {
+   "bib_id": 37,
+   "authors": [
+    {
+     "family": "Bridle",
+     "given": "JS"
+    }
+   ],
+   "year": "1990",
+   "title": "Probabilistic interpretation of feedforward classification network outputs, with relationships to statistical pattern recognition",
+   "container": "Neurocomputing: Algorithms, architectures and applications",
+   "first_page": "227"
+  },
+  {
+   "bib_id": 38,
+   "authors": [
+    {
+     "family": "Wills",
+     "given": "A"
+    },
+    {
+     "family": "Dome",
+     "given": "L"
+    },
+    {
+     "family": "Edmunds",
+     "given": "C"
+    },
+    {
+     "family": "Honke",
+     "given": "G"
+    },
+    {
+     "family": "Inkster",
+     "given": "A"
+    },
+    {
+     "family": "Schlegelmilch",
+     "given": "R"
+    }
+   ],
+   "year": "2023"
+  },
+  {
+   "bib_id": 39,
+   "authors": [
+    {
+     "family": "Maniscalco",
+     "given": "B"
+    },
+    {
+     "family": "Lau",
+     "given": "H"
+    }
+   ],
+   "year": "2012",
+   "title": "A signal detection theoretic approach for estimating metacognitive sensitivity from confidence ratings",
+   "container": "Conscious Cogn",
+   "volume": "21",
+   "first_page": "422",
+   "doi": "10.1016/j.concog.2011.09.021"
+  },
+  {
+   "bib_id": 40,
+   "authors": [
+    {
+     "family": "Barto",
+     "given": "AG"
+    },
+    {
+     "family": "Sutton",
+     "given": "RS"
+    }
+   ],
+   "year": "2018",
+   "title": "Reinforcement learning: an introduction"
+  },
+  {
+   "bib_id": 41,
+   "authors": [
+    {
+     "family": "Nosofsky",
+     "given": "RM"
+    },
+    {
+     "family": "Kruschke",
+     "given": "JK"
+    }
+   ],
+   "year": "2002",
+   "title": "Single-system models and interference in category learning: commentary on Waldron and Ashby (2001)",
+   "container": "Psychon Bull Rev",
+   "volume": "9",
+   "first_page": "169",
+   "doi": "10.3758/bf03196274"
+  },
+  {
+   "bib_id": 42,
+   "authors": [
+    {
+     "family": "Paskewitz",
+     "given": "S"
+    },
+    {
+     "family": "Jones",
+     "given": "M"
+    }
+   ],
+   "year": "2020",
+   "title": "Dissecting EXIT",
+   "container": "J Math Psychol",
+   "volume": "97",
+   "first_page": "102371",
+   "doi": "10.1016/j.jmp.2020.102371"
+  },
+  {
+   "bib_id": 43,
+   "authors": [
+    {
+     "family": "Dome",
+     "given": "L"
+    },
+    {
+     "family": "Wills",
+     "given": "AJ"
+    }
+   ],
+   "year": "2025",
+   "title": "Better generalization through distraction? Concurrent load reduces the size of the inverse base-rate effect",
+   "container": "Psychon Bull Rev",
+   "volume": "32",
+   "first_page": "1776",
+   "doi": "10.3758/s13423-025-02661-1"
+  },
+  {
+   "bib_id": 44,
+   "authors": [
+    {
+     "family": "Pitt",
+     "given": "MA"
+    },
+    {
+     "family": "Kim",
+     "given": "W"
+    },
+    {
+     "family": "Navarro",
+     "given": "DJ"
+    },
+    {
+     "family": "Myung",
+     "given": "JI"
+    }
+   ],
+   "year": "2006",
+   "title": "Global model analysis by parameter space partitioning",
+   "container": "Psychol Rev",
+   "volume": "113",
+   "first_page": "57",
+   "last_page": "83",
+   "doi": "10.1037/0033-295X.113.1.57"
+  },
+  {
+   "bib_id": 45,
+   "authors": [
+    {
+     "family": "Daw",
+     "given": "ND"
+    }
+   ],
+   "year": "2011",
+   "title": "Trial-by-trial data analysis using computational models",
+   "container": "Decision Making, Affect, and Learning",
+   "first_page": "3",
+   "last_page": "38",
+   "doi": "10.1093/acprof:oso/9780199600434.003.0001"
+  },
+  {
+   "bib_id": 46,
+   "authors": [
+    {
+     "family": "Farrell",
+     "given": "S"
+    },
+    {
+     "family": "Lewandowsky",
+     "given": "S"
+    }
+   ],
+   "year": "2018",
+   "title": "Computational modeling of cognition and behavior"
+  },
+  {
+   "bib_id": 47,
+   "authors": [
+    {
+     "family": "Virtanen",
+     "given": "P"
+    },
+    {
+     "family": "Gommers",
+     "given": "R"
+    },
+    {
+     "family": "Oliphant",
+     "given": "TE"
+    },
+    {
+     "family": "Haberland",
+     "given": "M"
+    },
+    {
+     "family": "Reddy",
+     "given": "T"
+    },
+    {
+     "family": "Cournapeau",
+     "given": "D"
+    }
+   ],
+   "year": "2020",
+   "title": "SciPy 1.0: fundamental algorithms for scientific computing in Python",
+   "container": "Nat Methods",
+   "volume": "17",
+   "first_page": "261",
+   "doi": "10.1038/s41592-019-0686-2"
+  },
+  {
+   "bib_id": 48,
+   "authors": [
+    {
+     "family": "Piray",
+     "given": "P"
+    },
+    {
+     "family": "Dezfouli",
+     "given": "A"
+    },
+    {
+     "family": "Heskes",
+     "given": "T"
+    },
+    {
+     "family": "Frank",
+     "given": "MJ"
+    },
+    {
+     "family": "Daw",
+     "given": "ND"
+    }
+   ],
+   "year": "2019",
+   "title": "Hierarchical Bayesian inference for concurrent model fitting and comparison for group studies",
+   "container": "PLoS Comput Biol",
+   "volume": "15",
+   "doi": "10.1371/journal.pcbi.1007043"
+  },
+  {
+   "bib_id": 49,
+   "authors": [
+    {
+     "family": "Gershman",
+     "given": "SJ"
+    }
+   ],
+   "year": "2016",
+   "title": "Empirical priors for reinforcement learning models",
+   "container": "J Math Psychol",
+   "volume": "71",
+   "first_page": "1",
+   "last_page": "6",
+   "doi": "10.1016/j.jmp.2016.01.006"
+  },
+  {
+   "bib_id": 50,
+   "authors": [
+    {
+     "family": "Dietz",
+     "given": "L"
+    }
+   ],
+   "year": "2010"
+  },
+  {
+   "bib_id": 51,
+   "authors": [
+    {
+     "family": "Dempster",
+     "given": "AP"
+    },
+    {
+     "family": "Laird",
+     "given": "NM"
+    },
+    {
+     "family": "Rubin",
+     "given": "DB"
+    }
+   ],
+   "year": "1977",
+   "title": "Maximum Likelihood From Incomplete Data Via the EM Algorithm",
+   "container": "J R Stat Soc B Stat Methodol",
+   "volume": "39",
+   "first_page": "1",
+   "last_page": "22",
+   "doi": "10.1111/j.2517-6161.1977.tb01600.x"
+  },
+  {
+   "bib_id": 52,
+   "authors": [
+    {
+     "family": "Gelman",
+     "given": "A"
+    },
+    {
+     "family": "Carlin",
+     "given": "JB"
+    },
+    {
+     "family": "Stern",
+     "given": "HS"
+    },
+    {
+     "family": "Rubin",
+     "given": "DB"
+    }
+   ],
+   "year": "1995",
+   "title": "Bayesian data analysis"
+  },
+  {
+   "bib_id": 53,
+   "authors": [
+    {
+     "family": "Lee",
+     "given": "MD"
+    },
+    {
+     "family": "Vanpaemel",
+     "given": "W"
+    }
+   ],
+   "year": "2018",
+   "title": "Determining informative priors for cognitive models",
+   "container": "Psychon Bull Rev",
+   "volume": "25",
+   "first_page": "114",
+   "doi": "10.3758/s13423-017-1238-3"
+  },
+  {
+   "bib_id": 54,
+   "authors": [
+    {
+     "family": "Ratcliff",
+     "given": "R"
+    }
+   ],
+   "year": "1978",
+   "title": "A theory of memory retrieval",
+   "container": "Psychol Rev",
+   "volume": "85",
+   "first_page": "59"
+  },
+  {
+   "bib_id": 55,
+   "authors": [
+    {
+     "family": "Ratcliff",
+     "given": "R"
+    },
+    {
+     "family": "Smith",
+     "given": "PL"
+    },
+    {
+     "family": "Brown",
+     "given": "SD"
+    },
+    {
+     "family": "McKoon",
+     "given": "G"
+    }
+   ],
+   "year": "2016",
+   "title": "Diffusion decision model: current issues and history",
+   "container": "Trends Cogn Sci",
+   "volume": "20",
+   "first_page": "260",
+   "doi": "10.1016/j.tics.2016.01.007"
+  },
+  {
+   "bib_id": 56,
+   "authors": [
+    {
+     "family": "Evans",
+     "given": "NJ"
+    },
+    {
+     "family": "Wagenmakers",
+     "given": "E-J"
+    }
+   ],
+   "year": "2020",
+   "title": "Evidence accumulation models: current limitations and future directions",
+   "container": "TQMP",
+   "volume": "16",
+   "first_page": "73",
+   "last_page": "90",
+   "doi": "10.20982/tqmp.16.2.p073"
+  },
+  {
+   "bib_id": 57,
+   "authors": [
+    {
+     "family": "Forstmann",
+     "given": "BU"
+    },
+    {
+     "family": "Ratcliff",
+     "given": "R"
+    },
+    {
+     "family": "Wagenmakers",
+     "given": "E-J"
+    }
+   ],
+   "year": "2016",
+   "title": "Sequential sampling models in cognitive neuroscience: advantages, applications, and extensions",
+   "container": "Annu Rev Psychol",
+   "volume": "67",
+   "first_page": "641",
+   "doi": "10.1146/annurev-psych-122414-033645"
+  },
+  {
+   "bib_id": 58,
+   "authors": [
+    {
+     "family": "Wiecki",
+     "given": "TV"
+    },
+    {
+     "family": "Poland",
+     "given": "J"
+    },
+    {
+     "family": "Frank",
+     "given": "MJ"
+    }
+   ],
+   "year": "2015",
+   "title": "Model-based cognitive neuroscience approaches to computational psychiatry",
+   "container": "Clin Psychol Sci",
+   "volume": "3",
+   "first_page": "378",
+   "doi": "10.1177/2167702614565359"
+  },
+  {
+   "bib_id": 59,
+   "authors": [
+    {
+     "family": "Wagenmakers",
+     "given": "E-J"
+    },
+    {
+     "family": "van der Maas",
+     "given": "HLJ"
+    },
+    {
+     "family": "Grasman",
+     "given": "RPPP"
+    }
+   ],
+   "year": "2007",
+   "title": "An EZ-diffusion model for response time and accuracy",
+   "container": "Psychon Bull Rev",
+   "volume": "14",
+   "first_page": "3",
+   "last_page": "22",
+   "doi": "10.3758/bf03194023"
+  },
+  {
+   "bib_id": 60,
+   "authors": [
+    {
+     "family": "Voss",
+     "given": "A"
+    },
+    {
+     "family": "Voss",
+     "given": "J"
+    },
+    {
+     "family": "Lerche",
+     "given": "V"
+    }
+   ],
+   "year": "2015",
+   "title": "Assessing cognitive processes with diffusion model analyses: a tutorial based on fast-dm-30",
+   "container": "Front Psychol",
+   "volume": "6",
+   "first_page": "336",
+   "doi": "10.3389/fpsyg.2015.00336"
+  },
+  {
+   "bib_id": 61,
+   "authors": [
+    {
+     "family": "Vandekerckhove",
+     "given": "J"
+    },
+    {
+     "family": "Tuerlinckx",
+     "given": "F"
+    }
+   ],
+   "year": "2008",
+   "title": "Diffusion model analysis with MATLAB: a DMAT primer",
+   "container": "Behav Res Methods",
+   "volume": "40",
+   "first_page": "61",
+   "last_page": "72",
+   "doi": "10.3758/brm.40.1.61"
+  },
+  {
+   "bib_id": 62,
+   "authors": [
+    {
+     "family": "Vandekerckhove",
+     "given": "J"
+    },
+    {
+     "family": "Tuerlinckx",
+     "given": "F"
+    },
+    {
+     "family": "Lee",
+     "given": "MD"
+    }
+   ],
+   "year": "2011",
+   "title": "Hierarchical diffusion models for two-choice response times",
+   "container": "Psychol Methods",
+   "volume": "16",
+   "first_page": "44",
+   "last_page": "62",
+   "doi": "10.1037/a0021765"
+  },
+  {
+   "bib_id": 63,
+   "authors": [
+    {
+     "family": "Heathcote",
+     "given": "A"
+    },
+    {
+     "family": "Lin",
+     "given": "Y-S"
+    },
+    {
+     "family": "Reynolds",
+     "given": "A"
+    },
+    {
+     "family": "Strickland",
+     "given": "L"
+    },
+    {
+     "family": "Gretton",
+     "given": "M"
+    },
+    {
+     "family": "Matzke",
+     "given": "D"
+    }
+   ],
+   "year": "2019",
+   "title": "Dynamic models of choice",
+   "container": "Behav Res Methods",
+   "volume": "51",
+   "first_page": "961",
+   "doi": "10.3758/s13428-018-1067-y"
+  },
+  {
+   "bib_id": 64,
+   "authors": [
+    {
+     "family": "Fengler",
+     "given": "A"
+    },
+    {
+     "family": "Xu",
+     "given": "P"
+    },
+    {
+     "family": "Bera",
+     "given": "K"
+    },
+    {
+     "family": "Paniagua",
+     "given": "C"
+    },
+    {
+     "family": "Omar",
+     "given": "A"
+    },
+    {
+     "family": "Frank",
+     "given": "M"
+    }
+   ],
+   "year": "2025"
+  },
+  {
+   "bib_id": 65,
+   "authors": [
+    {
+     "family": "Wiecki",
+     "given": "TV"
+    },
+    {
+     "family": "Sofer",
+     "given": "I"
+    },
+    {
+     "family": "Frank",
+     "given": "MJ"
+    }
+   ],
+   "year": "2013",
+   "title": "HDDM: Hierarchical Bayesian estimation of the drift-diffusion model in python",
+   "container": "Front Neuroinformatics",
+   "volume": "7",
+   "doi": "10.3389/fninf.2013.00014"
+  },
+  {
+   "bib_id": 66,
+   "authors": [
+    {
+     "family": "Stevenson",
+     "given": "N"
+    },
+    {
+     "family": "Donzallaz",
+     "given": "MC"
+    },
+    {
+     "family": "Innes",
+     "given": "RJ"
+    },
+    {
+     "family": "Forstmann",
+     "given": "BU"
+    },
+    {
+     "family": "Matzke",
+     "given": "D"
+    },
+    {
+     "family": "Heathcote",
+     "given": "A"
+    }
+   ],
+   "year": "2026",
+   "title": "Bayesian hierarchical cognitive modeling with the EMC2 package",
+   "container": "Behav Res Methods",
+   "volume": "58",
+   "first_page": "35",
+   "doi": "10.3758/s13428-025-02869-y"
+  },
+  {
+   "bib_id": 67
+  },
+  {
+   "bib_id": 68,
+   "authors": [
+    {
+     "family": "Wilkinson",
+     "given": "G"
+    },
+    {
+     "family": "Rogers",
+     "given": "C"
+    }
+   ],
+   "year": "1973",
+   "title": "Symbolic description of factorial models for analysis of variance",
+   "container": "J R Stat Soc C Appl Stat",
+   "volume": "22",
+   "first_page": "392"
+  },
+  {
+   "bib_id": 69,
+   "authors": [
+    {
+     "family": "Shinn",
+     "given": "M"
+    },
+    {
+     "family": "Lam",
+     "given": "NH"
+    },
+    {
+     "family": "Murray",
+     "given": "JD"
+    }
+   ],
+   "year": "2020",
+   "title": "A flexible framework for simulating and fitting generalized drift-diffusion models",
+   "container": "eLife",
+   "doi": "10.7554/eLife.56938"
+  },
+  {
+   "bib_id": 70,
+   "authors": [
+    {
+     "family": "Mathys",
+     "given": "C"
+    },
+    {
+     "family": "Daunizeau",
+     "given": "J"
+    },
+    {
+     "family": "Friston",
+     "given": "KJ"
+    },
+    {
+     "family": "Stephan",
+     "given": "KE"
+    }
+   ],
+   "year": "2011",
+   "title": "A bayesian foundation for individual learning under uncertainty",
+   "container": "Front Hum Neurosci",
+   "volume": "5",
+   "first_page": "39",
+   "doi": "10.3389/fnhum.2011.00039"
+  },
+  {
+   "bib_id": 71,
+   "authors": [
+    {
+     "family": "Weber",
+     "given": "LA"
+    },
+    {
+     "family": "Waade",
+     "given": "PT"
+    },
+    {
+     "family": "Legrand",
+     "given": "N"
+    },
+    {
+     "family": "Møller",
+     "given": "AH"
+    },
+    {
+     "family": "Stephan",
+     "given": "KE"
+    },
+    {
+     "family": "Mathys",
+     "given": "C"
+    }
+   ],
+   "year": "2026",
+   "title": "The generalized Hierarchical Gaussian Filter",
+   "container": "eLife",
+   "doi": "10.7554/elife.110174.1"
+  },
+  {
+   "bib_id": 72,
+   "authors": [
+    {
+     "family": "Powers",
+     "given": "AR"
+    },
+    {
+     "family": "Mathys",
+     "given": "C"
+    },
+    {
+     "family": "Corlett",
+     "given": "PR"
+    }
+   ],
+   "year": "2017",
+   "title": "Pavlovian conditioning-induced hallucinations result from overweighting of perceptual priors",
+   "container": "Science",
+   "volume": "357",
+   "first_page": "596",
+   "last_page": "600",
+   "doi": "10.1126/science.aan3458"
+  },
+  {
+   "bib_id": 73,
+   "authors": [
+    {
+     "family": "Lawson",
+     "given": "RP"
+    },
+    {
+     "family": "Mathys",
+     "given": "C"
+    },
+    {
+     "family": "Rees",
+     "given": "G"
+    }
+   ],
+   "year": "2017",
+   "title": "Adults with autism overestimate the volatility of the sensory environment",
+   "container": "Nat Neurosci",
+   "volume": "20",
+   "first_page": "1293",
+   "doi": "10.1038/nn.4615"
+  },
+  {
+   "bib_id": 74,
+   "authors": [
+    {
+     "family": "Pulcu",
+     "given": "E"
+    },
+    {
+     "family": "Browning",
+     "given": "M"
+    }
+   ],
+   "year": "2019",
+   "title": "The misestimation of uncertainty in affective disorders",
+   "container": "Trends Cogn Sci",
+   "volume": "23",
+   "first_page": "865",
+   "doi": "10.1016/j.tics.2019.07.007"
+  },
+  {
+   "bib_id": 75,
+   "authors": [
+    {
+     "family": "Frässle",
+     "given": "S"
+    },
+    {
+     "family": "Aponte",
+     "given": "EA"
+    },
+    {
+     "family": "Bollmann",
+     "given": "S"
+    },
+    {
+     "family": "Brodersen",
+     "given": "KH"
+    },
+    {
+     "family": "Do",
+     "given": "CT"
+    },
+    {
+     "family": "Harrison",
+     "given": "OK"
+    }
+   ],
+   "year": "2021",
+   "title": "TAPAS: An open-source software package for translational neuromodeling and computational psychiatry",
+   "container": "Front Psychiatry",
+   "volume": "12",
+   "first_page": "680811",
+   "doi": "10.3389/fpsyt.2021.680811"
+  },
+  {
+   "bib_id": 76
+  },
+  {
+   "bib_id": 77,
+   "authors": [
+    {
+     "family": "Ahn",
+     "given": "W-Y"
+    },
+    {
+     "family": "Haines",
+     "given": "N"
+    },
+    {
+     "family": "Zhang",
+     "given": "L"
+    }
+   ],
+   "year": "2017",
+   "title": "Revealing neurocomputational mechanisms of reinforcement learning and decision-making with the hBayesDM package",
+   "container": "Comput Psychiatr",
+   "volume": "1",
+   "first_page": "24",
+   "last_page": "57",
+   "doi": "10.1162/CPSY_a_00002"
+  },
+  {
+   "bib_id": 78,
+   "authors": [
+    {
+     "family": "Suchow",
+     "given": "JW"
+    },
+    {
+     "family": "Brady",
+     "given": "TF"
+    },
+    {
+     "family": "Fougnie",
+     "given": "D"
+    },
+    {
+     "family": "Alvarez",
+     "given": "GA"
+    }
+   ],
+   "year": "2013",
+   "title": "Modeling visual working memory with the MemToolbox",
+   "container": "J Vis",
+   "volume": "13",
+   "first_page": "9",
+   "doi": "10.1167/13.10.9"
+  },
+  {
+   "bib_id": 79,
+   "authors": [
+    {
+     "family": "Heck",
+     "given": "DW"
+    },
+    {
+     "family": "Arnold",
+     "given": "NR"
+    },
+    {
+     "family": "Arnold",
+     "given": "D"
+    }
+   ],
+   "year": "2018",
+   "title": "TreeBUGS: an R package for hierarchical multinomial-processing-tree modeling",
+   "container": "Behav Res Methods",
+   "volume": "50",
+   "first_page": "264",
+   "doi": "10.3758/s13428-017-0869-7"
+  },
+  {
+   "bib_id": 80,
+   "authors": [
+    {
+     "family": "Radev",
+     "given": "ST"
+    },
+    {
+     "family": "Mertens",
+     "given": "UK"
+    },
+    {
+     "family": "Voss",
+     "given": "A"
+    },
+    {
+     "family": "Ardizzone",
+     "given": "L"
+    },
+    {
+     "family": "Kothe",
+     "given": "U"
+    }
+   ],
+   "year": "2022",
+   "title": "BayesFlow: learning complex stochastic models with invertible neural networks",
+   "container": "IEEE Trans Neural Netw Learn Syst",
+   "volume": "33",
+   "first_page": "1452",
+   "doi": "10.1109/TNNLS.2020.3042395"
+  },
+  {
+   "bib_id": 81
+  },
+  {
+   "bib_id": 82,
+   "authors": [
+    {
+     "family": "Radev",
+     "given": "ST"
+    },
+    {
+     "family": "Schmitt",
+     "given": "M"
+    },
+    {
+     "family": "Schumacher",
+     "given": "L"
+    },
+    {
+     "family": "Elsemüller",
+     "given": "L"
+    },
+    {
+     "family": "Pratz",
+     "given": "V"
+    },
+    {
+     "family": "Schälte",
+     "given": "Y"
+    }
+   ],
+   "year": "2023",
+   "title": "BayesFlow: amortized Bayesian workflows with neural networks",
+   "container": "JOSS",
+   "volume": "8",
+   "first_page": "5702",
+   "doi": "10.21105/joss.05702"
+  },
+  {
+   "bib_id": 83,
+   "authors": [
+    {
+     "family": "Deistler",
+     "given": "M"
+    },
+    {
+     "family": "Boelts",
+     "given": "J"
+    },
+    {
+     "family": "Steinbach",
+     "given": "P"
+    },
+    {
+     "family": "Moss",
+     "given": "G"
+    },
+    {
+     "family": "Moreau",
+     "given": "T"
+    },
+    {
+     "family": "Gloeckler",
+     "given": "M"
+    }
+   ],
+   "year": "2025",
+   "title": "Simulation-based inference: a practical guide"
+  },
+  {
+   "bib_id": 84,
+   "authors": [
+    {
+     "family": "Fengler",
+     "given": "A"
+    },
+    {
+     "family": "Govindarajan",
+     "given": "LN"
+    },
+    {
+     "family": "Chen",
+     "given": "T"
+    },
+    {
+     "family": "Frank",
+     "given": "MJ"
+    }
+   ],
+   "year": "2021",
+   "title": "Likelihood approximation networks (LANs) for fast inference of simulation models in cognitive neuroscience",
+   "container": "Elife",
+   "volume": "10",
+   "doi": "10.7554/eLife.65074"
+  },
+  {
+   "bib_id": 85,
+   "authors": [
+    {
+     "family": "Boelts",
+     "given": "J"
+    },
+    {
+     "family": "Lueckmann",
+     "given": "J-M"
+    },
+    {
+     "family": "Gao",
+     "given": "R"
+    },
+    {
+     "family": "Macke",
+     "given": "JH"
+    }
+   ],
+   "year": "2022",
+   "title": "Flexible and efficient simulation-based inference for models of decision-making",
+   "container": "Elife",
+   "volume": "11",
+   "doi": "10.7554/eLife.77220"
+  },
+  {
+   "bib_id": 86,
+   "authors": [
+    {
+     "family": "Miller",
+     "given": "K"
+    },
+    {
+     "family": "Eckstein",
+     "given": "M"
+    },
+    {
+     "family": "Botvinick",
+     "given": "M"
+    },
+    {
+     "family": "Kurth-Nelson",
+     "given": "Z"
+    }
+   ],
+   "year": "2023",
+   "title": "Cognitive model discovery via disentangled RNNs",
+   "container": "Adv Neural Information Process Syst",
+   "volume": "36",
+   "first_page": "61377"
+  },
+  {
+   "bib_id": 87,
+   "authors": [
+    {
+     "family": "Brunton",
+     "given": "SL"
+    },
+    {
+     "family": "Proctor",
+     "given": "JL"
+    },
+    {
+     "family": "Kutz",
+     "given": "JN"
+    }
+   ],
+   "year": "2016",
+   "title": "Discovering governing equations from data by sparse identification of nonlinear dynamical systems",
+   "container": "Proc Natl Acad Sci U S A",
+   "volume": "113",
+   "first_page": "3932",
+   "doi": "10.1073/pnas.1517384113"
+  },
+  {
+   "bib_id": 88,
+   "authors": [
+    {
+     "family": "LaFollette",
+     "given": "KJ"
+    },
+    {
+     "family": "Yuval",
+     "given": "J"
+    },
+    {
+     "family": "Schurr",
+     "given": "R"
+    },
+    {
+     "family": "Melnikoff",
+     "given": "D"
+    },
+    {
+     "family": "Goldenberg",
+     "given": "A"
+    }
+   ],
+   "year": "2025",
+   "title": "Data-driven equation discovery reveals nonlinear reinforcement learning in humans",
+   "container": "Proc Natl Acad Sci U S A",
+   "volume": "122",
+   "doi": "10.1073/pnas.2413441122"
+  },
+  {
+   "bib_id": 89,
+   "authors": [
+    {
+     "family": "Weinhardt",
+     "given": "D"
+    },
+    {
+     "family": "Plomecka",
+     "given": "M"
+    },
+    {
+     "family": "Tezcan",
+     "given": "M"
+    },
+    {
+     "family": "Eckstein",
+     "given": "M"
+    },
+    {
+     "family": "Musslick",
+     "given": "S"
+    }
+   ],
+   "year": "2025",
+   "doi": "10.31234/osf.io/v86q5_v3"
+  },
+  {
+   "bib_id": 90,
+   "authors": [
+    {
+     "family": "Rumelhart",
+     "given": "DE"
+    },
+    {
+     "family": "Hinton",
+     "given": "GE"
+    },
+    {
+     "family": "Williams",
+     "given": "RJ"
+    }
+   ],
+   "year": "1986",
+   "title": "Learning representations by back-propagating errors",
+   "container": "Nature",
+   "volume": "323",
+   "first_page": "533",
+   "doi": "10.1038/323533a0"
+  },
+  {
+   "bib_id": 91,
+   "authors": [
+    {
+     "family": "Pitt",
+     "given": "MA"
+    },
+    {
+     "family": "Myung",
+     "given": "IJ"
+    },
+    {
+     "family": "Zhang",
+     "given": "S"
+    }
+   ],
+   "year": "2002",
+   "title": "Toward a method of selecting among computational models of cognition",
+   "container": "Psychol Rev",
+   "volume": "109",
+   "first_page": "472",
+   "doi": "10.1037/0033-295x.109.3.472"
+  },
+  {
+   "bib_id": 92,
+   "authors": [
+    {
+     "family": "Schwarz",
+     "given": "G"
+    }
+   ],
+   "year": "1978",
+   "title": "Estimating the dimension of a model",
+   "container": "Ann Statist",
+   "volume": "6",
+   "doi": "10.1214/aos/1176344136"
+  },
+  {
+   "bib_id": 93,
+   "authors": [
+    {
+     "family": "Akaike",
+     "given": "H"
+    }
+   ],
+   "year": "1998",
+   "title": "Selected papers of Hirotugu Akaike",
+   "first_page": "199",
+   "last_page": "213"
+  },
+  {
+   "bib_id": 94,
+   "authors": [
+    {
+     "family": "Mkrtchian",
+     "given": "A"
+    },
+    {
+     "family": "Aylward",
+     "given": "J"
+    },
+    {
+     "family": "Dayan",
+     "given": "P"
+    },
+    {
+     "family": "Roiser",
+     "given": "JP"
+    },
+    {
+     "family": "Robinson",
+     "given": "OJ"
+    }
+   ],
+   "year": "2017",
+   "title": "Modeling avoidance in mood and anxiety disorders using reinforcement learning",
+   "container": "Biol Psychiatry",
+   "volume": "82",
+   "first_page": "532",
+   "doi": "10.1016/j.biopsych.2017.01.017"
+  },
+  {
+   "bib_id": 95,
+   "authors": [
+    {
+     "family": "Moutoussis",
+     "given": "M"
+    },
+    {
+     "family": "Hopkins",
+     "given": "AK"
+    },
+    {
+     "family": "Dolan",
+     "given": "RJ"
+    }
+   ],
+   "year": "2018",
+   "title": "Hypotheses about the relationship of cognition with psychopathology should be tested by embedding them into empirical priors",
+   "container": "Front Psychol",
+   "volume": "9",
+   "doi": "10.3389/fpsyg.2018.02504"
+  },
+  {
+   "bib_id": 96,
+   "authors": [
+    {
+     "family": "Hauser",
+     "given": "TU"
+    },
+    {
+     "family": "Iannaccone",
+     "given": "R"
+    },
+    {
+     "family": "Stämpfli",
+     "given": "P"
+    },
+    {
+     "family": "Drechsler",
+     "given": "R"
+    },
+    {
+     "family": "Brandeis",
+     "given": "D"
+    },
+    {
+     "family": "Walitza",
+     "given": "S"
+    }
+   ],
+   "year": "2014",
+   "title": "The feedback-related negativity (FRN) revisited: new insights into the localization, meaning and network organization",
+   "container": "Neuroimage",
+   "volume": "84",
+   "first_page": "159",
+   "doi": "10.1016/j.neuroimage.2013.08.028"
+  },
+  {
+   "bib_id": 97,
+   "authors": [
+    {
+     "family": "Ellis",
+     "given": "DA"
+    },
+    {
+     "family": "Towse",
+     "given": "J"
+    },
+    {
+     "family": "Brown",
+     "given": "O"
+    },
+    {
+     "family": "Cork",
+     "given": "A"
+    },
+    {
+     "family": "Davidson",
+     "given": "BI"
+    },
+    {
+     "family": "Devereux",
+     "given": "S"
+    }
+   ],
+   "year": "2024",
+   "title": "Assessing computational reproducibility in behavior research methods",
+   "container": "Behav Res Methods",
+   "volume": "56",
+   "first_page": "8745",
+   "doi": "10.3758/s13428-024-02501-5"
+  },
+  {
+   "bib_id": 98,
+   "authors": [
+    {
+     "family": "AlNoamany",
+     "given": "Y"
+    },
+    {
+     "family": "Borghi",
+     "given": "JA"
+    }
+   ],
+   "year": "2018",
+   "title": "Towards computational reproducibility: researcher perspectives on the use and sharing of software",
+   "container": "PeerJ Comput Sci",
+   "volume": "4",
+   "doi": "10.7717/peerj-cs.163"
+  },
+  {
+   "bib_id": 99,
+   "authors": [
+    {
+     "family": "Fortunato",
+     "given": "L"
+    },
+    {
+     "family": "Galassi",
+     "given": "M"
+    }
+   ],
+   "year": "2021",
+   "title": "The case for free and open source software in research and scholarship",
+   "container": "Philos Trans A Math Phys Eng Sci",
+   "volume": "379",
+   "first_page": "20200079",
+   "doi": "10.1098/rsta.2020.0079"
+  },
+  {
+   "bib_id": 100,
+   "authors": [
+    {
+     "family": "Kass",
+     "given": "RE"
+    },
+    {
+     "family": "Raftery",
+     "given": "AE"
+    }
+   ],
+   "year": "1995",
+   "title": "Bayes factors",
+   "container": "J Am Stat Assoc",
+   "volume": "90",
+   "first_page": "773",
+   "doi": "10.1080/01621459.1995.10476572"
+  },
+  {
+   "bib_id": 101,
+   "authors": [
+    {
+     "family": "Lee",
+     "given": "MD"
+    },
+    {
+     "family": "Wagenmakers",
+     "given": "EJ"
+    }
+   ],
+   "year": "2014",
+   "title": "Bayesian cognitive modeling: a practical course"
+  },
+  {
+   "bib_id": 102,
+   "authors": [
+    {
+     "family": "Rigoux",
+     "given": "L"
+    },
+    {
+     "family": "Stephan",
+     "given": "KE"
+    },
+    {
+     "family": "Friston",
+     "given": "KJ"
+    },
+    {
+     "family": "Daunizeau",
+     "given": "J"
+    }
+   ],
+   "year": "2014",
+   "title": "Bayesian model selection for group studies - revisited",
+   "container": "Neuroimage",
+   "volume": "84",
+   "first_page": "971",
+   "doi": "10.1016/j.neuroimage.2013.08.065"
+  },
+  {
+   "bib_id": 103,
+   "authors": [
+    {
+     "family": "Acerbi",
+     "given": "L"
+    }
+   ],
+   "year": "2018",
+   "title": "Variational Bayesian Monte Carlo",
+   "container": "Adv Neural Information Process Syst",
+   "volume": "31",
+   "first_page": "8222"
+  },
+  {
+   "bib_id": 104,
+   "authors": [
+    {
+     "family": "Acerbi",
+     "given": "L"
+    }
+   ],
+   "year": "2020",
+   "title": "Variational Bayesian Monte Carlo with noisy likelihoods",
+   "container": "Adv Neural Information Process Syst",
+   "volume": "33",
+   "first_page": "8211"
+  },
+  {
+   "bib_id": 105
+  },
+  {
+   "bib_id": 106,
+   "authors": [
+    {
+     "family": "Dome",
+     "given": "L"
+    },
+    {
+     "family": "Wills",
+     "given": "AJ"
+    }
+   ],
+   "year": "2025",
+   "title": "g-Distance: in the comparison of model and human heterogeneity",
+   "container": "Psychol Rev",
+   "volume": "132",
+   "first_page": "632",
+   "doi": "10.1037/rev0000550"
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-core-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "jats_doi": "10.1371/journal.pcbi.1014481"
+ }
+}

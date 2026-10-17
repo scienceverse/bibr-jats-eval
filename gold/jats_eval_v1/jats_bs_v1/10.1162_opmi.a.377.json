@@ -1,0 +1,1336 @@
+{
+ "paper_id": "10.1162_opmi.a.377",
+ "info": {
+  "title": "On the Robustness of Modeling Grounded Word Learning Through a Child’s Egocentric Input",
+  "doi": "10.1162/OPMI.a.377",
+  "file_name": "10.1162_opmi.a.377.pdf",
+  "keywords": [
+   "language acquisition",
+   "cross-situational word learning",
+   "multimodal neural networks"
+  ],
+  "abstract": "What insights can machine learning bring to understanding human language acquisition? Large language and multimodal models have achieved remarkable capabilities, but their reliance on massive training datasets creates a fundamental mismatch with children, who succeed in acquiring language from comparatively limited input. To help bridge this gap, researchers have increasingly trained neural networks using data similar in quantity and quality to children’s input. Taking this approach to the limit, Vong et al. () showed that a multimodal neural network trained on 61 hours of visual and linguistic input extracted from just one child’s developmental experience could acquire word-referent mappings. However, whether this approach’s success reflects the idiosyncrasies of a single child’s experience, or whether it would show consistent and robust learning patterns across multiple children’s experiences was not explored. In this article, we applied automated speech transcription methods to the entirety of the SAYCam dataset, consisting of over 500 hours of video data spread across all three children. Using these automated transcriptions, we generated multi-modal vision-and-language datasets for both training and evaluation, and explored a range of neural network configurations to examine the robustness of simulated word learning. Our findings demonstrate that networks trained on automatically transcribed data from each child can acquire word-referent mappings, generalizing across videos, children, and image domains. These results validate the robustness of multimodal neural networks for grounded word learning, while highlighting the individual differences that emerge in how models learn when trained on each child’s developmental experiences."
+ },
+ "author": [
+  {
+   "author_id": 1,
+   "given": "Wai Keen",
+   "family": "Vong",
+   "affiliation": "Center for Data Science, New York University, New York, NY, USA",
+   "email": "",
+   "orcid": "",
+   "corresponding": true
+  },
+  {
+   "author_id": 2,
+   "given": "Brenden M.",
+   "family": "Lake",
+   "affiliation": "Departments of Computer Science and Psychology, Princeton University, Princeton, NJ, USA",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  }
+ ],
+ "section": [
+  {
+   "section_id": 1,
+   "section_type": "abstract",
+   "header": "Abstract",
+   "level": 1,
+   "parent_section_id": null,
+   "classification_score": 1.0
+  }
+ ],
+ "text": [
+  {
+   "text_id": 1,
+   "section_id": 1,
+   "paragraph_id": 1,
+   "text": "What insights can machine learning bring to understanding human language acquisition? Large language and multimodal models have achieved remarkable capabilities, but their reliance on massive training datasets creates a fundamental mismatch with children, who succeed in acquiring language from comparatively limited input. To help bridge this gap, researchers have increasingly trained neural networks using data similar in quantity and quality to children’s input. Taking this approach to the limit, Vong et al. () showed that a multimodal neural network trained on 61 hours of visual and linguistic input extracted from just one child’s developmental experience could acquire word-referent mappings. However, whether this approach’s success reflects the idiosyncrasies of a single child’s experience, or whether it would show consistent and robust learning patterns across multiple children’s experiences was not explored. In this article, we applied automated speech transcription methods to the entirety of the SAYCam dataset, consisting of over 500 hours of video data spread across all three children. Using these automated transcriptions, we generated multi-modal vision-and-language datasets for both training and evaluation, and explored a range of neural network configurations to examine the robustness of simulated word learning. Our findings demonstrate that networks trained on automatically transcribed data from each child can acquire word-referent mappings, generalizing across videos, children, and image domains. These results validate the robustness of multimodal neural networks for grounded word learning, while highlighting the individual differences that emerge in how models learn when trained on each child’s developmental experiences.",
+   "page_number": 1
+  }
+ ],
+ "bib": [
+  {
+   "bib_id": 1,
+   "authors": [
+    {
+     "family": "Akhtar",
+     "given": "N."
+    }
+   ],
+   "year": "2005",
+   "title": "The robustness of learning through overhearing",
+   "container": "Developmental Science",
+   "volume": "8",
+   "first_page": "199",
+   "last_page": "209",
+   "doi": "10.1111/j.1467-7687.2005.00406.x"
+  },
+  {
+   "bib_id": 2,
+   "authors": [
+    {
+     "family": "Bain",
+     "given": "M."
+    },
+    {
+     "family": "Huh",
+     "given": "J."
+    },
+    {
+     "family": "Han",
+     "given": "T."
+    },
+    {
+     "family": "Zisserman",
+     "given": "A."
+    }
+   ],
+   "year": "2023",
+   "title": "WhisperX: Time-accurate speech transcription of long-form audio",
+   "container": "arXiv",
+   "doi": "10.48550/arXiv.2303.00747"
+  },
+  {
+   "bib_id": 3,
+   "authors": [
+    {
+     "family": "Bang",
+     "given": "J."
+    },
+    {
+     "family": "Nadig",
+     "given": "A."
+    }
+   ],
+   "year": "2015",
+   "title": "Learning language in autism: Maternal linguistic input contributes to later vocabulary",
+   "container": "Autism Research",
+   "volume": "8",
+   "first_page": "214",
+   "last_page": "223",
+   "doi": "10.1002/aur.1440"
+  },
+  {
+   "bib_id": 4,
+   "authors": [
+    {
+     "family": "Bruni",
+     "given": "E."
+    },
+    {
+     "family": "Boleda",
+     "given": "G."
+    },
+    {
+     "family": "Baroni",
+     "given": "M."
+    },
+    {
+     "family": "Tran",
+     "given": "N.-K."
+    }
+   ],
+   "year": "2012",
+   "title": "Distributional semantics in technicolor",
+   "container": "Proceedings of the 50th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)",
+   "first_page": "136",
+   "last_page": "145"
+  },
+  {
+   "bib_id": 5,
+   "authors": [
+    {
+     "family": "Brysbaert",
+     "given": "M."
+    },
+    {
+     "family": "Warriner",
+     "given": "A. B."
+    },
+    {
+     "family": "Kuperman",
+     "given": "V."
+    }
+   ],
+   "year": "2014",
+   "title": "Concreteness ratings for 40 thousand generally known English word lemmas",
+   "container": "Behavior Research Methods",
+   "volume": "46",
+   "first_page": "904",
+   "last_page": "911",
+   "doi": "10.3758/s13428-013-0403-5"
+  },
+  {
+   "bib_id": 6,
+   "authors": [
+    {
+     "family": "Caron",
+     "given": "M."
+    },
+    {
+     "family": "Touvron",
+     "given": "H."
+    },
+    {
+     "family": "Misra",
+     "given": "I."
+    },
+    {
+     "family": "Jégou",
+     "given": "H."
+    },
+    {
+     "family": "Mairal",
+     "given": "J."
+    },
+    {
+     "family": "Bojanowski",
+     "given": "P."
+    },
+    {
+     "family": "Joulin",
+     "given": "A."
+    }
+   ],
+   "year": "2021",
+   "title": "Emerging properties in self-supervised vision transformers",
+   "container": "Proceedings of the IEEE/CVF international conference on computer vision",
+   "first_page": "9650",
+   "last_page": "9660"
+  },
+  {
+   "bib_id": 7,
+   "authors": [
+    {
+     "family": "Charpentier",
+     "given": "L."
+    },
+    {
+     "family": "Choshen",
+     "given": "L."
+    },
+    {
+     "family": "Cotterell",
+     "given": "R."
+    },
+    {
+     "family": "Gul",
+     "given": "M. O."
+    },
+    {
+     "family": "Hu",
+     "given": "M."
+    },
+    {
+     "family": "Jumelet",
+     "given": "J."
+    },
+    {
+     "family": "Linzen",
+     "given": "T."
+    },
+    {
+     "family": "Liu",
+     "given": "J."
+    },
+    {
+     "family": "Mueller",
+     "given": "A."
+    },
+    {
+     "family": "Ross",
+     "given": "C."
+    },
+    {
+     "family": "Shah",
+     "given": "R. S."
+    },
+    {
+     "family": "Warstadt",
+     "given": "A."
+    },
+    {
+     "family": "Wilcox",
+     "given": "E. G."
+    },
+    {
+     "family": "Williams",
+     "given": "A."
+    }
+   ],
+   "year": "2025",
+   "title": "BabyLM Turns 3: Call for papers for the 2025 BabyLM workshop",
+   "container": "arXiv",
+   "doi": "10.48550/arXiv.2502.10645"
+  },
+  {
+   "bib_id": 8,
+   "authors": [
+    {
+     "family": "Chrupała",
+     "given": "G."
+    }
+   ],
+   "year": "2022",
+   "title": "Visually grounded models of spoken language: A survey of datasets, architectures and evaluation techniques",
+   "container": "Journal of Artificial Intelligence Research",
+   "volume": "73",
+   "first_page": "673",
+   "last_page": "707",
+   "doi": "10.1613/jair.1.12967"
+  },
+  {
+   "bib_id": 9,
+   "authors": [
+    {
+     "family": "Dosovitskiy",
+     "given": "A."
+    },
+    {
+     "family": "Beyer",
+     "given": "L."
+    },
+    {
+     "family": "Kolesnikov",
+     "given": "A."
+    },
+    {
+     "family": "Weissenborn",
+     "given": "D."
+    },
+    {
+     "family": "Zhai",
+     "given": "X."
+    },
+    {
+     "family": "Unterthiner",
+     "given": "T."
+    },
+    {
+     "family": "Dehghani",
+     "given": "M."
+    },
+    {
+     "family": "Minderer",
+     "given": "M."
+    },
+    {
+     "family": "Heigold",
+     "given": "G."
+    },
+    {
+     "family": "Gelly",
+     "given": "S."
+    },
+    {
+     "family": "Uszkoreit",
+     "given": "J."
+    },
+    {
+     "family": "Houlsby",
+     "given": "N."
+    }
+   ],
+   "year": "2020",
+   "title": "An image is worth 16×16 words: Transformers for image recognition at scale",
+   "container": "arXiv",
+   "doi": "10.48550/arXiv.2010.11929"
+  },
+  {
+   "bib_id": 10,
+   "authors": [
+    {
+     "family": "Frank",
+     "given": "M. C."
+    }
+   ],
+   "year": "2023",
+   "title": "Bridging the data gap between children and large language models",
+   "container": "Trends in Cognitive Sciences",
+   "volume": "27",
+   "first_page": "990",
+   "last_page": "992",
+   "doi": "10.1016/j.tics.2023.08.007"
+  },
+  {
+   "bib_id": 11,
+   "authors": [
+    {
+     "family": "Gampe",
+     "given": "A."
+    },
+    {
+     "family": "Liebal",
+     "given": "K."
+    },
+    {
+     "family": "Tomasello",
+     "given": "M."
+    }
+   ],
+   "year": "2012",
+   "title": "Eighteen-month-olds learn novel words through overhearing",
+   "container": "First Language",
+   "volume": "32",
+   "first_page": "385",
+   "last_page": "397",
+   "doi": "10.1177/0142723711433584"
+  },
+  {
+   "bib_id": 12,
+   "authors": [
+    {
+     "family": "Golinkoff",
+     "given": "R. M."
+    },
+    {
+     "family": "Hirsh-Pasek",
+     "given": "K."
+    },
+    {
+     "family": "Bailey",
+     "given": "L. M."
+    },
+    {
+     "family": "Wenger",
+     "given": "N. R."
+    }
+   ],
+   "year": "1992",
+   "title": "Young children and adults use lexical principles to learn new nouns",
+   "container": "Developmental Psychology",
+   "volume": "28",
+   "first_page": "99",
+   "doi": "10.1037/0012-1649.28.1.99"
+  },
+  {
+   "bib_id": 13,
+   "authors": [
+    {
+     "family": "Harwath",
+     "given": "D."
+    },
+    {
+     "family": "Recasens",
+     "given": "A."
+    },
+    {
+     "family": "Surís",
+     "given": "D."
+    },
+    {
+     "family": "Chuang",
+     "given": "G."
+    },
+    {
+     "family": "Torralba",
+     "given": "A."
+    },
+    {
+     "family": "Glass",
+     "given": "J."
+    }
+   ],
+   "year": "2018",
+   "title": "Jointly discovering visual objects and spoken words from raw sensory input",
+   "container": "Proceedings of the European Conference on Computer Vision (ECCV)",
+   "first_page": "649",
+   "last_page": "665",
+   "doi": "10.1007/978-3-030-01231-1_40"
+  },
+  {
+   "bib_id": 14,
+   "authors": [
+    {
+     "family": "Harwath",
+     "given": "D."
+    },
+    {
+     "family": "Torralba",
+     "given": "A."
+    },
+    {
+     "family": "Glass",
+     "given": "J."
+    }
+   ],
+   "year": "2016",
+   "title": "Unsupervised learning of spoken language with visual context",
+   "container": "Advances in neural information processing systems",
+   "volume": "Vol. 29"
+  },
+  {
+   "bib_id": 15,
+   "authors": [
+    {
+     "family": "He",
+     "given": "A. X."
+    },
+    {
+     "family": "Luyster",
+     "given": "R. J."
+    },
+    {
+     "family": "Arunachalam",
+     "given": "S."
+    }
+   ],
+   "year": "2022",
+   "title": "Parental tuning of language input to autistic and nonspectrum children",
+   "container": "Frontiers in Psychology",
+   "volume": "13",
+   "first_page": "954983",
+   "doi": "10.3389/fpsyg.2022.954983"
+  },
+  {
+   "bib_id": 16,
+   "authors": [
+    {
+     "family": "Honnibal",
+     "given": "M."
+    },
+    {
+     "family": "Montani",
+     "given": "I."
+    },
+    {
+     "family": "Van Landeghem",
+     "given": "S."
+    },
+    {
+     "family": "Boyd",
+     "given": "A."
+    }
+   ],
+   "year": "2020",
+   "title": "spaCy: Industrial-strength natural language processing in Python [Computer software]",
+   "container": "Zenodo",
+   "doi": "10.5281/zenodo.1212303"
+  },
+  {
+   "bib_id": 17,
+   "authors": [
+    {
+     "family": "Hu",
+     "given": "M. Y."
+    },
+    {
+     "family": "Mueller",
+     "given": "A."
+    },
+    {
+     "family": "Ross",
+     "given": "C."
+    },
+    {
+     "family": "Williams",
+     "given": "A."
+    },
+    {
+     "family": "Linzen",
+     "given": "T."
+    },
+    {
+     "family": "Zhuang",
+     "given": "C."
+    },
+    {
+     "family": "Cotterell",
+     "given": "R."
+    },
+    {
+     "family": "Choshen",
+     "given": "L."
+    },
+    {
+     "family": "Warstadt",
+     "given": "A."
+    },
+    {
+     "family": "Wilcox",
+     "given": "E. G."
+    }
+   ],
+   "year": "2024",
+   "title": "Findings of the second BabyLM challenge: Sample-efficient pretraining on developmentally plausible corpora",
+   "container": "arXiv",
+   "doi": "10.48550/arXiv.2412.05149"
+  },
+  {
+   "bib_id": 18,
+   "authors": [
+    {
+     "family": "Huebner",
+     "given": "P. A."
+    },
+    {
+     "family": "Sulem",
+     "given": "E."
+    },
+    {
+     "family": "Cynthia",
+     "given": "F."
+    },
+    {
+     "family": "Roth",
+     "given": "D."
+    }
+   ],
+   "year": "2021",
+   "title": "BabyBERTa: Learning more grammar with small-scale child-directed language",
+   "container": "Proceedings of the 25th conference on computational natural language learning",
+   "first_page": "624",
+   "last_page": "646",
+   "doi": "10.18653/v1/2021.conll-1.49"
+  },
+  {
+   "bib_id": 19,
+   "authors": [
+    {
+     "family": "Jia",
+     "given": "C."
+    },
+    {
+     "family": "Yang",
+     "given": "Y."
+    },
+    {
+     "family": "Xia",
+     "given": "Y."
+    },
+    {
+     "family": "Chen",
+     "given": "Y.-T."
+    },
+    {
+     "family": "Parekh",
+     "given": "Z."
+    },
+    {
+     "family": "Pham",
+     "given": "H."
+    },
+    {
+     "family": "Le",
+     "given": "Q."
+    },
+    {
+     "family": "Sung",
+     "given": "Y.-H."
+    },
+    {
+     "family": "Li",
+     "given": "Z."
+    },
+    {
+     "family": "Duerig",
+     "given": "T."
+    }
+   ],
+   "year": "2021",
+   "title": "Scaling up visual and vision-language representation learning with noisy text supervision",
+   "container": "International Conference on Machine Learning",
+   "first_page": "4904",
+   "last_page": "4916"
+  },
+  {
+   "bib_id": 20,
+   "authors": [
+    {
+     "family": "Konkle",
+     "given": "T."
+    },
+    {
+     "family": "Brady",
+     "given": "T. F."
+    },
+    {
+     "family": "Alvarez",
+     "given": "G. A."
+    },
+    {
+     "family": "Oliva",
+     "given": "A."
+    }
+   ],
+   "year": "2010",
+   "title": "Conceptual distinctiveness supports detailed visual long-term memory for real-world objects",
+   "container": "Journal of Experimental Psychology: General",
+   "volume": "139",
+   "first_page": "558",
+   "last_page": "578",
+   "doi": "10.1037/a0019165"
+  },
+  {
+   "bib_id": 21,
+   "authors": [
+    {
+     "family": "Kuperman",
+     "given": "V."
+    },
+    {
+     "family": "Stadthagen-Gonzalez",
+     "given": "H."
+    },
+    {
+     "family": "Brysbaert",
+     "given": "M."
+    }
+   ],
+   "year": "2012",
+   "title": "Age-of-acquisition ratings for 30,000 English words",
+   "container": "Behavior Research Methods",
+   "volume": "44",
+   "first_page": "978",
+   "last_page": "990",
+   "doi": "10.3758/s13428-012-0210-4"
+  },
+  {
+   "bib_id": 22,
+   "authors": [
+    {
+     "family": "Long",
+     "given": "B."
+    },
+    {
+     "family": "Sparks",
+     "given": "R. Z."
+    },
+    {
+     "family": "Xiang",
+     "given": "V."
+    },
+    {
+     "family": "Stojanov",
+     "given": "S."
+    },
+    {
+     "family": "Yin",
+     "given": "Z."
+    },
+    {
+     "family": "Keene",
+     "given": "G. E."
+    },
+    {
+     "family": "Tan",
+     "given": "A. W. M."
+    },
+    {
+     "family": "Feng",
+     "given": "S. Y."
+    },
+    {
+     "family": "Zhuang",
+     "given": "C."
+    },
+    {
+     "family": "Marchman",
+     "given": "V. A."
+    },
+    {
+     "family": "Yamins",
+     "given": "D. L. K."
+    },
+    {
+     "family": "Frank",
+     "given": "M. C."
+    }
+   ],
+   "year": "2024",
+   "title": "The BabyView dataset: High-resolution egocentric videos of infants’ and young children’s everyday experiences",
+   "container": "arXiv",
+   "doi": "10.48550/arXiv.2406.10447"
+  },
+  {
+   "bib_id": 23,
+   "authors": [
+    {
+     "family": "MacWhinney",
+     "given": "B."
+    }
+   ],
+   "year": "1992",
+   "title": "The CHILDES project: Tools for analyzing talk",
+   "container": "Child Language Teaching and Therapy",
+   "volume": "8",
+   "first_page": "217",
+   "last_page": "218",
+   "doi": "10.1177/026565909200800211"
+  },
+  {
+   "bib_id": 24,
+   "authors": [
+    {
+     "family": "Merkx",
+     "given": "D."
+    },
+    {
+     "family": "Frank",
+     "given": "S."
+    },
+    {
+     "family": "Ernestus",
+     "given": "M."
+    }
+   ],
+   "year": "2019",
+   "title": "Language learning using speech to image retrieval",
+   "container": "Interspeech 2019: 20th Annual Conference of the International Speech Communication Association",
+   "first_page": "1841",
+   "last_page": "1845"
+  },
+  {
+   "bib_id": 25,
+   "authors": [
+    {
+     "family": "Orhan",
+     "given": "A. E."
+    },
+    {
+     "family": "Lake",
+     "given": "B. M."
+    }
+   ],
+   "year": "2024",
+   "title": "Learning high-level visual representations from a child’s perspective without strong inductive biases",
+   "container": "Nature Machine Intelligence",
+   "volume": "6",
+   "first_page": "271",
+   "last_page": "283",
+   "doi": "10.1038/s42256-024-00802-0"
+  },
+  {
+   "bib_id": 26,
+   "authors": [
+    {
+     "family": "Orhan",
+     "given": "E."
+    },
+    {
+     "family": "Gupta",
+     "given": "V."
+    },
+    {
+     "family": "Lake",
+     "given": "B. M."
+    }
+   ],
+   "year": "2020",
+   "title": "Self-supervised learning through the eyes of a child",
+   "container": "Advances in neural information processing systems",
+   "volume": "Vol. 33"
+  },
+  {
+   "bib_id": 27,
+   "authors": [
+    {
+     "family": "Portelance",
+     "given": "E."
+    },
+    {
+     "family": "Jasbi",
+     "given": "M."
+    }
+   ],
+   "year": "2024",
+   "title": "The roles of neural networks in language acquisition",
+   "container": "Language and Linguistics Compass",
+   "volume": "18",
+   "first_page": "e70001",
+   "doi": "10.1111/lnc3.70001"
+  },
+  {
+   "bib_id": 28,
+   "authors": [
+    {
+     "family": "Qin",
+     "given": "Y."
+    },
+    {
+     "family": "Wang",
+     "given": "W."
+    },
+    {
+     "family": "Lake",
+     "given": "B."
+    }
+   ],
+   "year": "2023",
+   "title": "A systematic investigation of learnability from single child linguistic input",
+   "container": "Proceedings of the Annual Meeting of the Cognitive Science Society",
+   "volume": "Vol. 46"
+  },
+  {
+   "bib_id": 29,
+   "authors": [
+    {
+     "family": "Radford",
+     "given": "A."
+    },
+    {
+     "family": "Kim",
+     "given": "J. W."
+    },
+    {
+     "family": "Hallacy",
+     "given": "C."
+    },
+    {
+     "family": "Ramesh",
+     "given": "A."
+    },
+    {
+     "family": "Goh",
+     "given": "G."
+    },
+    {
+     "family": "Agarwal",
+     "given": "S."
+    },
+    {
+     "family": "Sastry",
+     "given": "G."
+    },
+    {
+     "family": "Askell",
+     "given": "A."
+    },
+    {
+     "family": "Mishkin",
+     "given": "P."
+    },
+    {
+     "family": "Clark",
+     "given": "J."
+    },
+    {
+     "family": "Krueger",
+     "given": "G."
+    },
+    {
+     "family": "Sutskever",
+     "given": "I."
+    }
+   ],
+   "year": "2021",
+   "title": "Learning transferable visual models from natural language supervision",
+   "container": "arXiv",
+   "doi": "10.48550/arXiv.2103.00020"
+  },
+  {
+   "bib_id": 30,
+   "authors": [
+    {
+     "family": "Radford",
+     "given": "A."
+    },
+    {
+     "family": "Kim",
+     "given": "J. W."
+    },
+    {
+     "family": "Xu",
+     "given": "T."
+    },
+    {
+     "family": "Brockman",
+     "given": "G."
+    },
+    {
+     "family": "McLeavey",
+     "given": "C."
+    },
+    {
+     "family": "Sutskever",
+     "given": "I."
+    }
+   ],
+   "year": "2023",
+   "title": "Robust speech recognition via large-scale weak supervision",
+   "container": "International Conference on Machine Learning",
+   "first_page": "28492",
+   "last_page": "28518"
+  },
+  {
+   "bib_id": 31,
+   "authors": [
+    {
+     "family": "Radford",
+     "given": "A."
+    },
+    {
+     "family": "Wu",
+     "given": "J."
+    },
+    {
+     "family": "Child",
+     "given": "R."
+    },
+    {
+     "family": "Luan",
+     "given": "D."
+    },
+    {
+     "family": "Amodei",
+     "given": "D."
+    },
+    {
+     "family": "Sutskever",
+     "given": "I."
+    }
+   ],
+   "year": "2019",
+   "title": "Language models are unsupervised multitask learners",
+   "container": "OpenAI"
+  },
+  {
+   "bib_id": 32,
+   "authors": [
+    {
+     "family": "Romeo",
+     "given": "R. R."
+    },
+    {
+     "family": "Choi",
+     "given": "B."
+    },
+    {
+     "family": "Gabard-Durnam",
+     "given": "L. J."
+    },
+    {
+     "family": "Wilkinson",
+     "given": "C. L."
+    },
+    {
+     "family": "Levin",
+     "given": "A. R."
+    },
+    {
+     "family": "Rowe",
+     "given": "M. L."
+    },
+    {
+     "family": "Tager-Flusberg",
+     "given": "H."
+    },
+    {
+     "family": "Nelson",
+     "given": "C. A."
+    }
+   ],
+   "year": "2022",
+   "title": "Parental language input predicts neuroscillatory patterns associated with language development in toddlers at risk of autism",
+   "container": "Journal of Autism and Developmental Disorders",
+   "volume": "52",
+   "first_page": "2717",
+   "last_page": "2731",
+   "doi": "10.1007/s10803-021-05024-6"
+  },
+  {
+   "bib_id": 33,
+   "authors": [
+    {
+     "family": "Roy",
+     "given": "D. K."
+    },
+    {
+     "family": "Pentland",
+     "given": "A. P."
+    }
+   ],
+   "year": "2002",
+   "title": "Learning words from sights and sounds: A computational model",
+   "container": "Cognitive Science",
+   "volume": "26",
+   "first_page": "113",
+   "last_page": "146",
+   "doi": "10.1207/s15516709cog2601_4"
+  },
+  {
+   "bib_id": 34,
+   "authors": [
+    {
+     "family": "Sullivan",
+     "given": "J."
+    },
+    {
+     "family": "Mei",
+     "given": "M."
+    },
+    {
+     "family": "Perfors",
+     "given": "A."
+    },
+    {
+     "family": "Wojcik",
+     "given": "E."
+    },
+    {
+     "family": "Frank",
+     "given": "M. C."
+    }
+   ],
+   "year": "2022",
+   "title": "SAYCam: A large, longitudinal audiovisual dataset recorded from the infant’s perspective",
+   "container": "Open Mind: Discoveries in Cognitive Science",
+   "volume": "5",
+   "first_page": "20",
+   "last_page": "29",
+   "doi": "10.1162/opmi_a_00039"
+  },
+  {
+   "bib_id": 35,
+   "authors": [
+    {
+     "family": "Vong",
+     "given": "W. K."
+    },
+    {
+     "family": "Wang",
+     "given": "W."
+    },
+    {
+     "family": "Orhan",
+     "given": "A. E."
+    },
+    {
+     "family": "Lake",
+     "given": "B. M."
+    }
+   ],
+   "year": "2024",
+   "title": "Grounded language acquisition through the eyes and ears of a single child",
+   "container": "Science",
+   "volume": "383",
+   "first_page": "504",
+   "last_page": "511",
+   "doi": "10.1126/science.adi1374"
+  },
+  {
+   "bib_id": 36,
+   "authors": [
+    {
+     "family": "Wang",
+     "given": "W."
+    },
+    {
+     "family": "Vong",
+     "given": "W. K."
+    },
+    {
+     "family": "Kim",
+     "given": "N."
+    },
+    {
+     "family": "Lake",
+     "given": "B. M."
+    }
+   ],
+   "year": "2023",
+   "title": "Finding structure in one child’s linguistic experience",
+   "container": "Cognitive Science",
+   "volume": "47",
+   "first_page": "e13305",
+   "doi": "10.1111/cogs.13305"
+  },
+  {
+   "bib_id": 37,
+   "authors": [
+    {
+     "family": "Warstadt",
+     "given": "A."
+    },
+    {
+     "family": "Mueller",
+     "given": "A."
+    },
+    {
+     "family": "Choshen",
+     "given": "L."
+    },
+    {
+     "family": "Wilcox",
+     "given": "E. G."
+    },
+    {
+     "family": "Zhuang",
+     "given": "C."
+    },
+    {
+     "family": "Williams",
+     "given": "A."
+    },
+    {
+     "family": "Cotterell",
+     "given": "R."
+    },
+    {
+     "family": "Linzen",
+     "given": "T."
+    }
+   ],
+   "year": "2024",
+   "title": "Insights from the first BabyLM Challenge: Training sample-efficient language models on a developmentally plausible corpus",
+   "container": "Proceedings of the Annual Meeting of the Cognitive Science Society",
+   "volume": "Vol. 46"
+  },
+  {
+   "bib_id": 38,
+   "authors": [
+    {
+     "family": "Xie",
+     "given": "S."
+    },
+    {
+     "family": "Girshick",
+     "given": "R. B."
+    },
+    {
+     "family": "Dollár",
+     "given": "P."
+    },
+    {
+     "family": "Tu",
+     "given": "Z."
+    },
+    {
+     "family": "He",
+     "given": "K."
+    }
+   ],
+   "year": "2016",
+   "title": "Aggregated residual transformations for deep neural networks",
+   "container": "CoRR"
+  },
+  {
+   "bib_id": 39,
+   "authors": [
+    {
+     "family": "Yu",
+     "given": "C."
+    },
+    {
+     "family": "Smith",
+     "given": "L. B."
+    }
+   ],
+   "year": "2007",
+   "title": "Rapid word learning under uncertainty via cross-situational statistics",
+   "container": "Psychological Science",
+   "volume": "18",
+   "first_page": "414",
+   "last_page": "420",
+   "doi": "10.1111/j.1467-9280.2007.01915.x"
+  },
+  {
+   "bib_id": 40,
+   "authors": [
+    {
+     "family": "Zhang",
+     "given": "Q."
+    },
+    {
+     "family": "Shang",
+     "given": "L."
+    },
+    {
+     "family": "He",
+     "given": "J."
+    },
+    {
+     "family": "Zhao",
+     "given": "M."
+    },
+    {
+     "family": "Vong",
+     "given": "W. K."
+    },
+    {
+     "family": "Picheny",
+     "given": "M."
+    }
+   ],
+   "year": "2025",
+   "title": "Automatic metadata extraction from spoken interactions between parents and developing infants"
+  },
+  {
+   "bib_id": 41,
+   "authors": [
+    {
+     "family": "Zhao",
+     "given": "N."
+    },
+    {
+     "family": "Duan",
+     "given": "X."
+    },
+    {
+     "family": "Cai",
+     "given": "Z. G."
+    }
+   ],
+   "year": "2025",
+   "title": "The missing half of language learning in current developmental language models: Exogenous and endogenous linguistic input",
+   "container": "Open Mind: Discoveries in Cognitive Science",
+   "volume": "9",
+   "first_page": "1543",
+   "last_page": "1549",
+   "doi": "10.1162/OPMI.a.33"
+  },
+  {
+   "bib_id": 42,
+   "authors": [
+    {
+     "family": "Zhuang",
+     "given": "C."
+    },
+    {
+     "family": "Fedorenko",
+     "given": "E."
+    },
+    {
+     "family": "Andreas",
+     "given": "J."
+    }
+   ],
+   "year": "2024",
+   "title": "Lexicon-level contrastive visual-grounding improves language modeling",
+   "container": "Findings of the Association for Computational Linguistics: ACL 2024",
+   "first_page": "231",
+   "last_page": "247",
+   "doi": "10.18653/v1/2024.findings-acl.15"
+  },
+  {
+   "bib_id": 43,
+   "authors": [
+    {
+     "family": "Zhuang",
+     "given": "C."
+    },
+    {
+     "family": "Fedorenko",
+     "given": "E."
+    },
+    {
+     "family": "Andreas",
+     "given": "J."
+    }
+   ],
+   "year": "2024",
+   "title": "Visual grounding helps learn word meanings in low-data regimes",
+   "container": "Proceedings of the 2024 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies (Volume 1: Long Papers)",
+   "first_page": "1311",
+   "last_page": "1329",
+   "doi": "10.18653/v1/2024.naacl-long.71"
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-core-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "jats_doi": "10.1162/OPMI.a.377"
+ }
+}

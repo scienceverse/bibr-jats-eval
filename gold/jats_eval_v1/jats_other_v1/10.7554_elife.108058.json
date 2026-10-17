@@ -1,0 +1,2862 @@
+{
+ "paper_id": "10.7554_elife.108058",
+ "info": {
+  "title": "Punctuated mutagenesis promotes multi-step evolutionary adaptation in human cancers",
+  "doi": "10.7554/eLife.108058",
+  "file_name": "10.7554_elife.108058.pdf",
+  "abstract": "The rate of acquisition of genomic changes in cancer has been the topic of much discussion, with several recent investigations finding evidence of punctuated evolution instead of gradual accumulation of such changes. Despite forays into the description and quantification of these punctuated events, the effects of such changes on subsequent cancer evolution remain incompletely understood. Here we investigate how non-gradual mutagenesis affects the ability of tumor cells to acquire and retain fitness-enhancing adaptations. We find that punctuated mutagenesis significantly facilitates adaptation in scenarios where adaptation requires crossing a fitness valley, that is when multiple mutations are required which individually are maladaptive but jointly confer a fitness advantage. By increasing the probability that multiple mutations occur in close succession, punctuation increases the chance that mutants in a fitness valley mutate further to reach a fitness peak before going extinct. Analyzing data from The Cancer Genome Atlas, we find that tumors with signatures of APOBEC mutagenesis, which has been shown to proceed in episodic bursts, exhibit patterns consistent with higher rates of crossing fitness valleys. Lastly, we characterize how the interplay between this enhanced ability to cross fitness valleys and adaptation-limiting effects of clonal interference affects overall adaptability in complex fitness landscapes."
+ },
+ "author": [
+  {
+   "author_id": 1,
+   "given": "Christopher J",
+   "family": "Graser",
+   "affiliation": "Department of Data Science, Dana-Farber Cancer Institute Boston United States; Department of Biostatistics, Harvard T.H. Chan School of Public Health Boston United States; Department of Stem Cell and Regenerative Biology, Harvard University Cambridge United States",
+   "email": "",
+   "orcid": "0009-0003-8552-7767",
+   "corresponding": false
+  },
+  {
+   "author_id": 2,
+   "given": "Wenbo",
+   "family": "Wu",
+   "affiliation": "Department of Data Science, Dana-Farber Cancer Institute Boston United States",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 3,
+   "given": "Cole",
+   "family": "Christini",
+   "affiliation": "Department of Data Science, Dana-Farber Cancer Institute Boston United States; School of Computer Science, Carnegie Mellon University Pittsburgh United States",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 4,
+   "given": "Mia",
+   "family": "Peljak",
+   "affiliation": "Department of Pathology, New York University School of Medicine New York United States; Laura and Isaac Perlmutter Cancer Center, New York University New York United States",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 5,
+   "given": "Franziska",
+   "family": "Michor",
+   "affiliation": "Department of Data Science, Dana-Farber Cancer Institute Boston United States; Department of Biostatistics, Harvard T.H. Chan School of Public Health Boston United States; Department of Stem Cell and Regenerative Biology, Harvard University Cambridge United States; Center for Cancer Evolution, Dana-Farber Cancer Institute Boston United States; The Eli and Edythe L. Broad Institute Cambridge United States; Ludwig Center at Harvard, Harvard Medical School Boston United States",
+   "email": "",
+   "orcid": "0000-0003-4869-8842",
+   "corresponding": true
+  }
+ ],
+ "section": [
+  {
+   "section_id": 1,
+   "section_type": "abstract",
+   "header": "Abstract",
+   "level": 1,
+   "parent_section_id": null,
+   "classification_score": 1.0
+  }
+ ],
+ "text": [
+  {
+   "text_id": 1,
+   "section_id": 1,
+   "paragraph_id": 1,
+   "text": "The rate of acquisition of genomic changes in cancer has been the topic of much discussion, with several recent investigations finding evidence of punctuated evolution instead of gradual accumulation of such changes. Despite forays into the description and quantification of these punctuated events, the effects of such changes on subsequent cancer evolution remain incompletely understood. Here we investigate how non-gradual mutagenesis affects the ability of tumor cells to acquire and retain fitness-enhancing adaptations. We find that punctuated mutagenesis significantly facilitates adaptation in scenarios where adaptation requires crossing a fitness valley, that is when multiple mutations are required which individually are maladaptive but jointly confer a fitness advantage. By increasing the probability that multiple mutations occur in close succession, punctuation increases the chance that mutants in a fitness valley mutate further to reach a fitness peak before going extinct. Analyzing data from The Cancer Genome Atlas, we find that tumors with signatures of APOBEC mutagenesis, which has been shown to proceed in episodic bursts, exhibit patterns consistent with higher rates of crossing fitness valleys. Lastly, we characterize how the interplay between this enhanced ability to cross fitness valleys and adaptation-limiting effects of clonal interference affects overall adaptability in complex fitness landscapes.",
+   "page_number": 1
+  }
+ ],
+ "bib": [
+  {
+   "bib_id": 1,
+   "authors": [
+    {
+     "family": "Adler",
+     "given": "N"
+    },
+    {
+     "family": "Bahcheli",
+     "given": "AT"
+    },
+    {
+     "family": "Cheng",
+     "given": "KCL"
+    },
+    {
+     "family": "Al-Zahrani",
+     "given": "KN"
+    },
+    {
+     "family": "Slobodyanyuk",
+     "given": "M"
+    },
+    {
+     "family": "Pellegrina",
+     "given": "D"
+    },
+    {
+     "family": "Schramek",
+     "given": "D"
+    },
+    {
+     "family": "Reimand",
+     "given": "J"
+    }
+   ],
+   "year": "2023",
+   "title": "Mutational processes of tobacco smoking and APOBEC activity generate protein-truncating mutations in cancer genomes",
+   "container": "Science Advances",
+   "volume": "9",
+   "first_page": "eadh3083",
+   "doi": "10.1126/sciadv.adh3083"
+  },
+  {
+   "bib_id": 2,
+   "authors": [
+    {
+     "family": "Alexandrov",
+     "given": "LB"
+    },
+    {
+     "family": "Nik-Zainal",
+     "given": "S"
+    },
+    {
+     "family": "Wedge",
+     "given": "DC"
+    },
+    {
+     "family": "Aparicio",
+     "given": "SAJR"
+    },
+    {
+     "family": "Behjati",
+     "given": "S"
+    },
+    {
+     "family": "Biankin",
+     "given": "AV"
+    },
+    {
+     "family": "Bignell",
+     "given": "GR"
+    },
+    {
+     "family": "Bolli",
+     "given": "N"
+    },
+    {
+     "family": "Borg",
+     "given": "A"
+    },
+    {
+     "family": "Børresen-Dale",
+     "given": "A-L"
+    },
+    {
+     "family": "Boyault",
+     "given": "S"
+    },
+    {
+     "family": "Burkhardt",
+     "given": "B"
+    },
+    {
+     "family": "Butler",
+     "given": "AP"
+    },
+    {
+     "family": "Caldas",
+     "given": "C"
+    },
+    {
+     "family": "Davies",
+     "given": "HR"
+    },
+    {
+     "family": "Desmedt",
+     "given": "C"
+    },
+    {
+     "family": "Eils",
+     "given": "R"
+    },
+    {
+     "family": "Eyfjörd",
+     "given": "JE"
+    },
+    {
+     "family": "Foekens",
+     "given": "JA"
+    },
+    {
+     "family": "Greaves",
+     "given": "M"
+    }
+   ],
+   "year": "2013",
+   "title": "Signatures of mutational processes in human cancer",
+   "container": "Nature",
+   "volume": "500",
+   "first_page": "415",
+   "last_page": "421",
+   "doi": "10.1038/nature12477"
+  },
+  {
+   "bib_id": 3,
+   "authors": [
+    {
+     "family": "Altrock",
+     "given": "PM"
+    },
+    {
+     "family": "Liu",
+     "given": "LL"
+    },
+    {
+     "family": "Michor",
+     "given": "F"
+    }
+   ],
+   "year": "2015",
+   "title": "The mathematics of cancer: integrating quantitative models",
+   "container": "Nature Reviews. Cancer",
+   "volume": "15",
+   "first_page": "730",
+   "last_page": "745",
+   "doi": "10.1038/nrc4029"
+  },
+  {
+   "bib_id": 4,
+   "authors": [
+    {
+     "family": "Araten",
+     "given": "DJ"
+    },
+    {
+     "family": "Golde",
+     "given": "DW"
+    },
+    {
+     "family": "Zhang",
+     "given": "RH"
+    },
+    {
+     "family": "Thaler",
+     "given": "HT"
+    },
+    {
+     "family": "Gargiulo",
+     "given": "L"
+    },
+    {
+     "family": "Notaro",
+     "given": "R"
+    },
+    {
+     "family": "Luzzatto",
+     "given": "L"
+    }
+   ],
+   "year": "2005",
+   "title": "A quantitative measurement of the human somatic mutation rate",
+   "container": "Cancer Research",
+   "volume": "65",
+   "first_page": "8111",
+   "last_page": "8117",
+   "doi": "10.1158/0008-5472.CAN-04-1198"
+  },
+  {
+   "bib_id": 5,
+   "authors": [
+    {
+     "family": "Ashcroft",
+     "given": "P"
+    },
+    {
+     "family": "Michor",
+     "given": "F"
+    },
+    {
+     "family": "Galla",
+     "given": "T"
+    }
+   ],
+   "year": "2015",
+   "title": "Stochastic tunneling and metastable states during the somatic evolution of cancer",
+   "container": "Genetics",
+   "volume": "199",
+   "first_page": "1213",
+   "last_page": "1228",
+   "doi": "10.1534/genetics.114.171553"
+  },
+  {
+   "bib_id": 6,
+   "authors": [
+    {
+     "family": "Azevedo",
+     "given": "RBR"
+    },
+    {
+     "family": "Olofsson",
+     "given": "P"
+    }
+   ],
+   "year": "2021",
+   "title": "A branching process model of evolutionary rescue",
+   "container": "Mathematical Biosciences",
+   "volume": "341",
+   "first_page": "108708",
+   "doi": "10.1016/j.mbs.2021.108708"
+  },
+  {
+   "bib_id": 7,
+   "authors": [
+    {
+     "family": "Baca",
+     "given": "SC"
+    },
+    {
+     "family": "Prandi",
+     "given": "D"
+    },
+    {
+     "family": "Lawrence",
+     "given": "MS"
+    },
+    {
+     "family": "Mosquera",
+     "given": "JM"
+    },
+    {
+     "family": "Romanel",
+     "given": "A"
+    },
+    {
+     "family": "Drier",
+     "given": "Y"
+    },
+    {
+     "family": "Park",
+     "given": "K"
+    },
+    {
+     "family": "Kitabayashi",
+     "given": "N"
+    },
+    {
+     "family": "MacDonald",
+     "given": "TY"
+    },
+    {
+     "family": "Ghandi",
+     "given": "M"
+    },
+    {
+     "family": "Van Allen",
+     "given": "E"
+    },
+    {
+     "family": "Kryukov",
+     "given": "GV"
+    },
+    {
+     "family": "Sboner",
+     "given": "A"
+    },
+    {
+     "family": "Theurillat",
+     "given": "J-P"
+    },
+    {
+     "family": "Soong",
+     "given": "TD"
+    },
+    {
+     "family": "Nickerson",
+     "given": "E"
+    },
+    {
+     "family": "Auclair",
+     "given": "D"
+    },
+    {
+     "family": "Tewari",
+     "given": "A"
+    },
+    {
+     "family": "Beltran",
+     "given": "H"
+    },
+    {
+     "family": "Onofrio",
+     "given": "RC"
+    }
+   ],
+   "year": "2013",
+   "title": "Punctuated evolution of prostate cancer genomes",
+   "container": "Cell",
+   "volume": "153",
+   "first_page": "666",
+   "last_page": "677",
+   "doi": "10.1016/j.cell.2013.03.021"
+  },
+  {
+   "bib_id": 8,
+   "authors": [
+    {
+     "family": "Butler",
+     "given": "K"
+    },
+    {
+     "family": "Banday",
+     "given": "AR"
+    }
+   ],
+   "year": "2023",
+   "title": "APOBEC3-mediated mutagenesis in cancer: causes, clinical significance and therapeutic potential",
+   "container": "Journal of Hematology & Oncology",
+   "volume": "16",
+   "first_page": "31",
+   "doi": "10.1186/s13045-023-01425-5"
+  },
+  {
+   "bib_id": 9,
+   "authors": [
+    {
+     "family": "Campos",
+     "given": "PR"
+    },
+    {
+     "family": "Adami",
+     "given": "C"
+    },
+    {
+     "family": "Wilke",
+     "given": "CO"
+    }
+   ],
+   "year": "2004",
+   "title": "Modelling stochastic clonal interference",
+   "container": "Modelling in Molecular Biology",
+   "first_page": "21",
+   "last_page": "38",
+   "doi": "10.1007/978-3-642-18734-6_2"
+  },
+  {
+   "bib_id": 10,
+   "authors": [
+    {
+     "family": "Campos",
+     "given": "PRA"
+    },
+    {
+     "family": "de Oliveira",
+     "given": "VM"
+    }
+   ],
+   "year": "2004",
+   "title": "Mutational effects on the clonal interference phenomenon",
+   "container": "Evolution; International Journal of Organic Evolution",
+   "volume": "58",
+   "first_page": "932",
+   "last_page": "937",
+   "doi": "10.1111/j.0014-3820.2004.tb00427.x"
+  },
+  {
+   "bib_id": 11,
+   "authors": [
+    {
+     "family": "Chakravarty",
+     "given": "D"
+    },
+    {
+     "family": "Gao",
+     "given": "J"
+    },
+    {
+     "family": "Phillips",
+     "given": "SM"
+    },
+    {
+     "family": "Kundra",
+     "given": "R"
+    },
+    {
+     "family": "Zhang",
+     "given": "H"
+    },
+    {
+     "family": "Wang",
+     "given": "J"
+    },
+    {
+     "family": "Rudolph",
+     "given": "JE"
+    },
+    {
+     "family": "Yaeger",
+     "given": "R"
+    },
+    {
+     "family": "Soumerai",
+     "given": "T"
+    },
+    {
+     "family": "Nissan",
+     "given": "MH"
+    },
+    {
+     "family": "Chang",
+     "given": "MT"
+    },
+    {
+     "family": "Chandarlapaty",
+     "given": "S"
+    },
+    {
+     "family": "Traina",
+     "given": "TA"
+    },
+    {
+     "family": "Paik",
+     "given": "PK"
+    },
+    {
+     "family": "Ho",
+     "given": "AL"
+    },
+    {
+     "family": "Hantash",
+     "given": "FM"
+    },
+    {
+     "family": "Grupe",
+     "given": "A"
+    },
+    {
+     "family": "Baxi",
+     "given": "SS"
+    },
+    {
+     "family": "Callahan",
+     "given": "MK"
+    },
+    {
+     "family": "Snyder",
+     "given": "A"
+    },
+    {
+     "family": "Chi",
+     "given": "P"
+    }
+   ],
+   "year": "2017",
+   "title": "OncoKB: a precision oncology knowledge base",
+   "container": "JCO Precision Oncology",
+   "volume": "2017",
+   "first_page": "1",
+   "last_page": "16",
+   "doi": "10.1200/PO.17.00011"
+  },
+  {
+   "bib_id": 12,
+   "authors": [
+    {
+     "family": "Davis",
+     "given": "A"
+    },
+    {
+     "family": "Gao",
+     "given": "R"
+    },
+    {
+     "family": "Navin",
+     "given": "N"
+    }
+   ],
+   "year": "2017",
+   "title": "Tumor evolution: Linear, branching, neutral or punctuated? Biochimica et Biophysica Acta (BBA)",
+   "container": "Reviews on Cancer",
+   "volume": "1867",
+   "first_page": "151",
+   "last_page": "161",
+   "doi": "10.1016/j.bbcan.2017.01.003"
+  },
+  {
+   "bib_id": 13,
+   "authors": [
+    {
+     "family": "Deming",
+     "given": "DA"
+    },
+    {
+     "family": "Leystra",
+     "given": "AA"
+    },
+    {
+     "family": "Nettekoven",
+     "given": "L"
+    },
+    {
+     "family": "Sievers",
+     "given": "C"
+    },
+    {
+     "family": "Miller",
+     "given": "D"
+    },
+    {
+     "family": "Middlebrooks",
+     "given": "M"
+    },
+    {
+     "family": "Clipson",
+     "given": "L"
+    },
+    {
+     "family": "Albrecht",
+     "given": "D"
+    },
+    {
+     "family": "Bacher",
+     "given": "J"
+    },
+    {
+     "family": "Washington",
+     "given": "MK"
+    },
+    {
+     "family": "Weichert",
+     "given": "J"
+    },
+    {
+     "family": "Halberg",
+     "given": "RB"
+    }
+   ],
+   "year": "2014",
+   "title": "PIK3CA and APC mutations are synergistic in the development of intestinal cancers",
+   "container": "Oncogene",
+   "volume": "33",
+   "first_page": "2245",
+   "last_page": "2254",
+   "doi": "10.1038/onc.2013.167"
+  },
+  {
+   "bib_id": 14,
+   "authors": [
+    {
+     "family": "Díaz-Gay",
+     "given": "M"
+    },
+    {
+     "family": "Vangara",
+     "given": "R"
+    },
+    {
+     "family": "Barnes",
+     "given": "M"
+    },
+    {
+     "family": "Wang",
+     "given": "X"
+    },
+    {
+     "family": "Islam",
+     "given": "SMA"
+    },
+    {
+     "family": "Vermes",
+     "given": "I"
+    },
+    {
+     "family": "Duke",
+     "given": "S"
+    },
+    {
+     "family": "Narasimman",
+     "given": "NB"
+    },
+    {
+     "family": "Yang",
+     "given": "T"
+    },
+    {
+     "family": "Jiang",
+     "given": "Z"
+    },
+    {
+     "family": "Moody",
+     "given": "S"
+    },
+    {
+     "family": "Senkin",
+     "given": "S"
+    },
+    {
+     "family": "Brennan",
+     "given": "P"
+    },
+    {
+     "family": "Stratton",
+     "given": "MR"
+    },
+    {
+     "family": "Alexandrov",
+     "given": "LB"
+    }
+   ],
+   "year": "2023",
+   "title": "Assigning mutational signatures to individual samples and individual somatic mutations with SigProfilerAssignment",
+   "container": "Bioinformatics",
+   "volume": "39",
+   "first_page": "btad756",
+   "doi": "10.1093/bioinformatics/btad756"
+  },
+  {
+   "bib_id": 15,
+   "authors": [
+    {
+     "family": "Drews",
+     "given": "RM"
+    },
+    {
+     "family": "Hernando",
+     "given": "B"
+    },
+    {
+     "family": "Tarabichi",
+     "given": "M"
+    },
+    {
+     "family": "Haase",
+     "given": "K"
+    },
+    {
+     "family": "Lesluyes",
+     "given": "T"
+    },
+    {
+     "family": "Smith",
+     "given": "PS"
+    },
+    {
+     "family": "Morrill Gavarró",
+     "given": "L"
+    },
+    {
+     "family": "Couturier",
+     "given": "D-L"
+    },
+    {
+     "family": "Liu",
+     "given": "L"
+    },
+    {
+     "family": "Schneider",
+     "given": "M"
+    },
+    {
+     "family": "Brenton",
+     "given": "JD"
+    },
+    {
+     "family": "Van Loo",
+     "given": "P"
+    },
+    {
+     "family": "Macintyre",
+     "given": "G"
+    },
+    {
+     "family": "Markowetz",
+     "given": "F"
+    }
+   ],
+   "year": "2022",
+   "title": "A pan-cancer compendium of chromosomal instability",
+   "container": "Nature",
+   "volume": "606",
+   "first_page": "976",
+   "last_page": "983",
+   "doi": "10.1038/s41586-022-04789-9"
+  },
+  {
+   "bib_id": 16,
+   "authors": [
+    {
+     "family": "Fischer",
+     "given": "BM"
+    },
+    {
+     "family": "Olsen",
+     "given": "MWB"
+    },
+    {
+     "family": "Ley",
+     "given": "CD"
+    }
+   ],
+   "year": "2006",
+   "title": "How few cancer cells can be detected by positron emission tomography? A frequent question addressed by an in vitro study",
+   "container": "European Journal of Nuclear Medicine and Molecular Imaging",
+   "volume": "33",
+   "first_page": "697",
+   "last_page": "702",
+   "doi": "10.1007/S00259-005-0038-6/METRICS"
+  },
+  {
+   "bib_id": 17,
+   "authors": [
+    {
+     "family": "Fisher",
+     "given": "RA"
+    }
+   ],
+   "year": "1923",
+   "title": "XXI.—On the Dominance Ratio",
+   "container": "Proceedings of the Royal Society of Edinburgh",
+   "volume": "42",
+   "first_page": "321",
+   "last_page": "341",
+   "doi": "10.1017/S0370164600023993"
+  },
+  {
+   "bib_id": 18,
+   "authors": [
+    {
+     "family": "Fogle",
+     "given": "CA"
+    },
+    {
+     "family": "Nagle",
+     "given": "JL"
+    },
+    {
+     "family": "Desai",
+     "given": "MM"
+    }
+   ],
+   "year": "2008",
+   "title": "Clonal interference, multiple mutations and adaptation in large asexual populations",
+   "container": "Genetics",
+   "volume": "180",
+   "first_page": "2163",
+   "last_page": "2173",
+   "doi": "10.1534/genetics.108.090019"
+  },
+  {
+   "bib_id": 19,
+   "authors": [
+    {
+     "family": "Galuppini",
+     "given": "F"
+    },
+    {
+     "family": "Dal Pozzo",
+     "given": "CA"
+    },
+    {
+     "family": "Deckert",
+     "given": "J"
+    },
+    {
+     "family": "Loupakis",
+     "given": "F"
+    },
+    {
+     "family": "Fassan",
+     "given": "M"
+    },
+    {
+     "family": "Baffa",
+     "given": "R"
+    }
+   ],
+   "year": "2019",
+   "title": "Tumor mutation burden: from comprehensive mutational screening to the clinic",
+   "container": "Cancer Cell International",
+   "volume": "19",
+   "first_page": "209",
+   "doi": "10.1186/s12935-019-0929-4"
+  },
+  {
+   "bib_id": 20,
+   "authors": [
+    {
+     "family": "Gao",
+     "given": "R"
+    },
+    {
+     "family": "Davis",
+     "given": "A"
+    },
+    {
+     "family": "McDonald",
+     "given": "TO"
+    },
+    {
+     "family": "Sei",
+     "given": "E"
+    },
+    {
+     "family": "Shi",
+     "given": "X"
+    },
+    {
+     "family": "Wang",
+     "given": "Y"
+    },
+    {
+     "family": "Tsai",
+     "given": "P-C"
+    },
+    {
+     "family": "Casasent",
+     "given": "A"
+    },
+    {
+     "family": "Waters",
+     "given": "J"
+    },
+    {
+     "family": "Zhang",
+     "given": "H"
+    },
+    {
+     "family": "Meric-Bernstam",
+     "given": "F"
+    },
+    {
+     "family": "Michor",
+     "given": "F"
+    },
+    {
+     "family": "Navin",
+     "given": "NE"
+    }
+   ],
+   "year": "2016",
+   "title": "Punctuated copy number evolution and clonal stasis in triple-negative breast cancer",
+   "container": "Nature Genetics",
+   "volume": "48",
+   "first_page": "1119",
+   "last_page": "1130",
+   "doi": "10.1038/ng.3641"
+  },
+  {
+   "bib_id": 21,
+   "authors": [
+    {
+     "family": "Gerrish",
+     "given": "PJ"
+    },
+    {
+     "family": "Lenski",
+     "given": "RE"
+    }
+   ],
+   "year": "1998",
+   "title": "The fate of competing beneficial mutations in an asexual population",
+   "container": "Genetica",
+   "volume": "102–103",
+   "first_page": "127",
+   "last_page": "144",
+   "doi": "10.1023/A:1017067816551"
+  },
+  {
+   "bib_id": 22,
+   "authors": [
+    {
+     "family": "Graser",
+     "given": "CJ"
+    }
+   ],
+   "year": "2026",
+   "title": "Software Heritage"
+  },
+  {
+   "bib_id": 23,
+   "authors": [
+    {
+     "family": "Gu",
+     "given": "Y"
+    },
+    {
+     "family": "Yang",
+     "given": "D"
+    },
+    {
+     "family": "Zou",
+     "given": "J"
+    },
+    {
+     "family": "Ma",
+     "given": "W"
+    },
+    {
+     "family": "Wu",
+     "given": "R"
+    },
+    {
+     "family": "Zhao",
+     "given": "W"
+    },
+    {
+     "family": "Zhang",
+     "given": "Y"
+    },
+    {
+     "family": "Xiao",
+     "given": "H"
+    },
+    {
+     "family": "Gong",
+     "given": "X"
+    },
+    {
+     "family": "Zhang",
+     "given": "M"
+    },
+    {
+     "family": "Zhu",
+     "given": "J"
+    },
+    {
+     "family": "Guo",
+     "given": "Z"
+    }
+   ],
+   "year": "2010",
+   "title": "Systematic interpretation of comutated genes in large-scale cancer mutation profiles",
+   "container": "Molecular Cancer Therapeutics",
+   "volume": "9",
+   "first_page": "2186",
+   "last_page": "2195",
+   "doi": "10.1158/1535-7163.MCT-10-0022"
+  },
+  {
+   "bib_id": 24,
+   "authors": [
+    {
+     "family": "Gupta",
+     "given": "A"
+    },
+    {
+     "family": "Gazzo",
+     "given": "A"
+    },
+    {
+     "family": "Selenica",
+     "given": "P"
+    },
+    {
+     "family": "Safonov",
+     "given": "A"
+    },
+    {
+     "family": "Pareja",
+     "given": "F"
+    },
+    {
+     "family": "da Silva",
+     "given": "EM"
+    },
+    {
+     "family": "Brown",
+     "given": "DN"
+    },
+    {
+     "family": "Shao",
+     "given": "H"
+    },
+    {
+     "family": "Zhu",
+     "given": "Y"
+    },
+    {
+     "family": "Patel",
+     "given": "J"
+    },
+    {
+     "family": "Blanco-Heredia",
+     "given": "J"
+    },
+    {
+     "family": "Stefanovska",
+     "given": "B"
+    },
+    {
+     "family": "Carpenter",
+     "given": "MA"
+    },
+    {
+     "family": "Chen",
+     "given": "Y"
+    },
+    {
+     "family": "Vegas",
+     "given": "I"
+    },
+    {
+     "family": "Pei",
+     "given": "X"
+    },
+    {
+     "family": "Frosina",
+     "given": "D"
+    },
+    {
+     "family": "Jungbluth",
+     "given": "AA"
+    },
+    {
+     "family": "Ladanyi",
+     "given": "M"
+    },
+    {
+     "family": "Curigliano",
+     "given": "G"
+    }
+   ],
+   "year": "2025",
+   "title": "APOBEC3 mutagenesis drives therapy resistance in breast cancer",
+   "container": "Nature Genetics",
+   "volume": "57",
+   "first_page": "1452",
+   "last_page": "1462",
+   "doi": "10.1038/s41588-025-02187-1"
+  },
+  {
+   "bib_id": 25,
+   "authors": [
+    {
+     "family": "Hsu",
+     "given": "MS"
+    },
+    {
+     "family": "Yu",
+     "given": "JC"
+    },
+    {
+     "family": "Wang",
+     "given": "HW"
+    },
+    {
+     "family": "Chen",
+     "given": "ST"
+    },
+    {
+     "family": "Hsiung",
+     "given": "CN"
+    },
+    {
+     "family": "Ding",
+     "given": "S"
+    },
+    {
+     "family": "Wu",
+     "given": "PE"
+    },
+    {
+     "family": "Shen",
+     "given": "CY"
+    },
+    {
+     "family": "Cheng",
+     "given": "CW"
+    }
+   ],
+   "year": "2010",
+   "title": "Synergistic effects of polymorphisms in DNA repair genes and endogenous estrogen exposure on female breast cancer risk",
+   "container": "Annals of Surgical Oncology",
+   "volume": "17",
+   "first_page": "760",
+   "last_page": "771",
+   "doi": "10.1245/s10434-009-0802-0"
+  },
+  {
+   "bib_id": 26,
+   "authors": [
+    {
+     "family": "Issa",
+     "given": "JP"
+    }
+   ],
+   "year": "2022",
+   "title": "The two-hit hypothesis meets epigenetics",
+   "container": "Cancer Research",
+   "volume": "82",
+   "first_page": "1167",
+   "last_page": "1169",
+   "doi": "10.1158/0008-5472.CAN-22-0405"
+  },
+  {
+   "bib_id": 27,
+   "authors": [
+    {
+     "family": "Iwasa",
+     "given": "Y"
+    },
+    {
+     "family": "Michor",
+     "given": "F"
+    },
+    {
+     "family": "Nowak",
+     "given": "MA"
+    }
+   ],
+   "year": "2004",
+   "title": "Stochastic tunnels in evolutionary dynamics",
+   "container": "Genetics",
+   "volume": "166",
+   "first_page": "1571",
+   "last_page": "1579",
+   "doi": "10.1534/genetics.166.3.1571"
+  },
+  {
+   "bib_id": 28,
+   "authors": [
+    {
+     "family": "Jamal-Hanjani",
+     "given": "M"
+    },
+    {
+     "family": "Wilson",
+     "given": "GA"
+    },
+    {
+     "family": "McGranahan",
+     "given": "N"
+    },
+    {
+     "family": "Birkbak",
+     "given": "NJ"
+    },
+    {
+     "family": "Watkins",
+     "given": "TBK"
+    },
+    {
+     "family": "Veeriah",
+     "given": "S"
+    },
+    {
+     "family": "Shafi",
+     "given": "S"
+    },
+    {
+     "family": "Johnson",
+     "given": "DH"
+    },
+    {
+     "family": "Mitter",
+     "given": "R"
+    },
+    {
+     "family": "Rosenthal",
+     "given": "R"
+    },
+    {
+     "family": "Salm",
+     "given": "M"
+    },
+    {
+     "family": "Horswell",
+     "given": "S"
+    },
+    {
+     "family": "Escudero",
+     "given": "M"
+    },
+    {
+     "family": "Matthews",
+     "given": "N"
+    },
+    {
+     "family": "Rowan",
+     "given": "A"
+    },
+    {
+     "family": "Chambers",
+     "given": "T"
+    },
+    {
+     "family": "Moore",
+     "given": "DA"
+    },
+    {
+     "family": "Turajlic",
+     "given": "S"
+    },
+    {
+     "family": "Xu",
+     "given": "H"
+    },
+    {
+     "family": "Lee",
+     "given": "S-M"
+    }
+   ],
+   "year": "2017",
+   "title": "Tracking the evolution of non-small-cell lung cancer",
+   "container": "The New England Journal of Medicine",
+   "volume": "376",
+   "first_page": "2109",
+   "last_page": "2121",
+   "doi": "10.1056/NEJMoa1616288"
+  },
+  {
+   "bib_id": 29,
+   "authors": [
+    {
+     "family": "Knudson",
+     "given": "AG"
+    }
+   ],
+   "year": "1971",
+   "title": "Mutation and cancer: statistical study of retinoblastoma",
+   "container": "PNAS",
+   "volume": "68",
+   "first_page": "820",
+   "last_page": "823",
+   "doi": "10.1073/pnas.68.4.820"
+  },
+  {
+   "bib_id": 30,
+   "authors": [
+    {
+     "family": "Komarova",
+     "given": "NL"
+    },
+    {
+     "family": "Sengupta",
+     "given": "A"
+    },
+    {
+     "family": "Nowak",
+     "given": "MA"
+    }
+   ],
+   "year": "2003",
+   "title": "Mutation-selection networks of cancer initiation: tumor suppressor genes and chromosomal instability",
+   "container": "Journal of Theoretical Biology",
+   "volume": "223",
+   "first_page": "433",
+   "last_page": "450",
+   "doi": "10.1016/s0022-5193(03)00120-6"
+  },
+  {
+   "bib_id": 31,
+   "authors": [
+    {
+     "family": "Lee",
+     "given": "J-K"
+    },
+    {
+     "family": "Lee",
+     "given": "J"
+    },
+    {
+     "family": "Kim",
+     "given": "S"
+    },
+    {
+     "family": "Kim",
+     "given": "S"
+    },
+    {
+     "family": "Youk",
+     "given": "J"
+    },
+    {
+     "family": "Park",
+     "given": "S"
+    },
+    {
+     "family": "An",
+     "given": "Y"
+    },
+    {
+     "family": "Keam",
+     "given": "B"
+    },
+    {
+     "family": "Kim",
+     "given": "D-W"
+    },
+    {
+     "family": "Heo",
+     "given": "DS"
+    },
+    {
+     "family": "Kim",
+     "given": "YT"
+    },
+    {
+     "family": "Kim",
+     "given": "J-S"
+    },
+    {
+     "family": "Kim",
+     "given": "SH"
+    },
+    {
+     "family": "Lee",
+     "given": "JS"
+    },
+    {
+     "family": "Lee",
+     "given": "S-H"
+    },
+    {
+     "family": "Park",
+     "given": "K"
+    },
+    {
+     "family": "Ku",
+     "given": "J-L"
+    },
+    {
+     "family": "Jeon",
+     "given": "YK"
+    },
+    {
+     "family": "Chung",
+     "given": "DH"
+    },
+    {
+     "family": "Park",
+     "given": "PJ"
+    },
+    {
+     "family": "Kim",
+     "given": "J"
+    },
+    {
+     "family": "Kim",
+     "given": "TM"
+    }
+   ],
+   "year": "2017",
+   "title": "Clonal history and genetic predictors of transformation into small-cell carcinomas from lung adenocarcinomas",
+   "container": "Journal of Clinical Oncology",
+   "volume": "35",
+   "first_page": "3065",
+   "last_page": "3074",
+   "doi": "10.1200/JCO.2016.71.9096"
+  },
+  {
+   "bib_id": 32,
+   "authors": [
+    {
+     "family": "Mas-Ponte",
+     "given": "D"
+    },
+    {
+     "family": "Supek",
+     "given": "F"
+    }
+   ],
+   "year": "2020",
+   "title": "DNA mismatch repair promotes APOBEC3-mediated diffuse hypermutation in human cancers",
+   "container": "Nature Genetics",
+   "volume": "52",
+   "first_page": "958",
+   "last_page": "968",
+   "doi": "10.1038/s41588-020-0674-6"
+  },
+  {
+   "bib_id": 33,
+   "authors": [
+    {
+     "family": "McDonald",
+     "given": "TO"
+    },
+    {
+     "family": "Cheng",
+     "given": "YC"
+    },
+    {
+     "family": "Graser",
+     "given": "C"
+    },
+    {
+     "family": "Nicol",
+     "given": "PB"
+    },
+    {
+     "family": "Temko",
+     "given": "D"
+    },
+    {
+     "family": "Michor",
+     "given": "F"
+    }
+   ],
+   "year": "2023",
+   "title": "Computational approaches to modelling and optimizing cancer treatment",
+   "container": "Nature Reviews Bioengineering",
+   "volume": "1",
+   "first_page": "695",
+   "last_page": "711",
+   "doi": "10.1038/s44222-023-00089-7"
+  },
+  {
+   "bib_id": 34,
+   "authors": [
+    {
+     "family": "Merlo",
+     "given": "LMF"
+    },
+    {
+     "family": "Pepper",
+     "given": "JW"
+    },
+    {
+     "family": "Reid",
+     "given": "BJ"
+    },
+    {
+     "family": "Maley",
+     "given": "CC"
+    }
+   ],
+   "year": "2006",
+   "title": "Cancer as an evolutionary and ecological process",
+   "container": "Nature Reviews. Cancer",
+   "volume": "6",
+   "first_page": "924",
+   "last_page": "935",
+   "doi": "10.1038/nrc2013"
+  },
+  {
+   "bib_id": 35,
+   "authors": [
+    {
+     "family": "Minussi",
+     "given": "DC"
+    },
+    {
+     "family": "Nicholson",
+     "given": "MD"
+    },
+    {
+     "family": "Ye",
+     "given": "H"
+    },
+    {
+     "family": "Davis",
+     "given": "A"
+    },
+    {
+     "family": "Wang",
+     "given": "K"
+    },
+    {
+     "family": "Baker",
+     "given": "T"
+    },
+    {
+     "family": "Tarabichi",
+     "given": "M"
+    },
+    {
+     "family": "Sei",
+     "given": "E"
+    },
+    {
+     "family": "Du",
+     "given": "H"
+    },
+    {
+     "family": "Rabbani",
+     "given": "M"
+    },
+    {
+     "family": "Peng",
+     "given": "C"
+    },
+    {
+     "family": "Hu",
+     "given": "M"
+    },
+    {
+     "family": "Bai",
+     "given": "S"
+    },
+    {
+     "family": "Lin",
+     "given": "Y-W"
+    },
+    {
+     "family": "Schalck",
+     "given": "A"
+    },
+    {
+     "family": "Multani",
+     "given": "A"
+    },
+    {
+     "family": "Ma",
+     "given": "J"
+    },
+    {
+     "family": "McDonald",
+     "given": "TO"
+    },
+    {
+     "family": "Casasent",
+     "given": "A"
+    },
+    {
+     "family": "Barrera",
+     "given": "A"
+    },
+    {
+     "family": "Chen",
+     "given": "H"
+    },
+    {
+     "family": "Michor",
+     "given": "F"
+    },
+    {
+     "family": "Navin",
+     "given": "NE"
+    }
+   ],
+   "year": "2021",
+   "title": "Breast tumours maintain a reservoir of subclonal diversity during expansion",
+   "container": "Nature",
+   "volume": "592",
+   "first_page": "302",
+   "last_page": "308",
+   "doi": "10.1038/s41586-021-03357-x"
+  },
+  {
+   "bib_id": 36,
+   "authors": [
+    {
+     "family": "Navin",
+     "given": "N"
+    },
+    {
+     "family": "Kendall",
+     "given": "J"
+    },
+    {
+     "family": "Troge",
+     "given": "J"
+    },
+    {
+     "family": "Andrews",
+     "given": "P"
+    },
+    {
+     "family": "Rodgers",
+     "given": "L"
+    },
+    {
+     "family": "McIndoo",
+     "given": "J"
+    },
+    {
+     "family": "Cook",
+     "given": "K"
+    },
+    {
+     "family": "Stepansky",
+     "given": "A"
+    },
+    {
+     "family": "Levy",
+     "given": "D"
+    },
+    {
+     "family": "Esposito",
+     "given": "D"
+    },
+    {
+     "family": "Muthuswamy",
+     "given": "L"
+    },
+    {
+     "family": "Krasnitz",
+     "given": "A"
+    },
+    {
+     "family": "McCombie",
+     "given": "WR"
+    },
+    {
+     "family": "Hicks",
+     "given": "J"
+    },
+    {
+     "family": "Wigler",
+     "given": "M"
+    }
+   ],
+   "year": "2011",
+   "title": "Tumour evolution inferred by single-cell sequencing",
+   "container": "Nature",
+   "volume": "472",
+   "first_page": "90",
+   "last_page": "94",
+   "doi": "10.1038/nature09807"
+  },
+  {
+   "bib_id": 37,
+   "authors": [
+    {
+     "family": "Neinavaie",
+     "given": "F"
+    },
+    {
+     "family": "Ibrahim-Hashim",
+     "given": "A"
+    },
+    {
+     "family": "Kramer",
+     "given": "AM"
+    },
+    {
+     "family": "Brown",
+     "given": "JS"
+    },
+    {
+     "family": "Richards",
+     "given": "CL"
+    }
+   ],
+   "year": "2021",
+   "title": "The genomic processes of biological invasions: from invasive species to cancer metastases and back again",
+   "container": "Frontiers in Ecology and Evolution",
+   "volume": "9",
+   "first_page": "681100",
+   "doi": "10.3389/fevo.2021.681100"
+  },
+  {
+   "bib_id": 38,
+   "authors": [
+    {
+     "family": "Nik-Zainal",
+     "given": "S"
+    },
+    {
+     "family": "Alexandrov",
+     "given": "LB"
+    },
+    {
+     "family": "Wedge",
+     "given": "DC"
+    },
+    {
+     "family": "Van Loo",
+     "given": "P"
+    },
+    {
+     "family": "Greenman",
+     "given": "CD"
+    },
+    {
+     "family": "Raine",
+     "given": "K"
+    },
+    {
+     "family": "Jones",
+     "given": "D"
+    },
+    {
+     "family": "Hinton",
+     "given": "J"
+    },
+    {
+     "family": "Marshall",
+     "given": "J"
+    },
+    {
+     "family": "Stebbings",
+     "given": "LA"
+    },
+    {
+     "family": "Menzies",
+     "given": "A"
+    },
+    {
+     "family": "Martin",
+     "given": "S"
+    },
+    {
+     "family": "Leung",
+     "given": "K"
+    },
+    {
+     "family": "Chen",
+     "given": "L"
+    },
+    {
+     "family": "Leroy",
+     "given": "C"
+    },
+    {
+     "family": "Ramakrishna",
+     "given": "M"
+    },
+    {
+     "family": "Rance",
+     "given": "R"
+    },
+    {
+     "family": "Lau",
+     "given": "KW"
+    },
+    {
+     "family": "Mudie",
+     "given": "LJ"
+    },
+    {
+     "family": "Varela",
+     "given": "I"
+    }
+   ],
+   "year": "2012",
+   "title": "Mutational processes molding the genomes of 21 breast cancers",
+   "container": "Cell",
+   "volume": "149",
+   "first_page": "979",
+   "last_page": "993",
+   "doi": "10.1016/j.cell.2012.04.024"
+  },
+  {
+   "bib_id": 39,
+   "authors": [
+    {
+     "family": "Nowak",
+     "given": "MA"
+    },
+    {
+     "family": "Michor",
+     "given": "F"
+    },
+    {
+     "family": "Komarova",
+     "given": "NL"
+    },
+    {
+     "family": "Iwasa",
+     "given": "Y"
+    }
+   ],
+   "year": "2004",
+   "title": "Evolutionary dynamics of tumor suppressor gene inactivation",
+   "container": "PNAS",
+   "volume": "101",
+   "first_page": "10635",
+   "last_page": "10638",
+   "doi": "10.1073/pnas.0400747101"
+  },
+  {
+   "bib_id": 40,
+   "authors": [
+    {
+     "family": "Paige",
+     "given": "AJW"
+    }
+   ],
+   "year": "2003",
+   "title": "Redefining tumour suppressor genes: exceptions to the two-hit hypothesis",
+   "container": "Cellular and Molecular Life Sciences",
+   "volume": "60",
+   "first_page": "2147",
+   "last_page": "2163",
+   "doi": "10.1007/s00018-003-3027-6"
+  },
+  {
+   "bib_id": 41,
+   "authors": [
+    {
+     "family": "Park",
+     "given": "SC"
+    },
+    {
+     "family": "Krug",
+     "given": "J"
+    }
+   ],
+   "year": "2007",
+   "title": "Clonal interference in large populations",
+   "container": "PNAS",
+   "volume": "104",
+   "first_page": "18135",
+   "last_page": "18140",
+   "doi": "10.1073/pnas.0705778104"
+  },
+  {
+   "bib_id": 42,
+   "authors": [
+    {
+     "family": "Park",
+     "given": "S"
+    },
+    {
+     "family": "Supek",
+     "given": "F"
+    },
+    {
+     "family": "Lehner",
+     "given": "B"
+    }
+   ],
+   "year": "2021",
+   "title": "Higher order genetic interactions switch cancer genes from two-hit to one-hit drivers",
+   "container": "Nature Communications",
+   "volume": "12",
+   "first_page": "1",
+   "last_page": "10",
+   "doi": "10.1038/s41467-021-27242-3"
+  },
+  {
+   "bib_id": 43,
+   "authors": [
+    {
+     "family": "Petljak",
+     "given": "M"
+    },
+    {
+     "family": "Alexandrov",
+     "given": "LB"
+    },
+    {
+     "family": "Brammeld",
+     "given": "JS"
+    },
+    {
+     "family": "Price",
+     "given": "S"
+    },
+    {
+     "family": "Wedge",
+     "given": "DC"
+    },
+    {
+     "family": "Grossmann",
+     "given": "S"
+    },
+    {
+     "family": "Dawson",
+     "given": "KJ"
+    },
+    {
+     "family": "Ju",
+     "given": "YS"
+    },
+    {
+     "family": "Iorio",
+     "given": "F"
+    },
+    {
+     "family": "Tubio",
+     "given": "JMC"
+    },
+    {
+     "family": "Koh",
+     "given": "CC"
+    },
+    {
+     "family": "Georgakopoulos-Soares",
+     "given": "I"
+    },
+    {
+     "family": "Rodríguez-Martín",
+     "given": "B"
+    },
+    {
+     "family": "Otlu",
+     "given": "B"
+    },
+    {
+     "family": "O’Meara",
+     "given": "S"
+    },
+    {
+     "family": "Butler",
+     "given": "AP"
+    },
+    {
+     "family": "Menzies",
+     "given": "A"
+    },
+    {
+     "family": "Bhosle",
+     "given": "SG"
+    },
+    {
+     "family": "Raine",
+     "given": "K"
+    },
+    {
+     "family": "Jones",
+     "given": "DR"
+    },
+    {
+     "family": "Ng",
+     "given": "BL"
+    },
+    {
+     "family": "Stratton",
+     "given": "MR"
+    }
+   ],
+   "year": "2019",
+   "title": "Characterizing mutational signatures in human cancer cell lines reveals episodic APOBEC mutagenesis",
+   "container": "Cell",
+   "volume": "176",
+   "first_page": "1282",
+   "last_page": "1294",
+   "doi": "10.1016/j.cell.2019.02.012"
+  },
+  {
+   "bib_id": 44,
+   "authors": [
+    {
+     "family": "Petljak",
+     "given": "M"
+    },
+    {
+     "family": "Dananberg",
+     "given": "A"
+    },
+    {
+     "family": "Chu",
+     "given": "K"
+    },
+    {
+     "family": "Bergstrom",
+     "given": "EN"
+    },
+    {
+     "family": "Striepen",
+     "given": "J"
+    },
+    {
+     "family": "von Morgen",
+     "given": "P"
+    },
+    {
+     "family": "Chen",
+     "given": "Y"
+    },
+    {
+     "family": "Shah",
+     "given": "H"
+    },
+    {
+     "family": "Sale",
+     "given": "JE"
+    },
+    {
+     "family": "Alexandrov",
+     "given": "LB"
+    },
+    {
+     "family": "Stratton",
+     "given": "MR"
+    },
+    {
+     "family": "Maciejowski",
+     "given": "J"
+    }
+   ],
+   "year": "2022",
+   "title": "Mechanisms of APOBEC3 mutagenesis in human cancer cells",
+   "container": "Nature",
+   "volume": "607",
+   "first_page": "799",
+   "last_page": "807",
+   "doi": "10.1038/s41586-022-04972-y"
+  },
+  {
+   "bib_id": 45,
+   "authors": [
+    {
+     "family": "Proulx",
+     "given": "SR"
+    }
+   ],
+   "year": "2011",
+   "title": "The rate of multi-step evolution in Moran and Wright-Fisher populations",
+   "container": "Theoretical Population Biology",
+   "volume": "80",
+   "first_page": "197",
+   "last_page": "207",
+   "doi": "10.1016/j.tpb.2011.07.003"
+  },
+  {
+   "bib_id": 46,
+   "authors": [
+    {
+     "family": "Salehi",
+     "given": "S"
+    },
+    {
+     "family": "Kabeer",
+     "given": "F"
+    },
+    {
+     "family": "Ceglia",
+     "given": "N"
+    },
+    {
+     "family": "Andronescu",
+     "given": "M"
+    },
+    {
+     "family": "Williams",
+     "given": "MJ"
+    },
+    {
+     "family": "Campbell",
+     "given": "KR"
+    },
+    {
+     "family": "Masud",
+     "given": "T"
+    },
+    {
+     "family": "Wang",
+     "given": "B"
+    },
+    {
+     "family": "Biele",
+     "given": "J"
+    },
+    {
+     "family": "Brimhall",
+     "given": "J"
+    },
+    {
+     "family": "Gee",
+     "given": "D"
+    },
+    {
+     "family": "Lee",
+     "given": "H"
+    },
+    {
+     "family": "Ting",
+     "given": "J"
+    },
+    {
+     "family": "Zhang",
+     "given": "AW"
+    },
+    {
+     "family": "Tran",
+     "given": "H"
+    },
+    {
+     "family": "O’Flanagan",
+     "given": "C"
+    },
+    {
+     "family": "Dorri",
+     "given": "F"
+    },
+    {
+     "family": "Rusk",
+     "given": "N"
+    },
+    {
+     "family": "de Algara",
+     "given": "TR"
+    },
+    {
+     "family": "Lee",
+     "given": "SR"
+    }
+   ],
+   "year": "2021",
+   "title": "Clonal fitness inferred from time-series modelling of single-cell cancer genomes",
+   "container": "Nature",
+   "volume": "595",
+   "first_page": "585",
+   "last_page": "590",
+   "doi": "10.1038/s41586-021-03648-3"
+  },
+  {
+   "bib_id": 47,
+   "authors": [
+    {
+     "family": "Sha",
+     "given": "D"
+    },
+    {
+     "family": "Jin",
+     "given": "Z"
+    },
+    {
+     "family": "Budczies",
+     "given": "J"
+    },
+    {
+     "family": "Kluck",
+     "given": "K"
+    },
+    {
+     "family": "Stenzinger",
+     "given": "A"
+    },
+    {
+     "family": "Sinicrope",
+     "given": "FA"
+    }
+   ],
+   "year": "2020",
+   "title": "Tumor mutational burden as a predictive biomarker in solid tumors",
+   "container": "Cancer Discovery",
+   "volume": "10",
+   "first_page": "1808",
+   "last_page": "1825",
+   "doi": "10.1158/2159-8290.CD-20-0522"
+  },
+  {
+   "bib_id": 48,
+   "authors": [
+    {
+     "family": "Sottoriva",
+     "given": "A"
+    },
+    {
+     "family": "Kang",
+     "given": "H"
+    },
+    {
+     "family": "Ma",
+     "given": "Z"
+    },
+    {
+     "family": "Graham",
+     "given": "TA"
+    },
+    {
+     "family": "Salomon",
+     "given": "MP"
+    },
+    {
+     "family": "Zhao",
+     "given": "J"
+    },
+    {
+     "family": "Marjoram",
+     "given": "P"
+    },
+    {
+     "family": "Siegmund",
+     "given": "K"
+    },
+    {
+     "family": "Press",
+     "given": "MF"
+    },
+    {
+     "family": "Shibata",
+     "given": "D"
+    },
+    {
+     "family": "Curtis",
+     "given": "C"
+    }
+   ],
+   "year": "2015",
+   "title": "A Big Bang model of human colorectal tumor growth",
+   "container": "Nature Genetics",
+   "volume": "47",
+   "first_page": "209",
+   "last_page": "216",
+   "doi": "10.1038/ng.3214"
+  },
+  {
+   "bib_id": 49,
+   "authors": [
+    {
+     "family": "Stephens",
+     "given": "PJ"
+    },
+    {
+     "family": "Greenman",
+     "given": "CD"
+    },
+    {
+     "family": "Fu",
+     "given": "B"
+    },
+    {
+     "family": "Yang",
+     "given": "F"
+    },
+    {
+     "family": "Bignell",
+     "given": "GR"
+    },
+    {
+     "family": "Mudie",
+     "given": "LJ"
+    },
+    {
+     "family": "Pleasance",
+     "given": "ED"
+    },
+    {
+     "family": "Lau",
+     "given": "KW"
+    },
+    {
+     "family": "Beare",
+     "given": "D"
+    },
+    {
+     "family": "Stebbings",
+     "given": "LA"
+    },
+    {
+     "family": "McLaren",
+     "given": "S"
+    },
+    {
+     "family": "Lin",
+     "given": "M-L"
+    },
+    {
+     "family": "McBride",
+     "given": "DJ"
+    },
+    {
+     "family": "Varela",
+     "given": "I"
+    },
+    {
+     "family": "Nik-Zainal",
+     "given": "S"
+    },
+    {
+     "family": "Leroy",
+     "given": "C"
+    },
+    {
+     "family": "Jia",
+     "given": "M"
+    },
+    {
+     "family": "Menzies",
+     "given": "A"
+    },
+    {
+     "family": "Butler",
+     "given": "AP"
+    },
+    {
+     "family": "Teague",
+     "given": "JW"
+    },
+    {
+     "family": "Green",
+     "given": "AR"
+    }
+   ],
+   "year": "2011",
+   "title": "Massive genomic rearrangement acquired in a single catastrophic event during cancer development",
+   "container": "Cell",
+   "volume": "144",
+   "first_page": "27",
+   "last_page": "40",
+   "doi": "10.1016/j.cell.2010.11.055"
+  },
+  {
+   "bib_id": 50,
+   "authors": [
+    {
+     "family": "Sun",
+     "given": "R"
+    },
+    {
+     "family": "Hu",
+     "given": "Z"
+    },
+    {
+     "family": "Curtis",
+     "given": "C"
+    }
+   ],
+   "year": "2018",
+   "title": "Big bang tumor growth and clonal evolution",
+   "container": "Cold Spring Harbor Perspectives in Medicine",
+   "volume": "8",
+   "first_page": "a028381",
+   "doi": "10.1101/cshperspect.a028381"
+  },
+  {
+   "bib_id": 51,
+   "authors": [
+    {
+     "family": "Van Egeren",
+     "given": "D"
+    },
+    {
+     "family": "Madsen",
+     "given": "T"
+    },
+    {
+     "family": "Michor",
+     "given": "F"
+    }
+   ],
+   "year": "2018",
+   "title": "Fitness variation in isogenic populations leads to a novel evolutionary mechanism for crossing fitness valleys",
+   "container": "Communications Biology",
+   "volume": "1",
+   "first_page": "151",
+   "doi": "10.1038/s42003-018-0160-1"
+  },
+  {
+   "bib_id": 52,
+   "authors": [
+    {
+     "family": "Wang",
+     "given": "LH"
+    },
+    {
+     "family": "Wu",
+     "given": "CF"
+    },
+    {
+     "family": "Rajasekaran",
+     "given": "N"
+    },
+    {
+     "family": "Shin",
+     "given": "YK"
+    }
+   ],
+   "year": "2018",
+   "title": "Loss of tumor suppressor gene function in human cancer: an overview",
+   "container": "Cellular Physiology and Biochemistry",
+   "volume": "51",
+   "first_page": "2647",
+   "last_page": "2693",
+   "doi": "10.1159/000495956"
+  },
+  {
+   "bib_id": 53,
+   "authors": [
+    {
+     "family": "Wang",
+     "given": "Y"
+    },
+    {
+     "family": "Robinson",
+     "given": "PS"
+    },
+    {
+     "family": "Coorens",
+     "given": "THH"
+    },
+    {
+     "family": "Moore",
+     "given": "L"
+    },
+    {
+     "family": "Lee-Six",
+     "given": "H"
+    },
+    {
+     "family": "Noorani",
+     "given": "A"
+    },
+    {
+     "family": "Sanders",
+     "given": "MA"
+    },
+    {
+     "family": "Jung",
+     "given": "H"
+    },
+    {
+     "family": "Katainen",
+     "given": "R"
+    },
+    {
+     "family": "Heuschkel",
+     "given": "R"
+    },
+    {
+     "family": "Brunton-Sim",
+     "given": "R"
+    },
+    {
+     "family": "Weston",
+     "given": "R"
+    },
+    {
+     "family": "Read",
+     "given": "D"
+    },
+    {
+     "family": "Nobbs",
+     "given": "B"
+    },
+    {
+     "family": "Fitzgerald",
+     "given": "RC"
+    },
+    {
+     "family": "Saeb-Parsy",
+     "given": "K"
+    },
+    {
+     "family": "Martincorena",
+     "given": "I"
+    },
+    {
+     "family": "Campbell",
+     "given": "PJ"
+    },
+    {
+     "family": "Rushbrook",
+     "given": "S"
+    },
+    {
+     "family": "Zilbauer",
+     "given": "M"
+    }
+   ],
+   "year": "2023",
+   "title": "APOBEC mutagenesis is a common process in normal human small intestine",
+   "container": "Nature Genetics",
+   "volume": "55",
+   "first_page": "246",
+   "last_page": "254",
+   "doi": "10.1038/s41588-022-01296-5"
+  },
+  {
+   "bib_id": 54,
+   "authors": [
+    {
+     "family": "Watson",
+     "given": "HW"
+    },
+    {
+     "family": "Galton",
+     "given": "F"
+    }
+   ],
+   "year": "1875",
+   "title": "On the Probability of the Extinction of Families",
+   "container": "The Journal of the Anthropological Institute of Great Britain and Ireland",
+   "volume": "4",
+   "first_page": "138",
+   "doi": "10.2307/2841222"
+  },
+  {
+   "bib_id": 55,
+   "authors": [
+    {
+     "family": "Weinreich",
+     "given": "DM"
+    },
+    {
+     "family": "Chao",
+     "given": "L"
+    }
+   ],
+   "year": "2005",
+   "title": "Rapid evolutionary escape by large populations from local fitness peaks is likely in nature",
+   "container": "Evolution; International Journal of Organic Evolution",
+   "volume": "59",
+   "first_page": "1175",
+   "last_page": "1182",
+   "doi": "10.1111/J.0014-3820.2005.TB01769.X"
+  },
+  {
+   "bib_id": 56,
+   "authors": [
+    {
+     "family": "Weissman",
+     "given": "DB"
+    },
+    {
+     "family": "Desai",
+     "given": "MM"
+    },
+    {
+     "family": "Fisher",
+     "given": "DS"
+    },
+    {
+     "family": "Feldman",
+     "given": "MW"
+    }
+   ],
+   "year": "2009",
+   "title": "The rate at which asexual populations cross fitness valleys",
+   "container": "Theoretical Population Biology",
+   "volume": "75",
+   "first_page": "286",
+   "last_page": "300",
+   "doi": "10.1016/j.tpb.2009.02.006"
+  },
+  {
+   "bib_id": 57,
+   "authors": [
+    {
+     "family": "Werner",
+     "given": "B"
+    },
+    {
+     "family": "Case",
+     "given": "J"
+    },
+    {
+     "family": "Williams",
+     "given": "MJ"
+    },
+    {
+     "family": "Chkhaidze",
+     "given": "K"
+    },
+    {
+     "family": "Temko",
+     "given": "D"
+    },
+    {
+     "family": "Fernández-Mateos",
+     "given": "J"
+    },
+    {
+     "family": "Cresswell",
+     "given": "GD"
+    },
+    {
+     "family": "Nichol",
+     "given": "D"
+    },
+    {
+     "family": "Cross",
+     "given": "W"
+    },
+    {
+     "family": "Spiteri",
+     "given": "I"
+    },
+    {
+     "family": "Huang",
+     "given": "W"
+    },
+    {
+     "family": "Tomlinson",
+     "given": "IPM"
+    },
+    {
+     "family": "Barnes",
+     "given": "CP"
+    },
+    {
+     "family": "Graham",
+     "given": "TA"
+    },
+    {
+     "family": "Sottoriva",
+     "given": "A"
+    }
+   ],
+   "year": "2020",
+   "title": "Measuring single cell divisions in human tissues from multi-region sequencing data",
+   "container": "Nature Communications",
+   "volume": "11",
+   "first_page": "1035",
+   "doi": "10.1038/s41467-020-14844-6"
+  },
+  {
+   "bib_id": 58,
+   "authors": [
+    {
+     "family": "Wilke",
+     "given": "CO"
+    }
+   ],
+   "year": "2004",
+   "title": "The speed of adaptation in large asexual populations",
+   "container": "Genetics",
+   "volume": "167",
+   "first_page": "2045",
+   "last_page": "2053",
+   "doi": "10.1534/genetics.104.027136"
+  },
+  {
+   "bib_id": 59,
+   "authors": [
+    {
+     "family": "Williams",
+     "given": "MJ"
+    },
+    {
+     "family": "Werner",
+     "given": "B"
+    },
+    {
+     "family": "Heide",
+     "given": "T"
+    },
+    {
+     "family": "Curtis",
+     "given": "C"
+    },
+    {
+     "family": "Barnes",
+     "given": "CP"
+    },
+    {
+     "family": "Sottoriva",
+     "given": "A"
+    },
+    {
+     "family": "Graham",
+     "given": "TA"
+    }
+   ],
+   "year": "2018",
+   "title": "Quantification of subclonal selection in cancer from bulk sequencing data",
+   "container": "Nature Genetics",
+   "volume": "50",
+   "first_page": "895",
+   "last_page": "903",
+   "doi": "10.1038/s41588-018-0128-6"
+  },
+  {
+   "bib_id": 60,
+   "authors": [
+    {
+     "family": "Wright",
+     "given": "S"
+    }
+   ],
+   "year": "1931",
+   "title": "Evolution in mendelian populations",
+   "container": "Genetics",
+   "volume": "16",
+   "first_page": "97",
+   "last_page": "159",
+   "doi": "10.1093/genetics/16.2.97"
+  },
+  {
+   "bib_id": 61,
+   "authors": [
+    {
+     "family": "Yates",
+     "given": "LR"
+    },
+    {
+     "family": "Campbell",
+     "given": "PJ"
+    }
+   ],
+   "year": "2012",
+   "title": "Evolution of the cancer genome",
+   "container": "Nature Reviews. Genetics",
+   "volume": "13",
+   "first_page": "795",
+   "last_page": "806",
+   "doi": "10.1038/nrg3317"
+  },
+  {
+   "bib_id": 62,
+   "authors": [
+    {
+     "family": "Zhang",
+     "given": "C-Z"
+    },
+    {
+     "family": "Spektor",
+     "given": "A"
+    },
+    {
+     "family": "Cornils",
+     "given": "H"
+    },
+    {
+     "family": "Francis",
+     "given": "JM"
+    },
+    {
+     "family": "Jackson",
+     "given": "EK"
+    },
+    {
+     "family": "Liu",
+     "given": "S"
+    },
+    {
+     "family": "Meyerson",
+     "given": "M"
+    },
+    {
+     "family": "Pellman",
+     "given": "D"
+    }
+   ],
+   "year": "2015",
+   "title": "Chromothripsis from DNA damage in micronuclei",
+   "container": "Nature",
+   "volume": "522",
+   "first_page": "179",
+   "last_page": "184",
+   "doi": "10.1038/nature14493"
+  },
+  {
+   "bib_id": 63,
+   "authors": [
+    {
+     "family": "Zhao",
+     "given": "M"
+    },
+    {
+     "family": "Kim",
+     "given": "P"
+    },
+    {
+     "family": "Mitra",
+     "given": "R"
+    },
+    {
+     "family": "Zhao",
+     "given": "J"
+    },
+    {
+     "family": "Zhao",
+     "given": "Z"
+    }
+   ],
+   "year": "2016",
+   "title": "TSGene 2.0: an updated literature-based knowledgebase for tumor suppressor genes",
+   "container": "Nucleic Acids Research",
+   "volume": "44",
+   "first_page": "D1023",
+   "last_page": "D1031",
+   "doi": "10.1093/nar/gkv1268"
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-core-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "jats_doi": "10.7554/eLife.108058"
+ }
+}

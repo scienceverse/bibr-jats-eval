@@ -1,0 +1,1455 @@
+{
+ "paper_id": "10.1038_s41467-026-77192-x",
+ "info": {
+  "title": "RBP-Driven RNA sorting and local translation establish the molecular identities of individual sensory axons",
+  "doi": "10.1038/s41467-026-77192-x",
+  "file_name": "10.1038_s41467-026-77192-x.pdf",
+  "abstract": "Neurons extend long axons that traverse distinct microenvironments, yet how these subcellular compartments acquire and maintain specialized identities remains unclear. Here, we use spatial translatomics to define the local translatomes of somatosensory dorsal root ganglion (DRG) neurons. Translating Ribosome Affinity Purification and RNA sequencing (TRAP-seq) reveal thousands of mRNAs preferentially translated within central axons, peripheral axons, or DRG somata, establishing compartment-specific translational programs. Many of these transcripts encode ion channels and neurotransmitter receptors that may confer distinct electrophysiological and regenerative properties to each axon. Integration of the TRAP-seq data with published RNA-seq identify locally translated components that change following neuropathic injury and could thereby adjust neuronal activity. We identify RNA regulons coordinated by RNA-binding proteins (RBPs) SFPQ and SRSF10, which preferentially bind and traffic mRNAs to peripheral or central axons, respectively. These findings indicate that RBP-guided RNA sorting and local translation enable the establishment and dynamic local modulation of somatosensory function."
+ },
+ "author": [
+  {
+   "author_id": 1,
+   "given": "Elizabeth S.",
+   "family": "Silagi",
+   "affiliation": "Department of Neurobiology, Harvard Medical School, Boston, MA USA; Department of Cancer Biology, Dana-Farber Cancer Institute, Boston, MA USA",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 2,
+   "given": "Ezechukwu",
+   "family": "Nduka",
+   "affiliation": "Department of Cancer Biology, Dana-Farber Cancer Institute, Boston, MA USA",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 3,
+   "given": "Jesus",
+   "family": "Zuniga Paiz",
+   "affiliation": "Department of Neurobiology, Harvard Medical School, Boston, MA USA; Department of Cancer Biology, Dana-Farber Cancer Institute, Boston, MA USA",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 4,
+   "given": "Maria F.",
+   "family": "Pazyra-Murphy",
+   "affiliation": "Department of Neurobiology, Harvard Medical School, Boston, MA USA; Department of Cancer Biology, Dana-Farber Cancer Institute, Boston, MA USA",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 5,
+   "given": "Shamsuddin A.",
+   "family": "Bhuiyan",
+   "affiliation": "Department of Neurobiology, Harvard Medical School, Boston, MA USA; Department of Neurology, Brigham and Women’s Hospital, Boston, MA USA",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 6,
+   "given": "William",
+   "family": "Renthal",
+   "affiliation": "Department of Neurobiology, Harvard Medical School, Boston, MA USA; Department of Neurology, Brigham and Women’s Hospital, Boston, MA USA",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 7,
+   "given": "Rosalind A.",
+   "family": "Segal",
+   "affiliation": "Department of Neurobiology, Harvard Medical School, Boston, MA USA; Department of Cancer Biology, Dana-Farber Cancer Institute, Boston, MA USA",
+   "email": "",
+   "orcid": "",
+   "corresponding": true
+  }
+ ],
+ "section": [
+  {
+   "section_id": 1,
+   "section_type": "abstract",
+   "header": "Abstract",
+   "level": 1,
+   "parent_section_id": null,
+   "classification_score": 1.0
+  }
+ ],
+ "text": [
+  {
+   "text_id": 1,
+   "section_id": 1,
+   "paragraph_id": 1,
+   "text": "Neurons extend long axons that traverse distinct microenvironments, yet how these subcellular compartments acquire and maintain specialized identities remains unclear. Here, we use spatial translatomics to define the local translatomes of somatosensory dorsal root ganglion (DRG) neurons. Translating Ribosome Affinity Purification and RNA sequencing (TRAP-seq) reveal thousands of mRNAs preferentially translated within central axons, peripheral axons, or DRG somata, establishing compartment-specific translational programs. Many of these transcripts encode ion channels and neurotransmitter receptors that may confer distinct electrophysiological and regenerative properties to each axon. Integration of the TRAP-seq data with published RNA-seq identify locally translated components that change following neuropathic injury and could thereby adjust neuronal activity. We identify RNA regulons coordinated by RNA-binding proteins (RBPs) SFPQ and SRSF10, which preferentially bind and traffic mRNAs to peripheral or central axons, respectively. These findings indicate that RBP-guided RNA sorting and local translation enable the establishment and dynamic local modulation of somatosensory function.",
+   "page_number": 1
+  }
+ ],
+ "bib": [
+  {
+   "bib_id": 1,
+   "authors": [
+    {
+     "family": "West",
+     "given": "AE"
+    },
+    {
+     "family": "Griffith",
+     "given": "EC"
+    },
+    {
+     "family": "Greenberg",
+     "given": "ME"
+    }
+   ],
+   "year": "2002",
+   "title": "Regulation of transcription factors by neuronal activity",
+   "container": "Nat. Rev. Neurosci.",
+   "volume": "3",
+   "first_page": "921",
+   "last_page": "931"
+  },
+  {
+   "bib_id": 2,
+   "authors": [
+    {
+     "family": "Keene",
+     "given": "J"
+    }
+   ],
+   "year": "2007",
+   "title": "RNA regulons: coordination of post-transcriptional events",
+   "container": "Nat. Rev. Genet.",
+   "volume": "8",
+   "first_page": "533",
+   "last_page": "543"
+  },
+  {
+   "bib_id": 3,
+   "authors": [
+    {
+     "family": "Cosker",
+     "given": "KE"
+    },
+    {
+     "family": "Pazyra-Murphy",
+     "given": "MF"
+    },
+    {
+     "family": "Fenstermacher",
+     "given": "SJ"
+    },
+    {
+     "family": "Segal",
+     "given": "RA"
+    }
+   ],
+   "year": "2013",
+   "title": "Target-derived neurotrophins coordinate transcription and transport of bclw to prevent axonal degeneration",
+   "container": "J. Neurosci.",
+   "volume": "33",
+   "first_page": "5195",
+   "last_page": "5207"
+  },
+  {
+   "bib_id": 4
+  },
+  {
+   "bib_id": 5
+  },
+  {
+   "bib_id": 6,
+   "authors": [
+    {
+     "family": "Fernandopulle",
+     "given": "MS"
+    },
+    {
+     "family": "Lippincott-Schwartz",
+     "given": "J"
+    },
+    {
+     "family": "Ward",
+     "given": "ME"
+    }
+   ],
+   "year": "2021",
+   "title": "RNA transport and local translation in neurodevelopmental and neurodegenerative disease",
+   "container": "Nat. Neurosci.",
+   "volume": "24",
+   "first_page": "622",
+   "last_page": "632"
+  },
+  {
+   "bib_id": 7,
+   "authors": [
+    {
+     "family": "Yoon",
+     "given": "BC"
+    }
+   ],
+   "year": "2012",
+   "title": "Local translation of extranuclear lamin B promotes axon maintenance",
+   "container": "Cell",
+   "volume": "148",
+   "first_page": "752",
+   "last_page": "764"
+  },
+  {
+   "bib_id": 8,
+   "authors": [
+    {
+     "family": "Cox",
+     "given": "LJ"
+    },
+    {
+     "family": "Hengst",
+     "given": "U"
+    },
+    {
+     "family": "Gurskaya",
+     "given": "NG"
+    },
+    {
+     "family": "Lukyanov",
+     "given": "KA"
+    },
+    {
+     "family": "Jaffrey",
+     "given": "SR"
+    }
+   ],
+   "year": "2008",
+   "title": "Intra-axonal translation and retrograde trafficking of CREB promotes neuronal survival",
+   "container": "Nat. Cell Biol.",
+   "volume": "10",
+   "first_page": "149",
+   "last_page": "159"
+  },
+  {
+   "bib_id": 9
+  },
+  {
+   "bib_id": 10,
+   "doi": "10.1126/science.aay4991"
+  },
+  {
+   "bib_id": 11,
+   "authors": [
+    {
+     "family": "Koenig",
+     "given": "E"
+    }
+   ],
+   "year": "1965",
+   "title": "SYNTHETIC MECHANISMS IN THE AXON—IIRNA IN MYELIN-FREE AXONS OF THE CAT",
+   "container": "J. Neurochem.",
+   "volume": "12",
+   "first_page": "357",
+   "last_page": "361"
+  },
+  {
+   "bib_id": 12,
+   "authors": [
+    {
+     "family": "Edström",
+     "given": "A"
+    }
+   ],
+   "year": "1964",
+   "title": "THE RIBONUCLEIC ACID IN THE MAUTHNER NEURON OF THE GOLDFISH",
+   "container": "J. Neurochem.",
+   "volume": "11",
+   "first_page": "309",
+   "last_page": "314"
+  },
+  {
+   "bib_id": 13,
+   "authors": [
+    {
+     "family": "Campbell",
+     "given": "DS"
+    },
+    {
+     "family": "Holt",
+     "given": "CE"
+    }
+   ],
+   "year": "2001",
+   "title": "Chemotropic responses of retinal growth cones mediated by rapid local protein synthesis and degradation",
+   "container": "Neuron",
+   "volume": "32",
+   "first_page": "1013",
+   "last_page": "1026"
+  },
+  {
+   "bib_id": 14,
+   "authors": [
+    {
+     "family": "Garat",
+     "given": "J"
+    },
+    {
+     "family": "Di Paolo",
+     "given": "A"
+    },
+    {
+     "family": "Eastman",
+     "given": "G"
+    },
+    {
+     "family": "Castillo",
+     "given": "PE"
+    },
+    {
+     "family": "Sotelo-Silveira",
+     "given": "J"
+    }
+   ],
+   "year": "2025",
+   "title": "The Trail of Axonal Protein Synthesis: Origins and Current Functional Landscapes",
+   "container": "Neuroscience",
+   "volume": "567",
+   "first_page": "195",
+   "last_page": "208"
+  },
+  {
+   "bib_id": 15,
+   "authors": [
+    {
+     "family": "Zheng",
+     "given": "JQ"
+    }
+   ],
+   "year": "2001",
+   "title": "A functional role for intra-axonal protein synthesis during axonal regeneration from adult sensory neurons",
+   "container": "J. Neurosci.",
+   "volume": "21",
+   "first_page": "9291",
+   "last_page": "9303"
+  },
+  {
+   "bib_id": 16,
+   "doi": "10.1371/journal.pone.0001961"
+  },
+  {
+   "bib_id": 17,
+   "authors": [
+    {
+     "family": "Merianda",
+     "given": "T"
+    },
+    {
+     "family": "Twiss",
+     "given": "J"
+    }
+   ],
+   "year": "2013",
+   "title": "Peripheral nerve axons contain machinery for co-translational secretion of axonally-generated proteins",
+   "container": "Neurosci. Bull.",
+   "volume": "29",
+   "first_page": "493",
+   "last_page": "500"
+  },
+  {
+   "bib_id": 18
+  },
+  {
+   "bib_id": 19,
+   "authors": [
+    {
+     "family": "Jung",
+     "given": "J"
+    }
+   ],
+   "year": "2023",
+   "title": "mRNA transport, translation, and decay in adult mammalian central nervous system axons",
+   "container": "Neuron",
+   "volume": "111",
+   "first_page": "650",
+   "last_page": "668"
+  },
+  {
+   "bib_id": 20,
+   "authors": [
+    {
+     "family": "Meltzer",
+     "given": "S"
+    },
+    {
+     "family": "Santiago",
+     "given": "C"
+    },
+    {
+     "family": "Sharma",
+     "given": "N"
+    },
+    {
+     "family": "Ginty",
+     "given": "DD"
+    }
+   ],
+   "year": "2021",
+   "title": "The cellular and molecular basis of somatosensory neuron development",
+   "container": "Neuron",
+   "volume": "109",
+   "first_page": "3736",
+   "last_page": "3757"
+  },
+  {
+   "bib_id": 21,
+   "authors": [
+    {
+     "family": "Nascimento",
+     "given": "AI"
+    },
+    {
+     "family": "Mar",
+     "given": "FM"
+    },
+    {
+     "family": "Sousa",
+     "given": "MM"
+    }
+   ],
+   "year": "2018",
+   "title": "The intriguing nature of dorsal root ganglion neurons: Linking structure with polarity and function",
+   "container": "Prog. Neurobiol.",
+   "volume": "168",
+   "first_page": "86",
+   "last_page": "103"
+  },
+  {
+   "bib_id": 22,
+   "doi": "10.7554/elife.104069"
+  },
+  {
+   "bib_id": 23,
+   "authors": [
+    {
+     "family": "Bangash",
+     "given": "MA"
+    }
+   ],
+   "year": "2024",
+   "title": "Analgesic targets identified in mouse sensory neuron somata and terminal pain translatomes",
+   "container": "Cell Rep.",
+   "volume": "43",
+   "first_page": "114614"
+  },
+  {
+   "bib_id": 24,
+   "authors": [
+    {
+     "family": "Patel",
+     "given": "P"
+    }
+   ],
+   "year": "2022",
+   "title": "Intra-axonal translation of Khsrp mRNA slows axon regeneration by destabilizing localized mRNAs",
+   "container": "Nucleic Acids Res.",
+   "volume": "50",
+   "first_page": "5772",
+   "last_page": "5792"
+  },
+  {
+   "bib_id": 25,
+   "doi": "10.3389/fnmol.2022.1002842"
+  },
+  {
+   "bib_id": 26,
+   "authors": [
+    {
+     "family": "Sharma",
+     "given": "N"
+    }
+   ],
+   "year": "2020",
+   "title": "The emergence of transcriptional identity in somatosensory neurons",
+   "container": "Nature",
+   "volume": "577",
+   "first_page": "392",
+   "last_page": "398"
+  },
+  {
+   "bib_id": 27,
+   "authors": [
+    {
+     "family": "Heiman",
+     "given": "M"
+    }
+   ],
+   "year": "2008",
+   "title": "A translational profiling approach for the molecular characterization of CNS cell types",
+   "container": "Cell",
+   "volume": "135",
+   "first_page": "738",
+   "last_page": "748"
+  },
+  {
+   "bib_id": 28,
+   "authors": [
+    {
+     "family": "Dobin",
+     "given": "A"
+    }
+   ],
+   "year": "2013",
+   "title": "STAR: Ultrafast universal RNA-seq aligner",
+   "container": "Bioinformatics",
+   "volume": "29",
+   "first_page": "15",
+   "last_page": "21"
+  },
+  {
+   "bib_id": 29,
+   "doi": "10.1038/s41467-021-26365-x"
+  },
+  {
+   "bib_id": 30,
+   "authors": [
+    {
+     "family": "Glock",
+     "given": "C"
+    }
+   ],
+   "year": "2021",
+   "title": "The translatome of neuronal cell bodies, dendrites, and axons",
+   "container": "Proc. Natl. Acad. Sci. USA",
+   "volume": "118",
+   "first_page": "e2113929118"
+  },
+  {
+   "bib_id": 31,
+   "authors": [
+    {
+     "family": "Renthal",
+     "given": "W"
+    }
+   ],
+   "year": "2020",
+   "title": "Transcriptional reprogramming of distinct peripheral sensory neuron subtypes after axonal injury",
+   "container": "Neuron",
+   "volume": "108",
+   "first_page": "128",
+   "last_page": "144"
+  },
+  {
+   "bib_id": 32,
+   "doi": "10.1083/jcb.202005051"
+  },
+  {
+   "bib_id": 33
+  },
+  {
+   "bib_id": 34
+  },
+  {
+   "bib_id": 35,
+   "authors": [
+    {
+     "family": "Dib-Hajj",
+     "given": "SD"
+    },
+    {
+     "family": "Black",
+     "given": "JA"
+    },
+    {
+     "family": "Waxman",
+     "given": "SG"
+    }
+   ],
+   "year": "2015",
+   "title": "NaV1.9: a sodium channel linked to human pain",
+   "container": "Nat. Rev. Neurosci.",
+   "volume": "16",
+   "first_page": "511",
+   "last_page": "519"
+  },
+  {
+   "bib_id": 36,
+   "authors": [
+    {
+     "family": "Quill",
+     "given": "TA"
+    }
+   ],
+   "year": "2003",
+   "title": "Hyperactivated sperm motility driven by CatSper2 is required for fertilization",
+   "container": "Proc. Natl. Acad. Sci. USA",
+   "volume": "100",
+   "first_page": "14869",
+   "last_page": "14874"
+  },
+  {
+   "bib_id": 37,
+   "authors": [
+    {
+     "family": "Tushev",
+     "given": "G"
+    }
+   ],
+   "year": "2018",
+   "title": "Alternative 3′ UTRs modify the localization, regulatory potential, stability, and plasticity of mRNAs in neuronal compartments",
+   "container": "Neuron",
+   "volume": "98",
+   "first_page": "495",
+   "last_page": "511"
+  },
+  {
+   "bib_id": 38,
+   "authors": [
+    {
+     "family": "Langdon",
+     "given": "EM"
+    }
+   ],
+   "year": "2018",
+   "title": "A. G. A new lens for RNA localization: liquid-liquid phase separation",
+   "container": "Annu. Rev. Microbiol.",
+   "volume": "72",
+   "first_page": "255",
+   "last_page": "271"
+  },
+  {
+   "bib_id": 39
+  },
+  {
+   "bib_id": 40
+  },
+  {
+   "bib_id": 41,
+   "authors": [
+    {
+     "family": "Das",
+     "given": "S"
+    }
+   ],
+   "year": "2019",
+   "title": "R. S. Y. Y. The travels of mRNAs in neurons: do they know where they are going?",
+   "container": "Curr. Opin. Neurobiol.",
+   "volume": "57",
+   "first_page": "110",
+   "last_page": "116"
+  },
+  {
+   "bib_id": 42,
+   "authors": [
+    {
+     "family": "Benoit Bouvrette",
+     "given": "LP"
+    },
+    {
+     "family": "Bovaird",
+     "given": "S"
+    },
+    {
+     "family": "Blanchette",
+     "given": "M"
+    },
+    {
+     "family": "Lécuyer",
+     "given": "E"
+    }
+   ],
+   "year": "2020",
+   "title": "ORNAment: A database of putative RNA binding protein target sites in the transcriptomes of model species",
+   "container": "Nucleic Acids Res.",
+   "volume": "48",
+   "first_page": "D166",
+   "last_page": "D173"
+  },
+  {
+   "bib_id": 43,
+   "authors": [
+    {
+     "family": "Paz",
+     "given": "I"
+    },
+    {
+     "family": "Argoetti",
+     "given": "A"
+    },
+    {
+     "family": "Cohen",
+     "given": "N"
+    },
+    {
+     "family": "Even",
+     "given": "N"
+    },
+    {
+     "family": "Mandel-Gutfreund",
+     "given": "Y"
+    }
+   ],
+   "year": "2022",
+   "title": "RBPmap: A tool for mapping and predicting the binding sites of RNA-binding proteins considering the motif environment",
+   "container": "Methods Mol. Biol.",
+   "volume": "2404",
+   "first_page": "53",
+   "last_page": "65"
+  },
+  {
+   "bib_id": 44,
+   "authors": [
+    {
+     "family": "He",
+     "given": "Y"
+    }
+   ],
+   "year": "2025",
+   "title": "RPS 2.0: an updated database of RNAs involved in liquid–liquid phase separation",
+   "container": "Nucleic Acids Res.",
+   "volume": "53",
+   "first_page": "D299",
+   "last_page": "D309"
+  },
+  {
+   "bib_id": 45,
+   "authors": [
+    {
+     "family": "Szklarczyk",
+     "given": "D"
+    }
+   ],
+   "year": "2023",
+   "title": "The STRING database in 2023: protein-protein association networks and functional enrichment analyses for any sequenced genome of interest",
+   "container": "Nucleic Acids Res.",
+   "volume": "51",
+   "first_page": "D638",
+   "last_page": "D646"
+  },
+  {
+   "bib_id": 46,
+   "authors": [
+    {
+     "family": "Chan-Palay",
+     "given": "V"
+    },
+    {
+     "family": "Palay",
+     "given": "SL"
+    }
+   ],
+   "year": "1977",
+   "title": "Ultrastructural identification of substance P cells and their processes in rat sensory ganglia and their terminals in the spinal cord by immunocytochemistry",
+   "container": "Proc. Natl. Acad. Sci. USA",
+   "volume": "74",
+   "first_page": "4050",
+   "last_page": "4054"
+  },
+  {
+   "bib_id": 47,
+   "doi": "10.3389/fcell.2023.1333738"
+  },
+  {
+   "bib_id": 48,
+   "authors": [
+    {
+     "family": "Koppers",
+     "given": "M"
+    }
+   ],
+   "year": "2024",
+   "title": "Axonal endoplasmic reticulum tubules control local translation via P180/RRBP1-mediated ribosome interactions",
+   "container": "Dev. Cell",
+   "volume": "59",
+   "first_page": "2053",
+   "last_page": "2068"
+  },
+  {
+   "bib_id": 49,
+   "authors": [
+    {
+     "family": "Kemal",
+     "given": "S"
+    },
+    {
+     "family": "Richardson",
+     "given": "HS"
+    },
+    {
+     "family": "Dyne",
+     "given": "ED"
+    },
+    {
+     "family": "Fu",
+     "given": "M"
+    }
+   ],
+   "year": "2022",
+   "title": "meng. ER and Golgi trafficking in axons, dendrites, and glial processes",
+   "container": "Curr. Opin. Cell Biol.",
+   "volume": "78",
+   "first_page": "102119"
+  },
+  {
+   "bib_id": 50,
+   "authors": [
+    {
+     "family": "Merianda",
+     "given": "TT"
+    }
+   ],
+   "year": "2009",
+   "title": "A functional equivalent of endoplasmic reticulum and Golgi in axons for secretion of locally synthesized proteins",
+   "container": "Mol. Cell. Neurosci.",
+   "volume": "40",
+   "first_page": "128",
+   "last_page": "142"
+  },
+  {
+   "bib_id": 51,
+   "authors": [
+    {
+     "family": "González",
+     "given": "C"
+    }
+   ],
+   "year": "2016",
+   "title": "Axons provide the secretory machinery for trafficking of voltage-gated sodium channels in peripheral nerve",
+   "container": "Proc. Natl. Acad. Sci. USA",
+   "volume": "113",
+   "first_page": "1823",
+   "last_page": "1828"
+  },
+  {
+   "bib_id": 52,
+   "authors": [
+    {
+     "family": "Cornejo",
+     "given": "VH"
+    }
+   ],
+   "year": "2020",
+   "title": "Non-conventional axonal organelles control TRPM8 ion channel trafficking and peripheral cold sensing",
+   "container": "Cell Rep.",
+   "volume": "30",
+   "first_page": "4505",
+   "last_page": "4517"
+  },
+  {
+   "bib_id": 53,
+   "doi": "10.7554/elife.20609"
+  },
+  {
+   "bib_id": 54,
+   "doi": "10.7554/elife.27362"
+  },
+  {
+   "bib_id": 55,
+   "authors": [
+    {
+     "family": "Zhang",
+     "given": "Y"
+    }
+   ],
+   "year": "2015",
+   "title": "Identifying local and descending inputs for primary sensory neurons",
+   "container": "J. Clin. Invest.",
+   "volume": "125",
+   "first_page": "3782",
+   "last_page": "3794"
+  },
+  {
+   "bib_id": 56,
+   "authors": [
+    {
+     "family": "Hao",
+     "given": "H"
+    }
+   ],
+   "year": "2023",
+   "title": "Dorsal root ganglia control nociceptive input to the central nervous system",
+   "container": "PLoS Biol.",
+   "volume": "21",
+   "first_page": "e3001958"
+  },
+  {
+   "bib_id": 57,
+   "authors": [
+    {
+     "family": "Heijmans",
+     "given": "L"
+    },
+    {
+     "family": "Mons",
+     "given": "MR"
+    },
+    {
+     "family": "Joosten",
+     "given": "EA"
+    }
+   ],
+   "year": "2021",
+   "title": "A systematic review on descending serotonergic projections and modulation of spinal nociception in chronic neuropathic pain and after spinal cord stimulation",
+   "container": "Mol. Pain.",
+   "volume": "17",
+   "first_page": "17448069211043964"
+  },
+  {
+   "bib_id": 58,
+   "authors": [
+    {
+     "family": "Das Gupta",
+     "given": "RR"
+    },
+    {
+     "family": "Scheurer",
+     "given": "L"
+    },
+    {
+     "family": "Pelczar",
+     "given": "P"
+    },
+    {
+     "family": "Wildner",
+     "given": "H"
+    },
+    {
+     "family": "Zeilhofer",
+     "given": "HU"
+    }
+   ],
+   "year": "2021",
+   "title": "Neuron-specific spinal cord translatomes reveal a neuropeptide code for mouse dorsal horn excitatory neurons",
+   "container": "Sci. Rep.",
+   "volume": "11",
+   "first_page": "1",
+   "last_page": "18"
+  },
+  {
+   "bib_id": 59,
+   "authors": [
+    {
+     "family": "Goldstein",
+     "given": "RH"
+    }
+   ],
+   "year": "2019",
+   "title": "Location and plasticity of the sodium spike initiation zone in nociceptive terminals in vivo",
+   "container": "Neuron",
+   "volume": "102",
+   "first_page": "801",
+   "last_page": "812"
+  },
+  {
+   "bib_id": 60,
+   "authors": [
+    {
+     "family": "Feng",
+     "given": "R"
+    },
+    {
+     "family": "Saraswathy",
+     "given": "VM"
+    },
+    {
+     "family": "Mokalled",
+     "given": "MH"
+    },
+    {
+     "family": "Cavalli",
+     "given": "V"
+    }
+   ],
+   "year": "2023",
+   "title": "Self-renewing macrophages in dorsal root ganglia contribute to promote nerve regeneration",
+   "container": "Proc. Natl. Acad. Sci. USA",
+   "volume": "120",
+   "first_page": "e2215906120"
+  },
+  {
+   "bib_id": 61,
+   "authors": [
+    {
+     "family": "He",
+     "given": "Z"
+    },
+    {
+     "family": "Jin",
+     "given": "Y"
+    }
+   ],
+   "year": "2016",
+   "title": "Intrinsic Control of Axon Regeneration",
+   "container": "Neuron",
+   "volume": "90",
+   "first_page": "437",
+   "last_page": "451"
+  },
+  {
+   "bib_id": 62,
+   "doi": "10.1016/j.celrep.2024.113685"
+  },
+  {
+   "bib_id": 63,
+   "authors": [
+    {
+     "family": "Higerd-Rusli",
+     "given": "GP"
+    }
+   ],
+   "year": "2023",
+   "title": "Inflammation differentially controls transport of depolarizing Nav versus hyperpolarizing Kv channels to drive rat nociceptor activity",
+   "container": "Proc. Natl. Acad. Sci. USA",
+   "volume": "120",
+   "first_page": "e2215417120"
+  },
+  {
+   "bib_id": 64,
+   "authors": [
+    {
+     "family": "Vacher",
+     "given": "H"
+    }
+   ],
+   "year": "2011",
+   "title": "Cdk-mediated phosphorylation of the Kvβ2 auxiliary subunit regulates Kv1 channel axonal targeting",
+   "container": "J. Cell Biol.",
+   "volume": "192",
+   "first_page": "813",
+   "last_page": "824"
+  },
+  {
+   "bib_id": 65,
+   "authors": [
+    {
+     "family": "Catterall",
+     "given": "WA"
+    },
+    {
+     "family": "Perez-Reyes",
+     "given": "E"
+    },
+    {
+     "family": "Snutch",
+     "given": "TP"
+    },
+    {
+     "family": "Striessnig",
+     "given": "J"
+    }
+   ],
+   "year": "2005",
+   "title": "International Union of Pharmacology. XLVIII. Nomenclature and structure-function relationships of voltage-gated calcium channels",
+   "container": "Pharmacol. Rev.",
+   "volume": "57",
+   "first_page": "411",
+   "last_page": "425"
+  },
+  {
+   "bib_id": 66,
+   "authors": [
+    {
+     "family": "Bennett",
+     "given": "DL"
+    },
+    {
+     "family": "Clark",
+     "given": "XAJ"
+    },
+    {
+     "family": "Huang",
+     "given": "J"
+    },
+    {
+     "family": "Waxman",
+     "given": "SG"
+    },
+    {
+     "family": "Dib-Hajj",
+     "given": "SD"
+    }
+   ],
+   "year": "2019",
+   "title": "The Role of Voltage-Gated Sodium Channels in Pain Signaling",
+   "container": "Physiol. Rev.",
+   "volume": "99",
+   "first_page": "1079",
+   "last_page": "1151"
+  },
+  {
+   "bib_id": 67,
+   "authors": [
+    {
+     "family": "Goodwin",
+     "given": "G"
+    },
+    {
+     "family": "McMahon",
+     "given": "SB"
+    }
+   ],
+   "year": "2021",
+   "title": "The physiological function of different voltage-gated sodium channels in pain",
+   "container": "Nat. Rev. Neurosci.",
+   "volume": "22",
+   "first_page": "263",
+   "last_page": "274"
+  },
+  {
+   "bib_id": 68,
+   "authors": [
+    {
+     "family": "Priest",
+     "given": "BT"
+    }
+   ],
+   "year": "2005",
+   "title": "Contribution of the tetrodotoxin-resistant voltage-gated sodium channel Nav1.9 to sensory transmission and nociceptive behavior",
+   "container": "Proc. Natl. Acad. Sci. USA",
+   "volume": "102",
+   "first_page": "9382",
+   "last_page": "9387"
+  },
+  {
+   "bib_id": 69,
+   "authors": [
+    {
+     "family": "Herzog",
+     "given": "RI"
+    },
+    {
+     "family": "Cummins",
+     "given": "TR"
+    },
+    {
+     "family": "Waxman",
+     "given": "SG"
+    }
+   ],
+   "year": "2001",
+   "title": "Persistent TTX-resistant Na+ current affects resting potential and response to depolarization in simulated spinal sensory neurons",
+   "container": "J. Neurophysiol.",
+   "volume": "86",
+   "first_page": "1351",
+   "last_page": "1364"
+  },
+  {
+   "bib_id": 70,
+   "authors": [
+    {
+     "family": "Biel",
+     "given": "M"
+    },
+    {
+     "family": "Wahl-Schott",
+     "given": "C"
+    },
+    {
+     "family": "Michalakis",
+     "given": "S"
+    },
+    {
+     "family": "Zong",
+     "given": "X"
+    }
+   ],
+   "year": "2009",
+   "title": "Hyperpolarization-activated cation channels: from genes to function",
+   "container": "Physiol. Rev.",
+   "volume": "89",
+   "first_page": "847",
+   "last_page": "885"
+  },
+  {
+   "bib_id": 71,
+   "authors": [
+    {
+     "family": "Kaupp",
+     "given": "UB"
+    },
+    {
+     "family": "Seifert",
+     "given": "R"
+    }
+   ],
+   "year": "2001",
+   "title": "Molecular diversity of pacemaker ion channels",
+   "container": "Annu. Rev. Physiol.",
+   "volume": "63",
+   "first_page": "235",
+   "last_page": "257"
+  },
+  {
+   "bib_id": 72,
+   "authors": [
+    {
+     "family": "Roth",
+     "given": "FC"
+    },
+    {
+     "family": "Hu",
+     "given": "H"
+    }
+   ],
+   "year": "2020",
+   "title": "An axon-specific expression of HCN channels catalyzes fast action potential signaling in GABAergic interneurons",
+   "container": "Nat. Commun.",
+   "volume": "11",
+   "first_page": "1",
+   "last_page": "10"
+  },
+  {
+   "bib_id": 73,
+   "authors": [
+    {
+     "family": "Amaya",
+     "given": "F"
+    }
+   ],
+   "year": "2006",
+   "title": "The Voltage-Gated Sodium Channel Nav1.9 Is an Effector of Peripheral Inflammatory Pain Hypersensitivity",
+   "container": "J. Neurosci.",
+   "volume": "26",
+   "first_page": "12852"
+  },
+  {
+   "bib_id": 74,
+   "authors": [
+    {
+     "family": "Lolignier",
+     "given": "S"
+    }
+   ],
+   "year": "2015",
+   "title": "The Nav1.9 Channel Is a Key Determinant of Cold Pain Sensation and Cold Allodynia",
+   "container": "Cell Rep.",
+   "volume": "11",
+   "first_page": "1067",
+   "last_page": "1078"
+  },
+  {
+   "bib_id": 75,
+   "authors": [
+    {
+     "family": "Momin",
+     "given": "A"
+    },
+    {
+     "family": "Cadiou",
+     "given": "H"
+    },
+    {
+     "family": "Mason",
+     "given": "A"
+    },
+    {
+     "family": "Mcnaughton",
+     "given": "PA"
+    }
+   ],
+   "year": "2008",
+   "title": "Role of the hyperpolarization-activated current Ih in somatosensory neurons",
+   "container": "J. Physiol.",
+   "volume": "586",
+   "first_page": "5911",
+   "last_page": "5929"
+  },
+  {
+   "bib_id": 76,
+   "authors": [
+    {
+     "family": "Lee",
+     "given": "SJ"
+    }
+   ],
+   "year": "2018",
+   "title": "hnRNPs Interacting with mRNA localization motifs define axonal RNA regulons",
+   "container": "Mol. Cell. Proteom.",
+   "volume": "17",
+   "first_page": "2091"
+  },
+  {
+   "bib_id": 77,
+   "authors": [
+    {
+     "family": "Jumper",
+     "given": "J"
+    }
+   ],
+   "year": "2021",
+   "title": "Highly accurate protein structure prediction with AlphaFold",
+   "container": "Nature",
+   "volume": "596",
+   "first_page": "583",
+   "last_page": "589"
+  },
+  {
+   "bib_id": 78,
+   "authors": [
+    {
+     "family": "Malaney",
+     "given": "P"
+    },
+    {
+     "family": "Benitez",
+     "given": "O"
+    },
+    {
+     "family": "Zhang",
+     "given": "X"
+    },
+    {
+     "family": "Post",
+     "given": "SM"
+    }
+   ],
+   "year": "2022",
+   "title": "Assessing the role of intrinsic disorder in RNA-binding protein function: hnRNP K as a case study",
+   "container": "Methods",
+   "volume": "208",
+   "first_page": "59",
+   "last_page": "65"
+  },
+  {
+   "bib_id": 79,
+   "authors": [
+    {
+     "family": "Choi",
+     "given": "Y"
+    }
+   ],
+   "year": "2024",
+   "title": "Time-resolved profiling of RNA binding proteins throughout the mRNA life cycle",
+   "container": "Mol. Cell",
+   "volume": "84",
+   "first_page": "1764",
+   "last_page": "1782"
+  },
+  {
+   "bib_id": 80,
+   "authors": [
+    {
+     "family": "Lim",
+     "given": "YW"
+    },
+    {
+     "family": "James",
+     "given": "D"
+    },
+    {
+     "family": "Huang",
+     "given": "J"
+    },
+    {
+     "family": "Lee",
+     "given": "M"
+    }
+   ],
+   "year": "2020",
+   "title": "The emerging role of the RNA-binding protein SFPQ in neuronal function and neurodegeneration",
+   "container": "Int. J. Mol. Sci.",
+   "volume": "21",
+   "first_page": "1",
+   "last_page": "16"
+  },
+  {
+   "bib_id": 81,
+   "doi": "10.1098/rsob.220187"
+  },
+  {
+   "bib_id": 82,
+   "authors": [
+    {
+     "family": "Thomas-Jinu",
+     "given": "S"
+    }
+   ],
+   "year": "2017",
+   "title": "Non-nuclear pool of splicing factor SFPQ regulates axonal transcripts required for normal motor development",
+   "container": "Neuron",
+   "volume": "94",
+   "first_page": "322",
+   "last_page": "336"
+  },
+  {
+   "bib_id": 83
+  },
+  {
+   "bib_id": 84,
+   "doi": "10.1016/j.isci.2023.107042"
+  },
+  {
+   "bib_id": 85,
+   "doi": "10.7554/elife.78211"
+  },
+  {
+   "bib_id": 86,
+   "authors": [
+    {
+     "family": "Ma",
+     "given": "A"
+    }
+   ],
+   "year": "2024",
+   "title": "SRSF10 regulates migration of neural progenitor cells and granule cells and affects the formation of dentate gyrus during the development of mouse hippocampus",
+   "container": "Neuroscience",
+   "volume": "552",
+   "first_page": "142",
+   "last_page": "151"
+  },
+  {
+   "bib_id": 87,
+   "authors": [
+    {
+     "family": "Guerra San Juan",
+     "given": "I"
+    },
+    {
+     "family": "Brunner",
+     "given": "JW"
+    },
+    {
+     "family": "Eggan",
+     "given": "K"
+    },
+    {
+     "family": "Toonen",
+     "given": "RF"
+    },
+    {
+     "family": "Verhage",
+     "given": "M"
+    }
+   ],
+   "year": "2025",
+   "title": "KIF5A regulates axonal repair and time-dependent axonal transport of SFPQ granules and mitochondria in human motor neurons",
+   "container": "Neurobiol. Dis.",
+   "volume": "204",
+   "first_page": "106759"
+  },
+  {
+   "bib_id": 88,
+   "doi": "10.1093/genetics/iyad031"
+  },
+  {
+   "bib_id": 89,
+   "authors": [
+    {
+     "family": "Xu",
+     "given": "S"
+    }
+   ],
+   "year": "2024",
+   "title": "Using clusterProfiler to characterize multiomics data",
+   "container": "Nat. Protoc.",
+   "volume": "19",
+   "first_page": "3292",
+   "last_page": "3320"
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-core-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "jats_doi": "10.1038/s41467-026-77192-x"
+ }
+}

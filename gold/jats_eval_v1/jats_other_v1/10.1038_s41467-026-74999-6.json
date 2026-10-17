@@ -1,0 +1,778 @@
+{
+ "paper_id": "10.1038_s41467-026-74999-6",
+ "info": {
+  "title": "Evaluating bias in target trial emulation for heart failure across statistical and deep learning methods",
+  "doi": "10.1038/s41467-026-74999-6",
+  "file_name": "10.1038_s41467-026-74999-6.pdf",
+  "abstract": "Target trial emulation (TTE) is increasingly used for causal inference from observational data, but remains vulnerable to confounding by indication, and whether advanced adjustment methods mitigate this bias is unclear. Using Clinical Practice Research Datalink Aurum, we emulate target trials of beta-blockers (positive control) and digoxin (negative control) versus usual care on two-year all-cause mortality in patients with heart failure with reduced ejection fraction. We apply four adjustment strategies: propensity score matching, inverse probability of treatment weighting, targeted maximum likelihood estimation, and a Transformer-based deep learning approach. No method reproduces the randomised controlled trial (RCT) benchmarks: all suggest neutral or harmful effects for beta-blockers and elevated mortality for digoxin. In semi-synthetic simulation, all methods recover the true effects when confounders are observed, yet fail in real-world data. TTE, even with advanced adjustment, may not yield trial-equivalent estimates when confounding is strong; randomised evidence remains essential for clinical and policy decisions."
+ },
+ "author": [
+  {
+   "author_id": 1,
+   "given": "Zhengxian",
+   "family": "Fan",
+   "affiliation": "Deep Medicine, Nuffield Department of Women’s & Reproductive Health, University of Oxford, Oxford, United Kingdom",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 2,
+   "given": "Qianqian",
+   "family": "Yang",
+   "affiliation": "Deep Medicine, Nuffield Department of Women’s & Reproductive Health, University of Oxford, Oxford, United Kingdom",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 3,
+   "given": "Yifan",
+   "family": "Hu",
+   "affiliation": "Deep Medicine, Nuffield Department of Women’s & Reproductive Health, University of Oxford, Oxford, United Kingdom",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 4,
+   "given": "Goodarz",
+   "family": "Danaei",
+   "affiliation": "Department of Global Health and Population & Department of Epidemiology, Harvard T.H. Chan School of Public Health, Boston, MA USA",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 5,
+   "given": "George",
+   "family": "Davey Smith",
+   "affiliation": "MRC Integrative Epidemiology Unit, University of Bristol; Bristol Medical School, University of Bristol; NIHR Bristol Biomedical Research Centre, Bristol, UK",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 6,
+   "given": "Shishir",
+   "family": "Rao",
+   "affiliation": "Deep Medicine, Nuffield Department of Women’s & Reproductive Health, University of Oxford, Oxford, United Kingdom",
+   "email": "",
+   "orcid": "",
+   "corresponding": true
+  },
+  {
+   "author_id": 7,
+   "given": "Kazem",
+   "family": "Rahimi",
+   "affiliation": "Deep Medicine, Nuffield Department of Women’s & Reproductive Health, University of Oxford, Oxford, United Kingdom",
+   "email": "",
+   "orcid": "",
+   "corresponding": true
+  }
+ ],
+ "section": [
+  {
+   "section_id": 1,
+   "section_type": "abstract",
+   "header": "Abstract",
+   "level": 1,
+   "parent_section_id": null,
+   "classification_score": 1.0
+  }
+ ],
+ "text": [
+  {
+   "text_id": 1,
+   "section_id": 1,
+   "paragraph_id": 1,
+   "text": "Target trial emulation (TTE) is increasingly used for causal inference from observational data, but remains vulnerable to confounding by indication, and whether advanced adjustment methods mitigate this bias is unclear. Using Clinical Practice Research Datalink Aurum, we emulate target trials of beta-blockers (positive control) and digoxin (negative control) versus usual care on two-year all-cause mortality in patients with heart failure with reduced ejection fraction. We apply four adjustment strategies: propensity score matching, inverse probability of treatment weighting, targeted maximum likelihood estimation, and a Transformer-based deep learning approach. No method reproduces the randomised controlled trial (RCT) benchmarks: all suggest neutral or harmful effects for beta-blockers and elevated mortality for digoxin. In semi-synthetic simulation, all methods recover the true effects when confounders are observed, yet fail in real-world data. TTE, even with advanced adjustment, may not yield trial-equivalent estimates when confounding is strong; randomised evidence remains essential for clinical and policy decisions.",
+   "page_number": 1
+  }
+ ],
+ "bib": [
+  {
+   "bib_id": 1,
+   "authors": [
+    {
+     "family": "Hernán",
+     "given": "MA"
+    },
+    {
+     "family": "Robins",
+     "given": "JM"
+    }
+   ],
+   "year": "2016",
+   "title": "Using big data to emulate a target trial when a randomized trial is not available",
+   "container": "Am. J. Epidemiol.",
+   "volume": "183",
+   "first_page": "758",
+   "last_page": "764"
+  },
+  {
+   "bib_id": 2,
+   "authors": [
+    {
+     "family": "Hernán",
+     "given": "MA"
+    }
+   ],
+   "year": "2016",
+   "title": "Specifying a target trial prevents immortal time bias and other self-inflicted injuries in observational analyses",
+   "container": "J. Clin. Epidemiol.",
+   "volume": "79",
+   "first_page": "70",
+   "last_page": "75"
+  },
+  {
+   "bib_id": 3
+  },
+  {
+   "bib_id": 4,
+   "authors": [
+    {
+     "family": "Franklin",
+     "given": "JM"
+    }
+   ],
+   "year": "2021",
+   "title": "Emulating randomized clinical trials with nonrandomized real-world evidence studies",
+   "container": "Circulation",
+   "volume": "143",
+   "first_page": "1002",
+   "last_page": "1013"
+  },
+  {
+   "bib_id": 5,
+   "authors": [
+    {
+     "family": "Wang",
+     "given": "SV"
+    }
+   ],
+   "year": "2023",
+   "title": "Emulation of randomized clinical trials with nonrandomized database analyses",
+   "container": "JAMA",
+   "volume": "329",
+   "first_page": "1376"
+  },
+  {
+   "bib_id": 6,
+   "authors": [
+    {
+     "family": "Simon-Tillaux",
+     "given": "N"
+    }
+   ],
+   "year": "2024",
+   "title": "Conducting observational analyses with the target trial emulation approach: a methodological systematic review",
+   "container": "BMJ Open",
+   "volume": "14",
+   "first_page": "e086595"
+  },
+  {
+   "bib_id": 7,
+   "authors": [
+    {
+     "family": "Kaura",
+     "given": "A"
+    }
+   ],
+   "year": "2020",
+   "title": "Invasive versus non-invasive management of older patients with non-ST elevation myocardial infarction (SENIOR-NSTEMI): a cohort study based on routine clinical data",
+   "container": "Lancet",
+   "volume": "396",
+   "first_page": "623",
+   "last_page": "634"
+  },
+  {
+   "bib_id": 8,
+   "authors": [
+    {
+     "family": "Kunadian",
+     "given": "V"
+    }
+   ],
+   "year": "2024",
+   "title": "Invasive treatment strategy for older patients with myocardial infarction",
+   "container": "N. Engl. J. Med.",
+   "volume": "391",
+   "first_page": "1673",
+   "last_page": "1684"
+  },
+  {
+   "bib_id": 9,
+   "authors": [
+    {
+     "family": "Deb",
+     "given": "S"
+    }
+   ],
+   "year": "2016",
+   "title": "A review of propensity-score methods and their use in cardiovascular research",
+   "container": "Can. J. Cardiol.",
+   "volume": "32",
+   "first_page": "259",
+   "last_page": "265"
+  },
+  {
+   "bib_id": 10,
+   "authors": [
+    {
+     "family": "Nguyen",
+     "given": "T"
+    }
+   ],
+   "year": "2017",
+   "title": "Comparison of the ability of double-robust estimators to correct bias in propensity score matching analysis. A Monte Carlo simulation study",
+   "container": "Pharmacoepidemiol. Drug Saf.",
+   "volume": "26",
+   "first_page": "1513",
+   "last_page": "1519"
+  },
+  {
+   "bib_id": 11,
+   "authors": [
+    {
+     "family": "Rao",
+     "given": "S"
+    }
+   ],
+   "year": "2024",
+   "title": "Targeted-BEHRT: deep learning for observational causal inference on longitudinal electronic health records",
+   "container": "IEEE Trans. Neural Netw. Learn Syst.",
+   "volume": "35",
+   "first_page": "5027",
+   "last_page": "5038"
+  },
+  {
+   "bib_id": 12,
+   "authors": [
+    {
+     "family": "Gerhardt",
+     "given": "T"
+    }
+   ],
+   "year": "2023",
+   "title": "Multimorbidity in patients with acute heart failure across world regions and country income levels (REPORT-HF): a prospective, multicentre, global cohort study",
+   "container": "Lancet Glob. Health",
+   "volume": "11",
+   "first_page": "e1874",
+   "last_page": "e1884"
+  },
+  {
+   "bib_id": 13,
+   "authors": [
+    {
+     "family": "Heidenreich",
+     "given": "PA"
+    },
+    {
+     "family": "Lee",
+     "given": "TT"
+    },
+    {
+     "family": "Massie",
+     "given": "BM"
+    }
+   ],
+   "year": "1997",
+   "title": "Effect of beta-blockade on mortality in patients with heart failure: a meta-analysis of randomized clinical trials",
+   "container": "J. Am. Coll. Cardiol.",
+   "volume": "30",
+   "first_page": "27",
+   "last_page": "34"
+  },
+  {
+   "bib_id": 14,
+   "authors": [
+    {
+     "family": "The Digitalis Investigation Group",
+     "given": ""
+    }
+   ],
+   "year": "1997",
+   "title": "The Effect of digoxin on mortality and morbidity in patients with heart failure",
+   "container": "N. Engl. J. Med.",
+   "volume": "336",
+   "first_page": "525",
+   "last_page": "533"
+  },
+  {
+   "bib_id": 15,
+   "authors": [
+    {
+     "family": "Funk",
+     "given": "MJ"
+    }
+   ],
+   "year": "2011",
+   "title": "Doubly robust estimation of causal effects",
+   "container": "Am. J. Epidemiol.",
+   "volume": "173",
+   "first_page": "761",
+   "last_page": "767"
+  },
+  {
+   "bib_id": 16,
+   "authors": [
+    {
+     "family": "Sturmer",
+     "given": "T"
+    }
+   ],
+   "year": "2010",
+   "title": "Treatment effects in the presence of unmeasured confounding: dealing with observations in the tails of the propensity score distribution-a simulation study",
+   "container": "Am. J. Epidemiol.",
+   "volume": "172",
+   "first_page": "843",
+   "last_page": "854"
+  },
+  {
+   "bib_id": 17,
+   "authors": [
+    {
+     "family": "Johnson",
+     "given": "JM"
+    },
+    {
+     "family": "Khoshgoftaar",
+     "given": "TM"
+    }
+   ],
+   "year": "2019",
+   "title": "Survey on deep learning with class imbalance",
+   "container": "J. Big Data",
+   "volume": "6",
+   "first_page": "27"
+  },
+  {
+   "bib_id": 18,
+   "authors": [
+    {
+     "family": "Danaei",
+     "given": "G"
+    }
+   ],
+   "year": "2013",
+   "title": "Observational data for comparative effectiveness research: an emulation of randomised trials of statins and primary prevention of coronary heart disease",
+   "container": "Stat. Methods Med. Res.",
+   "volume": "22",
+   "first_page": "70",
+   "last_page": "96"
+  },
+  {
+   "bib_id": 19,
+   "authors": [
+    {
+     "family": "Antoine",
+     "given": "A"
+    }
+   ],
+   "year": "2023",
+   "title": "Target trial emulation to assess real-world efficacy in the Epidemiological Strategy and Medical Economics metastatic breast cancer cohort",
+   "container": "J. Natl. Cancer Inst.",
+   "volume": "115",
+   "first_page": "971",
+   "last_page": "980"
+  },
+  {
+   "bib_id": 20,
+   "authors": [
+    {
+     "family": "Dickerman",
+     "given": "BA"
+    }
+   ],
+   "year": "2019",
+   "title": "Avoidable flaws in observational analyses: an application to statins and cancer",
+   "container": "Nat. Med.",
+   "volume": "25",
+   "first_page": "1601",
+   "last_page": "1606"
+  },
+  {
+   "bib_id": 21,
+   "authors": [
+    {
+     "family": "Fu",
+     "given": "EL"
+    }
+   ],
+   "year": "2021",
+   "title": "Timing of dialysis initiation to reduce mortality and cardiovascular events in advanced chronic kidney disease: nationwide cohort study",
+   "container": "BMJ",
+   "volume": "375",
+   "first_page": "e066306"
+  },
+  {
+   "bib_id": 22,
+   "authors": [
+    {
+     "family": "Smith",
+     "given": "MJ"
+    }
+   ],
+   "year": "2023",
+   "title": "Application of targeted maximum likelihood estimation in public health and epidemiological studies: a systematic review",
+   "container": "Ann. Epidemiol.",
+   "volume": "86",
+   "first_page": "34",
+   "last_page": "48.e28"
+  },
+  {
+   "bib_id": 23,
+   "authors": [
+    {
+     "family": "Matthews",
+     "given": "AA"
+    }
+   ],
+   "year": "2022",
+   "title": "Target trial emulation: applying principles of randomised trials to observational studies.",
+   "container": "BMJ",
+   "volume": "378",
+   "first_page": "e071108"
+  },
+  {
+   "bib_id": 24,
+   "authors": [
+    {
+     "family": "Bavendiek",
+     "given": "U"
+    }
+   ],
+   "year": "2025",
+   "title": "Digitoxin in patients with heart failure and reduced ejection fraction",
+   "container": "N. Engl. J. Med.",
+   "volume": "393",
+   "first_page": "1155",
+   "last_page": "1165"
+  },
+  {
+   "bib_id": 25,
+   "authors": [
+    {
+     "family": "Aguirre Dávila",
+     "given": "L"
+    }
+   ],
+   "year": "2019",
+   "title": "Digoxin–mortality: randomized vs. observational comparison in the DIG trial",
+   "container": "Eur. Heart J.",
+   "volume": "40",
+   "first_page": "3336",
+   "last_page": "3341"
+  },
+  {
+   "bib_id": 26,
+   "authors": [
+    {
+     "family": "Pearce",
+     "given": "N"
+    },
+    {
+     "family": "Vandenbroucke",
+     "given": "JP"
+    }
+   ],
+   "year": "2023",
+   "title": "Are target trial emulations the gold standard for observational studies?",
+   "container": "Epidemiology",
+   "volume": "34",
+   "first_page": "614",
+   "last_page": "618"
+  },
+  {
+   "bib_id": 27,
+   "authors": [
+    {
+     "family": "Nakao",
+     "given": "YM"
+    }
+   ],
+   "year": "2023",
+   "title": "Prognosis, characteristics, and provision of care for patients with the unspecified heart failure electronic health record phenotype: a population-based linked cohort study of 95262 individuals",
+   "container": "EClinicalMedicine",
+   "volume": "63",
+   "first_page": "102164"
+  },
+  {
+   "bib_id": 28,
+   "authors": [
+    {
+     "family": "Rao",
+     "given": "S"
+    }
+   ],
+   "year": "2026",
+   "title": "A transformer-based survival model for prediction of all-cause mortality in patients with heart failure: a multi-cohort study",
+   "container": "NPJ Digit. Med.",
+   "volume": "9",
+   "first_page": "118"
+  },
+  {
+   "bib_id": 29,
+   "authors": [
+    {
+     "family": "Lund",
+     "given": "JL"
+    },
+    {
+     "family": "Richardson",
+     "given": "DB"
+    },
+    {
+     "family": "Stürmer",
+     "given": "T"
+    }
+   ],
+   "year": "2015",
+   "title": "The active comparator, new user study design in pharmacoepidemiology: historical foundations and contemporary application",
+   "container": "Curr. Epidemiol. Rep.",
+   "volume": "2",
+   "first_page": "221",
+   "last_page": "228"
+  },
+  {
+   "bib_id": 30,
+   "authors": [
+    {
+     "family": "Wolf",
+     "given": "A"
+    }
+   ],
+   "year": "2019",
+   "title": "Data resource profile: Clinical Practice Research Datalink (CPRD) Aurum",
+   "container": "Int J. Epidemiol.",
+   "volume": "48",
+   "first_page": "1740",
+   "last_page": "1740G"
+  },
+  {
+   "bib_id": 31,
+   "authors": [
+    {
+     "family": "Persson",
+     "given": "R"
+    }
+   ],
+   "year": "2020",
+   "title": "CPRD Aurum database: assessment of data quality and completeness of three important comorbidities",
+   "container": "Pharmacoepidemiol. Drug Saf.",
+   "volume": "29",
+   "first_page": "1456",
+   "last_page": "1464"
+  },
+  {
+   "bib_id": 32,
+   "authors": [
+    {
+     "family": "Cashin",
+     "given": "AG"
+    }
+   ],
+   "year": "2025",
+   "title": "Transparent reporting of observational studies emulating a target trial—the TARGET statement",
+   "container": "JAMA",
+   "volume": "334",
+   "first_page": "1084",
+   "last_page": "1093"
+  },
+  {
+   "bib_id": 33,
+   "authors": [
+    {
+     "family": "Rich",
+     "given": "MW"
+    }
+   ],
+   "year": "2001",
+   "title": "Effect of age on mortality, hospitalizations and response to digoxin in patients with heart failure: the DIG study",
+   "container": "J. Am. Coll. Cardiol.",
+   "volume": "38",
+   "first_page": "806",
+   "last_page": "813"
+  },
+  {
+   "bib_id": 34,
+   "authors": [
+    {
+     "family": "Lund",
+     "given": "LH"
+    }
+   ],
+   "year": "2014",
+   "title": "Association between use of β-blockers and outcomes in patients with heart failure and preserved ejection fraction",
+   "container": "JAMA",
+   "volume": "312",
+   "first_page": "2008"
+  },
+  {
+   "bib_id": 35,
+   "authors": [
+    {
+     "family": "Buuren",
+     "given": "S"
+    },
+    {
+     "family": "Groothuis-Oudshoorn",
+     "given": "K"
+    }
+   ],
+   "year": "2011",
+   "title": "Mice: multivariate imputation by chained equations in R",
+   "container": "J. Stat. Softw.",
+   "volume": "45",
+   "first_page": "1",
+   "last_page": "67"
+  },
+  {
+   "bib_id": 36,
+   "authors": [
+    {
+     "family": "Sterne",
+     "given": "JAC"
+    }
+   ],
+   "year": "2009",
+   "title": "Multiple imputation for missing data in epidemiological and clinical research: potential and pitfalls",
+   "container": "BMJ",
+   "volume": "338",
+   "first_page": "157",
+   "last_page": "160"
+  },
+  {
+   "bib_id": 37,
+   "authors": [
+    {
+     "family": "Lin",
+     "given": "DY"
+    },
+    {
+     "family": "Wei",
+     "given": "LJ"
+    }
+   ],
+   "year": "1989",
+   "title": "The robust inference for the Cox proportional hazards model",
+   "container": "J. Am. Stat. Assoc.",
+   "volume": "84",
+   "first_page": "1074"
+  },
+  {
+   "bib_id": 38,
+   "authors": [
+    {
+     "family": "ROSENBAUM",
+     "given": "PR"
+    },
+    {
+     "family": "RUBIN",
+     "given": "DB"
+    }
+   ],
+   "year": "1983",
+   "title": "The central role of the propensity score in observational studies for causal effects",
+   "container": "Biometrika",
+   "volume": "70",
+   "first_page": "41",
+   "last_page": "55"
+  },
+  {
+   "bib_id": 39,
+   "authors": [
+    {
+     "family": "Austin",
+     "given": "PC"
+    }
+   ],
+   "year": "2009",
+   "title": "Balance diagnostics for comparing the distribution of baseline covariates between treatment groups in propensity-score matched samples",
+   "container": "Stat. Med.",
+   "volume": "28",
+   "first_page": "3083",
+   "last_page": "3107"
+  },
+  {
+   "bib_id": 40,
+   "authors": [
+    {
+     "family": "Chesnaye",
+     "given": "NC"
+    }
+   ],
+   "year": "2022",
+   "title": "An introduction to inverse probability of treatment weighting in observational research",
+   "container": "Clin. Kidney J.",
+   "volume": "15",
+   "first_page": "14",
+   "last_page": "20"
+  },
+  {
+   "bib_id": 41,
+   "authors": [
+    {
+     "family": "Xu",
+     "given": "S"
+    }
+   ],
+   "year": "2010",
+   "title": "Use of stabilized inverse propensity scores as weights to directly estimate relative risk and its confidence intervals",
+   "container": "Value Health",
+   "volume": "13",
+   "first_page": "273",
+   "last_page": "277"
+  },
+  {
+   "bib_id": 42,
+   "authors": [
+    {
+     "family": "Fan",
+     "given": "Z"
+    }
+   ],
+   "year": "2025",
+   "title": "Identification of heart failure subtypes using transformer-based deep learning modelling: a population-based study of 379,108 individuals",
+   "container": "EBioMedicine",
+   "volume": "114",
+   "first_page": "105657"
+  },
+  {
+   "bib_id": 43,
+   "authors": [
+    {
+     "family": "Rao",
+     "given": "S"
+    }
+   ],
+   "year": "2023",
+   "title": "Sodium-based paracetamol: impact on blood pressure, cardiovascular events, and all-cause mortality",
+   "container": "Eur. Heart J.",
+   "volume": "44",
+   "first_page": "4448",
+   "last_page": "4457"
+  },
+  {
+   "bib_id": 44,
+   "authors": [
+    {
+     "family": "Kotecha",
+     "given": "D"
+    }
+   ],
+   "year": "2014",
+   "title": "Efficacy of β blockers in patients with heart failure plus atrial fibrillation: an individual-patient data meta-analysis",
+   "container": "Lancet",
+   "volume": "384",
+   "first_page": "2235",
+   "last_page": "2243"
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-core-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "jats_doi": "10.1038/s41467-026-74999-6"
+ }
+}

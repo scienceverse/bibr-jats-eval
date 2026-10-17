@@ -1,0 +1,1874 @@
+{
+ "paper_id": "10.1371_journal.pcbi.1014309",
+ "info": {
+  "title": "Using iPALM to determine protein organisation in cardiac muscle Z-discs",
+  "doi": "10.1371/journal.pcbi.1014309",
+  "file_name": "10.1371_journal.pcbi.1014309.pdf",
+  "abstract": "Sarcomeres, the basic repeating unit of striated muscle, are joined together by crosslinked actin filaments found at the boundaries of muscle sarcomeres, termed Z-discs. Z-discs play a key role in cardiac signalling and disease, however, the arrangement and function of many of the proteins present in the Z-disc remain to be understood. Here, we determined the organisation of 3 key proteins, ZASP, ɑ-actinin-2 and the Z1Z2 epitope of titin, located within the Z-disc. We fluorescently labelled these proteins in cardiac myofibrils using Adhirons specific to each protein and used interferometric photoactivated localization microscopy (iPALM) to obtain the 3D position of these proteins to a high precision (<10nm in x,y,z). We then used PERPL (Pattern Extraction from Relative Positions of Localisations: available at https://github.com/oubino/z_disk/releases/tag/v0.0.3) to analyse patterns in the relative positions of the proteins and reveal their underlying organisation. This analysis revealed that ZASP and ɑ-actinin-2 have a similar repeating organisation, but that the organisation of Z1Z2 is different."
+ },
+ "author": [
+  {
+   "author_id": 1,
+   "given": "Oliver",
+   "family": "Umney",
+   "affiliation": "School of Molecular and Cellular Biology, Faculty of Biological Sciences, University of Leeds, Leeds, United Kingdom",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 2,
+   "given": "Alistair P.",
+   "family": "Curd",
+   "affiliation": "School of Molecular and Cellular Biology, Faculty of Biological Sciences, University of Leeds, Leeds, United Kingdom; Engineering and Physical Sciences Faculty Services, Faculty of Engineering and Physical Sciences, University of Leeds, Leeds, United Kingdom",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 3,
+   "given": "Heather L.",
+   "family": "Martin",
+   "affiliation": "School of Molecular and Cellular Biology, Faculty of Biological Sciences, University of Leeds, Leeds, United Kingdom",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 4,
+   "given": "Tarek",
+   "family": "Lewis",
+   "affiliation": "School of Molecular and Cellular Biology, Faculty of Biological Sciences, University of Leeds, Leeds, United Kingdom; Astbury Centre for Structural and Molecular Biology University of Leeds, Leeds, United Kingdom",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 5,
+   "given": "Anna Ah-San",
+   "family": "Tang",
+   "affiliation": "School of Molecular and Cellular Biology, Faculty of Biological Sciences, University of Leeds, Leeds, United Kingdom; Astbury Centre for Structural and Molecular Biology University of Leeds, Leeds, United Kingdom",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 6,
+   "given": "Thembaninkosi",
+   "family": "Gaule",
+   "affiliation": "School of Molecular and Cellular Biology, Faculty of Biological Sciences, University of Leeds, Leeds, United Kingdom; Astbury Centre for Structural and Molecular Biology University of Leeds, Leeds, United Kingdom",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 7,
+   "given": "Iain W.",
+   "family": "Manfield",
+   "affiliation": "School of Molecular and Cellular Biology, Faculty of Biological Sciences, University of Leeds, Leeds, United Kingdom; Astbury Centre for Structural and Molecular Biology University of Leeds, Leeds, United Kingdom",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 8,
+   "given": "Harikrushnan",
+   "family": "Balasubramanian",
+   "affiliation": "Advanced Imaging Center, Janelia Research Campus, Howard Hughes Medical Institute, Ashburn, United States of America",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 9,
+   "given": "Satya",
+   "family": "Khuon",
+   "affiliation": "Advanced Imaging Center, Janelia Research Campus, Howard Hughes Medical Institute, Ashburn, United States of America",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 10,
+   "given": "Jesse",
+   "family": "Aaron",
+   "affiliation": "Advanced Imaging Center, Janelia Research Campus, Howard Hughes Medical Institute, Ashburn, United States of America",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 11,
+   "given": "Michelle",
+   "family": "Peckham",
+   "affiliation": "School of Molecular and Cellular Biology, Faculty of Biological Sciences, University of Leeds, Leeds, United Kingdom; Astbury Centre for Structural and Molecular Biology University of Leeds, Leeds, United Kingdom",
+   "email": "",
+   "orcid": "",
+   "corresponding": true
+  }
+ ],
+ "section": [
+  {
+   "section_id": 1,
+   "section_type": "abstract",
+   "header": "Abstract",
+   "level": 1,
+   "parent_section_id": null,
+   "classification_score": 1.0
+  }
+ ],
+ "text": [
+  {
+   "text_id": 1,
+   "section_id": 1,
+   "paragraph_id": 1,
+   "text": "Sarcomeres, the basic repeating unit of striated muscle, are joined together by crosslinked actin filaments found at the boundaries of muscle sarcomeres, termed Z-discs. Z-discs play a key role in cardiac signalling and disease, however, the arrangement and function of many of the proteins present in the Z-disc remain to be understood. Here, we determined the organisation of 3 key proteins, ZASP, ɑ-actinin-2 and the Z1Z2 epitope of titin, located within the Z-disc. We fluorescently labelled these proteins in cardiac myofibrils using Adhirons specific to each protein and used interferometric photoactivated localization microscopy (iPALM) to obtain the 3D position of these proteins to a high precision (<10nm in x,y,z). We then used PERPL (Pattern Extraction from Relative Positions of Localisations: available at https://github.com/oubino/z_disk/releases/tag/v0.0.3) to analyse patterns in the relative positions of the proteins and reveal their underlying organisation. This analysis revealed that ZASP and ɑ-actinin-2 have a similar repeating organisation, but that the organisation of Z1Z2 is different.",
+   "page_number": 1
+  }
+ ],
+ "bib": [
+  {
+   "bib_id": 1,
+   "authors": [
+    {
+     "family": "Reimann",
+     "given": "L"
+    },
+    {
+     "family": "Wiese",
+     "given": "H"
+    },
+    {
+     "family": "Leber",
+     "given": "Y"
+    },
+    {
+     "family": "Schwäble",
+     "given": "AN"
+    },
+    {
+     "family": "Fricke",
+     "given": "AL"
+    },
+    {
+     "family": "Rohland",
+     "given": "A"
+    }
+   ],
+   "year": "2017",
+   "title": "Myofibrillar Z-discs are a protein phosphorylation hot spot with protein kinase C (PKCα) modulating protein dynamics",
+   "container": "Mol Cell Proteomics",
+   "volume": "16",
+   "first_page": "346",
+   "doi": "10.1074/mcp.M116.065425"
+  },
+  {
+   "bib_id": 2,
+   "authors": [
+    {
+     "family": "Frank",
+     "given": "D"
+    },
+    {
+     "family": "Frey",
+     "given": "N"
+    }
+   ],
+   "year": "2011",
+   "title": "Cardiac Z-disc signaling network",
+   "container": "J Biol Chem",
+   "volume": "286",
+   "first_page": "9897",
+   "doi": "10.1074/jbc.R110.174268"
+  },
+  {
+   "bib_id": 3,
+   "authors": [
+    {
+     "family": "Wadmore",
+     "given": "K"
+    },
+    {
+     "family": "Azad",
+     "given": "AJ"
+    },
+    {
+     "family": "Gehmlich",
+     "given": "K"
+    }
+   ],
+   "year": "2021",
+   "title": "The role of Z-disc proteins in myopathy and cardiomyopathy",
+   "container": "Int J Mol Sci",
+   "volume": "22",
+   "first_page": "3058",
+   "doi": "10.3390/ijms22063058"
+  },
+  {
+   "bib_id": 4,
+   "authors": [
+    {
+     "family": "Schöck",
+     "given": "F"
+    },
+    {
+     "family": "González-Morales",
+     "given": "N"
+    }
+   ],
+   "year": "2022",
+   "title": "The insect perspective on Z-disc structure and biology",
+   "container": "J Cell Sci",
+   "volume": "135",
+   "doi": "10.1242/jcs.260179"
+  },
+  {
+   "bib_id": 5,
+   "authors": [
+    {
+     "family": "Luther",
+     "given": "PK"
+    }
+   ],
+   "year": "2009",
+   "title": "The vertebrate muscle Z-disc: sarcomere anchor for structure and signalling",
+   "container": "J Muscle Res Cell Motil",
+   "volume": "30",
+   "first_page": "171",
+   "doi": "10.1007/s10974-009-9189-6"
+  },
+  {
+   "bib_id": 6,
+   "authors": [
+    {
+     "family": "Goldstein",
+     "given": "MA"
+    },
+    {
+     "family": "Michael",
+     "given": "LH"
+    },
+    {
+     "family": "Schroeter",
+     "given": "JP"
+    },
+    {
+     "family": "Sass",
+     "given": "RL"
+    }
+   ],
+   "year": "1988",
+   "title": "Structural states in the Z band of skeletal muscle correlate with states of active and passive tension",
+   "container": "J Gen Physiol",
+   "volume": "92",
+   "first_page": "113",
+   "doi": "10.1085/jgp.92.1.113"
+  },
+  {
+   "bib_id": 7,
+   "authors": [
+    {
+     "family": "Perz-Edwards",
+     "given": "RJ"
+    },
+    {
+     "family": "Reedy",
+     "given": "MK"
+    }
+   ],
+   "year": "2011",
+   "title": "Electron microscopy and x-ray diffraction evidence for two Z-band structural states",
+   "container": "Biophys J",
+   "volume": "101",
+   "first_page": "709",
+   "doi": "10.1016/j.bpj.2011.06.024"
+  },
+  {
+   "bib_id": 8,
+   "authors": [
+    {
+     "family": "Yamaguchi",
+     "given": "M"
+    },
+    {
+     "family": "Izumimoto",
+     "given": "M"
+    },
+    {
+     "family": "Robson",
+     "given": "RM"
+    },
+    {
+     "family": "Stromer",
+     "given": "MH"
+    }
+   ],
+   "year": "1985",
+   "title": "Fine structure of wide and narrow vertebrate muscle Z-lines. A proposed model and computer simulation of Z-line architecture",
+   "container": "J Mol Biol",
+   "volume": "184",
+   "first_page": "621",
+   "doi": "10.1016/0022-2836(85)90308-0"
+  },
+  {
+   "bib_id": 9,
+   "authors": [
+    {
+     "family": "Oda",
+     "given": "T"
+    },
+    {
+     "family": "Yanagisawa",
+     "given": "H"
+    }
+   ],
+   "year": "2020",
+   "title": "Cryo-electron tomography of cardiac myofibrils reveals a 3D lattice spring within the Z-discs",
+   "container": "Commun Biol",
+   "volume": "3",
+   "first_page": "585",
+   "doi": "10.1038/s42003-020-01321-5"
+  },
+  {
+   "bib_id": 10,
+   "authors": [
+    {
+     "family": "Edwards",
+     "given": "RJ"
+    },
+    {
+     "family": "Goldstein",
+     "given": "MA"
+    },
+    {
+     "family": "Schroeter",
+     "given": "JP"
+    },
+    {
+     "family": "Sass",
+     "given": "RL"
+    }
+   ],
+   "year": "1989",
+   "title": "The Z-band lattice in skeletal muscle in rigor",
+   "container": "J Ultrastruct Mol Struct Res",
+   "volume": "102",
+   "first_page": "59",
+   "last_page": "65",
+   "doi": "10.1016/0889-1605(89)90033-5"
+  },
+  {
+   "bib_id": 11,
+   "authors": [
+    {
+     "family": "Burgoyne",
+     "given": "T"
+    },
+    {
+     "family": "Morris",
+     "given": "EP"
+    },
+    {
+     "family": "Luther",
+     "given": "PK"
+    }
+   ],
+   "year": "2015",
+   "title": "Three-dimensional structure of vertebrate muscle Z-band: the small-square lattice Z-band in rat cardiac muscle",
+   "container": "J Mol Biol",
+   "volume": "427",
+   "first_page": "3527",
+   "doi": "10.1016/j.jmb.2015.08.018"
+  },
+  {
+   "bib_id": 12,
+   "authors": [
+    {
+     "family": "Rusu",
+     "given": "M"
+    },
+    {
+     "family": "Hu",
+     "given": "Z"
+    },
+    {
+     "family": "Taylor",
+     "given": "KA"
+    },
+    {
+     "family": "Trinick",
+     "given": "J"
+    }
+   ],
+   "year": "2017",
+   "title": "Structure of isolated Z-disks from honeybee flight muscle",
+   "container": "J Muscle Res Cell Motil",
+   "volume": "38",
+   "first_page": "241",
+   "doi": "10.1007/s10974-017-9477-5"
+  },
+  {
+   "bib_id": 13,
+   "authors": [
+    {
+     "family": "Wang",
+     "given": "Z"
+    },
+    {
+     "family": "Grange",
+     "given": "M"
+    },
+    {
+     "family": "Wagner",
+     "given": "T"
+    },
+    {
+     "family": "Kho",
+     "given": "AL"
+    },
+    {
+     "family": "Gautel",
+     "given": "M"
+    },
+    {
+     "family": "Raunser",
+     "given": "S"
+    }
+   ],
+   "year": "2021",
+   "title": "The molecular basis for sarcomere organization in vertebrate skeletal muscle",
+   "container": "Cell",
+   "volume": "184",
+   "doi": "10.1016/j.cell.2021.02.047"
+  },
+  {
+   "bib_id": 14,
+   "authors": [
+    {
+     "family": "Gustafsson",
+     "given": "MG"
+    }
+   ],
+   "year": "2000",
+   "title": "Surpassing the lateral resolution limit by a factor of two using structured illumination microscopy",
+   "container": "J Microsc",
+   "volume": "198",
+   "first_page": "82",
+   "doi": "10.1046/j.1365-2818.2000.00710.x"
+  },
+  {
+   "bib_id": 15,
+   "authors": [
+    {
+     "family": "Radmacher",
+     "given": "N"
+    },
+    {
+     "family": "Chizhik",
+     "given": "AI"
+    },
+    {
+     "family": "Nevskyi",
+     "given": "O"
+    },
+    {
+     "family": "Gallea",
+     "given": "JI"
+    },
+    {
+     "family": "Gregor",
+     "given": "I"
+    },
+    {
+     "family": "Enderlein",
+     "given": "J"
+    }
+   ],
+   "year": "2025",
+   "title": "Molecular level super-resolution fluorescence imaging",
+   "container": "Ann Rev Biophy",
+   "volume": "54",
+   "first_page": "163",
+   "doi": "10.1146/annurev-biophys-071524-105321"
+  },
+  {
+   "bib_id": 16,
+   "authors": [
+    {
+     "family": "Liu",
+     "given": "S"
+    },
+    {
+     "family": "Hoess",
+     "given": "P"
+    },
+    {
+     "family": "Ries",
+     "given": "J"
+    }
+   ],
+   "year": "2022",
+   "title": "Super-resolution microscopy for structural cell biology",
+   "container": "Annu Rev Biophys",
+   "volume": "51",
+   "first_page": "301",
+   "doi": "10.1146/annurev-biophys-102521-112912"
+  },
+  {
+   "bib_id": 17,
+   "authors": [
+    {
+     "family": "Schnermann",
+     "given": "MJ"
+    },
+    {
+     "family": "Lavis",
+     "given": "LD"
+    }
+   ],
+   "year": "2023",
+   "title": "Rejuvenating old fluorophores with new chemistry",
+   "container": "Curr Opin Chem Biol",
+   "volume": "75",
+   "first_page": "102335",
+   "doi": "10.1016/j.cbpa.2023.102335"
+  },
+  {
+   "bib_id": 18,
+   "authors": [
+    {
+     "family": "Kanchanawong",
+     "given": "P"
+    },
+    {
+     "family": "Shtengel",
+     "given": "G"
+    },
+    {
+     "family": "Pasapera",
+     "given": "AM"
+    },
+    {
+     "family": "Ramko",
+     "given": "EB"
+    },
+    {
+     "family": "Davidson",
+     "given": "MW"
+    },
+    {
+     "family": "Hess",
+     "given": "HF"
+    }
+   ],
+   "year": "2010",
+   "title": "Nanoscale architecture of integrin-based cell adhesions",
+   "container": "Nature",
+   "volume": "468",
+   "first_page": "580",
+   "doi": "10.1038/nature09621"
+  },
+  {
+   "bib_id": 19,
+   "authors": [
+    {
+     "family": "Mund",
+     "given": "M"
+    },
+    {
+     "family": "van der Beek",
+     "given": "JA"
+    },
+    {
+     "family": "Deschamps",
+     "given": "J"
+    },
+    {
+     "family": "Dmitrieff",
+     "given": "S"
+    },
+    {
+     "family": "Hoess",
+     "given": "P"
+    },
+    {
+     "family": "Monster",
+     "given": "JL"
+    }
+   ],
+   "year": "2018",
+   "title": "Systematic nanoscale analysis of endocytosis links efficient vesicle formation to patterned actin nucleation",
+   "container": "Cell",
+   "volume": "174",
+   "doi": "10.1016/j.cell.2018.06.032"
+  },
+  {
+   "bib_id": 20,
+   "authors": [
+    {
+     "family": "Shtengel",
+     "given": "G"
+    },
+    {
+     "family": "Galbraith",
+     "given": "JA"
+    },
+    {
+     "family": "Galbraith",
+     "given": "CG"
+    },
+    {
+     "family": "Lippincott-Schwartz",
+     "given": "J"
+    },
+    {
+     "family": "Gillette",
+     "given": "JM"
+    },
+    {
+     "family": "Manley",
+     "given": "S"
+    }
+   ],
+   "year": "2009",
+   "title": "Interferometric fluorescent super-resolution microscopy resolves 3D cellular ultrastructure",
+   "container": "Proc Natl Acad Sci U S A",
+   "volume": "106",
+   "first_page": "3125",
+   "doi": "10.1073/pnas.0813131106"
+  },
+  {
+   "bib_id": 21,
+   "authors": [
+    {
+     "family": "Früh",
+     "given": "SM"
+    },
+    {
+     "family": "Matti",
+     "given": "U"
+    },
+    {
+     "family": "Spycher",
+     "given": "PR"
+    },
+    {
+     "family": "Rubini",
+     "given": "M"
+    },
+    {
+     "family": "Lickert",
+     "given": "S"
+    },
+    {
+     "family": "Schlichthaerle",
+     "given": "T"
+    }
+   ],
+   "year": "2021",
+   "title": "Site-specifically-labeled antibodies for super-resolution microscopy reveal in situ linkage errors",
+   "container": "ACS Nano",
+   "volume": "15",
+   "first_page": "12161",
+   "doi": "10.1021/acsnano.1c03677"
+  },
+  {
+   "bib_id": 22,
+   "authors": [
+    {
+     "family": "Carrington",
+     "given": "G"
+    },
+    {
+     "family": "Tomlinson",
+     "given": "D"
+    },
+    {
+     "family": "Peckham",
+     "given": "M"
+    }
+   ],
+   "year": "2019",
+   "title": "Exploiting nanobodies and Affimers for superresolution imaging in light microscopy",
+   "container": "Mol Biol Cell",
+   "volume": "30",
+   "first_page": "2737",
+   "doi": "10.1091/mbc.E18-11-0694"
+  },
+  {
+   "bib_id": 23,
+   "authors": [
+    {
+     "family": "Cordell",
+     "given": "P"
+    },
+    {
+     "family": "Carrington",
+     "given": "G"
+    },
+    {
+     "family": "Curd",
+     "given": "A"
+    },
+    {
+     "family": "Parker",
+     "given": "F"
+    },
+    {
+     "family": "Tomlinson",
+     "given": "D"
+    },
+    {
+     "family": "Peckham",
+     "given": "M"
+    }
+   ],
+   "year": "2022",
+   "title": "Affimers and nanobodies as molecular probes and their applications in imaging",
+   "container": "J Cell Sci",
+   "volume": "135",
+   "doi": "10.1242/jcs.259168"
+  },
+  {
+   "bib_id": 24,
+   "authors": [
+    {
+     "family": "Tiede",
+     "given": "C"
+    },
+    {
+     "family": "Tang",
+     "given": "AAS"
+    },
+    {
+     "family": "Deacon",
+     "given": "SE"
+    },
+    {
+     "family": "Mandal",
+     "given": "U"
+    },
+    {
+     "family": "Nettleship",
+     "given": "JE"
+    },
+    {
+     "family": "Owen",
+     "given": "RL"
+    }
+   ],
+   "year": "2014",
+   "title": "Adhiron: a stable and versatile peptide display scaffold for molecular recognition applications",
+   "container": "Protein Eng Des Sel",
+   "volume": "27",
+   "first_page": "145",
+   "doi": "10.1093/protein/gzu007"
+  },
+  {
+   "bib_id": 25,
+   "authors": [
+    {
+     "family": "Tiede",
+     "given": "C"
+    },
+    {
+     "family": "Bedford",
+     "given": "R"
+    },
+    {
+     "family": "Heseltine",
+     "given": "SJ"
+    },
+    {
+     "family": "Smith",
+     "given": "G"
+    },
+    {
+     "family": "Wijetunga",
+     "given": "I"
+    },
+    {
+     "family": "Ross",
+     "given": "R"
+    }
+   ],
+   "year": "2017",
+   "title": "Affimer proteins are versatile and renewable affinity reagents",
+   "container": "Elife",
+   "volume": "6",
+   "doi": "10.7554/eLife.24903"
+  },
+  {
+   "bib_id": 26,
+   "authors": [
+    {
+     "family": "Curd",
+     "given": "AP"
+    },
+    {
+     "family": "Leng",
+     "given": "J"
+    },
+    {
+     "family": "Hughes",
+     "given": "RE"
+    },
+    {
+     "family": "Cleasby",
+     "given": "AJ"
+    },
+    {
+     "family": "Rogers",
+     "given": "B"
+    },
+    {
+     "family": "Trinh",
+     "given": "CH"
+    }
+   ],
+   "year": "2021",
+   "title": "Nanoscale pattern extraction from relative positions of sparse 3D localizations",
+   "container": "Nano Lett",
+   "volume": "21",
+   "first_page": "1213",
+   "doi": "10.1021/acs.nanolett.0c03332"
+  },
+  {
+   "bib_id": 27,
+   "authors": [
+    {
+     "family": "Parker",
+     "given": "F"
+    },
+    {
+     "family": "Tang",
+     "given": "AAS"
+    },
+    {
+     "family": "Rogers",
+     "given": "B"
+    },
+    {
+     "family": "Carrington",
+     "given": "G"
+    },
+    {
+     "family": "Dos Remedios",
+     "given": "C"
+    },
+    {
+     "family": "Li",
+     "given": "A"
+    }
+   ],
+   "year": "2023",
+   "title": "Affimers targeting proteins in the cardiomyocyte Z-disc: Novel tools that improve imaging of heart tissue",
+   "container": "Front Cardiovasc Med",
+   "volume": "10",
+   "first_page": "1094563",
+   "doi": "10.3389/fcvm.2023.1094563"
+  },
+  {
+   "bib_id": 28,
+   "authors": [
+    {
+     "family": "Tskhovrebova",
+     "given": "L"
+    },
+    {
+     "family": "Trinick",
+     "given": "J"
+    }
+   ],
+   "year": "2003",
+   "title": "Titin: properties and family relationships",
+   "container": "Nat Rev Mol Cell Biol",
+   "volume": "4",
+   "first_page": "679",
+   "doi": "10.1038/nrm1198"
+  },
+  {
+   "bib_id": 29,
+   "authors": [
+    {
+     "family": "Gregorio",
+     "given": "CC"
+    },
+    {
+     "family": "Trombitás",
+     "given": "K"
+    },
+    {
+     "family": "Centner",
+     "given": "T"
+    },
+    {
+     "family": "Kolmerer",
+     "given": "B"
+    },
+    {
+     "family": "Stier",
+     "given": "G"
+    },
+    {
+     "family": "Kunke",
+     "given": "K"
+    }
+   ],
+   "year": "1998",
+   "title": "The NH2 terminus of titin spans the Z-disc: its interaction with a novel 19-kD ligand (T-cap) is required for sarcomeric integrity",
+   "container": "J Cell Biol",
+   "volume": "143",
+   "first_page": "1013",
+   "doi": "10.1083/jcb.143.4.1013"
+  },
+  {
+   "bib_id": 30,
+   "authors": [
+    {
+     "family": "Gautel",
+     "given": "M"
+    },
+    {
+     "family": "Goulding",
+     "given": "D"
+    },
+    {
+     "family": "Bullard",
+     "given": "B"
+    },
+    {
+     "family": "Weber",
+     "given": "K"
+    },
+    {
+     "family": "Fürst",
+     "given": "DO"
+    }
+   ],
+   "year": "1996",
+   "title": "The central Z-disk region of titin is assembled from a novel repeat in variable copy numbers",
+   "container": "J Cell Sci",
+   "first_page": "2747",
+   "doi": "10.1242/jcs.109.11.2747"
+  },
+  {
+   "bib_id": 31,
+   "authors": [
+    {
+     "family": "Faulkner",
+     "given": "G"
+    },
+    {
+     "family": "Pallavicini",
+     "given": "A"
+    },
+    {
+     "family": "Formentin",
+     "given": "E"
+    },
+    {
+     "family": "Comelli",
+     "given": "A"
+    },
+    {
+     "family": "Ievolella",
+     "given": "C"
+    },
+    {
+     "family": "Trevisan",
+     "given": "S"
+    }
+   ],
+   "year": "1999",
+   "title": "ZASP: a new Z-band alternatively spliced PDZ-motif protein",
+   "container": "J Cell Biol",
+   "volume": "146",
+   "first_page": "465",
+   "doi": "10.1083/jcb.146.2.465"
+  },
+  {
+   "bib_id": 32,
+   "authors": [
+    {
+     "family": "Abramson",
+     "given": "J"
+    },
+    {
+     "family": "Adler",
+     "given": "J"
+    },
+    {
+     "family": "Dunger",
+     "given": "J"
+    },
+    {
+     "family": "Evans",
+     "given": "R"
+    },
+    {
+     "family": "Green",
+     "given": "T"
+    },
+    {
+     "family": "Pritzel",
+     "given": "A"
+    }
+   ],
+   "year": "2024",
+   "title": "Accurate structure prediction of biomolecular interactions with AlphaFold 3",
+   "container": "Nature",
+   "volume": "630",
+   "first_page": "493",
+   "last_page": "500",
+   "doi": "10.1038/s41586-024-07487-w"
+  },
+  {
+   "bib_id": 33,
+   "authors": [
+    {
+     "family": "Berg",
+     "given": "S"
+    },
+    {
+     "family": "Kutra",
+     "given": "D"
+    },
+    {
+     "family": "Kroeger",
+     "given": "T"
+    },
+    {
+     "family": "Straehle",
+     "given": "CN"
+    },
+    {
+     "family": "Kausler",
+     "given": "BX"
+    },
+    {
+     "family": "Haubold",
+     "given": "C"
+    }
+   ],
+   "year": "2019",
+   "title": "ilastik: interactive machine learning for (bio)image analysis",
+   "container": "Nat Methods",
+   "volume": "16",
+   "first_page": "1226",
+   "doi": "10.1038/s41592-019-0582-9"
+  },
+  {
+   "bib_id": 34,
+   "authors": [
+    {
+     "family": "Umney",
+     "given": "O"
+    },
+    {
+     "family": "Leng",
+     "given": "J"
+    },
+    {
+     "family": "Canettieri",
+     "given": "G"
+    },
+    {
+     "family": "Galdo",
+     "given": "NAR-D"
+    },
+    {
+     "family": "Slaney",
+     "given": "H"
+    },
+    {
+     "family": "Quirke",
+     "given": "P"
+    }
+   ],
+   "year": "2024",
+   "title": "Annotation and automated segmentation of single-molecule localisation microscopy data",
+   "container": "J Microsc",
+   "volume": "296",
+   "first_page": "214",
+   "doi": "10.1111/jmi.13349"
+  },
+  {
+   "bib_id": 35,
+   "authors": [
+    {
+     "family": "Gonzalez-Morales",
+     "given": "N"
+    },
+    {
+     "family": "Xiao",
+     "given": "YS"
+    },
+    {
+     "family": "Schilling",
+     "given": "MA"
+    },
+    {
+     "family": "Marescal",
+     "given": "O"
+    },
+    {
+     "family": "Liao",
+     "given": "KA"
+    },
+    {
+     "family": "Schock",
+     "given": "F"
+    }
+   ],
+   "year": "2019",
+   "title": "Myofibril diameter is set by a finely tuned mechanism of protein oligomerization in Drosophila",
+   "container": "Elife",
+   "doi": "10.7554/eLife.50496"
+  },
+  {
+   "bib_id": 36,
+   "authors": [
+    {
+     "family": "Curd",
+     "given": "A"
+    },
+    {
+     "family": "Cleasby",
+     "given": "A"
+    },
+    {
+     "family": "Baird",
+     "given": "M"
+    },
+    {
+     "family": "Peckham",
+     "given": "M"
+    }
+   ],
+   "year": "2024",
+   "title": "Modelling 3D supramolecular structure from sparse single-molecule localisation microscopy data",
+   "container": "J Microsc",
+   "volume": "296",
+   "first_page": "115",
+   "doi": "10.1111/jmi.13236"
+  },
+  {
+   "bib_id": 37,
+   "authors": [
+    {
+     "family": "Atkinson",
+     "given": "RA"
+    },
+    {
+     "family": "Joseph",
+     "given": "C"
+    },
+    {
+     "family": "Kelly",
+     "given": "G"
+    },
+    {
+     "family": "Muskett",
+     "given": "FW"
+    },
+    {
+     "family": "Frenkiel",
+     "given": "TA"
+    },
+    {
+     "family": "Nietlispach",
+     "given": "D"
+    }
+   ],
+   "year": "2001",
+   "title": "Ca2+-independent binding of an EF-hand domain to a novel motif in the alpha-actinin-titin complex",
+   "container": "Nat Struct Biol",
+   "volume": "8",
+   "first_page": "853",
+   "doi": "10.1038/nsb1001-853"
+  },
+  {
+   "bib_id": 38,
+   "authors": [
+    {
+     "family": "Yajima",
+     "given": "H"
+    },
+    {
+     "family": "Ohtsuka",
+     "given": "H"
+    },
+    {
+     "family": "Kawamura",
+     "given": "Y"
+    },
+    {
+     "family": "Kume",
+     "given": "H"
+    },
+    {
+     "family": "Murayama",
+     "given": "T"
+    },
+    {
+     "family": "Abe",
+     "given": "H"
+    }
+   ],
+   "year": "1996",
+   "title": "A 11.5-kb 5’-terminal cDNA sequence of chicken breast muscle connectin/titin reveals its Z line binding region",
+   "container": "Biochem Biophys Res Commun",
+   "volume": "223",
+   "first_page": "160",
+   "doi": "10.1006/bbrc.1996.0862"
+  },
+  {
+   "bib_id": 39,
+   "authors": [
+    {
+     "family": "Fürst",
+     "given": "DO"
+    },
+    {
+     "family": "Osborn",
+     "given": "M"
+    },
+    {
+     "family": "Nave",
+     "given": "R"
+    },
+    {
+     "family": "Weber",
+     "given": "K"
+    }
+   ],
+   "year": "1988",
+   "title": "The organization of titin filaments in the half-sarcomere revealed by monoclonal antibodies in immunoelectron microscopy: a map of ten nonrepetitive epitopes starting at the Z line extends close to the M line",
+   "container": "J Cell Biol",
+   "volume": "106",
+   "first_page": "1563",
+   "doi": "10.1083/jcb.106.5.1563"
+  },
+  {
+   "bib_id": 40,
+   "authors": [
+    {
+     "family": "Bertz",
+     "given": "M"
+    },
+    {
+     "family": "Wilmanns",
+     "given": "M"
+    },
+    {
+     "family": "Rief",
+     "given": "M"
+    }
+   ],
+   "year": "2009",
+   "title": "The titin-telethonin complex is a directed, superstable molecular bond in the muscle Z-disk",
+   "container": "Proc Natl Acad Sci U S A",
+   "volume": "106",
+   "first_page": "13307",
+   "last_page": "133310",
+   "doi": "10.1073/pnas.0902312106"
+  },
+  {
+   "bib_id": 41,
+   "authors": [
+    {
+     "family": "Lee",
+     "given": "EH"
+    },
+    {
+     "family": "Gao",
+     "given": "M"
+    },
+    {
+     "family": "Pinotsis",
+     "given": "N"
+    },
+    {
+     "family": "Wilmanns",
+     "given": "M"
+    },
+    {
+     "family": "Schulten",
+     "given": "K"
+    }
+   ],
+   "year": "2006",
+   "title": "Mechanical strength of the titin Z1Z2-telethonin complex",
+   "container": "Structure",
+   "volume": "14",
+   "first_page": "497",
+   "last_page": "509",
+   "doi": "10.1016/j.str.2005.12.005"
+  },
+  {
+   "bib_id": 42,
+   "authors": [
+    {
+     "family": "Zhou",
+     "given": "Q-Y"
+    },
+    {
+     "family": "Park",
+     "given": "J"
+    },
+    {
+     "family": "Koltun",
+     "given": "V"
+    }
+   ],
+   "year": "2018",
+   "title": "Open3D: A modern library for 3D data processing"
+  },
+  {
+   "bib_id": 43,
+   "authors": [
+    {
+     "family": "Labeit",
+     "given": "S"
+    },
+    {
+     "family": "Lahmers",
+     "given": "S"
+    },
+    {
+     "family": "Burkart",
+     "given": "C"
+    },
+    {
+     "family": "Fong",
+     "given": "C"
+    },
+    {
+     "family": "McNabb",
+     "given": "M"
+    },
+    {
+     "family": "Witt",
+     "given": "S"
+    }
+   ],
+   "year": "2006",
+   "title": "Expression of distinct classes of titin isoforms in striated and smooth muscles by alternative splicing, and their conserved interaction with filamins",
+   "container": "J Mol Biol",
+   "volume": "362",
+   "first_page": "664",
+   "doi": "10.1016/j.jmb.2006.07.077"
+  },
+  {
+   "bib_id": 44,
+   "authors": [
+    {
+     "family": "Sorimachi",
+     "given": "H"
+    },
+    {
+     "family": "Freiburg",
+     "given": "A"
+    },
+    {
+     "family": "Kolmerer",
+     "given": "B"
+    },
+    {
+     "family": "Ishiura",
+     "given": "S"
+    },
+    {
+     "family": "Stier",
+     "given": "G"
+    },
+    {
+     "family": "Gregorio",
+     "given": "CC"
+    }
+   ],
+   "year": "1997",
+   "title": "Tissue-specific expression and alpha-actinin binding properties of the Z-disc titin: implications for the nature of vertebrate Z-discs",
+   "container": "J Mol Biol",
+   "volume": "270",
+   "first_page": "688",
+   "doi": "10.1006/jmbi.1997.1145"
+  },
+  {
+   "bib_id": 45,
+   "authors": [
+    {
+     "family": "Luther",
+     "given": "PK"
+    },
+    {
+     "family": "Squire",
+     "given": "JM"
+    }
+   ],
+   "year": "2002",
+   "title": "Muscle Z-band ultrastructure: titin Z-repeats and Z-band periodicities do not match",
+   "container": "J Mol Biol",
+   "volume": "319",
+   "first_page": "1157",
+   "doi": "10.1016/S0022-2836(02)00372-8"
+  },
+  {
+   "bib_id": 46,
+   "authors": [
+    {
+     "family": "Grison",
+     "given": "M"
+    },
+    {
+     "family": "Merkel",
+     "given": "U"
+    },
+    {
+     "family": "Kostan",
+     "given": "J"
+    },
+    {
+     "family": "Djinović-Carugo",
+     "given": "K"
+    },
+    {
+     "family": "Rief",
+     "given": "M"
+    }
+   ],
+   "year": "2017",
+   "title": "α-Actinin/titin interaction: A dynamic and mechanically stable cluster of bonds in the muscle Z-disk",
+   "container": "Proc Natl Acad Sci U S A",
+   "volume": "114",
+   "first_page": "1015",
+   "doi": "10.1073/pnas.1612681114"
+  },
+  {
+   "bib_id": 47,
+   "authors": [
+    {
+     "family": "Au",
+     "given": "Y"
+    },
+    {
+     "family": "Atkinson",
+     "given": "RA"
+    },
+    {
+     "family": "Guerrini",
+     "given": "R"
+    },
+    {
+     "family": "Kelly",
+     "given": "G"
+    },
+    {
+     "family": "Joseph",
+     "given": "C"
+    },
+    {
+     "family": "Martin",
+     "given": "SR"
+    }
+   ],
+   "year": "2004",
+   "title": "Solution structure of ZASP PDZ domain; implications for sarcomere ultrastructure and enigma family redundancy",
+   "container": "Structure",
+   "volume": "12",
+   "first_page": "611",
+   "doi": "10.1016/j.str.2004.02.019"
+  },
+  {
+   "bib_id": 48,
+   "authors": [
+    {
+     "family": "Sheikh",
+     "given": "F"
+    },
+    {
+     "family": "Bang",
+     "given": "M-L"
+    },
+    {
+     "family": "Lange",
+     "given": "S"
+    },
+    {
+     "family": "Chen",
+     "given": "J"
+    }
+   ],
+   "year": "2007",
+   "title": "“Z”eroing in on the role of Cypher in striated muscle function, signaling, and human disease",
+   "container": "Trends Cardiovasc Med",
+   "volume": "17",
+   "first_page": "258",
+   "doi": "10.1016/j.tcm.2007.09.002"
+  },
+  {
+   "bib_id": 49,
+   "authors": [
+    {
+     "family": "Huang",
+     "given": "C"
+    },
+    {
+     "family": "Zhou",
+     "given": "Q"
+    },
+    {
+     "family": "Liang",
+     "given": "P"
+    },
+    {
+     "family": "Hollander",
+     "given": "MS"
+    },
+    {
+     "family": "Sheikh",
+     "given": "F"
+    },
+    {
+     "family": "Li",
+     "given": "X"
+    }
+   ],
+   "year": "2003",
+   "title": "Characterization and in vivo functional analysis of splice variants of cypher",
+   "container": "J Biol Chem",
+   "volume": "278",
+   "first_page": "7360",
+   "doi": "10.1074/jbc.M211875200"
+  },
+  {
+   "bib_id": 50,
+   "authors": [
+    {
+     "family": "Fisher",
+     "given": "LAB"
+    },
+    {
+     "family": "Schöck",
+     "given": "F"
+    }
+   ],
+   "year": "2022",
+   "title": "The unexpected versatility of ALP/Enigma family proteins",
+   "container": "Front Cell Dev Biol",
+   "volume": "10",
+   "first_page": "963608",
+   "doi": "10.3389/fcell.2022.963608"
+  },
+  {
+   "bib_id": 51,
+   "authors": [
+    {
+     "family": "Wu",
+     "given": "Y-L"
+    },
+    {
+     "family": "Hoess",
+     "given": "P"
+    },
+    {
+     "family": "Tschanz",
+     "given": "A"
+    },
+    {
+     "family": "Matti",
+     "given": "U"
+    },
+    {
+     "family": "Mund",
+     "given": "M"
+    },
+    {
+     "family": "Ries",
+     "given": "J"
+    }
+   ],
+   "year": "2023",
+   "title": "Maximum-likelihood model fitting for quantitative analysis of SMLM data",
+   "container": "Nat Methods",
+   "volume": "20",
+   "first_page": "139",
+   "doi": "10.1038/s41592-022-01676-z"
+  },
+  {
+   "bib_id": 52,
+   "authors": [
+    {
+     "family": "Heydarian",
+     "given": "H"
+    },
+    {
+     "family": "Joosten",
+     "given": "M"
+    },
+    {
+     "family": "Przybylski",
+     "given": "A"
+    },
+    {
+     "family": "Schueder",
+     "given": "F"
+    },
+    {
+     "family": "Jungmann",
+     "given": "R"
+    },
+    {
+     "family": "Werkhoven B",
+     "given": "van"
+    }
+   ],
+   "year": "2021",
+   "title": "3D particle averaging and detection of macromolecular symmetry in localization microscopy",
+   "container": "Nat Commun",
+   "volume": "12",
+   "first_page": "2847",
+   "doi": "10.1038/s41467-021-22006-5"
+  },
+  {
+   "bib_id": 53,
+   "authors": [
+    {
+     "family": "Haywood",
+     "given": "NJ"
+    },
+    {
+     "family": "Wolny",
+     "given": "M"
+    },
+    {
+     "family": "Rogers",
+     "given": "B"
+    },
+    {
+     "family": "Trinh",
+     "given": "CH"
+    },
+    {
+     "family": "Shuping",
+     "given": "Y"
+    },
+    {
+     "family": "Edwards",
+     "given": "TA"
+    }
+   ],
+   "year": "2016",
+   "title": "Hypertrophic cardiomyopathy mutations in the calponin-homology domain of ACTN2 affect actin binding and cardiomyocyte Z-disc incorporation",
+   "container": "Biochem J",
+   "volume": "473",
+   "first_page": "2485",
+   "doi": "10.1042/BCJ20160421"
+  },
+  {
+   "bib_id": 54,
+   "authors": [
+    {
+     "family": "Nelson",
+     "given": "S"
+    },
+    {
+     "family": "Beck-Previs",
+     "given": "S"
+    },
+    {
+     "family": "Sadayappan",
+     "given": "S"
+    },
+    {
+     "family": "Tong",
+     "given": "C"
+    },
+    {
+     "family": "Warshaw",
+     "given": "DM"
+    }
+   ],
+   "year": "2023",
+   "title": "Myosin-binding protein C stabilizes, but is not the sole determinant of SRX myosin in cardiac muscle",
+   "container": "J Gen Physiol",
+   "volume": "155",
+   "doi": "10.1085/jgp.202213276"
+  },
+  {
+   "bib_id": 55,
+   "authors": [
+    {
+     "family": "Case",
+     "given": "LB"
+    },
+    {
+     "family": "Baird",
+     "given": "MA"
+    },
+    {
+     "family": "Shtengel",
+     "given": "G"
+    },
+    {
+     "family": "Campbell",
+     "given": "SL"
+    },
+    {
+     "family": "Hess",
+     "given": "HF"
+    },
+    {
+     "family": "Davidson",
+     "given": "MW"
+    }
+   ],
+   "year": "2015",
+   "title": "Molecular mechanism of vinculin activation and nanoscale spatial organization in focal adhesions",
+   "container": "Nat Cell Biol",
+   "volume": "17",
+   "first_page": "880",
+   "doi": "10.1038/ncb3180"
+  },
+  {
+   "bib_id": 56,
+   "authors": [
+    {
+     "family": "Stubb",
+     "given": "A"
+    },
+    {
+     "family": "Guzmán",
+     "given": "C"
+    },
+    {
+     "family": "Närvä",
+     "given": "E"
+    },
+    {
+     "family": "Aaron",
+     "given": "J"
+    },
+    {
+     "family": "Chew",
+     "given": "T-L"
+    },
+    {
+     "family": "Saari",
+     "given": "M"
+    }
+   ],
+   "year": "2019",
+   "title": "Superresolution architecture of cornerstone focal adhesions in human pluripotent stem cells",
+   "container": "Nat Commun",
+   "volume": "10",
+   "first_page": "4756",
+   "doi": "10.1038/s41467-019-12611-w"
+  },
+  {
+   "bib_id": 57,
+   "authors": [
+    {
+     "family": "Kumari",
+     "given": "R"
+    },
+    {
+     "family": "Ven",
+     "given": "K"
+    },
+    {
+     "family": "Chastney",
+     "given": "M"
+    },
+    {
+     "family": "Kokate",
+     "given": "SB"
+    },
+    {
+     "family": "Peränen",
+     "given": "J"
+    },
+    {
+     "family": "Aaron",
+     "given": "J"
+    }
+   ],
+   "year": "2024",
+   "title": "Focal adhesions contain three specialized actin nanoscale layers",
+   "container": "Nat Commun",
+   "volume": "15",
+   "first_page": "2547",
+   "doi": "10.1038/s41467-024-46868-7"
+  },
+  {
+   "bib_id": 58
+  },
+  {
+   "bib_id": 59,
+   "authors": [
+    {
+     "family": "Churchman",
+     "given": "LS"
+    },
+    {
+     "family": "Flyvbjerg",
+     "given": "H"
+    },
+    {
+     "family": "Spudich",
+     "given": "JA"
+    }
+   ],
+   "year": "2006",
+   "title": "A non-Gaussian distribution quantifies distances measured with fluorescence localization techniques",
+   "container": "Biophys J",
+   "volume": "90",
+   "first_page": "668",
+   "doi": "10.1529/biophysj.105.065599"
+  },
+  {
+   "bib_id": 60,
+   "authors": [
+    {
+     "family": "Mathai",
+     "given": "AM"
+    },
+    {
+     "family": "Moschopoulos",
+     "given": "P"
+    },
+    {
+     "family": "Pederzoli",
+     "given": "G"
+    }
+   ],
+   "year": "1999",
+   "title": "Random points associated with rectangles",
+   "container": "Rend Circ Mat Palermo",
+   "volume": "48",
+   "first_page": "163",
+   "doi": "10.1007/bf02844387"
+  },
+  {
+   "bib_id": 61,
+   "authors": [
+    {
+     "family": "Burnham",
+     "given": "KP"
+    },
+    {
+     "family": "Anderson",
+     "given": "DR"
+    }
+   ],
+   "year": "2003",
+   "title": "Model selection and multimodel inference: a practical information-theoretic approach"
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-core-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "jats_doi": "10.1371/journal.pcbi.1014309"
+ }
+}

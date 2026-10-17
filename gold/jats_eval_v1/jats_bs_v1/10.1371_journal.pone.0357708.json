@@ -1,0 +1,920 @@
+{
+ "paper_id": "10.1371_journal.pone.0357708",
+ "info": {
+  "title": "Construction and optimization of deep learning intent classification model for smart home dialogue",
+  "doi": "10.1371/journal.pone.0357708",
+  "file_name": "10.1371_journal.pone.0357708.pdf",
+  "abstract": "In response to the lack of high-quality annotated corpora in the current smart home field and the insufficient accuracy and interpretability of existing intent classification models in complex home scenarios, this study proposes an intent classification model system that integrates unsupervised topic discovery and deep learning classification. Firstly, a Chinese smart home corpus containing 120,000 real conversations with a dual-layer annotation structure is constructed, and an unsupervised topic recognition model combining latent Dirichlet allocation and K-Means clustering algorithm is designed to mine semantic structures from a data-driven perspective. Finally, a deep learning classification model is designed that integrates a bidirectional transformer model with a text convolutional neural network to achieve accurate intent classification. The unsupervised topic model was superior to the single model in terms of normalized mutual information and adjusted Rand index reaching 0.752 and 0.698 respectively, which verified the rationality of the semantic structure. In terms of supervised learning, the accuracy of the bidirectional transformer-text convolutional neural network model was 96.7%, and the macro F1 score was 96.4%, both of which were better than the baseline model, especially in tasks such as “light control” (F1 score = 98.2%) and “temperature query” (F1 score = 97.6%). Intent distribution analysis further indicated that “device control” (31.2%) and “status query” (24.2%) were the most frequent user needs. Overall, the research provides high-performance intent classification solutions, and also reveals user behavior characteristics at the data level, providing important basis for optimizing the functionality and enhancing the interactive experience of smart home systems."
+ },
+ "author": [
+  {
+   "author_id": 1,
+   "given": "Qiyuan",
+   "family": "Lu",
+   "affiliation": "Art and Design School, Lanzhou City University, Lanzhou, China",
+   "email": "",
+   "orcid": "",
+   "corresponding": true
+  }
+ ],
+ "section": [
+  {
+   "section_id": 1,
+   "section_type": "abstract",
+   "header": "Abstract",
+   "level": 1,
+   "parent_section_id": null,
+   "classification_score": 1.0
+  }
+ ],
+ "text": [
+  {
+   "text_id": 1,
+   "section_id": 1,
+   "paragraph_id": 1,
+   "text": "In response to the lack of high-quality annotated corpora in the current smart home field and the insufficient accuracy and interpretability of existing intent classification models in complex home scenarios, this study proposes an intent classification model system that integrates unsupervised topic discovery and deep learning classification. Firstly, a Chinese smart home corpus containing 120,000 real conversations with a dual-layer annotation structure is constructed, and an unsupervised topic recognition model combining latent Dirichlet allocation and K-Means clustering algorithm is designed to mine semantic structures from a data-driven perspective. Finally, a deep learning classification model is designed that integrates a bidirectional transformer model with a text convolutional neural network to achieve accurate intent classification. The unsupervised topic model was superior to the single model in terms of normalized mutual information and adjusted Rand index reaching 0.752 and 0.698 respectively, which verified the rationality of the semantic structure. In terms of supervised learning, the accuracy of the bidirectional transformer-text convolutional neural network model was 96.7%, and the macro F1 score was 96.4%, both of which were better than the baseline model, especially in tasks such as “light control” (F1 score = 98.2%) and “temperature query” (F1 score = 97.6%). Intent distribution analysis further indicated that “device control” (31.2%) and “status query” (24.2%) were the most frequent user needs. Overall, the research provides high-performance intent classification solutions, and also reveals user behavior characteristics at the data level, providing important basis for optimizing the functionality and enhancing the interactive experience of smart home systems.",
+   "page_number": 1
+  }
+ ],
+ "bib": [
+  {
+   "bib_id": 1,
+   "authors": [
+    {
+     "family": "Nookala",
+     "given": "NVD"
+    },
+    {
+     "family": "Kumar",
+     "given": "A"
+    },
+    {
+     "family": "Rao",
+     "given": "MAS"
+    }
+   ],
+   "year": "2022",
+   "title": "Botnet attacks detection in internet of things using machine learning",
+   "container": "Neuroquantology",
+   "volume": "20",
+   "first_page": "743",
+   "doi": "10.14704/NQ.2022.20.4.NQ22298"
+  },
+  {
+   "bib_id": 2,
+   "authors": [
+    {
+     "family": "Firdaus",
+     "given": "M"
+    },
+    {
+     "family": "Golchha",
+     "given": "H"
+    },
+    {
+     "family": "Ekbal",
+     "given": "A"
+    },
+    {
+     "family": "Bhattacharyya",
+     "given": "P"
+    }
+   ],
+   "year": "2021",
+   "title": "A deep multi-task model for dialogue act classification, intent detection and slot filling",
+   "container": "Cogn Comput",
+   "volume": "13",
+   "first_page": "626",
+   "doi": "10.1007/s12559-020-09718-4"
+  },
+  {
+   "bib_id": 3,
+   "authors": [
+    {
+     "family": "Das",
+     "given": "D"
+    },
+    {
+     "family": "Nishimura",
+     "given": "Y"
+    },
+    {
+     "family": "Vivek",
+     "given": "RP"
+    },
+    {
+     "family": "Takeda",
+     "given": "N"
+    },
+    {
+     "family": "Fish",
+     "given": "ST"
+    },
+    {
+     "family": "Plötz",
+     "given": "T"
+    }
+   ],
+   "year": "2023",
+   "title": "Explainable Activity Recognition for Smart Home Systems",
+   "container": "ACM Trans Interact Intell Syst",
+   "volume": "13",
+   "first_page": "1",
+   "last_page": "39",
+   "doi": "10.1145/3561533"
+  },
+  {
+   "bib_id": 4,
+   "authors": [
+    {
+     "family": "Weld",
+     "given": "H"
+    },
+    {
+     "family": "Huang",
+     "given": "X"
+    },
+    {
+     "family": "Long",
+     "given": "S"
+    },
+    {
+     "family": "Poon",
+     "given": "J"
+    },
+    {
+     "family": "Han",
+     "given": "SC"
+    }
+   ],
+   "year": "2022",
+   "title": "A Survey of Joint Intent Detection and Slot Filling Models in Natural Language Understanding",
+   "container": "ACM Comput Surv",
+   "volume": "55",
+   "first_page": "1",
+   "last_page": "38",
+   "doi": "10.1145/3547138"
+  },
+  {
+   "bib_id": 5,
+   "authors": [
+    {
+     "family": "Zhang",
+     "given": "H"
+    },
+    {
+     "family": "Xu",
+     "given": "H"
+    },
+    {
+     "family": "Lin",
+     "given": "T-E"
+    }
+   ],
+   "year": "2021",
+   "title": "Deep Open Intent Classification with Adaptive Decision Boundary",
+   "container": "AAAI",
+   "volume": "35",
+   "first_page": "14374",
+   "doi": "10.1609/aaai.v35i16.17690"
+  },
+  {
+   "bib_id": 6,
+   "authors": [
+    {
+     "family": "Ni",
+     "given": "P"
+    },
+    {
+     "family": "Okhrati",
+     "given": "R"
+    },
+    {
+     "family": "Guan",
+     "given": "S"
+    },
+    {
+     "family": "Chang",
+     "given": "V"
+    }
+   ],
+   "year": "2024",
+   "title": "Knowledge graph and deep learning-based text-to-GraphQL model for intelligent medical consultation chatbot",
+   "container": "Inf Syst Front",
+   "volume": "26",
+   "first_page": "137",
+   "doi": "10.1007/s10796-022-10295-0"
+  },
+  {
+   "bib_id": 7,
+   "authors": [
+    {
+     "family": "Shang",
+     "given": "X"
+    },
+    {
+     "family": "Zhang",
+     "given": "F"
+    },
+    {
+     "family": "Zhang",
+     "given": "Z"
+    },
+    {
+     "family": "Cui",
+     "given": "T"
+    }
+   ],
+   "year": "2025",
+   "title": "Optimal control strategy for vehicle starting coordination based on driver intention recognition",
+   "container": "Proc Inst Mech Eng D J Automob Eng",
+   "volume": "239",
+   "first_page": "5056",
+   "doi": "10.1177/09544070241272803"
+  },
+  {
+   "bib_id": 8,
+   "authors": [
+    {
+     "family": "Zhang",
+     "given": "Y"
+    },
+    {
+     "family": "Huang",
+     "given": "F"
+    },
+    {
+     "family": "Deng",
+     "given": "X"
+    },
+    {
+     "family": "Li",
+     "given": "M"
+    },
+    {
+     "family": "Jiang",
+     "given": "W"
+    }
+   ],
+   "year": "2024",
+   "title": "Air target intention recognition and causal effect analysis combining uncertainty information reasoning and potential outcome framework",
+   "container": "Chinese Journal of Aeronautics",
+   "volume": "37",
+   "first_page": "287",
+   "doi": "10.1016/j.cja.2023.09.008"
+  },
+  {
+   "bib_id": 9,
+   "authors": [
+    {
+     "family": "Qu",
+     "given": "C"
+    },
+    {
+     "family": "Guo",
+     "given": "Z"
+    },
+    {
+     "family": "Xia",
+     "given": "S"
+    },
+    {
+     "family": "Zhu",
+     "given": "L"
+    }
+   ],
+   "year": "2024",
+   "title": "Intention recognition of aerial target based on deep learning",
+   "container": "Evol Intell",
+   "volume": "17",
+   "first_page": "303",
+   "doi": "10.1007/s12065-022-00728-9"
+  },
+  {
+   "bib_id": 10,
+   "authors": [
+    {
+     "family": "Hasanvand",
+     "given": "M"
+    },
+    {
+     "family": "Nooshyar",
+     "given": "M"
+    },
+    {
+     "family": "Moharamkhani",
+     "given": "E"
+    },
+    {
+     "family": "Selyari",
+     "given": "A"
+    }
+   ],
+   "year": "2023",
+   "title": "Machine Learning Methodology for Identifying Vehicles Using Image Processing",
+   "container": "AIA",
+   "volume": "1",
+   "first_page": "170"
+  },
+  {
+   "bib_id": 11,
+   "authors": [
+    {
+     "family": "Wang",
+     "given": "D"
+    },
+    {
+     "family": "Gu",
+     "given": "X"
+    },
+    {
+     "family": "Yu",
+     "given": "H"
+    }
+   ],
+   "year": "2024",
+   "title": "A comparison of four neural networks algorithms on locomotion intention recognition of lower limb exoskeleton based on multi-source information",
+   "container": "J Bionic Eng",
+   "volume": "21",
+   "first_page": "224",
+   "doi": "10.1007/s42235-023-00435-w"
+  },
+  {
+   "bib_id": 12,
+   "authors": [
+    {
+     "family": "Luo",
+     "given": "S"
+    },
+    {
+     "family": "Meng",
+     "given": "Q"
+    },
+    {
+     "family": "Li",
+     "given": "S"
+    },
+    {
+     "family": "Yu",
+     "given": "H"
+    }
+   ],
+   "year": "2024",
+   "title": "Research of intent recognition in rehabilitation robots: a systematic review",
+   "container": "Disabil Rehabil Assist Technol",
+   "volume": "19",
+   "first_page": "1307",
+   "doi": "10.1080/17483107.2023.2170477"
+  },
+  {
+   "bib_id": 13,
+   "authors": [
+    {
+     "family": "Belardinelli",
+     "given": "A"
+    }
+   ],
+   "year": "2024",
+   "title": "Gaze-Based Intention Estimation: Principles, Methodologies, and Applications in HRI",
+   "container": "J Hum-Robot Interact",
+   "volume": "13",
+   "first_page": "1",
+   "last_page": "30",
+   "doi": "10.1145/3656376"
+  },
+  {
+   "bib_id": 14,
+   "authors": [
+    {
+     "family": "Leivadeas",
+     "given": "A"
+    },
+    {
+     "family": "Falkner",
+     "given": "M"
+    }
+   ],
+   "year": "2023",
+   "title": "A Survey on Intent-Based Networking",
+   "container": "IEEE Commun Surv Tutorials",
+   "volume": "25",
+   "first_page": "625",
+   "doi": "10.1109/comst.2022.3215919"
+  },
+  {
+   "bib_id": 15,
+   "authors": [
+    {
+     "family": "Chatterjee",
+     "given": "S"
+    },
+    {
+     "family": "Rana",
+     "given": "NP"
+    },
+    {
+     "family": "Khorana",
+     "given": "S"
+    },
+    {
+     "family": "Mikalef",
+     "given": "P"
+    },
+    {
+     "family": "Sharma",
+     "given": "A"
+    }
+   ],
+   "year": "2023",
+   "title": "Assessing organizational users’ intentions and behavior to AI integrated CRM systems: A meta-UTAUT approach",
+   "container": "Inf Syst Front",
+   "volume": "25",
+   "first_page": "1299",
+   "doi": "10.1007/s10796-021-10181-1"
+  },
+  {
+   "bib_id": 16,
+   "authors": [
+    {
+     "family": "Motger",
+     "given": "Q"
+    },
+    {
+     "family": "Franch",
+     "given": "X"
+    },
+    {
+     "family": "Marco",
+     "given": "J"
+    }
+   ],
+   "year": "2022",
+   "title": "Software-Based Dialogue Systems: Survey, Taxonomy, and Challenges",
+   "container": "ACM Comput Surv",
+   "volume": "55",
+   "first_page": "1",
+   "last_page": "42",
+   "doi": "10.1145/3527450"
+  },
+  {
+   "bib_id": 17,
+   "authors": [
+    {
+     "family": "Ullah",
+     "given": "A"
+    },
+    {
+     "family": "Anwar",
+     "given": "SM"
+    },
+    {
+     "family": "Li",
+     "given": "J"
+    },
+    {
+     "family": "Nadeem",
+     "given": "L"
+    },
+    {
+     "family": "Mahmood",
+     "given": "T"
+    },
+    {
+     "family": "Rehman",
+     "given": "A"
+    }
+   ],
+   "year": "2024",
+   "title": "Smart cities: The role of Internet of Things and machine learning in realizing a data-centric smart environment",
+   "container": "Complex Intell Syst",
+   "volume": "10",
+   "first_page": "1607",
+   "doi": "10.1007/s40747-023-01175-4"
+  },
+  {
+   "bib_id": 18,
+   "authors": [
+    {
+     "family": "Pandey",
+     "given": "S"
+    },
+    {
+     "family": "Sharma",
+     "given": "S"
+    },
+    {
+     "family": "Wazir",
+     "given": "S"
+    }
+   ],
+   "year": "2022",
+   "title": "Mental healthcare chatbot based on natural language processing and deep learning approaches: Ted the therapist",
+   "container": "Int j inf tecnol",
+   "volume": "14",
+   "first_page": "3757",
+   "doi": "10.1007/s41870-022-00999-6"
+  },
+  {
+   "bib_id": 19,
+   "authors": [
+    {
+     "family": "Dai",
+     "given": "S"
+    },
+    {
+     "family": "Li",
+     "given": "K"
+    },
+    {
+     "family": "Luo",
+     "given": "Z"
+    },
+    {
+     "family": "Zhao",
+     "given": "P"
+    },
+    {
+     "family": "Hong",
+     "given": "B"
+    },
+    {
+     "family": "Zhu",
+     "given": "A"
+    }
+   ],
+   "year": "2024",
+   "title": "AI-based NLP section discusses the application and effect of bag-of-words models and TF-IDF in NLP tasks",
+   "container": "J Artif Intell Gen Sci",
+   "volume": "5",
+   "first_page": "13",
+   "last_page": "21",
+   "doi": "10.60087/jaigs.v5i1.149"
+  },
+  {
+   "bib_id": 20,
+   "authors": [
+    {
+     "family": "Javed",
+     "given": "AR"
+    },
+    {
+     "family": "Saadia",
+     "given": "A"
+    },
+    {
+     "family": "Mughal",
+     "given": "H"
+    },
+    {
+     "family": "Gadekallu",
+     "given": "TR"
+    },
+    {
+     "family": "Rizwan",
+     "given": "M"
+    },
+    {
+     "family": "Maddikunta",
+     "given": "PKR"
+    }
+   ],
+   "year": "2023",
+   "title": "Artificial intelligence for cognitive health assessment: state-of-the-art, open challenges and future directions",
+   "container": "Cogn Comput",
+   "volume": "15",
+   "first_page": "1767",
+   "doi": "10.1007/s12559-023-10153-4"
+  },
+  {
+   "bib_id": 21,
+   "authors": [
+    {
+     "family": "Giachos",
+     "given": "I"
+    },
+    {
+     "family": "Papakitsos",
+     "given": "EC"
+    },
+    {
+     "family": "Savvidis",
+     "given": "P"
+    }
+   ],
+   "year": "2023",
+   "title": "Inquiring natural language processing capabilities on robotic systems through virtual assistants: A systemic approach",
+   "container": "J Comput Sci Res",
+   "volume": "5",
+   "first_page": "28",
+   "last_page": "36",
+   "doi": "10.30564/jcsr.v5i2.5537"
+  },
+  {
+   "bib_id": 22,
+   "authors": [
+    {
+     "family": "Chen",
+     "given": "D"
+    },
+    {
+     "family": "Yongchareon",
+     "given": "S"
+    },
+    {
+     "family": "Lai",
+     "given": "EMK"
+    },
+    {
+     "family": "Yu",
+     "given": "J"
+    },
+    {
+     "family": "Sheng",
+     "given": "QZ"
+    },
+    {
+     "family": "Li",
+     "given": "Y"
+    }
+   ],
+   "year": "2022",
+   "title": "Transformer with bidirectional GRU for nonintrusive, sensor-based activity recognition in a multiresident environment",
+   "container": "IEEE Internet Things J",
+   "volume": "9",
+   "first_page": "23716",
+   "doi": "10.1109/JIOT.2022.3190307"
+  },
+  {
+   "bib_id": 23,
+   "authors": [
+    {
+     "family": "Nirala",
+     "given": "KK"
+    },
+    {
+     "family": "Singh",
+     "given": "NK"
+    },
+    {
+     "family": "Purani",
+     "given": "VS"
+    }
+   ],
+   "year": "2022",
+   "title": "A survey on providing customer and public administration based services using AI: chatbot",
+   "container": "Multimed Tools Appl",
+   "volume": "81",
+   "first_page": "22215",
+   "doi": "10.1007/s11042-021-11458-y"
+  },
+  {
+   "bib_id": 24,
+   "authors": [
+    {
+     "family": "Chen",
+     "given": "G"
+    },
+    {
+     "family": "Xiao",
+     "given": "S"
+    },
+    {
+     "family": "Zhang",
+     "given": "C"
+    },
+    {
+     "family": "Zhao",
+     "given": "H"
+    }
+   ],
+   "year": "2023",
+   "title": "A theory-driven deep learning method for voice chat–based customer response prediction",
+   "container": "Information Systems Research",
+   "volume": "34",
+   "first_page": "1513",
+   "doi": "10.1287/isre.2022.1196"
+  },
+  {
+   "bib_id": 25,
+   "authors": [
+    {
+     "family": "Permana",
+     "given": "I"
+    },
+    {
+     "family": "Sudirja",
+     "given": "R"
+    },
+    {
+     "family": "Jupesta",
+     "given": "J"
+    }
+   ],
+   "year": "2024",
+   "title": "Potential of vermifiltration technique to reduce chemical oxygen demand, biological oxygen demand, and total suspended solid of farm dairy effluent in developing countries: Case of Indonesian farm dairy industry",
+   "container": "GLCE",
+   "volume": "2",
+   "first_page": "193",
+   "last_page": "200",
+   "doi": "10.47852/bonviewGLCE3202933"
+  },
+  {
+   "bib_id": 26,
+   "authors": [
+    {
+     "family": "Reimann",
+     "given": "MM"
+    },
+    {
+     "family": "Kunneman",
+     "given": "FA"
+    },
+    {
+     "family": "Oertel",
+     "given": "C"
+    },
+    {
+     "family": "Hindriks",
+     "given": "KV"
+    }
+   ],
+   "year": "2024",
+   "title": "A Survey on Dialogue Management in Human-robot Interaction",
+   "container": "J Hum-Robot Interact",
+   "volume": "13",
+   "first_page": "1",
+   "last_page": "22",
+   "doi": "10.1145/3648605"
+  },
+  {
+   "bib_id": 27,
+   "authors": [
+    {
+     "family": "Bhangale",
+     "given": "KB"
+    },
+    {
+     "family": "Kothandaraman",
+     "given": "M"
+    }
+   ],
+   "year": "2022",
+   "title": "Survey of deep learning paradigms for speech processing",
+   "container": "Wireless Personal Communications",
+   "volume": "125",
+   "first_page": "1913",
+   "doi": "10.1007/s11277-022-09640-y"
+  },
+  {
+   "bib_id": 28,
+   "authors": [
+    {
+     "family": "Regin",
+     "given": "R"
+    },
+    {
+     "family": "Rajest",
+     "given": "SS"
+    }
+   ],
+   "year": "2022",
+   "title": "An automated conversation system using natural language processing (nlp) chatbot in python",
+   "container": "Cent Asian J Med Nat Sci",
+   "volume": "3",
+   "first_page": "314",
+   "doi": "10.51699/cajmns.v3i4.1027"
+  },
+  {
+   "bib_id": 29,
+   "authors": [
+    {
+     "family": "Li",
+     "given": "Q"
+    },
+    {
+     "family": "Zhao",
+     "given": "F"
+    },
+    {
+     "family": "Gao",
+     "given": "P"
+    },
+    {
+     "family": "Li",
+     "given": "H"
+    },
+    {
+     "family": "Ye",
+     "given": "L"
+    }
+   ],
+   "year": "2025",
+   "title": "Research on Intention Recognition Methods based on Deep Learning",
+   "container": "SCPE",
+   "volume": "26",
+   "doi": "10.12694/scpe.v26i2.3892"
+  },
+  {
+   "bib_id": 30,
+   "doi": "10.18653/v1/2025.wnut-1.7"
+  },
+  {
+   "bib_id": 31,
+   "authors": [
+    {
+     "family": "Vysotska",
+     "given": "V"
+    },
+    {
+     "family": "Hu",
+     "given": "Z"
+    },
+    {
+     "family": "Mykytyn",
+     "given": "N"
+    },
+    {
+     "family": "Nagachevska",
+     "given": "O"
+    },
+    {
+     "family": "Hazdiuk",
+     "given": "K"
+    },
+    {
+     "family": "Uhryn",
+     "given": "D"
+    }
+   ],
+   "year": "2025",
+   "title": "Development and Testing of Voice User Interfaces Based on BERT Models for Speech Recognition in Distance Learning and Smart Home Systems",
+   "container": "IJCNIS",
+   "volume": "17",
+   "first_page": "109",
+   "doi": "10.5815/ijcnis.2025.03.07"
+  },
+  {
+   "bib_id": 32,
+   "authors": [
+    {
+     "family": "Ding",
+     "given": "J"
+    },
+    {
+     "family": "Chen",
+     "given": "X"
+    },
+    {
+     "family": "Lu",
+     "given": "P"
+    },
+    {
+     "family": "Yang",
+     "given": "Z"
+    },
+    {
+     "family": "Li",
+     "given": "X"
+    },
+    {
+     "family": "Du",
+     "given": "Y"
+    }
+   ],
+   "year": "2023",
+   "title": "DialogueINAB: an interaction neural network based on attitudes and behaviors of interlocutors for dialogue emotion recognition",
+   "container": "J Supercomput",
+   "volume": "79",
+   "first_page": "20481",
+   "doi": "10.1007/s11227-023-05439-1"
+  },
+  {
+   "bib_id": 33,
+   "authors": [
+    {
+     "family": "Torad",
+     "given": "MA"
+    },
+    {
+     "family": "Bouallegue",
+     "given": "B"
+    },
+    {
+     "family": "Ahmed",
+     "given": "AM"
+    }
+   ],
+   "year": "2022",
+   "title": "A voice controlled smart home automation system using artificial intelligent and internet of things",
+   "container": "TELKOMNIKA",
+   "volume": "20",
+   "first_page": "808",
+   "doi": "10.12928/telkomnika.v20i4.23763"
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-core-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "jats_doi": "10.1371/journal.pone.0357708"
+ }
+}

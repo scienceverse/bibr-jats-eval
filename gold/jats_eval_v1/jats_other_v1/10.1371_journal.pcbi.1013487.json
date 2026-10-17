@@ -1,0 +1,2484 @@
+{
+ "paper_id": "10.1371_journal.pcbi.1013487",
+ "info": {
+  "title": "Flexible navigation with neuromodulated cognitive maps",
+  "doi": "10.1371/journal.pcbi.1013487",
+  "file_name": "10.1371_journal.pcbi.1013487.pdf",
+  "abstract": "Animals develop specialized cognitive maps during navigation, constructing environmental representations that facilitate efficient exploration and goal-directed planning. The hippocampal CA1 region is implicated as the primary neural substrate for cognitive mapping, housing spatially tuned cells that adapt based on behavioral patterns and internal states. Computational approaches to modeling these biological systems have employed various methodologies. Although labeled graphs with local spatial information and deep neural networks have provided computational frameworks for spatial navigation, significant limitations persist in modeling one-shot adaptive mapping. We introduce a biologically inspired place cell architecture that develops cognitive maps during exploration of novel environments. Our model implements a simulated agent for reward-driven navigation that forms spatial representations online. The architecture incorporates behaviorally relevant information through neuromodulatory signals that respond to environmental boundaries and reward locations. Learning combines rapid Hebbian plasticity, lateral competition, and targeted modulation of place cells. Analysis of the model across a variety of environments demonstrates that online map formation and reward-directed navigation can emerge within a single simulated trial, without the multi-epoch training typically required by reinforcement-learning approaches. The simulation results show that the agent successfully explores and navigates to target locations in various environments, adapting when reward positions change. Analysis of neuromodulated place cells reveals dynamic changes in neuronal density and place field size after behaviorally significant events. These findings align with experimental observations of reward effects on hippocampal spatial cells while providing computational support for the efficacy of biologically inspired approaches to cognitive mapping."
+ },
+ "author": [
+  {
+   "author_id": 1,
+   "given": "Krubeal",
+   "family": "Danieli",
+   "affiliation": "Center for Integrative Neuroplasticity, FYSCELL, University of Oslo, Oslo, Norway",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 2,
+   "given": "Mikkel Elle",
+   "family": "Lepperød",
+   "affiliation": "Simula Research Laboratory, Oslo, Norway",
+   "email": "",
+   "orcid": "",
+   "corresponding": true
+  }
+ ],
+ "section": [
+  {
+   "section_id": 1,
+   "section_type": "abstract",
+   "header": "Abstract",
+   "level": 1,
+   "parent_section_id": null,
+   "classification_score": 1.0
+  }
+ ],
+ "text": [
+  {
+   "text_id": 1,
+   "section_id": 1,
+   "paragraph_id": 1,
+   "text": "Animals develop specialized cognitive maps during navigation, constructing environmental representations that facilitate efficient exploration and goal-directed planning. The hippocampal CA1 region is implicated as the primary neural substrate for cognitive mapping, housing spatially tuned cells that adapt based on behavioral patterns and internal states. Computational approaches to modeling these biological systems have employed various methodologies. Although labeled graphs with local spatial information and deep neural networks have provided computational frameworks for spatial navigation, significant limitations persist in modeling one-shot adaptive mapping. We introduce a biologically inspired place cell architecture that develops cognitive maps during exploration of novel environments. Our model implements a simulated agent for reward-driven navigation that forms spatial representations online. The architecture incorporates behaviorally relevant information through neuromodulatory signals that respond to environmental boundaries and reward locations. Learning combines rapid Hebbian plasticity, lateral competition, and targeted modulation of place cells. Analysis of the model across a variety of environments demonstrates that online map formation and reward-directed navigation can emerge within a single simulated trial, without the multi-epoch training typically required by reinforcement-learning approaches. The simulation results show that the agent successfully explores and navigates to target locations in various environments, adapting when reward positions change. Analysis of neuromodulated place cells reveals dynamic changes in neuronal density and place field size after behaviorally significant events. These findings align with experimental observations of reward effects on hippocampal spatial cells while providing computational support for the efficacy of biologically inspired approaches to cognitive mapping.",
+   "page_number": 1
+  }
+ ],
+ "bib": [
+  {
+   "bib_id": 1,
+   "authors": [
+    {
+     "family": "Golledge",
+     "given": "R"
+    },
+    {
+     "family": "Jacobson",
+     "given": "RD"
+    },
+    {
+     "family": "Kitchin",
+     "given": "R"
+    },
+    {
+     "family": "Blades",
+     "given": "M"
+    }
+   ],
+   "year": "2000",
+   "title": "Cognitive Maps, Spatial Abilities, and Human Wayfinding",
+   "container": "Geogr Rev Jpn, Ser B",
+   "volume": "73",
+   "first_page": "93",
+   "last_page": "104",
+   "doi": "10.4157/grj1984b.73.93"
+  },
+  {
+   "bib_id": 2,
+   "authors": [
+    {
+     "family": "Epstein",
+     "given": "RA"
+    },
+    {
+     "family": "Vass",
+     "given": "LK"
+    }
+   ],
+   "year": "2013",
+   "title": "Neural systems for landmark-based wayfinding in humans",
+   "container": "Philos Trans R Soc Lond B Biol Sci",
+   "volume": "369",
+   "first_page": "20120533",
+   "doi": "10.1098/rstb.2012.0533"
+  },
+  {
+   "bib_id": 3,
+   "authors": [
+    {
+     "family": "Sargolini",
+     "given": "F"
+    },
+    {
+     "family": "Fyhn",
+     "given": "M"
+    },
+    {
+     "family": "Hafting",
+     "given": "T"
+    },
+    {
+     "family": "McNaughton",
+     "given": "BL"
+    },
+    {
+     "family": "Witter",
+     "given": "MP"
+    },
+    {
+     "family": "Moser",
+     "given": "M-B"
+    }
+   ],
+   "year": "2006",
+   "title": "Conjunctive Representation of Position, Direction, and Velocity in Entorhinal Cortex",
+   "container": "Science",
+   "volume": "312",
+   "first_page": "758"
+  },
+  {
+   "bib_id": 4,
+   "authors": [
+    {
+     "family": "Kropff",
+     "given": "E"
+    },
+    {
+     "family": "Carmichael",
+     "given": "JE"
+    },
+    {
+     "family": "Moser",
+     "given": "M-B"
+    },
+    {
+     "family": "Moser",
+     "given": "EI"
+    }
+   ],
+   "year": "2015",
+   "title": "Speed cells in the medial entorhinal cortex",
+   "container": "Nature",
+   "volume": "523",
+   "first_page": "419",
+   "doi": "10.1038/nature14622"
+  },
+  {
+   "bib_id": 5,
+   "authors": [
+    {
+     "family": "Solstad",
+     "given": "T"
+    },
+    {
+     "family": "Moser",
+     "given": "EI"
+    },
+    {
+     "family": "Einevoll",
+     "given": "GT"
+    }
+   ],
+   "year": "2006",
+   "title": "From grid cells to place cells: a mathematical model",
+   "container": "Hippocampus",
+   "volume": "16",
+   "first_page": "1026",
+   "doi": "10.1002/hipo.20244"
+  },
+  {
+   "bib_id": 6,
+   "authors": [
+    {
+     "family": "Bush",
+     "given": "D"
+    },
+    {
+     "family": "Barry",
+     "given": "C"
+    },
+    {
+     "family": "Burgess",
+     "given": "N"
+    }
+   ],
+   "year": "2014",
+   "title": "What do grid cells contribute to place cell firing",
+   "container": "Trends in Neurosciences",
+   "volume": "37",
+   "first_page": "136"
+  },
+  {
+   "bib_id": 7,
+   "authors": [
+    {
+     "family": "Neher",
+     "given": "T"
+    },
+    {
+     "family": "Azizi",
+     "given": "AH"
+    },
+    {
+     "family": "Cheng",
+     "given": "S"
+    }
+   ],
+   "year": "2017",
+   "title": "From grid cells to place cells with realistic field sizes",
+   "container": "PLoS One",
+   "volume": "12",
+   "doi": "10.1371/journal.pone.0181618"
+  },
+  {
+   "bib_id": 8,
+   "authors": [
+    {
+     "family": "Li",
+     "given": "T"
+    },
+    {
+     "family": "Arleo",
+     "given": "A"
+    },
+    {
+     "family": "Sheynikhovich",
+     "given": "D"
+    }
+   ],
+   "year": "2019",
+   "title": "Modeling Place Cells and Grid Cells in Multi-Compartment Environments: Hippocampal-Entorhinal Loop as a Multisensory Integration Circuit",
+   "container": "Neural Networks",
+   "volume": "121"
+  },
+  {
+   "bib_id": 9,
+   "authors": [
+    {
+     "family": "Bilash",
+     "given": "OM"
+    },
+    {
+     "family": "Chavlis",
+     "given": "S"
+    },
+    {
+     "family": "Johnson",
+     "given": "CD"
+    },
+    {
+     "family": "Poirazi",
+     "given": "P"
+    },
+    {
+     "family": "Basu",
+     "given": "J"
+    }
+   ],
+   "year": "2023",
+   "title": "Lateral entorhinal cortex inputs modulate hippocampal dendritic excitability by recruiting a local disinhibitory microcircuit",
+   "container": "Cell Rep",
+   "volume": "42",
+   "first_page": "111962",
+   "doi": "10.1016/j.celrep.2022.111962"
+  },
+  {
+   "bib_id": 10,
+   "authors": [
+    {
+     "family": "Donato",
+     "given": "F"
+    },
+    {
+     "family": "Xu Schwartzlose",
+     "given": "A"
+    },
+    {
+     "family": "Viana Mendes",
+     "given": "RA"
+    }
+   ],
+   "year": "2023",
+   "title": "How Do You Build a Cognitive Map? The Development of Circuits and Computations for the Representation of Space in the Brain",
+   "container": "Annu Rev Neurosci",
+   "volume": "46",
+   "first_page": "281",
+   "doi": "10.1146/annurev-neuro-090922-010618"
+  },
+  {
+   "bib_id": 11,
+   "authors": [
+    {
+     "family": "Poucet",
+     "given": "B"
+    }
+   ],
+   "year": "1993",
+   "title": "Spatial cognitive maps in animals: new hypotheses on their structure and neural mechanisms",
+   "container": "Psychol Rev",
+   "volume": "100",
+   "first_page": "163",
+   "doi": "10.1037/0033-295x.100.2.163"
+  },
+  {
+   "bib_id": 12,
+   "authors": [
+    {
+     "family": "Werner",
+     "given": "S"
+    },
+    {
+     "family": "Krieg-Brückner",
+     "given": "B"
+    },
+    {
+     "family": "Herrmann",
+     "given": "T."
+    },
+    {
+     "family": "Freksa",
+     "given": "C"
+    },
+    {
+     "family": "Habel",
+     "given": "C"
+    },
+    {
+     "family": "Brauer",
+     "given": "W"
+    },
+    {
+     "family": "Wender",
+     "given": "KF"
+    }
+   ],
+   "year": "2000",
+   "title": "Modelling Navigational Knowledge by Route Graphs",
+   "container": "Spatial Cognition II: Integrating Abstract Theories, Empirical Studies, Formal Methods, and Practical Applications",
+   "first_page": "295",
+   "last_page": "316"
+  },
+  {
+   "bib_id": 13,
+   "authors": [
+    {
+     "family": "Whishaw",
+     "given": "IQ"
+    },
+    {
+     "family": "Brooks",
+     "given": "BL"
+    }
+   ],
+   "year": "1999",
+   "title": "Calibrating space: exploration is important for allothetic and idiothetic navigation",
+   "container": "Hippocampus",
+   "volume": "9",
+   "first_page": "659",
+   "doi": "10.1002/(SICI)1098-1063(1999)9:6<659::AID-HIPO7>3.0.CO;2-E"
+  },
+  {
+   "bib_id": 14,
+   "authors": [
+    {
+     "family": "McNaughton",
+     "given": "BL"
+    },
+    {
+     "family": "Battaglia",
+     "given": "FP"
+    },
+    {
+     "family": "Jensen",
+     "given": "O"
+    },
+    {
+     "family": "Moser",
+     "given": "EI"
+    },
+    {
+     "family": "Moser",
+     "given": "M-B"
+    }
+   ],
+   "year": "2006",
+   "title": "Path integration and the neural basis of the “cognitive map”",
+   "container": "Nat Rev Neurosci",
+   "volume": "7",
+   "first_page": "663",
+   "doi": "10.1038/nrn1932"
+  },
+  {
+   "bib_id": 15,
+   "authors": [
+    {
+     "family": "Banino",
+     "given": "A"
+    },
+    {
+     "family": "Barry",
+     "given": "C"
+    },
+    {
+     "family": "Uria",
+     "given": "B"
+    },
+    {
+     "family": "Blundell",
+     "given": "C"
+    },
+    {
+     "family": "Lillicrap",
+     "given": "T"
+    },
+    {
+     "family": "Mirowski",
+     "given": "P"
+    }
+   ],
+   "year": "2018",
+   "title": "Vector-based navigation using grid-like representations in artificial agents",
+   "container": "Nature",
+   "volume": "557",
+   "first_page": "429",
+   "doi": "10.1038/s41586-018-0102-6"
+  },
+  {
+   "bib_id": 16,
+   "authors": [
+    {
+     "family": "Sorscher",
+     "given": "B"
+    },
+    {
+     "family": "Mel",
+     "given": "GC"
+    },
+    {
+     "family": "Ocko",
+     "given": "SA"
+    },
+    {
+     "family": "Giocomo",
+     "given": "LM"
+    },
+    {
+     "family": "Ganguli",
+     "given": "S"
+    }
+   ],
+   "year": "2023",
+   "title": "A unified theory for the computational and mechanistic origins of grid cells",
+   "container": "Neuron",
+   "volume": "111",
+   "doi": "10.1016/j.neuron.2022.10.003"
+  },
+  {
+   "bib_id": 17
+  },
+  {
+   "bib_id": 18,
+   "authors": [
+    {
+     "family": "Stoewer",
+     "given": "P"
+    },
+    {
+     "family": "Schilling",
+     "given": "A"
+    },
+    {
+     "family": "Maier",
+     "given": "A"
+    },
+    {
+     "family": "Krauss",
+     "given": "P"
+    }
+   ],
+   "year": "2023",
+   "title": "Neural network based formation of cognitive maps of semantic spaces and the putative emergence of abstract concepts",
+   "container": "Sci Rep",
+   "volume": "13",
+   "first_page": "3644",
+   "doi": "10.1038/s41598-023-30307-6"
+  },
+  {
+   "bib_id": 19,
+   "authors": [
+    {
+     "family": "de Cothi",
+     "given": "W"
+    },
+    {
+     "family": "Nyberg",
+     "given": "N"
+    },
+    {
+     "family": "Griesbauer",
+     "given": "E-M"
+    },
+    {
+     "family": "Ghanamé",
+     "given": "C"
+    },
+    {
+     "family": "Zisch",
+     "given": "F"
+    },
+    {
+     "family": "Lefort",
+     "given": "JM"
+    }
+   ],
+   "year": "2022",
+   "title": "Predictive maps in rats and humans for spatial navigation",
+   "container": "Curr Biol",
+   "volume": "32",
+   "doi": "10.1016/j.cub.2022.06.090"
+  },
+  {
+   "bib_id": 20,
+   "authors": [
+    {
+     "family": "Whittington",
+     "given": "JCR"
+    },
+    {
+     "family": "Muller",
+     "given": "TH"
+    },
+    {
+     "family": "Mark",
+     "given": "S"
+    },
+    {
+     "family": "Chen",
+     "given": "G"
+    },
+    {
+     "family": "Barry",
+     "given": "C"
+    },
+    {
+     "family": "Burgess",
+     "given": "N"
+    }
+   ],
+   "year": "2020",
+   "title": "The Tolman-Eichenbaum Machine: Unifying Space and Relational Memory through Generalization in the Hippocampal Formation",
+   "container": "Cell",
+   "volume": "183",
+   "first_page": "1249"
+  },
+  {
+   "bib_id": 21,
+   "authors": [
+    {
+     "family": "Dayan",
+     "given": "P"
+    }
+   ],
+   "year": "1993",
+   "title": "Improving Generalization for Temporal Difference Learning: The Successor Representation",
+   "container": "Neural Computation",
+   "volume": "5",
+   "first_page": "613",
+   "doi": "10.1162/neco.1993.5.4.613"
+  },
+  {
+   "bib_id": 22
+  },
+  {
+   "bib_id": 23
+  },
+  {
+   "bib_id": 24,
+   "authors": [
+    {
+     "family": "Lee",
+     "given": "H"
+    }
+   ],
+   "year": "2022",
+   "title": "Toward the biological model of the hippocampus as the successor representation agent",
+   "container": "Biosystems",
+   "volume": "213",
+   "first_page": "104612",
+   "doi": "10.1016/j.biosystems.2022.104612"
+  },
+  {
+   "bib_id": 25,
+   "authors": [
+    {
+     "family": "Bono",
+     "given": "J"
+    },
+    {
+     "family": "Zannone",
+     "given": "S"
+    },
+    {
+     "family": "Pedrosa",
+     "given": "V"
+    },
+    {
+     "family": "Clopath",
+     "given": "C"
+    }
+   ],
+   "year": "2023",
+   "title": "Learning predictive cognitive maps with spiking neurons during behavior and replays",
+   "container": "eLife",
+   "volume": "12"
+  },
+  {
+   "bib_id": 26,
+   "authors": [
+    {
+     "family": "Fang",
+     "given": "C"
+    },
+    {
+     "family": "Dmitriy",
+     "given": "A"
+    },
+    {
+     "family": "Abbott",
+     "given": "LF"
+    },
+    {
+     "family": "Mackevicius",
+     "given": "EL"
+    }
+   ],
+   "year": "2023",
+   "title": "Neural learning rules for generating flexible predictions and computing the successor representation",
+   "container": "eLife",
+   "volume": "12"
+  },
+  {
+   "bib_id": 27,
+   "authors": [
+    {
+     "family": "Nadim",
+     "given": "F"
+    },
+    {
+     "family": "Bucher",
+     "given": "D"
+    }
+   ],
+   "year": "2014",
+   "title": "Neuromodulation of neurons and synapses",
+   "container": "Curr Opin Neurobiol",
+   "volume": "29",
+   "first_page": "48",
+   "last_page": "56",
+   "doi": "10.1016/j.conb.2014.05.003"
+  },
+  {
+   "bib_id": 28,
+   "authors": [
+    {
+     "family": "Lisman",
+     "given": "JE"
+    },
+    {
+     "family": "Grace",
+     "given": "AA"
+    }
+   ],
+   "year": "2005",
+   "title": "The hippocampal-VTA loop: controlling the entry of information into long-term memory",
+   "container": "Neuron",
+   "volume": "46",
+   "first_page": "703",
+   "doi": "10.1016/j.neuron.2005.05.002"
+  },
+  {
+   "bib_id": 29,
+   "authors": [
+    {
+     "family": "Duszkiewicz",
+     "given": "AJ"
+    },
+    {
+     "family": "McNamara",
+     "given": "CG"
+    },
+    {
+     "family": "Takeuchi",
+     "given": "T"
+    },
+    {
+     "family": "Genzel",
+     "given": "L"
+    }
+   ],
+   "year": "2019",
+   "title": "Novelty and Dopaminergic Modulation of Memory Persistence: A Tale of Two Systems",
+   "container": "Trends in Neurosciences",
+   "volume": "42",
+   "first_page": "102"
+  },
+  {
+   "bib_id": 30,
+   "authors": [
+    {
+     "family": "Schultz",
+     "given": "W"
+    },
+    {
+     "family": "Dayan",
+     "given": "P"
+    },
+    {
+     "family": "Montague",
+     "given": "PR"
+    }
+   ],
+   "year": "1997",
+   "title": "A Neural Substrate of Prediction and Reward",
+   "container": "Science",
+   "volume": "275",
+   "first_page": "1593"
+  },
+  {
+   "bib_id": 31,
+   "authors": [
+    {
+     "family": "Sheynikhovich",
+     "given": "D"
+    },
+    {
+     "family": "Otani",
+     "given": "S"
+    },
+    {
+     "family": "Bai",
+     "given": "J"
+    },
+    {
+     "family": "Arleo",
+     "given": "A"
+    }
+   ],
+   "year": "2023",
+   "title": "Long-term memory, synaptic plasticity and dopamine in rodent medial prefrontal cortex: Role in executive functions",
+   "container": "Front Behav Neurosci",
+   "volume": "16",
+   "first_page": "1068271",
+   "doi": "10.3389/fnbeh.2022.1068271"
+  },
+  {
+   "bib_id": 32,
+   "authors": [
+    {
+     "family": "Avery",
+     "given": "MC"
+    },
+    {
+     "family": "Krichmar",
+     "given": "JL"
+    }
+   ],
+   "year": "2017",
+   "title": "Neuromodulatory Systems and Their Interactions: A Review of Models, Theories, and Experiments",
+   "container": "Front Neural Circuits",
+   "volume": "11",
+   "first_page": "108",
+   "doi": "10.3389/fncir.2017.00108"
+  },
+  {
+   "bib_id": 33,
+   "authors": [
+    {
+     "family": "Richard",
+     "given": "S"
+    }
+   ],
+   "year": "1998",
+   "title": "Sutton and Andrew G. Barto. The Reinforcement Learning Problem. In Reinforcement Learning: An Introduction",
+   "first_page": "51",
+   "last_page": "85"
+  },
+  {
+   "bib_id": 34,
+   "authors": [
+    {
+     "family": "Fuchsberger",
+     "given": "T"
+    },
+    {
+     "family": "Paulsen",
+     "given": "O"
+    }
+   ],
+   "year": "2022",
+   "title": "Modulation of hippocampal plasticity in learning and memory",
+   "container": "Curr Opin Neurobiol",
+   "volume": "75",
+   "first_page": "102558",
+   "doi": "10.1016/j.conb.2022.102558"
+  },
+  {
+   "bib_id": 35,
+   "authors": [
+    {
+     "family": "Edelmann",
+     "given": "E"
+    },
+    {
+     "family": "Lessmann",
+     "given": "V"
+    }
+   ],
+   "year": "2018",
+   "title": "Dopaminergic innervation and modulation of hippocampal networks",
+   "container": "Cell Tissue Res",
+   "volume": "373",
+   "first_page": "711",
+   "doi": "10.1007/s00441-018-2800-7"
+  },
+  {
+   "bib_id": 36,
+   "authors": [
+    {
+     "family": "Chowdhury",
+     "given": "A"
+    },
+    {
+     "family": "Luchetti",
+     "given": "A"
+    },
+    {
+     "family": "Fernandes",
+     "given": "G"
+    },
+    {
+     "family": "Filho",
+     "given": "DA"
+    },
+    {
+     "family": "Kastellakis",
+     "given": "G"
+    },
+    {
+     "family": "Tzilivaki",
+     "given": "A"
+    }
+   ],
+   "year": "2022",
+   "title": "A locus coeruleus-dorsal CA1 dopaminergic circuit modulates memory linking",
+   "container": "Neuron",
+   "volume": "110",
+   "doi": "10.1016/j.neuron.2022.08.001"
+  },
+  {
+   "bib_id": 37,
+   "authors": [
+    {
+     "family": "Takeuchi",
+     "given": "T"
+    },
+    {
+     "family": "Duszkiewicz",
+     "given": "AJ"
+    },
+    {
+     "family": "Sonneborn",
+     "given": "A"
+    },
+    {
+     "family": "Spooner",
+     "given": "PA"
+    },
+    {
+     "family": "Yamasaki",
+     "given": "M"
+    },
+    {
+     "family": "Watanabe",
+     "given": "M"
+    }
+   ],
+   "year": "2016",
+   "title": "Locus coeruleus and dopaminergic consolidation of everyday memory",
+   "container": "Nature",
+   "volume": "537",
+   "first_page": "357",
+   "doi": "10.1038/nature19325"
+  },
+  {
+   "bib_id": 38,
+   "authors": [
+    {
+     "family": "Kempadoo",
+     "given": "KA"
+    },
+    {
+     "family": "Mosharov",
+     "given": "EV"
+    },
+    {
+     "family": "Choi",
+     "given": "SJ"
+    },
+    {
+     "family": "Sulzer",
+     "given": "D"
+    },
+    {
+     "family": "Kandel",
+     "given": "ER"
+    }
+   ],
+   "year": "2016",
+   "title": "Dopamine release from the locus coeruleus to the dorsal hippocampus promotes spatial learning and memory",
+   "container": "Proc Natl Acad Sci U S A",
+   "volume": "113",
+   "first_page": "14835",
+   "doi": "10.1073/pnas.1616515114"
+  },
+  {
+   "bib_id": 39,
+   "authors": [
+    {
+     "family": "Bittner",
+     "given": "KC"
+    },
+    {
+     "family": "Milstein",
+     "given": "AD"
+    },
+    {
+     "family": "Grienberger",
+     "given": "C"
+    },
+    {
+     "family": "Romani",
+     "given": "S"
+    },
+    {
+     "family": "Magee",
+     "given": "JC"
+    }
+   ],
+   "year": "2017",
+   "title": "Behavioral time scale synaptic plasticity underlies CA1 place fields",
+   "container": "Science",
+   "volume": "357",
+   "first_page": "1033",
+   "doi": "10.1126/science.aan3846"
+  },
+  {
+   "bib_id": 40,
+   "authors": [
+    {
+     "family": "Kaufman",
+     "given": "AM"
+    },
+    {
+     "family": "Geiller",
+     "given": "T"
+    },
+    {
+     "family": "Losonczy",
+     "given": "A"
+    }
+   ],
+   "year": "2020",
+   "title": "A Role for the Locus Coeruleus in Hippocampal CA1 Place Cell Reorganization during Spatial Reward Learning",
+   "container": "Neuron",
+   "volume": "105",
+   "doi": "10.1016/j.neuron.2019.12.029"
+  },
+  {
+   "bib_id": 41,
+   "authors": [
+    {
+     "family": "Retailleau",
+     "given": "A"
+    },
+    {
+     "family": "Boraud",
+     "given": "T"
+    }
+   ],
+   "year": "2014",
+   "title": "The Michelin red guide of the brain: role of dopamine in goal-oriented navigation",
+   "container": "Front Syst Neurosci",
+   "volume": "8",
+   "first_page": "32",
+   "doi": "10.3389/fnsys.2014.00032"
+  },
+  {
+   "bib_id": 42,
+   "authors": [
+    {
+     "family": "Igarashi",
+     "given": "KM"
+    },
+    {
+     "family": "Ito",
+     "given": "HT"
+    },
+    {
+     "family": "Moser",
+     "given": "EI"
+    },
+    {
+     "family": "Moser",
+     "given": "M-B"
+    }
+   ],
+   "year": "2014",
+   "title": "Functional diversity along the transverse axis of hippocampal area CA1",
+   "container": "FEBS Lett",
+   "volume": "588",
+   "first_page": "2470",
+   "doi": "10.1016/j.febslet.2014.06.004"
+  },
+  {
+   "bib_id": 43,
+   "authors": [
+    {
+     "family": "Ito",
+     "given": "HT"
+    },
+    {
+     "family": "Schuman",
+     "given": "EM"
+    }
+   ],
+   "year": "2012",
+   "title": "Functional division of hippocampal area CA1 via modulatory gating of entorhinal cortical inputs",
+   "container": "Hippocampus",
+   "volume": "22",
+   "first_page": "372",
+   "doi": "10.1002/hipo.20909"
+  },
+  {
+   "bib_id": 44,
+   "authors": [
+    {
+     "family": "Brzosko",
+     "given": "Z"
+    },
+    {
+     "family": "Mierau",
+     "given": "SB"
+    },
+    {
+     "family": "Paulsen",
+     "given": "O"
+    }
+   ],
+   "year": "2019",
+   "title": "Neuromodulation of Spike-Timing-Dependent Plasticity: Past, Present, and Future",
+   "container": "Neuron",
+   "volume": "103",
+   "first_page": "563",
+   "doi": "10.1016/j.neuron.2019.05.041"
+  },
+  {
+   "bib_id": 45,
+   "authors": [
+    {
+     "family": "Mei",
+     "given": "J"
+    },
+    {
+     "family": "Meshkinnejad",
+     "given": "R"
+    },
+    {
+     "family": "Mohsenzadeh",
+     "given": "Y"
+    }
+   ],
+   "year": "2023",
+   "title": "Effects of neuromodulation-inspired mechanisms on the performance of deep neural networks in a spatial learning task",
+   "container": "iScience",
+   "volume": "26",
+   "first_page": "106026",
+   "doi": "10.1016/j.isci.2023.106026"
+  },
+  {
+   "bib_id": 46,
+   "authors": [
+    {
+     "family": "Tobler",
+     "given": "PN"
+    },
+    {
+     "family": "Fiorillo",
+     "given": "CD"
+    },
+    {
+     "family": "Schultz",
+     "given": "W"
+    }
+   ],
+   "year": "2005",
+   "title": "Adaptive coding of reward value by dopamine neurons",
+   "container": "Science",
+   "volume": "307",
+   "first_page": "1642",
+   "doi": "10.1126/science.1105370"
+  },
+  {
+   "bib_id": 47,
+   "authors": [
+    {
+     "family": "Cools",
+     "given": "R"
+    }
+   ],
+   "year": "2019",
+   "title": "Chemistry of the Adaptive Mind: Lessons from Dopamine",
+   "container": "Neuron",
+   "volume": "104",
+   "first_page": "113",
+   "doi": "10.1016/j.neuron.2019.09.035"
+  },
+  {
+   "bib_id": 48
+  },
+  {
+   "bib_id": 49,
+   "authors": [
+    {
+     "family": "Milstein",
+     "given": "AD"
+    },
+    {
+     "family": "Li",
+     "given": "Y"
+    },
+    {
+     "family": "Bittner",
+     "given": "KC"
+    },
+    {
+     "family": "Grienberger",
+     "given": "C"
+    },
+    {
+     "family": "Soltesz",
+     "given": "I"
+    },
+    {
+     "family": "Magee",
+     "given": "JC"
+    }
+   ],
+   "year": "2021",
+   "title": "Bidirectional synaptic plasticity rapidly modifies hippocampal representations",
+   "container": "Elife",
+   "volume": "10",
+   "doi": "10.7554/eLife.73046"
+  },
+  {
+   "bib_id": 50,
+   "authors": [
+    {
+     "family": "Fenton",
+     "given": "AA"
+    }
+   ],
+   "year": "2024",
+   "title": "Remapping revisited: how the hippocampus represents different spaces",
+   "container": "Nat Rev Neurosci",
+   "volume": "25",
+   "first_page": "428",
+   "doi": "10.1038/s41583-024-00817-x"
+  },
+  {
+   "bib_id": 51,
+   "authors": [
+    {
+     "family": "Zhou",
+     "given": "L"
+    },
+    {
+     "family": "Gu",
+     "given": "Y"
+    }
+   ],
+   "year": "2023",
+   "title": "Cortical mechanisms of multisensory linear self-motion perception",
+   "container": "Neurosci Bull",
+   "volume": "39",
+   "first_page": "125",
+   "doi": "10.1007/s12264-022-00916-8"
+  },
+  {
+   "bib_id": 52,
+   "authors": [
+    {
+     "family": "Jerjian",
+     "given": "SJ"
+    },
+    {
+     "family": "Harsch",
+     "given": "DR"
+    },
+    {
+     "family": "Fetsch",
+     "given": "CR"
+    }
+   ],
+   "year": "2023",
+   "title": "Self-motion perception and sequential decision-making: where are we heading?",
+   "container": "Philos Trans R Soc Lond B Biol Sci",
+   "volume": "378",
+   "first_page": "20220333",
+   "doi": "10.1098/rstb.2022.0333"
+  },
+  {
+   "bib_id": 53,
+   "authors": [
+    {
+     "family": "Dabaghian",
+     "given": "Y"
+    }
+   ],
+   "year": "2023",
+   "title": "Grid cells, border cells, and discrete complex analysis",
+   "container": "Front Comput Neurosci",
+   "volume": "17",
+   "first_page": "1242300",
+   "doi": "10.3389/fncom.2023.1242300"
+  },
+  {
+   "bib_id": 54,
+   "authors": [
+    {
+     "family": "Schøyen",
+     "given": "VS"
+    },
+    {
+     "family": "Beshkov",
+     "given": "K"
+    },
+    {
+     "family": "Pettersen",
+     "given": "MB"
+    },
+    {
+     "family": "Hermansen",
+     "given": "E"
+    },
+    {
+     "family": "Holzhausen",
+     "given": "K"
+    },
+    {
+     "family": "Malthe-Sørenssen",
+     "given": "A"
+    }
+   ],
+   "year": "2025",
+   "title": "Hexagons all the way down: Grid cells as a conformal isometric map of space",
+   "container": "PLOS Computational Biology",
+   "volume": "21"
+  },
+  {
+   "bib_id": 55,
+   "authors": [
+    {
+     "family": "Montague",
+     "given": "PR"
+    },
+    {
+     "family": "Dayan",
+     "given": "P"
+    },
+    {
+     "family": "Sejnowski",
+     "given": "TJ"
+    }
+   ],
+   "year": "1996",
+   "title": "A framework for mesencephalic dopamine systems based on predictive Hebbian learning",
+   "container": "J Neurosci",
+   "volume": "16",
+   "first_page": "1936",
+   "doi": "10.1523/JNEUROSCI.16-05-01936.1996"
+  },
+  {
+   "bib_id": 56,
+   "authors": [
+    {
+     "family": "Krishnan",
+     "given": "S"
+    },
+    {
+     "family": "Heer",
+     "given": "C"
+    },
+    {
+     "family": "Cherian",
+     "given": "C"
+    },
+    {
+     "family": "Sheffield",
+     "given": "MEJ"
+    }
+   ],
+   "year": "2022",
+   "title": "Reward expectation extinction restructures and degrades CA1 spatial maps through loss of a dopaminergic reward proximity signal",
+   "container": "Nat Commun",
+   "volume": "13",
+   "first_page": "6662",
+   "doi": "10.1038/s41467-022-34465-5"
+  },
+  {
+   "bib_id": 57,
+   "authors": [
+    {
+     "family": "Tsetsenis",
+     "given": "T"
+    },
+    {
+     "family": "Broussard",
+     "given": "JI"
+    },
+    {
+     "family": "Dani",
+     "given": "JA"
+    }
+   ],
+   "year": "2023",
+   "title": "Dopaminergic regulation of hippocampal plasticity, learning, and memory",
+   "container": "Front Behav Neurosci",
+   "volume": "16",
+   "first_page": "1092420",
+   "doi": "10.3389/fnbeh.2022.1092420"
+  },
+  {
+   "bib_id": 58,
+   "authors": [
+    {
+     "family": "Sosa",
+     "given": "M"
+    },
+    {
+     "family": "Plitt",
+     "given": "MH"
+    },
+    {
+     "family": "Giocomo",
+     "given": "LM"
+    }
+   ],
+   "year": "2025",
+   "title": "A flexible hippocampal population code for experience relative to reward",
+   "container": "Nat Neurosci",
+   "volume": "28",
+   "first_page": "1497",
+   "doi": "10.1038/s41593-025-01985-4"
+  },
+  {
+   "bib_id": 59,
+   "year": "2007",
+   "title": "Lubica Benuskova and Wickliffe C. Abraham. STDP rule endowed with the BCM sliding threshold accounts for hippocampal heterosynaptic plasticity",
+   "container": "Journal of Computational Neuroscience",
+   "volume": "22",
+   "first_page": "129"
+  },
+  {
+   "bib_id": 60,
+   "authors": [
+    {
+     "family": "McNamara",
+     "given": "CG"
+    },
+    {
+     "family": "Tejero-Cantero",
+     "given": "Á"
+    },
+    {
+     "family": "Trouche",
+     "given": "S"
+    },
+    {
+     "family": "Campo-Urriza",
+     "given": "N"
+    },
+    {
+     "family": "Dupret",
+     "given": "D"
+    }
+   ],
+   "year": "2014",
+   "title": "Dopaminergic neurons promote hippocampal reactivation and spatial memory persistence",
+   "container": "Nat Neurosci",
+   "volume": "17",
+   "first_page": "1658",
+   "doi": "10.1038/nn.3843"
+  },
+  {
+   "bib_id": 61,
+   "authors": [
+    {
+     "family": "Michon",
+     "given": "F"
+    },
+    {
+     "family": "Krul",
+     "given": "E"
+    },
+    {
+     "family": "Sun",
+     "given": "J-J"
+    },
+    {
+     "family": "Kloosterman",
+     "given": "F"
+    }
+   ],
+   "year": "2021",
+   "title": "Single-trial dynamics of hippocampal spatial representations are modulated by reward value",
+   "container": "Curr Biol",
+   "volume": "31",
+   "doi": "10.1016/j.cub.2021.07.058"
+  },
+  {
+   "bib_id": 62
+  },
+  {
+   "bib_id": 63,
+   "authors": [
+    {
+     "family": "Meilinger",
+     "given": "T"
+    },
+    {
+     "family": "Strickrodt",
+     "given": "M"
+    },
+    {
+     "family": "Bülthoff",
+     "given": "HH"
+    }
+   ],
+   "year": "2016",
+   "title": "Qualitative differences in memory for vista and environmental spaces are caused by opaque borders, not movement or successive presentation",
+   "container": "Cognition",
+   "volume": "155",
+   "first_page": "77",
+   "last_page": "95",
+   "doi": "10.1016/j.cognition.2016.06.003"
+  },
+  {
+   "bib_id": 64,
+   "authors": [
+    {
+     "family": "Igel",
+     "given": "C"
+    },
+    {
+     "family": "Hansen",
+     "given": "N"
+    },
+    {
+     "family": "Roth",
+     "given": "S"
+    }
+   ],
+   "year": "2007",
+   "title": "Covariance matrix adaptation for multi-objective optimization",
+   "container": "Evol Comput",
+   "volume": "15",
+   "first_page": "1",
+   "last_page": "28",
+   "doi": "10.1162/evco.2007.15.1.1"
+  },
+  {
+   "bib_id": 65,
+   "authors": [
+    {
+     "family": "Retailleau",
+     "given": "A"
+    },
+    {
+     "family": "Morris",
+     "given": "G"
+    }
+   ],
+   "year": "2018",
+   "title": "Spatial Rule Learning and Corresponding CA1 Place Cell Reorientation Depend on Local Dopamine Release",
+   "container": "Curr Biol",
+   "volume": "28",
+   "doi": "10.1016/j.cub.2018.01.081"
+  },
+  {
+   "bib_id": 66,
+   "authors": [
+    {
+     "family": "Schultz",
+     "given": "W"
+    }
+   ],
+   "year": "2016",
+   "title": "Dopamine reward prediction error coding",
+   "container": "Dialogues Clin Neurosci",
+   "volume": "18",
+   "first_page": "23",
+   "last_page": "32",
+   "doi": "10.31887/DCNS.2016.18.1/wschultz"
+  },
+  {
+   "bib_id": 67,
+   "authors": [
+    {
+     "family": "Ormond",
+     "given": "J"
+    },
+    {
+     "family": "Serka",
+     "given": "SA"
+    },
+    {
+     "family": "Johansen",
+     "given": "JP"
+    }
+   ],
+   "year": "2023",
+   "title": "Enhanced Reactivation of Remapping Place Cells during Aversive Learning",
+   "container": "J Neurosci",
+   "volume": "43",
+   "first_page": "2153",
+   "doi": "10.1523/JNEUROSCI.1450-22.2022"
+  },
+  {
+   "bib_id": 68,
+   "authors": [
+    {
+     "family": "Blair",
+     "given": "GJ"
+    },
+    {
+     "family": "Guo",
+     "given": "C"
+    },
+    {
+     "family": "Wang",
+     "given": "S"
+    },
+    {
+     "family": "Fanselow",
+     "given": "MS"
+    },
+    {
+     "family": "Golshani",
+     "given": "P"
+    },
+    {
+     "family": "Aharoni",
+     "given": "D"
+    }
+   ],
+   "year": "2023",
+   "title": "Hippocampal place cell remapping occurs with memory storage of aversive experiences",
+   "container": "eLife",
+   "volume": "12"
+  },
+  {
+   "bib_id": 69
+  },
+  {
+   "bib_id": 70,
+   "authors": [
+    {
+     "family": "Ziv",
+     "given": "Y"
+    },
+    {
+     "family": "Burns",
+     "given": "LD"
+    },
+    {
+     "family": "Cocker",
+     "given": "ED"
+    },
+    {
+     "family": "Hamel",
+     "given": "EO"
+    },
+    {
+     "family": "Ghosh",
+     "given": "KK"
+    },
+    {
+     "family": "Kitch",
+     "given": "LJ"
+    }
+   ],
+   "year": "2013",
+   "title": "Long-term dynamics of CA1 hippocampal place codes",
+   "container": "Nat Neurosci",
+   "volume": "16",
+   "first_page": "264",
+   "doi": "10.1038/nn.3329"
+  },
+  {
+   "bib_id": 71,
+   "authors": [
+    {
+     "family": "Priestley",
+     "given": "JB"
+    },
+    {
+     "family": "Bowler",
+     "given": "JC"
+    },
+    {
+     "family": "Rolotti",
+     "given": "SV"
+    },
+    {
+     "family": "Fusi",
+     "given": "S"
+    },
+    {
+     "family": "Losonczy",
+     "given": "A"
+    }
+   ],
+   "year": "2022",
+   "title": "Signatures of rapid plasticity in hippocampal CA1 representations during novel experiences",
+   "container": "Neuron",
+   "volume": "110",
+   "doi": "10.1016/j.neuron.2022.03.026"
+  },
+  {
+   "bib_id": 72,
+   "authors": [
+    {
+     "family": "Vaidya",
+     "given": "SP"
+    },
+    {
+     "family": "Li",
+     "given": "G"
+    },
+    {
+     "family": "Chitwood",
+     "given": "RA"
+    },
+    {
+     "family": "Li",
+     "given": "Y"
+    },
+    {
+     "family": "Magee",
+     "given": "JC"
+    }
+   ],
+   "year": "2025",
+   "title": "Formation of an expanding memory representation in the hippocampus",
+   "container": "Nature Neuroscience",
+   "volume": "28",
+   "first_page": "1510"
+  },
+  {
+   "bib_id": 73,
+   "authors": [
+    {
+     "family": "Hok",
+     "given": "V"
+    },
+    {
+     "family": "Lenck-Santini",
+     "given": "P-P"
+    },
+    {
+     "family": "Roux",
+     "given": "S"
+    },
+    {
+     "family": "Save",
+     "given": "E"
+    },
+    {
+     "family": "Muller",
+     "given": "RU"
+    },
+    {
+     "family": "Poucet",
+     "given": "B"
+    }
+   ],
+   "year": "2007",
+   "title": "Goal-related activity in hippocampal place cells",
+   "container": "J Neurosci",
+   "volume": "27",
+   "first_page": "472",
+   "doi": "10.1523/JNEUROSCI.2864-06.2007"
+  },
+  {
+   "bib_id": 74,
+   "authors": [
+    {
+     "family": "Kubie",
+     "given": "JL"
+    },
+    {
+     "family": "Fox",
+     "given": "SE"
+    }
+   ],
+   "year": "2015",
+   "title": "Do the spatial frequencies of grid cells mold the firing fields of place cells?",
+   "container": "Proc Natl Acad Sci U S A",
+   "volume": "112",
+   "first_page": "3860",
+   "doi": "10.1073/pnas.1503155112"
+  },
+  {
+   "bib_id": 75,
+   "authors": [
+    {
+     "family": "Gallistel",
+     "given": "CR"
+    },
+    {
+     "family": "Cramer",
+     "given": "AE"
+    }
+   ],
+   "year": "1996",
+   "title": "Computations on metric maps in mammals: getting oriented and choosing a multi-destination route",
+   "container": "J Exp Biol",
+   "volume": "199",
+   "first_page": "211",
+   "doi": "10.1242/jeb.199.1.211"
+  },
+  {
+   "bib_id": 76,
+   "year": "1998",
+   "title": "Sabine Gillner and Hanspeter A. Mallot. Navigation and Acquisition of Spatial Knowledge in a Virtual Maze",
+   "container": "Journal of Cognitive Neuroscience",
+   "volume": "10",
+   "first_page": "445"
+  },
+  {
+   "bib_id": 77,
+   "authors": [
+    {
+     "family": "Tran",
+     "given": "AH"
+    },
+    {
+     "family": "Uwano",
+     "given": "T"
+    },
+    {
+     "family": "Kimura",
+     "given": "T"
+    },
+    {
+     "family": "Hori",
+     "given": "E"
+    },
+    {
+     "family": "Katsuki",
+     "given": "M"
+    },
+    {
+     "family": "Nishijo",
+     "given": "H"
+    }
+   ],
+   "year": "2008",
+   "title": "Dopamine D1 receptor modulates hippocampal representation plasticity to spatial novelty",
+   "container": "J Neurosci",
+   "volume": "28",
+   "first_page": "13390",
+   "doi": "10.1523/JNEUROSCI.2680-08.2008"
+  },
+  {
+   "bib_id": 78,
+   "authors": [
+    {
+     "family": "Ishikawa",
+     "given": "T"
+    },
+    {
+     "family": "Montello",
+     "given": "DR"
+    }
+   ],
+   "year": "2006",
+   "title": "Spatial knowledge acquisition from direct experience in the environment: individual differences in the development of metric knowledge and the integration of separately learned places",
+   "container": "Cogn Psychol",
+   "volume": "52",
+   "first_page": "93",
+   "last_page": "129",
+   "doi": "10.1016/j.cogpsych.2005.08.003"
+  },
+  {
+   "bib_id": 79,
+   "authors": [
+    {
+     "family": "Warren",
+     "given": "WH"
+    }
+   ],
+   "year": "2019",
+   "title": "Non-Euclidean navigation",
+   "container": "J Exp Biol",
+   "volume": "222",
+   "doi": "10.1242/jeb.187971"
+  },
+  {
+   "bib_id": 80,
+   "authors": [
+    {
+     "family": "Meilinger",
+     "given": "T"
+    }
+   ],
+   "year": "2008",
+   "title": "The Network of Reference Frames Theory: A Synthesis of Graphs and Cognitive Maps. In Christian Freksa, Nora S. Newcombe, Peter Gärdenfors, and Stefan Wölfl, editors, Spatial Cognition VI. Learning, Reasoning, and Talking about Space",
+   "first_page": "344"
+  },
+  {
+   "bib_id": 81
+  },
+  {
+   "bib_id": 82,
+   "authors": [
+    {
+     "family": "Schinazi",
+     "given": "VR"
+    },
+    {
+     "family": "Nardi",
+     "given": "D"
+    },
+    {
+     "family": "Newcombe",
+     "given": "NS"
+    },
+    {
+     "family": "Shipley",
+     "given": "TF"
+    },
+    {
+     "family": "Epstein",
+     "given": "RA"
+    }
+   ],
+   "year": "2013",
+   "title": "Hippocampal size predicts rapid learning of a cognitive map in humans",
+   "container": "Hippocampus",
+   "volume": "23",
+   "first_page": "515",
+   "doi": "10.1002/hipo.22111"
+  },
+  {
+   "bib_id": 83
+  },
+  {
+   "bib_id": 84
+  },
+  {
+   "bib_id": 85,
+   "authors": [
+    {
+     "family": "de Cothi",
+     "given": "W"
+    },
+    {
+     "family": "Barry",
+     "given": "C"
+    }
+   ],
+   "year": "2020",
+   "title": "Neurobiological successor features for spatial navigation",
+   "container": "Hippocampus",
+   "volume": "30",
+   "first_page": "1347",
+   "doi": "10.1002/hipo.23246"
+  },
+  {
+   "bib_id": 86,
+   "authors": [
+    {
+     "family": "Brzosko",
+     "given": "Z"
+    },
+    {
+     "family": "Zannone",
+     "given": "S"
+    },
+    {
+     "family": "Schultz",
+     "given": "W"
+    },
+    {
+     "family": "Clopath",
+     "given": "C"
+    },
+    {
+     "family": "Paulsen",
+     "given": "O"
+    }
+   ],
+   "year": "2017",
+   "title": "Sequential neuromodulation of Hebbian plasticity offers mechanism for effective reward-based navigation",
+   "container": "Elife",
+   "volume": "6",
+   "doi": "10.7554/eLife.27756"
+  },
+  {
+   "bib_id": 87,
+   "authors": [
+    {
+     "family": "Aitken",
+     "given": "F"
+    },
+    {
+     "family": "Kok",
+     "given": "P"
+    }
+   ],
+   "year": "2022",
+   "title": "Hippocampal representations switch from errors to predictions during acquisition of predictive associations",
+   "container": "Nat Commun",
+   "volume": "13",
+   "first_page": "3294",
+   "doi": "10.1038/s41467-022-31040-w"
+  },
+  {
+   "bib_id": 88,
+   "authors": [
+    {
+     "family": "Halvagal",
+     "given": "MS"
+    },
+    {
+     "family": "Zenke",
+     "given": "F"
+    }
+   ],
+   "year": "2023",
+   "title": "The combination of Hebbian and predictive plasticity learns invariant object representations in deep sensory networks",
+   "container": "Nat Neurosci",
+   "volume": "26",
+   "first_page": "1906",
+   "doi": "10.1038/s41593-023-01460-y"
+  },
+  {
+   "bib_id": 89,
+   "authors": [
+    {
+     "family": "Ororbia",
+     "given": "A"
+    }
+   ],
+   "year": "2023",
+   "title": "Spiking neural predictive coding for continually learning from data streams",
+   "container": "Neurocomputing",
+   "volume": "544",
+   "first_page": "126292",
+   "doi": "10.1016/j.neucom.2023.126292"
+  },
+  {
+   "bib_id": 90,
+   "authors": [
+    {
+     "family": "Stachenfeld",
+     "given": "KL"
+    },
+    {
+     "family": "Botvinick",
+     "given": "MM"
+    },
+    {
+     "family": "Gershman",
+     "given": "SJ"
+    }
+   ],
+   "year": "2017",
+   "title": "The hippocampus as a predictive map",
+   "container": "Nature Neuroscience",
+   "volume": "20",
+   "first_page": "1643"
+  },
+  {
+   "bib_id": 91,
+   "authors": [
+    {
+     "family": "Fiorillo",
+     "given": "CD"
+    },
+    {
+     "family": "Tobler",
+     "given": "PN"
+    },
+    {
+     "family": "Schultz",
+     "given": "W"
+    }
+   ],
+   "year": "2003",
+   "title": "Discrete coding of reward probability and uncertainty by dopamine neurons",
+   "container": "Science",
+   "volume": "299",
+   "first_page": "1898",
+   "doi": "10.1126/science.1077349"
+  },
+  {
+   "bib_id": 92,
+   "authors": [
+    {
+     "family": "Sosa",
+     "given": "M"
+    },
+    {
+     "family": "Giocomo",
+     "given": "LM"
+    }
+   ],
+   "year": "2021",
+   "title": "Navigating for reward",
+   "container": "Nat Rev Neurosci",
+   "volume": "22",
+   "first_page": "472",
+   "doi": "10.1038/s41583-021-00479-z"
+  },
+  {
+   "bib_id": 93
+  },
+  {
+   "bib_id": 94,
+   "authors": [
+    {
+     "family": "Nair",
+     "given": "IR"
+    },
+    {
+     "family": "Bhasin",
+     "given": "G"
+    },
+    {
+     "family": "Roy",
+     "given": "D"
+    }
+   ],
+   "year": "2022",
+   "title": "Hippocampus maintains a coherent map under reward feature-landmark cue conflict",
+   "container": "Front Neural Circuits",
+   "volume": "16",
+   "first_page": "878046",
+   "doi": "10.3389/fncir.2022.878046"
+  },
+  {
+   "bib_id": 95,
+   "authors": [
+    {
+     "family": "Grienberger",
+     "given": "C"
+    },
+    {
+     "family": "Magee",
+     "given": "JC"
+    }
+   ],
+   "year": "2022",
+   "title": "Entorhinal cortex directs learning-related changes in CA1 representations",
+   "container": "Nature",
+   "volume": "611",
+   "first_page": "554",
+   "doi": "10.1038/s41586-022-05378-6"
+  },
+  {
+   "bib_id": 96,
+   "authors": [
+    {
+     "family": "Tryon",
+     "given": "VL"
+    },
+    {
+     "family": "Penner",
+     "given": "MR"
+    },
+    {
+     "family": "Heide",
+     "given": "SW"
+    },
+    {
+     "family": "King",
+     "given": "HO"
+    },
+    {
+     "family": "Larkin",
+     "given": "J"
+    },
+    {
+     "family": "Mizumori",
+     "given": "SJY"
+    }
+   ],
+   "year": "2017",
+   "title": "Hippocampal neural activity reflects the economy of choices during goal-directed navigation",
+   "container": "Hippocampus",
+   "volume": "27",
+   "first_page": "743",
+   "doi": "10.1002/hipo.22720"
+  },
+  {
+   "bib_id": 97,
+   "year": "2020",
+   "title": "Hannah S Wirtshafter and Matthew A Wilson",
+   "container": "Differences in reward biased spatial representations in the lateral septum and hippocampus. eLife",
+   "volume": "9"
+  },
+  {
+   "bib_id": 98,
+   "authors": [
+    {
+     "family": "Anderson",
+     "given": "MI"
+    },
+    {
+     "family": "Jeffery",
+     "given": "KJ"
+    }
+   ],
+   "year": "2003",
+   "title": "Heterogeneous modulation of place cell firing by changes in context",
+   "container": "J Neurosci",
+   "volume": "23",
+   "first_page": "8827",
+   "doi": "10.1523/JNEUROSCI.23-26-08827.2003"
+  },
+  {
+   "bib_id": 99,
+   "authors": [
+    {
+     "family": "Lee",
+     "given": "I"
+    },
+    {
+     "family": "Griffin",
+     "given": "AL"
+    },
+    {
+     "family": "Zilli",
+     "given": "EA"
+    },
+    {
+     "family": "Eichenbaum",
+     "given": "H"
+    },
+    {
+     "family": "Hasselmo",
+     "given": "ME"
+    }
+   ],
+   "year": "2006",
+   "title": "Gradual Translocation of Spatial Correlates of Neuronal Firing in the Hippocampus toward Prospective Reward Locations",
+   "container": "Neuron",
+   "volume": "51",
+   "first_page": "639"
+  },
+  {
+   "bib_id": 100,
+   "authors": [
+    {
+     "family": "Schoenenberger",
+     "given": "P"
+    },
+    {
+     "family": "O’Neill",
+     "given": "J"
+    },
+    {
+     "family": "Csicsvari",
+     "given": "J"
+    }
+   ],
+   "year": "2016",
+   "title": "Activity-dependent plasticity of hippocampal place maps",
+   "container": "Nat Commun",
+   "volume": "7",
+   "first_page": "11824",
+   "doi": "10.1038/ncomms11824"
+  },
+  {
+   "bib_id": 101,
+   "authors": [
+    {
+     "family": "Wang",
+     "given": "CH"
+    },
+    {
+     "family": "Monaco",
+     "given": "JD"
+    },
+    {
+     "family": "Knierim",
+     "given": "JJ"
+    }
+   ],
+   "year": "2020",
+   "title": "Hippocampal Place Cells Encode Local Surface-Texture Boundaries",
+   "container": "Current biology: CB",
+   "volume": "30",
+   "first_page": "1397"
+  },
+  {
+   "bib_id": 102,
+   "authors": [
+    {
+     "family": "Yang",
+     "given": "X"
+    },
+    {
+     "family": "Cacucci",
+     "given": "F"
+    },
+    {
+     "family": "Burgess",
+     "given": "N"
+    },
+    {
+     "family": "Wills",
+     "given": "TJ"
+    },
+    {
+     "family": "Chen",
+     "given": "G"
+    }
+   ],
+   "year": "2024",
+   "title": "Visual boundary cues suffice to anchor place and grid cells in virtual reality",
+   "container": "Curr Biol",
+   "volume": "34",
+   "doi": "10.1016/j.cub.2024.04.026"
+  },
+  {
+   "bib_id": 103,
+   "authors": [
+    {
+     "family": "Wiener",
+     "given": "SI"
+    },
+    {
+     "family": "Paul",
+     "given": "CA"
+    },
+    {
+     "family": "Eichenbaum",
+     "given": "H"
+    }
+   ],
+   "year": "1989",
+   "title": "Spatial and behavioral correlates of hippocampal neuronal activity",
+   "container": "J Neurosci",
+   "volume": "9",
+   "first_page": "2737",
+   "doi": "10.1523/JNEUROSCI.09-08-02737.1989"
+  },
+  {
+   "bib_id": 104,
+   "authors": [
+    {
+     "family": "Fyhn",
+     "given": "M"
+    },
+    {
+     "family": "Molden",
+     "given": "S"
+    },
+    {
+     "family": "Hollup",
+     "given": "S"
+    },
+    {
+     "family": "Moser",
+     "given": "M-B"
+    },
+    {
+     "family": "Moser",
+     "given": "EI"
+    }
+   ],
+   "year": "2002",
+   "title": "Hippocampal Neurons Responding to First-Time Dislocation of a Target Object",
+   "container": "Neuron",
+   "volume": "35",
+   "first_page": "555",
+   "doi": "10.1016/s0896-6273(02)00784-5"
+  },
+  {
+   "bib_id": 105,
+   "authors": [
+    {
+     "family": "Lenck-Santini",
+     "given": "P-P"
+    },
+    {
+     "family": "Rivard",
+     "given": "B"
+    },
+    {
+     "family": "Muller",
+     "given": "RU"
+    },
+    {
+     "family": "Poucet",
+     "given": "B"
+    }
+   ],
+   "year": "2005",
+   "title": "Study of CA1 place cell activity and exploratory behavior following spatial and nonspatial changes in the environment",
+   "container": "Hippocampus",
+   "volume": "15",
+   "first_page": "356",
+   "doi": "10.1002/hipo.20060"
+  },
+  {
+   "bib_id": 106,
+   "authors": [
+    {
+     "family": "Dupret",
+     "given": "D"
+    },
+    {
+     "family": "O’Neill",
+     "given": "J"
+    },
+    {
+     "family": "Pleydell-Bouverie",
+     "given": "B"
+    },
+    {
+     "family": "Csicsvari",
+     "given": "J"
+    }
+   ],
+   "year": "2010",
+   "title": "The reorganization and reactivation of hippocampal maps predict spatial memory performance",
+   "container": "Nat Neurosci",
+   "volume": "13",
+   "first_page": "995",
+   "last_page": "1002",
+   "doi": "10.1038/nn.2599"
+  },
+  {
+   "bib_id": 107,
+   "authors": [
+    {
+     "family": "Burke",
+     "given": "SN"
+    },
+    {
+     "family": "Maurer",
+     "given": "AP"
+    },
+    {
+     "family": "Nematollahi",
+     "given": "S"
+    },
+    {
+     "family": "Uprety",
+     "given": "AR"
+    },
+    {
+     "family": "Wallace",
+     "given": "JL"
+    },
+    {
+     "family": "Barnes",
+     "given": "CA"
+    }
+   ],
+   "year": "2011",
+   "title": "The Influence of Objects on Place Field Expression and Size in Distal Hippocampal CA1",
+   "container": "Hippocampus",
+   "volume": "21",
+   "first_page": "783",
+   "last_page": "801"
+  },
+  {
+   "bib_id": 108,
+   "authors": [
+    {
+     "family": "Tanni",
+     "given": "S"
+    },
+    {
+     "family": "de Cothi",
+     "given": "W"
+    },
+    {
+     "family": "Barry",
+     "given": "C"
+    }
+   ],
+   "year": "2022",
+   "title": "State transitions in the statistically stable place cell population correspond to rate of perceptual change",
+   "container": "Curr Biol",
+   "volume": "32",
+   "doi": "10.1016/j.cub.2022.06.046"
+  },
+  {
+   "bib_id": 109,
+   "authors": [
+    {
+     "family": "Scleidorovich",
+     "given": "P"
+    },
+    {
+     "family": "Fellous",
+     "given": "J-M"
+    },
+    {
+     "family": "Weitzenfeld",
+     "given": "A"
+    }
+   ],
+   "year": "2022",
+   "title": "Adapting hippocampus multi-scale place field distributions in cluttered environments optimizes spatial navigation and learning",
+   "container": "Front Comput Neurosci",
+   "volume": "16",
+   "first_page": "1039822",
+   "doi": "10.3389/fncom.2022.1039822"
+  },
+  {
+   "bib_id": 110,
+   "authors": [
+    {
+     "family": "Wen",
+     "given": "JH"
+    },
+    {
+     "family": "Sorscher",
+     "given": "B"
+    },
+    {
+     "family": "Aery Jones",
+     "given": "EA"
+    },
+    {
+     "family": "Ganguli",
+     "given": "S"
+    },
+    {
+     "family": "Giocomo",
+     "given": "LM"
+    }
+   ],
+   "year": "2024",
+   "title": "One-shot entorhinal maps enable flexible navigation in novel environments",
+   "container": "Nature",
+   "volume": "635",
+   "first_page": "943",
+   "doi": "10.1038/s41586-024-08034-3"
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-core-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "jats_doi": "10.1371/journal.pcbi.1013487"
+ }
+}

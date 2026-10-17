@@ -1,0 +1,778 @@
+{
+ "paper_id": "10.1371_journal.pone.0356053",
+ "info": {
+  "title": "Design of a comprehensive protection algorithm for fault detection, classification, and location in high voltage direct current transmission lines connected to wind farms based on local terminal measurements",
+  "doi": "10.1371/journal.pone.0356053",
+  "file_name": "10.1371_journal.pone.0356053.pdf",
+  "abstract": "With the increasing adoption of bipolar high-voltage direct-current (HVDC) transmission lines for wind farm integration, the development of fast, accurate, and communication-independent protection schemes has become a critical technical requirement. This paper proposes a comprehensive protection algorithm within an integrated single-ended framework that performs fault detection, fault classification, and fault location simultaneously using only local voltage and current measurements. In the detection stage, transient current signals are processed through common- and differential-mode decomposition to ensure fast and reliable fault inception identification. In the classification stage, the faulted pole and fault type are determined by exploiting the dynamic voltage patterns of the two poles. For fault location, an analytical model is developed based on the voltage–current relationships of the bipolar HVDC line, while explicitly accounting for self-resistance, mutual resistance, and inter-pole coupling effects. In addition, the protection thresholds are systematically defined using per-unit parameters and dimensionless indices, together with statistical criteria extracted from the system behavior under both normal and faulted conditions; this enhances their tunability, robustness, and applicability across different HVDC configurations. The proposed method is evaluated in the MATLAB/Simulink environment under varying operating conditions, fault resistance values, and line-parameter uncertainties. Simulation results show that the average and maximum fault detection delays are 3.32 ms and 4.96 ms, respectively. Moreover, the faulted pole is identified with complete accuracy, while the average and maximum fault-location errors are 0.69% and 0.98%, respectively, confirming the high speed, accuracy, and robustness of the proposed protection scheme."
+ },
+ "author": [
+  {
+   "author_id": 1,
+   "given": "Mahyar",
+   "family": "Abasi",
+   "affiliation": "Department of Electrical Engineering, Faculty of Engineering, Arak University, Arak, Iran; Research Institute of Renewable Energy, Arak University, Arak, Iran",
+   "email": "",
+   "orcid": "",
+   "corresponding": true
+  },
+  {
+   "author_id": 2,
+   "given": "Vahid",
+   "family": "Davatgaran",
+   "affiliation": "Department of Electrical Engineering, Technical and Vocational University (TVU), Tehran, Iran",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 3,
+   "given": "Morteza",
+   "family": "Azizi",
+   "affiliation": "Department of Electrical Engineering, Faculty of Engineering, Arak University, Arak, Iran; Operation Department, Electricity Distribution Company of Markazi Province, Arak, Iran",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  }
+ ],
+ "section": [
+  {
+   "section_id": 1,
+   "section_type": "abstract",
+   "header": "Abstract",
+   "level": 1,
+   "parent_section_id": null,
+   "classification_score": 1.0
+  }
+ ],
+ "text": [
+  {
+   "text_id": 1,
+   "section_id": 1,
+   "paragraph_id": 1,
+   "text": "With the increasing adoption of bipolar high-voltage direct-current (HVDC) transmission lines for wind farm integration, the development of fast, accurate, and communication-independent protection schemes has become a critical technical requirement. This paper proposes a comprehensive protection algorithm within an integrated single-ended framework that performs fault detection, fault classification, and fault location simultaneously using only local voltage and current measurements. In the detection stage, transient current signals are processed through common- and differential-mode decomposition to ensure fast and reliable fault inception identification. In the classification stage, the faulted pole and fault type are determined by exploiting the dynamic voltage patterns of the two poles. For fault location, an analytical model is developed based on the voltage–current relationships of the bipolar HVDC line, while explicitly accounting for self-resistance, mutual resistance, and inter-pole coupling effects. In addition, the protection thresholds are systematically defined using per-unit parameters and dimensionless indices, together with statistical criteria extracted from the system behavior under both normal and faulted conditions; this enhances their tunability, robustness, and applicability across different HVDC configurations. The proposed method is evaluated in the MATLAB/Simulink environment under varying operating conditions, fault resistance values, and line-parameter uncertainties. Simulation results show that the average and maximum fault detection delays are 3.32 ms and 4.96 ms, respectively. Moreover, the faulted pole is identified with complete accuracy, while the average and maximum fault-location errors are 0.69% and 0.98%, respectively, confirming the high speed, accuracy, and robustness of the proposed protection scheme.",
+   "page_number": 1
+  }
+ ],
+ "bib": [
+  {
+   "bib_id": 1,
+   "authors": [
+    {
+     "family": "Mahalakshmi",
+     "given": "B"
+    },
+    {
+     "family": "Annapoorani",
+     "given": "KI"
+    }
+   ],
+   "year": "2026",
+   "title": "A comprehensive review of fault identification, protection, and localization strategies in HVDC transmission systems",
+   "container": "IEEE Access",
+   "volume": "14",
+   "first_page": "81951",
+   "doi": "10.1109/access.2026.3696452"
+  },
+  {
+   "bib_id": 2,
+   "authors": [
+    {
+     "family": "Pan",
+     "given": "R"
+    },
+    {
+     "family": "Nie",
+     "given": "Y"
+    },
+    {
+     "family": "Huang",
+     "given": "W"
+    },
+    {
+     "family": "Liu",
+     "given": "Y"
+    }
+   ],
+   "year": "2026",
+   "title": "Single ended fault location of MMC-HVDC lines incorporating traveling wave and model information",
+   "container": "IEEE Trans Power Delivery",
+   "volume": "41",
+   "first_page": "560",
+   "doi": "10.1109/tpwrd.2025.3650205"
+  },
+  {
+   "bib_id": 3,
+   "authors": [
+    {
+     "family": "Yang",
+     "given": "M"
+    },
+    {
+     "family": "Cao",
+     "given": "P"
+    },
+    {
+     "family": "Xie",
+     "given": "C"
+    },
+    {
+     "family": "Jiao",
+     "given": "C"
+    },
+    {
+     "family": "He",
+     "given": "Y"
+    },
+    {
+     "family": "Shu",
+     "given": "H"
+    }
+   ],
+   "year": "2025",
+   "title": "A time-domain fault location technique for HVDC transmission lines based on numerical solution of differential equation",
+   "container": "Int J Electr Power Energy Syst",
+   "volume": "170",
+   "first_page": "110867",
+   "doi": "10.1016/j.ijepes.2025.110867"
+  },
+  {
+   "bib_id": 4,
+   "authors": [
+    {
+     "family": "Ghashghaei",
+     "given": "S"
+    },
+    {
+     "family": "Akhbari",
+     "given": "M"
+    }
+   ],
+   "year": "2021",
+   "title": "Fault detection and classification of an HVDC transmission line using a heterogenous multi‐machine learning algorithm",
+   "container": "IET Generation Trans & Dist",
+   "volume": "15",
+   "first_page": "2319",
+   "doi": "10.1049/gtd2.12180"
+  },
+  {
+   "bib_id": 5,
+   "authors": [
+    {
+     "family": "Merlin",
+     "given": "VL"
+    },
+    {
+     "family": "Santos RC",
+     "given": "dos"
+    },
+    {
+     "family": "Pavani",
+     "given": "APG"
+    },
+    {
+     "family": "Vieira",
+     "given": "JCM"
+    }
+   ],
+   "year": "2022",
+   "title": "A frequency spectrum-based method for detecting and classifying faults in HVDC systems",
+   "container": "Electr Power Syst Res",
+   "volume": "207",
+   "first_page": "107828",
+   "doi": "10.1016/j.epsr.2022.107828"
+  },
+  {
+   "bib_id": 6,
+   "authors": [
+    {
+     "family": "Yousaf",
+     "given": "MZ"
+    },
+    {
+     "family": "Khalid",
+     "given": "S"
+    },
+    {
+     "family": "Tahir",
+     "given": "MF"
+    },
+    {
+     "family": "Tzes",
+     "given": "A"
+    },
+    {
+     "family": "Raza",
+     "given": "A"
+    }
+   ],
+   "year": "2023",
+   "title": "A novel dc fault protection scheme based on intelligent network for meshed dc grids",
+   "container": "Int J Electr Power Energy Syst",
+   "volume": "154",
+   "first_page": "109423"
+  },
+  {
+   "bib_id": 7,
+   "authors": [
+    {
+     "family": "Wu",
+     "given": "S"
+    },
+    {
+     "family": "He",
+     "given": "B"
+    },
+    {
+     "family": "Meng",
+     "given": "F"
+    },
+    {
+     "family": "Liu",
+     "given": "Y"
+    },
+    {
+     "family": "Lin",
+     "given": "X"
+    },
+    {
+     "family": "Dai",
+     "given": "W"
+    }
+   ],
+   "year": "2023",
+   "title": "Machine learning-based single-phase ground fault identification strategy for AC-DC transmission lines",
+   "container": "Electr Power Syst Res",
+   "volume": "223",
+   "first_page": "109538",
+   "doi": "10.1016/j.epsr.2023.109538"
+  },
+  {
+   "bib_id": 8,
+   "authors": [
+    {
+     "family": "Roy",
+     "given": "NB"
+    }
+   ],
+   "year": "2021",
+   "title": "Fault identification and determination of its location in a HVDC system based on feature extraction and artificial neural network",
+   "container": "J Inst Eng India Ser B",
+   "volume": "102",
+   "first_page": "351",
+   "doi": "10.1007/s40031-021-00541-5"
+  },
+  {
+   "bib_id": 9,
+   "authors": [
+    {
+     "family": "Ding",
+     "given": "C"
+    },
+    {
+     "family": "Wang",
+     "given": "Z"
+    },
+    {
+     "family": "Ding",
+     "given": "Q"
+    },
+    {
+     "family": "Yuan",
+     "given": "Z"
+    }
+   ],
+   "year": "2022",
+   "title": "Convolutional neural network based on fast Fourier transform and gramian angle field for fault identification of HVDC transmission line",
+   "container": "Sustain Energy Grids Netw",
+   "volume": "32",
+   "first_page": "100888"
+  },
+  {
+   "bib_id": 10,
+   "authors": [
+    {
+     "family": "Arita Torres",
+     "given": "J"
+    },
+    {
+     "family": "dos Santos",
+     "given": "RC"
+    },
+    {
+     "family": "Yang",
+     "given": "Q"
+    },
+    {
+     "family": "Li",
+     "given": "J"
+    }
+   ],
+   "year": "2022",
+   "title": "Analyses of different approaches for detecting, classifying and locating faults in a three-terminal VSC-HVDC system",
+   "container": "Int J Electr Power Energy Syst",
+   "volume": "135",
+   "first_page": "107514",
+   "doi": "10.1016/j.ijepes.2021.107514"
+  },
+  {
+   "bib_id": 11,
+   "authors": [
+    {
+     "family": "Gnanamalar",
+     "given": "AJ"
+    },
+    {
+     "family": "Bhavani",
+     "given": "R"
+    },
+    {
+     "family": "Arulini",
+     "given": "AS"
+    },
+    {
+     "family": "Veerraju",
+     "given": "MS"
+    }
+   ],
+   "year": "2023",
+   "title": "CNN–SVM based fault detection, classification and location of multi-terminal VSC–HVDC system",
+   "container": "J Electr Eng Technol",
+   "volume": "18",
+   "first_page": "3335",
+   "doi": "10.1007/s42835-023-01391-5"
+  },
+  {
+   "bib_id": 12,
+   "authors": [
+    {
+     "family": "Gao",
+     "given": "S"
+    },
+    {
+     "family": "Xu",
+     "given": "Z"
+    },
+    {
+     "family": "Song",
+     "given": "G"
+    },
+    {
+     "family": "Shao",
+     "given": "M"
+    },
+    {
+     "family": "Jiang",
+     "given": "Y"
+    }
+   ],
+   "year": "2021",
+   "title": "Fault location of hybrid three-terminal HVDC transmission line based on improved LMD",
+   "container": "Electr Power Syst Res",
+   "volume": "201",
+   "first_page": "107550"
+  },
+  {
+   "bib_id": 13,
+   "authors": [
+    {
+     "family": "Wang",
+     "given": "C"
+    },
+    {
+     "family": "Li",
+     "given": "P"
+    },
+    {
+     "family": "Xu",
+     "given": "X"
+    },
+    {
+     "family": "Gao",
+     "given": "H"
+    }
+   ],
+   "year": "2022",
+   "title": "A DC fault location method of multiterminal flexible DC distribution network",
+   "container": "Math Probl Eng",
+   "volume": "2022",
+   "first_page": "8120857"
+  },
+  {
+   "bib_id": 14,
+   "authors": [
+    {
+     "family": "Liu",
+     "given": "T"
+    },
+    {
+     "family": "Zhang",
+     "given": "Y"
+    },
+    {
+     "family": "Wang",
+     "given": "S"
+    },
+    {
+     "family": "Li",
+     "given": "X"
+    },
+    {
+     "family": "Gooi",
+     "given": "HB"
+    },
+    {
+     "family": "Ghias",
+     "given": "AMYM"
+    }
+   ],
+   "year": "2023",
+   "title": "Fault identification and fault location methods for VSC-HVDC transmission lines based on the traveling waveform difference",
+   "container": "Int J Electr Power Energy Syst",
+   "volume": "147",
+   "first_page": "108867",
+   "doi": "10.1016/j.ijepes.2022.108867"
+  },
+  {
+   "bib_id": 15,
+   "authors": [
+    {
+     "family": "Tiwari",
+     "given": "RS"
+    },
+    {
+     "family": "Gupta",
+     "given": "OH"
+    },
+    {
+     "family": "Sood",
+     "given": "VK"
+    }
+   ],
+   "year": "2022",
+   "title": "Fault detection using backward propagating traveling waves for bipolar LCC-HVDC lines",
+   "container": "Electr Power Compon Syst",
+   "volume": "50",
+   "first_page": "516",
+   "doi": "10.1080/15325008.2022.2136788"
+  },
+  {
+   "bib_id": 16,
+   "authors": [
+    {
+     "family": "Vieira",
+     "given": "JCC"
+    },
+    {
+     "family": "Fernandes D",
+     "given": "Júnior"
+    },
+    {
+     "family": "Neves",
+     "given": "WLA"
+    },
+    {
+     "family": "Lopes",
+     "given": "FV"
+    }
+   ],
+   "year": "2023",
+   "title": "Fault diagnosis in bipolar HVDC systems based on traveling wave theory by monitoring data from one terminal",
+   "container": "Electr Power Syst Res",
+   "volume": "223",
+   "first_page": "109594",
+   "doi": "10.1016/j.epsr.2023.109594"
+  },
+  {
+   "bib_id": 17,
+   "authors": [
+    {
+     "family": "Mu",
+     "given": "D"
+    },
+    {
+     "family": "Lei",
+     "given": "G"
+    },
+    {
+     "family": "Xu",
+     "given": "T"
+    },
+    {
+     "family": "Zhang",
+     "given": "H"
+    },
+    {
+     "family": "Li",
+     "given": "X"
+    },
+    {
+     "family": "Lin",
+     "given": "S"
+    }
+   ],
+   "year": "2025",
+   "title": "Fault location scheme of HVDC converter based on fault loop analysis",
+   "container": "Int J Electr Power Energy Syst",
+   "volume": "168",
+   "first_page": "110701",
+   "doi": "10.1016/j.ijepes.2025.110701"
+  },
+  {
+   "bib_id": 18,
+   "authors": [
+    {
+     "family": "Aboelezz",
+     "given": "AM"
+    },
+    {
+     "family": "Eladl",
+     "given": "AA"
+    },
+    {
+     "family": "Abo Amasha",
+     "given": "MT"
+    },
+    {
+     "family": "Elderigi",
+     "given": "MH"
+    },
+    {
+     "family": "Mohamed",
+     "given": "MA"
+    },
+    {
+     "family": "Aldoadoa",
+     "given": "SW"
+    }
+   ],
+   "year": "2023",
+   "title": "Efficient fault detection, localization, and isolation in MT-HVDC systems based on distance protection and LoRaWAN communication",
+   "container": "Energy Rep",
+   "volume": "10",
+   "first_page": "4183",
+   "doi": "10.1016/j.egyr.2023.10.083"
+  },
+  {
+   "bib_id": 19,
+   "authors": [
+    {
+     "family": "Hou",
+     "given": "J"
+    },
+    {
+     "family": "Song",
+     "given": "G"
+    },
+    {
+     "family": "Sun",
+     "given": "Y"
+    },
+    {
+     "family": "Fan",
+     "given": "Y"
+    },
+    {
+     "family": "Wu",
+     "given": "X"
+    },
+    {
+     "family": "Chang",
+     "given": "P"
+    }
+   ],
+   "year": "2023",
+   "title": "Permanent fault identification and location scheme for MTDC grid based on equivalent impedance phase characteristics and distributed parameter line",
+   "container": "Int J Electr Power Energy Syst",
+   "volume": "153",
+   "first_page": "109326",
+   "doi": "10.1016/j.ijepes.2023.109326"
+  },
+  {
+   "bib_id": 20,
+   "authors": [
+    {
+     "family": "Xie",
+     "given": "X"
+    },
+    {
+     "family": "Li",
+     "given": "H"
+    },
+    {
+     "family": "Tan",
+     "given": "H"
+    },
+    {
+     "family": "Yao",
+     "given": "R"
+    },
+    {
+     "family": "Zheng",
+     "given": "J"
+    }
+   ],
+   "year": "2023",
+   "title": "Fault detection and localization method for modular multilevel converters in offshore DC wind turbines",
+   "container": "Int J Electr Power Energy Syst",
+   "volume": "151",
+   "first_page": "109127",
+   "doi": "10.1016/j.ijepes.2023.109127"
+  },
+  {
+   "bib_id": 21,
+   "authors": [
+    {
+     "family": "Imani",
+     "given": "A"
+    },
+    {
+     "family": "Moravej",
+     "given": "Z"
+    },
+    {
+     "family": "Pazoki",
+     "given": "M"
+    }
+   ],
+   "year": "2022",
+   "title": "A novel time-domain method for fault detection and classification in VSC-HVDC transmission lines",
+   "container": "Int J Electr Power Energy Syst",
+   "volume": "140",
+   "first_page": "108056",
+   "doi": "10.1016/j.ijepes.2022.108056"
+  },
+  {
+   "bib_id": 22,
+   "authors": [
+    {
+     "family": "Imani",
+     "given": "A"
+    },
+    {
+     "family": "Moravej",
+     "given": "Z"
+    },
+    {
+     "family": "Pazoki",
+     "given": "M"
+    }
+   ],
+   "year": "2023",
+   "title": "A novel MODWT-based fault detection and classification scheme in VSC-HVDC transmission line",
+   "container": "Electr Power Syst Res",
+   "volume": "221",
+   "first_page": "109434",
+   "doi": "10.1016/j.epsr.2023.109434"
+  },
+  {
+   "bib_id": 23,
+   "authors": [
+    {
+     "family": "Zheng",
+     "given": "J"
+    },
+    {
+     "family": "Li",
+     "given": "P"
+    },
+    {
+     "family": "Xu",
+     "given": "K"
+    },
+    {
+     "family": "Kong",
+     "given": "X"
+    },
+    {
+     "family": "Wang",
+     "given": "C"
+    },
+    {
+     "family": "Lin",
+     "given": "J"
+    }
+   ],
+   "year": "2022",
+   "title": "A distance protection scheme for HVDC transmission lines based on the Steady-state parameter model",
+   "container": "Int J Electr Power Energy Syst",
+   "volume": "136",
+   "first_page": "107658",
+   "doi": "10.1016/j.ijepes.2021.107658"
+  },
+  {
+   "bib_id": 24,
+   "authors": [
+    {
+     "family": "Bera",
+     "given": "PK"
+    },
+    {
+     "family": "Pani",
+     "given": "SR"
+    }
+   ],
+   "year": "2026",
+   "title": "Recurrence plot and change quantile-based deep supervised and semi-supervised protection for transmission lines connected to photovoltaic plants",
+   "container": "Eng Appl Artif Intell",
+   "volume": "163",
+   "first_page": "113034",
+   "doi": "10.1016/j.engappai.2025.113034"
+  },
+  {
+   "bib_id": 25,
+   "authors": [
+    {
+     "family": "Bera",
+     "given": "PK"
+    },
+    {
+     "family": "Kumar",
+     "given": "V"
+    },
+    {
+     "family": "Pani",
+     "given": "SR"
+    },
+    {
+     "family": "Malik",
+     "given": "OP"
+    }
+   ],
+   "year": "2024",
+   "title": "Autoregressive coefficients based intelligent protection of transmission lines connected to type-3 wind farms",
+   "container": "IEEE Trans Power Deliv",
+   "volume": "39",
+   "first_page": "71",
+   "last_page": "82",
+   "doi": "10.1109/tpwrd.2023.3321844"
+  },
+  {
+   "bib_id": 26,
+   "authors": [
+    {
+     "family": "Noori",
+     "given": "MR"
+    },
+    {
+     "family": "Seifossadat",
+     "given": "SG"
+    },
+    {
+     "family": "Saffarian",
+     "given": "A"
+    }
+   ],
+   "year": "2021",
+   "title": "A new combined adaptive cumulative sum‐based fault detector for multi‐terminals high voltage direct current transmission lines",
+   "container": "Int Trans Electr Energ Syst",
+   "volume": "31",
+   "doi": "10.1002/2050-7038.12862"
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-core-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "jats_doi": "10.1371/journal.pone.0356053"
+ }
+}

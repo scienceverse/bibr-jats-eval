@@ -1,0 +1,1355 @@
+{
+ "paper_id": "10.1371_journal.pone.0355299",
+ "info": {
+  "title": "AQF-Net: Adaptive query modeling and efficient feature fusion for UAV tiny-object detection",
+  "doi": "10.1371/journal.pone.0355299",
+  "file_name": "10.1371_journal.pone.0355299.pdf",
+  "abstract": "Tiny-object detection in UAV aerial imagery remains challenging due to extremely small object scales, dense distributions, and complex backgrounds. Existing methods often suffer from inefficient query modeling and inadequate multi-scale feature representation, particularly in high-resolution scenarios with substantial variations in target density. To address these challenges, this paper proposes AQF-Net, a unified detection framework built upon the D-FINE architecture. AQF-Net integrates three key components: a Fixed-Query Self-Attention (FQSA) mechanism for efficient global context modeling, a Large-Receptive-Field Enhancement (LREA) module for enhanced multi-scale feature fusion, and an adaptive query modeling strategy for density-aware query allocation. These components are tightly coupled to jointly optimize feature representation and query generation, enabling the model to better adapt to complex UAV scenarios. Extensive experiments are conducted on the CODrone, VisDrone2019, and a self-constructed photovoltaic defect dataset (PV-DV). The results demonstrate that AQF-Net consistently outperforms the D-FINE baseline and several state-of-the-art methods in both overall detection accuracy and tiny-object detection capability. Notably, AQF-Net achieves 33.4% AP and 55.0% AP50 on the VisDrone2019 validation set, while maintaining a favorable balance between accuracy and computational efficiency."
+ },
+ "author": [
+  {
+   "author_id": 1,
+   "given": "Yong",
+   "family": "He",
+   "affiliation": "College of Artificial Intelligence, Changsha University of Science and Technology, Changsha, China",
+   "email": "",
+   "orcid": "",
+   "corresponding": true
+  },
+  {
+   "author_id": 2,
+   "given": "Yifan",
+   "family": "Tang",
+   "affiliation": "College of Artificial Intelligence, Changsha University of Science and Technology, Changsha, China",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 3,
+   "given": "Renfeng",
+   "family": "Xiao",
+   "affiliation": "College of Artificial Intelligence, Changsha University of Science and Technology, Changsha, China",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 4,
+   "given": "Yufan",
+   "family": "Pang",
+   "affiliation": "College of Artificial Intelligence, Changsha University of Science and Technology, Changsha, China",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  }
+ ],
+ "section": [
+  {
+   "section_id": 1,
+   "section_type": "abstract",
+   "header": "Abstract",
+   "level": 1,
+   "parent_section_id": null,
+   "classification_score": 1.0
+  }
+ ],
+ "text": [
+  {
+   "text_id": 1,
+   "section_id": 1,
+   "paragraph_id": 1,
+   "text": "Tiny-object detection in UAV aerial imagery remains challenging due to extremely small object scales, dense distributions, and complex backgrounds. Existing methods often suffer from inefficient query modeling and inadequate multi-scale feature representation, particularly in high-resolution scenarios with substantial variations in target density. To address these challenges, this paper proposes AQF-Net, a unified detection framework built upon the D-FINE architecture. AQF-Net integrates three key components: a Fixed-Query Self-Attention (FQSA) mechanism for efficient global context modeling, a Large-Receptive-Field Enhancement (LREA) module for enhanced multi-scale feature fusion, and an adaptive query modeling strategy for density-aware query allocation. These components are tightly coupled to jointly optimize feature representation and query generation, enabling the model to better adapt to complex UAV scenarios. Extensive experiments are conducted on the CODrone, VisDrone2019, and a self-constructed photovoltaic defect dataset (PV-DV). The results demonstrate that AQF-Net consistently outperforms the D-FINE baseline and several state-of-the-art methods in both overall detection accuracy and tiny-object detection capability. Notably, AQF-Net achieves 33.4% AP and 55.0% AP50 on the VisDrone2019 validation set, while maintaining a favorable balance between accuracy and computational efficiency.",
+   "page_number": 1
+  }
+ ],
+ "bib": [
+  {
+   "bib_id": 1,
+   "authors": [
+    {
+     "family": "Zhou",
+     "given": "Y"
+    },
+    {
+     "family": "Li",
+     "given": "J"
+    },
+    {
+     "family": "Ou",
+     "given": "C"
+    },
+    {
+     "family": "Yan",
+     "given": "D"
+    },
+    {
+     "family": "Zhang",
+     "given": "H"
+    },
+    {
+     "family": "Xue",
+     "given": "X"
+    }
+   ],
+   "year": "2025",
+   "title": "Open-Vocabulary Object Detection in UAV Imagery: A Review and Future Perspectives",
+   "container": "Drones",
+   "volume": "9",
+   "first_page": "557",
+   "doi": "10.3390/drones9080557"
+  },
+  {
+   "bib_id": 2,
+   "authors": [
+    {
+     "family": "Zheng",
+     "given": "J"
+    },
+    {
+     "family": "Li",
+     "given": "L"
+    }
+   ],
+   "year": "2026",
+   "title": "GDEIM-SF: A Lightweight UAV Detection Framework Coupling Dehazing and Low-Light Enhancement",
+   "container": "Sensors",
+   "volume": "26",
+   "first_page": "1557",
+   "doi": "10.3390/s26051557"
+  },
+  {
+   "bib_id": 3,
+   "authors": [
+    {
+     "family": "Bai",
+     "given": "Y"
+    },
+    {
+     "family": "Liu",
+     "given": "Y"
+    }
+   ],
+   "year": "2025",
+   "title": "DL-DEIM: An Efficient and Lightweight Detection Framework with Enhanced Feature Fusion for UAV Object Detection",
+   "container": "Applied Sciences",
+   "volume": "15",
+   "first_page": "11966",
+   "doi": "10.3390/app152211966"
+  },
+  {
+   "bib_id": 4,
+   "authors": [
+    {
+     "family": "Ding",
+     "given": "J"
+    },
+    {
+     "family": "Xue",
+     "given": "N"
+    },
+    {
+     "family": "Xia",
+     "given": "G-S"
+    },
+    {
+     "family": "Bai",
+     "given": "X"
+    },
+    {
+     "family": "Yang",
+     "given": "W"
+    },
+    {
+     "family": "Yang",
+     "given": "MY"
+    }
+   ],
+   "year": "2022",
+   "title": "Object Detection in Aerial Images: A Large-Scale Benchmark and Challenges",
+   "container": "IEEE Trans Pattern Anal Mach Intell",
+   "volume": "44",
+   "first_page": "7778",
+   "doi": "10.1109/TPAMI.2021.3117983"
+  },
+  {
+   "bib_id": 5,
+   "authors": [
+    {
+     "family": "Liu",
+     "given": "M"
+    },
+    {
+     "family": "Wang",
+     "given": "X"
+    },
+    {
+     "family": "Zhou",
+     "given": "A"
+    },
+    {
+     "family": "Fu",
+     "given": "X"
+    },
+    {
+     "family": "Ma",
+     "given": "Y"
+    },
+    {
+     "family": "Piao",
+     "given": "C"
+    }
+   ],
+   "year": "2020",
+   "title": "UAV-YOLO: Small Object Detection on Unmanned Aerial Vehicle Perspective",
+   "container": "Sensors (Basel)",
+   "volume": "20",
+   "first_page": "2238",
+   "doi": "10.3390/s20082238"
+  },
+  {
+   "bib_id": 6,
+   "authors": [
+    {
+     "family": "Wang",
+     "given": "J"
+    },
+    {
+     "family": "Zhang",
+     "given": "F"
+    },
+    {
+     "family": "Zhang",
+     "given": "Y"
+    },
+    {
+     "family": "Liu",
+     "given": "Y"
+    },
+    {
+     "family": "Cheng",
+     "given": "T"
+    }
+   ],
+   "year": "2023",
+   "title": "Lightweight Object Detection Algorithm for UAV Aerial Imagery",
+   "container": "Sensors (Basel)",
+   "volume": "23",
+   "first_page": "5786",
+   "doi": "10.3390/s23135786"
+  },
+  {
+   "bib_id": 7,
+   "authors": [
+    {
+     "family": "Wang",
+     "given": "G"
+    },
+    {
+     "family": "Chen",
+     "given": "Y"
+    },
+    {
+     "family": "An",
+     "given": "P"
+    },
+    {
+     "family": "Hong",
+     "given": "H"
+    },
+    {
+     "family": "Hu",
+     "given": "J"
+    },
+    {
+     "family": "Huang",
+     "given": "T"
+    }
+   ],
+   "year": "2023",
+   "title": "UAV-YOLOv8: A Small-Object-Detection Model Based on Improved YOLOv8 for UAV Aerial Photography Scenarios",
+   "container": "Sensors (Basel)",
+   "volume": "23",
+   "first_page": "7190",
+   "doi": "10.3390/s23167190"
+  },
+  {
+   "bib_id": 8,
+   "authors": [
+    {
+     "family": "Qiu",
+     "given": "X"
+    },
+    {
+     "family": "Chen",
+     "given": "Y"
+    },
+    {
+     "family": "Cai",
+     "given": "W"
+    },
+    {
+     "family": "Niu",
+     "given": "M"
+    },
+    {
+     "family": "Li",
+     "given": "J"
+    }
+   ],
+   "year": "2024",
+   "title": "LD-YOLOv10: A Lightweight Target Detection Algorithm for Drone Scenarios Based on YOLOv10",
+   "container": "Electronics",
+   "volume": "13",
+   "first_page": "3269",
+   "doi": "10.3390/electronics13163269"
+  },
+  {
+   "bib_id": 9,
+   "authors": [
+    {
+     "family": "Vaswani",
+     "given": "A"
+    },
+    {
+     "family": "Shazeer",
+     "given": "N"
+    },
+    {
+     "family": "Parmar",
+     "given": "N"
+    },
+    {
+     "family": "Uszkoreit",
+     "given": "J"
+    },
+    {
+     "family": "Jones",
+     "given": "L"
+    },
+    {
+     "family": "Gomez",
+     "given": "AN"
+    }
+   ],
+   "year": "2017",
+   "title": "Attention Is All You Need",
+   "container": "Advances in Neural Information Processing Systems",
+   "volume": "30",
+   "doi": "10.48550/arXiv.1706.03762"
+  },
+  {
+   "bib_id": 10,
+   "authors": [
+    {
+     "family": "Li",
+     "given": "F"
+    },
+    {
+     "family": "Zeng",
+     "given": "A"
+    },
+    {
+     "family": "Liu",
+     "given": "S"
+    },
+    {
+     "family": "Zhang",
+     "given": "H"
+    },
+    {
+     "family": "Li",
+     "given": "H"
+    },
+    {
+     "family": "Zhang",
+     "given": "L"
+    }
+   ],
+   "year": "2023",
+   "first_page": "18558",
+   "doi": "10.1109/cvpr52729.2023.01780"
+  },
+  {
+   "bib_id": 11,
+   "authors": [
+    {
+     "family": "Zhang",
+     "given": "H"
+    },
+    {
+     "family": "Li",
+     "given": "F"
+    },
+    {
+     "family": "Liu",
+     "given": "S"
+    },
+    {
+     "family": "Zhang",
+     "given": "L"
+    },
+    {
+     "family": "Su",
+     "given": "H"
+    },
+    {
+     "family": "Zhu",
+     "given": "J"
+    }
+   ],
+   "year": "2022",
+   "doi": "10.48550/arXiv.2203.03605"
+  },
+  {
+   "bib_id": 12,
+   "authors": [
+    {
+     "family": "Zhao",
+     "given": "Y"
+    },
+    {
+     "family": "Lv",
+     "given": "W"
+    },
+    {
+     "family": "Xu",
+     "given": "S"
+    },
+    {
+     "family": "Wei",
+     "given": "J"
+    },
+    {
+     "family": "Wang",
+     "given": "G"
+    },
+    {
+     "family": "Dang",
+     "given": "Q"
+    }
+   ],
+   "year": "2024",
+   "first_page": "16965",
+   "doi": "10.1109/cvpr52733.2024.01605"
+  },
+  {
+   "bib_id": 13,
+   "authors": [
+    {
+     "family": "Kong",
+     "given": "Y"
+    },
+    {
+     "family": "Shang",
+     "given": "X"
+    },
+    {
+     "family": "Jia",
+     "given": "S"
+    }
+   ],
+   "year": "2024",
+   "title": "Drone-DETR: Efficient Small Object Detection for Remote Sensing Image Using Enhanced RT-DETR Model",
+   "container": "Sensors (Basel)",
+   "volume": "24",
+   "first_page": "5496",
+   "doi": "10.3390/s24175496"
+  },
+  {
+   "bib_id": 14,
+   "doi": "10.48550/arXiv.2410.13842"
+  },
+  {
+   "bib_id": 15,
+   "authors": [
+    {
+     "family": "Zou",
+     "given": "S"
+    },
+    {
+     "family": "Li",
+     "given": "C"
+    },
+    {
+     "family": "Sun",
+     "given": "H"
+    },
+    {
+     "family": "Xu",
+     "given": "P"
+    },
+    {
+     "family": "Zhang",
+     "given": "J"
+    },
+    {
+     "family": "Ma",
+     "given": "P"
+    }
+   ],
+   "year": "2022",
+   "title": "TOD-CNN: An effective convolutional neural network for tiny object detection in sperm videos",
+   "container": "Comput Biol Med",
+   "volume": "146",
+   "first_page": "105543",
+   "doi": "10.1016/j.compbiomed.2022.105543"
+  },
+  {
+   "bib_id": 16,
+   "authors": [
+    {
+     "family": "Wang",
+     "given": "J"
+    },
+    {
+     "family": "Huang",
+     "given": "Z"
+    },
+    {
+     "family": "Dong",
+     "given": "Y"
+    },
+    {
+     "family": "Hu",
+     "given": "Y"
+    },
+    {
+     "family": "Zhao",
+     "given": "H"
+    }
+   ],
+   "year": "2025",
+   "title": "LE-YOLO: a lightweight and effective YOLO model for remote sensing image object detection",
+   "container": "J Real-Time Image Proc",
+   "volume": "23",
+   "doi": "10.1007/s11554-025-01822-8"
+  },
+  {
+   "bib_id": 17,
+   "authors": [
+    {
+     "family": "Wu",
+     "given": "J"
+    },
+    {
+     "family": "Pan",
+     "given": "Z"
+    },
+    {
+     "family": "Lei",
+     "given": "B"
+    },
+    {
+     "family": "Hu",
+     "given": "Y"
+    }
+   ],
+   "year": "2022",
+   "title": "FSANet: Feature-and-Spatial-Aligned Network for Tiny Object Detection in Remote Sensing Images",
+   "container": "IEEE Trans Geosci Remote Sensing",
+   "volume": "60",
+   "first_page": "1",
+   "last_page": "17",
+   "doi": "10.1109/tgrs.2022.3205052"
+  },
+  {
+   "bib_id": 18,
+   "authors": [
+    {
+     "family": "Zhang",
+     "given": "Y"
+    },
+    {
+     "family": "Xiao",
+     "given": "Y"
+    },
+    {
+     "family": "Zhang",
+     "given": "Y"
+    },
+    {
+     "family": "Zhang",
+     "given": "T"
+    }
+   ],
+   "year": "2025",
+   "title": "Video saliency prediction via single feature enhancement and temporal recurrence",
+   "container": "Engineering Applications of Artificial Intelligence",
+   "volume": "160",
+   "first_page": "111840",
+   "doi": "10.1016/j.engappai.2025.111840"
+  },
+  {
+   "bib_id": 19,
+   "authors": [
+    {
+     "family": "Jiang",
+     "given": "L"
+    },
+    {
+     "family": "Yuan",
+     "given": "B"
+    },
+    {
+     "family": "Du",
+     "given": "J"
+    },
+    {
+     "family": "Chen",
+     "given": "B"
+    },
+    {
+     "family": "Xie",
+     "given": "H"
+    },
+    {
+     "family": "Tian",
+     "given": "J"
+    }
+   ],
+   "year": "2024",
+   "title": "MFFSODNet: Multiscale Feature Fusion Small Object Detection Network for UAV Aerial Images",
+   "container": "IEEE Trans Instrum Meas",
+   "volume": "73",
+   "first_page": "1",
+   "last_page": "14",
+   "doi": "10.1109/tim.2024.3381272"
+  },
+  {
+   "bib_id": 20,
+   "authors": [
+    {
+     "family": "Lv",
+     "given": "Z"
+    },
+    {
+     "family": "Dong",
+     "given": "S"
+    },
+    {
+     "family": "He",
+     "given": "J"
+    },
+    {
+     "family": "Hu",
+     "given": "B"
+    },
+    {
+     "family": "Liu",
+     "given": "Q"
+    },
+    {
+     "family": "Wang",
+     "given": "H"
+    }
+   ],
+   "year": "2024",
+   "title": "Lightweight sewer pipe crack detection method based on amphibious robot and improved YOLOv8n",
+   "container": "Sensors (Basel)",
+   "volume": "24",
+   "first_page": "6112",
+   "doi": "10.3390/s24186112"
+  },
+  {
+   "bib_id": 21,
+   "authors": [
+    {
+     "family": "Yuan",
+     "given": "S"
+    },
+    {
+     "family": "Qin",
+     "given": "H"
+    },
+    {
+     "family": "Yan",
+     "given": "X"
+    },
+    {
+     "family": "Yang",
+     "given": "S"
+    },
+    {
+     "family": "Yang",
+     "given": "S"
+    },
+    {
+     "family": "Akhtar",
+     "given": "N"
+    }
+   ],
+   "year": "2025",
+   "title": "ASCNet: asymmetric sampling correction network for infrared image destriping",
+   "container": "IEEE Trans Geosci Remote Sensing",
+   "volume": "63",
+   "first_page": "1",
+   "last_page": "15",
+   "doi": "10.1109/tgrs.2025.3534838"
+  },
+  {
+   "bib_id": 22,
+   "authors": [
+    {
+     "family": "Xu",
+     "given": "Z"
+    },
+    {
+     "family": "Wu",
+     "given": "D"
+    },
+    {
+     "family": "Yu",
+     "given": "C"
+    },
+    {
+     "family": "Chu",
+     "given": "X"
+    },
+    {
+     "family": "Sang",
+     "given": "N"
+    },
+    {
+     "family": "Gao",
+     "given": "C"
+    }
+   ],
+   "year": "2024",
+   "title": "SCTNet: Single-Branch CNN with Transformer Semantic Information for Real-Time Segmentation",
+   "container": "AAAI",
+   "volume": "38",
+   "first_page": "6378",
+   "doi": "10.1609/aaai.v38i6.28457"
+  },
+  {
+   "bib_id": 23,
+   "authors": [
+    {
+     "family": "Xiao",
+     "given": "Y"
+    },
+    {
+     "family": "Xu",
+     "given": "T"
+    },
+    {
+     "family": "Xin",
+     "given": "Y"
+    },
+    {
+     "family": "Li",
+     "given": "J"
+    }
+   ],
+   "year": "2025",
+   "title": "FBRT-YOLO: Faster and Better for Real-Time Aerial Image Detection",
+   "container": "AAAI",
+   "volume": "39",
+   "first_page": "8673",
+   "doi": "10.1609/aaai.v39i8.32937"
+  },
+  {
+   "bib_id": 24,
+   "authors": [
+    {
+     "family": "Zheng",
+     "given": "M"
+    },
+    {
+     "family": "Sun",
+     "given": "L"
+    },
+    {
+     "family": "Dong",
+     "given": "J"
+    }
+   ],
+   "year": "2024",
+   "title": "SMFANet: a lightweight self-modulation feature aggregation network for efficient image super-resolution. In: European Conference on Computer Vision",
+   "first_page": "359",
+   "doi": "10.1007/978-3-031-72973-7_21"
+  },
+  {
+   "bib_id": 25,
+   "authors": [
+    {
+     "family": "Yu",
+     "given": "W"
+    },
+    {
+     "family": "Zhou",
+     "given": "P"
+    },
+    {
+     "family": "Yan",
+     "given": "S"
+    },
+    {
+     "family": "Wang",
+     "given": "X"
+    }
+   ],
+   "year": "2024",
+   "first_page": "5672",
+   "doi": "10.1109/cvpr52733.2024.00542"
+  },
+  {
+   "bib_id": 26,
+   "authors": [
+    {
+     "family": "Liu",
+     "given": "HI"
+    },
+    {
+     "family": "Huang",
+     "given": "YX"
+    },
+    {
+     "family": "Shuai",
+     "given": "HH"
+    }
+   ],
+   "year": "2024",
+   "doi": "10.48550/arXiv.2404.03507"
+  },
+  {
+   "bib_id": 27,
+   "authors": [
+    {
+     "family": "Fan",
+     "given": "X"
+    },
+    {
+     "family": "Xing",
+     "given": "B"
+    },
+    {
+     "family": "Wang",
+     "given": "X"
+    },
+    {
+     "family": "Liu",
+     "given": "H"
+    },
+    {
+     "family": "Yan",
+     "given": "C"
+    },
+    {
+     "family": "Zhi",
+     "given": "P"
+    }
+   ],
+   "year": "2026",
+   "title": "SAR-D-FINE: A Context-Aware Detector for Small and Densely Packed Ship Detection in SAR Imagery",
+   "container": "IEEE Geosci Remote Sensing Lett",
+   "volume": "23",
+   "first_page": "1",
+   "last_page": "5",
+   "doi": "10.1109/lgrs.2025.3640683"
+  },
+  {
+   "bib_id": 28,
+   "authors": [
+    {
+     "family": "Yu",
+     "given": "L"
+    },
+    {
+     "family": "Tian",
+     "given": "Y"
+    },
+    {
+     "family": "Chen",
+     "given": "J"
+    },
+    {
+     "family": "Chi",
+     "given": "C"
+    },
+    {
+     "family": "Li",
+     "given": "T"
+    },
+    {
+     "family": "Li",
+     "given": "J"
+    }
+   ],
+   "year": "2026",
+   "title": "Balancing Accuracy and Speed: Improved D-FINE for Real-Time Ocean Internal Wave Detection",
+   "container": "JMSE",
+   "volume": "14",
+   "first_page": "388",
+   "doi": "10.3390/jmse14040388"
+  },
+  {
+   "bib_id": 29,
+   "authors": [
+    {
+     "family": "Hu",
+     "given": "Q"
+    },
+    {
+     "family": "Wang",
+     "given": "L"
+    }
+   ],
+   "year": "2026",
+   "title": "HF-D-FINE: High-resolution features enhanced D-FINE for tiny object detection in UAV image",
+   "container": "Image and Vision Computing",
+   "volume": "165",
+   "first_page": "105834",
+   "doi": "10.1016/j.imavis.2025.105834"
+  },
+  {
+   "bib_id": 30,
+   "authors": [
+    {
+     "family": "Dosovitskiy",
+     "given": "A"
+    },
+    {
+     "family": "Beyer",
+     "given": "L"
+    },
+    {
+     "family": "Kolesnikov",
+     "given": "A"
+    }
+   ],
+   "year": "2020",
+   "doi": "10.48550/arXiv.2010.11929"
+  },
+  {
+   "bib_id": 31,
+   "authors": [
+    {
+     "family": "Wan",
+     "given": "Q"
+    },
+    {
+     "family": "Huang",
+     "given": "Z"
+    },
+    {
+     "family": "Lu",
+     "given": "J"
+    }
+   ],
+   "year": "2023",
+   "doi": "10.48550/arXiv.2301.13156"
+  },
+  {
+   "bib_id": 32,
+   "authors": [
+    {
+     "family": "Liu",
+     "given": "S"
+    }
+   ],
+   "year": "2022"
+  },
+  {
+   "bib_id": 33,
+   "authors": [
+    {
+     "family": "Lau",
+     "given": "KW"
+    },
+    {
+     "family": "Po",
+     "given": "LM"
+    },
+    {
+     "family": "Rehman",
+     "given": "YAU"
+    }
+   ],
+   "year": "2024",
+   "title": "Large Separable Kernel Attention: Rethinking the Large Kernel Attention Design in CNN",
+   "container": "Expert Systems with Applications",
+   "volume": "236",
+   "first_page": "121352",
+   "doi": "10.1016/j.eswa.2023.121352"
+  },
+  {
+   "bib_id": 34,
+   "authors": [
+    {
+     "family": "Lin",
+     "given": "X"
+    },
+    {
+     "family": "Yan",
+     "given": "Z"
+    },
+    {
+     "family": "Deng",
+     "given": "X"
+    }
+   ],
+   "year": "2023",
+   "title": "ConvFormer: plug-and-play CNN-style Transformers for improving medical image segmentation. In: International Conference on Medical Image Computing and Computer-Assisted Intervention",
+   "first_page": "642",
+   "doi": "10.48550/arXiv.2309.05674"
+  },
+  {
+   "bib_id": 35,
+   "doi": "10.1109/cvpr52733.2024.02617"
+  },
+  {
+   "bib_id": 36,
+   "authors": [
+    {
+     "family": "Ye",
+     "given": "K"
+    },
+    {
+     "family": "Tang",
+     "given": "H"
+    },
+    {
+     "family": "Liu",
+     "given": "B"
+    }
+   ],
+   "year": "2025",
+   "doi": "10.48550/arXiv.2504.20032"
+  },
+  {
+   "bib_id": 37,
+   "authors": [
+    {
+     "family": "Cao",
+     "given": "Y"
+    },
+    {
+     "family": "He",
+     "given": "Z"
+    },
+    {
+     "family": "Wang",
+     "given": "L"
+    },
+    {
+     "family": "Wang",
+     "given": "W"
+    },
+    {
+     "family": "Yuan",
+     "given": "Y"
+    },
+    {
+     "family": "Zhang",
+     "given": "D"
+    }
+   ],
+   "year": "2021",
+   "first_page": "2847",
+   "doi": "10.1109/iccvw54120.2021.00319"
+  },
+  {
+   "bib_id": 38,
+   "authors": [
+    {
+     "family": "Jocher",
+     "given": "G"
+    },
+    {
+     "family": "Chaurasia",
+     "given": "A"
+    },
+    {
+     "family": "Qiu",
+     "given": "J"
+    }
+   ],
+   "year": "2023"
+  },
+  {
+   "bib_id": 39,
+   "authors": [
+    {
+     "family": "Wang",
+     "given": "CY"
+    },
+    {
+     "family": "Yeh",
+     "given": "IH"
+    },
+    {
+     "family": "Liao",
+     "given": "HYM"
+    }
+   ],
+   "year": "2024",
+   "title": "YOLOv9: learning what you want to learn using programmable gradient information. In: European Conference on Computer Vision",
+   "first_page": "1",
+   "last_page": "21",
+   "doi": "10.48550/arXiv.2402.13616"
+  },
+  {
+   "bib_id": 40,
+   "doi": "10.52202/079017-3429"
+  },
+  {
+   "bib_id": 41,
+   "authors": [
+    {
+     "family": "Khanam",
+     "given": "R"
+    },
+    {
+     "family": "Hussain",
+     "given": "M"
+    }
+   ],
+   "year": "2024",
+   "doi": "10.48550/arXiv.2410.17725"
+  },
+  {
+   "bib_id": 42,
+   "authors": [
+    {
+     "family": "Zhu",
+     "given": "X"
+    },
+    {
+     "family": "Su",
+     "given": "W"
+    },
+    {
+     "family": "Lu",
+     "given": "L"
+    }
+   ],
+   "year": "2020",
+   "doi": "10.48550/arXiv:2010.04159"
+  },
+  {
+   "bib_id": 43,
+   "authors": [
+    {
+     "family": "Yang",
+     "given": "C"
+    },
+    {
+     "family": "Huang",
+     "given": "Z"
+    },
+    {
+     "family": "Wang",
+     "given": "N"
+    }
+   ],
+   "year": "2022",
+   "first_page": "13658",
+   "doi": "10.1109/cvpr52688.2022.01330"
+  },
+  {
+   "bib_id": 44,
+   "authors": [
+    {
+     "family": "Zhang",
+     "given": "W"
+    },
+    {
+     "family": "Hong",
+     "given": "Z"
+    },
+    {
+     "family": "Xiong",
+     "given": "L"
+    },
+    {
+     "family": "Zeng",
+     "given": "Z"
+    },
+    {
+     "family": "Cai",
+     "given": "Z"
+    },
+    {
+     "family": "Tan",
+     "given": "K"
+    }
+   ],
+   "year": "2024",
+   "title": "Sinextnet: A New Small Object Detection Model for Aerial Images Based on PP-Yoloe",
+   "container": "Journal of Artificial Intelligence and Soft Computing Research",
+   "volume": "14",
+   "first_page": "251",
+   "doi": "10.2478/jaiscr-2024-0014"
+  },
+  {
+   "bib_id": 45,
+   "authors": [
+    {
+     "family": "Liu",
+     "given": "C"
+    },
+    {
+     "family": "Gao",
+     "given": "G"
+    },
+    {
+     "family": "Huang",
+     "given": "Z"
+    },
+    {
+     "family": "Hu",
+     "given": "Z"
+    },
+    {
+     "family": "Liu",
+     "given": "Q"
+    },
+    {
+     "family": "Wang",
+     "given": "Y"
+    }
+   ],
+   "year": "2024",
+   "title": "YOLC: You Only Look Clusters for Tiny Object Detection in Aerial Images",
+   "container": "IEEE Trans Intell Transport Syst",
+   "volume": "25",
+   "first_page": "13863",
+   "doi": "10.1109/tits.2024.3386928"
+  },
+  {
+   "bib_id": 46,
+   "authors": [
+    {
+     "family": "Du",
+     "given": "B"
+    },
+    {
+     "family": "Huang",
+     "given": "Y"
+    },
+    {
+     "family": "Chen",
+     "given": "J"
+    },
+    {
+     "family": "Huang",
+     "given": "D"
+    }
+   ],
+   "year": "2023",
+   "first_page": "13435",
+   "doi": "10.1109/cvpr52729.2023.01291"
+  },
+  {
+   "bib_id": 47,
+   "authors": [
+    {
+     "family": "Wang",
+     "given": "P"
+    },
+    {
+     "family": "Zhao",
+     "given": "J"
+    }
+   ],
+   "year": "2025",
+   "doi": "10.48550/arXiv.2507.12727"
+  },
+  {
+   "bib_id": 48,
+   "authors": [
+    {
+     "family": "Zhang",
+     "given": "H"
+    },
+    {
+     "family": "Zhang",
+     "given": "H"
+    },
+    {
+     "family": "Liu",
+     "given": "K"
+    },
+    {
+     "family": "Gan",
+     "given": "Z"
+    },
+    {
+     "family": "Zhu",
+     "given": "G-N"
+    }
+   ],
+   "year": "2025",
+   "first_page": "15143",
+   "doi": "10.1109/iros60139.2025.11246176"
+  },
+  {
+   "bib_id": 49,
+   "authors": [
+    {
+     "family": "Zhang",
+     "given": "H"
+    },
+    {
+     "family": "Zhang",
+     "given": "H"
+    },
+    {
+     "family": "Mei",
+     "given": "A"
+    },
+    {
+     "family": "Gan",
+     "given": "Z"
+    },
+    {
+     "family": "Zhu",
+     "given": "G-N"
+    }
+   ],
+   "year": "2025",
+   "first_page": "1",
+   "last_page": "8",
+   "doi": "10.1109/ijcnn64981.2025.11229240"
+  },
+  {
+   "bib_id": 50,
+   "authors": [
+    {
+     "family": "Huang",
+     "given": "S"
+    },
+    {
+     "family": "Lu",
+     "given": "Z"
+    },
+    {
+     "family": "Cun",
+     "given": "X"
+    },
+    {
+     "family": "Yu",
+     "given": "Y"
+    },
+    {
+     "family": "Zhou",
+     "given": "X"
+    },
+    {
+     "family": "Shen",
+     "given": "X"
+    }
+   ],
+   "year": "2025",
+   "first_page": "15162",
+   "doi": "10.1109/cvpr52734.2025.01412"
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-core-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "jats_doi": "10.1371/journal.pone.0355299"
+ }
+}

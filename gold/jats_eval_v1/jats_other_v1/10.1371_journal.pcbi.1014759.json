@@ -1,0 +1,1825 @@
+{
+ "paper_id": "10.1371_journal.pcbi.1014759",
+ "info": {
+  "title": "From observable fermentation data to hidden cell states: A modeling study of a mixotrophic Clostridium coculture under perfusion mode",
+  "doi": "10.1371/journal.pcbi.1014759",
+  "file_name": "10.1371_journal.pcbi.1014759.pdf",
+  "abstract": "Microbial cocultures exhibit complex population dynamics that are difficult to interpret because internal physiological states are only partially observable. In particular, active and dormant cell states can influence system-level behavior but are rarely resolved from standard fermentation measurements. In this study, we present a hybrid modeling framework that combines structured population-state reconstruction with sparse identification of nonlinear dynamics (SINDy) to analyze a Clostridium acetobutylicum-Clostridium ljungdahlii coculture under perfusion mode. The framework estimates active Cac and Clj biomass-equivalent trajectories from observable biomass and activity measurements, reconstructs dormant populations as model-constrained latent states, and uses these states to identify extracellular metabolite dynamics. After accounting for first-principles perfusion transport, SINDy identified sparse biological reaction terms associated with organic acid turnover, solvent formation, and acetone-to-isopropanol conversion. The resulting model captured active-biomass and metabolite trajectories and suggested that the coculture dynamics are consistent with acid-associated state transitions and sequential metabolic exchange. This framework provides a transparent strategy for interpreting partially observed microbial cocultures while explicitly treating dormant biomass as a latent reconstructed state."
+ },
+ "author": [
+  {
+   "author_id": 1,
+   "given": "Juhyeon",
+   "family": "Kim",
+   "affiliation": "Artie McFerrin Department of Chemical Engineering, Texas A&M University, College Station, Texas, United States of America; Texas A&M Energy Institute, Texas A&M University, College Station, Texas, United States of America; William G. Lowrie Department of Chemical and Biomolecular Engineering, The Ohio State University, Columbus, Ohio, United States of America",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 2,
+   "given": "Hangjun",
+   "family": "Cho",
+   "affiliation": "William G. Lowrie Department of Chemical and Biomolecular Engineering, The Ohio State University, Columbus, Ohio, United States of America; Department of Mathematics Education, Kongju National University, Kongju, Republic of Korea",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 3,
+   "given": "Jin Hong",
+   "family": "Mok",
+   "affiliation": "Department of Food Science and Biotechnology, Dongguk University–Seoul, Goyang-si, Gyeonggi-do, Republic of Korea",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 4,
+   "given": "Hyeongmin",
+   "family": "Seo",
+   "affiliation": "Department of Chemical and Biochemical Engineering, The University of Iowa, Iowa City, Iowa, United States of America",
+   "email": "",
+   "orcid": "",
+   "corresponding": true
+  },
+  {
+   "author_id": 5,
+   "given": "Joseph Sang-Il",
+   "family": "Kwon",
+   "affiliation": "William G. Lowrie Department of Chemical and Biomolecular Engineering, The Ohio State University, Columbus, Ohio, United States of America",
+   "email": "",
+   "orcid": "",
+   "corresponding": true
+  }
+ ],
+ "section": [
+  {
+   "section_id": 1,
+   "section_type": "abstract",
+   "header": "Abstract",
+   "level": 1,
+   "parent_section_id": null,
+   "classification_score": 1.0
+  }
+ ],
+ "text": [
+  {
+   "text_id": 1,
+   "section_id": 1,
+   "paragraph_id": 1,
+   "text": "Microbial cocultures exhibit complex population dynamics that are difficult to interpret because internal physiological states are only partially observable. In particular, active and dormant cell states can influence system-level behavior but are rarely resolved from standard fermentation measurements. In this study, we present a hybrid modeling framework that combines structured population-state reconstruction with sparse identification of nonlinear dynamics (SINDy) to analyze a Clostridium acetobutylicum-Clostridium ljungdahlii coculture under perfusion mode. The framework estimates active Cac and Clj biomass-equivalent trajectories from observable biomass and activity measurements, reconstructs dormant populations as model-constrained latent states, and uses these states to identify extracellular metabolite dynamics. After accounting for first-principles perfusion transport, SINDy identified sparse biological reaction terms associated with organic acid turnover, solvent formation, and acetone-to-isopropanol conversion. The resulting model captured active-biomass and metabolite trajectories and suggested that the coculture dynamics are consistent with acid-associated state transitions and sequential metabolic exchange. This framework provides a transparent strategy for interpreting partially observed microbial cocultures while explicitly treating dormant biomass as a latent reconstructed state.",
+   "page_number": 1
+  }
+ ],
+ "bib": [
+  {
+   "bib_id": 1,
+   "authors": [
+    {
+     "family": "Singh",
+     "given": "R"
+    },
+    {
+     "family": "Gaur",
+     "given": "A"
+    },
+    {
+     "family": "Soni",
+     "given": "P"
+    },
+    {
+     "family": "Jain",
+     "given": "R"
+    },
+    {
+     "family": "Pant",
+     "given": "G"
+    },
+    {
+     "family": "Kumar",
+     "given": "D"
+    }
+   ],
+   "year": "2025",
+   "title": "A review of biofuels and bioenergy production as a sustainable alternative: opportunities, challenges and future perspectives",
+   "container": "J Environ Health Sci Eng",
+   "volume": "23",
+   "first_page": "23",
+   "doi": "10.1007/s40201-025-00946-0"
+  },
+  {
+   "bib_id": 2,
+   "authors": [
+    {
+     "family": "Anand",
+     "given": "S"
+    },
+    {
+     "family": "Padmanabhan",
+     "given": "P"
+    }
+   ],
+   "year": "2025",
+   "title": "Sustainable production of bio-crude oil from algal biomass and its upgradation for enhanced fuel properties",
+   "first_page": "165",
+   "doi": "10.1007/978-981-96-5198-6_8"
+  },
+  {
+   "bib_id": 3,
+   "authors": [
+    {
+     "family": "Okolie",
+     "given": "JA"
+    },
+    {
+     "family": "Mukherjee",
+     "given": "A"
+    },
+    {
+     "family": "Nanda",
+     "given": "S"
+    },
+    {
+     "family": "Dalai",
+     "given": "AK"
+    },
+    {
+     "family": "Kozinski",
+     "given": "JA"
+    }
+   ],
+   "year": "2021",
+   "title": "Next‐generation biofuels and platform biochemicals from lignocellulosic biomass",
+   "container": "Intl J of Energy Research",
+   "volume": "45",
+   "first_page": "14145",
+   "doi": "10.1002/er.6697"
+  },
+  {
+   "bib_id": 4,
+   "authors": [
+    {
+     "family": "Cheng",
+     "given": "C"
+    },
+    {
+     "family": "Bao",
+     "given": "T"
+    },
+    {
+     "family": "Yang",
+     "given": "S-T"
+    }
+   ],
+   "year": "2019",
+   "title": "Engineering Clostridium for improved solvent production: recent progress and perspective",
+   "container": "Appl Microbiol Biotechnol",
+   "volume": "103",
+   "first_page": "5549",
+   "doi": "10.1007/s00253-019-09916-7"
+  },
+  {
+   "bib_id": 5,
+   "authors": [
+    {
+     "family": "Kádár",
+     "given": "Z"
+    },
+    {
+     "family": "Fonseca",
+     "given": "C"
+    }
+   ],
+   "year": "2019",
+   "title": "Bio-products from sugar-based fermentation processes",
+   "first_page": "281",
+   "last_page": "312",
+   "doi": "10.1007/978-3-030-10961-5_12"
+  },
+  {
+   "bib_id": 6,
+   "authors": [
+    {
+     "family": "Lee",
+     "given": "S-H"
+    },
+    {
+     "family": "Yun",
+     "given": "EJ"
+    },
+    {
+     "family": "Kim",
+     "given": "J"
+    },
+    {
+     "family": "Lee",
+     "given": "SJ"
+    },
+    {
+     "family": "Um",
+     "given": "Y"
+    },
+    {
+     "family": "Kim",
+     "given": "KH"
+    }
+   ],
+   "year": "2016",
+   "title": "Biomass, strain engineering, and fermentation processes for butanol production by solventogenic clostridia",
+   "container": "Appl Microbiol Biotechnol",
+   "volume": "100",
+   "first_page": "8255",
+   "doi": "10.1007/s00253-016-7760-9"
+  },
+  {
+   "bib_id": 7,
+   "authors": [
+    {
+     "family": "Petersen",
+     "given": "DJ"
+    },
+    {
+     "family": "Bennett",
+     "given": "GN"
+    }
+   ],
+   "year": "1990",
+   "title": "Purification of acetoacetate decarboxylase from Clostridium acetobutylicum ATCC 824 and cloning of the acetoacetate decarboxylase gene in Escherichia coli",
+   "container": "Appl Environ Microbiol",
+   "volume": "56",
+   "first_page": "3491",
+   "doi": "10.1128/aem.56.11.3491-3498.1990"
+  },
+  {
+   "bib_id": 8,
+   "authors": [
+    {
+     "family": "Otten",
+     "given": "JK"
+    },
+    {
+     "family": "Hill",
+     "given": "JD"
+    },
+    {
+     "family": "Willis",
+     "given": "NB"
+    },
+    {
+     "family": "Dougherty",
+     "given": "J"
+    },
+    {
+     "family": "Dalton",
+     "given": "A"
+    },
+    {
+     "family": "Papoutsakis",
+     "given": "ET"
+    }
+   ],
+   "year": "2025",
+   "title": "Cross-talk between engineered Clostridium acetobutylicum and Clostridium ljungdahlii in syntrophic cocultures enhances isopropanol and butanol production",
+   "container": "Front Microbiol",
+   "volume": "16",
+   "first_page": "1674318",
+   "doi": "10.3389/fmicb.2025.1674318"
+  },
+  {
+   "bib_id": 9,
+   "authors": [
+    {
+     "family": "Al-Tabib",
+     "given": "AI"
+    },
+    {
+     "family": "Al-Shorgani",
+     "given": "NK"
+    },
+    {
+     "family": "Abu Hassan",
+     "given": "H"
+    },
+    {
+     "family": "Hamid",
+     "given": "AA"
+    },
+    {
+     "family": "Kalil",
+     "given": "MS"
+    }
+   ],
+   "year": "2017",
+   "title": "Production of acetone, butanol, and ethanol (ABE) by Clostridium acetobutylicum YM1 from pretreated palm kernel cake in batch culture fermentation",
+   "container": "BioResources",
+   "volume": "12",
+   "doi": "10.15376/biores.12.2.3371-3386"
+  },
+  {
+   "bib_id": 10,
+   "authors": [
+    {
+     "family": "Willis",
+     "given": "NB"
+    },
+    {
+     "family": "Papoutsakis",
+     "given": "ET"
+    }
+   ],
+   "year": "2025",
+   "title": "Separate, separated, and together: the transcriptional program of the Clostridium acetobutylicum-Clostridium ljungdahlii syntrophy leading to interspecies cell fusion",
+   "container": "mSystems",
+   "volume": "10",
+   "doi": "10.1128/msystems.00030-25"
+  },
+  {
+   "bib_id": 11,
+   "authors": [
+    {
+     "family": "Foster",
+     "given": "C"
+    },
+    {
+     "family": "Charubin",
+     "given": "K"
+    },
+    {
+     "family": "Papoutsakis",
+     "given": "ET"
+    },
+    {
+     "family": "Maranas",
+     "given": "CD"
+    }
+   ],
+   "year": "2021",
+   "title": "Modeling Growth kinetics, interspecies cell fusion, and metabolism of a Clostridium acetobutylicum/Clostridium ljungdahlii syntrophic coculture",
+   "container": "mSystems",
+   "volume": "6",
+   "doi": "10.1128/mSystems.01325-20"
+  },
+  {
+   "bib_id": 12,
+   "authors": [
+    {
+     "family": "Schlembach",
+     "given": "I"
+    },
+    {
+     "family": "Grünberger",
+     "given": "A"
+    },
+    {
+     "family": "Rosenbaum",
+     "given": "MA"
+    },
+    {
+     "family": "Regestein",
+     "given": "L"
+    }
+   ],
+   "year": "2021",
+   "title": "Measurement techniques to resolve and control population dynamics of mixed-culture processes",
+   "container": "Trends Biotechnol",
+   "volume": "39",
+   "first_page": "1093",
+   "doi": "10.1016/j.tibtech.2021.01.006"
+  },
+  {
+   "bib_id": 13,
+   "authors": [
+    {
+     "family": "Al-Hinai",
+     "given": "MA"
+    },
+    {
+     "family": "Jones",
+     "given": "SW"
+    },
+    {
+     "family": "Papoutsakis",
+     "given": "ET"
+    }
+   ],
+   "year": "2014",
+   "title": "σK of Clostridium acetobutylicum is the first known sporulation-specific sigma factor with two developmentally separated roles, one early and one late in sporulation",
+   "container": "J Bacteriol",
+   "volume": "196",
+   "first_page": "287",
+   "doi": "10.1128/JB.01103-13"
+  },
+  {
+   "bib_id": 14,
+   "authors": [
+    {
+     "family": "Al-Hinai",
+     "given": "MA"
+    },
+    {
+     "family": "Jones",
+     "given": "SW"
+    },
+    {
+     "family": "Papoutsakis",
+     "given": "ET"
+    }
+   ],
+   "year": "2015",
+   "title": "The Clostridium sporulation programs: diversity and preservation of endospore differentiation",
+   "container": "Microbiol Mol Biol Rev",
+   "volume": "79",
+   "first_page": "19",
+   "last_page": "37",
+   "doi": "10.1128/MMBR.00025-14"
+  },
+  {
+   "bib_id": 15,
+   "authors": [
+    {
+     "family": "Lennon",
+     "given": "JT"
+    },
+    {
+     "family": "Jones",
+     "given": "SE"
+    }
+   ],
+   "year": "2011",
+   "title": "Microbial seed banks: the ecological and evolutionary implications of dormancy",
+   "container": "Nat Rev Microbiol",
+   "volume": "9",
+   "first_page": "119",
+   "doi": "10.1038/nrmicro2504"
+  },
+  {
+   "bib_id": 16,
+   "authors": [
+    {
+     "family": "Jones",
+     "given": "SE"
+    },
+    {
+     "family": "Lennon",
+     "given": "JT"
+    }
+   ],
+   "year": "2010",
+   "title": "Dormancy contributes to the maintenance of microbial diversity",
+   "container": "Proc Natl Acad Sci U S A",
+   "volume": "107",
+   "first_page": "5881",
+   "doi": "10.1073/pnas.0912765107"
+  },
+  {
+   "bib_id": 17,
+   "authors": [
+    {
+     "family": "Delattre",
+     "given": "H"
+    },
+    {
+     "family": "Desmond-Le Quéméner",
+     "given": "E"
+    },
+    {
+     "family": "Duquennoi",
+     "given": "C"
+    },
+    {
+     "family": "Filali",
+     "given": "A"
+    },
+    {
+     "family": "Bouchez",
+     "given": "T"
+    }
+   ],
+   "year": "2019",
+   "title": "Consistent microbial dynamics and functional community patterns derived from first principles",
+   "container": "ISME J",
+   "volume": "13",
+   "first_page": "263",
+   "doi": "10.1038/s41396-018-0272-0"
+  },
+  {
+   "bib_id": 18,
+   "authors": [
+    {
+     "family": "Quintero-Díaz",
+     "given": "JC"
+    },
+    {
+     "family": "Mendoza",
+     "given": "DF"
+    },
+    {
+     "family": "Avignone-Rossa",
+     "given": "C"
+    }
+   ],
+   "year": "2023",
+   "title": "NADH-based kinetic model for acetone-butanol-ethanol production by Clostridium",
+   "container": "Front Bioeng Biotechnol",
+   "volume": "11",
+   "first_page": "1294355",
+   "doi": "10.3389/fbioe.2023.1294355"
+  },
+  {
+   "bib_id": 19,
+   "authors": [
+    {
+     "family": "Shinto",
+     "given": "H"
+    },
+    {
+     "family": "Tashiro",
+     "given": "Y"
+    },
+    {
+     "family": "Yamashita",
+     "given": "M"
+    },
+    {
+     "family": "Kobayashi",
+     "given": "G"
+    },
+    {
+     "family": "Sekiguchi",
+     "given": "T"
+    },
+    {
+     "family": "Hanai",
+     "given": "T"
+    }
+   ],
+   "year": "2007",
+   "title": "Kinetic modeling and sensitivity analysis of acetone-butanol-ethanol production",
+   "container": "J Biotechnol",
+   "volume": "131",
+   "first_page": "45",
+   "last_page": "56",
+   "doi": "10.1016/j.jbiotec.2007.05.005"
+  },
+  {
+   "bib_id": 20,
+   "authors": [
+    {
+     "family": "Nagarajan",
+     "given": "H"
+    },
+    {
+     "family": "Sahin",
+     "given": "M"
+    },
+    {
+     "family": "Nogales",
+     "given": "J"
+    },
+    {
+     "family": "Latif",
+     "given": "H"
+    },
+    {
+     "family": "Lovley",
+     "given": "DR"
+    },
+    {
+     "family": "Ebrahim",
+     "given": "A"
+    }
+   ],
+   "year": "2013",
+   "title": "Characterizing acetogenic metabolism using a genome-scale metabolic reconstruction of Clostridium ljungdahlii",
+   "container": "Microb Cell Fact",
+   "volume": "12",
+   "first_page": "118",
+   "doi": "10.1186/1475-2859-12-118"
+  },
+  {
+   "bib_id": 21,
+   "authors": [
+    {
+     "family": "Kim",
+     "given": "J"
+    },
+    {
+     "family": "Shah",
+     "given": "P"
+    },
+    {
+     "family": "Bhavsar",
+     "given": "R"
+    },
+    {
+     "family": "Lim",
+     "given": "D"
+    },
+    {
+     "family": "Seo",
+     "given": "S"
+    },
+    {
+     "family": "Hyung",
+     "given": "J"
+    }
+   ],
+   "year": "2024",
+   "title": "Multiscale modeling and experimental study of molecular weight distribution and monomeric ratio in PHA production",
+   "container": "Chem Eng J",
+   "volume": "499",
+   "first_page": "156001",
+   "doi": "10.1016/j.cej.2024.156001"
+  },
+  {
+   "bib_id": 22,
+   "authors": [
+    {
+     "family": "Hanly",
+     "given": "TJ"
+    },
+    {
+     "family": "Henson",
+     "given": "MA"
+    }
+   ],
+   "year": "2011",
+   "title": "Dynamic flux balance modeling of microbial co-cultures for efficient batch fermentation of glucose and xylose mixtures",
+   "container": "Biotechnol Bioeng",
+   "volume": "108",
+   "first_page": "376",
+   "doi": "10.1002/bit.22954"
+  },
+  {
+   "bib_id": 23,
+   "authors": [
+    {
+     "family": "Shah",
+     "given": "P"
+    },
+    {
+     "family": "Sheriff",
+     "given": "MZ"
+    },
+    {
+     "family": "Bangi",
+     "given": "MSF"
+    },
+    {
+     "family": "Kravaris",
+     "given": "C"
+    },
+    {
+     "family": "Kwon",
+     "given": "JS-I"
+    },
+    {
+     "family": "Botre",
+     "given": "C"
+    }
+   ],
+   "year": "2022",
+   "title": "Deep neural network-based hybrid modeling and experimental validation for an industry-scale fermentation process: identification of time-varying dependencies among parameters",
+   "container": "Chem Eng J",
+   "volume": "441",
+   "first_page": "135643",
+   "doi": "10.1016/j.cej.2022.135643"
+  },
+  {
+   "bib_id": 24,
+   "authors": [
+    {
+     "family": "O’Brien",
+     "given": "A"
+    },
+    {
+     "family": "Zhang",
+     "given": "H"
+    },
+    {
+     "family": "Allwood",
+     "given": "D"
+    }
+   ],
+   "year": "2026",
+   "title": "Neural brewmeister: modelling beer fermentation dynamics using LSTM networks",
+   "container": "Processes",
+   "volume": "14",
+   "first_page": "233",
+   "doi": "10.3390/pr14020233"
+  },
+  {
+   "bib_id": 25,
+   "authors": [
+    {
+     "family": "Lee",
+     "given": "J"
+    },
+    {
+     "family": "Jeong",
+     "given": "J"
+    },
+    {
+     "family": "Kim",
+     "given": "S"
+    }
+   ],
+   "year": "2025",
+   "title": "Pressure-guided LSTM modeling for fermentation quantification prediction",
+   "container": "Sensors (Basel)",
+   "volume": "25",
+   "first_page": "5251",
+   "doi": "10.3390/s25175251"
+  },
+  {
+   "bib_id": 26,
+   "authors": [
+    {
+     "family": "Bangi",
+     "given": "MSF"
+    },
+    {
+     "family": "Kao",
+     "given": "K"
+    },
+    {
+     "family": "Kwon",
+     "given": "JS-I"
+    }
+   ],
+   "year": "2022",
+   "title": "Physics-informed neural networks for hybrid modeling of lab-scale batch fermentation for β-carotene production using Saccharomyces cerevisiae",
+   "container": "Chem Eng Res Des",
+   "volume": "179",
+   "first_page": "415",
+   "doi": "10.1016/j.cherd.2022.01.041"
+  },
+  {
+   "bib_id": 27,
+   "authors": [
+    {
+     "family": "Safarian",
+     "given": "S"
+    },
+    {
+     "family": "Saryazdi",
+     "given": "SME"
+    },
+    {
+     "family": "Unnthorsson",
+     "given": "R"
+    },
+    {
+     "family": "Richter",
+     "given": "C"
+    }
+   ],
+   "year": "2021",
+   "title": "Artificial Neural network modeling of bioethanol production via syngas fermentation",
+   "container": "Biophys Econ Sustain",
+   "volume": "6",
+   "first_page": "1",
+   "doi": "10.1007/s41247-020-00083-2"
+  },
+  {
+   "bib_id": 28,
+   "authors": [
+    {
+     "family": "Khambhawala",
+     "given": "A"
+    },
+    {
+     "family": "Shah",
+     "given": "P"
+    },
+    {
+     "family": "Nagpal",
+     "given": "S"
+    },
+    {
+     "family": "Shin",
+     "given": "J-H"
+    },
+    {
+     "family": "Lee",
+     "given": "JH"
+    },
+    {
+     "family": "Kwon",
+     "given": "JS-I"
+    }
+   ],
+   "year": "2025",
+   "title": "Computationally efficient LSTM–euler hybrid model framework: application to industrial-scale fermentation with experimental validation",
+   "container": "ACS Eng Au",
+   "volume": "6",
+   "first_page": "115",
+   "doi": "10.1021/acsengineeringau.5c00074"
+  },
+  {
+   "bib_id": 29,
+   "authors": [
+    {
+     "family": "Roell",
+     "given": "GW"
+    },
+    {
+     "family": "Sathish",
+     "given": "A"
+    },
+    {
+     "family": "Wan",
+     "given": "N"
+    },
+    {
+     "family": "Cheng",
+     "given": "Q"
+    },
+    {
+     "family": "Wen",
+     "given": "Z"
+    },
+    {
+     "family": "Tang",
+     "given": "YJ"
+    }
+   ],
+   "year": "2022",
+   "title": "A comparative evaluation of machine learning algorithms for predicting syngas fermentation outcomes",
+   "container": "Biochem Eng J",
+   "volume": "186",
+   "doi": "10.1016/j.bej.2022.108578"
+  },
+  {
+   "bib_id": 30,
+   "authors": [
+    {
+     "family": "Wang",
+     "given": "L"
+    },
+    {
+     "family": "Long",
+     "given": "F"
+    },
+    {
+     "family": "Liao",
+     "given": "W"
+    },
+    {
+     "family": "Liu",
+     "given": "H"
+    }
+   ],
+   "year": "2020",
+   "title": "Prediction of anaerobic digestion performance and identification of critical operational parameters using machine learning algorithms",
+   "container": "Bioresour Technol",
+   "volume": "298",
+   "first_page": "122495",
+   "doi": "10.1016/j.biortech.2019.122495"
+  },
+  {
+   "bib_id": 31,
+   "authors": [
+    {
+     "family": "Treloar",
+     "given": "NJ"
+    },
+    {
+     "family": "Fedorec",
+     "given": "AJH"
+    },
+    {
+     "family": "Ingalls",
+     "given": "B"
+    },
+    {
+     "family": "Barnes",
+     "given": "CP"
+    }
+   ],
+   "year": "2020",
+   "title": "Deep reinforcement learning for the control of microbial co-cultures in bioreactors",
+   "container": "PLoS Comput Biol",
+   "volume": "16",
+   "doi": "10.1371/journal.pcbi.1007783"
+  },
+  {
+   "bib_id": 32,
+   "authors": [
+    {
+     "family": "Pahari",
+     "given": "S"
+    },
+    {
+     "family": "Shah",
+     "given": "P"
+    },
+    {
+     "family": "Kwon",
+     "given": "JS-I"
+    }
+   ],
+   "year": "2024",
+   "title": "Achieving robustness in hybrid models: a physics-informed regularization approach for spatiotemporal parameter estimation in PDEs",
+   "container": "Chem Eng Res Des",
+   "volume": "204",
+   "first_page": "292",
+   "last_page": "302",
+   "doi": "10.1016/j.cherd.2024.01.067"
+  },
+  {
+   "bib_id": 33,
+   "authors": [
+    {
+     "family": "Pahari",
+     "given": "S"
+    },
+    {
+     "family": "Shah",
+     "given": "P"
+    },
+    {
+     "family": "Sang-Il Kwon",
+     "given": "J"
+    }
+   ],
+   "year": "2024",
+   "title": "Unveiling latent chemical mechanisms: hybrid modeling for estimating spatiotemporally varying parameters in moving boundary problems",
+   "container": "Ind Eng Chem Res",
+   "volume": "63",
+   "first_page": "1501",
+   "doi": "10.1021/acs.iecr.3c03531"
+  },
+  {
+   "bib_id": 34,
+   "authors": [
+    {
+     "family": "Shah",
+     "given": "P"
+    },
+    {
+     "family": "Pahari",
+     "given": "S"
+    },
+    {
+     "family": "Bhavsar",
+     "given": "R"
+    },
+    {
+     "family": "Kwon",
+     "given": "JS-I"
+    }
+   ],
+   "year": "2025",
+   "title": "Hybrid modeling of first-principles and machine learning: a step-by-step tutorial review for practical implementation",
+   "container": "Comput Chem Eng",
+   "volume": "194",
+   "first_page": "108926",
+   "doi": "10.1016/j.compchemeng.2024.108926"
+  },
+  {
+   "bib_id": 35,
+   "authors": [
+    {
+     "family": "Boninsegna",
+     "given": "L"
+    },
+    {
+     "family": "Nüske",
+     "given": "F"
+    },
+    {
+     "family": "Clementi",
+     "given": "C"
+    }
+   ],
+   "year": "2018",
+   "title": "Sparse learning of stochastic dynamical equations",
+   "container": "J Chem Phys",
+   "volume": "148",
+   "first_page": "241723",
+   "doi": "10.1063/1.5018409"
+  },
+  {
+   "bib_id": 36,
+   "authors": [
+    {
+     "family": "Jiang",
+     "given": "R"
+    },
+    {
+     "family": "Singh",
+     "given": "P"
+    },
+    {
+     "family": "Wrede",
+     "given": "F"
+    },
+    {
+     "family": "Hellander",
+     "given": "A"
+    },
+    {
+     "family": "Petzold",
+     "given": "L"
+    }
+   ],
+   "year": "2022",
+   "title": "Identification of dynamic mass-action biochemical reaction networks using sparse Bayesian methods",
+   "container": "PLoS Comput Biol",
+   "volume": "18",
+   "doi": "10.1371/journal.pcbi.1009830"
+  },
+  {
+   "bib_id": 37,
+   "authors": [
+    {
+     "family": "Dubova",
+     "given": "M"
+    },
+    {
+     "family": "Chandramouli",
+     "given": "S"
+    },
+    {
+     "family": "Gigerenzer",
+     "given": "G"
+    },
+    {
+     "family": "Grünwald",
+     "given": "P"
+    },
+    {
+     "family": "Holmes",
+     "given": "W"
+    },
+    {
+     "family": "Lombrozo",
+     "given": "T"
+    }
+   ],
+   "year": "2025",
+   "title": "Is Ockham’s razor losing its edge? New perspectives on the principle of model parsimony",
+   "container": "Proc Natl Acad Sci U S A",
+   "volume": "122",
+   "doi": "10.1073/pnas.2401230121"
+  },
+  {
+   "bib_id": 38,
+   "authors": [
+    {
+     "family": "Brunton",
+     "given": "SL"
+    },
+    {
+     "family": "Proctor",
+     "given": "JL"
+    },
+    {
+     "family": "Kutz",
+     "given": "JN"
+    }
+   ],
+   "year": "2016",
+   "title": "Discovering governing equations from data by sparse identification of nonlinear dynamical systems",
+   "container": "Proc Natl Acad Sci U S A",
+   "volume": "113",
+   "first_page": "3932",
+   "doi": "10.1073/pnas.1517384113"
+  },
+  {
+   "bib_id": 39,
+   "authors": [
+    {
+     "family": "Bhadriraju",
+     "given": "B"
+    },
+    {
+     "family": "Bangi",
+     "given": "MSF"
+    },
+    {
+     "family": "Narasingam",
+     "given": "A"
+    },
+    {
+     "family": "Kwon",
+     "given": "JS"
+    }
+   ],
+   "year": "2020",
+   "title": "Operable adaptive sparse identification of systems: application to chemical processes",
+   "container": "AIChE Journal",
+   "volume": "66",
+   "doi": "10.1002/aic.16980"
+  },
+  {
+   "bib_id": 40,
+   "authors": [
+    {
+     "family": "Prokop",
+     "given": "B"
+    },
+    {
+     "family": "Gelens",
+     "given": "L"
+    }
+   ],
+   "year": "2024",
+   "title": "From biological data to oscillator models using SINDy",
+   "container": "iScience",
+   "volume": "27",
+   "first_page": "109316",
+   "doi": "10.1016/j.isci.2024.109316"
+  },
+  {
+   "bib_id": 41,
+   "authors": [
+    {
+     "family": "Bhadriraju",
+     "given": "B"
+    },
+    {
+     "family": "Narasingam",
+     "given": "A"
+    },
+    {
+     "family": "Kwon",
+     "given": "JSI"
+    }
+   ],
+   "year": "2019",
+   "title": "Machine learning-based adaptive model identification of systems: application to a chemical process",
+   "container": "Chem Eng Res Des",
+   "volume": "152",
+   "first_page": "372",
+   "doi": "10.1016/j.cherd.2019.09.009"
+  },
+  {
+   "bib_id": 42,
+   "authors": [
+    {
+     "family": "Cho",
+     "given": "H"
+    },
+    {
+     "family": "Kudva",
+     "given": "A"
+    },
+    {
+     "family": "Shah",
+     "given": "P"
+    },
+    {
+     "family": "Lee",
+     "given": "D"
+    },
+    {
+     "family": "Kwon",
+     "given": "JS"
+    }
+   ],
+   "year": "2026",
+   "title": "Dictionary‐based weak‐form training for noise‐robust series hybrid models with multiplicative unknowns",
+   "container": "AIChE Journal",
+   "volume": "72",
+   "doi": "10.1002/aic.70419"
+  },
+  {
+   "bib_id": 43,
+   "authors": [
+    {
+     "family": "Willis",
+     "given": "NB"
+    },
+    {
+     "family": "Otten",
+     "given": "JK"
+    },
+    {
+     "family": "Seo",
+     "given": "H"
+    },
+    {
+     "family": "Munasinghe",
+     "given": "PC"
+    },
+    {
+     "family": "Hill",
+     "given": "JD"
+    },
+    {
+     "family": "Papoutsakis",
+     "given": "ET"
+    }
+   ],
+   "year": "2026",
+   "title": "Enabling supratheoretical isopropanol yields from carbon-negative glucose fermentations with a Clostridium acetobutylicum- Clostridium ljungdahlii coculture",
+   "container": "Metab Eng",
+   "volume": "96",
+   "first_page": "92",
+   "last_page": "103",
+   "doi": "10.1016/j.ymben.2026.03.008"
+  },
+  {
+   "bib_id": 44,
+   "authors": [
+    {
+     "family": "Seo",
+     "given": "H"
+    },
+    {
+     "family": "Capece",
+     "given": "SH"
+    },
+    {
+     "family": "Hill",
+     "given": "JD"
+    },
+    {
+     "family": "Otten",
+     "given": "JK"
+    },
+    {
+     "family": "Papoutsakis",
+     "given": "ET"
+    }
+   ],
+   "year": "2024",
+   "title": "Butyrate as a growth factor of Clostridium acetobutylicum",
+   "container": "Metab Eng",
+   "volume": "86",
+   "first_page": "194",
+   "last_page": "207",
+   "doi": "10.1016/j.ymben.2024.10.005"
+  },
+  {
+   "bib_id": 45,
+   "authors": [
+    {
+     "family": "Carlson",
+     "given": "ED"
+    },
+    {
+     "family": "Papoutsakis",
+     "given": "ET"
+    }
+   ],
+   "year": "2017",
+   "title": "Heterologous expression of the Clostridium carboxidivorans CO dehydrogenase alone or together with the acetyl coenzyme A synthase enables both reduction of CO2 and oxidation of CO by Clostridium acetobutylicum",
+   "container": "Appl Environ Microbiol",
+   "volume": "83",
+   "doi": "10.1128/AEM.00829-17"
+  },
+  {
+   "bib_id": 46,
+   "authors": [
+    {
+     "family": "Charubin",
+     "given": "K"
+    },
+    {
+     "family": "Papoutsakis",
+     "given": "ET"
+    }
+   ],
+   "year": "2019",
+   "title": "Direct cell-to-cell exchange of matter in a synthetic Clostridium syntrophy enables CO2 fixation, superior metabolite yields, and an expanded metabolic space",
+   "container": "Metab Eng",
+   "volume": "52",
+   "first_page": "9",
+   "last_page": "19",
+   "doi": "10.1016/j.ymben.2018.10.006"
+  },
+  {
+   "bib_id": 47,
+   "authors": [
+    {
+     "family": "Hill",
+     "given": "JD"
+    },
+    {
+     "family": "Papoutsakis",
+     "given": "ET"
+    }
+   ],
+   "year": "2024",
+   "title": "Species-specific ribosomal RNA-FISH identifies interspecies cellular-material exchange, active-cell population dynamics and cellular localization of translation machinery in clostridial cultures and co-cultures",
+   "container": "mSystems",
+   "volume": "9",
+   "doi": "10.1128/msystems.00572-24"
+  },
+  {
+   "bib_id": 48,
+   "authors": [
+    {
+     "family": "Stenström",
+     "given": "J"
+    },
+    {
+     "family": "Svensson",
+     "given": "K"
+    },
+    {
+     "family": "Johansson",
+     "given": "M"
+    }
+   ],
+   "year": "2001",
+   "title": "Reversible transition between active and dormant microbial states in soil",
+   "container": "FEMS Microbiol Ecol",
+   "volume": "36",
+   "first_page": "93",
+   "last_page": "104",
+   "doi": "10.1111/j.1574-6941.2001.tb00829.x"
+  },
+  {
+   "bib_id": 49,
+   "authors": [
+    {
+     "family": "Locey",
+     "given": "KJ"
+    },
+    {
+     "family": "Fisk",
+     "given": "MC"
+    },
+    {
+     "family": "Lennon",
+     "given": "JT"
+    }
+   ],
+   "year": "2017",
+   "title": "Microscale insight into microbial seed banks",
+   "container": "Front Microbiol",
+   "volume": "7",
+   "first_page": "2040",
+   "doi": "10.3389/fmicb.2016.02040"
+  },
+  {
+   "bib_id": 50,
+   "authors": [
+    {
+     "family": "Wang",
+     "given": "G"
+    },
+    {
+     "family": "Mayes",
+     "given": "MA"
+    },
+    {
+     "family": "Gu",
+     "given": "L"
+    },
+    {
+     "family": "Schadt",
+     "given": "CW"
+    }
+   ],
+   "year": "2014",
+   "title": "Representation of dormant and active microbial dynamics for ecosystem modeling",
+   "container": "PLoS One",
+   "volume": "9",
+   "doi": "10.1371/journal.pone.0089252"
+  },
+  {
+   "bib_id": 51,
+   "authors": [
+    {
+     "family": "Levenspiel",
+     "given": "O"
+    }
+   ],
+   "year": "1980",
+   "title": "The Monod equation: a revisit and a generalization to product inhibition situations",
+   "container": "Biotechnol Bioeng",
+   "volume": "22",
+   "first_page": "1671",
+   "doi": "10.1002/bit.260220810"
+  },
+  {
+   "bib_id": 52,
+   "authors": [
+    {
+     "family": "Putra",
+     "given": "MD"
+    },
+    {
+     "family": "Abasaeed",
+     "given": "AE"
+    }
+   ],
+   "year": "2018",
+   "title": "A more generalized kinetic model for binary substrates fermentations",
+   "container": "Process Biochem",
+   "volume": "75",
+   "first_page": "31",
+   "doi": "10.1016/j.procbio.2018.09.017"
+  },
+  {
+   "bib_id": 53,
+   "authors": [
+    {
+     "family": "Ragsdale",
+     "given": "SW"
+    },
+    {
+     "family": "Pierce",
+     "given": "E"
+    }
+   ],
+   "year": "2008",
+   "title": "Acetogenesis and the wood-ljungdahl pathway of CO(2) fixation",
+   "container": "Biochim Biophys Acta",
+   "volume": "1784",
+   "first_page": "1873",
+   "doi": "10.1016/j.bbapap.2008.08.012"
+  },
+  {
+   "bib_id": 54,
+   "authors": [
+    {
+     "family": "Monot",
+     "given": "F"
+    },
+    {
+     "family": "Engasser",
+     "given": "JM"
+    },
+    {
+     "family": "Petitdemange",
+     "given": "H"
+    }
+   ],
+   "year": "1984",
+   "title": "Influence of pH and undissociated butyric acid on the production of acetone and butanol in batch cultures of Clostridium acetobutylicum",
+   "container": "Appl Microbiol Biotechnol",
+   "volume": "19",
+   "first_page": "422",
+   "doi": "10.1007/BF00454381"
+  },
+  {
+   "bib_id": 55,
+   "authors": [
+    {
+     "family": "Yang",
+     "given": "X"
+    },
+    {
+     "family": "Tu",
+     "given": "M"
+    },
+    {
+     "family": "Xie",
+     "given": "R"
+    },
+    {
+     "family": "Adhikari",
+     "given": "S"
+    },
+    {
+     "family": "Tong",
+     "given": "Z"
+    }
+   ],
+   "year": "2013",
+   "title": "A comparison of three pH control methods for revealing effects of undissociated butyric acid on specific butanol production rate in batch fermentation of Clostridium acetobutylicum",
+   "container": "AMB Express",
+   "volume": "3",
+   "first_page": "3",
+   "doi": "10.1186/2191-0855-3-3"
+  },
+  {
+   "bib_id": 56,
+   "authors": [
+    {
+     "family": "Goutelle",
+     "given": "S"
+    },
+    {
+     "family": "Maurin",
+     "given": "M"
+    },
+    {
+     "family": "Rougier",
+     "given": "F"
+    },
+    {
+     "family": "Barbaut",
+     "given": "X"
+    },
+    {
+     "family": "Bourguignon",
+     "given": "L"
+    },
+    {
+     "family": "Ducher",
+     "given": "M"
+    }
+   ],
+   "year": "2008",
+   "title": "The Hill equation: a review of its capabilities in pharmacological modelling",
+   "container": "Fundam Clin Pharmacol",
+   "volume": "22",
+   "first_page": "633",
+   "doi": "10.1111/j.1472-8206.2008.00633.x"
+  },
+  {
+   "bib_id": 57,
+   "authors": [
+    {
+     "family": "Stolpovsky",
+     "given": "K"
+    },
+    {
+     "family": "Fetzer",
+     "given": "I"
+    },
+    {
+     "family": "Van Cappellen",
+     "given": "P"
+    },
+    {
+     "family": "Thullner",
+     "given": "M"
+    }
+   ],
+   "year": "2016",
+   "title": "Influence of dormancy on microbial competition under intermittent substrate supply: insights from model simulations",
+   "container": "FEMS Microbiol Ecol",
+   "volume": "92",
+   "doi": "10.1093/femsec/fiw071"
+  },
+  {
+   "bib_id": 58,
+   "authors": [
+    {
+     "family": "Lee",
+     "given": "D"
+    },
+    {
+     "family": "Jayaraman",
+     "given": "A"
+    },
+    {
+     "family": "Kwon",
+     "given": "JS"
+    }
+   ],
+   "year": "2020",
+   "title": "Development of a hybrid model for a partially known intracellular signaling pathway through correction term estimation and neural network modeling",
+   "container": "PLoS Comput Biol",
+   "volume": "16",
+   "doi": "10.1371/journal.pcbi.1008472"
+  },
+  {
+   "bib_id": 59,
+   "authors": [
+    {
+     "family": "Kudva",
+     "given": "A"
+    },
+    {
+     "family": "Shah",
+     "given": "P"
+    },
+    {
+     "family": "Kwon",
+     "given": "JSI"
+    }
+   ],
+   "year": "2026",
+   "title": "Hybrid modeling with attribution-guided symbolic enhancements of known physics: applications to complex biological and engineering systems",
+   "container": "Chem Eng Sci",
+   "doi": "10.1016/j.ces.2026.124269"
+  },
+  {
+   "bib_id": 60,
+   "authors": [
+    {
+     "family": "Hoshino",
+     "given": "T"
+    },
+    {
+     "family": "Yilmaz",
+     "given": "LS"
+    },
+    {
+     "family": "Noguera",
+     "given": "DR"
+    },
+    {
+     "family": "Daims",
+     "given": "H"
+    },
+    {
+     "family": "Wagner",
+     "given": "M"
+    }
+   ],
+   "year": "2008",
+   "title": "Quantification of target molecules needed to detect microorganisms by fluorescence in situ hybridization (FISH) and catalyzed reporter deposition-FISH",
+   "container": "Appl Environ Microbiol",
+   "volume": "74",
+   "first_page": "5068",
+   "doi": "10.1128/AEM.00208-08"
+  },
+  {
+   "bib_id": 61,
+   "authors": [
+    {
+     "family": "Zhu",
+     "given": "H-F"
+    },
+    {
+     "family": "Liu",
+     "given": "Z-Y"
+    },
+    {
+     "family": "Zhou",
+     "given": "X"
+    },
+    {
+     "family": "Yi",
+     "given": "J-H"
+    },
+    {
+     "family": "Lun",
+     "given": "Z-M"
+    },
+    {
+     "family": "Wang",
+     "given": "S-N"
+    }
+   ],
+   "year": "2020",
+   "title": "Energy conservation and carbon flux distribution during fermentation of CO or H2/CO2 by Clostridium ljungdahlii",
+   "container": "Front Microbiol",
+   "volume": "11",
+   "first_page": "416",
+   "doi": "10.3389/fmicb.2020.00416"
+  },
+  {
+   "bib_id": 62,
+   "authors": [
+    {
+     "family": "Willis",
+     "given": "NB"
+    },
+    {
+     "family": "Bastek",
+     "given": "PA"
+    },
+    {
+     "family": "Papoutsakis",
+     "given": "ET"
+    }
+   ],
+   "year": "2025",
+   "title": "Enabling strong acetogenic growth on CO2 and H2: H2 solubility limits Clostridium ljungdahlii growth on CO2 and H2"
+  },
+  {
+   "bib_id": 63,
+   "authors": [
+    {
+     "family": "Hüsemann",
+     "given": "MH"
+    },
+    {
+     "family": "Papoutsakis",
+     "given": "ET"
+    }
+   ],
+   "year": "1988",
+   "title": "Solventogenesis in Clostridium acetobutylicum fermentations related to carboxylic acid and proton concentrations",
+   "container": "Biotechnol Bioeng",
+   "volume": "32",
+   "first_page": "843",
+   "doi": "10.1002/bit.260320702"
+  },
+  {
+   "bib_id": 64,
+   "authors": [
+    {
+     "family": "Pahari",
+     "given": "S"
+    },
+    {
+     "family": "Lee",
+     "given": "CH"
+    },
+    {
+     "family": "Sitapure",
+     "given": "N"
+    },
+    {
+     "family": "Kwon",
+     "given": "JS"
+    }
+   ],
+   "year": "2025",
+   "title": "Predicting both thermodynamic and kinetic properties of crystallizing molecules via transformer‐based language model",
+   "container": "AIChE Journal",
+   "volume": "71",
+   "doi": "10.1002/aic.18923"
+  },
+  {
+   "bib_id": 65,
+   "authors": [
+    {
+     "family": "Kim",
+     "given": "TH"
+    },
+    {
+     "family": "Pahari",
+     "given": "S"
+    },
+    {
+     "family": "Kwon",
+     "given": "JS"
+    }
+   ],
+   "year": "2026",
+   "title": "SigmaFormer: augmenting transformer encoders with COSMO sigma profiles for pure component property prediction",
+   "container": "AIChE Journal",
+   "volume": "72",
+   "doi": "10.1002/aic.70450"
+  },
+  {
+   "bib_id": 66,
+   "authors": [
+    {
+     "family": "Shah",
+     "given": "P"
+    },
+    {
+     "family": "Nagpal",
+     "given": "S"
+    },
+    {
+     "family": "Kwak",
+     "given": "DH"
+    },
+    {
+     "family": "Kim",
+     "given": "JH"
+    },
+    {
+     "family": "Cho",
+     "given": "JH"
+    },
+    {
+     "family": "Kim",
+     "given": "J-W"
+    }
+   ],
+   "year": "2026",
+   "title": "Comparative analysis of hydrodynamic and reactor design effects on performance in bioreactors",
+   "container": "Chem Eng J",
+   "volume": "527",
+   "first_page": "171731",
+   "doi": "10.1016/j.cej.2025.171731"
+  },
+  {
+   "bib_id": 67,
+   "authors": [
+    {
+     "family": "Shah",
+     "given": "P"
+    },
+    {
+     "family": "Nagpal",
+     "given": "S"
+    },
+    {
+     "family": "Kwak",
+     "given": "DH"
+    },
+    {
+     "family": "Kim",
+     "given": "JH"
+    },
+    {
+     "family": "Cho",
+     "given": "JH"
+    },
+    {
+     "family": "Park",
+     "given": "SM"
+    }
+   ],
+   "year": "2026",
+   "title": "Development of a compartment modeling framework from axisymmetric CFD models: extracting flow topology for industrial fermenters",
+   "container": "Chem Eng Sci",
+   "volume": "326",
+   "first_page": "123502",
+   "doi": "10.1016/j.ces.2026.123502"
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-core-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "jats_doi": "10.1371/journal.pcbi.1014759"
+ }
+}

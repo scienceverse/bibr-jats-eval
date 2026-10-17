@@ -1,0 +1,3358 @@
+{
+ "paper_id": "10.1162_opmi.a.385",
+ "info": {
+  "title": "On Benchmarking Human-like Intelligence in Machines",
+  "doi": "10.1162/OPMI.a.385",
+  "file_name": "10.1162_opmi.a.385.pdf",
+  "keywords": [
+   "AI benchmarking",
+   "human-like intelligence",
+   "cognitive science",
+   "evaluation",
+   "human variability"
+  ],
+  "abstract": "Recent advances in Artificial Intelligence (AI) have yielded powerful computational models that, by learning from vast amounts of human-generated data, are increasingly posited as approximate models of human cognition. However, we argue that many current evaluation paradigms for AI are insufficient for assessing human-like cognitive capabilities in these models. We identify a set of key shortcomings: a lack of human-validated labels, inadequate representation of human response variability and uncertainty, and reliance on simplified and ecologically invalid tasks. We support our claims by conducting a human evaluation study on nine existing AI benchmarks, suggesting major limitations in task and label designs. To address these limitations, we propose five concrete recommendations for future AI evaluation efforts that will enable more rigorous and meaningful understanding of human-like cognitive capacities in AI models."
+ },
+ "author": [
+  {
+   "author_id": 1,
+   "given": "Lance",
+   "family": "Ying",
+   "affiliation": "Department of Psychology, Harvard University, Cambridge, MA, USA; Department of Brain and Cognitive Sciences, Massachusetts Institute of Technology, Cambridge, MA, USA",
+   "email": "",
+   "orcid": "",
+   "corresponding": true
+  },
+  {
+   "author_id": 2,
+   "given": "Katherine M.",
+   "family": "Collins",
+   "affiliation": "Department of Engineering, University of Cambridge, Cambridge, UK",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 3,
+   "given": "Lionel",
+   "family": "Wong",
+   "affiliation": "Department of Brain and Cognitive Sciences, Massachusetts Institute of Technology, Cambridge, MA, USA",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 4,
+   "given": "Ilia",
+   "family": "Sucholutsky",
+   "affiliation": "Department of Computer Science, New York University, New York, NY, USA",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 5,
+   "given": "Ryan",
+   "family": "Liu",
+   "affiliation": "Department of Computer Science, Princeton University, Princeton, NJ, USA",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 6,
+   "given": "Adrian",
+   "family": "Weller",
+   "affiliation": "Department of Engineering, University of Cambridge, Cambridge, UK",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 7,
+   "given": "Tianmin",
+   "family": "Shu",
+   "affiliation": "Department of Computer Science, Johns Hopkins University, Baltimore, MD, USA",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 8,
+   "given": "Thomas L.",
+   "family": "Griffiths",
+   "affiliation": "Department of Computer Science, Princeton University, Princeton, NJ, USA",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 9,
+   "given": "Joshua B.",
+   "family": "Tenenbaum",
+   "affiliation": "Department of Brain and Cognitive Sciences, Massachusetts Institute of Technology, Cambridge, MA, USA",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  }
+ ],
+ "section": [
+  {
+   "section_id": 1,
+   "section_type": "abstract",
+   "header": "Abstract",
+   "level": 1,
+   "parent_section_id": null,
+   "classification_score": 1.0
+  }
+ ],
+ "text": [
+  {
+   "text_id": 1,
+   "section_id": 1,
+   "paragraph_id": 1,
+   "text": "Recent advances in Artificial Intelligence (AI) have yielded powerful computational models that, by learning from vast amounts of human-generated data, are increasingly posited as approximate models of human cognition. However, we argue that many current evaluation paradigms for AI are insufficient for assessing human-like cognitive capabilities in these models. We identify a set of key shortcomings: a lack of human-validated labels, inadequate representation of human response variability and uncertainty, and reliance on simplified and ecologically invalid tasks. We support our claims by conducting a human evaluation study on nine existing AI benchmarks, suggesting major limitations in task and label designs. To address these limitations, we propose five concrete recommendations for future AI evaluation efforts that will enable more rigorous and meaningful understanding of human-like cognitive capacities in AI models.",
+   "page_number": 1
+  }
+ ],
+ "bib": [
+  {
+   "bib_id": 1,
+   "authors": [
+    {
+     "family": "Anderson",
+     "given": "J. R."
+    },
+    {
+     "family": "Boyle",
+     "given": "C. F."
+    },
+    {
+     "family": "Corbett",
+     "given": "A. T."
+    },
+    {
+     "family": "Lewis",
+     "given": "M. W."
+    }
+   ],
+   "year": "1990",
+   "title": "Cognitive modeling and intelligent tutoring",
+   "doi": "10.7551/mitpress/1167.003.0002"
+  },
+  {
+   "bib_id": 2,
+   "authors": [
+    {
+     "family": "Ashokkumar",
+     "given": "A."
+    },
+    {
+     "family": "Hewitt",
+     "given": "L."
+    },
+    {
+     "family": "Ghezae",
+     "given": "I."
+    },
+    {
+     "family": "Willer",
+     "given": "R."
+    }
+   ],
+   "year": "2024",
+   "container": "Predicting results of social science experiments using large language models"
+  },
+  {
+   "bib_id": 3,
+   "authors": [
+    {
+     "family": "Baker",
+     "given": "C. L."
+    },
+    {
+     "family": "Jara-Ettinger",
+     "given": "J."
+    },
+    {
+     "family": "Saxe",
+     "given": "R."
+    },
+    {
+     "family": "Tenenbaum",
+     "given": "J. B."
+    }
+   ],
+   "year": "2017",
+   "title": "Rational quantitative attribution of beliefs, desires and percepts in human mentalizing",
+   "container": "Nature Human Behaviour",
+   "volume": "1",
+   "first_page": "0064",
+   "doi": "10.1038/s41562-017-0064"
+  },
+  {
+   "bib_id": 4,
+   "authors": [
+    {
+     "family": "Bandura",
+     "given": "A."
+    }
+   ],
+   "year": "2001",
+   "title": "Social cognitive theory: An agentic perspective",
+   "container": "Annual Review of Psychology",
+   "volume": "52",
+   "first_page": "1",
+   "last_page": "26",
+   "doi": "10.1146/annurev.psych.52.1.1"
+  },
+  {
+   "bib_id": 5,
+   "authors": [
+    {
+     "family": "Bean",
+     "given": "A. M."
+    },
+    {
+     "family": "Kearns",
+     "given": "R. O."
+    },
+    {
+     "family": "Romanou",
+     "given": "A."
+    },
+    {
+     "family": "Hafner",
+     "given": "F. S."
+    },
+    {
+     "family": "Mayne",
+     "given": "H."
+    },
+    {
+     "family": "Batzner",
+     "given": "J."
+    },
+    {
+     "family": "Foroutan",
+     "given": "N."
+    },
+    {
+     "family": "Schmitz",
+     "given": "C."
+    },
+    {
+     "family": "Korgul",
+     "given": "K."
+    },
+    {
+     "family": "Batra",
+     "given": "H."
+    },
+    {
+     "family": "Deb",
+     "given": "O."
+    },
+    {
+     "family": "Beharry",
+     "given": "E."
+    },
+    {
+     "family": "Emde",
+     "given": "C."
+    },
+    {
+     "family": "Foster",
+     "given": "T."
+    },
+    {
+     "family": "Gausen",
+     "given": "A."
+    },
+    {
+     "family": "Grandury",
+     "given": "M."
+    },
+    {
+     "family": "Han",
+     "given": "S."
+    },
+    {
+     "family": "Hofmann",
+     "given": "V."
+    },
+    {
+     "family": "Ibrahim",
+     "given": "L."
+    },
+    {
+     "family": "Mahdi",
+     "given": "A."
+    }
+   ],
+   "year": "2025",
+   "title": "Measuring what matters: Construct validity in large language model benchmarks",
+   "container": "arXiv",
+   "doi": "10.48550/arXiv.2511.04703"
+  },
+  {
+   "bib_id": 6,
+   "authors": [
+    {
+     "family": "Beaudoin",
+     "given": "C."
+    },
+    {
+     "family": "Leblanc",
+     "given": "É."
+    },
+    {
+     "family": "Gagner",
+     "given": "C."
+    },
+    {
+     "family": "Beauchamp",
+     "given": "M. H."
+    }
+   ],
+   "year": "2020",
+   "title": "Systematic review and inventory of theory of mind measures for young children",
+   "container": "Frontiers in Psychology",
+   "volume": "10",
+   "first_page": "2905",
+   "doi": "10.3389/fpsyg.2019.02905"
+  },
+  {
+   "bib_id": 7,
+   "authors": [
+    {
+     "family": "Block",
+     "given": "N."
+    }
+   ],
+   "year": "1981",
+   "title": "Psychologism and behaviorism",
+   "container": "Philosophical Review",
+   "volume": "90",
+   "first_page": "5",
+   "last_page": "43",
+   "doi": "10.2307/2184371"
+  },
+  {
+   "bib_id": 8,
+   "authors": [
+    {
+     "family": "Bloom",
+     "given": "P."
+    },
+    {
+     "family": "German",
+     "given": "T. P."
+    }
+   ],
+   "year": "2000",
+   "title": "Two reasons to abandon the false belief task as a test of theory of mind",
+   "container": "Cognition",
+   "volume": "77",
+   "first_page": "B25",
+   "last_page": "B31",
+   "doi": "10.1016/S0010-0277(00)00096-2"
+  },
+  {
+   "bib_id": 9,
+   "authors": [
+    {
+     "family": "Bodnar",
+     "given": "C."
+    },
+    {
+     "family": "Bruinsma",
+     "given": "W. P."
+    },
+    {
+     "family": "Lucic",
+     "given": "A."
+    },
+    {
+     "family": "Stanley",
+     "given": "M."
+    },
+    {
+     "family": "Brandstetter",
+     "given": "J."
+    },
+    {
+     "family": "Garvan",
+     "given": "P."
+    },
+    {
+     "family": "Riechert",
+     "given": "M."
+    },
+    {
+     "family": "Weyn",
+     "given": "J."
+    },
+    {
+     "family": "Dong",
+     "given": "H."
+    },
+    {
+     "family": "Vaughan",
+     "given": "A."
+    },
+    {
+     "family": "Gupta",
+     "given": "J. K."
+    },
+    {
+     "family": "Tambiratnam",
+     "given": "K."
+    },
+    {
+     "family": "Archibald",
+     "given": "A."
+    },
+    {
+     "family": "Heider",
+     "given": "E."
+    },
+    {
+     "family": "Welling",
+     "given": "M."
+    },
+    {
+     "family": "Turner",
+     "given": "R. E."
+    },
+    {
+     "family": "Perdikaris",
+     "given": "P."
+    }
+   ],
+   "year": "2024",
+   "title": "Aurora: A foundation model of the atmosphere",
+   "container": "arXiv",
+   "doi": "10.48550/arXiv.2405.13063"
+  },
+  {
+   "bib_id": 10,
+   "authors": [
+    {
+     "family": "Boogert",
+     "given": "N. J."
+    },
+    {
+     "family": "Madden",
+     "given": "J. R."
+    },
+    {
+     "family": "Morand-Ferron",
+     "given": "J."
+    },
+    {
+     "family": "Thornton",
+     "given": "A."
+    }
+   ],
+   "year": "2018",
+   "title": "Measuring and understanding individual differences in cognition",
+   "container": "Philosophical Transactions of the Royal Society of London: Series B, Biological Sciences",
+   "volume": "373",
+   "first_page": "20170280",
+   "doi": "10.1098/rstb.2017.0280"
+  },
+  {
+   "bib_id": 11,
+   "authors": [
+    {
+     "family": "Brand",
+     "given": "J."
+    },
+    {
+     "family": "Israeli",
+     "given": "A."
+    },
+    {
+     "family": "Ngwe",
+     "given": "D."
+    }
+   ],
+   "year": "2023",
+   "title": "Using LLMs for market research",
+   "doi": "10.2139/ssrn.4395751"
+  },
+  {
+   "bib_id": 12,
+   "authors": [
+    {
+     "family": "Carroll",
+     "given": "M."
+    },
+    {
+     "family": "Shah",
+     "given": "R."
+    },
+    {
+     "family": "Ho",
+     "given": "M. K."
+    },
+    {
+     "family": "Griffiths",
+     "given": "T."
+    },
+    {
+     "family": "Seshia",
+     "given": "S. E. A."
+    },
+    {
+     "family": "Abbeel",
+     "given": "P."
+    },
+    {
+     "family": "Dragan",
+     "given": "A."
+    }
+   ],
+   "year": "2019",
+   "title": "On the utility of learning about humans for human-ai coordination",
+   "container": "Advances in Neural Information Processing Systems",
+   "volume": "32"
+  },
+  {
+   "bib_id": 13,
+   "authors": [
+    {
+     "family": "Carvalho",
+     "given": "W."
+    },
+    {
+     "family": "Lampinen",
+     "given": "A."
+    }
+   ],
+   "year": "2025",
+   "title": "Naturalistic computational cognitive science: Towards generalizable models and theories that capture the full range of natural behavior",
+   "container": "arXiv",
+   "doi": "10.48550/arXiv.2502.20349"
+  },
+  {
+   "bib_id": 14,
+   "authors": [
+    {
+     "family": "Cave",
+     "given": "S."
+    },
+    {
+     "family": "Dihal",
+     "given": "K."
+    }
+   ],
+   "year": "2023",
+   "title": "Imagining AI: How the world sees intelligent machines",
+   "doi": "10.1093/oso/9780192865366.001.0001"
+  },
+  {
+   "bib_id": 15,
+   "authors": [
+    {
+     "family": "Chater",
+     "given": "N."
+    },
+    {
+     "family": "Manning",
+     "given": "C. D."
+    }
+   ],
+   "year": "2006",
+   "title": "Probabilistic models of language processing and acquisition",
+   "container": "Trends in Cognitive Sciences",
+   "volume": "10",
+   "first_page": "335",
+   "last_page": "344",
+   "doi": "10.1016/j.tics.2006.05.006"
+  },
+  {
+   "bib_id": 16,
+   "authors": [
+    {
+     "family": "Chen",
+     "given": "Z."
+    },
+    {
+     "family": "Wu",
+     "given": "J."
+    },
+    {
+     "family": "Zhou",
+     "given": "J."
+    },
+    {
+     "family": "Wen",
+     "given": "B."
+    },
+    {
+     "family": "Bi",
+     "given": "G."
+    },
+    {
+     "family": "Jiang",
+     "given": "G."
+    },
+    {
+     "family": "Cao",
+     "given": "Y."
+    },
+    {
+     "family": "Hu",
+     "given": "M."
+    },
+    {
+     "family": "Lai",
+     "given": "Y."
+    },
+    {
+     "family": "Xiong",
+     "given": "Z."
+    },
+    {
+     "family": "Huang",
+     "given": "M."
+    }
+   ],
+   "year": "2024",
+   "title": "ToMBench: Benchmarking theory of mind in large language models",
+   "container": "arXiv",
+   "doi": "10.48550/arXiv.2402.15052"
+  },
+  {
+   "bib_id": 17,
+   "authors": [
+    {
+     "family": "Chung",
+     "given": "J. J. Y."
+    },
+    {
+     "family": "Song",
+     "given": "J. Y."
+    },
+    {
+     "family": "Kutty",
+     "given": "S."
+    },
+    {
+     "family": "Hong",
+     "given": "S."
+    },
+    {
+     "family": "Kim",
+     "given": "J."
+    },
+    {
+     "family": "Lasecki",
+     "given": "W. S."
+    }
+   ],
+   "year": "2019",
+   "title": "Efficient elicitation approaches to estimate collective crowd answers",
+   "container": "Proceedings of the ACM on Human-Computer Interaction",
+   "volume": "3(CSCW)",
+   "first_page": "1",
+   "last_page": "25",
+   "doi": "10.1145/3359164"
+  },
+  {
+   "bib_id": 18,
+   "authors": [
+    {
+     "family": "Collins",
+     "given": "K. M."
+    },
+    {
+     "family": "Barker",
+     "given": "M."
+    },
+    {
+     "family": "Espinosa Zarlenga",
+     "given": "M."
+    },
+    {
+     "family": "Raman",
+     "given": "N."
+    },
+    {
+     "family": "Bhatt",
+     "given": "U. E. A."
+    },
+    {
+     "family": "Jamnik",
+     "given": "M."
+    },
+    {
+     "family": "Sucholutsky",
+     "given": "I."
+    },
+    {
+     "family": "Weller",
+     "given": "A."
+    },
+    {
+     "family": "Dvijotham",
+     "given": "K."
+    }
+   ],
+   "year": "2023",
+   "title": "Human uncertainty in concept-based AI systems",
+   "container": "Proceedings of the 2023 AAAI/ACM Conference on AI, Ethics, and Society",
+   "first_page": "869",
+   "last_page": "889",
+   "doi": "10.1145/3600211.3604692"
+  },
+  {
+   "bib_id": 19,
+   "authors": [
+    {
+     "family": "Collins",
+     "given": "K. M."
+    },
+    {
+     "family": "Bhatt",
+     "given": "U."
+    },
+    {
+     "family": "Liu",
+     "given": "W."
+    },
+    {
+     "family": "Piratla",
+     "given": "V."
+    },
+    {
+     "family": "Sucholutsky",
+     "given": "I."
+    },
+    {
+     "family": "Love",
+     "given": "B."
+    },
+    {
+     "family": "Weller",
+     "given": "A."
+    }
+   ],
+   "year": "2023",
+   "title": "Human-in-the-loop mixup",
+   "container": "Proceedings of the Thirty-Ninth Conference on Uncertainty in Artificial Intelligence",
+   "first_page": "454",
+   "last_page": "464"
+  },
+  {
+   "bib_id": 20,
+   "authors": [
+    {
+     "family": "Collins",
+     "given": "K. M."
+    },
+    {
+     "family": "Kim",
+     "given": "N."
+    },
+    {
+     "family": "Bitton",
+     "given": "Y."
+    },
+    {
+     "family": "Rieser",
+     "given": "V."
+    },
+    {
+     "family": "Omidshafiei",
+     "given": "S."
+    },
+    {
+     "family": "Hu",
+     "given": "Y."
+    },
+    {
+     "family": "Chen",
+     "given": "S."
+    },
+    {
+     "family": "Dutta",
+     "given": "S."
+    },
+    {
+     "family": "Chang",
+     "given": "M."
+    },
+    {
+     "family": "Lee",
+     "given": "K."
+    },
+    {
+     "family": "Liang",
+     "given": "Y."
+    },
+    {
+     "family": "Evans",
+     "given": "G."
+    },
+    {
+     "family": "Singla",
+     "given": "S."
+    },
+    {
+     "family": "Li",
+     "given": "G."
+    },
+    {
+     "family": "Weller",
+     "given": "A."
+    },
+    {
+     "family": "He",
+     "given": "J."
+    },
+    {
+     "family": "Ramachandran",
+     "given": "D."
+    },
+    {
+     "family": "Dvijotham",
+     "given": "K. D."
+    }
+   ],
+   "year": "2024",
+   "title": "Beyond thumbs up/down: Untangling challenges of fine-grained feedback for text-to-image generation",
+   "volume": "Vol. 7",
+   "first_page": "293",
+   "last_page": "303",
+   "doi": "10.1609/aies.v7i1.31637"
+  },
+  {
+   "bib_id": 21,
+   "authors": [
+    {
+     "family": "Collins",
+     "given": "K. M."
+    },
+    {
+     "family": "Sucholutsky",
+     "given": "I."
+    },
+    {
+     "family": "Bhatt",
+     "given": "U."
+    },
+    {
+     "family": "Chandra",
+     "given": "K."
+    },
+    {
+     "family": "Wong",
+     "given": "L."
+    },
+    {
+     "family": "Lee",
+     "given": "M."
+    },
+    {
+     "family": "Zhang",
+     "given": "C. E."
+    },
+    {
+     "family": "Zhi-Xuan",
+     "given": "T."
+    },
+    {
+     "family": "Ho",
+     "given": "M."
+    },
+    {
+     "family": "Mansinghka",
+     "given": "V."
+    },
+    {
+     "family": "Weller",
+     "given": "A."
+    },
+    {
+     "family": "Tenenbaum",
+     "given": "J. B."
+    },
+    {
+     "family": "Griffiths",
+     "given": "T. L."
+    }
+   ],
+   "year": "2024",
+   "title": "Building machines that learn and think with people",
+   "container": "Nature Human Behaviour",
+   "volume": "8",
+   "first_page": "1851",
+   "last_page": "1863",
+   "doi": "10.1038/s41562-024-01991-9"
+  },
+  {
+   "bib_id": 22,
+   "authors": [
+    {
+     "family": "Cronbach",
+     "given": "L. J."
+    },
+    {
+     "family": "Meehl",
+     "given": "P. E."
+    }
+   ],
+   "year": "1955",
+   "title": "Construct validity in psychological tests",
+   "container": "Psychological Bulletin",
+   "volume": "52",
+   "first_page": "281",
+   "last_page": "302",
+   "doi": "10.1037/h0040957"
+  },
+  {
+   "bib_id": 23,
+   "authors": [
+    {
+     "family": "Demszky",
+     "given": "D."
+    },
+    {
+     "family": "Yang",
+     "given": "D."
+    },
+    {
+     "family": "Yeager",
+     "given": "D. S."
+    },
+    {
+     "family": "Bryan",
+     "given": "C. J."
+    },
+    {
+     "family": "Clapper",
+     "given": "M."
+    },
+    {
+     "family": "Chandhok",
+     "given": "S."
+    },
+    {
+     "family": "Eichstaedt",
+     "given": "J. C."
+    },
+    {
+     "family": "Hecht",
+     "given": "C."
+    },
+    {
+     "family": "Jamieson",
+     "given": "J."
+    },
+    {
+     "family": "Johnson",
+     "given": "M."
+    },
+    {
+     "family": "Jones",
+     "given": "M."
+    },
+    {
+     "family": "Krettek-Cobb",
+     "given": "D."
+    },
+    {
+     "family": "Lai",
+     "given": "L."
+    },
+    {
+     "family": "JonesMitchell",
+     "given": "N."
+    },
+    {
+     "family": "Ong",
+     "given": "D. C."
+    },
+    {
+     "family": "Dweck",
+     "given": "C. S."
+    },
+    {
+     "family": "Gross",
+     "given": "J. J."
+    },
+    {
+     "family": "Pennebaker",
+     "given": "J. W."
+    }
+   ],
+   "year": "2023",
+   "title": "Using large language models in psychology",
+   "container": "Nature Reviews Psychology",
+   "volume": "2",
+   "first_page": "688",
+   "last_page": "701",
+   "doi": "10.1038/s44159-023-00241-5"
+  },
+  {
+   "bib_id": 24,
+   "authors": [
+    {
+     "family": "Dragan",
+     "given": "A. D."
+    },
+    {
+     "family": "Lee",
+     "given": "K. C."
+    },
+    {
+     "family": "Srinivasa",
+     "given": "S. S."
+    }
+   ],
+   "year": "2013",
+   "title": "Legibility and predictability of robot motion",
+   "container": "Proceedings of the 8th ACM/IEEE International Conference on Human-Robot Interaction (HRI 2013),",
+   "first_page": "301",
+   "last_page": "308",
+   "doi": "10.1109/HRI.2013.6483603"
+  },
+  {
+   "bib_id": 25,
+   "authors": [
+    {
+     "family": "Eisenberg",
+     "given": "I. W."
+    },
+    {
+     "family": "Bissett",
+     "given": "P. G."
+    },
+    {
+     "family": "Zeynep Enkavi",
+     "given": "A."
+    },
+    {
+     "family": "Li",
+     "given": "J."
+    },
+    {
+     "family": "MacKinnon",
+     "given": "D. P."
+    },
+    {
+     "family": "Marsch",
+     "given": "L. A."
+    },
+    {
+     "family": "Poldrack",
+     "given": "R. A."
+    }
+   ],
+   "year": "2019",
+   "title": "Uncovering the structure of self-regulation through data-driven ontology discovery",
+   "container": "Nature Communications",
+   "volume": "10",
+   "first_page": "2319",
+   "doi": "10.1038/s41467-019-10301-1"
+  },
+  {
+   "bib_id": 26,
+   "authors": [
+    {
+     "family": "Firestone",
+     "given": "C."
+    }
+   ],
+   "year": "2020",
+   "title": "Performance vs. competence in human-machine comparisons",
+   "container": "Proceedings of the National Academy of Sciences",
+   "volume": "117",
+   "first_page": "26562",
+   "last_page": "26571",
+   "doi": "10.1073/pnas.1905334117"
+  },
+  {
+   "bib_id": 27,
+   "authors": [
+    {
+     "family": "Fisac",
+     "given": "J. F."
+    },
+    {
+     "family": "Liu",
+     "given": "C."
+    },
+    {
+     "family": "Hamrick",
+     "given": "J. B."
+    },
+    {
+     "family": "Sastry",
+     "given": "S."
+    },
+    {
+     "family": "Hedrick",
+     "given": "J. K."
+    },
+    {
+     "family": "Griffiths",
+     "given": "T. L."
+    },
+    {
+     "family": "Dragan",
+     "given": "A. D."
+    }
+   ],
+   "year": "2020",
+   "title": "Generating plans that predict themselves",
+   "container": "Algorithmic foundations of robotics XII",
+   "first_page": "144",
+   "last_page": "159",
+   "doi": "10.1007/978-3-030-43089-4_10"
+  },
+  {
+   "bib_id": 28,
+   "authors": [
+    {
+     "family": "Frank",
+     "given": "M. C."
+    }
+   ],
+   "year": "2023",
+   "title": "Baby steps in evaluating the capacities of large language models",
+   "container": "Nature Reviews Psychology",
+   "volume": "2",
+   "first_page": "451",
+   "last_page": "452",
+   "doi": "10.1038/s44159-023-00211-x"
+  },
+  {
+   "bib_id": 29,
+   "authors": [
+    {
+     "family": "Gallese",
+     "given": "V."
+    }
+   ],
+   "year": "2007",
+   "title": "Before and below ‘theory of mind’: Embodied simulation and the neural correlates of social cognition",
+   "container": "Philosophical Transactions of the Royal Society B: Biological Sciences",
+   "volume": "362",
+   "first_page": "659",
+   "last_page": "669",
+   "doi": "10.1098/rstb.2006.2002"
+  },
+  {
+   "bib_id": 30,
+   "authors": [
+    {
+     "family": "Gandhi",
+     "given": "K."
+    },
+    {
+     "family": "Fränken",
+     "given": "J.-P."
+    },
+    {
+     "family": "Gerstenberg",
+     "given": "T."
+    },
+    {
+     "family": "Goodman",
+     "given": "N."
+    }
+   ],
+   "year": "2024",
+   "title": "Understanding social reasoning in language models with language models",
+   "container": "Advances in Neural Information Processing Systems",
+   "volume": "36"
+  },
+  {
+   "bib_id": 31,
+   "authors": [
+    {
+     "family": "Geng",
+     "given": "J."
+    },
+    {
+     "family": "Cai",
+     "given": "F."
+    },
+    {
+     "family": "Wang",
+     "given": "Y."
+    },
+    {
+     "family": "Koeppl",
+     "given": "H."
+    },
+    {
+     "family": "Nakov",
+     "given": "P."
+    },
+    {
+     "family": "Gurevych",
+     "given": "I."
+    }
+   ],
+   "year": "2024",
+   "title": "A survey of confidence estimation and calibration in large language models",
+   "container": "Proceedings of the 2024 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies (NAACL 2024)",
+   "first_page": "6577",
+   "last_page": "6595",
+   "doi": "10.18653/v1/2024.naacl-long.366"
+  },
+  {
+   "bib_id": 32,
+   "authors": [
+    {
+     "family": "Gerosa",
+     "given": "M."
+    },
+    {
+     "family": "Trinkenreich",
+     "given": "B."
+    },
+    {
+     "family": "Steinmacher",
+     "given": "I."
+    },
+    {
+     "family": "Sarma",
+     "given": "A."
+    }
+   ],
+   "year": "2024",
+   "title": "Can ai serve as a substitute for human subjects in software engineering research?",
+   "container": "Automated Software Engineering",
+   "volume": "31",
+   "first_page": "13",
+   "doi": "10.1007/s10515-023-00409-6"
+  },
+  {
+   "bib_id": 33,
+   "authors": [
+    {
+     "family": "Gordon",
+     "given": "M. L."
+    },
+    {
+     "family": "Lam",
+     "given": "M. S."
+    },
+    {
+     "family": "Park",
+     "given": "J. S."
+    },
+    {
+     "family": "Patel",
+     "given": "K."
+    },
+    {
+     "family": "Hancock",
+     "given": "J. E. A."
+    },
+    {
+     "family": "Hashimoto",
+     "given": "T."
+    },
+    {
+     "family": "Bernstein",
+     "given": "M. S."
+    }
+   ],
+   "year": "2022",
+   "title": "Jury learning: Integrating dissenting voices into machine learning models",
+   "container": "Proceedings of the 2022 CHI Conference on Human Factors in Computing Systems (CHI 2022)",
+   "first_page": "1",
+   "last_page": "19",
+   "doi": "10.1145/3491102.3502004"
+  },
+  {
+   "bib_id": 34,
+   "authors": [
+    {
+     "family": "Graham",
+     "given": "J."
+    },
+    {
+     "family": "Haidt",
+     "given": "J."
+    },
+    {
+     "family": "Nosek",
+     "given": "B. A."
+    }
+   ],
+   "year": "2009",
+   "title": "Liberals and conservatives rely on different sets of moral foundations",
+   "container": "Journal of Personality and Social Psychology",
+   "volume": "96",
+   "first_page": "1029",
+   "last_page": "1046",
+   "doi": "10.1037/a0015141"
+  },
+  {
+   "bib_id": 35,
+   "authors": [
+    {
+     "family": "Graham",
+     "given": "J."
+    },
+    {
+     "family": "Meindl",
+     "given": "P."
+    },
+    {
+     "family": "Beall",
+     "given": "E."
+    },
+    {
+     "family": "Johnson",
+     "given": "K. M."
+    },
+    {
+     "family": "Zhang",
+     "given": "L."
+    }
+   ],
+   "year": "2016",
+   "title": "Cultural differences in moral judgment and behavior, across and within societies",
+   "container": "Current Opinion in Psychology",
+   "volume": "8",
+   "first_page": "125",
+   "last_page": "130",
+   "doi": "10.1016/j.copsyc.2015.09.007"
+  },
+  {
+   "bib_id": 36,
+   "authors": [
+    {
+     "family": "Griffiths",
+     "given": "T. L."
+    }
+   ],
+   "year": "2020",
+   "title": "Understanding human intelligence through human limitations",
+   "container": "Trends in Cognitive Sciences",
+   "volume": "24",
+   "first_page": "873",
+   "last_page": "883",
+   "doi": "10.1016/j.tics.2020.09.001"
+  },
+  {
+   "bib_id": 37,
+   "authors": [
+    {
+     "family": "Griffiths",
+     "given": "T. L."
+    },
+    {
+     "family": "Chater",
+     "given": "N."
+    },
+    {
+     "family": "Tenenbaum",
+     "given": "J. B."
+    }
+   ],
+   "year": "2024",
+   "title": "Bayesian models of cognition: Reverse engineering the mind"
+  },
+  {
+   "bib_id": 38,
+   "authors": [
+    {
+     "family": "Hämäläinen",
+     "given": "P."
+    },
+    {
+     "family": "Tavast",
+     "given": "M."
+    },
+    {
+     "family": "Kunnari",
+     "given": "A."
+    }
+   ],
+   "year": "2023",
+   "title": "Evaluating large language models in generating synthetic HCI research data: A case study",
+   "container": "Proceedings of the 2023 CHI Conference on Human Factors in Computing Systems.",
+   "first_page": "1",
+   "last_page": "19",
+   "doi": "10.1145/3544548.3580688"
+  },
+  {
+   "bib_id": 39,
+   "authors": [
+    {
+     "family": "Haselton",
+     "given": "M. G."
+    },
+    {
+     "family": "Bryant",
+     "given": "G. A."
+    },
+    {
+     "family": "Wilke",
+     "given": "A."
+    },
+    {
+     "family": "Frederick",
+     "given": "D. A."
+    },
+    {
+     "family": "Galperin",
+     "given": "A."
+    },
+    {
+     "family": "Frankenhuis",
+     "given": "W. E."
+    },
+    {
+     "family": "Moore",
+     "given": "T."
+    }
+   ],
+   "year": "2009",
+   "title": "Adaptive rationality: An evolutionary perspective on cognitive bias",
+   "container": "Social Cognition",
+   "volume": "27",
+   "first_page": "733",
+   "last_page": "763",
+   "doi": "10.1521/soco.2009.27.5.733"
+  },
+  {
+   "bib_id": 40,
+   "authors": [
+    {
+     "family": "Henrich",
+     "given": "J."
+    },
+    {
+     "family": "Heine",
+     "given": "S. J."
+    },
+    {
+     "family": "Norenzayan",
+     "given": "A."
+    }
+   ],
+   "year": "2010",
+   "title": "The weirdest people in the world?",
+   "container": "Behavioral and Brain Sciences",
+   "volume": "33",
+   "first_page": "61",
+   "last_page": "83",
+   "doi": "10.1017/S0140525X0999152X"
+  },
+  {
+   "bib_id": 41,
+   "authors": [
+    {
+     "family": "Hernández-Orallo",
+     "given": "J."
+    }
+   ],
+   "year": "2017",
+   "title": "Evaluation in artificial intelligence: From task-oriented to ability-oriented measurement",
+   "container": "Artificial Intelligence Review",
+   "volume": "48",
+   "first_page": "397",
+   "last_page": "447",
+   "doi": "10.1007/s10462-016-9505-7"
+  },
+  {
+   "bib_id": 42,
+   "authors": [
+    {
+     "family": "Ho",
+     "given": "M. K."
+    },
+    {
+     "family": "Griffiths",
+     "given": "T. L."
+    }
+   ],
+   "year": "2022",
+   "title": "Cognitive science as a source of forward and inverse models of human decisions for robotics and control",
+   "container": "Annual Review of Control, Robotics, and Autonomous Systems",
+   "volume": "5",
+   "first_page": "33",
+   "last_page": "53",
+   "doi": "10.1146/annurev-control-042920-015547"
+  },
+  {
+   "bib_id": 43,
+   "authors": [
+    {
+     "family": "Hu",
+     "given": "J."
+    },
+    {
+     "family": "Frank",
+     "given": "M. C."
+    }
+   ],
+   "year": "2024",
+   "title": "Auxiliary task demands mask the capabilities of smaller language models",
+   "container": "Proceedings of the First Conference on Language Modeling (COLM 2024)"
+  },
+  {
+   "bib_id": 44,
+   "authors": [
+    {
+     "family": "Hu",
+     "given": "J."
+    },
+    {
+     "family": "Levy",
+     "given": "R."
+    }
+   ],
+   "year": "2023",
+   "title": "Prompting is not a substitute for probability measurements in large language models",
+   "container": "Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing (EMNLP 2023)",
+   "first_page": "5040",
+   "last_page": "5060",
+   "doi": "10.18653/v1/2023.emnlp-main.306"
+  },
+  {
+   "bib_id": 45,
+   "authors": [
+    {
+     "family": "Hu",
+     "given": "J."
+    },
+    {
+     "family": "Sosa",
+     "given": "F."
+    },
+    {
+     "family": "Ullman",
+     "given": "T."
+    }
+   ],
+   "year": "2025",
+   "title": "Re-evaluating theory of mind evaluation in large language models",
+   "container": "Philosophical Transactions of the Royal Society B: Biological Sciences",
+   "volume": "380",
+   "first_page": "20230499",
+   "doi": "10.1098/rstb.2023.0499"
+  },
+  {
+   "bib_id": 46,
+   "authors": [
+    {
+     "family": "Ivanova",
+     "given": "A. A."
+    }
+   ],
+   "year": "2025",
+   "title": "How to evaluate the cognitive abilities of LLMs",
+   "container": "Nature Human Behaviour",
+   "volume": "9",
+   "first_page": "230",
+   "last_page": "233",
+   "doi": "10.1038/s41562-024-02096-z"
+  },
+  {
+   "bib_id": 47,
+   "authors": [
+    {
+     "family": "Jacovi",
+     "given": "A."
+    },
+    {
+     "family": "Caciularu",
+     "given": "A."
+    },
+    {
+     "family": "Goldman",
+     "given": "O."
+    },
+    {
+     "family": "Goldberg",
+     "given": "Y."
+    }
+   ],
+   "year": "2023",
+   "title": "Stop uploading test data in plain text: Practical strategies for mitigating data contamination by evaluation benchmarks",
+   "container": "Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing (EMNLP 2023)",
+   "first_page": "5075",
+   "last_page": "5084",
+   "doi": "10.18653/v1/2023.emnlp-main.308"
+  },
+  {
+   "bib_id": 48,
+   "authors": [
+    {
+     "family": "Jara-Ettinger",
+     "given": "J."
+    },
+    {
+     "family": "Schulz",
+     "given": "L. E."
+    },
+    {
+     "family": "Tenenbaum",
+     "given": "J. B."
+    }
+   ],
+   "year": "2020",
+   "title": "The naïve utility calculus as a unified, quantitative framework for action understanding",
+   "container": "Cognitive Psychology",
+   "volume": "123",
+   "first_page": "101334",
+   "doi": "10.1016/j.cogpsych.2020.101334"
+  },
+  {
+   "bib_id": 49,
+   "authors": [
+    {
+     "family": "Jin",
+     "given": "C."
+    },
+    {
+     "family": "Wu",
+     "given": "Y."
+    },
+    {
+     "family": "Cao",
+     "given": "J."
+    },
+    {
+     "family": "Xiang",
+     "given": "J."
+    },
+    {
+     "family": "Kuo",
+     "given": "Y.-L."
+    },
+    {
+     "family": "Hu",
+     "given": "Z."
+    },
+    {
+     "family": "Shu",
+     "given": "T."
+    }
+   ],
+   "year": "2024",
+   "title": "MMToM-QA: Multimodal theory of mind question answering",
+   "container": "Proceedings of the 62nd Annual Meeting of the Association for Computational Linguistics",
+   "first_page": "16077",
+   "last_page": "16102"
+  },
+  {
+   "bib_id": 50,
+   "authors": [
+    {
+     "family": "Jumper",
+     "given": "J."
+    },
+    {
+     "family": "Evans",
+     "given": "R."
+    },
+    {
+     "family": "Pritzel",
+     "given": "A."
+    },
+    {
+     "family": "Green",
+     "given": "T."
+    },
+    {
+     "family": "Figurnov",
+     "given": "M."
+    },
+    {
+     "family": "Ronneberger",
+     "given": "O."
+    },
+    {
+     "family": "Tunyasuvunakool",
+     "given": "K."
+    },
+    {
+     "family": "Bates",
+     "given": "R."
+    },
+    {
+     "family": "Žídek",
+     "given": "A."
+    },
+    {
+     "family": "Potapenko",
+     "given": "A."
+    },
+    {
+     "family": "Bridgland",
+     "given": "A."
+    },
+    {
+     "family": "Meyer",
+     "given": "C."
+    },
+    {
+     "family": "Kohl",
+     "given": "S. A. A."
+    },
+    {
+     "family": "Ballard",
+     "given": "A. J."
+    },
+    {
+     "family": "Cowie",
+     "given": "A."
+    },
+    {
+     "family": "Romera-Paredes",
+     "given": "B."
+    },
+    {
+     "family": "Nikolov",
+     "given": "S."
+    },
+    {
+     "family": "Jain",
+     "given": "R."
+    },
+    {
+     "family": "Adler",
+     "given": "J."
+    },
+    {
+     "family": "Hassabis",
+     "given": "D."
+    }
+   ],
+   "year": "2021",
+   "title": "Highly accurate protein structure prediction with AlphaFold",
+   "container": "Nature",
+   "volume": "596",
+   "first_page": "583",
+   "last_page": "589",
+   "doi": "10.1038/s41586-021-03819-2"
+  },
+  {
+   "bib_id": 51,
+   "authors": [
+    {
+     "family": "Keren",
+     "given": "G."
+    }
+   ],
+   "year": "1991",
+   "title": "Calibration and probability judgements: Conceptual and methodological issues",
+   "container": "Acta Psychologica",
+   "volume": "77",
+   "first_page": "217",
+   "last_page": "273",
+   "doi": "10.1016/0001-6918(91)90036-Y"
+  },
+  {
+   "bib_id": 52,
+   "authors": [
+    {
+     "family": "Kirk",
+     "given": "H. R."
+    },
+    {
+     "family": "Whitefield",
+     "given": "A."
+    },
+    {
+     "family": "Röttger",
+     "given": "P."
+    },
+    {
+     "family": "Bean",
+     "given": "A. M."
+    },
+    {
+     "family": "Margatina",
+     "given": "K."
+    },
+    {
+     "family": "Kiro",
+     "given": "C."
+    },
+    {
+     "family": "Mosquera",
+     "given": "R."
+    },
+    {
+     "family": "Bartolo",
+     "given": "M."
+    },
+    {
+     "family": "Williams",
+     "given": "A."
+    },
+    {
+     "family": "He",
+     "given": "H."
+    },
+    {
+     "family": "Vidgen",
+     "given": "B."
+    },
+    {
+     "family": "Hale",
+     "given": "S. A."
+    }
+   ],
+   "year": "2024",
+   "title": "The PRISM alignment dataset: What participatory, representative and individualised human feedback reveals about the subjective and multicultural alignment of large language models",
+   "container": "Advances in Neural Information Processing Systems 37 (NeurIPS 2024)"
+  },
+  {
+   "bib_id": 53,
+   "authors": [
+    {
+     "family": "Kosinski",
+     "given": "M."
+    }
+   ],
+   "year": "2024",
+   "title": "Evaluating large language models in theory of mind tasks",
+   "container": "Proceedings of the National Academy of Sciences",
+   "volume": "121",
+   "first_page": "e2405460121",
+   "doi": "10.1073/pnas.2405460121"
+  },
+  {
+   "bib_id": 54,
+   "authors": [
+    {
+     "family": "Lafer-Sousa",
+     "given": "R."
+    },
+    {
+     "family": "Hermann",
+     "given": "K. L."
+    },
+    {
+     "family": "Conway",
+     "given": "B. R."
+    }
+   ],
+   "year": "2015",
+   "title": "Striking individual differences in color perception uncovered by ‘the dress’ photograph",
+   "container": "Current Biology",
+   "volume": "25",
+   "first_page": "R545",
+   "last_page": "R546",
+   "doi": "10.1016/j.cub.2015.04.053"
+  },
+  {
+   "bib_id": 55,
+   "authors": [
+    {
+     "family": "Lake",
+     "given": "B. M."
+    },
+    {
+     "family": "Ullman",
+     "given": "T. D."
+    },
+    {
+     "family": "Tenenbaum",
+     "given": "J. B."
+    },
+    {
+     "family": "Gershman",
+     "given": "S. J."
+    }
+   ],
+   "year": "2017",
+   "title": "Building machines that learn and think like people",
+   "container": "Behavioral and Brain Sciences",
+   "volume": "40",
+   "first_page": "e253",
+   "doi": "10.1017/S0140525X16001837"
+  },
+  {
+   "bib_id": 56,
+   "authors": [
+    {
+     "family": "Lam",
+     "given": "R."
+    },
+    {
+     "family": "Sanchez-Gonzalez",
+     "given": "A."
+    },
+    {
+     "family": "Willson",
+     "given": "M."
+    },
+    {
+     "family": "Wirnsberger",
+     "given": "P."
+    },
+    {
+     "family": "Fortunato",
+     "given": "M."
+    },
+    {
+     "family": "Alet",
+     "given": "F."
+    },
+    {
+     "family": "Ravuri",
+     "given": "S."
+    },
+    {
+     "family": "Ewalds",
+     "given": "T."
+    },
+    {
+     "family": "Eaton-Rosen",
+     "given": "Z."
+    },
+    {
+     "family": "Hu",
+     "given": "W."
+    },
+    {
+     "family": "Merose",
+     "given": "A."
+    },
+    {
+     "family": "Hoyer",
+     "given": "S."
+    },
+    {
+     "family": "Holland",
+     "given": "G."
+    },
+    {
+     "family": "Vinyals",
+     "given": "O."
+    },
+    {
+     "family": "Stott",
+     "given": "J."
+    },
+    {
+     "family": "Pritzel",
+     "given": "A."
+    },
+    {
+     "family": "Mohamed",
+     "given": "S."
+    },
+    {
+     "family": "Battaglia",
+     "given": "P."
+    }
+   ],
+   "year": "2023",
+   "title": "Learning skillful medium-range global weather forecasting",
+   "container": "Science",
+   "volume": "382",
+   "first_page": "1416",
+   "last_page": "1421",
+   "doi": "10.1126/science.adi2336"
+  },
+  {
+   "bib_id": 57,
+   "authors": [
+    {
+     "family": "Lampinen",
+     "given": "A."
+    }
+   ],
+   "year": "2024",
+   "title": "Can language models handle recursively nested grammatical structures? A case study on comparing models and humans",
+   "container": "Computational Linguistics",
+   "volume": "50",
+   "first_page": "1441",
+   "last_page": "1476",
+   "doi": "10.1162/coli_a_00525"
+  },
+  {
+   "bib_id": 58,
+   "authors": [
+    {
+     "family": "Lampinen",
+     "given": "A. K."
+    },
+    {
+     "family": "Dasgupta",
+     "given": "I."
+    },
+    {
+     "family": "Chan",
+     "given": "S. C. Y."
+    },
+    {
+     "family": "Sheahan",
+     "given": "H. R."
+    },
+    {
+     "family": "Creswell",
+     "given": "A."
+    },
+    {
+     "family": "Kumaran",
+     "given": "D."
+    },
+    {
+     "family": "McClelland",
+     "given": "J. L."
+    },
+    {
+     "family": "Hill",
+     "given": "F."
+    }
+   ],
+   "year": "2024",
+   "title": "Language models, like humans, show content effects on reasoning tasks",
+   "container": "Proceedings of the National Academy of Sciences",
+   "volume": "3",
+   "first_page": "pgae233",
+   "doi": "10.1093/pnasnexus/pgae233"
+  },
+  {
+   "bib_id": 59,
+   "authors": [
+    {
+     "family": "Le",
+     "given": "M."
+    },
+    {
+     "family": "Boureau",
+     "given": "Y.-L."
+    },
+    {
+     "family": "Nickel",
+     "given": "M."
+    }
+   ],
+   "year": "2019",
+   "title": "Revisiting the evaluation of theory of mind through question answering",
+   "container": "Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing and the 9th International Joint Conference on Natural Language Processing (EMNLP-IJCNLP)",
+   "first_page": "5872",
+   "last_page": "5877",
+   "doi": "10.18653/v1/D19-1598"
+  },
+  {
+   "bib_id": 60,
+   "authors": [
+    {
+     "family": "Levine",
+     "given": "S."
+    },
+    {
+     "family": "Kleiman-Weiner",
+     "given": "M."
+    },
+    {
+     "family": "Schulz",
+     "given": "L."
+    },
+    {
+     "family": "Tenenbaum",
+     "given": "J."
+    },
+    {
+     "family": "Cushman",
+     "given": "F."
+    }
+   ],
+   "year": "2020",
+   "title": "The logic of universalization guides moral judgment",
+   "container": "Proceedings of the National Academy of Sciences",
+   "volume": "117",
+   "first_page": "26158",
+   "last_page": "26169",
+   "doi": "10.1073/pnas.2014505117"
+  },
+  {
+   "bib_id": 61,
+   "authors": [
+    {
+     "family": "Lieder",
+     "given": "F."
+    },
+    {
+     "family": "Griffiths",
+     "given": "T. L."
+    }
+   ],
+   "year": "2019",
+   "title": "Resource-rational analysis: Understanding human cognition as the optimal use of limited computational resources",
+   "container": "Behavioral and Brain Sciences",
+   "volume": "43",
+   "first_page": "e1",
+   "doi": "10.1017/S0140525X1900061X"
+  },
+  {
+   "bib_id": 62,
+   "authors": [
+    {
+     "family": "Liu",
+     "given": "R."
+    },
+    {
+     "family": "Geng",
+     "given": "J."
+    },
+    {
+     "family": "Peterson",
+     "given": "J. C."
+    },
+    {
+     "family": "Sucholutsky",
+     "given": "I."
+    },
+    {
+     "family": "Griffiths",
+     "given": "T. L."
+    }
+   ],
+   "year": "2024",
+   "title": "Large language models assume people are more rational than we really are",
+   "container": "arXiv",
+   "doi": "10.48550/arXiv.2406.17055"
+  },
+  {
+   "bib_id": 63,
+   "authors": [
+    {
+     "family": "Liu",
+     "given": "R."
+    },
+    {
+     "family": "Yen",
+     "given": "H."
+    },
+    {
+     "family": "Marjieh",
+     "given": "R."
+    },
+    {
+     "family": "Griffiths",
+     "given": "T. L."
+    },
+    {
+     "family": "Krishna",
+     "given": "R."
+    }
+   ],
+   "year": "2023",
+   "container": "arXiv",
+   "doi": "10.48550/arXiv.2311.00687"
+  },
+  {
+   "bib_id": 64,
+   "authors": [
+    {
+     "family": "Marr",
+     "given": "D."
+    }
+   ],
+   "year": "1982",
+   "title": "Vision: A computational investigation into the human representation and processing of visual information"
+  },
+  {
+   "bib_id": 65,
+   "authors": [
+    {
+     "family": "Messick",
+     "given": "S."
+    }
+   ],
+   "year": "1995",
+   "title": "Validity of psychological assessment: Validation of inferences from persons’ responses and performances as scientific inquiry into score meaning",
+   "container": "American Psychologist",
+   "volume": "50",
+   "first_page": "741",
+   "last_page": "749",
+   "doi": "10.1037/0003-066X.50.9.741"
+  },
+  {
+   "bib_id": 66,
+   "authors": [
+    {
+     "family": "Minsky",
+     "given": "M."
+    }
+   ],
+   "year": "1988",
+   "title": "Society of mind"
+  },
+  {
+   "bib_id": 67,
+   "authors": [
+    {
+     "family": "Mitchell",
+     "given": "M."
+    }
+   ],
+   "year": "2024",
+   "title": "The turing test and our shifting conceptions of intelligence",
+   "volume": "Vol. 385",
+   "first_page": "6710"
+  },
+  {
+   "bib_id": 68,
+   "authors": [
+    {
+     "family": "Muttenthaler",
+     "given": "L."
+    },
+    {
+     "family": "Dippel",
+     "given": "J."
+    },
+    {
+     "family": "Linhardt",
+     "given": "L."
+    },
+    {
+     "family": "Vandermeulen",
+     "given": "R. A."
+    },
+    {
+     "family": "Kornblith",
+     "given": "S."
+    }
+   ],
+   "year": "2022",
+   "title": "Human alignment of neural network representations",
+   "container": "The Eleventh International Conference on Learning Representations (ICLR 2023)"
+  },
+  {
+   "bib_id": 69,
+   "authors": [
+    {
+     "family": "Muttenthaler",
+     "given": "L."
+    },
+    {
+     "family": "Greff",
+     "given": "K."
+    },
+    {
+     "family": "Born",
+     "given": "F."
+    },
+    {
+     "family": "Spitzer",
+     "given": "B."
+    },
+    {
+     "family": "Kornblith",
+     "given": "S."
+    },
+    {
+     "family": "Mozer",
+     "given": "M. C."
+    },
+    {
+     "family": "Müller",
+     "given": "K.-R."
+    },
+    {
+     "family": "Unterthiner",
+     "given": "T."
+    },
+    {
+     "family": "Lampinen",
+     "given": "A. K."
+    }
+   ],
+   "year": "2024",
+   "title": "Aligning machine and human visual representations across abstraction levels",
+   "container": "arXiv",
+   "doi": "10.48550/arXiv.2409.06509"
+  },
+  {
+   "bib_id": 70,
+   "authors": [
+    {
+     "family": "Muttenthaler",
+     "given": "L."
+    },
+    {
+     "family": "Linhardt",
+     "given": "L."
+    },
+    {
+     "family": "Dippel",
+     "given": "J."
+    },
+    {
+     "family": "Vandermeulen",
+     "given": "R. A."
+    },
+    {
+     "family": "Hermann",
+     "given": "K."
+    },
+    {
+     "family": "Lampinen",
+     "given": "A."
+    },
+    {
+     "family": "Kornblith",
+     "given": "S."
+    }
+   ],
+   "year": "2023",
+   "title": "Improving neural network representations using human similarity judgments",
+   "container": "Advances in Neural Information Processing Systems",
+   "volume": "Vol. 36",
+   "first_page": "50978",
+   "last_page": "51007"
+  },
+  {
+   "bib_id": 71,
+   "authors": [
+    {
+     "family": "Northcutt",
+     "given": "C. G."
+    },
+    {
+     "family": "Athalye",
+     "given": "A."
+    },
+    {
+     "family": "Mueller",
+     "given": "J."
+    }
+   ],
+   "year": "2021",
+   "title": "Pervasive label errors in test sets destabilize machine learning benchmarks",
+   "container": "arXiv",
+   "doi": "10.48550/arXiv.2103.14749"
+  },
+  {
+   "bib_id": 72,
+   "authors": [
+    {
+     "family": "O’Hagan",
+     "given": "A."
+    }
+   ],
+   "year": "2019",
+   "title": "Expert knowledge elicitation: Subjective but scientific",
+   "container": "American Statistician",
+   "volume": "73",
+   "first_page": "69",
+   "last_page": "81",
+   "doi": "10.1080/00031305.2018.1518265"
+  },
+  {
+   "bib_id": 73,
+   "authors": [
+    {
+     "family": "O’Hagan",
+     "given": "A."
+    },
+    {
+     "family": "Buck",
+     "given": "C. E."
+    },
+    {
+     "family": "Daneshkhah",
+     "given": "A."
+    },
+    {
+     "family": "Eiser",
+     "given": "J. R."
+    },
+    {
+     "family": "Garthwaite",
+     "given": "P. H."
+    },
+    {
+     "family": "Jenkinson",
+     "given": "D. J."
+    },
+    {
+     "family": "Oakley",
+     "given": "J. E."
+    },
+    {
+     "family": "Rakow",
+     "given": "T."
+    }
+   ],
+   "year": "2006",
+   "title": "Uncertain judgements: Eliciting expert probabilities",
+   "doi": "10.1002/0470033312"
+  },
+  {
+   "bib_id": 74,
+   "authors": [
+    {
+     "family": "Ongchoco",
+     "given": "J. D. K."
+    },
+    {
+     "family": "Davis",
+     "given": "I. M."
+    },
+    {
+     "family": "Jara-Ettinger",
+     "given": "J."
+    },
+    {
+     "family": "Paul",
+     "given": "L."
+    }
+   ],
+   "year": "2024",
+   "title": "When new experience leads to new knowledge: A computational framework for formalizing epistemically transformative experiences",
+   "container": "Open Mind: Discoveries in Cognitive Science",
+   "volume": "8",
+   "first_page": "1291",
+   "last_page": "1311",
+   "doi": "10.1162/opmi_a_00168"
+  },
+  {
+   "bib_id": 75,
+   "authors": [
+    {
+     "family": "Park",
+     "given": "J. S."
+    },
+    {
+     "family": "Zou",
+     "given": "C. Q."
+    },
+    {
+     "family": "Shaw",
+     "given": "A."
+    },
+    {
+     "family": "Hill",
+     "given": "B. M."
+    },
+    {
+     "family": "Cai",
+     "given": "C."
+    },
+    {
+     "family": "Morris",
+     "given": "M. R."
+    },
+    {
+     "family": "Bernstein",
+     "given": "M. S."
+    }
+   ],
+   "year": "2024",
+   "title": "Generative agent simulations of 1,000 people",
+   "container": "arXiv"
+  },
+  {
+   "bib_id": 76,
+   "authors": [
+    {
+     "family": "Peterson",
+     "given": "J. C."
+    },
+    {
+     "family": "Battleday",
+     "given": "R. M."
+    },
+    {
+     "family": "Griffiths",
+     "given": "T. L."
+    },
+    {
+     "family": "Russakovsky",
+     "given": "O."
+    }
+   ],
+   "year": "2019",
+   "title": "Human uncertainty makes classification more robust",
+   "container": "Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV 2019)",
+   "first_page": "9617",
+   "last_page": "9626"
+  },
+  {
+   "bib_id": 77,
+   "authors": [
+    {
+     "family": "Rane",
+     "given": "S."
+    },
+    {
+     "family": "Chater",
+     "given": "N."
+    },
+    {
+     "family": "Oaksford",
+     "given": "M."
+    }
+   ],
+   "year": "2024",
+   "title": "Principles of animal cognition for LLM evaluations: A case study on transitive inference",
+   "container": "NeurIPS 2024 Workshop on Behavioral Machine Learning"
+  },
+  {
+   "bib_id": 78,
+   "authors": [
+    {
+     "family": "Rosenblatt",
+     "given": "F."
+    }
+   ],
+   "year": "1958",
+   "title": "The perceptron: A probabilistic model for information storage and organization in the brain",
+   "container": "Psychological Review",
+   "volume": "65",
+   "first_page": "386",
+   "last_page": "408",
+   "doi": "10.1037/h0042519"
+  },
+  {
+   "bib_id": 79,
+   "authors": [
+    {
+     "family": "Rumelhart",
+     "given": "D. E."
+    },
+    {
+     "family": "Hinton",
+     "given": "G. E."
+    },
+    {
+     "family": "Williams",
+     "given": "R. J."
+    }
+   ],
+   "year": "1988",
+   "title": "“Learning internal representations by error propagation,” parallel distributed processing: Explorations in the microstructures of cognition",
+   "container": "Neurocomputing, volume 1: Foundations of research",
+   "first_page": "318",
+   "last_page": "362",
+   "doi": "10.7551/mitpress/4943.003.0128"
+  },
+  {
+   "bib_id": 80,
+   "authors": [
+    {
+     "family": "Schmarje",
+     "given": "L."
+    },
+    {
+     "family": "Grossmann",
+     "given": "V."
+    },
+    {
+     "family": "Zelenka",
+     "given": "C."
+    },
+    {
+     "family": "Dippel",
+     "given": "S."
+    },
+    {
+     "family": "Kiko",
+     "given": "R."
+    },
+    {
+     "family": "Oszust",
+     "given": "M."
+    },
+    {
+     "family": "Pastell",
+     "given": "M."
+    },
+    {
+     "family": "Stracke",
+     "given": "J."
+    },
+    {
+     "family": "Valros",
+     "given": "A."
+    },
+    {
+     "family": "Volkmann",
+     "given": "N."
+    },
+    {
+     "family": "Koch",
+     "given": "R."
+    }
+   ],
+   "year": "2022",
+   "title": "Is one annotation enough? A data-centric image classification benchmark for noisy and ambiguous label estimation",
+   "container": "arXiv",
+   "doi": "10.48550/arXiv.2207.06214"
+  },
+  {
+   "bib_id": 81,
+   "authors": [
+    {
+     "family": "Shaikh",
+     "given": "O."
+    },
+    {
+     "family": "Chai",
+     "given": "V. E."
+    },
+    {
+     "family": "Gelfand",
+     "given": "M."
+    },
+    {
+     "family": "Yang",
+     "given": "D."
+    },
+    {
+     "family": "Bernstein",
+     "given": "M. S."
+    }
+   ],
+   "year": "2024",
+   "title": "Rehearsal: Simulating conflict to teach conflict resolution",
+   "container": "Proceedings of the 2024 CHI Conference on Human Factors in Computing Systems.Citation Identifiers",
+   "first_page": "1",
+   "last_page": "20",
+   "doi": "10.1145/3613904.3642159"
+  },
+  {
+   "bib_id": 82,
+   "authors": [
+    {
+     "family": "Shiffrin",
+     "given": "R. M."
+    },
+    {
+     "family": "Mitchell",
+     "given": "M."
+    }
+   ],
+   "year": "2023",
+   "title": "Probing the psychology of AI models",
+   "container": "Proceedings of the National Academy of Sciences",
+   "volume": "120",
+   "first_page": "e2300963120",
+   "doi": "10.1073/pnas.2300963120"
+  },
+  {
+   "bib_id": 83,
+   "authors": [
+    {
+     "family": "Sorensen",
+     "given": "T."
+    },
+    {
+     "family": "Moore",
+     "given": "J."
+    },
+    {
+     "family": "Fisher",
+     "given": "J."
+    },
+    {
+     "family": "Gordon",
+     "given": "M."
+    },
+    {
+     "family": "Mireshghallah",
+     "given": "N."
+    },
+    {
+     "family": "Rytting",
+     "given": "C. M."
+    },
+    {
+     "family": "Ye",
+     "given": "A."
+    },
+    {
+     "family": "Jiang",
+     "given": "L."
+    },
+    {
+     "family": "Lu",
+     "given": "X."
+    },
+    {
+     "family": "Dziri",
+     "given": "N."
+    },
+    {
+     "family": "Althoff",
+     "given": "T."
+    }
+   ],
+   "year": "2024",
+   "title": "A roadmap to pluralistic alignment",
+   "container": "arXiv",
+   "doi": "10.48550/arXiv.2402.05070"
+  },
+  {
+   "bib_id": 84,
+   "authors": [
+    {
+     "family": "Srivastava",
+     "given": "A."
+    },
+    {
+     "family": "Rastogi",
+     "given": "A."
+    },
+    {
+     "family": "Rao",
+     "given": "A."
+    },
+    {
+     "family": "Shoeb",
+     "given": "A. A. M."
+    },
+    {
+     "family": "Abid",
+     "given": "A."
+    },
+    {
+     "family": "Fisch",
+     "given": "A."
+    },
+    {
+     "family": "Brown",
+     "given": "A. R."
+    },
+    {
+     "family": "Santoro",
+     "given": "A."
+    },
+    {
+     "family": "Gupta",
+     "given": "A."
+    },
+    {
+     "family": "Garriga-Alonso",
+     "given": "A."
+    },
+    {
+     "family": "Kluska",
+     "given": "A."
+    },
+    {
+     "family": "Lewkowycz",
+     "given": "A."
+    },
+    {
+     "family": "Agarwal",
+     "given": "A."
+    },
+    {
+     "family": "Power",
+     "given": "A."
+    },
+    {
+     "family": "Ray",
+     "given": "A."
+    },
+    {
+     "family": "Warstadt",
+     "given": "A."
+    },
+    {
+     "family": "Kocurek",
+     "given": "A. W."
+    },
+    {
+     "family": "Safaya",
+     "given": "A."
+    },
+    {
+     "family": "Tazarv",
+     "given": "A."
+    },
+    {
+     "family": "Wu",
+     "given": "Z."
+    }
+   ],
+   "year": "2022",
+   "title": "Beyond the Imitation Game: Quantifying and extrapolating the capabilities of language models",
+   "container": "arXiv",
+   "doi": "10.48550/arXiv.2206.04615"
+  },
+  {
+   "bib_id": 85,
+   "authors": [
+    {
+     "family": "Steyvers",
+     "given": "M."
+    },
+    {
+     "family": "Tejeda",
+     "given": "H."
+    },
+    {
+     "family": "Kerrigan",
+     "given": "G."
+    },
+    {
+     "family": "Smyth",
+     "given": "P."
+    }
+   ],
+   "year": "2022",
+   "title": "Bayesian modeling of human-AI complementarity",
+   "container": "Proceedings of the National Academy of Sciences",
+   "volume": "119",
+   "first_page": "e2111547119",
+   "doi": "10.1073/pnas.2111547119"
+  },
+  {
+   "bib_id": 86,
+   "authors": [
+    {
+     "family": "Sucholutsky",
+     "given": "I."
+    },
+    {
+     "family": "Battleday",
+     "given": "R. M."
+    },
+    {
+     "family": "Collins",
+     "given": "K. M."
+    },
+    {
+     "family": "Marjieh",
+     "given": "R."
+    },
+    {
+     "family": "Peterson",
+     "given": "J."
+    },
+    {
+     "family": "Singh",
+     "given": "P."
+    },
+    {
+     "family": "Bhatt",
+     "given": "U."
+    },
+    {
+     "family": "Jacoby",
+     "given": "N."
+    },
+    {
+     "family": "Weller",
+     "given": "A."
+    },
+    {
+     "family": "Griffiths",
+     "given": "T. L."
+    }
+   ],
+   "year": "2023",
+   "title": "On the informativeness of supervision signals",
+   "container": "Proceedings of the Thirty-Ninth Conference on Uncertainty in Artificial Intelligence",
+   "first_page": "2036",
+   "last_page": "2046"
+  },
+  {
+   "bib_id": 87,
+   "authors": [
+    {
+     "family": "Sucholutsky",
+     "given": "I."
+    },
+    {
+     "family": "Muttenthaler",
+     "given": "L."
+    },
+    {
+     "family": "Weller",
+     "given": "A."
+    },
+    {
+     "family": "Peng",
+     "given": "A."
+    },
+    {
+     "family": "Bobu",
+     "given": "A."
+    },
+    {
+     "family": "Kim",
+     "given": "B."
+    },
+    {
+     "family": "Love",
+     "given": "B. C."
+    },
+    {
+     "family": "Cueva",
+     "given": "C. J."
+    },
+    {
+     "family": "Grant",
+     "given": "E."
+    },
+    {
+     "family": "Groen",
+     "given": "I."
+    },
+    {
+     "family": "Achterberg",
+     "given": "J."
+    },
+    {
+     "family": "Tenenbaum",
+     "given": "J. B."
+    },
+    {
+     "family": "Collins",
+     "given": "K. M."
+    },
+    {
+     "family": "Hermann",
+     "given": "K. L."
+    },
+    {
+     "family": "Oktar",
+     "given": "K."
+    },
+    {
+     "family": "Greff",
+     "given": "K."
+    },
+    {
+     "family": "Hebart",
+     "given": "M. N."
+    },
+    {
+     "family": "Cloos",
+     "given": "N."
+    },
+    {
+     "family": "Kriegeskorte",
+     "given": "N."
+    },
+    {
+     "family": "Griffiths",
+     "given": "T. L."
+    }
+   ],
+   "year": "2023",
+   "title": "Getting aligned on representational alignment",
+   "container": "arXiv",
+   "doi": "10.48550/arXiv.2310.13018"
+  },
+  {
+   "bib_id": 88,
+   "authors": [
+    {
+     "family": "Taylor",
+     "given": "A. H."
+    },
+    {
+     "family": "Bastos",
+     "given": "A. P. M."
+    },
+    {
+     "family": "Brown",
+     "given": "R. L."
+    },
+    {
+     "family": "Allen",
+     "given": "C."
+    }
+   ],
+   "year": "2022",
+   "title": "The signature-testing approach to mapping biological and artificial intelligences",
+   "container": "Trends in Cognitive Sciences",
+   "volume": "26",
+   "first_page": "738",
+   "last_page": "750",
+   "doi": "10.1016/j.tics.2022.06.002"
+  },
+  {
+   "bib_id": 89,
+   "authors": [
+    {
+     "family": "Tenenbaum",
+     "given": "J."
+    }
+   ],
+   "year": "1998",
+   "title": "Bayesian modeling of human concept learning",
+   "container": "Advances in Neural Information Processing Systems",
+   "volume": "11"
+  },
+  {
+   "bib_id": 90,
+   "authors": [
+    {
+     "family": "Turing",
+     "given": "A. M."
+    }
+   ],
+   "year": "1950",
+   "title": "Computing machinery and intelligence",
+   "container": "Mind",
+   "volume": "LIX",
+   "first_page": "433",
+   "last_page": "460",
+   "doi": "10.1093/mind/LIX.236.433"
+  },
+  {
+   "bib_id": 91,
+   "authors": [
+    {
+     "family": "Tversky",
+     "given": "A."
+    },
+    {
+     "family": "Kahneman",
+     "given": "D."
+    }
+   ],
+   "year": "1974",
+   "title": "Judgment under uncertainty: Heuristics and biases: Biases in judgments reveal some heuristics of thinking under uncertainty",
+   "container": "Science",
+   "volume": "185",
+   "first_page": "1124",
+   "last_page": "1131",
+   "doi": "10.1126/science.185.4157.1124"
+  },
+  {
+   "bib_id": 92,
+   "authors": [
+    {
+     "family": "Uma",
+     "given": "A."
+    },
+    {
+     "family": "Almanea",
+     "given": "D."
+    },
+    {
+     "family": "Poesio",
+     "given": "M."
+    }
+   ],
+   "year": "2022",
+   "title": "Scaling and disagreements: Bias, noise, and ambiguity",
+   "container": "Frontiers in Artificial Intelligence",
+   "volume": "5",
+   "first_page": "818451",
+   "doi": "10.3389/frai.2022.818451"
+  },
+  {
+   "bib_id": 93,
+   "authors": [
+    {
+     "family": "Uma",
+     "given": "A."
+    },
+    {
+     "family": "Fornaciari",
+     "given": "T."
+    },
+    {
+     "family": "Hovy",
+     "given": "D."
+    },
+    {
+     "family": "Paun",
+     "given": "S."
+    },
+    {
+     "family": "Plank",
+     "given": "B."
+    },
+    {
+     "family": "Poesio",
+     "given": "M."
+    }
+   ],
+   "year": "2020",
+   "title": "A case for soft loss functions",
+   "container": "Proceedings of the AAAI Conference on Human Computation and Crowdsourcing",
+   "volume": "8",
+   "first_page": "173",
+   "last_page": "177",
+   "doi": "10.1609/hcomp.v8i1.7478"
+  },
+  {
+   "bib_id": 94,
+   "authors": [
+    {
+     "family": "Voudouris",
+     "given": "K."
+    },
+    {
+     "family": "Crosby",
+     "given": "M."
+    },
+    {
+     "family": "Halina",
+     "given": "M."
+    },
+    {
+     "family": "Hernández-Orallo",
+     "given": "J."
+    }
+   ],
+   "year": "2024",
+   "title": "Bringing comparative cognition to computers",
+   "container": "Trends in Cognitive Sciences"
+  },
+  {
+   "bib_id": 95,
+   "authors": [
+    {
+     "family": "Weizenbaum",
+     "given": "J."
+    }
+   ],
+   "year": "1966",
+   "title": "ELIZA—A computer program for the study of natural language communication between man and machine",
+   "container": "Communications of the ACM",
+   "volume": "9",
+   "first_page": "36",
+   "last_page": "45",
+   "doi": "10.1145/365153.365168"
+  },
+  {
+   "bib_id": 96,
+   "authors": [
+    {
+     "family": "Wimmer",
+     "given": "H."
+    },
+    {
+     "family": "Perner",
+     "given": "J."
+    }
+   ],
+   "year": "1983",
+   "title": "Beliefs about beliefs: Representation and constraining function of wrong beliefs in young children’s understanding of deception",
+   "container": "Cognition",
+   "volume": "13",
+   "first_page": "103",
+   "last_page": "128",
+   "doi": "10.1016/0010-0277(83)90004-5"
+  },
+  {
+   "bib_id": 97,
+   "authors": [
+    {
+     "family": "Windschitl",
+     "given": "P. D."
+    },
+    {
+     "family": "Wells",
+     "given": "G. L."
+    }
+   ],
+   "year": "1996",
+   "title": "Measuring psychological uncertainty: Verbal versus numeric methods",
+   "container": "Journal of Experimental Psychology: Applied",
+   "volume": "2",
+   "first_page": "343",
+   "last_page": "363",
+   "doi": "10.1037/1076-898X.2.4.343"
+  },
+  {
+   "bib_id": 98,
+   "authors": [
+    {
+     "family": "Wu",
+     "given": "Z."
+    },
+    {
+     "family": "Hu",
+     "given": "Y."
+    },
+    {
+     "family": "Shi",
+     "given": "W."
+    },
+    {
+     "family": "Dziri",
+     "given": "N."
+    },
+    {
+     "family": "Suhr",
+     "given": "A."
+    },
+    {
+     "family": "Ammanabrolu",
+     "given": "P."
+    },
+    {
+     "family": "Smith",
+     "given": "N. A."
+    },
+    {
+     "family": "Ostendorf",
+     "given": "M."
+    },
+    {
+     "family": "Hajishirzi",
+     "given": "H."
+    }
+   ],
+   "year": "2023",
+   "title": "Fine-grained human feedback gives better rewards for language model training",
+   "container": "Advances in Neural Information Processing Systems",
+   "volume": "36",
+   "first_page": "59008",
+   "last_page": "59033"
+  },
+  {
+   "bib_id": 99,
+   "authors": [
+    {
+     "family": "Ying",
+     "given": "L."
+    },
+    {
+     "family": "Li",
+     "given": "X."
+    },
+    {
+     "family": "Aarya",
+     "given": "S."
+    },
+    {
+     "family": "Fang",
+     "given": "Y."
+    },
+    {
+     "family": "Yin",
+     "given": "Y."
+    },
+    {
+     "family": "Liu",
+     "given": "J. X."
+    },
+    {
+     "family": "Tellex",
+     "given": "S."
+    },
+    {
+     "family": "Tenenbaum",
+     "given": "J. B."
+    },
+    {
+     "family": "Shu",
+     "given": "T."
+    }
+   ],
+   "year": "2024",
+   "title": "Pragmatic embodied spoken instruction following in human-robot collaboration with theory of mind",
+   "container": "arXiv",
+   "doi": "10.48550/arXiv.2409.10849"
+  },
+  {
+   "bib_id": 100,
+   "authors": [
+    {
+     "family": "Ying",
+     "given": "L."
+    },
+    {
+     "family": "Zhi-Xuan",
+     "given": "T."
+    },
+    {
+     "family": "Mansinghka",
+     "given": "V."
+    },
+    {
+     "family": "Tenenbaum",
+     "given": "J. B."
+    }
+   ],
+   "year": "2023",
+   "title": "Inferring the goals of communicating agents from actions and instructions",
+   "container": "Proceedings of the AAAI Symposium Series",
+   "volume": "Vol. 2",
+   "first_page": "26",
+   "last_page": "33"
+  },
+  {
+   "bib_id": 101,
+   "authors": [
+    {
+     "family": "Zhi-Xuan",
+     "given": "T."
+    },
+    {
+     "family": "Ying",
+     "given": "L."
+    },
+    {
+     "family": "Mansinghka",
+     "given": "V."
+    },
+    {
+     "family": "Tenenbaum",
+     "given": "J. B."
+    }
+   ],
+   "year": "2024",
+   "title": "Pragmatic instruction following and goal assistance via cooperative language-guided inverse planning",
+   "container": "Proceedings of the 23rd International Conference on Autonomous Agents and Multiagent Systems",
+   "first_page": "2094",
+   "last_page": "2103"
+  },
+  {
+   "bib_id": 102,
+   "authors": [
+    {
+     "family": "Zhou",
+     "given": "L."
+    },
+    {
+     "family": "Schellaert",
+     "given": "W."
+    },
+    {
+     "family": "Martínez-Plumed",
+     "given": "F."
+    },
+    {
+     "family": "Moros-Daval",
+     "given": "Y."
+    },
+    {
+     "family": "Ferri",
+     "given": "C."
+    },
+    {
+     "family": "Hernández-Orallo",
+     "given": "J."
+    }
+   ],
+   "year": "2024",
+   "title": "Larger and more instructable language models become less reliable",
+   "container": "Nature",
+   "volume": "634",
+   "first_page": "61",
+   "last_page": "68",
+   "doi": "10.1038/s41586-024-07930-y"
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-core-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "jats_doi": "10.1162/OPMI.a.385"
+ }
+}

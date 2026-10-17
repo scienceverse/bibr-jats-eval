@@ -1,0 +1,642 @@
+{
+ "paper_id": "10.1371_journal.pone.0350307",
+ "info": {
+  "title": "Research on robot path tracking method based on IDDPG-MPC",
+  "doi": "10.1371/journal.pone.0350307",
+  "file_name": "10.1371_journal.pone.0350307.pdf",
+  "abstract": "In complex marine environments, path-following control of unmanned surface vessels (USVs) faces numerous challenges, including environmental disturbances, dynamic nonlinearities, and underactuated systems. To overcome the limitations of traditional line-of-sight/PID control in terms of robustness and adaptability, this study proposes a hybrid control architecture combining improved deep deterministic policy gradient (IDDPG) and model predictive control (MPC). The IDDPG algorithm, as the upper-level decision-making module, utilizes deep reinforcement learning to generate optimal heading angle increment commands by learning the environmental state. The MPC, as the lower-level execution module, optimizes control variables such as thrust and rudder angle through rolling optimization based on the USV’s three-degree-of-freedom nonlinear dynamics model. This study constructs a closed-loop “perception-decision-execution-learning” paradigm and employs gradient pruning and a customized reward function to ensure the stability of algorithm training and the optimality of control decisions. Lateral deviation and heading angle error are used as evaluation metrics to verify the control performance. Simulation results show that this method effectively solves the adaptability challenge of traditional control strategies in complex environments. Compared with the traditional ALOS-PID method, the average lateral deviation is reduced by 37% and the heading angle error is reduced by 21%, thus realizing high-precision path tracking control for unmanned surface vessels and providing a new method for autonomous surface vehicle navigation."
+ },
+ "author": [
+  {
+   "author_id": 1,
+   "given": "Haicheng",
+   "family": "Shen",
+   "affiliation": "School of Yonyou Digital and Intelligence, Nantong Institute of Technology, Nantong, Jiangsu, China; Faculty of computing, Universiti Teknologi Malaysia, Johor Bahru, Johor, Malaysia",
+   "email": "",
+   "orcid": "",
+   "corresponding": true
+  },
+  {
+   "author_id": 2,
+   "given": "Xun",
+   "family": "Xu",
+   "affiliation": "Jiangsu Xinneng Haili Offshore Wind Power Generation Co.Ltd., Nantong, Jiangsu, China",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 3,
+   "given": "Zhiqiang",
+   "family": "Miao",
+   "affiliation": "School of Yonyou Digital and Intelligence, Nantong Institute of Technology, Nantong, Jiangsu, China",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  }
+ ],
+ "section": [
+  {
+   "section_id": 1,
+   "section_type": "abstract",
+   "header": "Abstract",
+   "level": 1,
+   "parent_section_id": null,
+   "classification_score": 1.0
+  }
+ ],
+ "text": [
+  {
+   "text_id": 1,
+   "section_id": 1,
+   "paragraph_id": 1,
+   "text": "In complex marine environments, path-following control of unmanned surface vessels (USVs) faces numerous challenges, including environmental disturbances, dynamic nonlinearities, and underactuated systems. To overcome the limitations of traditional line-of-sight/PID control in terms of robustness and adaptability, this study proposes a hybrid control architecture combining improved deep deterministic policy gradient (IDDPG) and model predictive control (MPC). The IDDPG algorithm, as the upper-level decision-making module, utilizes deep reinforcement learning to generate optimal heading angle increment commands by learning the environmental state. The MPC, as the lower-level execution module, optimizes control variables such as thrust and rudder angle through rolling optimization based on the USV’s three-degree-of-freedom nonlinear dynamics model. This study constructs a closed-loop “perception-decision-execution-learning” paradigm and employs gradient pruning and a customized reward function to ensure the stability of algorithm training and the optimality of control decisions. Lateral deviation and heading angle error are used as evaluation metrics to verify the control performance. Simulation results show that this method effectively solves the adaptability challenge of traditional control strategies in complex environments. Compared with the traditional ALOS-PID method, the average lateral deviation is reduced by 37% and the heading angle error is reduced by 21%, thus realizing high-precision path tracking control for unmanned surface vessels and providing a new method for autonomous surface vehicle navigation.",
+   "page_number": 1
+  }
+ ],
+ "bib": [
+  {
+   "bib_id": 1,
+   "authors": [
+    {
+     "family": "Huang",
+     "given": "J"
+    },
+    {
+     "family": "Chen",
+     "given": "C"
+    },
+    {
+     "family": "Shen",
+     "given": "J"
+    },
+    {
+     "family": "Liu",
+     "given": "G"
+    },
+    {
+     "family": "Xu",
+     "given": "F"
+    }
+   ],
+   "year": "2025",
+   "title": "A self-adaptive neighborhood search A-star algorithm for mobile robots global path planning",
+   "container": "Computers and Electrical Engineering",
+   "volume": "123",
+   "first_page": "110018",
+   "doi": "10.1016/j.compeleceng.2024.110018"
+  },
+  {
+   "bib_id": 2,
+   "authors": [
+    {
+     "family": "Guo",
+     "given": "S"
+    },
+    {
+     "family": "Gong",
+     "given": "J"
+    },
+    {
+     "family": "Shen",
+     "given": "H"
+    },
+    {
+     "family": "Yuan",
+     "given": "L"
+    },
+    {
+     "family": "Wei",
+     "given": "W"
+    },
+    {
+     "family": "Long",
+     "given": "Y"
+    }
+   ],
+   "year": "2025",
+   "title": "DBVSB-P-RRT*: A path planning algorithm for mobile robot with high environmental adaptability and ultra-high speed planning",
+   "container": "Expert Systems with Applications",
+   "volume": "266",
+   "first_page": "126123",
+   "doi": "10.1016/j.eswa.2024.126123"
+  },
+  {
+   "bib_id": 3,
+   "authors": [
+    {
+     "family": "Li",
+     "given": "X"
+    },
+    {
+     "family": "Ruan",
+     "given": "Z"
+    },
+    {
+     "family": "Ou",
+     "given": "Y"
+    },
+    {
+     "family": "Ban",
+     "given": "D"
+    },
+    {
+     "family": "Sun",
+     "given": "Y"
+    },
+    {
+     "family": "Qin",
+     "given": "T"
+    }
+   ],
+   "year": "2024",
+   "title": "Adaptive Deep Ant Colony Optimization–Asymmetric Strategy Network Twin Delayed Deep Deterministic Policy Gradient Algorithm: Path Planning for Mobile Robots in Dynamic Environments",
+   "container": "Electronics",
+   "volume": "13",
+   "first_page": "4071",
+   "doi": "10.3390/electronics13204071"
+  },
+  {
+   "bib_id": 4,
+   "authors": [
+    {
+     "family": "S",
+     "given": "JF"
+    },
+    {
+     "family": "R",
+     "given": "S"
+    }
+   ],
+   "year": "2024",
+   "title": "Self-adaptive learning particle swarm optimization-based path planning of mobile robot using 2D Lidar environment",
+   "container": "Robotica",
+   "volume": "42",
+   "first_page": "977",
+   "last_page": "1000",
+   "doi": "10.1017/s0263574723001819"
+  },
+  {
+   "bib_id": 5,
+   "authors": [
+    {
+     "family": "Tang",
+     "given": "R"
+    },
+    {
+     "family": "Guo",
+     "given": "S"
+    },
+    {
+     "family": "Wang",
+     "given": "K"
+    },
+    {
+     "family": "Lin",
+     "given": "H"
+    },
+    {
+     "family": "Huang",
+     "given": "L"
+    },
+    {
+     "family": "Mou",
+     "given": "G"
+    }
+   ],
+   "year": "2024",
+   "title": "A framework of insole blanking robot based on adaptive edge detection and FSPS-BIT* path planning",
+   "container": "Sci Rep",
+   "volume": "14",
+   "first_page": "20791",
+   "doi": "10.1038/s41598-024-71636-4"
+  },
+  {
+   "bib_id": 6,
+   "authors": [
+    {
+     "family": "Yao",
+     "given": "J"
+    },
+    {
+     "family": "Ge",
+     "given": "Z"
+    }
+   ],
+   "year": "2022",
+   "title": "Path-Tracking Control Strategy of Unmanned Vehicle Based on DDPG Algorithm",
+   "container": "Sensors (Basel)",
+   "volume": "22",
+   "first_page": "7881",
+   "doi": "10.3390/s22207881"
+  },
+  {
+   "bib_id": 7,
+   "authors": [
+    {
+     "family": "Ding",
+     "given": "A"
+    },
+    {
+     "family": "Sun",
+     "given": "L"
+    },
+    {
+     "family": "Han",
+     "given": "M"
+    },
+    {
+     "family": "Guo",
+     "given": "Z"
+    },
+    {
+     "family": "Wang",
+     "given": "T"
+    },
+    {
+     "family": "Ma",
+     "given": "H"
+    }
+   ],
+   "year": "2024",
+   "title": "DDPG-MPC: A Safe and Efficient Hybrid Path Planning Algorithm for Robots.",
+   "first_page": "267",
+   "doi": "10.1109/csis-iac63491.2024.10919372"
+  },
+  {
+   "bib_id": 8,
+   "authors": [
+    {
+     "family": "Wu",
+     "given": "W"
+    },
+    {
+     "family": "Xue",
+     "given": "W"
+    },
+    {
+     "family": "Du",
+     "given": "Z"
+    }
+   ],
+   "year": "2024",
+   "title": "An Enhanced Path Tracking Control Method for Unmanned Surface Vehicles Using Combined Reinforcement Learning DDPG Algorithm and MPC.",
+   "first_page": "4845",
+   "doi": "10.1109/cac63892.2024.10865521"
+  },
+  {
+   "bib_id": 9,
+   "authors": [
+    {
+     "family": "Cui",
+     "given": "J"
+    },
+    {
+     "family": "Wu",
+     "given": "L"
+    },
+    {
+     "family": "Huang",
+     "given": "X"
+    },
+    {
+     "family": "Xu",
+     "given": "D"
+    },
+    {
+     "family": "Liu",
+     "given": "C"
+    },
+    {
+     "family": "Xiao",
+     "given": "W"
+    }
+   ],
+   "year": "2024",
+   "title": "Multi-strategy adaptable ant colony optimization algorithm and its application in robot path planning",
+   "container": "Knowledge-Based Systems",
+   "volume": "288",
+   "first_page": "111459",
+   "doi": "10.1016/j.knosys.2024.111459"
+  },
+  {
+   "bib_id": 10,
+   "authors": [
+    {
+     "family": "Shen",
+     "given": "H"
+    },
+    {
+     "family": "Liu",
+     "given": "S"
+    }
+   ],
+   "year": "2023",
+   "title": "Optimization of Branch Pipe Routing Considering Tee Constraint Ant Lion",
+   "container": "IEEE Access",
+   "volume": "11",
+   "first_page": "120270",
+   "doi": "10.1109/access.2023.3324853"
+  },
+  {
+   "bib_id": 11,
+   "authors": [
+    {
+     "family": "Shen",
+     "given": "H"
+    },
+    {
+     "family": "Liu",
+     "given": "Q"
+    }
+   ],
+   "year": "2022",
+   "title": "An Improved Ant Lion Optimization Algorithm and Its Application.",
+   "first_page": "1",
+   "last_page": "6",
+   "doi": "10.1109/ICNSC55846.2022.9806882"
+  },
+  {
+   "bib_id": 12,
+   "authors": [
+    {
+     "family": "Liu",
+     "given": "Y"
+    },
+    {
+     "family": "Hu",
+     "given": "L"
+    },
+    {
+     "family": "Ma",
+     "given": "Z"
+    }
+   ],
+   "year": "2023",
+   "title": "A New Adaptive Differential Evolution Algorithm Fused with Multiple Strategies for Robot Path Planning",
+   "container": "Arab J Sci Eng",
+   "volume": "49",
+   "first_page": "11907",
+   "doi": "10.1007/s13369-023-08380-w"
+  },
+  {
+   "bib_id": 13,
+   "authors": [
+    {
+     "family": "Tian",
+     "given": "X"
+    },
+    {
+     "family": "Li",
+     "given": "F"
+    },
+    {
+     "family": "Hu",
+     "given": "L"
+    },
+    {
+     "family": "Hou",
+     "given": "Z"
+    }
+   ],
+   "year": "2023",
+   "title": "Global Path Planning of Mobile Robot Based on Adaptive Sampling Area RRT",
+   "container": "IJRIS",
+   "volume": "1",
+   "first_page": "1",
+   "doi": "10.1504/ijris.2023.10056198"
+  },
+  {
+   "bib_id": 14,
+   "authors": [
+    {
+     "family": "Liu",
+     "given": "H"
+    },
+    {
+     "family": "Shen",
+     "given": "Y"
+    },
+    {
+     "family": "Yu",
+     "given": "S"
+    }
+   ],
+   "year": "2024",
+   "title": "Deep Reinforcement Learning for Mobile Robot Path Tracking.",
+   "first_page": "11",
+   "doi": "10.48550/arXiv.2404.06974"
+  },
+  {
+   "bib_id": 15,
+   "authors": [
+    {
+     "family": "Zhang",
+     "given": "Y"
+    },
+    {
+     "family": "Shen",
+     "given": "Y"
+    },
+    {
+     "family": "Wang",
+     "given": "Q"
+    },
+    {
+     "family": "Song",
+     "given": "C"
+    },
+    {
+     "family": "Dai",
+     "given": "N"
+    },
+    {
+     "family": "He",
+     "given": "B"
+    }
+   ],
+   "year": "2024",
+   "title": "A novel hybrid swarm intelligence algorithm for solving TSP and desired-path-based online obstacle avoidance strategy for AUV",
+   "container": "Robotics and Autonomous Systems",
+   "volume": "177",
+   "first_page": "104678",
+   "doi": "10.1016/j.robot.2024.104678"
+  },
+  {
+   "bib_id": 16,
+   "authors": [
+    {
+     "family": "Ab Wahab",
+     "given": "MN"
+    },
+    {
+     "family": "Nazir",
+     "given": "A"
+    },
+    {
+     "family": "Khalil",
+     "given": "A"
+    },
+    {
+     "family": "Bhatt",
+     "given": "B"
+    },
+    {
+     "family": "Mohd Noor",
+     "given": "MH"
+    },
+    {
+     "family": "Akbar",
+     "given": "MF"
+    }
+   ],
+   "year": "2024",
+   "title": "Optimised path planning using Enhanced Firefly Algorithm for a mobile robot",
+   "container": "PLoS One",
+   "volume": "19",
+   "doi": "10.1371/journal.pone.0308264"
+  },
+  {
+   "bib_id": 17,
+   "authors": [
+    {
+     "family": "Shamilyan",
+     "given": "O"
+    },
+    {
+     "family": "Kabin",
+     "given": "I"
+    },
+    {
+     "family": "Dyka",
+     "given": "Z"
+    }
+   ],
+   "year": "2024",
+   "title": "Resilient Movement Planning for Continuum Robots.",
+   "first_page": "9",
+   "last_page": "12",
+   "doi": "10.48550/arXiv.2404.06178"
+  },
+  {
+   "bib_id": 18,
+   "authors": [
+    {
+     "family": "Liang",
+     "given": "K"
+    },
+    {
+     "family": "Han",
+     "given": "X"
+    }
+   ],
+   "year": "2025",
+   "title": "Mobile robot autonomous path tracking based on IBWO-TEB algorithm",
+   "container": "Manufacturing Technology & Machine Tool",
+   "first_page": "49",
+   "last_page": "55"
+  },
+  {
+   "bib_id": 19,
+   "authors": [
+    {
+     "family": "Wang",
+     "given": "D"
+    },
+    {
+     "family": "Zheng",
+     "given": "W"
+    },
+    {
+     "family": "Wang",
+     "given": "Z"
+    },
+    {
+     "family": "Wang",
+     "given": "Y"
+    },
+    {
+     "family": "Pang",
+     "given": "X"
+    },
+    {
+     "family": "Wang",
+     "given": "W"
+    }
+   ],
+   "year": "2023",
+   "title": "Comparison of reinforcement learning and model predictive control for building energy system optimization",
+   "container": "Applied Thermal Engineering",
+   "volume": "228",
+   "first_page": "120430",
+   "doi": "10.1016/j.applthermaleng.2023.120430"
+  },
+  {
+   "bib_id": 20,
+   "authors": [
+    {
+     "family": "Cui",
+     "given": "B"
+    },
+    {
+     "family": "Chen",
+     "given": "Y"
+    },
+    {
+     "family": "Hong",
+     "given": "X"
+    },
+    {
+     "family": "Luo",
+     "given": "H"
+    },
+    {
+     "family": "Chen",
+     "given": "G"
+    }
+   ],
+   "year": "2024",
+   "title": "Research on Path-Following Technology of a Single-Outboard-Motor Unmanned Surface Vehicle Based on Deep Reinforcement Learning and Model Predictive Control Algorithm",
+   "container": "JMSE",
+   "volume": "12",
+   "first_page": "2321",
+   "doi": "10.3390/jmse12122321"
+  },
+  {
+   "bib_id": 21,
+   "authors": [
+    {
+     "family": "Sorouri",
+     "given": "H"
+    },
+    {
+     "family": "Oshnoei",
+     "given": "A"
+    },
+    {
+     "family": "Novak",
+     "given": "M"
+    },
+    {
+     "family": "Blaabjerg",
+     "given": "F"
+    },
+    {
+     "family": "Anvari-Moghaddam",
+     "given": "A"
+    }
+   ],
+   "year": "2022",
+   "title": "Learning-Based Model Predictive Control of DC-DC Buck Converters in DC Microgrids: A Multi-Agent Deep Reinforcement Learning Approach",
+   "container": "Energies",
+   "volume": "15",
+   "first_page": "5399",
+   "doi": "10.3390/en15155399"
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-core-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "jats_doi": "10.1371/journal.pone.0350307"
+ }
+}

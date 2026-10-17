@@ -1,0 +1,2264 @@
+{
+ "paper_id": "10.1038_s41467-026-76886-6",
+ "info": {
+  "title": "Lipopolysaccharide insertion and vesicle mediated turnover drive growth independent outer membrane adaptation in Escherichia coli",
+  "doi": "10.1038/s41467-026-76886-6",
+  "file_name": "10.1038_s41467-026-76886-6.pdf",
+  "abstract": "The Gram-negative outer membrane is a load-bearing permeability barrier dependent on ordered lipopolysaccharide (LPS) packing in its outer leaflet. How this organisation is maintained after LPS insertion, and whether bacteria can remodel LPS independently of growth, remain unclear. Existing models attribute LPS turnover to passive dilution during elongation and division, limiting adaptation as growth slows. Here we show that, as Escherichia coli enters stationary phase and elongation slows, new LPS insertion continues while pre-existing LPS is preferentially removed through outer membrane vesicles, enabling growth-independent surface remodelling. Pulse–chase metabolic labelling and super-resolution microscopy reveal that newly inserted LPS localises to discrete sites and remains segregated from pre-existing LPS. Spatiotemporal analysis supports an insertion-trapping model in which localised insertion and restricted lateral diffusion maintain LPS-rich patches without coarsening into larger domains. Time-lapse imaging, biochemical fractionation and nanoparticle tracking identify vesicle release as a route that uncouples LPS turnover from cell growth."
+ },
+ "author": [
+  {
+   "author_id": 1,
+   "given": "Joe",
+   "family": "Nabarro",
+   "affiliation": "Department of Chemistry, University of York, York, UK; Department of Biology, University of York, York, UK",
+   "email": "",
+   "orcid": "",
+   "corresponding": true
+  },
+  {
+   "author_id": 2,
+   "given": "Natasha E.",
+   "family": "Hatton",
+   "affiliation": "Department of Chemistry, University of York, York, UK",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 3,
+   "given": "Bartosz L.",
+   "family": "Kowalski",
+   "affiliation": "Department of Chemistry, University of York, York, UK",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 4,
+   "given": "Christopher D.",
+   "family": "Spicer",
+   "affiliation": "Department of Chemistry, University of York, York, UK",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 5,
+   "given": "Dmitri O.",
+   "family": "Pushkin",
+   "affiliation": "Department of Mathematics, University of York, York, UK",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 6,
+   "given": "Martin A.",
+   "family": "Fascione",
+   "affiliation": "Department of Chemistry, University of York, York, UK",
+   "email": "",
+   "orcid": "",
+   "corresponding": true
+  },
+  {
+   "author_id": 7,
+   "given": "Christoph G.",
+   "family": "Baumann",
+   "affiliation": "Department of Biology, University of York, York, UK",
+   "email": "",
+   "orcid": "",
+   "corresponding": true
+  }
+ ],
+ "section": [
+  {
+   "section_id": 1,
+   "section_type": "abstract",
+   "header": "Abstract",
+   "level": 1,
+   "parent_section_id": null,
+   "classification_score": 1.0
+  }
+ ],
+ "text": [
+  {
+   "text_id": 1,
+   "section_id": 1,
+   "paragraph_id": 1,
+   "text": "The Gram-negative outer membrane is a load-bearing permeability barrier dependent on ordered lipopolysaccharide (LPS) packing in its outer leaflet. How this organisation is maintained after LPS insertion, and whether bacteria can remodel LPS independently of growth, remain unclear. Existing models attribute LPS turnover to passive dilution during elongation and division, limiting adaptation as growth slows. Here we show that, as Escherichia coli enters stationary phase and elongation slows, new LPS insertion continues while pre-existing LPS is preferentially removed through outer membrane vesicles, enabling growth-independent surface remodelling. Pulse–chase metabolic labelling and super-resolution microscopy reveal that newly inserted LPS localises to discrete sites and remains segregated from pre-existing LPS. Spatiotemporal analysis supports an insertion-trapping model in which localised insertion and restricted lateral diffusion maintain LPS-rich patches without coarsening into larger domains. Time-lapse imaging, biochemical fractionation and nanoparticle tracking identify vesicle release as a route that uncouples LPS turnover from cell growth.",
+   "page_number": 1
+  }
+ ],
+ "bib": [
+  {
+   "bib_id": 1,
+   "authors": [
+    {
+     "family": "Nikaido",
+     "given": "H"
+    }
+   ],
+   "year": "1989",
+   "title": "Outer membrane barrier as a mechanism of antimicrobial resistance",
+   "container": "Antimicrob. Agents Chemother.",
+   "volume": "33",
+   "first_page": "1831",
+   "last_page": "1836"
+  },
+  {
+   "bib_id": 2,
+   "authors": [
+    {
+     "family": "Hancock",
+     "given": "RE"
+    }
+   ],
+   "year": "1997",
+   "title": "The bacterial outer membrane as a drug barrier",
+   "container": "Trends Microbiol.",
+   "volume": "5",
+   "first_page": "37",
+   "last_page": "42"
+  },
+  {
+   "bib_id": 3,
+   "authors": [
+    {
+     "family": "Miller",
+     "given": "SI"
+    }
+   ],
+   "year": "2016",
+   "title": "Antibiotic resistance and regulation of the gram-negative bacterial outer membrane barrier by host innate immune molecules",
+   "container": "mBio",
+   "volume": "7",
+   "first_page": "01541"
+  },
+  {
+   "bib_id": 4,
+   "authors": [
+    {
+     "family": "Delcour",
+     "given": "AH"
+    }
+   ],
+   "year": "2009",
+   "title": "Outer membrane permeability and antibiotic resistance",
+   "container": "Biophys. Acta Proteins Proteom.",
+   "volume": "1794",
+   "first_page": "808",
+   "last_page": "816"
+  },
+  {
+   "bib_id": 5,
+   "authors": [
+    {
+     "family": "Rojas",
+     "given": "ER"
+    }
+   ],
+   "year": "2018",
+   "title": "The outer membrane is an essential load-bearing element in Gram-negative bacteria",
+   "container": "Nature",
+   "volume": "559",
+   "first_page": "617",
+   "last_page": "621"
+  },
+  {
+   "bib_id": 6,
+   "authors": [
+    {
+     "family": "Sun",
+     "given": "J"
+    },
+    {
+     "family": "Rutherford",
+     "given": "ST"
+    },
+    {
+     "family": "Silhavy",
+     "given": "TJ"
+    },
+    {
+     "family": "Huang",
+     "given": "KC"
+    }
+   ],
+   "year": "2022",
+   "title": "Physical properties of the bacterial outer membrane",
+   "container": "Nat. Rev. Microbiol.",
+   "volume": "20",
+   "first_page": "236",
+   "last_page": "248"
+  },
+  {
+   "bib_id": 7,
+   "authors": [
+    {
+     "family": "Nikaido",
+     "given": "H"
+    }
+   ],
+   "year": "1992",
+   "title": "Porins and specific channels of bacterial outer membranes",
+   "container": "Mol. Microbiol.",
+   "volume": "6",
+   "first_page": "435",
+   "last_page": "442"
+  },
+  {
+   "bib_id": 8,
+   "authors": [
+    {
+     "family": "Masi",
+     "given": "M"
+    },
+    {
+     "family": "Réfregiers",
+     "given": "M"
+    },
+    {
+     "family": "Pos",
+     "given": "KM"
+    }
+   ],
+   "year": "2017",
+   "title": "Mechanisms of envelope permeability and antibiotic influx and efflux in Gram-negative bacteria",
+   "container": "Nat. Microbiol.",
+   "volume": "2",
+   "first_page": "1",
+   "last_page": "7"
+  },
+  {
+   "bib_id": 9,
+   "authors": [
+    {
+     "family": "Simpson",
+     "given": "BW"
+    },
+    {
+     "family": "Trent",
+     "given": "MS"
+    }
+   ],
+   "year": "2019",
+   "title": "Pushing the envelope: LPS modifications and their consequences",
+   "container": "Nat. Rev. Microbiol.",
+   "volume": "17",
+   "first_page": "403",
+   "last_page": "416"
+  },
+  {
+   "bib_id": 10,
+   "authors": [
+    {
+     "family": "Kumar",
+     "given": "S"
+    }
+   ],
+   "year": "2025",
+   "title": "Immobile lipopolysaccharides and outer membrane proteins differentially segregate in growing Escherichia coli",
+   "container": "Proc. Natl Acad. Sci. USA",
+   "volume": "122",
+   "first_page": "e2414725122"
+  },
+  {
+   "bib_id": 11,
+   "doi": "10.1038/s44318-026-00711-5"
+  },
+  {
+   "bib_id": 12,
+   "authors": [
+    {
+     "family": "Mühlradt",
+     "given": "PF"
+    },
+    {
+     "family": "Menzel",
+     "given": "J"
+    },
+    {
+     "family": "Golecki",
+     "given": "JR"
+    },
+    {
+     "family": "Speth",
+     "given": "V"
+    }
+   ],
+   "year": "1974",
+   "title": "Lateral mobility and surface density of lipopolysaccharide in the outer membrane of Salmonella typhimurium",
+   "container": "Eur. J. Biochem.",
+   "volume": "43",
+   "first_page": "533",
+   "last_page": "539"
+  },
+  {
+   "bib_id": 13,
+   "authors": [
+    {
+     "family": "Ursell",
+     "given": "TS"
+    },
+    {
+     "family": "Trepagnier",
+     "given": "EH"
+    },
+    {
+     "family": "Huang",
+     "given": "KC"
+    },
+    {
+     "family": "Theriot",
+     "given": "JA"
+    }
+   ],
+   "year": "2012",
+   "title": "Analysis of surface protein expression reveals the growth pattern of the gram-negative outer membrane",
+   "container": "PLoS Comput. Biol.",
+   "volume": "8",
+   "first_page": "e1002680"
+  },
+  {
+   "bib_id": 14,
+   "authors": [
+    {
+     "family": "Shu",
+     "given": "S"
+    },
+    {
+     "family": "Mi",
+     "given": "W"
+    }
+   ],
+   "year": "2025",
+   "title": "Estimating the relative rates of lipopolysaccharide synthesis in Escherichia coli K-12 by click chemistry-mediated labeling",
+   "container": "PLoS One",
+   "volume": "20",
+   "first_page": "e0325589"
+  },
+  {
+   "bib_id": 15,
+   "authors": [
+    {
+     "family": "Mulcahy",
+     "given": "LR"
+    },
+    {
+     "family": "Burns",
+     "given": "JL"
+    },
+    {
+     "family": "Lory",
+     "given": "S"
+    },
+    {
+     "family": "Lewis",
+     "given": "K"
+    }
+   ],
+   "year": "2010",
+   "title": "Emergence of Pseudomonas aeruginosa strains producing high levels of persister cells in patients with cystic fibrosis",
+   "container": "J. Bacteriol.",
+   "volume": "192",
+   "first_page": "6191",
+   "last_page": "6199"
+  },
+  {
+   "bib_id": 16,
+   "authors": [
+    {
+     "family": "Pfalzgraff",
+     "given": "A"
+    }
+   ],
+   "year": "2019",
+   "title": "LPS-neutralizing peptides reduce outer membrane vesicle-induced inflammatory responses",
+   "container": "Biochim. Biophys. Acta Mol.",
+   "volume": "1864",
+   "first_page": "1503",
+   "last_page": "1513"
+  },
+  {
+   "bib_id": 17,
+   "authors": [
+    {
+     "family": "Andersen",
+     "given": "S"
+    }
+   ],
+   "year": "2022",
+   "title": "Proteomes of uropathogenic Escherichia coli growing in human urine and in J82 urinary bladder cells",
+   "container": "Proteomes",
+   "volume": "10",
+   "first_page": "15"
+  },
+  {
+   "bib_id": 18,
+   "authors": [
+    {
+     "family": "Portillo",
+     "given": "FGD"
+    },
+    {
+     "family": "Foster",
+     "given": "JW"
+    },
+    {
+     "family": "Maguire",
+     "given": "ME"
+    },
+    {
+     "family": "Finlay",
+     "given": "BB"
+    }
+   ],
+   "year": "1992",
+   "title": "Characterization of the micro-environment of Salmonella typhimurium–containing vacuoles within MDCK epithelial cells",
+   "container": "Mol. Microbiol.",
+   "volume": "6",
+   "first_page": "3289",
+   "last_page": "3297"
+  },
+  {
+   "bib_id": 19,
+   "authors": [
+    {
+     "family": "Véscovi",
+     "given": "EG"
+    },
+    {
+     "family": "Soncini",
+     "given": "FC"
+    },
+    {
+     "family": "Groisman",
+     "given": "EA"
+    }
+   ],
+   "year": "1996",
+   "title": "Mg2+ as an extracellular signal: environmental regulation of Salmonella virulence",
+   "container": "Cell",
+   "volume": "84",
+   "first_page": "165",
+   "last_page": "174"
+  },
+  {
+   "bib_id": 20,
+   "authors": [
+    {
+     "family": "Smart",
+     "given": "M"
+    },
+    {
+     "family": "Rajagopal",
+     "given": "A"
+    },
+    {
+     "family": "Liu",
+     "given": "W-K"
+    },
+    {
+     "family": "Ha",
+     "given": "B-Y"
+    }
+   ],
+   "year": "2017",
+   "title": "Opposing effects of cationic antimicrobial peptides and divalent cations on bacterial lipopolysaccharides",
+   "container": "Phys. Rev. E",
+   "volume": "96",
+   "first_page": "042405"
+  },
+  {
+   "bib_id": 21,
+   "authors": [
+    {
+     "family": "Vaara",
+     "given": "M"
+    },
+    {
+     "family": "Vaara",
+     "given": "T"
+    }
+   ],
+   "year": "1983",
+   "title": "Polycations as outer membrane-disorganizing agents",
+   "container": "Antimicrob. Agents Chemother.",
+   "volume": "24",
+   "first_page": "114",
+   "last_page": "122"
+  },
+  {
+   "bib_id": 22
+  },
+  {
+   "bib_id": 23,
+   "authors": [
+    {
+     "family": "Kropinski",
+     "given": "A"
+    },
+    {
+     "family": "Lewis",
+     "given": "V"
+    },
+    {
+     "family": "Berry",
+     "given": "D"
+    }
+   ],
+   "year": "1987",
+   "title": "Effect of growth temperature on the lipids, outer membrane proteins, and lipopolysaccharides of Pseudomonas aeruginosa PAO",
+   "container": "J. Bacteriol.",
+   "volume": "169",
+   "first_page": "1960",
+   "last_page": "1966"
+  },
+  {
+   "bib_id": 24,
+   "authors": [
+    {
+     "family": "Dong",
+     "given": "H"
+    }
+   ],
+   "year": "2014",
+   "title": "Structural basis for outer membrane lipopolysaccharide insertion",
+   "container": "Nature",
+   "volume": "511",
+   "first_page": "52",
+   "last_page": "56"
+  },
+  {
+   "bib_id": 25,
+   "authors": [
+    {
+     "family": "Plass",
+     "given": "T"
+    },
+    {
+     "family": "Milles",
+     "given": "S"
+    },
+    {
+     "family": "Koehler",
+     "given": "C"
+    },
+    {
+     "family": "Schultz",
+     "given": "C"
+    },
+    {
+     "family": "Lemke",
+     "given": "EA"
+    }
+   ],
+   "year": "2011",
+   "title": "Genetically encoded copper-free click chemistry",
+   "container": "Angew. Chem. Int. Ed.",
+   "volume": "50",
+   "first_page": "3878"
+  },
+  {
+   "bib_id": 26,
+   "authors": [
+    {
+     "family": "Dumont",
+     "given": "A"
+    },
+    {
+     "family": "Malleron",
+     "given": "A"
+    },
+    {
+     "family": "Awwad",
+     "given": "M"
+    },
+    {
+     "family": "Dukan",
+     "given": "S"
+    },
+    {
+     "family": "Vauzeilles",
+     "given": "B"
+    }
+   ],
+   "year": "2012",
+   "title": "Click-mediated labeling of bacterial membranes through metabolic modification of the lipopolysaccharide inner core",
+   "container": "Angew. Chem. Int. Ed.",
+   "volume": "51",
+   "first_page": "3143",
+   "last_page": "3146"
+  },
+  {
+   "bib_id": 27,
+   "authors": [
+    {
+     "family": "Nilsson",
+     "given": "I"
+    }
+   ],
+   "year": "2017",
+   "title": "Molecular characterization and verification of azido-3, 8-dideoxy-d-manno-oct-2-ulosonic acid incorporation into bacterial lipopolysaccharide",
+   "container": "J. Biol. Chem.",
+   "volume": "292",
+   "first_page": "19840",
+   "last_page": "19848"
+  },
+  {
+   "bib_id": 28,
+   "authors": [
+    {
+     "family": "Braun",
+     "given": "M"
+    },
+    {
+     "family": "Silhavy",
+     "given": "TJ"
+    }
+   ],
+   "year": "2002",
+   "title": "Imp/OstA is required for cell envelope biogenesis in Escherichia coli",
+   "container": "Mol. Microbiol.",
+   "volume": "45",
+   "first_page": "1289",
+   "last_page": "1302"
+  },
+  {
+   "bib_id": 29,
+   "authors": [
+    {
+     "family": "Chng",
+     "given": "S-S"
+    },
+    {
+     "family": "Ruiz",
+     "given": "N"
+    },
+    {
+     "family": "Chimalakonda",
+     "given": "G"
+    },
+    {
+     "family": "Silhavy",
+     "given": "TJ"
+    },
+    {
+     "family": "Kahne",
+     "given": "D"
+    }
+   ],
+   "year": "2010",
+   "title": "Characterization of the two-protein complex in Escherichia coli responsible for lipopolysaccharide assembly at the outer membrane",
+   "container": "Proc. Natl. Acad. Sci. USA",
+   "volume": "107",
+   "first_page": "5363",
+   "last_page": "5368"
+  },
+  {
+   "bib_id": 30,
+   "authors": [
+    {
+     "family": "Wu",
+     "given": "EL"
+    }
+   ],
+   "year": "2014",
+   "title": "E. coli outer membrane and interactions with OmpLA",
+   "container": "Biophys. J.",
+   "volume": "106",
+   "first_page": "2493",
+   "last_page": "2502"
+  },
+  {
+   "bib_id": 31,
+   "authors": [
+    {
+     "family": "Wu",
+     "given": "T"
+    }
+   ],
+   "year": "2005",
+   "title": "Identification of a multicomponent complex required for outer membrane biogenesis in Escherichia coli",
+   "container": "Cell",
+   "volume": "121",
+   "first_page": "235",
+   "last_page": "245"
+  },
+  {
+   "bib_id": 32,
+   "authors": [
+    {
+     "family": "Rassam",
+     "given": "P"
+    }
+   ],
+   "year": "2015",
+   "title": "Supramolecular assemblies underpin turnover of outer membrane proteins in bacteria",
+   "container": "Nature",
+   "volume": "523",
+   "first_page": "333",
+   "last_page": "336"
+  },
+  {
+   "bib_id": 33,
+   "authors": [
+    {
+     "family": "Benn",
+     "given": "G"
+    }
+   ],
+   "year": "2021",
+   "title": "Phase separation in the outer membrane of Escherichia coli",
+   "container": "Proc. Natl. Acad. Sci. USA",
+   "volume": "118",
+   "first_page": "e2112237118"
+  },
+  {
+   "bib_id": 34,
+   "authors": [
+    {
+     "family": "Gerritzen",
+     "given": "MJ"
+    },
+    {
+     "family": "Martens",
+     "given": "DE"
+    },
+    {
+     "family": "Wijffels",
+     "given": "RH"
+    },
+    {
+     "family": "van der Pol",
+     "given": "L"
+    },
+    {
+     "family": "Stork",
+     "given": "M"
+    }
+   ],
+   "year": "2017",
+   "title": "Bioengineering bacterial outer membrane vesicles as vaccine platform",
+   "container": "Biotechnol. Adv.",
+   "volume": "35",
+   "first_page": "565",
+   "last_page": "574"
+  },
+  {
+   "bib_id": 35,
+   "authors": [
+    {
+     "family": "Rassam",
+     "given": "P"
+    }
+   ],
+   "year": "2018",
+   "title": "Intermembrane crosstalk drives inner-membrane protein organization in Escherichia coli",
+   "container": "Nat. Commun.",
+   "volume": "9",
+   "first_page": "1082"
+  },
+  {
+   "bib_id": 36,
+   "authors": [
+    {
+     "family": "Törk",
+     "given": "L"
+    },
+    {
+     "family": "Moffatt",
+     "given": "CB"
+    },
+    {
+     "family": "Bernhardt",
+     "given": "TG"
+    },
+    {
+     "family": "Garner",
+     "given": "EC"
+    },
+    {
+     "family": "Kahne",
+     "given": "D"
+    }
+   ],
+   "year": "2023",
+   "title": "Single-molecule dynamics show a transient lipopolysaccharide transport bridge",
+   "container": "Nature",
+   "volume": "623",
+   "first_page": "814",
+   "last_page": "819"
+  },
+  {
+   "bib_id": 37,
+   "authors": [
+    {
+     "family": "Cabriel",
+     "given": "C"
+    }
+   ],
+   "year": "2019",
+   "title": "Combining 3D single-molecule localization strategies for reproducible bioimaging",
+   "container": "Nat. Commun.",
+   "volume": "10",
+   "first_page": "1980"
+  },
+  {
+   "bib_id": 38,
+   "authors": [
+    {
+     "family": "Pezacki",
+     "given": "JP"
+    }
+   ],
+   "year": "2014",
+   "title": "Copper-catalysed cycloaddition reactions of nitrones and alkynes for bioorthogonal labelling of living cells",
+   "container": "RSC Adv.",
+   "volume": "4",
+   "first_page": "46966",
+   "last_page": "46969"
+  },
+  {
+   "bib_id": 39,
+   "authors": [
+    {
+     "family": "Itano",
+     "given": "MS"
+    }
+   ],
+   "year": "2014",
+   "title": "Super-resolution imaging of C-type lectin spatial rearrangement within the dendritic cell plasma membrane at fungal microbe contact sites",
+   "container": "Front. Phys.",
+   "volume": "2",
+   "first_page": "46"
+  },
+  {
+   "bib_id": 40
+  },
+  {
+   "bib_id": 41,
+   "authors": [
+    {
+     "family": "Gohrbandt",
+     "given": "M"
+    }
+   ],
+   "year": "2022",
+   "title": "Low membrane fluidity triggers lipid phase separation and protein segregation in living bacteria",
+   "container": "EMBO J.",
+   "volume": "41",
+   "first_page": "e109800"
+  },
+  {
+   "bib_id": 42,
+   "authors": [
+    {
+     "family": "Elson",
+     "given": "EL"
+    },
+    {
+     "family": "Fried",
+     "given": "E"
+    },
+    {
+     "family": "Dolbow",
+     "given": "JE"
+    },
+    {
+     "family": "Genin",
+     "given": "GM"
+    }
+   ],
+   "year": "2010",
+   "title": "Phase separation in biological membranes: integration of theory and experiment",
+   "container": "Annu. Rev. Biophys.",
+   "volume": "39",
+   "first_page": "207",
+   "last_page": "226"
+  },
+  {
+   "bib_id": 43,
+   "authors": [
+    {
+     "family": "Bray",
+     "given": "AJ"
+    }
+   ],
+   "year": "1994",
+   "title": "Theory of phase-ordering kinetics",
+   "container": "Adv. Phys.",
+   "volume": "43",
+   "first_page": "357",
+   "last_page": "459"
+  },
+  {
+   "bib_id": 44,
+   "authors": [
+    {
+     "family": "Cugliandolo",
+     "given": "LF"
+    }
+   ],
+   "year": "2015",
+   "title": "Coarsening phenomena",
+   "container": "C. R. Phys.",
+   "volume": "16",
+   "first_page": "257",
+   "last_page": "266"
+  },
+  {
+   "bib_id": 45,
+   "authors": [
+    {
+     "family": "Siggia",
+     "given": "ED"
+    }
+   ],
+   "year": "1979",
+   "title": "Late stages of spinodal decomposition in binary mixtures",
+   "container": "Phys. Rev. A",
+   "volume": "20",
+   "first_page": "595"
+  },
+  {
+   "bib_id": 46,
+   "authors": [
+    {
+     "family": "Lifshitz",
+     "given": "IM"
+    },
+    {
+     "family": "Slyozov",
+     "given": "VV"
+    }
+   ],
+   "year": "1961",
+   "title": "The kinetics of precipitation from supersaturated solid solutions",
+   "container": "J. Phys. Chem. Solids",
+   "volume": "19",
+   "first_page": "35",
+   "last_page": "50"
+  },
+  {
+   "bib_id": 47,
+   "authors": [
+    {
+     "family": "Wagner",
+     "given": "C"
+    }
+   ],
+   "year": "1961",
+   "title": "Theorie der alterung von niederschlägen durch umlösen (Ostwald-reifung)",
+   "container": "Ber. Bunsenges. Phys. Chem.",
+   "volume": "65",
+   "first_page": "581",
+   "last_page": "591"
+  },
+  {
+   "bib_id": 48,
+   "authors": [
+    {
+     "family": "Cahn",
+     "given": "JW"
+    },
+    {
+     "family": "Hilliard",
+     "given": "JE"
+    }
+   ],
+   "year": "1958",
+   "title": "Free energy of a nonuniform system. I. Interfacial free energy",
+   "container": "J. Chem. Phys.",
+   "volume": "28",
+   "first_page": "258",
+   "last_page": "267"
+  },
+  {
+   "bib_id": 49,
+   "authors": [
+    {
+     "family": "Webby",
+     "given": "MN"
+    }
+   ],
+   "year": "2022",
+   "title": "Lipids mediate supramolecular outer membrane protein assembly in bacteria",
+   "container": "Sci. Adv.",
+   "volume": "8",
+   "first_page": "eadc9566"
+  },
+  {
+   "bib_id": 50,
+   "authors": [
+    {
+     "family": "Malinverni",
+     "given": "JC"
+    },
+    {
+     "family": "Silhavy",
+     "given": "TJ"
+    }
+   ],
+   "year": "2009",
+   "title": "An ABC transport system that maintains lipid asymmetry in the gram-negative outer membrane",
+   "container": "Proc. Natl. Acad. Sci. USA",
+   "volume": "106",
+   "first_page": "8009",
+   "last_page": "8014"
+  },
+  {
+   "bib_id": 51,
+   "authors": [
+    {
+     "family": "Sutterlin",
+     "given": "HA"
+    }
+   ],
+   "year": "2016",
+   "title": "Disruption of lipid homeostasis in the Gram-negative cell envelope activates a novel cell death pathway",
+   "container": "Proc. Natl. Acad. Sci. USA",
+   "volume": "113",
+   "first_page": "E1565",
+   "last_page": "E1574"
+  },
+  {
+   "bib_id": 52,
+   "authors": [
+    {
+     "family": "May",
+     "given": "KL"
+    },
+    {
+     "family": "Silhavy",
+     "given": "TJ"
+    }
+   ],
+   "year": "2018",
+   "title": "The Escherichia coli phospholipase PldA regulates outer membrane homeostasis via lipid signaling",
+   "container": "mBio",
+   "volume": "9",
+   "first_page": "00379"
+  },
+  {
+   "bib_id": 53,
+   "authors": [
+    {
+     "family": "Richie",
+     "given": "DL"
+    }
+   ],
+   "year": "2016",
+   "title": "Toxic accumulation of LPS pathway intermediates underlies the requirement of LpxH for growth of Acinetobacter baumannii ATCC 19606",
+   "container": "PloS One",
+   "volume": "11",
+   "first_page": "e0160918"
+  },
+  {
+   "bib_id": 54,
+   "authors": [
+    {
+     "family": "Sabnis",
+     "given": "A"
+    }
+   ],
+   "year": "2021",
+   "title": "Colistin kills bacteria by targeting lipopolysaccharide in the cytoplasmic membrane",
+   "container": "elife",
+   "volume": "10",
+   "first_page": "e65836"
+  },
+  {
+   "bib_id": 55,
+   "authors": [
+    {
+     "family": "Weerakoon",
+     "given": "D"
+    },
+    {
+     "family": "Marzinek",
+     "given": "JK"
+    },
+    {
+     "family": "Pedebos",
+     "given": "C"
+    },
+    {
+     "family": "Bond",
+     "given": "PJ"
+    },
+    {
+     "family": "Khalid",
+     "given": "S"
+    }
+   ],
+   "year": "2024",
+   "title": "Polymyxin B1 in the Escherichia coli inner membrane: A complex story of protein and lipopolysaccharide-mediated insertion",
+   "container": "J. Biol. Chem.",
+   "volume": "300",
+   "first_page": "107754"
+  },
+  {
+   "bib_id": 56,
+   "authors": [
+    {
+     "family": "Clairfeuille",
+     "given": "T"
+    }
+   ],
+   "year": "2020",
+   "title": "Structure of the essential inner membrane lipopolysaccharide–PbgA complex",
+   "container": "Nature",
+   "volume": "584",
+   "first_page": "479",
+   "last_page": "483"
+  },
+  {
+   "bib_id": 57,
+   "authors": [
+    {
+     "family": "Agard",
+     "given": "NJ"
+    },
+    {
+     "family": "Prescher",
+     "given": "JA"
+    },
+    {
+     "family": "Bertozzi",
+     "given": "CR"
+    }
+   ],
+   "year": "2004",
+   "title": "A strain-promoted [3+ 2] azide− alkyne cycloaddition for covalent modification of biomolecules in living systems",
+   "container": "J. Am. Chem. Soc.",
+   "volume": "126",
+   "first_page": "15046",
+   "last_page": "15047"
+  },
+  {
+   "bib_id": 58,
+   "authors": [
+    {
+     "family": "Fugier",
+     "given": "E"
+    }
+   ],
+   "year": "2015",
+   "title": "Rapid and specific enrichment of culturable gram negative bacteria using non-lethal copper-free click chemistry coupled with magnetic beads separation",
+   "container": "PLoS One",
+   "volume": "10",
+   "first_page": "e0127700"
+  },
+  {
+   "bib_id": 59,
+   "authors": [
+    {
+     "family": "Kulp",
+     "given": "A"
+    },
+    {
+     "family": "Kuehn",
+     "given": "MJ"
+    }
+   ],
+   "year": "2010",
+   "title": "Biological functions and biogenesis of secreted bacterial outer membrane vesicles",
+   "container": "Annu. Rev. Microbiol.",
+   "volume": "64",
+   "first_page": "163",
+   "last_page": "184"
+  },
+  {
+   "bib_id": 60,
+   "authors": [
+    {
+     "family": "Schwechheimer",
+     "given": "C"
+    },
+    {
+     "family": "Kuehn",
+     "given": "MJ"
+    }
+   ],
+   "year": "2015",
+   "title": "Outer-membrane vesicles from Gram-negative bacteria: biogenesis and functions",
+   "container": "Nat. Rev. Microbiol.",
+   "volume": "13",
+   "first_page": "605",
+   "last_page": "619"
+  },
+  {
+   "bib_id": 61,
+   "authors": [
+    {
+     "family": "Bonnington",
+     "given": "KE"
+    },
+    {
+     "family": "Kuehn",
+     "given": "MJ"
+    }
+   ],
+   "year": "2016",
+   "title": "Outer membrane vesicle production facilitates LPS remodeling and outer membrane maintenance in Salmonella during environmental transitions",
+   "container": "mBio",
+   "volume": "7",
+   "first_page": "01532"
+  },
+  {
+   "bib_id": 62,
+   "authors": [
+    {
+     "family": "Elhenawy",
+     "given": "W"
+    }
+   ],
+   "year": "2016",
+   "title": "LPS remodeling triggers formation of outer membrane vesicles in Salmonella",
+   "container": "MBio",
+   "volume": "7",
+   "first_page": "00940"
+  },
+  {
+   "bib_id": 63,
+   "authors": [
+    {
+     "family": "Kulp",
+     "given": "AJ"
+    }
+   ],
+   "year": "2015",
+   "title": "Genome-wide assessment of outer membrane vesicle production in Escherichia coli",
+   "container": "PLoS One",
+   "volume": "10",
+   "first_page": "e0139200"
+  },
+  {
+   "bib_id": 64,
+   "authors": [
+    {
+     "family": "Filipe",
+     "given": "V"
+    },
+    {
+     "family": "Hawe",
+     "given": "A"
+    },
+    {
+     "family": "Jiskoot",
+     "given": "W"
+    }
+   ],
+   "year": "2010",
+   "title": "Critical evaluation of Nanoparticle Tracking Analysis (NTA) by NanoSight for the measurement of nanoparticles and protein aggregates",
+   "container": "Pharm. Res.",
+   "volume": "27",
+   "first_page": "796",
+   "last_page": "810"
+  },
+  {
+   "bib_id": 65,
+   "authors": [
+    {
+     "family": "Gardiner",
+     "given": "C"
+    },
+    {
+     "family": "Ferreira",
+     "given": "YJ"
+    },
+    {
+     "family": "Dragovic",
+     "given": "RA"
+    },
+    {
+     "family": "Redman",
+     "given": "CW"
+    },
+    {
+     "family": "Sargent",
+     "given": "IL"
+    }
+   ],
+   "year": "2013",
+   "title": "Extracellular vesicle sizing and enumeration by nanoparticle tracking analysis",
+   "container": "J. Extracell. Vesicles",
+   "volume": "2",
+   "first_page": "19671"
+  },
+  {
+   "bib_id": 66,
+   "authors": [
+    {
+     "family": "Gerritzen",
+     "given": "MJ"
+    },
+    {
+     "family": "Martens",
+     "given": "DE"
+    },
+    {
+     "family": "Wijffels",
+     "given": "RH"
+    },
+    {
+     "family": "Stork",
+     "given": "M"
+    }
+   ],
+   "year": "2017",
+   "title": "High throughput nanoparticle tracking analysis for monitoring outer membrane vesicle production",
+   "container": "J. Extracell. Vesicles",
+   "volume": "6",
+   "first_page": "1333883"
+  },
+  {
+   "bib_id": 67,
+   "authors": [
+    {
+     "family": "Guerrero-Mandujano",
+     "given": "A"
+    },
+    {
+     "family": "Hernández-Cortez",
+     "given": "C"
+    },
+    {
+     "family": "Ibarra",
+     "given": "JA"
+    },
+    {
+     "family": "Castro-Escarpulli",
+     "given": "G"
+    }
+   ],
+   "year": "2017",
+   "title": "The outer membrane vesicles: secretion system type zero",
+   "container": "Traffic",
+   "volume": "18",
+   "first_page": "425",
+   "last_page": "432"
+  },
+  {
+   "bib_id": 68,
+   "authors": [
+    {
+     "family": "Kucerka",
+     "given": "N"
+    }
+   ],
+   "year": "2008",
+   "title": "Effect of cations on the structure of bilayers formed by lipopolysaccharides isolated from Pseudomonas aeruginosa PAO1",
+   "container": "J. Phys. Chem. B",
+   "volume": "112",
+   "first_page": "8057",
+   "last_page": "8062"
+  },
+  {
+   "bib_id": 69,
+   "authors": [
+    {
+     "family": "Nikaido",
+     "given": "H"
+    }
+   ],
+   "year": "2003",
+   "title": "Molecular basis of bacterial outer membrane permeability revisited",
+   "container": "Microbiol. Mol. Biol. Rev.",
+   "volume": "67",
+   "first_page": "593",
+   "last_page": "656"
+  },
+  {
+   "bib_id": 70,
+   "authors": [
+    {
+     "family": "Reimer",
+     "given": "SL"
+    }
+   ],
+   "year": "2021",
+   "title": "Comparative analysis of outer membrane vesicle isolation methods with an Escherichia coli tolA mutant reveals a hypervesiculating phenotype with outer-inner membrane vesicle content",
+   "container": "Front. Microbiol.",
+   "volume": "12",
+   "first_page": "628801"
+  },
+  {
+   "bib_id": 71,
+   "authors": [
+    {
+     "family": "Mathelié-Guinlet",
+     "given": "M"
+    },
+    {
+     "family": "Asmar",
+     "given": "AT"
+    },
+    {
+     "family": "Collet",
+     "given": "J-F"
+    },
+    {
+     "family": "Dufrêne",
+     "given": "YF"
+    }
+   ],
+   "year": "2020",
+   "title": "Lipoprotein Lpp regulates the mechanical properties of the E. coli cell envelope",
+   "container": "Nat. Commun.",
+   "volume": "11",
+   "first_page": "1789"
+  },
+  {
+   "bib_id": 72,
+   "authors": [
+    {
+     "family": "Bernadac",
+     "given": "A"
+    },
+    {
+     "family": "Gavioli",
+     "given": "M"
+    },
+    {
+     "family": "Lazzaroni",
+     "given": "J-C"
+    },
+    {
+     "family": "Raina",
+     "given": "S"
+    }
+   ],
+   "year": "1998",
+   "title": "& Lloubès, R. Escherichia coli tol-pal mutants form outer membrane vesicles",
+   "container": "J. Bacteriol.",
+   "volume": "180",
+   "first_page": "4872",
+   "last_page": "4878"
+  },
+  {
+   "bib_id": 73,
+   "authors": [
+    {
+     "family": "Schwechheimer",
+     "given": "C"
+    },
+    {
+     "family": "Sullivan",
+     "given": "CJ"
+    },
+    {
+     "family": "Kuehn",
+     "given": "MJ"
+    }
+   ],
+   "year": "2013",
+   "title": "Envelope control of outer membrane vesicle production in Gram-negative bacteria",
+   "container": "Biochem.",
+   "volume": "52",
+   "first_page": "3031",
+   "last_page": "3040"
+  },
+  {
+   "bib_id": 74,
+   "authors": [
+    {
+     "family": "Roier",
+     "given": "S"
+    }
+   ],
+   "year": "2016",
+   "title": "A novel mechanism for the biogenesis of outer membrane vesicles in Gram-negative bacteria",
+   "container": "Nat. Commun.",
+   "volume": "7",
+   "first_page": "10515"
+  },
+  {
+   "bib_id": 75,
+   "authors": [
+    {
+     "family": "Schertzer",
+     "given": "JW"
+    },
+    {
+     "family": "Whiteley",
+     "given": "M"
+    }
+   ],
+   "year": "2012",
+   "title": "A bilayer-couple model of bacterial outer membrane vesicle biogenesis",
+   "container": "mBio",
+   "volume": "3",
+   "first_page": "00297"
+  },
+  {
+   "bib_id": 76
+  },
+  {
+   "bib_id": 77,
+   "authors": [
+    {
+     "family": "Klein",
+     "given": "G"
+    },
+    {
+     "family": "Raina",
+     "given": "S"
+    }
+   ],
+   "year": "2015",
+   "title": "Regulated control of the assembly and diversity of LPS by noncoding sRNAs",
+   "container": "Biomed. Res. Int.",
+   "volume": "2015",
+   "first_page": "153561"
+  },
+  {
+   "bib_id": 78,
+   "authors": [
+    {
+     "family": "Le Brun",
+     "given": "AP"
+    }
+   ],
+   "year": "2013",
+   "title": "Structural characterization of a model gram-negative bacterial surface using lipopolysaccharides from rough strains of Escherichia coli",
+   "container": "Biomacromolecules",
+   "volume": "14",
+   "first_page": "2014",
+   "last_page": "2022"
+  },
+  {
+   "bib_id": 79,
+   "authors": [
+    {
+     "family": "Rhee",
+     "given": "SH"
+    }
+   ],
+   "year": "2014",
+   "title": "Lipopolysaccharide: basic biochemistry, intracellular signaling, and physiological impacts in the gut",
+   "container": "Intest. Res.",
+   "volume": "12",
+   "first_page": "90",
+   "last_page": "95"
+  },
+  {
+   "bib_id": 80,
+   "authors": [
+    {
+     "family": "McBroom",
+     "given": "AJ"
+    },
+    {
+     "family": "Kuehn",
+     "given": "MJ"
+    }
+   ],
+   "year": "2007",
+   "title": "Release of outer membrane vesicles by Gram-negative bacteria is a novel envelope stress response",
+   "container": "Mol. Microbiol.",
+   "volume": "63",
+   "first_page": "545",
+   "last_page": "558"
+  },
+  {
+   "bib_id": 81,
+   "authors": [
+    {
+     "family": "Manning",
+     "given": "AJ"
+    },
+    {
+     "family": "Kuehn",
+     "given": "MJ"
+    }
+   ],
+   "year": "2011",
+   "title": "Contribution of bacterial outer membrane vesicles to innate bacterial defense",
+   "container": "BMC Microbiol.",
+   "volume": "11",
+   "first_page": "1",
+   "last_page": "15"
+  },
+  {
+   "bib_id": 82,
+   "authors": [
+    {
+     "family": "Gerritzen",
+     "given": "MJ"
+    },
+    {
+     "family": "Martens",
+     "given": "DE"
+    },
+    {
+     "family": "Uittenbogaard",
+     "given": "JP"
+    },
+    {
+     "family": "Wijffels",
+     "given": "RH"
+    },
+    {
+     "family": "Stork",
+     "given": "M"
+    }
+   ],
+   "year": "2019",
+   "title": "Sulfate depletion triggers overproduction of phospholipids and the release of outer membrane vesicles by Neisseria meningitidis",
+   "container": "Sci. Rep.",
+   "volume": "9",
+   "first_page": "4716"
+  },
+  {
+   "bib_id": 83,
+   "authors": [
+    {
+     "family": "Dell’Annunziata",
+     "given": "F"
+    }
+   ],
+   "year": "2021",
+   "title": "Gene transfer potential of outer membrane vesicles of gram-negative bacteria",
+   "container": "Int. J. Mol. Sci.",
+   "volume": "22",
+   "first_page": "5985"
+  },
+  {
+   "bib_id": 84,
+   "authors": [
+    {
+     "family": "Kaparakis-Liaskos",
+     "given": "M"
+    },
+    {
+     "family": "Ferrero",
+     "given": "RL"
+    }
+   ],
+   "year": "2015",
+   "title": "Immune modulation by bacterial outer membrane vesicles",
+   "container": "Nat. Rev. Immunol.",
+   "volume": "15",
+   "first_page": "375",
+   "last_page": "387"
+  },
+  {
+   "bib_id": 85,
+   "authors": [
+    {
+     "family": "Veatch",
+     "given": "SL"
+    },
+    {
+     "family": "Keller",
+     "given": "SL"
+    }
+   ],
+   "year": "2003",
+   "title": "Separation of liquid phases in giant vesicles of ternary mixtures of phospholipids and cholesterol",
+   "container": "Biophys. J.",
+   "volume": "85",
+   "first_page": "3074",
+   "last_page": "3083"
+  },
+  {
+   "bib_id": 86,
+   "authors": [
+    {
+     "family": "Veatch",
+     "given": "SL"
+    },
+    {
+     "family": "Keller",
+     "given": "SL"
+    }
+   ],
+   "year": "2005",
+   "title": "Seeing spots: complex phase behavior in simple membranes",
+   "container": "Biochim. Biophys. Acta Mol. Cell Res.",
+   "volume": "1746",
+   "first_page": "172",
+   "last_page": "185"
+  },
+  {
+   "bib_id": 87,
+   "authors": [
+    {
+     "family": "Datsenko",
+     "given": "KA"
+    },
+    {
+     "family": "Wanner",
+     "given": "BL"
+    }
+   ],
+   "year": "2000",
+   "title": "One-step inactivation of chromosomal genes in Escherichia coli K-12 using PCR products",
+   "container": "Proc. Nat. Acad. Sci. USA",
+   "volume": "97",
+   "first_page": "6640",
+   "last_page": "6645"
+  },
+  {
+   "bib_id": 88,
+   "authors": [
+    {
+     "family": "Baba",
+     "given": "T"
+    }
+   ],
+   "year": "2006",
+   "title": "Construction of Escherichia coli K-12 in-frame, single-gene knockout mutants: the Keio collection",
+   "container": "Mol. Syst. Biol.",
+   "volume": "2",
+   "first_page": "2006.0008"
+  },
+  {
+   "bib_id": 89,
+   "authors": [
+    {
+     "family": "Gibson",
+     "given": "DG"
+    }
+   ],
+   "year": "2009",
+   "title": "Enzymatic assembly of DNA molecules up to several hundred kilobases",
+   "container": "Nat. Methods",
+   "volume": "6",
+   "first_page": "343",
+   "last_page": "345"
+  },
+  {
+   "bib_id": 90,
+   "authors": [
+    {
+     "family": "Brabham",
+     "given": "RL"
+    }
+   ],
+   "year": "2020",
+   "title": "Rapid sodium periodate cleavage of an unnatural amino acid enables unmasking of a highly reactive α-oxo aldehyde for protein bioconjugation",
+   "container": "Org. Biomol. Chem.",
+   "volume": "18",
+   "first_page": "4000",
+   "last_page": "4003"
+  },
+  {
+   "bib_id": 91,
+   "authors": [
+    {
+     "family": "Chen",
+     "given": "H"
+    },
+    {
+     "family": "Ahsan",
+     "given": "SS"
+    },
+    {
+     "family": "Santiago-Berrios",
+     "given": "MEB"
+    },
+    {
+     "family": "Abruña",
+     "given": "HD"
+    },
+    {
+     "family": "Webb",
+     "given": "WW"
+    }
+   ],
+   "year": "2010",
+   "title": "Mechanisms of quenching of Alexa fluorophores by natural amino acids",
+   "container": "J. Am. Chem. Soc.",
+   "volume": "132",
+   "first_page": "7244",
+   "last_page": "7245"
+  },
+  {
+   "bib_id": 92,
+   "authors": [
+    {
+     "family": "Hao",
+     "given": "B"
+    }
+   ],
+   "year": "2004",
+   "title": "Reactivity and chemical synthesis of L-pyrrolysine—the 22nd genetically encoded amino acid",
+   "container": "Chem. Biol.",
+   "volume": "11",
+   "first_page": "1317",
+   "last_page": "1324"
+  },
+  {
+   "bib_id": 93,
+   "authors": [
+    {
+     "family": "Freinkman",
+     "given": "E"
+    },
+    {
+     "family": "Chng",
+     "given": "S-S"
+    },
+    {
+     "family": "Kahne",
+     "given": "D"
+    }
+   ],
+   "year": "2011",
+   "title": "The complex that inserts lipopolysaccharide into the bacterial outer membrane forms a two-protein plug-and-barrel",
+   "container": "Proc. Natl. Acad. Sci. USA",
+   "volume": "108",
+   "first_page": "2486",
+   "last_page": "2491"
+  },
+  {
+   "bib_id": 94,
+   "authors": [
+    {
+     "family": "Huisgen",
+     "given": "R"
+    }
+   ],
+   "year": "1963",
+   "title": "1, 3-dipolar cycloadditions. Past and future",
+   "container": "Angew. Chem. Int. Ed.",
+   "volume": "2",
+   "first_page": "565",
+   "last_page": "598"
+  },
+  {
+   "bib_id": 95,
+   "authors": [
+    {
+     "family": "Wang",
+     "given": "Q"
+    }
+   ],
+   "year": "2003",
+   "title": "Bioconjugation by copper (I)-catalyzed azide-alkyne [3+ 2] cycloaddition",
+   "container": "J. Am. Chem. Soc.",
+   "volume": "125",
+   "first_page": "3192",
+   "last_page": "3193"
+  },
+  {
+   "bib_id": 96,
+   "authors": [
+    {
+     "family": "Koebnik",
+     "given": "R"
+    }
+   ],
+   "year": "1999",
+   "title": "Structural and functional roles of the surface-exposed loops of the β-barrel membrane protein OmpA from Escherichia coli",
+   "container": "J. Bacteriol.",
+   "volume": "181",
+   "first_page": "3688",
+   "last_page": "3694"
+  },
+  {
+   "bib_id": 97,
+   "authors": [
+    {
+     "family": "Koebnik",
+     "given": "R"
+    },
+    {
+     "family": "Locher",
+     "given": "KP"
+    },
+    {
+     "family": "Van Gelder",
+     "given": "P"
+    }
+   ],
+   "year": "2000",
+   "title": "Structure and function of bacterial outer membrane proteins: barrels in a nutshell",
+   "container": "Mol. Microbiol.",
+   "volume": "37",
+   "first_page": "239",
+   "last_page": "253"
+  },
+  {
+   "bib_id": 98,
+   "authors": [
+    {
+     "family": "Verhoeven",
+     "given": "GS"
+    },
+    {
+     "family": "Dogterom",
+     "given": "M"
+    },
+    {
+     "family": "den Blaauwen",
+     "given": "T"
+    }
+   ],
+   "year": "2013",
+   "title": "Absence of long-range diffusion of OmpA in E. coli is not caused by its peptidoglycan binding domain",
+   "container": "BMC Microbiol.",
+   "volume": "13",
+   "first_page": "1",
+   "last_page": "9"
+  },
+  {
+   "bib_id": 99,
+   "authors": [
+    {
+     "family": "Jumper",
+     "given": "J"
+    }
+   ],
+   "year": "2021",
+   "title": "Highly accurate protein structure prediction with AlphaFold",
+   "container": "Nature",
+   "volume": "596",
+   "first_page": "583",
+   "last_page": "589"
+  },
+  {
+   "bib_id": 100,
+   "authors": [
+    {
+     "family": "Nguyen",
+     "given": "DP"
+    }
+   ],
+   "year": "2009",
+   "title": "Genetic encoding and labeling of aliphatic azides and alkynes in recombinant proteins via a pyrrolysyl-tRNA synthetase/tRNACUA pair and click chemistry",
+   "container": "J. Am. Chem. Soc.",
+   "volume": "131",
+   "first_page": "8720",
+   "last_page": "8721"
+  },
+  {
+   "bib_id": 101,
+   "authors": [
+    {
+     "family": "Hancock",
+     "given": "SM"
+    },
+    {
+     "family": "Uprety",
+     "given": "R"
+    },
+    {
+     "family": "Deiters",
+     "given": "A"
+    },
+    {
+     "family": "Chin",
+     "given": "JW"
+    }
+   ],
+   "year": "2010",
+   "title": "Expanding the genetic code of yeast for incorporation of diverse unnatural amino acids via a pyrrolysyl-tRNA synthetase/tRNA pair",
+   "container": "J. Am. Chem. Soc.",
+   "volume": "132",
+   "first_page": "14819",
+   "last_page": "14824"
+  },
+  {
+   "bib_id": 102,
+   "authors": [
+    {
+     "family": "Milles",
+     "given": "S"
+    }
+   ],
+   "year": "2012",
+   "title": "Click strategies for single-molecule protein fluorescence",
+   "container": "J. Am. Chem. Soc.",
+   "volume": "134",
+   "first_page": "5187",
+   "last_page": "5195"
+  },
+  {
+   "bib_id": 103,
+   "authors": [
+    {
+     "family": "Veigel",
+     "given": "C"
+    },
+    {
+     "family": "Bartoo",
+     "given": "ML"
+    },
+    {
+     "family": "White",
+     "given": "DC"
+    },
+    {
+     "family": "Sparrow",
+     "given": "JC"
+    },
+    {
+     "family": "Molloy",
+     "given": "JE"
+    }
+   ],
+   "year": "1998",
+   "title": "The stiffness of rabbit skeletal actomyosin cross-bridges determined with an optical tweezers transducer",
+   "container": "Biophys. J.",
+   "volume": "75",
+   "first_page": "1424",
+   "last_page": "1438"
+  },
+  {
+   "bib_id": 104,
+   "authors": [
+    {
+     "family": "Van de Linde",
+     "given": "S"
+    }
+   ],
+   "year": "2011",
+   "title": "Direct stochastic optical reconstruction microscopy with standard fluorescent probes",
+   "container": "Nat. Protoc.",
+   "volume": "6",
+   "first_page": "991",
+   "last_page": "1009"
+  },
+  {
+   "bib_id": 105,
+   "doi": "10.5281/zenodo.21326870"
+  },
+  {
+   "bib_id": 106
+  },
+  {
+   "bib_id": 107,
+   "authors": [
+    {
+     "family": "Rubin-Delanchy",
+     "given": "P"
+    }
+   ],
+   "year": "2015",
+   "title": "Bayesian cluster identification in single-molecule localization microscopy data",
+   "container": "Nat. Methods",
+   "volume": "12",
+   "first_page": "1072",
+   "last_page": "1076"
+  },
+  {
+   "bib_id": 108,
+   "authors": [
+    {
+     "family": "Westphal",
+     "given": "O"
+    }
+   ],
+   "year": "1965",
+   "title": "Bacterial lipopolysaccharides: extraction with phenol-water and further applications of the procedure",
+   "container": "Methods Carbohydr. Chem.",
+   "volume": "5",
+   "first_page": "83"
+  },
+  {
+   "bib_id": 109,
+   "authors": [
+    {
+     "family": "Schägger",
+     "given": "H"
+    }
+   ],
+   "year": "2006",
+   "title": "Tricine–SDS-PAGE",
+   "container": "Nat. Protoc.",
+   "volume": "1",
+   "first_page": "16",
+   "last_page": "22"
+  },
+  {
+   "bib_id": 110,
+   "authors": [
+    {
+     "family": "Skinner",
+     "given": "SO"
+    },
+    {
+     "family": "Sepúlveda",
+     "given": "LA"
+    },
+    {
+     "family": "Xu",
+     "given": "H"
+    },
+    {
+     "family": "Golding",
+     "given": "I"
+    }
+   ],
+   "year": "2013",
+   "title": "Measuring mRNA copy number in individual Escherichia coli cells using single-molecule fluorescent in situ hybridization",
+   "container": "Nat. Protoc.",
+   "volume": "8",
+   "first_page": "1100",
+   "last_page": "1113"
+  },
+  {
+   "bib_id": 111
+  },
+  {
+   "bib_id": 112,
+   "authors": [
+    {
+     "family": "Seifert",
+     "given": "U"
+    }
+   ],
+   "year": "1997",
+   "title": "Configurations of fluid membranes and vesicles",
+   "container": "Adv. Phys.",
+   "volume": "46",
+   "first_page": "13",
+   "last_page": "137"
+  },
+  {
+   "bib_id": 113
+  },
+  {
+   "bib_id": 114,
+   "authors": [
+    {
+     "family": "Deng",
+     "given": "Y"
+    },
+    {
+     "family": "Sun",
+     "given": "M"
+    },
+    {
+     "family": "Shaevitz",
+     "given": "JW"
+    }
+   ],
+   "year": "2011",
+   "title": "Direct measurement of cell wall stress stiffening and turgor pressure in live bacterial cells",
+   "container": "Phys. Rev. Lett.",
+   "volume": "107",
+   "first_page": "158101"
+  },
+  {
+   "bib_id": 115
+  },
+  {
+   "bib_id": 116,
+   "authors": [
+    {
+     "family": "Osborn",
+     "given": "M"
+    },
+    {
+     "family": "Gander",
+     "given": "J"
+    },
+    {
+     "family": "Parisi",
+     "given": "E"
+    },
+    {
+     "family": "Carson",
+     "given": "J"
+    }
+   ],
+   "year": "1972",
+   "title": "Mechanism of assembly of the outer membrane of Salmonella typhimurium: isolation and characterization of cytoplasmic and outer membrane",
+   "container": "J. Biol. Chem.",
+   "volume": "247",
+   "first_page": "3962",
+   "last_page": "3972"
+  },
+  {
+   "bib_id": 117,
+   "authors": [
+    {
+     "family": "Matias",
+     "given": "VR"
+    },
+    {
+     "family": "Al-Amoudi",
+     "given": "A"
+    },
+    {
+     "family": "Dubochet",
+     "given": "J"
+    },
+    {
+     "family": "Beveridge",
+     "given": "TJ"
+    }
+   ],
+   "year": "2003",
+   "title": "Cryo-transmission electron microscopy of frozen-hydrated sections of Escherichia coli and Pseudomonas aeruginosa",
+   "container": "J. Bacteriol.",
+   "volume": "185",
+   "first_page": "6112",
+   "last_page": "6118"
+  },
+  {
+   "bib_id": 118,
+   "authors": [
+    {
+     "family": "Patel",
+     "given": "DS"
+    }
+   ],
+   "year": "2016",
+   "title": "Dynamics and interactions of OmpF and LPS: influence on pore accessibility and ion permeability",
+   "container": "Biophys. J.",
+   "volume": "110",
+   "first_page": "930",
+   "last_page": "938"
+  },
+  {
+   "bib_id": 119,
+   "authors": [
+    {
+     "family": "Yamada",
+     "given": "H"
+    }
+   ],
+   "year": "2017",
+   "title": "Structome analysis of Escherichia coli cells by serial ultrathin sectioning reveals the precise cell profiles and the ribosome density",
+   "container": "Microscopy",
+   "volume": "66",
+   "first_page": "283",
+   "last_page": "294"
+  },
+  {
+   "bib_id": 120,
+   "authors": [
+    {
+     "family": "Li",
+     "given": "Y"
+    },
+    {
+     "family": "Orlando",
+     "given": "BJ"
+    },
+    {
+     "family": "Liao",
+     "given": "M"
+    }
+   ],
+   "year": "2019",
+   "title": "Structural basis of lipopolysaccharide extraction by the LptB2FGC complex",
+   "container": "Nature",
+   "volume": "567",
+   "first_page": "486",
+   "last_page": "490"
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-core-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "jats_doi": "10.1038/s41467-026-76886-6"
+ }
+}

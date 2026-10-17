@@ -1,0 +1,1359 @@
+{
+ "paper_id": "10.7717_peerj.21526",
+ "info": {
+  "title": "Anaerobic power estimation using LASSO regression models of lumbar isokinetic parameters at different angular velocities: the role of body composition",
+  "doi": "10.7717/peerj.21526",
+  "file_name": "10.7717_peerj.21526.pdf",
+  "keywords": [
+   "Anaerobic performance",
+   "Body composition",
+   "Trunk",
+   "Power",
+   "Isokinetic parameters",
+   "Endurance"
+  ],
+  "abstract": "Background and Aim: Anaerobic power production is not limited to the lower extremity muscles but is also closely related to the stabilization and endurance capacity of the trunk muscles. In particular, the isokinetic properties of the lumbar region muscles may be associated with short-term high-intensity physical performance. The aim of this study was to evaluate the associations between lumbar region isokinetic strength parameters and body composition variables obtained at angular velocities of 60°/s and 240°/s with anaerobic power. Method: In the study, regularized regression analysis (LASSO) with leave-one-out cross-validation (LOOCV) was applied using isokinetic variables such as peak torque (PT), total work (TW), and average power (AP) measured at angular velocities of 60°/s and 240°/s, along with body composition parameters (body fat percentage, body mass index, fat-free mass). Anaerobic power was used as the dependent variable. Results: At 60°/s, isokinetic parameters alone demonstrated limited predictive ability (LOOCV R2 = 0.19), although several variables such as total work and peak torque were retained in the model. When body composition variables were included, explanatory performance improved substantially (LOOCV R2 = 0.81), with fat-free mass (FFM) and fat mass emerging as the most stable predictors. At 240°/s, isokinetic parameters alone showed no meaningful predictive ability (LOOCV R2 = −0.18), indicating poor generalizability. However, when body composition variables were added, model performance increased markedly (LOOCV R2 = 0.80), with FFM, fat mass, and fat percentage demonstrating consistent associations with anaerobic power. Conclusion: Lumbar isokinetic strength parameters showed limited and unstable associations with anaerobic power when considered independently. However, the inclusion of body composition variables, particularly fat-free mass, substantially improved model performance. These findings suggest that anaerobic power is more strongly associated with body composition than with isolated lumbar isokinetic strength parameters, and that the contribution of trunk muscle function may be secondary and context-dependent."
+ },
+ "author": [
+  {
+   "author_id": 1,
+   "given": "Oguzhan",
+   "family": "Arslan",
+   "affiliation": "Ministry of National Education, Ankara, Turkey",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 2,
+   "given": "Ahmet",
+   "family": "Kurtoğlu",
+   "affiliation": "Department of Coaching Education, Faculty of Sport Science, Bandirma Onyedi Eylul University, Balikesir, Turkey",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 3,
+   "given": "Bekir",
+   "family": "Çar",
+   "affiliation": "Department of Physical Education and Sport Teaching, Faculty of Sport Science, Bandirma Onyedi Eylul University, Balikesir, Turkey",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 4,
+   "given": "Ozan Bahadır",
+   "family": "Türkmen",
+   "affiliation": "Department of Physiotherapy and Rehabilitation, Faculty of Health Science, Bandirma Onyedi Eylul University, Balıkesir, Turkey",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 5,
+   "given": "Jarosław",
+   "family": "Muracki",
+   "affiliation": "Institute of Physical Culture Sciences, Department of Physical Culture and Health, University of Szczecin, Szczecin, Poland",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 6,
+   "given": "Robert",
+   "family": "Trybulski",
+   "affiliation": "Medical Department, Wojciech Korfanty Upper Silesian Academy, Katowice, Poland",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 7,
+   "given": "Alperen",
+   "family": "Şanal",
+   "affiliation": "Institute of Graduate Education, Department of Sport Science, Canakkale Onsekiz Mart University, Çanakkale, Turkey",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 8,
+   "given": "Safaa M.",
+   "family": "Elkholi",
+   "affiliation": "Department of Rehabilitation Sciences, College of Health and Rehabilitation Sciences, Princess Nourah bint Abdulrahman University, Riyadh, Saudi Arabia",
+   "email": "",
+   "orcid": "",
+   "corresponding": true
+  }
+ ],
+ "section": [
+  {
+   "section_id": 1,
+   "section_type": "abstract",
+   "header": "Abstract",
+   "level": 1,
+   "parent_section_id": null,
+   "classification_score": 1.0
+  }
+ ],
+ "text": [
+  {
+   "text_id": 1,
+   "section_id": 1,
+   "paragraph_id": 1,
+   "text": "Background and Aim: Anaerobic power production is not limited to the lower extremity muscles but is also closely related to the stabilization and endurance capacity of the trunk muscles. In particular, the isokinetic properties of the lumbar region muscles may be associated with short-term high-intensity physical performance. The aim of this study was to evaluate the associations between lumbar region isokinetic strength parameters and body composition variables obtained at angular velocities of 60°/s and 240°/s with anaerobic power. Method: In the study, regularized regression analysis (LASSO) with leave-one-out cross-validation (LOOCV) was applied using isokinetic variables such as peak torque (PT), total work (TW), and average power (AP) measured at angular velocities of 60°/s and 240°/s, along with body composition parameters (body fat percentage, body mass index, fat-free mass). Anaerobic power was used as the dependent variable. Results: At 60°/s, isokinetic parameters alone demonstrated limited predictive ability (LOOCV R2 = 0.19), although several variables such as total work and peak torque were retained in the model. When body composition variables were included, explanatory performance improved substantially (LOOCV R2 = 0.81), with fat-free mass (FFM) and fat mass emerging as the most stable predictors. At 240°/s, isokinetic parameters alone showed no meaningful predictive ability (LOOCV R2 = −0.18), indicating poor generalizability. However, when body composition variables were added, model performance increased markedly (LOOCV R2 = 0.80), with FFM, fat mass, and fat percentage demonstrating consistent associations with anaerobic power. Conclusion: Lumbar isokinetic strength parameters showed limited and unstable associations with anaerobic power when considered independently. However, the inclusion of body composition variables, particularly fat-free mass, substantially improved model performance. These findings suggest that anaerobic power is more strongly associated with body composition than with isolated lumbar isokinetic strength parameters, and that the contribution of trunk muscle function may be secondary and context-dependent.",
+   "page_number": 1
+  }
+ ],
+ "bib": [
+  {
+   "bib_id": 1,
+   "authors": [
+    {
+     "family": "Andrade",
+     "given": "MDS"
+    },
+    {
+     "family": "De Lira",
+     "given": "CAB"
+    },
+    {
+     "family": "Koffes",
+     "given": "FDC"
+    },
+    {
+     "family": "Mascarin",
+     "given": "NC"
+    },
+    {
+     "family": "Benedito-Silva",
+     "given": "AA"
+    },
+    {
+     "family": "Da Silva",
+     "given": "AC"
+    }
+   ],
+   "year": "2012",
+   "title": "Isokinetic hamstrings-to-quadriceps peak torque ratio: The influence of sport modality, gender, and angular velocity",
+   "container": "Journal of Sports Sciences",
+   "volume": "30",
+   "first_page": "547",
+   "last_page": "553",
+   "doi": "10.1080/02640414.2011.644249"
+  },
+  {
+   "bib_id": 2,
+   "authors": [
+    {
+     "family": "Baltzopoulos",
+     "given": "V"
+    },
+    {
+     "family": "Brodie",
+     "given": "DA"
+    }
+   ],
+   "year": "1989",
+   "title": "Isokinetic dynamometry",
+   "container": "Sports Medicine",
+   "volume": "8",
+   "first_page": "101",
+   "last_page": "116",
+   "doi": "10.2165/00007256-198908020-00003"
+  },
+  {
+   "bib_id": 3,
+   "title": "The Wingate anaerobic test",
+   "volume": "4"
+  },
+  {
+   "bib_id": 4,
+   "authors": [
+    {
+     "family": "Bayman",
+     "given": "EO"
+    },
+    {
+     "family": "Dexter",
+     "given": "F"
+    }
+   ],
+   "year": "2021",
+   "title": "Multicollinearity in logistic regression models",
+   "container": "Anesthesia & Analgesia",
+   "volume": "133",
+   "first_page": "362",
+   "last_page": "365",
+   "doi": "10.1213/ANE.0000000000005593"
+  },
+  {
+   "bib_id": 5,
+   "authors": [
+    {
+     "family": "Cataldi",
+     "given": "D"
+    },
+    {
+     "family": "Bennett",
+     "given": "JP"
+    },
+    {
+     "family": "Quon",
+     "given": "BK"
+    },
+    {
+     "family": "Leong",
+     "given": "LT"
+    },
+    {
+     "family": "Kelly",
+     "given": "TL"
+    },
+    {
+     "family": "Evans",
+     "given": "WJ"
+    },
+    {
+     "family": "Prado",
+     "given": "CM"
+    },
+    {
+     "family": "Heymsfield",
+     "given": "SB"
+    },
+    {
+     "family": "Shepherd",
+     "given": "J"
+    }
+   ],
+   "year": "2023",
+   "title": "Association of muscle strength to body composition measures using DXA, D3Cr, and BIA in collegiate athletes",
+   "container": "MedRxiv (Cold Spring Harbor Laboratory)",
+   "doi": "10.1101/2023.05.17.23288849"
+  },
+  {
+   "bib_id": 6,
+   "authors": [
+    {
+     "family": "De Ste Croix",
+     "given": "MBA"
+    },
+    {
+     "family": "Deighan",
+     "given": "MA"
+    },
+    {
+     "family": "Armstrong",
+     "given": "N"
+    }
+   ],
+   "year": "2003",
+   "title": "Assessment and interpretation of isokinetic muscle strength during growth and maturation",
+   "container": "Sports Medicine",
+   "volume": "33",
+   "first_page": "727",
+   "last_page": "743",
+   "doi": "10.2165/00007256-200333100-00002"
+  },
+  {
+   "bib_id": 7,
+   "authors": [
+    {
+     "family": "Dong",
+     "given": "K"
+    },
+    {
+     "family": "Tang",
+     "given": "J"
+    },
+    {
+     "family": "Xu",
+     "given": "C"
+    },
+    {
+     "family": "Gui",
+     "given": "W"
+    },
+    {
+     "family": "Tian",
+     "given": "J"
+    },
+    {
+     "family": "Chun",
+     "given": "B"
+    },
+    {
+     "family": "Li",
+     "given": "D"
+    },
+    {
+     "family": "Wang",
+     "given": "L"
+    }
+   ],
+   "year": "2025",
+   "title": "The effects of blood flow restriction combined with endurance training on athletes’ aerobic capacity, lower limb muscle strength, anaerobic power and sports performance: a meta-analysis",
+   "container": "BMC Sports Science, Medicine and Rehabilitation",
+   "volume": "17",
+   "first_page": "24",
+   "doi": "10.1186/s13102-025-01072-y"
+  },
+  {
+   "bib_id": 8,
+   "authors": [
+    {
+     "family": "Dvir",
+     "given": "Z"
+    }
+   ],
+   "year": "2025",
+   "title": "Isokinetics: muscle testing, interpretation, and clinical applications",
+   "first_page": "272",
+   "doi": "10.4324/9781003380719"
+  },
+  {
+   "bib_id": 9,
+   "authors": [
+    {
+     "family": "França",
+     "given": "C"
+    },
+    {
+     "family": "Gouveia",
+     "given": "ÉR"
+    },
+    {
+     "family": "Martins",
+     "given": "F"
+    },
+    {
+     "family": "Ihle",
+     "given": "A"
+    },
+    {
+     "family": "Henriques",
+     "given": "R"
+    },
+    {
+     "family": "Marques",
+     "given": "A"
+    },
+    {
+     "family": "Sarmento",
+     "given": "H"
+    },
+    {
+     "family": "Przednówek",
+     "given": "K"
+    },
+    {
+     "family": "Lopes",
+     "given": "H"
+    }
+   ],
+   "year": "2024",
+   "title": "Lower-body power, body composition, speed, and agility performance among youth soccer players",
+   "container": "Sports",
+   "volume": "12",
+   "first_page": "135",
+   "doi": "10.3390/sports12050135"
+  },
+  {
+   "bib_id": 10,
+   "authors": [
+    {
+     "family": "Fujita",
+     "given": "S"
+    },
+    {
+     "family": "Kusano",
+     "given": "S"
+    },
+    {
+     "family": "Sugiura",
+     "given": "Y"
+    },
+    {
+     "family": "Sakuraba",
+     "given": "K"
+    },
+    {
+     "family": "Kubota",
+     "given": "A"
+    },
+    {
+     "family": "Sakuma",
+     "given": "K"
+    },
+    {
+     "family": "Suzuki",
+     "given": "Y"
+    },
+    {
+     "family": "Hayamizu",
+     "given": "K"
+    },
+    {
+     "family": "Aoki",
+     "given": "Y"
+    },
+    {
+     "family": "Sugita",
+     "given": "M"
+    }
+   ],
+   "year": "2019",
+   "title": "A 100-m sprint time is associated with deep trunk muscle thickness in collegiate male sprinters",
+   "container": "Frontiers in Sports and Active Living",
+   "volume": "1",
+   "first_page": "32",
+   "doi": "10.3389/fspor.2019.00032"
+  },
+  {
+   "bib_id": 11,
+   "authors": [
+    {
+     "family": "Gao",
+     "given": "J"
+    },
+    {
+     "family": "Liu",
+     "given": "S"
+    },
+    {
+     "family": "Zhu",
+     "given": "J"
+    },
+    {
+     "family": "Guo",
+     "given": "Q"
+    },
+    {
+     "family": "Wang",
+     "given": "X"
+    }
+   ],
+   "year": "2025",
+   "title": "Instability core training vs traditional core training on trunk strength and sprint performance among athletes: a systematic review and meta-analysis",
+   "container": "PeerJ",
+   "volume": "13",
+   "first_page": "e20212",
+   "doi": "10.7717/peerj.20212"
+  },
+  {
+   "bib_id": 12,
+   "authors": [
+    {
+     "family": "George",
+     "given": "D"
+    },
+    {
+     "family": "Mallery",
+     "given": "P"
+    }
+   ],
+   "year": "2024",
+   "title": "IBM SPSS statistics 29 step by step: a simple guide and reference (18th edition)",
+   "doi": "10.4324/9781032622156"
+  },
+  {
+   "bib_id": 13,
+   "authors": [
+    {
+     "family": "Habets",
+     "given": "B"
+    },
+    {
+     "family": "Staal",
+     "given": "JB"
+    },
+    {
+     "family": "Tijssen",
+     "given": "M"
+    },
+    {
+     "family": "Van Cingel",
+     "given": "R"
+    }
+   ],
+   "year": "2018",
+   "title": "Intrarater reliability of the Humac NORM isokinetic dynamometer for strength measurements of the knee and shoulder muscles",
+   "container": "BMC Research Notes",
+   "volume": "11",
+   "first_page": "15",
+   "doi": "10.1186/s13104-018-3128-9"
+  },
+  {
+   "bib_id": 14,
+   "authors": [
+    {
+     "family": "Hong",
+     "given": "J"
+    },
+    {
+     "family": "Woo",
+     "given": "J"
+    },
+    {
+     "family": "Jeon",
+     "given": "J"
+    }
+   ],
+   "year": "2024",
+   "title": "Torque and power of knee extensor muscles at individualized isokinetic angular velocities",
+   "container": "The Journal of International Medical Research",
+   "volume": "52",
+   "first_page": "3000605241262186",
+   "doi": "10.1177/03000605241262186"
+  },
+  {
+   "bib_id": 15,
+   "authors": [
+    {
+     "family": "Kim",
+     "given": "S-W"
+    },
+    {
+     "family": "Park",
+     "given": "H-Y"
+    },
+    {
+     "family": "Jung",
+     "given": "W-S"
+    },
+    {
+     "family": "Lim",
+     "given": "K"
+    }
+   ],
+   "year": "2022",
+   "title": "Effects of twenty-four weeks of resistance exercise training on body composition, bone mineral density, functional fitness and isokinetic muscle strength in obese older women: a randomized controlled trial",
+   "container": "International Journal of Environmental Research and Public Health",
+   "volume": "19",
+   "first_page": "14554",
+   "doi": "10.3390/ijerph192114554"
+  },
+  {
+   "bib_id": 16,
+   "authors": [
+    {
+     "family": "Kipp",
+     "given": "K"
+    },
+    {
+     "family": "Warmenhoven",
+     "given": "J"
+    }
+   ],
+   "year": "2025",
+   "title": "Applications of regularized regression models in sports biomechanics research",
+   "container": "Sports Biomechanics",
+   "volume": "24",
+   "first_page": "723",
+   "last_page": "741",
+   "doi": "10.1080/14763141.2022.2151932"
+  },
+  {
+   "bib_id": 17,
+   "authors": [
+    {
+     "family": "Knechtle",
+     "given": "B"
+    },
+    {
+     "family": "Nikolaidis",
+     "given": "PT"
+    }
+   ],
+   "year": "2018",
+   "title": "Physiology and pathophysiology in ultra-marathon running",
+   "container": "Frontiers in Physiology",
+   "volume": "9",
+   "first_page": "634",
+   "doi": "10.3389/fphys.2018.00634"
+  },
+  {
+   "bib_id": 18,
+   "authors": [
+    {
+     "family": "Kyriazos",
+     "given": "T"
+    },
+    {
+     "family": "Poga",
+     "given": "M"
+    }
+   ],
+   "year": "2023",
+   "title": "Dealing with multicollinearity in factor analysis: the problem, detections, and solutions",
+   "container": "Open Journal of Statistics",
+   "volume": "13",
+   "first_page": "404",
+   "last_page": "424",
+   "doi": "10.4236/ojs.2023.133020"
+  },
+  {
+   "bib_id": 19,
+   "authors": [
+    {
+     "family": "Lee",
+     "given": "K-L"
+    },
+    {
+     "family": "Oh",
+     "given": "T-W"
+    },
+    {
+     "family": "Gil",
+     "given": "Y-C"
+    },
+    {
+     "family": "Kim",
+     "given": "H-J"
+    }
+   ],
+   "year": "2021",
+   "title": "Correlation between muscle architecture and anaerobic power in athletes involved in different sports",
+   "container": "Scientific Reports",
+   "volume": "11",
+   "first_page": "13332",
+   "doi": "10.1038/s41598-021-92831-7"
+  },
+  {
+   "bib_id": 20,
+   "authors": [
+    {
+     "family": "Lilić",
+     "given": "A"
+    },
+    {
+     "family": "Joksimović",
+     "given": "M"
+    },
+    {
+     "family": "D’Angelo",
+     "given": "S"
+    },
+    {
+     "family": "Karišik",
+     "given": "S"
+    },
+    {
+     "family": "Hamad",
+     "given": "S"
+    },
+    {
+     "family": "Gardašević",
+     "given": "N"
+    }
+   ],
+   "year": "2020",
+   "title": "Influence of body composition parameters on anaerobic strength of lower extremities in female football players",
+   "container": "Physical Education Theory and Methodology",
+   "volume": "20",
+   "first_page": "256",
+   "doi": "10.17309/tmfv.2020.4.09"
+  },
+  {
+   "bib_id": 21,
+   "authors": [
+    {
+     "family": "Limberg",
+     "given": "D"
+    },
+    {
+     "family": "Gnilka",
+     "given": "PB"
+    },
+    {
+     "family": "Broda",
+     "given": "M"
+    }
+   ],
+   "year": "2021",
+   "title": "Advancing the counseling profession by examining relationships between variables",
+   "container": "Journal of Counseling & Development",
+   "volume": "99",
+   "first_page": "145",
+   "doi": "10.1002/jcad.12362"
+  },
+  {
+   "bib_id": 22,
+   "authors": [
+    {
+     "family": "Maciejczyk",
+     "given": "M"
+    },
+    {
+     "family": "Wiecek",
+     "given": "M"
+    },
+    {
+     "family": "Szymura",
+     "given": "J"
+    },
+    {
+     "family": "Szygula",
+     "given": "Z"
+    },
+    {
+     "family": "Brown",
+     "given": "LE"
+    }
+   ],
+   "year": "2015",
+   "title": "Influence of increased body mass and body composition on cycling anaerobic power",
+   "container": "Journal of Strength and Conditioning Research",
+   "volume": "29",
+   "first_page": "58",
+   "last_page": "65",
+   "doi": "10.1519/JSC.0000000000000727"
+  },
+  {
+   "bib_id": 23,
+   "authors": [
+    {
+     "family": "Mecherques-Carini",
+     "given": "M"
+    },
+    {
+     "family": "Albaladejo-Saura",
+     "given": "M"
+    },
+    {
+     "family": "Esparza-Ros",
+     "given": "F"
+    },
+    {
+     "family": "Baglietto",
+     "given": "N"
+    },
+    {
+     "family": "Vaquero-Cristóbal",
+     "given": "R"
+    }
+   ],
+   "year": "2025",
+   "title": "Validity between dual-energy X-ray absorptiometry and bioelectrical impedance for segmental fat analysis and a novel low-cost model developed using anthropometry in young adults",
+   "container": "Journal of Translational Medicine",
+   "volume": "23",
+   "first_page": "40",
+   "doi": "10.1186/s12967-024-06062-1"
+  },
+  {
+   "bib_id": 24,
+   "authors": [
+    {
+     "family": "Michalik",
+     "given": "K"
+    },
+    {
+     "family": "Smolarek",
+     "given": "M"
+    },
+    {
+     "family": "Ochmann",
+     "given": "B"
+    },
+    {
+     "family": "Zatoń",
+     "given": "M"
+    }
+   ],
+   "year": "2023",
+   "title": "Determination of optimal load in the Wingate Anaerobic Test is not depend on number of sprints included in mathematical models",
+   "container": "Frontiers in Physiology",
+   "volume": "14",
+   "first_page": "1146076",
+   "doi": "10.3389/fphys.2023.1146076"
+  },
+  {
+   "bib_id": 25,
+   "authors": [
+    {
+     "family": "Nikolaidis",
+     "given": "PT"
+    }
+   ],
+   "year": "2013",
+   "title": "Body mass index and body fat percentage are associated with decreased physical fitness in adolescent and adult female volleyball players",
+   "container": "Journal of Research in Medical Sciences",
+   "volume": "18",
+   "first_page": "22",
+   "last_page": "26"
+  },
+  {
+   "bib_id": 26,
+   "authors": [
+    {
+     "family": "Parrino",
+     "given": "RL"
+    },
+    {
+     "family": "Adams",
+     "given": "W"
+    },
+    {
+     "family": "Letter",
+     "given": "MI"
+    },
+    {
+     "family": "Ripic",
+     "given": "Z"
+    },
+    {
+     "family": "Baraga",
+     "given": "MG"
+    },
+    {
+     "family": "Kaplan",
+     "given": "LD"
+    },
+    {
+     "family": "Harrah",
+     "given": "T"
+    },
+    {
+     "family": "Tremblay",
+     "given": "J"
+    },
+    {
+     "family": "Luxenburg",
+     "given": "D"
+    },
+    {
+     "family": "Conti",
+     "given": "J"
+    },
+    {
+     "family": "Best",
+     "given": "TM"
+    },
+    {
+     "family": "Signorile",
+     "given": "JF"
+    }
+   ],
+   "year": "2023",
+   "title": "Impact of quadriceps tendon graft thickness on electromechanical delay and neuromuscular performance after ACL reconstruction",
+   "container": "Orthopaedic Journal of Sports Medicine",
+   "volume": "11",
+   "first_page": "23259671231201832",
+   "doi": "10.1177/23259671231201832"
+  },
+  {
+   "bib_id": 27,
+   "authors": [
+    {
+     "family": "Park",
+     "given": "J"
+    },
+    {
+     "family": "Kim",
+     "given": "J-E"
+    },
+    {
+     "family": "Yoo",
+     "given": "J-I"
+    },
+    {
+     "family": "Kim",
+     "given": "Y-P"
+    },
+    {
+     "family": "Kim",
+     "given": "E-H"
+    },
+    {
+     "family": "Seo",
+     "given": "T-B"
+    }
+   ],
+   "year": "2019",
+   "title": "Comparison of maximum muscle strength and isokinetic knee and core muscle functions according to pedaling power difference of racing cyclist candidates",
+   "container": "Journal of Exercise Rehabilitation",
+   "volume": "15",
+   "first_page": "401",
+   "last_page": "406",
+   "doi": "10.12965/jer.1938180.090"
+  },
+  {
+   "bib_id": 28,
+   "authors": [
+    {
+     "family": "Qian",
+     "given": "X"
+    },
+    {
+     "family": "Wang",
+     "given": "K"
+    },
+    {
+     "family": "Ma",
+     "given": "Y"
+    },
+    {
+     "family": "Fang",
+     "given": "F"
+    },
+    {
+     "family": "Meng",
+     "given": "X"
+    },
+    {
+     "family": "Liu",
+     "given": "Z"
+    },
+    {
+     "family": "Pan",
+     "given": "Y"
+    },
+    {
+     "family": "Zhang",
+     "given": "Y"
+    },
+    {
+     "family": "Wang",
+     "given": "Y"
+    },
+    {
+     "family": "Wang",
+     "given": "X"
+    },
+    {
+     "family": "Zhao",
+     "given": "J"
+    },
+    {
+     "family": "Jiang",
+     "given": "B"
+    },
+    {
+     "family": "Liu",
+     "given": "S"
+    }
+   ],
+   "year": "2024",
+   "title": "Refining the rheological characteristics of high drug loading ointment via SDS and machine learning",
+   "container": "PLOS ONE",
+   "volume": "19",
+   "first_page": "e0303199",
+   "doi": "10.1371/journal.pone.0303199"
+  },
+  {
+   "bib_id": 29,
+   "authors": [
+    {
+     "family": "Roth",
+     "given": "R"
+    },
+    {
+     "family": "Donath",
+     "given": "L"
+    },
+    {
+     "family": "Kurz",
+     "given": "E"
+    },
+    {
+     "family": "Zahner",
+     "given": "L"
+    },
+    {
+     "family": "Faude",
+     "given": "O"
+    }
+   ],
+   "year": "2017",
+   "title": "Absolute and relative reliability of isokinetic and isometric trunk strength testing using the IsoMed-2000 dynamometer",
+   "container": "Physical Therapy in Sport",
+   "volume": "24",
+   "first_page": "26",
+   "last_page": "31",
+   "doi": "10.1016/j.ptsp.2016.11.005"
+  },
+  {
+   "bib_id": 30,
+   "authors": [
+    {
+     "family": "RStudio Team",
+     "given": ""
+    }
+   ],
+   "year": "2003",
+   "title": "RStudio: integrated development for R"
+  },
+  {
+   "bib_id": 31,
+   "authors": [
+    {
+     "family": "Sahlin",
+     "given": "K"
+    }
+   ],
+   "year": "2014",
+   "title": "Muscle energetics during explosive activities and potential effects of nutrition and training",
+   "container": "Sports Medicine",
+   "volume": "44",
+   "first_page": "167",
+   "doi": "10.1007/s40279-014-0256-9"
+  },
+  {
+   "bib_id": 32,
+   "authors": [
+    {
+     "family": "Sattler",
+     "given": "T"
+    },
+    {
+     "family": "Sekulic",
+     "given": "D"
+    },
+    {
+     "family": "Spasic",
+     "given": "M"
+    },
+    {
+     "family": "Osmankac",
+     "given": "N"
+    },
+    {
+     "family": "Vicente João",
+     "given": "P"
+    },
+    {
+     "family": "Dervisevic",
+     "given": "E"
+    },
+    {
+     "family": "Hadzic",
+     "given": "V"
+    }
+   ],
+   "year": "2016",
+   "title": "Isokinetic knee strength qualities as predictors of jumping performance in high-level volleyball athletes: multiple regression approach",
+   "container": "The Journal of Sports Medicine and Physical Fitness",
+   "volume": "56",
+   "first_page": "60",
+   "last_page": "69"
+  },
+  {
+   "bib_id": 33,
+   "authors": [
+    {
+     "family": "Schindler",
+     "given": "IFSR"
+    },
+    {
+     "family": "Pontes",
+     "given": "SS"
+    },
+    {
+     "family": "Bertoni",
+     "given": "MBM"
+    },
+    {
+     "family": "Junior",
+     "given": "GF"
+    },
+    {
+     "family": "Júnior,",
+     "given": "BRN"
+    },
+    {
+     "family": "De Jesus",
+     "given": "FLA"
+    },
+    {
+     "family": "Neto",
+     "given": "MG"
+    }
+   ],
+   "year": "2023",
+   "title": "A systematic review of isokinetic muscle strength in a healthy population with special reference to age and gender",
+   "container": "Sports Health: A Multidisciplinary Approach",
+   "volume": "15",
+   "first_page": "328",
+   "last_page": "332",
+   "doi": "10.1177/19417381221146258"
+  },
+  {
+   "bib_id": 34,
+   "authors": [
+    {
+     "family": "Silva",
+     "given": "VS da"
+    },
+    {
+     "family": "Vieira",
+     "given": "MFS"
+    }
+   ],
+   "year": "2020",
+   "title": "International Society for the Advancement of Kinanthropometry (ISAK) Global: international accreditation scheme of the competent anthropometrist",
+   "container": "Revista Brasileira de Cineantropometria & Desempenho Humano",
+   "volume": "22",
+   "doi": "10.1590/1980-0037.2020v22e70517"
+  },
+  {
+   "bib_id": 35,
+   "authors": [
+    {
+     "family": "Song",
+     "given": "HS"
+    },
+    {
+     "family": "Chun",
+     "given": "BO"
+    },
+    {
+     "family": "Lee",
+     "given": "K"
+    }
+   ],
+   "year": "2021",
+   "title": "Relationship between anaerobic power and isokinetic trunk strength in college male soccer players",
+   "container": "Journal of Men’s Health",
+   "volume": "17",
+   "first_page": "44",
+   "last_page": "49",
+   "doi": "10.31083/jomh.v17i1.335"
+  },
+  {
+   "bib_id": 36,
+   "authors": [
+    {
+     "family": "Støa",
+     "given": "EM"
+    },
+    {
+     "family": "Rønnestad",
+     "given": "B"
+    },
+    {
+     "family": "Helgerud",
+     "given": "J"
+    },
+    {
+     "family": "Johansen",
+     "given": "JM"
+    },
+    {
+     "family": "Andersen",
+     "given": "IT"
+    },
+    {
+     "family": "Rogneflåten",
+     "given": "T"
+    },
+    {
+     "family": "Sørensen",
+     "given": "A"
+    },
+    {
+     "family": "Støren",
+     "given": "Ø"
+    }
+   ],
+   "year": "2025",
+   "title": "Short-time cycling performance in young elite cyclists: related to maximal aerobic power and not to maximal accumulated oxygen deficit",
+   "container": "Frontiers in Physiology",
+   "volume": "15",
+   "first_page": "1536874",
+   "doi": "10.3389/fphys.2024.1536874"
+  },
+  {
+   "bib_id": 37,
+   "authors": [
+    {
+     "family": "Stubbs",
+     "given": "RJ"
+    },
+    {
+     "family": "Hopkins",
+     "given": "M"
+    },
+    {
+     "family": "Finlayson",
+     "given": "GS"
+    },
+    {
+     "family": "Duarte",
+     "given": "C"
+    },
+    {
+     "family": "Gibbons",
+     "given": "C"
+    },
+    {
+     "family": "Blundell",
+     "given": "JE"
+    }
+   ],
+   "year": "2018",
+   "title": "Potential effects of fat mass and fat-free mass on energy intake in different states of energy balance",
+   "container": "European Journal of Clinical Nutrition",
+   "volume": "72",
+   "first_page": "698",
+   "last_page": "709",
+   "doi": "10.1038/s41430-018-0146-6"
+  },
+  {
+   "bib_id": 38,
+   "authors": [
+    {
+     "family": "Sun",
+     "given": "Y"
+    },
+    {
+     "family": "Wang",
+     "given": "X"
+    },
+    {
+     "family": "Zhang",
+     "given": "C"
+    },
+    {
+     "family": "Zuo",
+     "given": "M"
+    }
+   ],
+   "year": "2023",
+   "title": "Multiple regression: methodology and applications",
+   "container": "Highlights in Science Engineering and Technology",
+   "volume": "49",
+   "first_page": "542",
+   "doi": "10.54097/hset.v49i.8611"
+  },
+  {
+   "bib_id": 39,
+   "authors": [
+    {
+     "family": "Tallis",
+     "given": "J"
+    },
+    {
+     "family": "James",
+     "given": "RS"
+    },
+    {
+     "family": "Seebacher",
+     "given": "F"
+    }
+   ],
+   "year": "2018",
+   "title": "The effects of obesity on skeletal muscle contractile function",
+   "container": "Journal of Experimental Biology",
+   "volume": "221",
+   "first_page": "jeb163840",
+   "doi": "10.1242/jeb.163840"
+  },
+  {
+   "bib_id": 40,
+   "authors": [
+    {
+     "family": "Taylor",
+     "given": "DC"
+    },
+    {
+     "family": "Dalton Jr",
+     "given": "JD"
+    },
+    {
+     "family": "Seaber",
+     "given": "AV"
+    },
+    {
+     "family": "Garrett Jr",
+     "given": "WE"
+    }
+   ],
+   "year": "1990",
+   "title": "Viscoelastic properties of muscle-tendon units. The biomechanical effects of stretching",
+   "container": "The American Journal of Sports Medicine",
+   "volume": "18",
+   "first_page": "300",
+   "last_page": "309",
+   "doi": "10.1177/036354659001800314"
+  },
+  {
+   "bib_id": 41,
+   "authors": [
+    {
+     "family": "Yoon",
+     "given": "DH"
+    },
+    {
+     "family": "Kim",
+     "given": "K-J"
+    }
+   ],
+   "year": "2021",
+   "title": "Specific fitness profiles through analysis of the correlation between anaerobic power, maximal strength, and isokinetic strength in korean national snowboarders",
+   "container": "IJASS",
+   "volume": "15",
+   "first_page": "1",
+   "last_page": "158",
+   "doi": "10.24985/ijass.2021.33.2.151"
+  },
+  {
+   "bib_id": 42,
+   "authors": [
+    {
+     "family": "Zemková",
+     "given": "E"
+    }
+   ],
+   "year": "2022",
+   "title": "Strength and power-related measures in assessing core muscle performance in sport and rehabilitation",
+   "container": "Frontiers in Physiology",
+   "volume": "13",
+   "first_page": "861582",
+   "doi": "10.3389/fphys.2022.861582"
+  },
+  {
+   "bib_id": 43,
+   "authors": [
+    {
+     "family": "Zupan",
+     "given": "MF"
+    },
+    {
+     "family": "Arata",
+     "given": "AW"
+    },
+    {
+     "family": "Dawson",
+     "given": "LH"
+    },
+    {
+     "family": "Wile",
+     "given": "AL"
+    },
+    {
+     "family": "Payn",
+     "given": "TL"
+    },
+    {
+     "family": "Hannon",
+     "given": "ME"
+    }
+   ],
+   "year": "2009",
+   "title": "Wingate anaerobic test peak power and anaerobic capacity classifications for men and women intercollegiate athletes",
+   "container": "Journal of Strength and Conditioning Research",
+   "volume": "23",
+   "first_page": "2598",
+   "last_page": "2604",
+   "doi": "10.1519/JSC.0b013e3181b1b21b"
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-core-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "jats_doi": "10.7717/peerj.21526"
+ }
+}

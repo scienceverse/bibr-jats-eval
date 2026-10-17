@@ -1,0 +1,1975 @@
+{
+ "paper_id": "10.1017_s0033291726104954",
+ "info": {
+  "title": "Selective enhancement of cost sensitivity by methylphenidate in adult ADHD: a randomized placebo-controlled trial",
+  "doi": "10.1017/S0033291726104954",
+  "file_name": "10.1017_s0033291726104954.pdf",
+  "keywords": [
+   "ADHD",
+   "computational psychiatry",
+   "decision-making",
+   "drift diffusion model",
+   "evidence accumulation",
+   "methylphenidate",
+   "computational modeling",
+   "drift rate",
+   "decision threshold",
+   "speed-accuracy tradeoff",
+   "dopamine",
+   "stimulant medication"
+  ],
+  "abstract": "Background: Attention-deficit hyperactivity disorder (ADHD) is associated with impairments in real-life decisions, many involving balancing costs and benefits. Increasing dopamine and norepinephrine with stimulant medication improves decision-making in ADHD. However, it is unclear whether stimulant medication affects sensitivity to costs and/or benefits or alters the speed-accuracy tradeoff. Here, we applied the drift diffusion model (DDM) to assess how the stimulant medication methylphenidate (MPH) affects subprocesses of cost-benefit decision-making in ADHD. Methods: Sixty-one adult participants with ADHD and 63 healthy controls completed a cost-benefit decision-making task in a randomized double-blind placebo-controlled design. ADHD participants were tested once on and once off MPH. Control participants performed the task in two sessions without medication. The task entailed deciding whether to accept or reject a stimulus based on learned cost and benefit value associations. The effect of ADHD and medication on subprocesses of decision-making was disentangled by estimating task performance with DDM parameters drift rate, starting point bias, and decision threshold, representing evidence accumulation, a priori accept/reject bias, and the speed-accuracy tradeoff, respectively. Primary analyses used a modified intention-to-treat sample, including participants with main-phase data from both sessions. Results: The DDM analysis identified impaired evidence accumulation combined with premature responding in participants with ADHD, indicated by reduced sensitivity to costs and benefits and narrower decision thresholds. MPH altered the cost-benefit balance by improving sensitivity to costs. Lastly, lower cost sensitivity was associated with greater symptom severity and higher prescribed dosage in ADHD. Conclusions: Methylphenidate alters cost-benefit decision-making in ADHD by increasing sensitivity to costs."
+ },
+ "author": [
+  {
+   "author_id": 1,
+   "given": "Mads Lund",
+   "family": "Pedersen",
+   "affiliation": "Department of Psychology, University of Oslo, Oslo, Norway; Center for Precision Psychiatry, Division of Mental Health and Addiction, Oslo University Hospital, Oslo, Norway",
+   "email": "",
+   "orcid": "",
+   "corresponding": true
+  },
+  {
+   "author_id": 2,
+   "given": "Athanasia M.",
+   "family": "Mowinckel",
+   "affiliation": "Center for Lifespan Changes in Brain and Cognition, University of Oslo, Oslo, Norway",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 3,
+   "given": "Sigurd",
+   "family": "Ziegler",
+   "affiliation": "Department of Neurology, Oslo University Hospital, Oslo, Norway",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 4,
+   "given": "Mats",
+   "family": "Fredriksen",
+   "affiliation": "Division of Mental Health and Addiction, Vestfold Hospital Trust, Tønsberg, Norway",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 5,
+   "given": "Atle",
+   "family": "Bjørnerud",
+   "affiliation": "Department of Psychology, University of Oslo, Oslo, Norway; Department of Physics, University of Oslo, Oslo, Norway; Unit for Computational Radiology and Artificial Intelligence, Oslo University Hospital, Oslo, Norway",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 6,
+   "given": "Tor",
+   "family": "Endestad",
+   "affiliation": "Department of Psychology, University of Oslo, Oslo, Norway",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 7,
+   "given": "Guido",
+   "family": "Biele",
+   "affiliation": "Department of Child Health and Development, Norwegian Institute of Public Health, Oslo, Norway",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  }
+ ],
+ "section": [
+  {
+   "section_id": 1,
+   "section_type": "abstract",
+   "header": "Abstract",
+   "level": 1,
+   "parent_section_id": null,
+   "classification_score": 1.0
+  }
+ ],
+ "text": [
+  {
+   "text_id": 1,
+   "section_id": 1,
+   "paragraph_id": 1,
+   "text": "Background: Attention-deficit hyperactivity disorder (ADHD) is associated with impairments in real-life decisions, many involving balancing costs and benefits. Increasing dopamine and norepinephrine with stimulant medication improves decision-making in ADHD. However, it is unclear whether stimulant medication affects sensitivity to costs and/or benefits or alters the speed-accuracy tradeoff. Here, we applied the drift diffusion model (DDM) to assess how the stimulant medication methylphenidate (MPH) affects subprocesses of cost-benefit decision-making in ADHD. Methods: Sixty-one adult participants with ADHD and 63 healthy controls completed a cost-benefit decision-making task in a randomized double-blind placebo-controlled design. ADHD participants were tested once on and once off MPH. Control participants performed the task in two sessions without medication. The task entailed deciding whether to accept or reject a stimulus based on learned cost and benefit value associations. The effect of ADHD and medication on subprocesses of decision-making was disentangled by estimating task performance with DDM parameters drift rate, starting point bias, and decision threshold, representing evidence accumulation, a priori accept/reject bias, and the speed-accuracy tradeoff, respectively. Primary analyses used a modified intention-to-treat sample, including participants with main-phase data from both sessions. Results: The DDM analysis identified impaired evidence accumulation combined with premature responding in participants with ADHD, indicated by reduced sensitivity to costs and benefits and narrower decision thresholds. MPH altered the cost-benefit balance by improving sensitivity to costs. Lastly, lower cost sensitivity was associated with greater symptom severity and higher prescribed dosage in ADHD. Conclusions: Methylphenidate alters cost-benefit decision-making in ADHD by increasing sensitivity to costs.",
+   "page_number": 1
+  }
+ ],
+ "bib": [
+  {
+   "bib_id": 1,
+   "authors": [
+    {
+     "family": "American Psychiatric Association",
+     "given": ""
+    }
+   ],
+   "year": "2013",
+   "title": "Diagnostic and statistical manual of mental disorders"
+  },
+  {
+   "bib_id": 2,
+   "authors": [
+    {
+     "family": "Barkley",
+     "given": "R. A."
+    },
+    {
+     "family": "Murphy",
+     "given": "K. R."
+    },
+    {
+     "family": "Dupaul",
+     "given": "G. I."
+    },
+    {
+     "family": "Bush",
+     "given": "T."
+    }
+   ],
+   "year": "2002",
+   "title": "Driving in young adults with attention deficit hyperactivity disorder: Knowledge, performance, adverse outcomes, and the role of executive functioning",
+   "container": "Journal of the International Neuropsychological Society: JINS",
+   "volume": "8",
+   "first_page": "655",
+   "last_page": "672",
+   "doi": "10.1017/s1355617702801345"
+  },
+  {
+   "bib_id": 3,
+   "authors": [
+    {
+     "family": "Basten",
+     "given": "U."
+    },
+    {
+     "family": "Biele",
+     "given": "G."
+    },
+    {
+     "family": "Heekeren",
+     "given": "H. R."
+    },
+    {
+     "family": "Fiebach",
+     "given": "C. J."
+    }
+   ],
+   "year": "2010",
+   "title": "How the brain integrates costs and benefits during decision making",
+   "container": "Proceedings of the National Academy of Sciences",
+   "volume": "107",
+   "first_page": "21767",
+   "last_page": "21772",
+   "doi": "10.1073/pnas.0908104107"
+  },
+  {
+   "bib_id": 4,
+   "authors": [
+    {
+     "family": "Berridge",
+     "given": "C. W."
+    },
+    {
+     "family": "Waterhouse",
+     "given": "B. D."
+    }
+   ],
+   "year": "2003",
+   "title": "The locus coeruleus – Noradrenergic system: Modulation of behavioral state and state-dependent cognitive processes",
+   "container": "Brain Research Reviews",
+   "volume": "42",
+   "first_page": "33",
+   "last_page": "84",
+   "doi": "10.1016/S0165-0173(03)00143-7"
+  },
+  {
+   "bib_id": 5,
+   "authors": [
+    {
+     "family": "Beste",
+     "given": "C."
+    },
+    {
+     "family": "Adelhöfer",
+     "given": "N."
+    },
+    {
+     "family": "Gohil",
+     "given": "K."
+    },
+    {
+     "family": "Passow",
+     "given": "S."
+    },
+    {
+     "family": "Roessner",
+     "given": "V."
+    },
+    {
+     "family": "Li",
+     "given": "S.-C."
+    }
+   ],
+   "year": "2018",
+   "title": "Dopamine modulates the efficiency of sensory evidence accumulation during perceptual decision making",
+   "container": "International Journal of Neuropsychopharmacology",
+   "volume": "21",
+   "first_page": "649",
+   "last_page": "655",
+   "doi": "10.1093/ijnp/pyy019"
+  },
+  {
+   "bib_id": 6,
+   "authors": [
+    {
+     "family": "Birkmayer",
+     "given": "W."
+    },
+    {
+     "family": "Hornykiewicz",
+     "given": "O."
+    }
+   ],
+   "year": "1998",
+   "title": "The effect of L-3,4-dihydroxyphenylalanine (=DOPA) on akinesia in Parkinsonism1",
+   "container": "Parkinsonism & Related Disorders",
+   "volume": "4",
+   "first_page": "59",
+   "last_page": "60",
+   "doi": "10.1016/S1353-8020(98)00013-3"
+  },
+  {
+   "bib_id": 7,
+   "authors": [
+    {
+     "family": "Bogacz",
+     "given": "R."
+    },
+    {
+     "family": "Wagenmakers",
+     "given": "E.-J."
+    },
+    {
+     "family": "Forstmann",
+     "given": "B. U."
+    },
+    {
+     "family": "Nieuwenhuis",
+     "given": "S."
+    }
+   ],
+   "year": "2010",
+   "title": "The neural basis of the speed – Accuracy tradeoff",
+   "container": "Trends in Neurosciences",
+   "volume": "33",
+   "first_page": "10",
+   "last_page": "16",
+   "doi": "10.1016/j.tins.2009.09.002"
+  },
+  {
+   "bib_id": 8,
+   "authors": [
+    {
+     "family": "Bürkner",
+     "given": "P.-C."
+    }
+   ],
+   "year": "2017",
+   "title": "Brms : An R package for Bayesian multilevel models using Stan",
+   "container": "Journal of Statistical Software",
+   "volume": "80",
+   "doi": "10.18637/jss.v080.i01"
+  },
+  {
+   "bib_id": 9,
+   "authors": [
+    {
+     "family": "Coghill",
+     "given": "D. R."
+    },
+    {
+     "family": "Seth",
+     "given": "S."
+    },
+    {
+     "family": "Pedroso",
+     "given": "S."
+    },
+    {
+     "family": "Usala",
+     "given": "T."
+    },
+    {
+     "family": "Currie",
+     "given": "J."
+    },
+    {
+     "family": "Gagliano",
+     "given": "A."
+    }
+   ],
+   "year": "2014",
+   "title": "Effects of methylphenidate on cognitive functions in children and adolescents with attention-deficit/hyperactivity disorder: Evidence from a systematic review and a meta-analysis",
+   "container": "Biological Psychiatry",
+   "volume": "76",
+   "first_page": "603",
+   "last_page": "615",
+   "doi": "10.1016/j.biopsych.2013.10.005"
+  },
+  {
+   "bib_id": 10,
+   "authors": [
+    {
+     "family": "Collins",
+     "given": "A. G. E."
+    },
+    {
+     "family": "Frank",
+     "given": "M. J."
+    }
+   ],
+   "year": "2014",
+   "title": "Opponent actor learning (OpAL): Modeling interactive effects of striatal dopamine on reinforcement learning and choice incentive",
+   "container": "Psychological Review",
+   "volume": "121",
+   "first_page": "337",
+   "last_page": "366",
+   "doi": "10.1037/a0037015"
+  },
+  {
+   "bib_id": 11,
+   "authors": [
+    {
+     "family": "Dekkers",
+     "given": "T. J."
+    },
+    {
+     "family": "Van Rentergem",
+     "given": "J. A. A."
+    },
+    {
+     "family": "Huizenga",
+     "given": "H. M."
+    },
+    {
+     "family": "Raber",
+     "given": "H."
+    },
+    {
+     "family": "Shoham",
+     "given": "R."
+    },
+    {
+     "family": "Popma",
+     "given": "A."
+    },
+    {
+     "family": "Pollak",
+     "given": "Y."
+    }
+   ],
+   "year": "2021",
+   "title": "Decision-making deficits in ADHD are not related to risk seeking but to suboptimal decision-making: Meta-analytical and novel experimental evidence",
+   "container": "Journal of Attention Disorders",
+   "volume": "25",
+   "first_page": "486",
+   "last_page": "501",
+   "doi": "10.1177/1087054718815572"
+  },
+  {
+   "bib_id": 12,
+   "authors": [
+    {
+     "family": "Del Campo",
+     "given": "N."
+    },
+    {
+     "family": "Chamberlain",
+     "given": "S. R."
+    },
+    {
+     "family": "Sahakian",
+     "given": "B. J."
+    },
+    {
+     "family": "Robbins",
+     "given": "T. W."
+    }
+   ],
+   "year": "2011",
+   "title": "The roles of dopamine and noradrenaline in the pathophysiology and treatment of attention-deficit/hyperactivity disorder",
+   "container": "Biological Psychiatry",
+   "volume": "69",
+   "first_page": "e145",
+   "last_page": "e157",
+   "doi": "10.1016/j.biopsych.2011.02.036"
+  },
+  {
+   "bib_id": 13,
+   "authors": [
+    {
+     "family": "Durstewitz",
+     "given": "D."
+    }
+   ],
+   "year": "2006",
+   "title": "A few important points about dopamine’s role in neural network dynamics",
+   "container": "Pharmacopsychiatry",
+   "volume": "39",
+   "first_page": "72",
+   "last_page": "75",
+   "doi": "10.1055/s-2006-931499"
+  },
+  {
+   "bib_id": 14,
+   "authors": [
+    {
+     "family": "Faregh",
+     "given": "N."
+    },
+    {
+     "family": "Derevensky",
+     "given": "J."
+    }
+   ],
+   "year": "2011",
+   "title": "Gambling behavior among adolescents with attention deficit/hyperactivity disorder",
+   "container": "Journal of Gambling Studies",
+   "volume": "27",
+   "first_page": "243",
+   "last_page": "256",
+   "doi": "10.1007/s10899-010-9211-3"
+  },
+  {
+   "bib_id": 15,
+   "authors": [
+    {
+     "family": "Flory",
+     "given": "K."
+    },
+    {
+     "family": "Brooke",
+     "given": "S. G. M."
+    },
+    {
+     "family": "Pelham",
+     "given": "W. E."
+    },
+    {
+     "family": "Gnagy",
+     "given": "E."
+    },
+    {
+     "family": "Smith",
+     "given": "B."
+    }
+   ],
+   "year": "2006",
+   "title": "Childhood ADHD predicts risky sexual behavior in young adulthood",
+   "container": "Journal of Clinical Child and Adolescent Psychology: The Official Journal for the Society of Clinical Child and Adolescent Psychology, American Psychological Association, Division 53",
+   "volume": "35",
+   "first_page": "571",
+   "last_page": "577",
+   "doi": "10.1207/s15374424jccp3504_8"
+  },
+  {
+   "bib_id": 16,
+   "authors": [
+    {
+     "family": "Forstmann",
+     "given": "B. U."
+    },
+    {
+     "family": "Dutilh",
+     "given": "G."
+    },
+    {
+     "family": "Brown",
+     "given": "S."
+    },
+    {
+     "family": "Neumann",
+     "given": "J."
+    },
+    {
+     "family": "Von Cramon",
+     "given": "Y. D."
+    },
+    {
+     "family": "Ridderinkhof",
+     "given": "K. R."
+    },
+    {
+     "family": "Wagenmakers",
+     "given": "E.-J."
+    }
+   ],
+   "year": "2008",
+   "title": "Striatum and pre-SMA facilitate decision-making under time pressure",
+   "container": "Proceedings of the National Academy of Sciences",
+   "volume": "105",
+   "first_page": "17538",
+   "last_page": "17542",
+   "doi": "10.1073/pnas.0805903105"
+  },
+  {
+   "bib_id": 17,
+   "authors": [
+    {
+     "family": "Forstmann",
+     "given": "B. U."
+    },
+    {
+     "family": "Ratcliff",
+     "given": "R."
+    },
+    {
+     "family": "Wagenmakers",
+     "given": "E. J."
+    }
+   ],
+   "year": "2016",
+   "title": "Sequential sampling models in cognitive neuroscience: Advantages, applications, and extensions",
+   "container": "Annual Review of Psychology",
+   "volume": "67",
+   "first_page": "641",
+   "last_page": "666",
+   "doi": "10.1146/annurev-psych-122414-033645"
+  },
+  {
+   "bib_id": 18,
+   "authors": [
+    {
+     "family": "Fosco",
+     "given": "W. D."
+    },
+    {
+     "family": "White",
+     "given": "C. N."
+    },
+    {
+     "family": "Hawk",
+     "given": "L. W."
+    }
+   ],
+   "year": "2017",
+   "title": "Acute stimulant treatment and reinforcement increase the speed of information accumulation in children with ADHD",
+   "container": "Journal of Abnormal Child Psychology",
+   "volume": "45",
+   "first_page": "911",
+   "last_page": "920",
+   "doi": "10.1007/s10802-016-0222-0"
+  },
+  {
+   "bib_id": 19,
+   "authors": [
+    {
+     "family": "Frank",
+     "given": "M. J."
+    },
+    {
+     "family": "Santamaria",
+     "given": "A."
+    },
+    {
+     "family": "O’Reilly",
+     "given": "R. C."
+    },
+    {
+     "family": "Willcutt",
+     "given": "E."
+    }
+   ],
+   "year": "2007",
+   "title": "Testing computational models of dopamine and noradrenaline dysfunction in attention deficit/hyperactivity disorder",
+   "container": "Neuropsychopharmacology",
+   "volume": "32",
+   "first_page": "1583",
+   "last_page": "1599",
+   "doi": "10.1038/sj.npp.1301278"
+  },
+  {
+   "bib_id": 20,
+   "authors": [
+    {
+     "family": "Frank",
+     "given": "M. J."
+    },
+    {
+     "family": "Seeberger",
+     "given": "L. C."
+    },
+    {
+     "family": "O’Reilly",
+     "given": "R. C."
+    }
+   ],
+   "year": "2004",
+   "title": "By carrot or by stick: Cognitive reinforcement learning in parkinsonism",
+   "container": "Science",
+   "volume": "306",
+   "first_page": "1940",
+   "last_page": "1943",
+   "doi": "10.1126/science.1102941"
+  },
+  {
+   "bib_id": 21,
+   "authors": [
+    {
+     "family": "Fredriksen",
+     "given": "M."
+    },
+    {
+     "family": "Peleikis",
+     "given": "D. E."
+    }
+   ],
+   "year": "2016",
+   "title": "Long‐term pharmacotherapy of adults with attention deficit hyperactivity disorder: A literature review and clinical study",
+   "container": "Basic & Clinical Pharmacology & Toxicology",
+   "volume": "118",
+   "first_page": "23",
+   "last_page": "31",
+   "doi": "10.1111/bcpt.12477"
+  },
+  {
+   "bib_id": 22,
+   "authors": [
+    {
+     "family": "Gelman",
+     "given": "A."
+    },
+    {
+     "family": "Rubin",
+     "given": "D. B."
+    }
+   ],
+   "year": "1992",
+   "title": "Inference from iterative simulation using multiple sequences",
+   "container": "Statistical Science",
+   "volume": "7",
+   "first_page": "457",
+   "last_page": "472"
+  },
+  {
+   "bib_id": 23,
+   "authors": [
+    {
+     "family": "Gold",
+     "given": "J. I."
+    },
+    {
+     "family": "Shadlen",
+     "given": "M. N."
+    }
+   ],
+   "year": "2007",
+   "title": "The neural basis of decision making",
+   "container": "Annual Review of Neuroscience",
+   "volume": "30",
+   "first_page": "535",
+   "last_page": "574",
+   "doi": "10.1146/annurev.neuro.29.051605.113038"
+  },
+  {
+   "bib_id": 24,
+   "authors": [
+    {
+     "family": "Huang-Pollock",
+     "given": "C."
+    },
+    {
+     "family": "Ratcliff",
+     "given": "R."
+    },
+    {
+     "family": "McKoon",
+     "given": "G."
+    },
+    {
+     "family": "Shapiro",
+     "given": "Z."
+    },
+    {
+     "family": "Weigard",
+     "given": "A."
+    },
+    {
+     "family": "Galloway-Long",
+     "given": "H."
+    }
+   ],
+   "year": "2017",
+   "title": "Using the diffusion model to explain cognitive deficits in attention deficit hyperactivity disorder",
+   "container": "Journal of Abnormal Child Psychology",
+   "volume": "45",
+   "first_page": "57",
+   "last_page": "68",
+   "doi": "10.1007/s10802-016-0151-y"
+  },
+  {
+   "bib_id": 25,
+   "authors": [
+    {
+     "family": "Huys",
+     "given": "Q. J. M."
+    },
+    {
+     "family": "Browning",
+     "given": "M."
+    },
+    {
+     "family": "Paulus",
+     "given": "M. P."
+    },
+    {
+     "family": "Frank",
+     "given": "M. J."
+    }
+   ],
+   "year": "2021",
+   "title": "Advances in the computational understanding of mental illness",
+   "container": "Neuropsychopharmacology",
+   "volume": "46",
+   "first_page": "3",
+   "last_page": "19",
+   "doi": "10.1038/s41386-020-0746-4"
+  },
+  {
+   "bib_id": 26,
+   "authors": [
+    {
+     "family": "Karalunas",
+     "given": "S. L."
+    },
+    {
+     "family": "Geurts",
+     "given": "H. M."
+    },
+    {
+     "family": "Konrad",
+     "given": "K."
+    },
+    {
+     "family": "Bender",
+     "given": "S."
+    },
+    {
+     "family": "Nigg",
+     "given": "J. T."
+    }
+   ],
+   "year": "2014",
+   "title": "Annual research review: Reaction time variability in ADHD and autism Spectrum disorders: Measurement and mechanisms of a proposed trans‐diagnostic phenotype",
+   "container": "Journal of Child Psychology and Psychiatry",
+   "volume": "55",
+   "first_page": "685",
+   "last_page": "710",
+   "doi": "10.1111/jcpp.12217"
+  },
+  {
+   "bib_id": 27,
+   "authors": [
+    {
+     "family": "Karalunas",
+     "given": "S. L."
+    },
+    {
+     "family": "Huang-Pollock",
+     "given": "C. L."
+    }
+   ],
+   "year": "2013",
+   "title": "Integrating impairments in reaction time and executive function using a diffusion model framework",
+   "container": "Journal of Abnormal Child Psychology",
+   "volume": "41",
+   "first_page": "837",
+   "last_page": "850",
+   "doi": "10.1007/s10802-013-9715-2"
+  },
+  {
+   "bib_id": 28,
+   "authors": [
+    {
+     "family": "Karalunas",
+     "given": "S. L."
+    },
+    {
+     "family": "Huang-Pollock",
+     "given": "C. L."
+    },
+    {
+     "family": "Nigg",
+     "given": "J. T."
+    }
+   ],
+   "year": "2012",
+   "title": "Decomposing attention-deficit/hyperactivity disorder (ADHD)-related effects in response speed and variability",
+   "container": "Neuropsychology",
+   "volume": "26",
+   "first_page": "684",
+   "last_page": "694",
+   "doi": "10.1037/a0029936"
+  },
+  {
+   "bib_id": 29,
+   "authors": [
+    {
+     "family": "Kriegeskorte",
+     "given": "N."
+    },
+    {
+     "family": "Douglas",
+     "given": "P. K."
+    }
+   ],
+   "year": "2018",
+   "title": "Cognitive computational neuroscience",
+   "container": "Nature Neuroscience",
+   "volume": "21",
+   "first_page": "1148",
+   "last_page": "1160",
+   "doi": "10.1038/s41593-018-0210-5"
+  },
+  {
+   "bib_id": 30,
+   "authors": [
+    {
+     "family": "Kruschke",
+     "given": "J. K."
+    }
+   ],
+   "year": "2010",
+   "title": "Doing Bayesian data analysis: A tutorial with R and BUGS"
+  },
+  {
+   "bib_id": 31,
+   "authors": [
+    {
+     "family": "Lee",
+     "given": "S. S."
+    },
+    {
+     "family": "Humphreys",
+     "given": "K. L."
+    },
+    {
+     "family": "Flory",
+     "given": "K."
+    },
+    {
+     "family": "Liu",
+     "given": "R."
+    },
+    {
+     "family": "Glass",
+     "given": "K."
+    }
+   ],
+   "year": "2011",
+   "title": "Prospective Association of Childhood Attention-Deficit/hyperactivity disorder (ADHD) and substance use and abuse/dependence: A meta-analytic review",
+   "container": "Clinical Psychology Review",
+   "volume": "31",
+   "first_page": "328",
+   "last_page": "341",
+   "doi": "10.1016/j.cpr.2011.01.006"
+  },
+  {
+   "bib_id": 32,
+   "authors": [
+    {
+     "family": "Loughnane",
+     "given": "G. M."
+    },
+    {
+     "family": "Brosnan",
+     "given": "M. B."
+    },
+    {
+     "family": "Barnes",
+     "given": "J. J. M."
+    },
+    {
+     "family": "Dean",
+     "given": "A."
+    },
+    {
+     "family": "Nandam",
+     "given": "S. L."
+    },
+    {
+     "family": "O’Connell",
+     "given": "R. G."
+    },
+    {
+     "family": "Bellgrove",
+     "given": "M. A."
+    }
+   ],
+   "year": "2019",
+   "title": "Catecholamine modulation of evidence accumulation during perceptual decision formation: A randomized trial",
+   "container": "Journal of Cognitive Neuroscience",
+   "volume": "31",
+   "first_page": "1044",
+   "last_page": "1053",
+   "doi": "10.1162/jocn_a_01393"
+  },
+  {
+   "bib_id": 33,
+   "authors": [
+    {
+     "family": "Luman",
+     "given": "M."
+    },
+    {
+     "family": "Oosterlaan",
+     "given": "J."
+    },
+    {
+     "family": "Knol",
+     "given": "D. L."
+    },
+    {
+     "family": "Sergeant",
+     "given": "J. A."
+    }
+   ],
+   "year": "2008",
+   "title": "Decision‐making in ADHD: Sensitive to frequency but blind to the magnitude of penalty?",
+   "container": "Journal of Child Psychology and Psychiatry",
+   "volume": "49",
+   "first_page": "712",
+   "last_page": "722",
+   "doi": "10.1111/j.1469-7610.2008.01910.x"
+  },
+  {
+   "bib_id": 34,
+   "authors": [
+    {
+     "family": "Maia",
+     "given": "T. V."
+    },
+    {
+     "family": "Huys",
+     "given": "Q. J. M."
+    },
+    {
+     "family": "Frank",
+     "given": "M. J."
+    }
+   ],
+   "year": "2017",
+   "title": "Theory-based computational psychiatry",
+   "container": "Biological Psychiatry",
+   "volume": "82",
+   "first_page": "382",
+   "last_page": "384",
+   "doi": "10.1016/j.biopsych.2017.07.016"
+  },
+  {
+   "bib_id": 35,
+   "authors": [
+    {
+     "family": "Mandali",
+     "given": "A."
+    },
+    {
+     "family": "Sethi",
+     "given": "A."
+    },
+    {
+     "family": "Cercignani",
+     "given": "M."
+    },
+    {
+     "family": "Harrison",
+     "given": "N. A."
+    },
+    {
+     "family": "Voon",
+     "given": "V."
+    }
+   ],
+   "year": "2021",
+   "title": "Shifting uncertainty intolerance: Methylphenidate and attention-deficit hyperactivity disorder",
+   "container": "Translational Psychiatry",
+   "volume": "11",
+   "first_page": "12",
+   "doi": "10.1038/s41398-020-01118-4"
+  },
+  {
+   "bib_id": 36,
+   "authors": [
+    {
+     "family": "Metin",
+     "given": "B."
+    },
+    {
+     "family": "Roeyers",
+     "given": "H."
+    },
+    {
+     "family": "Wiersema",
+     "given": "J. R."
+    },
+    {
+     "family": "Van Der Meere",
+     "given": "J. J."
+    },
+    {
+     "family": "Thompson",
+     "given": "M."
+    },
+    {
+     "family": "Sonuga-Barke",
+     "given": "E."
+    }
+   ],
+   "year": "2013",
+   "title": "ADHD performance reflects inefficient but not impulsive information processing: A diffusion model analysis",
+   "container": "Neuropsychology",
+   "volume": "27",
+   "first_page": "193",
+   "last_page": "200",
+   "doi": "10.1037/a0031533"
+  },
+  {
+   "bib_id": 37,
+   "authors": [
+    {
+     "family": "Molina",
+     "given": "B. S. G."
+    },
+    {
+     "family": "Pelham",
+     "given": "W. E."
+    }
+   ],
+   "year": "2003",
+   "title": "Childhood predictors of adolescent substance use in a longitudinal study of children with ADHD",
+   "container": "Journal of Abnormal Psychology",
+   "volume": "112",
+   "first_page": "497",
+   "last_page": "507",
+   "doi": "10.1037/0021-843x.112.3.497"
+  },
+  {
+   "bib_id": 38,
+   "authors": [
+    {
+     "family": "Montague",
+     "given": "P."
+    },
+    {
+     "family": "Dayan",
+     "given": "P."
+    },
+    {
+     "family": "Sejnowski",
+     "given": "T."
+    }
+   ],
+   "year": "1996",
+   "title": "A framework for mesencephalic dopamine systems based on predictive Hebbian learning",
+   "container": "The Journal of Neuroscience",
+   "volume": "16",
+   "first_page": "1936",
+   "last_page": "1947",
+   "doi": "10.1523/JNEUROSCI.16-05-01936.1996"
+  },
+  {
+   "bib_id": 39,
+   "authors": [
+    {
+     "family": "Mowinckel",
+     "given": "A. M."
+    },
+    {
+     "family": "Alnæs",
+     "given": "D."
+    },
+    {
+     "family": "Pedersen",
+     "given": "M. L."
+    },
+    {
+     "family": "Ziegler",
+     "given": "S."
+    },
+    {
+     "family": "Fredriksen",
+     "given": "M."
+    },
+    {
+     "family": "Kaufmann",
+     "given": "T."
+    },
+    {
+     "family": "Sonuga-Barke",
+     "given": "E."
+    },
+    {
+     "family": "Endestad",
+     "given": "T."
+    },
+    {
+     "family": "Westlye",
+     "given": "L. T."
+    },
+    {
+     "family": "Biele",
+     "given": "G."
+    }
+   ],
+   "year": "2017",
+   "title": "Increased default-mode variability is related to reduced task-performance and is evident in adults with ADHD",
+   "container": "NeuroImage: Clinical",
+   "volume": "16",
+   "first_page": "369",
+   "last_page": "382",
+   "doi": "10.1016/j.nicl.2017.03.008"
+  },
+  {
+   "bib_id": 40,
+   "authors": [
+    {
+     "family": "Mowinckel",
+     "given": "A. M."
+    },
+    {
+     "family": "Pedersen",
+     "given": "M. L."
+    },
+    {
+     "family": "Eilertsen",
+     "given": "E."
+    },
+    {
+     "family": "Biele",
+     "given": "G."
+    }
+   ],
+   "year": "2015",
+   "title": "A meta-analysis of decision-making and attention in adults with ADHD",
+   "container": "Journal of Attention Disorders",
+   "volume": "19",
+   "first_page": "355",
+   "last_page": "367",
+   "doi": "10.1177/1087054714558872"
+  },
+  {
+   "bib_id": 41,
+   "authors": [
+    {
+     "family": "Mulder",
+     "given": "M. J."
+    },
+    {
+     "family": "Bos",
+     "given": "D."
+    },
+    {
+     "family": "Weusten",
+     "given": "J. M. H."
+    },
+    {
+     "family": "Van Belle",
+     "given": "J."
+    },
+    {
+     "family": "Van Dijk",
+     "given": "S. C."
+    },
+    {
+     "family": "Simen",
+     "given": "P."
+    },
+    {
+     "family": "Van Engeland",
+     "given": "H."
+    },
+    {
+     "family": "Durston",
+     "given": "S."
+    }
+   ],
+   "year": "2010",
+   "title": "Basic impairments in regulating the speed-accuracy tradeoff predict symptoms of attention-deficit/hyperactivity disorder",
+   "container": "Biological Psychiatry",
+   "volume": "68",
+   "first_page": "1114",
+   "last_page": "1119",
+   "doi": "10.1016/j.biopsych.2010.07.031"
+  },
+  {
+   "bib_id": 42,
+   "authors": [
+    {
+     "family": "Nicola",
+     "given": "S. M."
+    },
+    {
+     "family": "Hopf",
+     "given": "F. W."
+    },
+    {
+     "family": "Hjelmstad",
+     "given": "G. O."
+    }
+   ],
+   "year": "2004",
+   "title": "Contrast enhancement: A physiological effect of striatal dopamine?",
+   "container": "Cell and Tissue Research",
+   "volume": "318",
+   "first_page": "93",
+   "last_page": "106",
+   "doi": "10.1007/s00441-004-0929-z"
+  },
+  {
+   "bib_id": 43,
+   "authors": [
+    {
+     "family": "Novartis Pharmaceuticals Corporation",
+     "given": ""
+    }
+   ],
+   "year": "2025"
+  },
+  {
+   "bib_id": 44,
+   "authors": [
+    {
+     "family": "Patrick",
+     "given": "K. S."
+    },
+    {
+     "family": "Mueller",
+     "given": "R. A."
+    },
+    {
+     "family": "Gualtieri",
+     "given": "C. T."
+    },
+    {
+     "family": "Breese",
+     "given": "G. R."
+    }
+   ],
+   "year": "1987",
+   "title": "Pharmacokinetics and actions of methylphenidate",
+   "container": "Psychopharmacology: The Third Generation of Progress",
+   "volume": "3",
+   "first_page": "1390"
+  },
+  {
+   "bib_id": 45,
+   "authors": [
+    {
+     "family": "Pedersen",
+     "given": "M. L."
+    },
+    {
+     "family": "Frank",
+     "given": "M. J."
+    },
+    {
+     "family": "Biele",
+     "given": "G."
+    }
+   ],
+   "year": "2017",
+   "title": "The drift diffusion model as the choice rule in reinforcement learning",
+   "container": "Psychonomic Bulletin & Review",
+   "volume": "24",
+   "first_page": "1234",
+   "last_page": "1251",
+   "doi": "10.3758/s13423-016-1199-y"
+  },
+  {
+   "bib_id": 46,
+   "authors": [
+    {
+     "family": "Pedersen",
+     "given": "M. L."
+    },
+    {
+     "family": "Ironside",
+     "given": "M."
+    },
+    {
+     "family": "Amemori",
+     "given": "K.-i."
+    },
+    {
+     "family": "McGrath",
+     "given": "C. L."
+    },
+    {
+     "family": "Kang",
+     "given": "M. S."
+    },
+    {
+     "family": "Graybiel",
+     "given": "A. M."
+    },
+    {
+     "family": "Pizzagalli",
+     "given": "D. A."
+    },
+    {
+     "family": "Frank",
+     "given": "M. J."
+    }
+   ],
+   "year": "2021",
+   "title": "Computational phenotyping of brain-behavior dynamics underlying approach-avoidance conflict in major depressive disorder",
+   "container": "edited by J. Daunizeau. PLOS Computational Biology",
+   "volume": "17",
+   "first_page": "e1008955",
+   "doi": "10.1371/journal.pcbi.1008955"
+  },
+  {
+   "bib_id": 47,
+   "authors": [
+    {
+     "family": "Pollak",
+     "given": "Y."
+    },
+    {
+     "family": "Oz",
+     "given": "A."
+    },
+    {
+     "family": "Neventsal",
+     "given": "O."
+    },
+    {
+     "family": "Rabi",
+     "given": "O."
+    },
+    {
+     "family": "Kitrossky",
+     "given": "L."
+    },
+    {
+     "family": "Maeir",
+     "given": "A."
+    }
+   ],
+   "year": "2016",
+   "title": "Do adolescents with attention-deficit/hyperactivity disorder show risk seeking? Disentangling probabilistic decision making by equalizing the favorability of alternatives",
+   "container": "Journal of Abnormal Psychology",
+   "volume": "125",
+   "first_page": "387",
+   "last_page": "398",
+   "doi": "10.1037/abn0000140"
+  },
+  {
+   "bib_id": 48,
+   "authors": [
+    {
+     "family": "Pollak",
+     "given": "Y."
+    },
+    {
+     "family": "Shalit",
+     "given": "R."
+    },
+    {
+     "family": "Aran",
+     "given": "A."
+    }
+   ],
+   "year": "2018",
+   "title": "Risk taking and adult attention deficit/hyperactivity disorder: A gap between real life behavior and experimental decision making",
+   "container": "Psychiatry Research",
+   "volume": "259",
+   "first_page": "56",
+   "last_page": "62",
+   "doi": "10.1016/j.psychres.2017.10.012"
+  },
+  {
+   "bib_id": 49,
+   "authors": [
+    {
+     "family": "Ratcliff",
+     "given": "R."
+    }
+   ],
+   "year": "1978",
+   "title": "A theory of memory retrieval"
+  },
+  {
+   "bib_id": 50,
+   "authors": [
+    {
+     "family": "Ratcliff",
+     "given": "R."
+    },
+    {
+     "family": "McKoon",
+     "given": "G."
+    }
+   ],
+   "year": "2008",
+   "title": "The diffusion decision model: Theory and data for two-choice decision tasks",
+   "container": "Neural Computation",
+   "volume": "20",
+   "first_page": "873",
+   "last_page": "922",
+   "doi": "10.1162/neco.2008.12-06-420"
+  },
+  {
+   "bib_id": 51,
+   "authors": [
+    {
+     "family": "Ratcliff",
+     "given": "R."
+    },
+    {
+     "family": "Smith",
+     "given": "P. L."
+    }
+   ],
+   "year": "2004",
+   "title": "A comparison of sequential sampling models for two-choice reaction time",
+   "container": "Psychological Review",
+   "volume": "111",
+   "first_page": "333",
+   "last_page": "367",
+   "doi": "10.1037/0033-295X.111.2.333"
+  },
+  {
+   "bib_id": 52,
+   "authors": [
+    {
+     "family": "Sagvolden",
+     "given": "T."
+    },
+    {
+     "family": "Johansen",
+     "given": "E. B."
+    },
+    {
+     "family": "Aase",
+     "given": "H."
+    },
+    {
+     "family": "Russell",
+     "given": "V. A."
+    }
+   ],
+   "year": "2005",
+   "title": "A dynamic developmental theory of attention-deficit/hyperactivity disorder (ADHD) predominantly hyperactive/impulsive and combined subtypes",
+   "container": "Behavioral and Brain Sciences",
+   "volume": "28",
+   "doi": "10.1017/S0140525X05000075"
+  },
+  {
+   "bib_id": 53,
+   "authors": [
+    {
+     "family": "Salum",
+     "given": "G. A."
+    },
+    {
+     "family": "Sergeant",
+     "given": "J."
+    },
+    {
+     "family": "Sonuga-Barke",
+     "given": "E."
+    },
+    {
+     "family": "Vandekerckhove",
+     "given": "J."
+    },
+    {
+     "family": "Gadelha",
+     "given": "A."
+    },
+    {
+     "family": "Pan",
+     "given": "P. M."
+    },
+    {
+     "family": "Moriyama",
+     "given": "T. S."
+    },
+    {
+     "family": "Graeff-Martins",
+     "given": "A. S."
+    },
+    {
+     "family": "De Alvarenga",
+     "given": "P. G."
+    },
+    {
+     "family": "Rosário",
+     "given": "M. C. D."
+    },
+    {
+     "family": "Manfro",
+     "given": "G. G."
+    },
+    {
+     "family": "Polanczyk",
+     "given": "G."
+    },
+    {
+     "family": "Rohde",
+     "given": "L. A. P."
+    }
+   ],
+   "year": "2014",
+   "title": "Specificity of basic information processing and inhibitory control in attention deficit hyperactivity disorder",
+   "container": "Psychological Medicine",
+   "volume": "44",
+   "first_page": "617",
+   "last_page": "631",
+   "doi": "10.1017/S0033291713000639"
+  },
+  {
+   "bib_id": 54,
+   "authors": [
+    {
+     "family": "Salum",
+     "given": "G. A."
+    },
+    {
+     "family": "Sonuga-Barke",
+     "given": "E."
+    },
+    {
+     "family": "Sergeant",
+     "given": "J."
+    },
+    {
+     "family": "Vandekerckhove",
+     "given": "J."
+    },
+    {
+     "family": "Gadelha",
+     "given": "A."
+    },
+    {
+     "family": "Moriyama",
+     "given": "T. S."
+    },
+    {
+     "family": "Graeff-Martins",
+     "given": "A. S."
+    },
+    {
+     "family": "Manfro",
+     "given": "G. G."
+    },
+    {
+     "family": "Polanczyk",
+     "given": "G."
+    },
+    {
+     "family": "Rohde",
+     "given": "L. A. P."
+    }
+   ],
+   "year": "2014",
+   "title": "Mechanisms underpinning inattention and hyperactivity: Neurocognitive support for ADHD dimensionality",
+   "container": "Psychological Medicine",
+   "volume": "44",
+   "first_page": "3189",
+   "last_page": "3201",
+   "doi": "10.1017/S0033291714000919"
+  },
+  {
+   "bib_id": 55,
+   "authors": [
+    {
+     "family": "Sarver",
+     "given": "D. E."
+    },
+    {
+     "family": "McCart",
+     "given": "M. R."
+    },
+    {
+     "family": "Sheidow",
+     "given": "A. J."
+    },
+    {
+     "family": "Letourneau",
+     "given": "E. J."
+    }
+   ],
+   "year": "2014",
+   "title": "ADHD and risky sexual behavior in adolescents: Conduct problems and substance use as mediators of risk",
+   "container": "Journal of Child Psychology and Psychiatry, and Allied Disciplines",
+   "volume": "55",
+   "first_page": "1345",
+   "last_page": "1353",
+   "doi": "10.1111/jcpp.12249"
+  },
+  {
+   "bib_id": 56,
+   "authors": [
+    {
+     "family": "Sonuga-Barke",
+     "given": "E. J. S."
+    }
+   ],
+   "year": "2003",
+   "title": "The dual pathway model of AD/HD: An elaboration of neuro-developmental characteristics",
+   "container": "Neuroscience & Biobehavioral Reviews",
+   "volume": "27",
+   "first_page": "593",
+   "last_page": "604",
+   "doi": "10.1016/j.neubiorev.2003.08.005"
+  },
+  {
+   "bib_id": 57,
+   "authors": [
+    {
+     "family": "Sørensen",
+     "given": "L."
+    },
+    {
+     "family": "Sonuga-Barke",
+     "given": "E."
+    },
+    {
+     "family": "Eichele",
+     "given": "H."
+    },
+    {
+     "family": "Van Wageningen",
+     "given": "H."
+    },
+    {
+     "family": "Wollschlaeger",
+     "given": "D."
+    },
+    {
+     "family": "Plessen",
+     "given": "K. J."
+    }
+   ],
+   "year": "2017",
+   "title": "Suboptimal decision making by children with ADHD in the face of risk: Poor risk adjustment and delay aversion rather than general proneness to taking risks",
+   "container": "Neuropsychology",
+   "volume": "31",
+   "first_page": "119",
+   "last_page": "128",
+   "doi": "10.1037/neu0000297"
+  },
+  {
+   "bib_id": 58,
+   "authors": [
+    {
+     "family": "Steinemann",
+     "given": "N."
+    },
+    {
+     "family": "Stine",
+     "given": "G. M."
+    },
+    {
+     "family": "Trautmann",
+     "given": "E."
+    },
+    {
+     "family": "Zylberberg",
+     "given": "A."
+    },
+    {
+     "family": "Wolpert",
+     "given": "D. M."
+    },
+    {
+     "family": "Shadlen",
+     "given": "M. N."
+    }
+   ],
+   "year": "2024",
+   "title": "Direct observation of the neural computations underlying a single decision",
+   "container": "eLife",
+   "volume": "12",
+   "first_page": "RP90859",
+   "doi": "10.7554/eLife.90859"
+  },
+  {
+   "bib_id": 59,
+   "authors": [
+    {
+     "family": "Tanaka",
+     "given": "S. C."
+    },
+    {
+     "family": "Yahata",
+     "given": "N."
+    },
+    {
+     "family": "Todokoro",
+     "given": "A."
+    },
+    {
+     "family": "Kawakubo",
+     "given": "Y."
+    },
+    {
+     "family": "Kano",
+     "given": "Y."
+    },
+    {
+     "family": "Nishimura",
+     "given": "Y."
+    },
+    {
+     "family": "Ishii-Takahashi",
+     "given": "A."
+    },
+    {
+     "family": "Ohtake",
+     "given": "F."
+    },
+    {
+     "family": "Kasai",
+     "given": "K."
+    }
+   ],
+   "year": "2018",
+   "title": "Preliminary evidence of altered neural response during intertemporal choice of losses in adult attention-deficit hyperactivity disorder",
+   "container": "Scientific Reports",
+   "volume": "8",
+   "first_page": "6703",
+   "doi": "10.1038/s41598-018-24944-5"
+  },
+  {
+   "bib_id": 60,
+   "authors": [
+    {
+     "family": "Tripp",
+     "given": "G."
+    },
+    {
+     "family": "Wickens",
+     "given": "J. R."
+    }
+   ],
+   "year": "2009",
+   "title": "Neurobiology of ADHD",
+   "container": "Neuropharmacology",
+   "volume": "57",
+   "first_page": "579",
+   "last_page": "589",
+   "doi": "10.1016/j.neuropharm.2009.07.026"
+  },
+  {
+   "bib_id": 61,
+   "authors": [
+    {
+     "family": "Volkow",
+     "given": "N. D."
+    },
+    {
+     "family": "Wang",
+     "given": "G.-J."
+    },
+    {
+     "family": "Fowler",
+     "given": "J. S."
+    },
+    {
+     "family": "Ding",
+     "given": "Y.-S."
+    }
+   ],
+   "year": "2005",
+   "title": "Imaging the effects of methylphenidate on brain dopamine: New model on its therapeutic actions for attention-deficit/hyperactivity disorder",
+   "container": "Biological Psychiatry",
+   "volume": "57",
+   "first_page": "1410",
+   "last_page": "1415",
+   "doi": "10.1016/j.biopsych.2004.11.006"
+  },
+  {
+   "bib_id": 62,
+   "authors": [
+    {
+     "family": "Ward",
+     "given": "M. F."
+    },
+    {
+     "family": "Wender",
+     "given": "P. H."
+    },
+    {
+     "family": "Reimherr",
+     "given": "F. W."
+    }
+   ],
+   "year": "1993",
+   "title": "The Wender Utah rating scale: An aid in the retrospective diagnosis of childhood attention deficit hyperactivity disorder",
+   "container": "American Journal of Psychiatry",
+   "volume": "150",
+   "first_page": "885",
+   "last_page": "890"
+  },
+  {
+   "bib_id": 63,
+   "authors": [
+    {
+     "family": "Weigard",
+     "given": "A."
+    },
+    {
+     "family": "Heathcote",
+     "given": "A."
+    },
+    {
+     "family": "Sripada",
+     "given": "C."
+    }
+   ],
+   "year": "2019",
+   "title": "Modeling the effects of methylphenidate on interference and evidence accumulation processes using the conflict linear ballistic accumulator",
+   "container": "Psychopharmacology",
+   "volume": "236",
+   "first_page": "2501",
+   "last_page": "2512",
+   "doi": "10.1007/s00213-019-05316-x"
+  },
+  {
+   "bib_id": 64,
+   "authors": [
+    {
+     "family": "Weigard",
+     "given": "A."
+    },
+    {
+     "family": "Huang‐Pollock",
+     "given": "C."
+    }
+   ],
+   "year": "2014",
+   "title": "A diffusion modeling approach to understanding contextual cueing effects in children with ADHD",
+   "container": "Journal of Child Psychology and Psychiatry",
+   "volume": "55",
+   "first_page": "1336",
+   "last_page": "1344",
+   "doi": "10.1111/jcpp.12250"
+  },
+  {
+   "bib_id": 65,
+   "authors": [
+    {
+     "family": "Winkel",
+     "given": "J."
+    },
+    {
+     "family": "Van Maanen",
+     "given": "L."
+    },
+    {
+     "family": "Ratcliff",
+     "given": "R."
+    },
+    {
+     "family": "Van Der Schaaf",
+     "given": "M. E."
+    },
+    {
+     "family": "Van Schouwenburg",
+     "given": "M. R."
+    },
+    {
+     "family": "Cools",
+     "given": "R."
+    },
+    {
+     "family": "Forstmann",
+     "given": "B. U."
+    }
+   ],
+   "year": "2012",
+   "title": "Bromocriptine does not Alter speed–accuracy tradeoff",
+   "container": "Frontiers in Neuroscience",
+   "volume": "6",
+   "doi": "10.3389/fnins.2012.00126"
+  },
+  {
+   "bib_id": 66,
+   "authors": [
+    {
+     "family": "de Zeeuw",
+     "given": "E. L."
+    },
+    {
+     "family": "van Beijsterveldt",
+     "given": "C. E. M"
+    },
+    {
+     "family": "Ehli",
+     "given": "E. A."
+    },
+    {
+     "family": "de Geus",
+     "given": "E. J. C."
+    },
+    {
+     "family": "Boomsma",
+     "given": "D. I."
+    }
+   ],
+   "year": "2017",
+   "title": "Attention deficit hyperactivity disorder symptoms and low educational achievement: Evidence supporting a causal hypothesis",
+   "container": "Behavior Genetics",
+   "volume": "47",
+   "first_page": "278",
+   "last_page": "289",
+   "doi": "10.1007/s10519-017-9836-4"
+  },
+  {
+   "bib_id": 67,
+   "authors": [
+    {
+     "family": "Ziegler",
+     "given": "S."
+    },
+    {
+     "family": "Pedersen",
+     "given": "M. L."
+    },
+    {
+     "family": "Mowinckel",
+     "given": "A. M."
+    },
+    {
+     "family": "Biele",
+     "given": "G."
+    }
+   ],
+   "year": "2016",
+   "title": "Modelling ADHD: A review of ADHD theories through their predictions for computational models of decision-making and reinforcement learning",
+   "container": "Neuroscience & Biobehavioral Reviews",
+   "volume": "71",
+   "first_page": "633",
+   "last_page": "656",
+   "doi": "10.1016/j.neubiorev.2016.09.002"
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-core-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "jats_doi": "10.1017/S0033291726104954"
+ }
+}

@@ -1,0 +1,1712 @@
+{
+ "paper_id": "10.1371_journal.pcbi.1013017",
+ "info": {
+  "title": "REvolutionH-tl 2.0: A fast and robust tool for decoding evolutionary gene histories",
+  "doi": "10.1371/journal.pcbi.1013017",
+  "file_name": "10.1371_journal.pcbi.1013017.pdf",
+  "abstract": "REvolutionH-tl is a fast, scalable, and integrated software platform for inferring orthology relationships, gene trees, species trees, and reconciled evolutionary scenarios directly from sequence data. Built upon the formal framework of best match graphs (BMGs), REvolutionH-tl predicts orthogroups and orthologous gene pairs with high accuracy, requiring neither precomputed trees nor multiple external tools. The software reconstructs event-labeled gene and species trees, seamlessly integrating reconciliation to produce fast, accurate, and biologically insightful evolutionary scenarios. Through extensive benchmarking on synthetic datasets with known ground truth, REvolutionH-tl outperforms or matches the accuracy of established tools such as OrthoFinder, Proteinortho, RAxML, GeneRax, and RANGER-DTL, while achieving significantly lower runtimes. A key innovation of REvolutionH-tl is its built-in support for detailed, publication-ready visualizations, which allow users to explore genome evolution dynamics, orthogroup composition, and reconciliation results with clarity and ease. These visual features position REvolutionH-tl as the first platform of its kind to combine analytical precision with intuitive interpretability. The software is open-source, cross-platform, and freely available at https://pypi.org/project/revolutionhtl/, providing a robust solution for large-scale evolutionary analyses in comparative genomics."
+ },
+ "author": [
+  {
+   "author_id": 1,
+   "given": "José Antonio",
+   "family": "Ramírez-Rafael",
+   "affiliation": "Department of Genetic Engineering, Center for Research and Advanced Studies of the National Polytechnic Institute, Irapuato Unit, Irapuato, Guanajuato, Mexico; Department of Computer Science, University of Leipzig, Leipzig, Saxony, Germany; Max Planck Institute for Mathematics in the Sciences, Leipzig, Saxony, Germany",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 2,
+   "given": "Annachiara",
+   "family": "Korchmaros",
+   "affiliation": "Department of Computer Science, University of Leipzig, Leipzig, Saxony, Germany",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 3,
+   "given": "Katia",
+   "family": "Aviña-Padilla",
+   "affiliation": "Department of Genetic Engineering, Center for Research and Advanced Studies of the National Polytechnic Institute, Irapuato Unit, Irapuato, Guanajuato, Mexico; Department of Cell Biology, Center for Research and Advanced Studies of the National Polytechnic Institute, Mexico City, Mexico",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 4,
+   "given": "Alitzel",
+   "family": "López-Sánchez",
+   "affiliation": "Department of Computer Science, University of Sherbrooke, Sherbrooke, Quebec, Canada",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 5,
+   "given": "Gabriel",
+   "family": "Martinez-Medina",
+   "affiliation": "Department of Genetic Engineering, Center for Research and Advanced Studies of the National Polytechnic Institute, Irapuato Unit, Irapuato, Guanajuato, Mexico",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 6,
+   "given": "Alfredo J.",
+   "family": "Hernández-Álvarez",
+   "affiliation": "Centro de Ciencias Genómicas, UNAM, Cuernavaca, Mexico",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 7,
+   "given": "Marc",
+   "family": "Hellmuth",
+   "affiliation": "Department of Mathematics, Stockholm University, Stockholm, Sweden",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 8,
+   "given": "Peter F.",
+   "family": "Stadler",
+   "affiliation": "Department of Computer Science, University of Leipzig, Leipzig, Saxony, Germany; Max Planck Institute for Mathematics in the Sciences, Leipzig, Saxony, Germany; Department of Theoretical Chemistry, University of Vienna, Vienna, Austria; Santa Fe Institute, Santa Fe, New Mexico, United States of America; Facultad de Ciencias, Universidad Nacional de Colombia, Bogotá, Colombia",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 9,
+   "given": "Maribel",
+   "family": "Hernández-Rosales",
+   "affiliation": "Department of Genetic Engineering, Center for Research and Advanced Studies of the National Polytechnic Institute, Irapuato Unit, Irapuato, Guanajuato, Mexico",
+   "email": "",
+   "orcid": "",
+   "corresponding": true
+  }
+ ],
+ "section": [
+  {
+   "section_id": 1,
+   "section_type": "abstract",
+   "header": "Abstract",
+   "level": 1,
+   "parent_section_id": null,
+   "classification_score": 1.0
+  }
+ ],
+ "text": [
+  {
+   "text_id": 1,
+   "section_id": 1,
+   "paragraph_id": 1,
+   "text": "REvolutionH-tl is a fast, scalable, and integrated software platform for inferring orthology relationships, gene trees, species trees, and reconciled evolutionary scenarios directly from sequence data. Built upon the formal framework of best match graphs (BMGs), REvolutionH-tl predicts orthogroups and orthologous gene pairs with high accuracy, requiring neither precomputed trees nor multiple external tools. The software reconstructs event-labeled gene and species trees, seamlessly integrating reconciliation to produce fast, accurate, and biologically insightful evolutionary scenarios. Through extensive benchmarking on synthetic datasets with known ground truth, REvolutionH-tl outperforms or matches the accuracy of established tools such as OrthoFinder, Proteinortho, RAxML, GeneRax, and RANGER-DTL, while achieving significantly lower runtimes. A key innovation of REvolutionH-tl is its built-in support for detailed, publication-ready visualizations, which allow users to explore genome evolution dynamics, orthogroup composition, and reconciliation results with clarity and ease. These visual features position REvolutionH-tl as the first platform of its kind to combine analytical precision with intuitive interpretability. The software is open-source, cross-platform, and freely available at https://pypi.org/project/revolutionhtl/, providing a robust solution for large-scale evolutionary analyses in comparative genomics.",
+   "page_number": 1
+  }
+ ],
+ "bib": [
+  {
+   "bib_id": 1,
+   "authors": [
+    {
+     "family": "Waikagul",
+     "given": "J"
+    },
+    {
+     "family": "Thaenkham",
+     "given": "U"
+    }
+   ],
+   "year": "2014",
+   "title": "Approaches to research on the systematics of fish-borne trematodes"
+  },
+  {
+   "bib_id": 2,
+   "authors": [
+    {
+     "family": "Gabaldón",
+     "given": "T"
+    },
+    {
+     "family": "Koonin",
+     "given": "EV"
+    }
+   ],
+   "year": "2013",
+   "title": "Functional and evolutionary implications of gene orthology",
+   "container": "Nat Rev Genet",
+   "volume": "14",
+   "first_page": "360",
+   "doi": "10.1038/nrg3456"
+  },
+  {
+   "bib_id": 3,
+   "authors": [
+    {
+     "family": "Steenwyk",
+     "given": "JL"
+    },
+    {
+     "family": "Li",
+     "given": "Y"
+    },
+    {
+     "family": "Zhou",
+     "given": "X"
+    },
+    {
+     "family": "Shen",
+     "given": "X-X"
+    },
+    {
+     "family": "Rokas",
+     "given": "A"
+    }
+   ],
+   "year": "2023",
+   "title": "Incongruence in the phylogenomics era",
+   "container": "Nat Rev Genet",
+   "volume": "24",
+   "first_page": "834",
+   "doi": "10.1038/s41576-023-00620-x"
+  },
+  {
+   "bib_id": 4,
+   "authors": [
+    {
+     "family": "Degnan",
+     "given": "JH"
+    },
+    {
+     "family": "Rosenberg",
+     "given": "NA"
+    }
+   ],
+   "year": "2009",
+   "title": "Gene tree discordance, phylogenetic inference and the multispecies coalescent",
+   "container": "Trends Ecol Evol",
+   "volume": "24",
+   "first_page": "332",
+   "doi": "10.1016/j.tree.2009.01.009"
+  },
+  {
+   "bib_id": 5,
+   "authors": [
+    {
+     "family": "Kristensen",
+     "given": "DM"
+    },
+    {
+     "family": "Wolf",
+     "given": "YI"
+    },
+    {
+     "family": "Mushegian",
+     "given": "AR"
+    },
+    {
+     "family": "Koonin",
+     "given": "EV"
+    }
+   ],
+   "year": "2011",
+   "title": "Computational methods for gene orthology inference",
+   "container": "Brief Bioinform",
+   "volume": "12",
+   "first_page": "379",
+   "doi": "10.1093/bib/bbr030"
+  },
+  {
+   "bib_id": 6,
+   "authors": [
+    {
+     "family": "Kapli",
+     "given": "P"
+    },
+    {
+     "family": "Yang",
+     "given": "Z"
+    },
+    {
+     "family": "Telford",
+     "given": "MJ"
+    }
+   ],
+   "year": "2020",
+   "title": "Phylogenetic tree building in the genomic age",
+   "container": "Nat Rev Genet",
+   "volume": "21",
+   "first_page": "428",
+   "doi": "10.1038/s41576-020-0233-0"
+  },
+  {
+   "bib_id": 7,
+   "authors": [
+    {
+     "family": "Zmasek",
+     "given": "CM"
+    },
+    {
+     "family": "Eddy",
+     "given": "SR"
+    }
+   ],
+   "year": "2001",
+   "title": "A simple algorithm to infer gene duplication and speciation events on a gene tree",
+   "container": "Bioinformatics",
+   "volume": "17",
+   "first_page": "821",
+   "doi": "10.1093/bioinformatics/17.9.821"
+  },
+  {
+   "bib_id": 8,
+   "authors": [
+    {
+     "family": "Geiß",
+     "given": "M"
+    },
+    {
+     "family": "Laffitte",
+     "given": "MEG"
+    },
+    {
+     "family": "Sánchez",
+     "given": "AL"
+    },
+    {
+     "family": "Valdivia",
+     "given": "DI"
+    },
+    {
+     "family": "Hellmuth",
+     "given": "M"
+    },
+    {
+     "family": "Rosales",
+     "given": "MH"
+    }
+   ],
+   "year": "2020",
+   "title": "Best match graphs and reconciliation of gene trees with species trees",
+   "container": "J Math Biol",
+   "volume": "80",
+   "first_page": "1459",
+   "doi": "10.1007/s00285-020-01469-y"
+  },
+  {
+   "bib_id": 9,
+   "authors": [
+    {
+     "family": "Altschul",
+     "given": "SF"
+    },
+    {
+     "family": "Gish",
+     "given": "W"
+    },
+    {
+     "family": "Miller",
+     "given": "W"
+    },
+    {
+     "family": "Myers",
+     "given": "EW"
+    },
+    {
+     "family": "Lipman",
+     "given": "DJ"
+    }
+   ],
+   "year": "1990",
+   "title": "Basic local alignment search tool",
+   "container": "J Mol Biol",
+   "volume": "215",
+   "first_page": "403",
+   "doi": "10.1016/S0022-2836(05)80360-2"
+  },
+  {
+   "bib_id": 10,
+   "authors": [
+    {
+     "family": "Buchfink",
+     "given": "B"
+    },
+    {
+     "family": "Reuter",
+     "given": "K"
+    },
+    {
+     "family": "Drost",
+     "given": "H-G"
+    }
+   ],
+   "year": "2021",
+   "title": "Sensitive protein alignments at tree-of-life scale using DIAMOND",
+   "container": "Nat Methods",
+   "volume": "18",
+   "first_page": "366",
+   "doi": "10.1038/s41592-021-01101-x"
+  },
+  {
+   "bib_id": 11,
+   "authors": [
+    {
+     "family": "Buchfink",
+     "given": "B"
+    },
+    {
+     "family": "Xie",
+     "given": "C"
+    },
+    {
+     "family": "Huson",
+     "given": "DH"
+    }
+   ],
+   "year": "2015",
+   "title": "Fast and sensitive protein alignment using DIAMOND",
+   "container": "Nat Methods",
+   "volume": "12",
+   "first_page": "59",
+   "last_page": "60",
+   "doi": "10.1038/nmeth.3176"
+  },
+  {
+   "bib_id": 12,
+   "authors": [
+    {
+     "family": "Klemm",
+     "given": "P"
+    },
+    {
+     "family": "Stadler",
+     "given": "PF"
+    },
+    {
+     "family": "Lechner",
+     "given": "M"
+    }
+   ],
+   "year": "2023",
+   "title": "Proteinortho6: pseudo-reciprocal best alignment heuristic for graph-based detection of (co-) orthologs",
+   "container": "Front Bioinform",
+   "volume": "3",
+   "doi": "10.3389/fbinf.2023.1322477"
+  },
+  {
+   "bib_id": 13,
+   "authors": [
+    {
+     "family": "Geiß",
+     "given": "M"
+    },
+    {
+     "family": "Stadler",
+     "given": "PF"
+    },
+    {
+     "family": "Hellmuth",
+     "given": "M"
+    }
+   ],
+   "year": "2020",
+   "title": "Reciprocal best match graphs",
+   "container": "J Math Biol",
+   "volume": "80",
+   "first_page": "865",
+   "last_page": "953",
+   "doi": "10.1007/s00285-019-01444-2"
+  },
+  {
+   "bib_id": 14,
+   "authors": [
+    {
+     "family": "Schaller",
+     "given": "D"
+    },
+    {
+     "family": "Geiß",
+     "given": "M"
+    },
+    {
+     "family": "Stadler",
+     "given": "PF"
+    },
+    {
+     "family": "Hellmuth",
+     "given": "M"
+    }
+   ],
+   "year": "2021",
+   "title": "Complete characterization of incorrect orthology assignments in best match graphs",
+   "container": "J Math Biol",
+   "volume": "82",
+   "first_page": "20",
+   "doi": "10.1007/s00285-021-01564-8"
+  },
+  {
+   "bib_id": 15,
+   "authors": [
+    {
+     "family": "Petersen",
+     "given": "M"
+    },
+    {
+     "family": "Meusemann",
+     "given": "K"
+    },
+    {
+     "family": "Donath",
+     "given": "A"
+    },
+    {
+     "family": "Dowling",
+     "given": "D"
+    },
+    {
+     "family": "Liu",
+     "given": "S"
+    },
+    {
+     "family": "Peters",
+     "given": "RS"
+    }
+   ],
+   "year": "2017",
+   "title": "Orthograph: a versatile tool for mapping coding nucleotide sequences to clusters of orthologous genes",
+   "container": "BMC Bioinformatics",
+   "volume": "18",
+   "first_page": "111",
+   "doi": "10.1186/s12859-017-1529-8"
+  },
+  {
+   "bib_id": 16,
+   "authors": [
+    {
+     "family": "Saitou",
+     "given": "N"
+    },
+    {
+     "family": "Nei",
+     "given": "M"
+    }
+   ],
+   "year": "1987",
+   "title": "The neighbor-joining method: a new method for reconstructing phylogenetic trees",
+   "container": "Mol Biol Evol",
+   "volume": "4",
+   "first_page": "406",
+   "doi": "10.1093/oxfordjournals.molbev.a040454"
+  },
+  {
+   "bib_id": 17,
+   "authors": [
+    {
+     "family": "Yang",
+     "given": "Z"
+    }
+   ],
+   "year": "2014",
+   "title": "Molecular Evolution: A Statistical Approach"
+  },
+  {
+   "bib_id": 18,
+   "authors": [
+    {
+     "family": "Fernández-Sánchez",
+     "given": "J"
+    },
+    {
+     "family": "Casanellas",
+     "given": "M"
+    }
+   ],
+   "year": "2016",
+   "title": "Invariant versus classical quartet inference when evolution is heterogeneous across sites and lineages",
+   "container": "Syst Biol",
+   "volume": "65",
+   "first_page": "280",
+   "doi": "10.1093/sysbio/syv086"
+  },
+  {
+   "bib_id": 19,
+   "authors": [
+    {
+     "family": "Casanellas",
+     "given": "M"
+    },
+    {
+     "family": "Homs",
+     "given": "R"
+    },
+    {
+     "family": "Torres",
+     "given": "A"
+    }
+   ],
+   "year": "2024",
+   "title": "A novel algebraic approach to time-reversible evolutionary models",
+   "container": "SIAM J Appl Math",
+   "volume": "84",
+   "first_page": "1845",
+   "doi": "10.1137/23M1605302"
+  },
+  {
+   "bib_id": 20,
+   "authors": [
+    {
+     "family": "Felsenstein",
+     "given": "J"
+    }
+   ],
+   "year": "1978",
+   "title": "Cases in which parsimony or compatibility methods will be positively misleading",
+   "container": "Syst Zool",
+   "volume": "27",
+   "first_page": "401",
+   "doi": "10.2307/2412923"
+  },
+  {
+   "bib_id": 21,
+   "authors": [
+    {
+     "family": "Stadler",
+     "given": "PF"
+    },
+    {
+     "family": "Geiß",
+     "given": "M"
+    },
+    {
+     "family": "Schaller",
+     "given": "D"
+    },
+    {
+     "family": "López Sánchez",
+     "given": "A"
+    },
+    {
+     "family": "González Laffitte",
+     "given": "M"
+    },
+    {
+     "family": "Valdivia",
+     "given": "DI"
+    }
+   ],
+   "year": "2020",
+   "title": "From pairs of most similar sequences to phylogenetic best matches",
+   "container": "Algorithms Mol Biol",
+   "volume": "15",
+   "first_page": "5",
+   "doi": "10.1186/s13015-020-00165-2"
+  },
+  {
+   "bib_id": 22,
+   "authors": [
+    {
+     "family": "Schaller",
+     "given": "D"
+    },
+    {
+     "family": "Geis",
+     "given": "M"
+    },
+    {
+     "family": "Hellmuth",
+     "given": "M"
+    },
+    {
+     "family": "Stadler",
+     "given": "PF"
+    }
+   ],
+   "year": "2023",
+   "title": "Best match graphs with binary trees",
+   "container": "IEEE/ACM Trans Comput Biol Bioinform",
+   "volume": "20",
+   "first_page": "1679",
+   "doi": "10.1109/TCBB.2022.3143870"
+  },
+  {
+   "bib_id": 23,
+   "authors": [
+    {
+     "family": "Schaller",
+     "given": "D"
+    },
+    {
+     "family": "Geiß",
+     "given": "M"
+    },
+    {
+     "family": "Stadler",
+     "given": "PF"
+    },
+    {
+     "family": "Hellmuth",
+     "given": "M"
+    }
+   ],
+   "year": "2021",
+   "title": "Complete characterization of incorrect orthology assignments in best match graphs",
+   "container": "J Math Biol",
+   "volume": "82",
+   "first_page": "20",
+   "doi": "10.1007/s00285-021-01564-8"
+  },
+  {
+   "bib_id": 24,
+   "authors": [
+    {
+     "family": "Schaller",
+     "given": "D"
+    },
+    {
+     "family": "Geiß",
+     "given": "M"
+    },
+    {
+     "family": "Hellmuth",
+     "given": "M"
+    },
+    {
+     "family": "Stadler",
+     "given": "PF"
+    }
+   ],
+   "year": "2021",
+   "title": "Heuristic algorithms for best match graph editing",
+   "container": "Algorithms Mol Biol",
+   "volume": "16",
+   "first_page": "19",
+   "doi": "10.1186/s13015-021-00196-3"
+  },
+  {
+   "bib_id": 25,
+   "authors": [
+    {
+     "family": "Korchmaros",
+     "given": "A"
+    },
+    {
+     "family": "Schaller",
+     "given": "D"
+    },
+    {
+     "family": "Hellmuth",
+     "given": "M"
+    },
+    {
+     "family": "Stadler",
+     "given": "PF"
+    }
+   ],
+   "year": "2023",
+   "title": "Quasi-best match graphs",
+   "container": "Discrete Applied Mathematics",
+   "volume": "331",
+   "first_page": "104",
+   "doi": "10.1016/j.dam.2023.01.015"
+  },
+  {
+   "bib_id": 26,
+   "authors": [
+    {
+     "family": "Hellmuth",
+     "given": "M."
+    },
+    {
+     "family": "Setubal",
+     "given": "JC"
+    },
+    {
+     "family": "Stadler",
+     "given": "PF"
+    },
+    {
+     "family": "Stoye",
+     "given": "J"
+    }
+   ],
+   "year": "2024",
+   "title": "The theory of gene family histories",
+   "first_page": "1",
+   "last_page": "32"
+  },
+  {
+   "bib_id": 27,
+   "authors": [
+    {
+     "family": "Ramírez-Rafael",
+     "given": "JA"
+    },
+    {
+     "family": "Korchmaros",
+     "given": "A"
+    },
+    {
+     "family": "Aviña-Padilla",
+     "given": "K"
+    },
+    {
+     "family": "López Sánchez",
+     "given": "A"
+    },
+    {
+     "family": "España-Tinajero",
+     "given": "AA"
+    },
+    {
+     "family": "Hellmuth",
+     "given": "M"
+    }
+   ],
+   "year": "2024",
+   "title": "REvolutionH-tl: Reconstruction of Evolutionary Histories tool.",
+   "container": "RECOMB International Workshop on Comparative Genomics",
+   "first_page": "89",
+   "last_page": "109"
+  },
+  {
+   "bib_id": 28,
+   "authors": [
+    {
+     "family": "Lechner",
+     "given": "M"
+    },
+    {
+     "family": "Findeiss",
+     "given": "S"
+    },
+    {
+     "family": "Steiner",
+     "given": "L"
+    },
+    {
+     "family": "Marz",
+     "given": "M"
+    },
+    {
+     "family": "Stadler",
+     "given": "PF"
+    },
+    {
+     "family": "Prohaska",
+     "given": "SJ"
+    }
+   ],
+   "year": "2011",
+   "title": "Proteinortho: detection of (co-)orthologs in large-scale analysis",
+   "container": "BMC Bioinformatics",
+   "volume": "12",
+   "first_page": "124",
+   "doi": "10.1186/1471-2105-12-124"
+  },
+  {
+   "bib_id": 29,
+   "authors": [
+    {
+     "family": "Lechner",
+     "given": "M"
+    },
+    {
+     "family": "Hernandez-Rosales",
+     "given": "M"
+    },
+    {
+     "family": "Doerr",
+     "given": "D"
+    },
+    {
+     "family": "Wieseke",
+     "given": "N"
+    },
+    {
+     "family": "Thévenin",
+     "given": "A"
+    },
+    {
+     "family": "Stoye",
+     "given": "J"
+    }
+   ],
+   "year": "2014",
+   "title": "Orthology detection combining clustering and synteny for very large datasets",
+   "container": "PLoS One",
+   "volume": "9",
+   "doi": "10.1371/journal.pone.0105015"
+  },
+  {
+   "bib_id": 30,
+   "authors": [
+    {
+     "family": "Emms",
+     "given": "DM"
+    },
+    {
+     "family": "Kelly",
+     "given": "S"
+    }
+   ],
+   "year": "2015",
+   "title": "OrthoFinder: solving fundamental biases in whole genome comparisons dramatically improves orthogroup inference accuracy",
+   "container": "Genome Biol",
+   "volume": "16",
+   "first_page": "157",
+   "doi": "10.1186/s13059-015-0721-2"
+  },
+  {
+   "bib_id": 31,
+   "authors": [
+    {
+     "family": "Emms",
+     "given": "DM"
+    },
+    {
+     "family": "Kelly",
+     "given": "S"
+    }
+   ],
+   "year": "2019",
+   "title": "OrthoFinder: phylogenetic orthology inference for comparative genomics",
+   "container": "Genome Biol",
+   "volume": "20",
+   "first_page": "238",
+   "doi": "10.1186/s13059-019-1832-y"
+  },
+  {
+   "bib_id": 32,
+   "authors": [
+    {
+     "family": "Morel",
+     "given": "B"
+    },
+    {
+     "family": "Kozlov",
+     "given": "AM"
+    },
+    {
+     "family": "Stamatakis",
+     "given": "A"
+    }
+   ],
+   "year": "2020",
+   "title": "GeneRax: a tool for species-tree-aware maximum likelihood-based gene family tree inference under gene duplication, transfer, and loss",
+   "container": "Mol Biol Evol",
+   "volume": "37",
+   "first_page": "2763",
+   "doi": "10.1093/molbev/msaa141"
+  },
+  {
+   "bib_id": 33,
+   "authors": [
+    {
+     "family": "Zhang",
+     "given": "C"
+    },
+    {
+     "family": "Mirarab",
+     "given": "S"
+    }
+   ],
+   "year": "2022",
+   "title": "ASTRAL-Pro 2: ultrafast species tree reconstruction from multi-copy gene family trees",
+   "container": "Bioinformatics",
+   "volume": "38",
+   "first_page": "4949",
+   "doi": "10.1093/bioinformatics/btac620"
+  },
+  {
+   "bib_id": 34,
+   "authors": [
+    {
+     "family": "Stamatakis",
+     "given": "A"
+    }
+   ],
+   "year": "2014",
+   "title": "RAxML version 8: a tool for phylogenetic analysis and post-analysis of large phylogenies",
+   "container": "Bioinformatics",
+   "volume": "30",
+   "first_page": "1312",
+   "doi": "10.1093/bioinformatics/btu033"
+  },
+  {
+   "bib_id": 35,
+   "authors": [
+    {
+     "family": "Bansal",
+     "given": "MS"
+    },
+    {
+     "family": "Alm",
+     "given": "EJ"
+    },
+    {
+     "family": "Kellis",
+     "given": "M"
+    }
+   ],
+   "year": "2012",
+   "title": "Efficient algorithms for the reconciliation problem with gene duplication, horizontal transfer and loss",
+   "container": "Bioinformatics",
+   "volume": "28",
+   "doi": "10.1093/bioinformatics/bts225"
+  },
+  {
+   "bib_id": 36,
+   "authors": [
+    {
+     "family": "Altenhoff",
+     "given": "A"
+    },
+    {
+     "family": "Nevers",
+     "given": "Y"
+    },
+    {
+     "family": "Tran",
+     "given": "V"
+    },
+    {
+     "family": "Jyothi",
+     "given": "D"
+    },
+    {
+     "family": "Martin",
+     "given": "M"
+    },
+    {
+     "family": "Cosentino",
+     "given": "S"
+    }
+   ],
+   "year": "2024",
+   "title": "New developments for the Quest for Orthologs benchmark service",
+   "container": "NAR Genom Bioinform",
+   "volume": "6",
+   "doi": "10.1093/nargab/lqae167"
+  },
+  {
+   "bib_id": 37,
+   "authors": [
+    {
+     "family": "Hernandez-Rosales",
+     "given": "M"
+    },
+    {
+     "family": "Hellmuth",
+     "given": "M"
+    },
+    {
+     "family": "Wieseke",
+     "given": "N"
+    },
+    {
+     "family": "Huber",
+     "given": "KT"
+    },
+    {
+     "family": "Moulton",
+     "given": "V"
+    },
+    {
+     "family": "Stadler",
+     "given": "PF"
+    }
+   ],
+   "year": "2012",
+   "title": "From event-labeled gene trees to species trees",
+   "container": "BMC Bioinformatics",
+   "volume": "13",
+   "doi": "10.1186/1471-2105-13-s19-s6"
+  },
+  {
+   "bib_id": 38,
+   "authors": [
+    {
+     "family": "Hellmuth",
+     "given": "M"
+    }
+   ],
+   "year": "2017",
+   "title": "Biologically feasible gene trees, reconciliation maps and informative triples",
+   "container": "Algorithms Mol Biol",
+   "volume": "12",
+   "first_page": "23",
+   "doi": "10.1186/s13015-017-0114-z"
+  },
+  {
+   "bib_id": 39,
+   "authors": [
+    {
+     "family": "Semple",
+     "given": "C"
+    },
+    {
+     "family": "Steel",
+     "given": "M"
+    }
+   ],
+   "year": "2003",
+   "title": "Phylogenetics"
+  },
+  {
+   "bib_id": 40,
+   "authors": [
+    {
+     "family": "Dress",
+     "given": "A"
+    },
+    {
+     "family": "Huber",
+     "given": "KT"
+    },
+    {
+     "family": "Koolen",
+     "given": "J"
+    },
+    {
+     "family": "Moulton",
+     "given": "V"
+    },
+    {
+     "family": "Spillner",
+     "given": "A"
+    }
+   ],
+   "year": "2011",
+   "title": "Basic Phylogenetic Combinatorics"
+  },
+  {
+   "bib_id": 41,
+   "authors": [
+    {
+     "family": "Bininda-Emonds",
+     "given": "ORP"
+    }
+   ],
+   "year": "2004",
+   "title": "Phylogenetic Supertrees: Combining Information to Reveal the Tree of Life",
+   "container": "Comput Biol",
+   "doi": "10.1007/978-1-4020-2330-9"
+  },
+  {
+   "bib_id": 42,
+   "authors": [
+    {
+     "family": "Aho",
+     "given": "AV"
+    },
+    {
+     "family": "Sagiv",
+     "given": "Y"
+    },
+    {
+     "family": "Szymanski",
+     "given": "TG"
+    },
+    {
+     "family": "Ullman",
+     "given": "JD"
+    }
+   ],
+   "year": "1981",
+   "title": "Inferring a tree from lowest common ancestors with an application to the optimization of relational expressions",
+   "container": "SIAM J Comput",
+   "volume": "10",
+   "first_page": "405",
+   "doi": "10.1137/0210030"
+  },
+  {
+   "bib_id": 43,
+   "authors": [
+    {
+     "family": "Jacox",
+     "given": "E"
+    },
+    {
+     "family": "Chauve",
+     "given": "C"
+    },
+    {
+     "family": "Szöllősi",
+     "given": "GJ"
+    },
+    {
+     "family": "Ponty",
+     "given": "Y"
+    },
+    {
+     "family": "Scornavacca",
+     "given": "C"
+    }
+   ],
+   "year": "2016",
+   "title": "ecceTERA: comprehensive gene tree-species tree reconciliation using parsimony",
+   "container": "Bioinformatics",
+   "volume": "32",
+   "first_page": "2056",
+   "doi": "10.1093/bioinformatics/btw105"
+  },
+  {
+   "bib_id": 44,
+   "authors": [
+    {
+     "family": "Schaller",
+     "given": "D"
+    },
+    {
+     "family": "Geiß",
+     "given": "M"
+    },
+    {
+     "family": "Chávez",
+     "given": "E"
+    },
+    {
+     "family": "González Laffitte",
+     "given": "M"
+    },
+    {
+     "family": "López Sánchez",
+     "given": "A"
+    },
+    {
+     "family": "Stadler",
+     "given": "BMR"
+    }
+   ],
+   "year": "2021",
+   "title": "Corrigendum to “Best match graphs”",
+   "container": "J Math Biol",
+   "volume": "82",
+   "first_page": "47",
+   "doi": "10.1007/s00285-021-01601-6"
+  },
+  {
+   "bib_id": 45,
+   "authors": [
+    {
+     "family": "Altschul",
+     "given": "SF"
+    },
+    {
+     "family": "Madden",
+     "given": "TL"
+    },
+    {
+     "family": "Schäffer",
+     "given": "AA"
+    },
+    {
+     "family": "Zhang",
+     "given": "J"
+    },
+    {
+     "family": "Zhang",
+     "given": "Z"
+    },
+    {
+     "family": "Miller",
+     "given": "W"
+    }
+   ],
+   "year": "1997",
+   "title": "Gapped BLAST and PSI-BLAST: a new generation of protein database search programs",
+   "container": "Nucleic Acids Res",
+   "volume": "25",
+   "first_page": "3389",
+   "doi": "10.1093/nar/25.17.3389"
+  },
+  {
+   "bib_id": 46,
+   "authors": [
+    {
+     "family": "Kerfeld",
+     "given": "CA"
+    },
+    {
+     "family": "Scott",
+     "given": "KM"
+    }
+   ],
+   "year": "2011",
+   "title": "Using BLAST to teach “E-value-tionary” concepts",
+   "container": "PLoS Biol",
+   "volume": "9",
+   "doi": "10.1371/journal.pbio.1001014"
+  },
+  {
+   "bib_id": 47,
+   "authors": [
+    {
+     "family": "Geiß",
+     "given": "M"
+    },
+    {
+     "family": "Chávez",
+     "given": "E"
+    },
+    {
+     "family": "González Laffitte",
+     "given": "M"
+    },
+    {
+     "family": "López Sánchez",
+     "given": "A"
+    },
+    {
+     "family": "Stadler",
+     "given": "BMR"
+    },
+    {
+     "family": "Valdivia",
+     "given": "DI"
+    }
+   ],
+   "year": "2019",
+   "title": "Best match graphs",
+   "container": "J Math Biol",
+   "volume": "78",
+   "first_page": "2015",
+   "doi": "10.1007/s00285-019-01332-9"
+  },
+  {
+   "bib_id": 48,
+   "authors": [
+    {
+     "family": "Wu",
+     "given": "BY"
+    }
+   ],
+   "year": "2004",
+   "title": "Constructing the maximum consensus tree from rooted triples",
+   "container": "J Combinatorial Optimiz",
+   "volume": "8",
+   "first_page": "29",
+   "last_page": "39",
+   "doi": "10.1023/b:joco.0000021936.04215.68"
+  },
+  {
+   "bib_id": 49,
+   "authors": [
+    {
+     "family": "Huerta-Cepas",
+     "given": "J"
+    },
+    {
+     "family": "Dopazo",
+     "given": "H"
+    },
+    {
+     "family": "Dopazo",
+     "given": "J"
+    },
+    {
+     "family": "Gabaldón",
+     "given": "T"
+    }
+   ],
+   "year": "2007",
+   "title": "The human phylome",
+   "container": "Genome Biol",
+   "volume": "8",
+   "doi": "10.1186/gb-2007-8-6-r109"
+  },
+  {
+   "bib_id": 50,
+   "authors": [
+    {
+     "family": "Lafond",
+     "given": "M"
+    },
+    {
+     "family": "Chauve",
+     "given": "C"
+    },
+    {
+     "family": "Dondi",
+     "given": "R"
+    },
+    {
+     "family": "El-Mabrouk",
+     "given": "N"
+    }
+   ],
+   "year": "2014",
+   "title": "Polytomy refinement for the correction of dubious duplications in gene trees",
+   "container": "Bioinformatics",
+   "volume": "30",
+   "doi": "10.1093/bioinformatics/btu463"
+  },
+  {
+   "bib_id": 51,
+   "authors": [
+    {
+     "family": "Hellmuth",
+     "given": "M"
+    },
+    {
+     "family": "Hernandez-Rosales",
+     "given": "M"
+    },
+    {
+     "family": "Huber",
+     "given": "KT"
+    },
+    {
+     "family": "Moulton",
+     "given": "V"
+    },
+    {
+     "family": "Stadler",
+     "given": "PF"
+    },
+    {
+     "family": "Wieseke",
+     "given": "N"
+    }
+   ],
+   "year": "2013",
+   "title": "Orthology relations, symbolic ultrametrics, and cographs",
+   "container": "J Math Biol",
+   "volume": "66",
+   "first_page": "399",
+   "last_page": "420",
+   "doi": "10.1007/s00285-012-0525-x"
+  },
+  {
+   "bib_id": 52,
+   "authors": [
+    {
+     "family": "Sonnhammer",
+     "given": "ELL"
+    },
+    {
+     "family": "Hollich",
+     "given": "V"
+    }
+   ],
+   "year": "2005",
+   "title": "Scoredist: a simple and robust protein sequence distance estimator",
+   "container": "BMC Bioinformatics",
+   "volume": "6",
+   "first_page": "108",
+   "doi": "10.1186/1471-2105-6-108"
+  },
+  {
+   "bib_id": 53,
+   "authors": [
+    {
+     "family": "Kinene",
+     "given": "T"
+    },
+    {
+     "family": "Wainaina",
+     "given": "J"
+    },
+    {
+     "family": "Maina",
+     "given": "S"
+    },
+    {
+     "family": "Boykin",
+     "given": "LM."
+    },
+    {
+     "family": "Kliman",
+     "given": "RM"
+    }
+   ],
+   "year": "2016",
+   "title": "Rooting Trees, Methods for.",
+   "container": "Encyclopedia of Evolutionary Biology",
+   "first_page": "489"
+  },
+  {
+   "bib_id": 54,
+   "authors": [
+    {
+     "family": "Cock",
+     "given": "PJA"
+    },
+    {
+     "family": "Antao",
+     "given": "T"
+    },
+    {
+     "family": "Chang",
+     "given": "JT"
+    },
+    {
+     "family": "Chapman",
+     "given": "BA"
+    },
+    {
+     "family": "Cox",
+     "given": "CJ"
+    },
+    {
+     "family": "Dalke",
+     "given": "A"
+    }
+   ],
+   "year": "2009",
+   "title": "Biopython: freely available Python tools for computational molecular biology and bioinformatics",
+   "container": "Bioinformatics",
+   "volume": "25",
+   "first_page": "1422",
+   "doi": "10.1093/bioinformatics/btp163"
+  },
+  {
+   "bib_id": 55,
+   "authors": [
+    {
+     "family": "Hellmuth",
+     "given": "M"
+    },
+    {
+     "family": "Wieseke",
+     "given": "N"
+    },
+    {
+     "family": "Lechner",
+     "given": "M"
+    },
+    {
+     "family": "Lenhof",
+     "given": "H-P"
+    },
+    {
+     "family": "Middendorf",
+     "given": "M"
+    },
+    {
+     "family": "Stadler",
+     "given": "PF"
+    }
+   ],
+   "year": "2015",
+   "title": "Phylogenomics with paralogs",
+   "container": "Proc Natl Acad Sci U S A",
+   "volume": "112",
+   "first_page": "2058",
+   "doi": "10.1073/pnas.1412770112"
+  },
+  {
+   "bib_id": 56,
+   "authors": [
+    {
+     "family": "Seidl",
+     "given": "MF"
+    },
+    {
+     "family": "Van den Ackerveken",
+     "given": "G"
+    },
+    {
+     "family": "Govers",
+     "given": "F"
+    },
+    {
+     "family": "Snel",
+     "given": "B"
+    }
+   ],
+   "year": "2012",
+   "title": "Reconstruction of oomycete genome evolution identifies differences in evolutionary trajectories leading to present-day large gene families",
+   "container": "Genome Biol Evol",
+   "volume": "4",
+   "first_page": "199",
+   "last_page": "211",
+   "doi": "10.1093/gbe/evs003"
+  },
+  {
+   "bib_id": 57,
+   "authors": [
+    {
+     "family": "Kundu",
+     "given": "S"
+    },
+    {
+     "family": "Bansal",
+     "given": "MS"
+    }
+   ],
+   "year": "2019",
+   "title": "SaGePhy: an improved phylogenetic simulation framework for gene and subgene evolution",
+   "container": "Bioinformatics",
+   "volume": "35",
+   "first_page": "3496",
+   "doi": "10.1093/bioinformatics/btz081"
+  },
+  {
+   "bib_id": 58,
+   "authors": [
+    {
+     "family": "Le",
+     "given": "SQ"
+    },
+    {
+     "family": "Gascuel",
+     "given": "O"
+    }
+   ],
+   "year": "2008",
+   "title": "An improved general amino acid replacement matrix",
+   "container": "Mol Biol Evol",
+   "volume": "25",
+   "first_page": "1307",
+   "doi": "10.1093/molbev/msn067"
+  },
+  {
+   "bib_id": 59,
+   "authors": [
+    {
+     "family": "López Sánchez",
+     "given": "A"
+    },
+    {
+     "family": "Ramírez-Rafael",
+     "given": "JA"
+    },
+    {
+     "family": "Flores-Lamas",
+     "given": "A"
+    },
+    {
+     "family": "Hernández-Rosales",
+     "given": "M"
+    },
+    {
+     "family": "Lafond",
+     "given": "M."
+    },
+    {
+     "family": "Pissis",
+     "given": "SP"
+    },
+    {
+     "family": "Sung",
+     "given": "WK"
+    }
+   ],
+   "year": "2024",
+   "title": "The Path-Label Reconciliation (PLR) Dissimilarity Measure for Gene Trees.",
+   "container": "24th International Workshop on Algorithms in Bioinformatics (WABI 2024). vol. 312 of Leibniz International Proceedings in Informatics (LIPIcs)"
+  },
+  {
+   "bib_id": 60,
+   "authors": [
+    {
+     "family": "Altenhoff",
+     "given": "AM"
+    },
+    {
+     "family": "Boeckmann",
+     "given": "B"
+    },
+    {
+     "family": "Capella-Gutierrez",
+     "given": "S"
+    },
+    {
+     "family": "Dalquen",
+     "given": "DA"
+    },
+    {
+     "family": "DeLuca",
+     "given": "T"
+    },
+    {
+     "family": "Forslund",
+     "given": "K"
+    }
+   ],
+   "year": "2016",
+   "title": "Standardized benchmarking in the quest for orthologs",
+   "container": "Nat Methods",
+   "volume": "13",
+   "first_page": "425",
+   "doi": "10.1038/nmeth.3830"
+  },
+  {
+   "bib_id": 61,
+   "authors": [
+    {
+     "family": "Nevers",
+     "given": "Y"
+    },
+    {
+     "family": "Jones",
+     "given": "TEM"
+    },
+    {
+     "family": "Jyothi",
+     "given": "D"
+    },
+    {
+     "family": "Yates",
+     "given": "B"
+    },
+    {
+     "family": "Ferret",
+     "given": "M"
+    },
+    {
+     "family": "Portell-Silva",
+     "given": "L"
+    }
+   ],
+   "year": "2022",
+   "title": "The Quest for Orthologs orthology benchmark service in 2022",
+   "container": "Nucleic Acids Res",
+   "volume": "50",
+   "doi": "10.1093/nar/gkac330"
+  },
+  {
+   "bib_id": 62,
+   "year": "2022"
+  },
+  {
+   "bib_id": 63,
+   "authors": [
+    {
+     "family": "Python Software Foundation",
+     "given": ""
+    }
+   ],
+   "year": "2023"
+  },
+  {
+   "bib_id": 64,
+   "authors": [
+    {
+     "family": "Robinson",
+     "given": "DF"
+    },
+    {
+     "family": "Foulds",
+     "given": "LR"
+    }
+   ],
+   "year": "1981",
+   "title": "Comparison of phylogenetic trees",
+   "container": "Math Biosci",
+   "volume": "53",
+   "first_page": "131",
+   "doi": "10.1016/0025-5564(81)90043-2"
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-core-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "jats_doi": "10.1371/journal.pcbi.1013017"
+ }
+}

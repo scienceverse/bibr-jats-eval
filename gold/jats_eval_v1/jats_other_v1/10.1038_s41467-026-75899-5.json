@@ -1,0 +1,755 @@
+{
+ "paper_id": "10.1038_s41467-026-75899-5",
+ "info": {
+  "title": "Hyperloss from coherent spatial-mode mixing in quantum-correlated networks",
+  "doi": "10.1038/s41467-026-75899-5",
+  "file_name": "10.1038_s41467-026-75899-5.pdf",
+  "abstract": "Quantum-correlated networks distribute quantum resources such as squeezed and entangled states. They are central to modern quantum technology, including photonic quantum computing, quantum communications, biological sensing and gravitational-wave detection. Even for squeezed light — the most robust quantum-correlated resource — loss-induced decoherence remains the dominant obstacle to strong quantum advantage. A common design assumption is that spatial-mode mismatch acts as an incoherent loss. Coherent spatial-mode mixing with higher-order modes, however, can produce an apparent loss exceeding the full initial squeezing, a regime we term hyperloss. Here, we show experimentally that a minimal two-node network exhibits hyperloss, with 8 per cent mode mismatch converting 5.8 decibels of observable squeezing into an effectively thermal state, and that the lost correlations can be recovered by tuning differential spatial-mode phases, establishing hyperloss as a practical design constraint for future quantum technologies."
+ },
+ "author": [
+  {
+   "author_id": 1,
+   "given": "Stephan",
+   "family": "Grebien",
+   "affiliation": "Institut für Quantenphysik and Zentrum für Optische Quantentechnologien, Universität Hamburg, Hamburg, Germany",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 2,
+   "given": "Julian",
+   "family": "Gurs",
+   "affiliation": "Institut für Quantenphysik and Zentrum für Optische Quantentechnologien, Universität Hamburg, Hamburg, Germany",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 3,
+   "given": "Roman",
+   "family": "Schnabel",
+   "affiliation": "Institut für Quantenphysik and Zentrum für Optische Quantentechnologien, Universität Hamburg, Hamburg, Germany",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 4,
+   "given": "Mikhail",
+   "family": "Korobko",
+   "affiliation": "Institut für Quantenphysik and Zentrum für Optische Quantentechnologien, Universität Hamburg, Hamburg, Germany",
+   "email": "",
+   "orcid": "",
+   "corresponding": true
+  }
+ ],
+ "section": [
+  {
+   "section_id": 1,
+   "section_type": "abstract",
+   "header": "Abstract",
+   "level": 1,
+   "parent_section_id": null,
+   "classification_score": 1.0
+  }
+ ],
+ "text": [
+  {
+   "text_id": 1,
+   "section_id": 1,
+   "paragraph_id": 1,
+   "text": "Quantum-correlated networks distribute quantum resources such as squeezed and entangled states. They are central to modern quantum technology, including photonic quantum computing, quantum communications, biological sensing and gravitational-wave detection. Even for squeezed light — the most robust quantum-correlated resource — loss-induced decoherence remains the dominant obstacle to strong quantum advantage. A common design assumption is that spatial-mode mismatch acts as an incoherent loss. Coherent spatial-mode mixing with higher-order modes, however, can produce an apparent loss exceeding the full initial squeezing, a regime we term hyperloss. Here, we show experimentally that a minimal two-node network exhibits hyperloss, with 8 per cent mode mismatch converting 5.8 decibels of observable squeezing into an effectively thermal state, and that the lost correlations can be recovered by tuning differential spatial-mode phases, establishing hyperloss as a practical design constraint for future quantum technologies.",
+   "page_number": 1
+  }
+ ],
+ "bib": [
+  {
+   "bib_id": 1
+  },
+  {
+   "bib_id": 2
+  },
+  {
+   "bib_id": 3,
+   "authors": [
+    {
+     "family": "Schnabel",
+     "given": "R"
+    }
+   ],
+   "year": "2017",
+   "title": "Squeezed states of light and their applications in laser interferometers",
+   "container": "Phys. Rep.",
+   "volume": "684",
+   "first_page": "1",
+   "last_page": "51"
+  },
+  {
+   "bib_id": 4,
+   "authors": [
+    {
+     "family": "Fukui",
+     "given": "K"
+    },
+    {
+     "family": "Takeda",
+     "given": "S"
+    }
+   ],
+   "year": "2022",
+   "title": "Building a large-scale quantum computer with continuous-variable optical technologies",
+   "container": "J. Phys. B At. Mol. Opt. Phys.",
+   "volume": "55",
+   "first_page": "012001"
+  },
+  {
+   "bib_id": 5,
+   "authors": [
+    {
+     "family": "Madsen",
+     "given": "LS"
+    }
+   ],
+   "year": "2022",
+   "title": "Quantum computational advantage with a programmable photonic processor",
+   "container": "Nature",
+   "volume": "606",
+   "first_page": "75",
+   "last_page": "81"
+  },
+  {
+   "bib_id": 6,
+   "authors": [
+    {
+     "family": "Kashiwazaki",
+     "given": "T"
+    }
+   ],
+   "year": "2023",
+   "title": "Over-8-dB squeezed light generation by a broadband waveguide optical parametric amplifier toward fault-tolerant ultra-fast quantum computers",
+   "container": "Appl. Phys. Lett.",
+   "volume": "122",
+   "first_page": "234003"
+  },
+  {
+   "bib_id": 7,
+   "authors": [
+    {
+     "family": "Aghaee Rad",
+     "given": "H"
+    }
+   ],
+   "year": "2025",
+   "title": "Scaling and networking a modular photonic quantum computer",
+   "container": "Nature",
+   "volume": "638",
+   "first_page": "912",
+   "last_page": "919"
+  },
+  {
+   "bib_id": 8,
+   "authors": [
+    {
+     "family": "Tohermes",
+     "given": "B"
+    },
+    {
+     "family": "Verclas",
+     "given": "S"
+    },
+    {
+     "family": "Hohmann",
+     "given": "JN"
+    },
+    {
+     "family": "Haupt",
+     "given": "D"
+    },
+    {
+     "family": "Schnabel",
+     "given": "R"
+    }
+   ],
+   "year": "2025",
+   "title": "Directly measured squeeze factors over GHz bandwidth from monolithic PPKTP resonators",
+   "container": "New J. Phys.",
+   "volume": "27",
+   "first_page": "094506"
+  },
+  {
+   "bib_id": 9,
+   "authors": [
+    {
+     "family": "Conlon",
+     "given": "LO"
+    }
+   ],
+   "year": "2024",
+   "title": "Verifying the security of a continuous variable quantum communication protocol via quantum metrology",
+   "container": "NPJ Quantum Inf.",
+   "volume": "10",
+   "first_page": "35"
+  },
+  {
+   "bib_id": 10,
+   "authors": [
+    {
+     "family": "Fesquet",
+     "given": "F"
+    }
+   ],
+   "year": "2024",
+   "title": "Demonstration of microwave single-shot quantum key distribution",
+   "container": "Nat. Commun.",
+   "volume": "15",
+   "first_page": "7544"
+  },
+  {
+   "bib_id": 11,
+   "authors": [
+    {
+     "family": "Schnabel",
+     "given": "R"
+    },
+    {
+     "family": "Mavalvala",
+     "given": "N"
+    },
+    {
+     "family": "McClelland",
+     "given": "DE"
+    },
+    {
+     "family": "Lam",
+     "given": "PK"
+    }
+   ],
+   "year": "2010",
+   "title": "Quantum metrology for gravitational wave astronomy",
+   "container": "Nat. Commun.",
+   "volume": "1",
+   "first_page": "121"
+  },
+  {
+   "bib_id": 12,
+   "authors": [
+    {
+     "family": "The LIGO Scientific Collaboration",
+     "given": ""
+    }
+   ],
+   "year": "2011",
+   "title": "A gravitational wave observatory operating beyond the quantum shot-noise limit",
+   "container": "Nat. Phys.",
+   "volume": "7",
+   "first_page": "962",
+   "last_page": "965"
+  },
+  {
+   "bib_id": 13,
+   "authors": [
+    {
+     "family": "McClelland",
+     "given": "D"
+    },
+    {
+     "family": "Mavalvala",
+     "given": "N"
+    },
+    {
+     "family": "Chen",
+     "given": "Y"
+    },
+    {
+     "family": "Schnabel",
+     "given": "R"
+    }
+   ],
+   "year": "2011",
+   "title": "Advanced interferometry, quantum optics and optomechanics in gravitational wave detectors",
+   "container": "Laser Photonics Rev.",
+   "volume": "5",
+   "first_page": "677",
+   "last_page": "696"
+  },
+  {
+   "bib_id": 14
+  },
+  {
+   "bib_id": 15,
+   "authors": [
+    {
+     "family": "Oelker",
+     "given": "E"
+    },
+    {
+     "family": "Barsotti",
+     "given": "L"
+    },
+    {
+     "family": "Dwyer",
+     "given": "S"
+    },
+    {
+     "family": "Sigg",
+     "given": "D"
+    },
+    {
+     "family": "Mavalvala",
+     "given": "N"
+    }
+   ],
+   "year": "2014",
+   "title": "Squeezed light for advanced gravitational wave detectors and beyond",
+   "container": "Opt. Express",
+   "volume": "22",
+   "first_page": "21106",
+   "last_page": "21121"
+  },
+  {
+   "bib_id": 16
+  },
+  {
+   "bib_id": 17,
+   "authors": [
+    {
+     "family": "Acernese",
+     "given": "F"
+    }
+   ],
+   "year": "2019",
+   "title": "Increasing the astrophysical reach of the advanced virgo detector via the application of squeezed vacuum states of light",
+   "container": "Phys. Rev. Lett.",
+   "volume": "123",
+   "first_page": "231108"
+  },
+  {
+   "bib_id": 18,
+   "authors": [
+    {
+     "family": "Ganapathy",
+     "given": "D"
+    }
+   ],
+   "year": "2023",
+   "title": "Broadband quantum enhancement of the LIGO detectors with frequency-dependent squeezing",
+   "container": "Phys. Rev. X",
+   "volume": "13",
+   "first_page": "041021"
+  },
+  {
+   "bib_id": 19
+  },
+  {
+   "bib_id": 20,
+   "authors": [
+    {
+     "family": "Jia",
+     "given": "W"
+    }
+   ],
+   "year": "2024",
+   "title": "Squeezing the quantum noise of a gravitational-wave detector below the standard quantum limit",
+   "container": "Science",
+   "volume": "385",
+   "first_page": "1318",
+   "last_page": "1321"
+  },
+  {
+   "bib_id": 21,
+   "authors": [
+    {
+     "family": "Korobko",
+     "given": "M"
+    }
+   ],
+   "year": "2025",
+   "title": "Quantum technologies for the Einstein telescope",
+   "container": "Galaxies",
+   "volume": "13",
+   "first_page": "11"
+  },
+  {
+   "bib_id": 22,
+   "authors": [
+    {
+     "family": "Franzen",
+     "given": "A"
+    },
+    {
+     "family": "Hage",
+     "given": "B"
+    },
+    {
+     "family": "DiGuglielmo",
+     "given": "J"
+    },
+    {
+     "family": "Fiurás̆ek",
+     "given": "J"
+    },
+    {
+     "family": "Schnabel",
+     "given": "R"
+    }
+   ],
+   "year": "2006",
+   "title": "Experimental demonstration of continuous variable purification of squeezed states",
+   "container": "Phys. Rev. Lett.",
+   "volume": "97",
+   "first_page": "150505"
+  },
+  {
+   "bib_id": 23,
+   "authors": [
+    {
+     "family": "Vahlbruch",
+     "given": "H"
+    },
+    {
+     "family": "Mehmet",
+     "given": "M"
+    },
+    {
+     "family": "Danzmann",
+     "given": "K"
+    },
+    {
+     "family": "Schnabel",
+     "given": "R"
+    }
+   ],
+   "year": "2016",
+   "title": "Detection of 15 dB squeezed states of light and their application for the absolute calibration of photoelectric quantum efficiency",
+   "container": "Phys. Rev. Lett.",
+   "volume": "117",
+   "first_page": "110801"
+  },
+  {
+   "bib_id": 24
+  },
+  {
+   "bib_id": 25,
+   "authors": [
+    {
+     "family": "Töyrä",
+     "given": "D"
+    }
+   ],
+   "year": "2017",
+   "title": "Multi-spatial-mode effects in squeezed-light-enhanced interferometric gravitational wave detectors",
+   "container": "Phys. Rev. D",
+   "volume": "96",
+   "first_page": "022006"
+  },
+  {
+   "bib_id": 26,
+   "authors": [
+    {
+     "family": "Steinlechner",
+     "given": "S"
+    }
+   ],
+   "year": "2018",
+   "title": "Mitigating mode-matching loss in nonclassical laser interferometry",
+   "container": "Phys. Rev. Lett.",
+   "volume": "121",
+   "first_page": "263602"
+  },
+  {
+   "bib_id": 27
+  },
+  {
+   "bib_id": 28,
+   "authors": [
+    {
+     "family": "Ng",
+     "given": "KKY"
+    },
+    {
+     "family": "Isi",
+     "given": "M"
+    },
+    {
+     "family": "Haster",
+     "given": "C-J"
+    },
+    {
+     "family": "Vitale",
+     "given": "S"
+    }
+   ],
+   "year": "2020",
+   "title": "Multiband gravitational-wave searches for ultralight bosons",
+   "container": "Phys. Rev. D",
+   "volume": "102",
+   "first_page": "083020"
+  },
+  {
+   "bib_id": 29,
+   "authors": [
+    {
+     "family": "Brieussel",
+     "given": "A"
+    },
+    {
+     "family": "Ott",
+     "given": "K"
+    },
+    {
+     "family": "Joos",
+     "given": "M"
+    },
+    {
+     "family": "Treps",
+     "given": "N"
+    },
+    {
+     "family": "Fabre",
+     "given": "C"
+    }
+   ],
+   "year": "2018",
+   "title": "Toward a compact fibered squeezing parametric source",
+   "container": "Opt. Lett.",
+   "volume": "43",
+   "first_page": "1267"
+  },
+  {
+   "bib_id": 30,
+   "authors": [
+    {
+     "family": "Leedumrongwatthanakun",
+     "given": "S"
+    }
+   ],
+   "year": "2020",
+   "title": "Programmable linear quantum networks with a multimode fibre",
+   "container": "Nat. Photonics",
+   "volume": "14",
+   "first_page": "139",
+   "last_page": "142"
+  },
+  {
+   "bib_id": 31,
+   "authors": [
+    {
+     "family": "Zuo",
+     "given": "X"
+    },
+    {
+     "family": "Tang",
+     "given": "Z"
+    },
+    {
+     "family": "Li",
+     "given": "B"
+    },
+    {
+     "family": "Chen",
+     "given": "X"
+    },
+    {
+     "family": "Sun",
+     "given": "J"
+    }
+   ],
+   "year": "2025",
+   "title": "Quantum-empowered fiber sensing metrology",
+   "container": "Photonics",
+   "volume": "12",
+   "first_page": "763"
+  },
+  {
+   "bib_id": 32,
+   "authors": [
+    {
+     "family": "Vermeulen",
+     "given": "SM"
+    }
+   ],
+   "year": "2025",
+   "title": "Photon-counting interferometry to detect geontropic space-time fluctuations with GQuEST",
+   "container": "Phys. Rev. X",
+   "volume": "15",
+   "first_page": "011034"
+  },
+  {
+   "bib_id": 33,
+   "authors": [
+    {
+     "family": "Feng",
+     "given": "S"
+    },
+    {
+     "family": "Winful",
+     "given": "HG"
+    }
+   ],
+   "year": "2001",
+   "title": "Physical origin of the Gouy phase shift",
+   "container": "Opt. Lett.",
+   "volume": "26",
+   "first_page": "485",
+   "last_page": "487"
+  },
+  {
+   "bib_id": 34,
+   "authors": [
+    {
+     "family": "Goodwin-Jones",
+     "given": "AW"
+    }
+   ],
+   "year": "2024",
+   "title": "Transverse mode control in quantum enhanced interferometers: a review and recommendations for a new generation",
+   "container": "Optica",
+   "volume": "11",
+   "first_page": "273",
+   "last_page": "290"
+  },
+  {
+   "bib_id": 35,
+   "authors": [
+    {
+     "family": "Schnabel",
+     "given": "R"
+    },
+    {
+     "family": "Schönbeck",
+     "given": "A"
+    }
+   ],
+   "year": "2022",
+   "title": "The “squeeze laser”",
+   "container": "IEEE Trans. Quantum Eng.",
+   "volume": "3",
+   "first_page": "1",
+   "last_page": "9"
+  },
+  {
+   "bib_id": 36,
+   "authors": [
+    {
+     "family": "Stoler",
+     "given": "D"
+    }
+   ],
+   "year": "1971",
+   "title": "Equivalence classes of minimum-uncertainty packets. II",
+   "container": "Phys. Rev. D",
+   "volume": "4",
+   "first_page": "1925",
+   "last_page": "1926"
+  },
+  {
+   "bib_id": 37,
+   "authors": [
+    {
+     "family": "Menicucci",
+     "given": "NC"
+    }
+   ],
+   "year": "2014",
+   "title": "Fault-tolerant measurement-based quantum computing with continuous-variable cluster states",
+   "container": "Phys. Rev. Lett.",
+   "volume": "112",
+   "first_page": "120504"
+  },
+  {
+   "bib_id": 38,
+   "authors": [
+    {
+     "family": "Walshe",
+     "given": "BW"
+    },
+    {
+     "family": "Mensen",
+     "given": "LJ"
+    },
+    {
+     "family": "Baragiola",
+     "given": "BQ"
+    },
+    {
+     "family": "Menicucci",
+     "given": "NC"
+    }
+   ],
+   "year": "2019",
+   "title": "Robust fault tolerance for continuous-variable cluster states with excess antisqueezing",
+   "container": "Phys. Rev. A",
+   "volume": "100",
+   "first_page": "010301"
+  },
+  {
+   "bib_id": 39,
+   "authors": [
+    {
+     "family": "Fukui",
+     "given": "K"
+    },
+    {
+     "family": "Tomita",
+     "given": "A"
+    },
+    {
+     "family": "Okamoto",
+     "given": "A"
+    },
+    {
+     "family": "Fujii",
+     "given": "K"
+    }
+   ],
+   "year": "2018",
+   "title": "High-threshold fault-tolerant quantum computation with analog quantum error correction",
+   "container": "Phys. Rev. X",
+   "volume": "8",
+   "first_page": "021054"
+  },
+  {
+   "bib_id": 40,
+   "authors": [
+    {
+     "family": "Fukui",
+     "given": "K"
+    }
+   ],
+   "year": "2023",
+   "title": "High-threshold fault-tolerant quantum computation with the Gottesman-Kitaev-Preskill qubit under noise in an optical setup",
+   "container": "Phys. Rev. A",
+   "volume": "107",
+   "first_page": "052414"
+  },
+  {
+   "bib_id": 41,
+   "authors": [
+    {
+     "family": "Asavanant",
+     "given": "W"
+    }
+   ],
+   "year": "2019",
+   "title": "Generation of time-domain-multiplexed two-dimensional cluster state",
+   "container": "Science",
+   "volume": "366",
+   "first_page": "373",
+   "last_page": "376"
+  },
+  {
+   "bib_id": 42,
+   "doi": "10.1038/s41467-026-75899-5"
+  },
+  {
+   "bib_id": 43,
+   "doi": "10.1038/s41467-026-75899-5"
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-core-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "jats_doi": "10.1038/s41467-026-75899-5"
+ }
+}

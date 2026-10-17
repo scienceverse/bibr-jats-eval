@@ -1,0 +1,1862 @@
+{
+ "paper_id": "10.1162_opmi.a.362",
+ "info": {
+  "title": "Word Trigram Frequency Predicts Failure to Detect Word Transpositions: Implications for Rational Inference in Reading",
+  "doi": "10.1162/OPMI.a.362",
+  "file_name": "10.1162_opmi.a.362.pdf",
+  "keywords": [
+   "rational inference",
+   "trigram frequency",
+   "transposed word effect",
+   "misreading",
+   "noisy channel"
+  ],
+  "abstract": "A substantial recent literature has investigated readers’ failure to detect transposed words in otherwise grammatical sentences. This phenomenon may reflect a process of rational inference, whereby a reader’s prior over word strings overrides the bottom-up perceptual evidence. In three experiments, we tested the prediction emerging from the rational inference framework that failure to detect a transposition should be most common when the prior probability of the untransposed string is high. We found that the frequency of the trigram consisting of the two transposed words and the preceding word predicts failure to notice the transposition: Readers are more likely to miss a transposition of the final two words of a high-frequency trigram such as close the gate than a lower-frequency trigram such as close the pool. We also found a weaker role for the conditional probability of the transposed words based on the entire preceding sentence context. The results support a role for rational inference in ‘correcting’ errors, and also contribute further evidence that multi-word units play an important role in language processing."
+ },
+ "author": [
+  {
+   "author_id": 1,
+   "given": "Kuan-Jung",
+   "family": "Huang",
+   "affiliation": "Department of Brain and Cognitive Sciences, Massachusetts Institute of Technology, Cambridge, MA, USA",
+   "email": "",
+   "orcid": "",
+   "corresponding": true
+  },
+  {
+   "author_id": 2,
+   "given": "Adrian",
+   "family": "Staub",
+   "affiliation": "Department of Psychological and Brain Sciences, University of Massachusetts Amherst, Amherst, MA, USA",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  }
+ ],
+ "section": [
+  {
+   "section_id": 1,
+   "section_type": "abstract",
+   "header": "Abstract",
+   "level": 1,
+   "parent_section_id": null,
+   "classification_score": 1.0
+  }
+ ],
+ "text": [
+  {
+   "text_id": 1,
+   "section_id": 1,
+   "paragraph_id": 1,
+   "text": "A substantial recent literature has investigated readers’ failure to detect transposed words in otherwise grammatical sentences. This phenomenon may reflect a process of rational inference, whereby a reader’s prior over word strings overrides the bottom-up perceptual evidence. In three experiments, we tested the prediction emerging from the rational inference framework that failure to detect a transposition should be most common when the prior probability of the untransposed string is high. We found that the frequency of the trigram consisting of the two transposed words and the preceding word predicts failure to notice the transposition: Readers are more likely to miss a transposition of the final two words of a high-frequency trigram such as close the gate than a lower-frequency trigram such as close the pool. We also found a weaker role for the conditional probability of the transposed words based on the entire preceding sentence context. The results support a role for rational inference in ‘correcting’ errors, and also contribute further evidence that multi-word units play an important role in language processing.",
+   "page_number": 1
+  }
+ ],
+ "bib": [
+  {
+   "bib_id": 1,
+   "authors": [
+    {
+     "family": "Arnon",
+     "given": "I."
+    },
+    {
+     "family": "Snider",
+     "given": "N."
+    }
+   ],
+   "year": "2010",
+   "title": "More than words: Frequency effects for multi-word phrases",
+   "container": "Journal of Memory and Language",
+   "volume": "62",
+   "first_page": "67",
+   "last_page": "82",
+   "doi": "10.1016/j.jml.2009.09.005"
+  },
+  {
+   "bib_id": 2,
+   "authors": [
+    {
+     "family": "Atanasov",
+     "given": "P."
+    },
+    {
+     "family": "Liversedge",
+     "given": "S. P."
+    },
+    {
+     "family": "Degno",
+     "given": "F."
+    }
+   ],
+   "year": "2025",
+   "title": "Word order effects in sentence reading",
+   "container": "Cognitive Psychology",
+   "volume": "157",
+   "first_page": "101715",
+   "doi": "10.1016/j.cogpsych.2025.101715"
+  },
+  {
+   "bib_id": 3,
+   "authors": [
+    {
+     "family": "Bannard",
+     "given": "C."
+    },
+    {
+     "family": "Matthews",
+     "given": "D."
+    }
+   ],
+   "year": "2008",
+   "title": "Stored word sequences in language learning: The effect of familiarity on children’s repetition of four-word combinations",
+   "container": "Psychological Science",
+   "volume": "19",
+   "first_page": "241",
+   "last_page": "248",
+   "doi": "10.1111/j.1467-9280.2008.02075.x"
+  },
+  {
+   "bib_id": 4,
+   "authors": [
+    {
+     "family": "Barr",
+     "given": "D. J."
+    },
+    {
+     "family": "Levy",
+     "given": "R."
+    },
+    {
+     "family": "Scheepers",
+     "given": "C."
+    },
+    {
+     "family": "Tily",
+     "given": "H. J."
+    }
+   ],
+   "year": "2013",
+   "title": "Random effects structure for confirmatory hypothesis testing: Keep it maximal",
+   "container": "Journal of Memory and Language",
+   "volume": "68",
+   "first_page": "255",
+   "last_page": "278",
+   "doi": "10.1016/j.jml.2012.11.001"
+  },
+  {
+   "bib_id": 5,
+   "authors": [
+    {
+     "family": "Barton",
+     "given": "S. B."
+    },
+    {
+     "family": "Sanford",
+     "given": "A. J."
+    }
+   ],
+   "year": "1993",
+   "title": "A case study of anomaly detection: Shallow semantic processing and cohesion establishment",
+   "container": "Memory & Cognition",
+   "volume": "21",
+   "first_page": "477",
+   "last_page": "487",
+   "doi": "10.3758/BF03197179"
+  },
+  {
+   "bib_id": 6,
+   "authors": [
+    {
+     "family": "Bates",
+     "given": "D."
+    },
+    {
+     "family": "Mächler",
+     "given": "M."
+    },
+    {
+     "family": "Bolker",
+     "given": "B."
+    },
+    {
+     "family": "Walker,",
+     "given": "S."
+    }
+   ],
+   "year": "2015",
+   "title": "Fitting linear mixed-effects models using lme4",
+   "container": "Journal of Statistical Software",
+   "volume": "67",
+   "first_page": "1",
+   "last_page": "48",
+   "doi": "10.18637/jss.v067.i01"
+  },
+  {
+   "bib_id": 7,
+   "authors": [
+    {
+     "family": "Caldwell-Harris",
+     "given": "C. L."
+    },
+    {
+     "family": "Berant",
+     "given": "J. B."
+    },
+    {
+     "family": "Edelman",
+     "given": "S."
+    }
+   ],
+   "year": "2012",
+   "title": "Measuring mental entrenchment of phrases with perceptual identification, familiarity ratings, and corpus frequency statistics",
+   "container": "Frequency effects in cognitive linguistics (Vol. 1): Statistical effects in learnability, processing and change",
+   "first_page": "165",
+   "last_page": "194",
+   "doi": "10.1515/9783110274073.165"
+  },
+  {
+   "bib_id": 8,
+   "authors": [
+    {
+     "family": "Chantavarin",
+     "given": "S."
+    },
+    {
+     "family": "Morgan",
+     "given": "E."
+    },
+    {
+     "family": "Ferreira",
+     "given": "F."
+    }
+   ],
+   "year": "2022",
+   "title": "Robust processing advantage for binomial phrases with variant conjunctions",
+   "container": "Cognitive Science",
+   "volume": "46",
+   "first_page": "e13187",
+   "doi": "10.1111/cogs.13187"
+  },
+  {
+   "bib_id": 9,
+   "authors": [
+    {
+     "family": "Chen",
+     "given": "S."
+    },
+    {
+     "family": "Nathaniel",
+     "given": "S."
+    },
+    {
+     "family": "Ryskin",
+     "given": "R."
+    },
+    {
+     "family": "Gibson",
+     "given": "E."
+    }
+   ],
+   "year": "2023",
+   "title": "The effect of context on noisy-channel sentence comprehension",
+   "container": "Cognition",
+   "volume": "238",
+   "first_page": "105503",
+   "doi": "10.1016/j.cognition.2023.105503"
+  },
+  {
+   "bib_id": 10,
+   "authors": [
+    {
+     "family": "Contreras Kallens",
+     "given": "P."
+    },
+    {
+     "family": "Christiansen",
+     "given": "M. H."
+    }
+   ],
+   "year": "2022",
+   "title": "Models of language and multiword expressions",
+   "container": "Frontiers in Artificial Intelligence",
+   "volume": "5",
+   "first_page": "781962",
+   "doi": "10.3389/frai.2022.781962"
+  },
+  {
+   "bib_id": 11,
+   "authors": [
+    {
+     "family": "Davies",
+     "given": "M."
+    }
+   ],
+   "year": "2019",
+   "title": "The corpus of contemporary American English (COCA)"
+  },
+  {
+   "bib_id": 12,
+   "authors": [
+    {
+     "family": "Divjak",
+     "given": "D."
+    },
+    {
+     "family": "Caldwell-Harris",
+     "given": "C. L."
+    }
+   ],
+   "year": "2015",
+   "title": "Frequency and entrenchment",
+   "container": "Handbook of cognitive linguistics",
+   "first_page": "53",
+   "last_page": "75",
+   "doi": "10.1515/9783110292022-004"
+  },
+  {
+   "bib_id": 13,
+   "authors": [
+    {
+     "family": "Dodd",
+     "given": "N."
+    },
+    {
+     "family": "Boush",
+     "given": "F."
+    },
+    {
+     "family": "Leung",
+     "given": "T."
+    },
+    {
+     "family": "Ferreira",
+     "given": "F."
+    },
+    {
+     "family": "Morgan",
+     "given": "E."
+    }
+   ],
+   "year": "2024",
+   "title": "Noisy-channel processing in standard Arabic relative clauses",
+   "container": "Proceedings of the 46th Annual Conference of the Cognitive Science Society",
+   "first_page": "3463",
+   "last_page": "3469"
+  },
+  {
+   "bib_id": 14,
+   "authors": [
+    {
+     "family": "Dufour",
+     "given": "S."
+    },
+    {
+     "family": "Mirault",
+     "given": "J."
+    },
+    {
+     "family": "Grainger",
+     "given": "J."
+    }
+   ],
+   "year": "2022",
+   "title": "Transposed-word effects in speeded grammatical decisions to sequences of spoken words",
+   "container": "Scientific Reports",
+   "volume": "12",
+   "first_page": "22035",
+   "doi": "10.1038/s41598-022-26584-2"
+  },
+  {
+   "bib_id": 15,
+   "authors": [
+    {
+     "family": "Dufour",
+     "given": "S."
+    },
+    {
+     "family": "Mirault",
+     "given": "J."
+    },
+    {
+     "family": "Grainger",
+     "given": "J."
+    }
+   ],
+   "year": "2025",
+   "title": "Phrase frequency does not modulate transposed-word effects in the visual and auditory modalities",
+   "container": "Journal of Experimental Psychology: Learning, Memory, and Cognition",
+   "volume": "51",
+   "first_page": "1497",
+   "last_page": "1506",
+   "doi": "10.1037/xlm0001436"
+  },
+  {
+   "bib_id": 16,
+   "authors": [
+    {
+     "family": "Ehrlich",
+     "given": "S. F."
+    },
+    {
+     "family": "Rayner",
+     "given": "K."
+    }
+   ],
+   "year": "1981",
+   "title": "Contextual effects on word perception and eye movements during reading",
+   "container": "Journal of Verbal Learning and Verbal Behavior",
+   "volume": "20",
+   "first_page": "641",
+   "last_page": "655",
+   "doi": "10.1016/S0022-5371(81)90220-6"
+  },
+  {
+   "bib_id": 17,
+   "authors": [
+    {
+     "family": "Ferreira",
+     "given": "F."
+    },
+    {
+     "family": "Patson",
+     "given": "N. D."
+    }
+   ],
+   "year": "2007",
+   "title": "The ‘good enough’ approach to language comprehension",
+   "container": "Language and Linguistics Compass",
+   "volume": "1",
+   "first_page": "71",
+   "last_page": "83",
+   "doi": "10.1111/j.1749-818X.2007.00007.x"
+  },
+  {
+   "bib_id": 18,
+   "authors": [
+    {
+     "family": "Flower",
+     "given": "N."
+    },
+    {
+     "family": "Pylkkänen",
+     "given": "L."
+    }
+   ],
+   "year": "2024",
+   "title": "The spatiotemporal dynamics of bottom–up and top–down processing during at-a-glance reading",
+   "container": "Journal of Neuroscience",
+   "volume": "44",
+   "first_page": "e0374242024",
+   "doi": "10.1523/JNEUROSCI.0374-24.2024"
+  },
+  {
+   "bib_id": 19,
+   "authors": [
+    {
+     "family": "Frisson",
+     "given": "S."
+    },
+    {
+     "family": "Rayner",
+     "given": "K."
+    },
+    {
+     "family": "Pickering",
+     "given": "M. J."
+    }
+   ],
+   "year": "2005",
+   "title": "Effects of contextual predictability and transitional probability on eye movements during reading",
+   "container": "Journal of Experimental Psychology: Learning, Memory, and Cognition",
+   "volume": "31",
+   "first_page": "862",
+   "last_page": "877",
+   "doi": "10.1037/0278-7393.31.5.862"
+  },
+  {
+   "bib_id": 20,
+   "authors": [
+    {
+     "family": "Futrell",
+     "given": "R."
+    },
+    {
+     "family": "Gibson",
+     "given": "E."
+    },
+    {
+     "family": "Levy",
+     "given": "R. P."
+    }
+   ],
+   "year": "2020",
+   "title": "Lossy-context surprisal: An information-theoretic model of memory effects in sentence processing",
+   "container": "Cognitive Science",
+   "volume": "44",
+   "first_page": "e12814",
+   "doi": "10.1111/cogs.12814"
+  },
+  {
+   "bib_id": 21,
+   "authors": [
+    {
+     "family": "Gibson",
+     "given": "E."
+    },
+    {
+     "family": "Bergen",
+     "given": "L."
+    },
+    {
+     "family": "Piantadosi",
+     "given": "S. T."
+    }
+   ],
+   "year": "2013",
+   "title": "Rational integration of noisy evidence and prior semantic expectations in sentence interpretation",
+   "container": "Proceedings of the National Academy of Sciences of the United States of America",
+   "volume": "110",
+   "first_page": "8051",
+   "last_page": "8056",
+   "doi": "10.1073/pnas.1216438110"
+  },
+  {
+   "bib_id": 22,
+   "authors": [
+    {
+     "family": "Goodkind",
+     "given": "A."
+    },
+    {
+     "family": "Bicknell",
+     "given": "K."
+    }
+   ],
+   "year": "2021",
+   "title": "Local word statistics affect reading times independently of surprisal",
+   "container": "arXiv",
+   "doi": "10.48550/arXiv.2103.04469"
+  },
+  {
+   "bib_id": 23,
+   "authors": [
+    {
+     "family": "Grattafiori",
+     "given": "A."
+    },
+    {
+     "family": "Dubey",
+     "given": "A."
+    },
+    {
+     "family": "Jauhri",
+     "given": "A."
+    },
+    {
+     "family": "Pandey",
+     "given": "A."
+    },
+    {
+     "family": "Kadian",
+     "given": "A."
+    },
+    {
+     "family": "Al-Dahle",
+     "given": "A."
+    },
+    {
+     "family": "Letman",
+     "given": "A."
+    },
+    {
+     "family": "Mathur",
+     "given": "A."
+    },
+    {
+     "family": "Schelten",
+     "given": "A."
+    },
+    {
+     "family": "Vaughan",
+     "given": "A."
+    },
+    {
+     "family": "Yang",
+     "given": "A."
+    },
+    {
+     "family": "Fan",
+     "given": "A."
+    },
+    {
+     "family": "Goyal",
+     "given": "A."
+    },
+    {
+     "family": "Hartshorn",
+     "given": "A."
+    },
+    {
+     "family": "Yang",
+     "given": "A."
+    },
+    {
+     "family": "Mitra",
+     "given": "A."
+    },
+    {
+     "family": "Sravankumar",
+     "given": "A."
+    },
+    {
+     "family": "Korenev",
+     "given": "A."
+    },
+    {
+     "family": "Hinsvark",
+     "given": "A."
+    },
+    {
+     "family": "Ma",
+     "given": "Z."
+    }
+   ],
+   "year": "2024",
+   "title": "The Llama 3 herd of models",
+   "container": "arXiv",
+   "doi": "10.48550/arXiv.2407.21783"
+  },
+  {
+   "bib_id": 24,
+   "authors": [
+    {
+     "family": "Hahn",
+     "given": "M."
+    },
+    {
+     "family": "Futrell",
+     "given": "R."
+    },
+    {
+     "family": "Levy",
+     "given": "R."
+    },
+    {
+     "family": "Gibson",
+     "given": "E."
+    }
+   ],
+   "year": "2022",
+   "title": "A resource-rational model of human processing of recursive linguistic structure",
+   "container": "Proceedings of the National Academy of Sciences of the United States of America",
+   "volume": "119",
+   "first_page": "e2122602119",
+   "doi": "10.1073/pnas.2122602119"
+  },
+  {
+   "bib_id": 25,
+   "authors": [
+    {
+     "family": "Hale",
+     "given": "J."
+    }
+   ],
+   "year": "2001",
+   "title": "A probabilistic Earley parser as a psycholinguistic model",
+   "container": "Proceedings of the 2nd Meeting of the North American Chapter of the Association for Computational Linguistics on Language Technologies (NAACL ‘01)",
+   "first_page": "1",
+   "last_page": "8",
+   "doi": "10.3115/1073336.1073357"
+  },
+  {
+   "bib_id": 26,
+   "authors": [
+    {
+     "family": "Hossain",
+     "given": "J."
+    },
+    {
+     "family": "White",
+     "given": "A. L."
+    }
+   ],
+   "year": "2023",
+   "title": "The transposed word effect is consistent with serial word recognition and varies with reading speed",
+   "container": "Cognition",
+   "volume": "238",
+   "first_page": "105512",
+   "doi": "10.1016/j.cognition.2023.105512"
+  },
+  {
+   "bib_id": 27,
+   "authors": [
+    {
+     "family": "Hu",
+     "given": "J."
+    },
+    {
+     "family": "Wilcox",
+     "given": "E. G."
+    },
+    {
+     "family": "Song",
+     "given": "S."
+    },
+    {
+     "family": "Mahowald",
+     "given": "K."
+    },
+    {
+     "family": "Levy",
+     "given": "R. P."
+    }
+   ],
+   "year": "2026",
+   "title": "What can string probability tell us about grammaticality?",
+   "container": "Transactions of the Association for Computational Linguistics",
+   "volume": "14",
+   "first_page": "124",
+   "last_page": "146",
+   "doi": "10.1162/TACL.a.611"
+  },
+  {
+   "bib_id": 28,
+   "authors": [
+    {
+     "family": "Huang",
+     "given": "K.-J."
+    }
+   ],
+   "year": "2024",
+   "title": "Stored multiword representations and their usage during Chinese reading",
+   "doi": "10.7275/55192"
+  },
+  {
+   "bib_id": 29,
+   "authors": [
+    {
+     "family": "Huang",
+     "given": "K.-J."
+    },
+    {
+     "family": "Staub",
+     "given": "A."
+    }
+   ],
+   "year": "2021",
+   "title": "Using eye tracking to investigate failure to notice word transpositions in reading",
+   "container": "Cognition",
+   "volume": "216",
+   "first_page": "104846",
+   "doi": "10.1016/j.cognition.2021.104846"
+  },
+  {
+   "bib_id": 30,
+   "authors": [
+    {
+     "family": "Huang",
+     "given": "K.-J."
+    },
+    {
+     "family": "Staub",
+     "given": "A."
+    }
+   ],
+   "year": "2021",
+   "title": "Why do readers fail to notice word transpositions, omissions, and repetitions? A review of recent evidence and theory",
+   "container": "Language and Linguistics Compass",
+   "volume": "15",
+   "first_page": "e12434",
+   "doi": "10.1111/lnc3.12434"
+  },
+  {
+   "bib_id": 31,
+   "authors": [
+    {
+     "family": "Huang",
+     "given": "K.-J."
+    },
+    {
+     "family": "Staub",
+     "given": "A."
+    }
+   ],
+   "year": "2023",
+   "title": "The transposed-word effect does not require parallel word processing: Failure to notice transpositions with serial presentation of words",
+   "container": "Psychonomic Bulletin & Review",
+   "volume": "30",
+   "first_page": "393",
+   "last_page": "400",
+   "doi": "10.3758/s13423-022-02150-9"
+  },
+  {
+   "bib_id": 32,
+   "authors": [
+    {
+     "family": "Huang",
+     "given": "Y."
+    },
+    {
+     "family": "Ferreira",
+     "given": "F."
+    }
+   ],
+   "year": "2021",
+   "title": "What causes lingering misinterpretations of garden-path sentences: Incorrect syntactic representations or fallible memory processes?",
+   "container": "Journal of Memory and Language",
+   "volume": "121",
+   "first_page": "104288",
+   "doi": "10.1016/j.jml.2021.104288"
+  },
+  {
+   "bib_id": 33,
+   "authors": [
+    {
+     "family": "Jiang",
+     "given": "S."
+    },
+    {
+     "family": "Jiang",
+     "given": "X."
+    },
+    {
+     "family": "Siyanova-Chanturia",
+     "given": "A."
+    }
+   ],
+   "year": "2020",
+   "title": "The processing of multiword expressions in children and adults: An eye-tracking study of Chinese",
+   "container": "Applied Psycholinguistics",
+   "volume": "41",
+   "first_page": "901",
+   "last_page": "931",
+   "doi": "10.1017/S0142716420000296"
+  },
+  {
+   "bib_id": 34,
+   "authors": [
+    {
+     "family": "Jolsvai",
+     "given": "H."
+    },
+    {
+     "family": "McCauley",
+     "given": "S. M."
+    },
+    {
+     "family": "Christiansen",
+     "given": "M. H."
+    }
+   ],
+   "year": "2020",
+   "title": "Meaningfulness beats frequency in multiword chunk processing",
+   "container": "Cognitive Science",
+   "volume": "44",
+   "first_page": "e12885",
+   "doi": "10.1111/cogs.12885"
+  },
+  {
+   "bib_id": 35,
+   "authors": [
+    {
+     "family": "Keshev",
+     "given": "M."
+    },
+    {
+     "family": "Meltzer-Asscher",
+     "given": "A."
+    }
+   ],
+   "year": "2021",
+   "title": "Noisy is better than rare: Comprehenders compromise subject-verb agreement to form more probable linguistic structures",
+   "container": "Cognitive Psychology",
+   "volume": "124",
+   "first_page": "101359",
+   "doi": "10.1016/j.cogpsych.2020.101359"
+  },
+  {
+   "bib_id": 36,
+   "authors": [
+    {
+     "family": "Lau",
+     "given": "J. H."
+    },
+    {
+     "family": "Clark",
+     "given": "A."
+    },
+    {
+     "family": "Lappin",
+     "given": "S."
+    }
+   ],
+   "year": "2017",
+   "title": "Grammaticality, acceptability, and probability: A probabilistic view of linguistic knowledge",
+   "container": "Cognitive Science",
+   "volume": "41",
+   "first_page": "1202",
+   "last_page": "1241",
+   "doi": "10.1111/cogs.12414"
+  },
+  {
+   "bib_id": 37,
+   "authors": [
+    {
+     "family": "Levy",
+     "given": "R."
+    }
+   ],
+   "year": "2008",
+   "title": "A noisy-channel model of human sentence comprehension under uncertain input",
+   "container": "Proceedings of the 2008 Conference on Empirical Methods in Natural Language Processing",
+   "first_page": "234",
+   "last_page": "243"
+  },
+  {
+   "bib_id": 38,
+   "authors": [
+    {
+     "family": "Levy",
+     "given": "R."
+    }
+   ],
+   "year": "2008",
+   "title": "Expectation-based syntactic comprehension",
+   "container": "Cognition",
+   "volume": "106",
+   "first_page": "1126",
+   "last_page": "1177",
+   "doi": "10.1016/j.cognition.2007.05.006"
+  },
+  {
+   "bib_id": 39,
+   "authors": [
+    {
+     "family": "Li",
+     "given": "J."
+    },
+    {
+     "family": "Ettinger",
+     "given": "A."
+    }
+   ],
+   "year": "2023",
+   "title": "Heuristic interpretation as rational inference: A computational model of the N400 and P600 in language processing",
+   "container": "Cognition",
+   "volume": "233",
+   "first_page": "105359",
+   "doi": "10.1016/j.cognition.2022.105359"
+  },
+  {
+   "bib_id": 40,
+   "authors": [
+    {
+     "family": "Liu",
+     "given": "Z."
+    },
+    {
+     "family": "Li",
+     "given": "Y."
+    },
+    {
+     "family": "Cutter",
+     "given": "M. G."
+    },
+    {
+     "family": "Paterson",
+     "given": "K. B."
+    },
+    {
+     "family": "Wang",
+     "given": "J."
+    }
+   ],
+   "year": "2022",
+   "title": "A transposed-word effect across space and time: Evidence from Chinese",
+   "container": "Cognition",
+   "volume": "218",
+   "first_page": "104922",
+   "doi": "10.1016/j.cognition.2021.104922"
+  },
+  {
+   "bib_id": 41,
+   "authors": [
+    {
+     "family": "McGowan",
+     "given": "V. A."
+    },
+    {
+     "family": "Elsherif",
+     "given": "M. M."
+    },
+    {
+     "family": "Cutter",
+     "given": "M. G."
+    },
+    {
+     "family": "Liu",
+     "given": "Z."
+    },
+    {
+     "family": "Wang",
+     "given": "J."
+    },
+    {
+     "family": "Paterson",
+     "given": "K. B."
+    }
+   ],
+   "year": "2026",
+   "title": "Reading words of out order: Comparing serial and parallel accounts of the transposed word effect",
+   "container": "Cognition",
+   "volume": "269",
+   "first_page": "106399",
+   "doi": "10.1016/j.cognition.2025.106399"
+  },
+  {
+   "bib_id": 42,
+   "authors": [
+    {
+     "family": "Milledge",
+     "given": "S. V."
+    },
+    {
+     "family": "Bhatia",
+     "given": "N."
+    },
+    {
+     "family": "Mensah-Mcleod",
+     "given": "L."
+    },
+    {
+     "family": "Raghvani",
+     "given": "P."
+    },
+    {
+     "family": "McGowan",
+     "given": "V. A."
+    },
+    {
+     "family": "Elsherif",
+     "given": "M. M."
+    },
+    {
+     "family": "Cutter",
+     "given": "M. G."
+    },
+    {
+     "family": "Wang",
+     "given": "J."
+    },
+    {
+     "family": "Liu",
+     "given": "Z."
+    },
+    {
+     "family": "Paterson",
+     "given": "K. B."
+    }
+   ],
+   "year": "2023",
+   "title": "The transposed-word effect provides no unequivocal evidence for parallel processing",
+   "container": "Attention, Perception, & Psychophysics",
+   "volume": "85",
+   "first_page": "2538",
+   "last_page": "2546",
+   "doi": "10.3758/s13414-023-02721-5"
+  },
+  {
+   "bib_id": 43,
+   "authors": [
+    {
+     "family": "Mirault",
+     "given": "J."
+    },
+    {
+     "family": "Snell",
+     "given": "J."
+    },
+    {
+     "family": "Grainger",
+     "given": "J."
+    }
+   ],
+   "year": "2018",
+   "title": "You that read wrong again! A transposed-word effect in grammaticality judgments",
+   "container": "Psychological Science",
+   "volume": "29",
+   "first_page": "1922",
+   "last_page": "1929",
+   "doi": "10.1177/0956797618806296"
+  },
+  {
+   "bib_id": 44,
+   "authors": [
+    {
+     "family": "Mirault",
+     "given": "J."
+    },
+    {
+     "family": "Vandendaele",
+     "given": "A."
+    },
+    {
+     "family": "Pegado",
+     "given": "F."
+    },
+    {
+     "family": "Grainger",
+     "given": "J."
+    }
+   ],
+   "year": "2022",
+   "title": "Transposed-word effects when reading serially",
+   "container": "PLoS One",
+   "volume": "17",
+   "first_page": "e0277116",
+   "doi": "10.1371/journal.pone.0277116"
+  },
+  {
+   "bib_id": 45,
+   "authors": [
+    {
+     "family": "Novick",
+     "given": "J. M."
+    },
+    {
+     "family": "Hussey",
+     "given": "E."
+    },
+    {
+     "family": "Teubner-Rhodes",
+     "given": "S."
+    },
+    {
+     "family": "Harbison",
+     "given": "J. I."
+    },
+    {
+     "family": "Bunting",
+     "given": "M. F."
+    }
+   ],
+   "year": "2014",
+   "title": "Clearing the garden-path: Improving sentence processing through cognitive control training",
+   "container": "Language, Cognition and Neuroscience",
+   "volume": "29",
+   "first_page": "186",
+   "last_page": "217",
+   "doi": "10.1080/01690965.2012.758297"
+  },
+  {
+   "bib_id": 46,
+   "authors": [
+    {
+     "family": "Oh",
+     "given": "B.-D."
+    },
+    {
+     "family": "Schuler",
+     "given": "W."
+    }
+   ],
+   "year": "2023",
+   "title": "Transformer-based language model surprisal predicts human reading times best with about two billion training tokens",
+   "container": "Findings of the Association for Computational Linguistics: EMNLP 2023",
+   "first_page": "1915",
+   "last_page": "1921",
+   "doi": "10.18653/v1/2023.findings-emnlp.128"
+  },
+  {
+   "bib_id": 47,
+   "authors": [
+    {
+     "family": "Öksüz",
+     "given": "D."
+    },
+    {
+     "family": "Brezina",
+     "given": "V."
+    },
+    {
+     "family": "Monaghan",
+     "given": "P."
+    },
+    {
+     "family": "Rebuschat",
+     "given": "P."
+    }
+   ],
+   "year": "2024",
+   "title": "Individual word and phrase frequency effects in collocational processing: Evidence from typologically different languages, English and Turkish",
+   "container": "Journal of Experimental Psychology: Learning, Memory, and Cognition",
+   "volume": "50",
+   "first_page": "1287",
+   "last_page": "1314",
+   "doi": "10.1037/xlm0001324"
+  },
+  {
+   "bib_id": 48,
+   "authors": [
+    {
+     "family": "Paape",
+     "given": "D."
+    }
+   ],
+   "year": "2024",
+   "title": "How do linguistic illusions arise? Rational inference and good-enough processing as competing latent processes within individuals",
+   "container": "Language, Cognition and Neuroscience",
+   "volume": "39",
+   "first_page": "1334",
+   "last_page": "1365",
+   "doi": "10.1080/23273798.2024.2387226"
+  },
+  {
+   "bib_id": 49,
+   "authors": [
+    {
+     "family": "Peelle",
+     "given": "J. E."
+    },
+    {
+     "family": "Miller",
+     "given": "R. L."
+    },
+    {
+     "family": "Rogers",
+     "given": "C. S."
+    },
+    {
+     "family": "Spehar",
+     "given": "B."
+    },
+    {
+     "family": "Sommers",
+     "given": "M. S."
+    },
+    {
+     "family": "Van Engen",
+     "given": "K. J."
+    }
+   ],
+   "year": "2020",
+   "title": "Completion norms for 3085 English sentence contexts",
+   "container": "Behavior Research Methods",
+   "volume": "52",
+   "first_page": "1795",
+   "last_page": "1799",
+   "doi": "10.3758/s13428-020-01351-1"
+  },
+  {
+   "bib_id": 50,
+   "authors": [
+    {
+     "family": "Poliak",
+     "given": "M."
+    },
+    {
+     "family": "Malik-Moraleda",
+     "given": "S."
+    },
+    {
+     "family": "Gibson",
+     "given": "E."
+    }
+   ],
+   "year": "2026",
+   "title": "Rational language comprehension depends on priors about both meaning and structure",
+   "container": "Journal of Experimental Psychology: Learning, Memory, and Cognition",
+   "volume": "52",
+   "first_page": "307",
+   "last_page": "322",
+   "doi": "10.1037/xlm0001470"
+  },
+  {
+   "bib_id": 51,
+   "authors": [
+    {
+     "family": "Poppels",
+     "given": "T."
+    },
+    {
+     "family": "Levy",
+     "given": "R. P."
+    }
+   ],
+   "year": "2016",
+   "title": "Structure-sensitive noise inference: Comprehenders expect exchange errors",
+   "container": "Proceedings of the 38th Annual Conference of the Cognitive Science Society",
+   "first_page": "378",
+   "last_page": "383"
+  },
+  {
+   "bib_id": 52,
+   "authors": [
+    {
+     "family": "Prasad",
+     "given": "G."
+    },
+    {
+     "family": "Fargally",
+     "given": "O."
+    }
+   ],
+   "year": "2024",
+   "title": "Prolific vs. MTurk: Differences in overall reading times and accuracy, but not effect sizes"
+  },
+  {
+   "bib_id": 53,
+   "authors": [
+    {
+     "family": "R Core Team",
+     "given": ""
+    }
+   ],
+   "year": "2022",
+   "title": "R: A language and environment for statistical computing"
+  },
+  {
+   "bib_id": 54,
+   "authors": [
+    {
+     "family": "Ryskin",
+     "given": "R."
+    },
+    {
+     "family": "Futrell",
+     "given": "R."
+    },
+    {
+     "family": "Kiran",
+     "given": "S."
+    },
+    {
+     "family": "Gibson",
+     "given": "E."
+    }
+   ],
+   "year": "2018",
+   "title": "Comprehenders model the nature of noise in the environment",
+   "container": "Cognition",
+   "volume": "181",
+   "first_page": "141",
+   "last_page": "150",
+   "doi": "10.1016/j.cognition.2018.08.018"
+  },
+  {
+   "bib_id": 55,
+   "authors": [
+    {
+     "family": "Ryskin",
+     "given": "R."
+    },
+    {
+     "family": "Salinas",
+     "given": "M."
+    },
+    {
+     "family": "Piantadosi",
+     "given": "S."
+    },
+    {
+     "family": "Gibson",
+     "given": "E."
+    }
+   ],
+   "year": "2023",
+   "title": "Real-time inference in communication across cultures: Evidence from a nonindustrialized society",
+   "container": "Journal of Experimental Psychology: General",
+   "volume": "152",
+   "first_page": "1245",
+   "last_page": "1263",
+   "doi": "10.1037/xge0001345"
+  },
+  {
+   "bib_id": 56,
+   "authors": [
+    {
+     "family": "Ryskin",
+     "given": "R."
+    },
+    {
+     "family": "Stearns",
+     "given": "L."
+    },
+    {
+     "family": "Bergen",
+     "given": "L."
+    },
+    {
+     "family": "Eddy",
+     "given": "M."
+    },
+    {
+     "family": "Fedorenko",
+     "given": "E."
+    },
+    {
+     "family": "Gibson",
+     "given": "E."
+    }
+   ],
+   "year": "2021",
+   "title": "An ERP index of real-time error correction within a noisy-channel framework of human communication",
+   "container": "Neuropsychologia",
+   "volume": "158",
+   "first_page": "107855",
+   "doi": "10.1016/j.neuropsychologia.2021.107855"
+  },
+  {
+   "bib_id": 57,
+   "authors": [
+    {
+     "family": "Shannon",
+     "given": "C. E."
+    }
+   ],
+   "year": "1948",
+   "title": "A mathematical theory of communication",
+   "container": "Bell System Technical Journal",
+   "volume": "27",
+   "first_page": "379",
+   "last_page": "423",
+   "doi": "10.1002/j.1538-7305.1948.tb01338.x"
+  },
+  {
+   "bib_id": 58,
+   "authors": [
+    {
+     "family": "Slattery",
+     "given": "T. J."
+    }
+   ],
+   "year": "2009",
+   "title": "Word misperception, the neighbor frequency effect, and the role of sentence context: Evidence from eye movements",
+   "container": "Journal of Experimental Psychology: Human Perception and Performance",
+   "volume": "35",
+   "first_page": "1969",
+   "last_page": "1975",
+   "doi": "10.1037/a0016894"
+  },
+  {
+   "bib_id": 59,
+   "authors": [
+    {
+     "family": "Slattery",
+     "given": "T. J."
+    },
+    {
+     "family": "Sturt",
+     "given": "P."
+    },
+    {
+     "family": "Christianson",
+     "given": "K."
+    },
+    {
+     "family": "Yoshida",
+     "given": "M."
+    },
+    {
+     "family": "Ferreira",
+     "given": "F."
+    }
+   ],
+   "year": "2013",
+   "title": "Lingering misinterpretations of garden path sentences arise from competing syntactic representations",
+   "container": "Journal of Memory and Language",
+   "volume": "69",
+   "first_page": "104",
+   "last_page": "120",
+   "doi": "10.1016/j.jml.2013.04.001"
+  },
+  {
+   "bib_id": 60,
+   "authors": [
+    {
+     "family": "Snell",
+     "given": "J."
+    },
+    {
+     "family": "Grainger",
+     "given": "J."
+    }
+   ],
+   "year": "2019",
+   "title": "Readers are parallel processors",
+   "container": "Trends in Cognitive Sciences",
+   "volume": "23",
+   "first_page": "537",
+   "last_page": "546",
+   "doi": "10.1016/j.tics.2019.04.006"
+  },
+  {
+   "bib_id": 61,
+   "authors": [
+    {
+     "family": "Snell",
+     "given": "J."
+    },
+    {
+     "family": "Melo",
+     "given": "A. N."
+    }
+   ],
+   "year": "2024",
+   "title": "Do love you me? Failure to notice word transpositions is induced by parallel word processing",
+   "container": "Journal of Cognition",
+   "volume": "7",
+   "first_page": "21",
+   "doi": "10.5334/joc.335"
+  },
+  {
+   "bib_id": 62,
+   "authors": [
+    {
+     "family": "Snell",
+     "given": "J."
+    },
+    {
+     "family": "van Leipsig",
+     "given": "S."
+    },
+    {
+     "family": "Grainger",
+     "given": "J."
+    },
+    {
+     "family": "Meeter",
+     "given": "M."
+    }
+   ],
+   "year": "2018",
+   "title": "OB1-reader: A model of word recognition and eye movements in text reading",
+   "container": "Psychological Review",
+   "volume": "125",
+   "first_page": "969",
+   "last_page": "984",
+   "doi": "10.1037/rev0000119"
+  },
+  {
+   "bib_id": 63,
+   "authors": [
+    {
+     "family": "Spinelli",
+     "given": "G."
+    },
+    {
+     "family": "Yang",
+     "given": "H."
+    },
+    {
+     "family": "Lupker",
+     "given": "S. J."
+    }
+   ],
+   "year": "2024",
+   "title": "Rapid serial visual presentation of transposed-word sequences in the grammatical decision task: An examination of the roles of temporal and spatial cues to word order",
+   "container": "Language, Cognition and Neuroscience",
+   "volume": "39",
+   "first_page": "773",
+   "last_page": "792",
+   "doi": "10.1080/23273798.2024.2360168"
+  },
+  {
+   "bib_id": 64,
+   "authors": [
+    {
+     "family": "Staub",
+     "given": "A."
+    }
+   ],
+   "year": "2015",
+   "title": "The effect of lexical predictability on eye movements in reading: Critical review and theoretical interpretation",
+   "container": "Language and Linguistics Compass",
+   "volume": "9",
+   "first_page": "311",
+   "last_page": "327",
+   "doi": "10.1111/lnc3.12151"
+  },
+  {
+   "bib_id": 65,
+   "authors": [
+    {
+     "family": "Staub",
+     "given": "A."
+    },
+    {
+     "family": "Chen",
+     "given": "A."
+    },
+    {
+     "family": "Peck",
+     "given": "E."
+    },
+    {
+     "family": "Taylor",
+     "given": "N."
+    }
+   ],
+   "year": "2025",
+   "title": "Estimating the rate of failure to notice function word errors in natural reading",
+   "container": "Psychonomic Bulletin & Review",
+   "volume": "32",
+   "first_page": "847",
+   "last_page": "854",
+   "doi": "10.3758/s13423-024-02586-1"
+  },
+  {
+   "bib_id": 66,
+   "authors": [
+    {
+     "family": "Staub",
+     "given": "A."
+    },
+    {
+     "family": "Dodge",
+     "given": "S."
+    },
+    {
+     "family": "Cohen",
+     "given": "A. L."
+    }
+   ],
+   "year": "2019",
+   "title": "Failure to detect function word repetitions and omissions in reading: Are eye movements to blame?",
+   "container": "Psychonomic Bulletin & Review",
+   "volume": "26",
+   "first_page": "340",
+   "last_page": "346",
+   "doi": "10.3758/s13423-018-1492-z"
+  },
+  {
+   "bib_id": 67,
+   "authors": [
+    {
+     "family": "Staub",
+     "given": "A."
+    },
+    {
+     "family": "McMurray",
+     "given": "H."
+    },
+    {
+     "family": "Wickett",
+     "given": "A."
+    }
+   ],
+   "year": "2024",
+   "title": "Perceptual inference corrects function word errors in reading: Errors that are not noticed do not disrupt eye movements",
+   "container": "Cognitive Psychology",
+   "volume": "154",
+   "first_page": "101691",
+   "doi": "10.1016/j.cogpsych.2024.101691"
+  },
+  {
+   "bib_id": 68,
+   "authors": [
+    {
+     "family": "Vigly",
+     "given": "J. H."
+    },
+    {
+     "family": "Qian",
+     "given": "P."
+    },
+    {
+     "family": "Sonderegger",
+     "given": "M."
+    },
+    {
+     "family": "O’Donnell",
+     "given": "T."
+    }
+   ],
+   "year": "2025",
+   "title": "Comprehension effort as the cost of inference",
+   "container": "PsyArXiv",
+   "doi": "10.31234/osf.io/2498w_v1"
+  },
+  {
+   "bib_id": 69,
+   "authors": [
+    {
+     "family": "Wagenmakers",
+     "given": "E.-J."
+    },
+    {
+     "family": "Farrell",
+     "given": "S."
+    }
+   ],
+   "year": "2004",
+   "title": "AIC model selection using Akaike weights",
+   "container": "Psychonomic Bulletin & Review",
+   "volume": "11",
+   "first_page": "192",
+   "last_page": "196",
+   "doi": "10.3758/BF03206482"
+  },
+  {
+   "bib_id": 70,
+   "authors": [
+    {
+     "family": "Wang",
+     "given": "J."
+    },
+    {
+     "family": "Yang",
+     "given": "J."
+    },
+    {
+     "family": "Biemann",
+     "given": "C."
+    },
+    {
+     "family": "Li",
+     "given": "X."
+    }
+   ],
+   "year": "2023",
+   "title": "Mechanism of semantic processing of lexicalized and novel compound words: An eye movement study",
+   "container": "Journal of Experimental Psychology: Learning, Memory, and Cognition",
+   "volume": "49",
+   "first_page": "1812",
+   "last_page": "1822",
+   "doi": "10.1037/xlm0001255"
+  },
+  {
+   "bib_id": 71,
+   "authors": [
+    {
+     "family": "Wen",
+     "given": "Y."
+    },
+    {
+     "family": "Grainger",
+     "given": "J."
+    }
+   ],
+   "year": "2025",
+   "title": "The transposed-word effect under serial presentation revisited: A replication study and meta-analysis",
+   "container": "Language, Cognition and Neuroscience",
+   "volume": "40",
+   "first_page": "1156",
+   "last_page": "1164",
+   "doi": "10.1080/23273798.2025.2496910"
+  },
+  {
+   "bib_id": 72,
+   "authors": [
+    {
+     "family": "Wen",
+     "given": "Y."
+    },
+    {
+     "family": "Mirault",
+     "given": "J."
+    },
+    {
+     "family": "Grainger",
+     "given": "J."
+    }
+   ],
+   "year": "2021",
+   "title": "Fast syntax in the brain: Electrophysiological evidence from the rapid parallel visual presentation paradigm (RPVP)",
+   "container": "Journal of Experimental Psychology: Learning, Memory, and Cognition",
+   "volume": "47",
+   "first_page": "99",
+   "last_page": "112",
+   "doi": "10.1037/xlm0000811"
+  },
+  {
+   "bib_id": 73,
+   "authors": [
+    {
+     "family": "Wen",
+     "given": "Y."
+    },
+    {
+     "family": "Mirault",
+     "given": "J."
+    },
+    {
+     "family": "Grainger",
+     "given": "J."
+    }
+   ],
+   "year": "2021",
+   "title": "The transposed-word effect revisited: The role of syntax in word position coding",
+   "container": "Language, Cognition and Neuroscience",
+   "volume": "36",
+   "first_page": "668",
+   "last_page": "673",
+   "doi": "10.1080/23273798.2021.1880608"
+  },
+  {
+   "bib_id": 74,
+   "authors": [
+    {
+     "family": "Zang",
+     "given": "C."
+    },
+    {
+     "family": "Fu",
+     "given": "Y."
+    },
+    {
+     "family": "Du",
+     "given": "H."
+    },
+    {
+     "family": "Bai",
+     "given": "X."
+    },
+    {
+     "family": "Yan",
+     "given": "G."
+    },
+    {
+     "family": "Liversedge",
+     "given": "S. P."
+    }
+   ],
+   "year": "2024",
+   "title": "Processing multiconstituent units: Preview effects during reading of Chinese words, idioms, and phrases",
+   "container": "Journal of Experimental Psychology: Learning, Memory, and Cognition",
+   "volume": "50",
+   "first_page": "169",
+   "last_page": "188",
+   "doi": "10.1037/xlm0001234"
+  },
+  {
+   "bib_id": 75,
+   "authors": [
+    {
+     "family": "Zhang",
+     "given": "Y."
+    },
+    {
+     "family": "Ryskin",
+     "given": "R."
+    },
+    {
+     "family": "Gibson",
+     "given": "E."
+    }
+   ],
+   "year": "2023",
+   "title": "A noisy-channel approach to depth-charge illusions",
+   "container": "Cognition",
+   "volume": "232",
+   "first_page": "105346",
+   "doi": "10.1016/j.cognition.2022.105346"
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-core-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "jats_doi": "10.1162/OPMI.a.362"
+ }
+}

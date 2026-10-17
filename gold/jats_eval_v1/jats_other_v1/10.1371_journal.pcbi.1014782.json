@@ -1,0 +1,2068 @@
+{
+ "paper_id": "10.1371_journal.pcbi.1014782",
+ "info": {
+  "title": "Triplet-based species tree estimation: Sensitivity to gene tree rooting (or lack thereof)",
+  "doi": "10.1371/journal.pcbi.1014782",
+  "file_name": "10.1371_journal.pcbi.1014782.pdf",
+  "abstract": "Species tree estimation often involves phylogenomic methodologies that incorporate multiple genes sampled across the genome. However, gene tree heterogeneity (discordance), often attributed to Incomplete Lineage Sorting (ILS), presents a significant challenge to accurate species tree inference. Triplet and quartet-based species tree estimation methods have attracted considerable attention owing to their provable statistical consistency in the presence of ILS. Yet, the adoption of rooted triplet-based approaches in the systematics community has been restricted, largely due to their limitations in handling unrooted gene trees—an issue not faced by quartet-based methods. Since the root placement directly influences the distribution of induced triplets in a gene tree, the accuracy of triplet-based methods is dependent on gene tree rooting accuracy. While there is extensive research on approaches for rooting unrooted gene trees, the choice of rooting techniques and their implications for triplet-based species tree estimation on realistic model conditions are greatly understudied. In this study, we carry out an extensive empirical analysis of different gene tree rooting strategies to assess the effects of rooting on triplet-based species tree inference. Across simulated and empirical datasets, triplet-based estimation using STELAR is generally robust to gene tree rooting, with several algorithmic rooting strategies yielding performance comparable to, and in some model conditions exceeding, that of STELAR on outgroup-rooted gene trees and the widely used quartet-based method ASTRAL. Our results highlight different model conditions in which rooting choices positively influence triplet-based species tree inference, thereby providing new insights into their potential utility in phylogenomic analyses."
+ },
+ "author": [
+  {
+   "author_id": 1,
+   "given": "Tanjeem Azwad",
+   "family": "Zaman",
+   "affiliation": "Department of Computer Science and Engineering, Bangladesh University of Engineering and Technology, Dhaka, Bangladesh",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 2,
+   "given": "Rabib",
+   "family": "Jahin Ibn Momin",
+   "affiliation": "Department of Computer Science and Engineering, Bangladesh University of Engineering and Technology, Dhaka, Bangladesh",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 3,
+   "given": "Md Shamsuzzoha",
+   "family": "Bayzid",
+   "affiliation": "Department of Computer Science and Engineering, Bangladesh University of Engineering and Technology, Dhaka, Bangladesh",
+   "email": "",
+   "orcid": "",
+   "corresponding": true
+  }
+ ],
+ "section": [
+  {
+   "section_id": 1,
+   "section_type": "abstract",
+   "header": "Abstract",
+   "level": 1,
+   "parent_section_id": null,
+   "classification_score": 1.0
+  }
+ ],
+ "text": [
+  {
+   "text_id": 1,
+   "section_id": 1,
+   "paragraph_id": 1,
+   "text": "Species tree estimation often involves phylogenomic methodologies that incorporate multiple genes sampled across the genome. However, gene tree heterogeneity (discordance), often attributed to Incomplete Lineage Sorting (ILS), presents a significant challenge to accurate species tree inference. Triplet and quartet-based species tree estimation methods have attracted considerable attention owing to their provable statistical consistency in the presence of ILS. Yet, the adoption of rooted triplet-based approaches in the systematics community has been restricted, largely due to their limitations in handling unrooted gene trees—an issue not faced by quartet-based methods. Since the root placement directly influences the distribution of induced triplets in a gene tree, the accuracy of triplet-based methods is dependent on gene tree rooting accuracy. While there is extensive research on approaches for rooting unrooted gene trees, the choice of rooting techniques and their implications for triplet-based species tree estimation on realistic model conditions are greatly understudied. In this study, we carry out an extensive empirical analysis of different gene tree rooting strategies to assess the effects of rooting on triplet-based species tree inference. Across simulated and empirical datasets, triplet-based estimation using STELAR is generally robust to gene tree rooting, with several algorithmic rooting strategies yielding performance comparable to, and in some model conditions exceeding, that of STELAR on outgroup-rooted gene trees and the widely used quartet-based method ASTRAL. Our results highlight different model conditions in which rooting choices positively influence triplet-based species tree inference, thereby providing new insights into their potential utility in phylogenomic analyses.",
+   "page_number": 1
+  }
+ ],
+ "bib": [
+  {
+   "bib_id": 1,
+   "authors": [
+    {
+     "family": "Roch",
+     "given": "S"
+    },
+    {
+     "family": "Steel",
+     "given": "M"
+    }
+   ],
+   "year": "2015",
+   "title": "Likelihood-based tree reconstruction on a concatenation of aligned sequence data sets can be statistically inconsistent",
+   "container": "Theor Popul Biol",
+   "first_page": "56",
+   "last_page": "62",
+   "doi": "10.1016/j.tpb.2014.12.005"
+  },
+  {
+   "bib_id": 2,
+   "authors": [
+    {
+     "family": "Kubatko",
+     "given": "LS"
+    },
+    {
+     "family": "Degnan",
+     "given": "JH"
+    }
+   ],
+   "year": "2007",
+   "title": "Inconsistency of phylogenetic estimates from concatenated data under coalescence",
+   "container": "Syst Biol",
+   "volume": "56",
+   "first_page": "17",
+   "last_page": "24",
+   "doi": "10.1080/10635150601146041"
+  },
+  {
+   "bib_id": 3,
+   "authors": [
+    {
+     "family": "Edwards",
+     "given": "SV"
+    },
+    {
+     "family": "Liu",
+     "given": "L"
+    },
+    {
+     "family": "Pearl",
+     "given": "DK"
+    }
+   ],
+   "year": "2007",
+   "title": "High-resolution species trees without concatenation",
+   "container": "Proc Natl Acad Sci U S A",
+   "volume": "104",
+   "first_page": "5936",
+   "doi": "10.1073/pnas.0607004104"
+  },
+  {
+   "bib_id": 4,
+   "authors": [
+    {
+     "family": "Leaché",
+     "given": "AD"
+    },
+    {
+     "family": "Rannala",
+     "given": "B"
+    }
+   ],
+   "year": "2011",
+   "title": "The accuracy of species tree estimation under simulation: a comparison of methods",
+   "container": "Syst Biol",
+   "volume": "60",
+   "first_page": "126",
+   "doi": "10.1093/sysbio/syq073"
+  },
+  {
+   "bib_id": 5,
+   "authors": [
+    {
+     "family": "DeGiorgio",
+     "given": "M"
+    },
+    {
+     "family": "Degnan",
+     "given": "JH"
+    }
+   ],
+   "year": "2010",
+   "title": "Fast and consistent estimation of species trees using supermatrix rooted triples",
+   "container": "Mol Biol Evol",
+   "volume": "27",
+   "first_page": "552",
+   "doi": "10.1093/molbev/msp250"
+  },
+  {
+   "bib_id": 6,
+   "authors": [
+    {
+     "family": "Bayzid",
+     "given": "MS"
+    },
+    {
+     "family": "Warnow",
+     "given": "T"
+    }
+   ],
+   "year": "2013",
+   "title": "Naive binning improves phylogenomic analyses",
+   "container": "Bioinformatics",
+   "volume": "29",
+   "first_page": "2277",
+   "doi": "10.1093/bioinformatics/btt394"
+  },
+  {
+   "bib_id": 7,
+   "authors": [
+    {
+     "family": "Kingman",
+     "given": "JFC"
+    }
+   ],
+   "year": "1982",
+   "title": "The coalescent",
+   "container": "Stoch Proc Appl",
+   "volume": "13",
+   "first_page": "235"
+  },
+  {
+   "bib_id": 8,
+   "authors": [
+    {
+     "family": "Jarvis",
+     "given": "ED"
+    },
+    {
+     "family": "Mirarab",
+     "given": "S"
+    },
+    {
+     "family": "Aberer",
+     "given": "AJ"
+    },
+    {
+     "family": "Li",
+     "given": "B"
+    },
+    {
+     "family": "Houde",
+     "given": "P"
+    },
+    {
+     "family": "Li",
+     "given": "C"
+    }
+   ],
+   "year": "2014",
+   "title": "Whole-genome analyses resolve early branches in the tree of life of modern birds",
+   "container": "Science",
+   "volume": "346",
+   "first_page": "1320",
+   "doi": "10.1126/science.1253451"
+  },
+  {
+   "bib_id": 9,
+   "authors": [
+    {
+     "family": "Heled",
+     "given": "J"
+    },
+    {
+     "family": "Drummond",
+     "given": "AJ"
+    }
+   ],
+   "year": "2010",
+   "title": "Bayesian inference of species trees from multilocus data",
+   "container": "Mol Biol Evol",
+   "volume": "27",
+   "first_page": "570",
+   "doi": "10.1093/molbev/msp274"
+  },
+  {
+   "bib_id": 10,
+   "authors": [
+    {
+     "family": "Kubatko",
+     "given": "LS"
+    },
+    {
+     "family": "Carstens",
+     "given": "BC"
+    },
+    {
+     "family": "Knowles",
+     "given": "LL"
+    }
+   ],
+   "year": "2009",
+   "title": "STEM: species tree estimation using maximum likelihood for gene trees under coalescence",
+   "container": "Bioinformatics",
+   "volume": "25",
+   "first_page": "971",
+   "doi": "10.1093/bioinformatics/btp079"
+  },
+  {
+   "bib_id": 11,
+   "authors": [
+    {
+     "family": "Larget",
+     "given": "BR"
+    },
+    {
+     "family": "Kotha",
+     "given": "SK"
+    },
+    {
+     "family": "Dewey",
+     "given": "CN"
+    },
+    {
+     "family": "Ané",
+     "given": "C"
+    }
+   ],
+   "year": "2010",
+   "title": "BUCKy: gene tree/species tree reconciliation with Bayesian concordance analysis",
+   "container": "Bioinformatics",
+   "volume": "26",
+   "first_page": "2910",
+   "doi": "10.1093/bioinformatics/btq539"
+  },
+  {
+   "bib_id": 12,
+   "authors": [
+    {
+     "family": "Reaz",
+     "given": "R"
+    },
+    {
+     "family": "Bayzid",
+     "given": "MS"
+    },
+    {
+     "family": "Rahman",
+     "given": "MS"
+    }
+   ],
+   "year": "2014",
+   "title": "Accurate phylogenetic tree reconstruction from quartets: a heuristic approach",
+   "container": "PLoS One",
+   "volume": "9",
+   "doi": "10.1371/journal.pone.0104008"
+  },
+  {
+   "bib_id": 13,
+   "authors": [
+    {
+     "family": "Mahbub",
+     "given": "M"
+    },
+    {
+     "family": "Wahab",
+     "given": "Z"
+    },
+    {
+     "family": "Reaz",
+     "given": "R"
+    },
+    {
+     "family": "Rahman",
+     "given": "MS"
+    },
+    {
+     "family": "Bayzid",
+     "given": "MS"
+    }
+   ],
+   "year": "2021",
+   "title": "wQFM: highly accurate genome-scale species tree estimation from weighted quartets",
+   "container": "Bioinformatics",
+   "volume": "37",
+   "first_page": "3734",
+   "doi": "10.1093/bioinformatics/btab428"
+  },
+  {
+   "bib_id": 14,
+   "authors": [
+    {
+     "family": "Liu",
+     "given": "L"
+    },
+    {
+     "family": "Yu",
+     "given": "L"
+    },
+    {
+     "family": "Edwards",
+     "given": "SV"
+    }
+   ],
+   "year": "2010",
+   "title": "A maximum pseudo-likelihood approach for estimating species trees under the coalescent model",
+   "container": "BMC Evol Biol",
+   "volume": "10",
+   "first_page": "302",
+   "doi": "10.1186/1471-2148-10-302"
+  },
+  {
+   "bib_id": 15,
+   "authors": [
+    {
+     "family": "Chifman",
+     "given": "J"
+    },
+    {
+     "family": "Kubatko",
+     "given": "L"
+    }
+   ],
+   "year": "2014",
+   "title": "Quartet inference from SNP data under the coalescent model",
+   "container": "Bioinformatics",
+   "volume": "30",
+   "first_page": "3317",
+   "doi": "10.1093/bioinformatics/btu530"
+  },
+  {
+   "bib_id": 16,
+   "authors": [
+    {
+     "family": "Vachaspati",
+     "given": "P"
+    },
+    {
+     "family": "Warnow",
+     "given": "T"
+    }
+   ],
+   "year": "2015",
+   "title": "ASTRID: Accurate Species TRees from Internode Distances",
+   "container": "BMC Genomics",
+   "doi": "10.1186/1471-2164-16-S10-S3"
+  },
+  {
+   "bib_id": 17,
+   "authors": [
+    {
+     "family": "Islam",
+     "given": "M"
+    },
+    {
+     "family": "Sarker",
+     "given": "K"
+    },
+    {
+     "family": "Das",
+     "given": "T"
+    },
+    {
+     "family": "Reaz",
+     "given": "R"
+    },
+    {
+     "family": "Bayzid",
+     "given": "MS"
+    }
+   ],
+   "year": "2020",
+   "title": "STELAR: a statistically consistent coalescent-based species tree estimation method by maximizing triplet consistency",
+   "container": "BMC Genomics",
+   "volume": "21",
+   "first_page": "136",
+   "doi": "10.1186/s12864-020-6519-y"
+  },
+  {
+   "bib_id": 18,
+   "authors": [
+    {
+     "family": "Degnan",
+     "given": "JH"
+    },
+    {
+     "family": "Rosenberg",
+     "given": "NA"
+    }
+   ],
+   "year": "2006",
+   "title": "Discordance of species trees with their most likely gene trees",
+   "container": "PLoS Genet",
+   "volume": "2",
+   "doi": "10.1371/journal.pgen.0020068"
+  },
+  {
+   "bib_id": 19,
+   "authors": [
+    {
+     "family": "Degnan",
+     "given": "JH"
+    },
+    {
+     "family": "Rosenberg",
+     "given": "NA"
+    }
+   ],
+   "year": "2009",
+   "title": "Gene tree discordance, phylogenetic inference and the multispecies coalescent",
+   "container": "Trends Ecol Evol",
+   "volume": "24",
+   "first_page": "332",
+   "doi": "10.1016/j.tree.2009.01.009"
+  },
+  {
+   "bib_id": 20,
+   "authors": [
+    {
+     "family": "Degnan",
+     "given": "JH"
+    }
+   ],
+   "year": "2013",
+   "title": "Anomalous unrooted gene trees",
+   "container": "Syst Biol",
+   "volume": "62",
+   "first_page": "574",
+   "doi": "10.1093/sysbio/syt023"
+  },
+  {
+   "bib_id": 21,
+   "authors": [
+    {
+     "family": "Mirarab",
+     "given": "S"
+    },
+    {
+     "family": "Reaz",
+     "given": "R"
+    },
+    {
+     "family": "Bayzid",
+     "given": "MS"
+    },
+    {
+     "family": "Zimmermann",
+     "given": "T"
+    },
+    {
+     "family": "Swenson",
+     "given": "MS"
+    },
+    {
+     "family": "Warnow",
+     "given": "T"
+    }
+   ],
+   "year": "2014",
+   "title": "ASTRAL: genome-scale coalescent-based species tree estimation",
+   "container": "Bioinformatics",
+   "volume": "30",
+   "doi": "10.1093/bioinformatics/btu462"
+  },
+  {
+   "bib_id": 22,
+   "authors": [
+    {
+     "family": "Mirarab",
+     "given": "S"
+    },
+    {
+     "family": "Warnow",
+     "given": "T"
+    }
+   ],
+   "year": "2015",
+   "title": "ASTRAL-II: coalescent-based species tree estimation with many hundreds of taxa and thousands of genes",
+   "container": "Bioinformatics",
+   "volume": "31",
+   "doi": "10.1093/bioinformatics/btv234"
+  },
+  {
+   "bib_id": 23,
+   "authors": [
+    {
+     "family": "Zhang",
+     "given": "C"
+    },
+    {
+     "family": "Rabiee",
+     "given": "M"
+    },
+    {
+     "family": "Sayyari",
+     "given": "E"
+    },
+    {
+     "family": "Mirarab",
+     "given": "S"
+    }
+   ],
+   "year": "2018",
+   "title": "ASTRAL-III: polynomial time species tree reconstruction from partially resolved gene trees",
+   "container": "BMC Bioinformatics",
+   "volume": "19",
+   "first_page": "153",
+   "doi": "10.1186/s12859-018-2129-y"
+  },
+  {
+   "bib_id": 24,
+   "authors": [
+    {
+     "family": "Philippe",
+     "given": "H"
+    },
+    {
+     "family": "Forterre",
+     "given": "P"
+    }
+   ],
+   "year": "1999",
+   "title": "The rooting of the universal tree of life is not reliable",
+   "container": "J Mol Evol",
+   "volume": "49",
+   "first_page": "509",
+   "doi": "10.1007/pl00006573"
+  },
+  {
+   "bib_id": 25,
+   "authors": [
+    {
+     "family": "Graham",
+     "given": "SW"
+    },
+    {
+     "family": "Olmstead",
+     "given": "RG"
+    },
+    {
+     "family": "Barrett",
+     "given": "SCH"
+    }
+   ],
+   "year": "2002",
+   "title": "Rooting phylogenetic trees with distant outgroups: A case study from the commelinoid monocots",
+   "container": "Mol Biol Evol",
+   "volume": "19",
+   "first_page": "1769",
+   "doi": "10.1093/oxfordjournals.molbev.a003999"
+  },
+  {
+   "bib_id": 26,
+   "authors": [
+    {
+     "family": "Dayhoff",
+     "given": "M"
+    },
+    {
+     "family": "Schwartz",
+     "given": "R"
+    }
+   ],
+   "year": "1980",
+   "title": "Prokaryote evolution and the symbiotic origin of eukaryotes",
+   "container": "Endocytobiology: Endosymbiosis and Cell Biology: A Synthesis of Recent Research",
+   "volume": "1",
+   "first_page": "63",
+   "last_page": "84"
+  },
+  {
+   "bib_id": 27,
+   "authors": [
+    {
+     "family": "Rivera",
+     "given": "MC"
+    },
+    {
+     "family": "Lake",
+     "given": "JA"
+    }
+   ],
+   "year": "1992",
+   "title": "Evidence that eukaryotes and eocyte prokaryotes are immediate relatives",
+   "container": "Science",
+   "volume": "257",
+   "first_page": "74",
+   "doi": "10.1126/science.1621096"
+  },
+  {
+   "bib_id": 28,
+   "authors": [
+    {
+     "family": "Allman",
+     "given": "ES"
+    },
+    {
+     "family": "Degnan",
+     "given": "JH"
+    },
+    {
+     "family": "Rhodes",
+     "given": "JA"
+    }
+   ],
+   "year": "2011",
+   "title": "Identifying the rooted species tree from the distribution of unrooted gene trees under the coalescent",
+   "container": "J Math Biol",
+   "volume": "62",
+   "first_page": "833",
+   "doi": "10.1007/s00285-010-0355-7"
+  },
+  {
+   "bib_id": 29,
+   "authors": [
+    {
+     "family": "Boussau",
+     "given": "B"
+    },
+    {
+     "family": "Szöllosi",
+     "given": "GJ"
+    },
+    {
+     "family": "Duret",
+     "given": "L"
+    },
+    {
+     "family": "Gouy",
+     "given": "M"
+    },
+    {
+     "family": "Tannier",
+     "given": "E"
+    },
+    {
+     "family": "Daubin",
+     "given": "V"
+    }
+   ],
+   "year": "2013",
+   "title": "Genome-scale coestimation of species and gene trees",
+   "container": "Genome Res",
+   "volume": "23",
+   "first_page": "323",
+   "doi": "10.1101/gr.141978.112"
+  },
+  {
+   "bib_id": 30,
+   "authors": [
+    {
+     "family": "Bettisworth",
+     "given": "B"
+    },
+    {
+     "family": "Stamatakis",
+     "given": "A"
+    }
+   ],
+   "year": "2021",
+   "title": "Root Digger: A root placement program for phylogenetic trees",
+   "container": "BMC Bioinformatics",
+   "volume": "22",
+   "first_page": "225",
+   "doi": "10.1186/s12859-021-03956-5"
+  },
+  {
+   "bib_id": 31,
+   "authors": [
+    {
+     "family": "Tabatabaee",
+     "given": "Y"
+    },
+    {
+     "family": "Sarker",
+     "given": "K"
+    },
+    {
+     "family": "Warnow",
+     "given": "T"
+    }
+   ],
+   "year": "2022",
+   "title": "Quintet Rooting: Rooting species trees under the multi-species coalescent model",
+   "container": "Bioinformatics",
+   "volume": "38",
+   "doi": "10.1093/bioinformatics/btac224"
+  },
+  {
+   "bib_id": 32,
+   "authors": [
+    {
+     "family": "Huelsenbeck",
+     "given": "JP"
+    },
+    {
+     "family": "Bollback",
+     "given": "JP"
+    },
+    {
+     "family": "Levine",
+     "given": "AM"
+    }
+   ],
+   "year": "2002",
+   "title": "Inferring the root of a phylogenetic tree",
+   "container": "Syst Biol",
+   "volume": "51",
+   "first_page": "32",
+   "last_page": "43",
+   "doi": "10.1080/106351502753475862"
+  },
+  {
+   "bib_id": 33,
+   "authors": [
+    {
+     "family": "Watrous",
+     "given": "LE"
+    },
+    {
+     "family": "Wheeler",
+     "given": "QD"
+    }
+   ],
+   "year": "1981",
+   "title": "The out-group comparison method of character analysis",
+   "container": "Syst Biol",
+   "volume": "30",
+   "first_page": "1",
+   "last_page": "11"
+  },
+  {
+   "bib_id": 34,
+   "authors": [
+    {
+     "family": "Maddison",
+     "given": "WP"
+    },
+    {
+     "family": "Donoghue",
+     "given": "MJ"
+    },
+    {
+     "family": "Maddison",
+     "given": "DR"
+    }
+   ],
+   "year": "1984",
+   "title": "Outgroup analysis and parsimony",
+   "container": "Syst Biol",
+   "volume": "33",
+   "first_page": "83",
+   "last_page": "103"
+  },
+  {
+   "bib_id": 35,
+   "authors": [
+    {
+     "family": "Smith",
+     "given": "AB"
+    }
+   ],
+   "year": "1994",
+   "title": "Rooting molecular trees: problems and strategies",
+   "container": "Biol J Linn Soc",
+   "volume": "51",
+   "first_page": "279"
+  },
+  {
+   "bib_id": 36,
+   "authors": [
+    {
+     "family": "Swofford",
+     "given": "DL"
+    },
+    {
+     "family": "Olson",
+     "given": "GJ"
+    },
+    {
+     "family": "Waddell",
+     "given": "PJ"
+    },
+    {
+     "family": "Hillis",
+     "given": "DM"
+    }
+   ],
+   "year": "1996",
+   "title": "Phylogenetic Inference",
+   "container": "Phylogenetic Inference",
+   "first_page": "407"
+  },
+  {
+   "bib_id": 37,
+   "authors": [
+    {
+     "family": "Milinkovitch",
+     "given": "MC"
+    },
+    {
+     "family": "Lyons-Weiler",
+     "given": "J"
+    }
+   ],
+   "year": "1998",
+   "title": "Finding optimal ingroup topologies and convexities when the choice of outgroups is not obvious",
+   "container": "Mol Phylogenet Evol",
+   "volume": "9",
+   "first_page": "348",
+   "doi": "10.1006/mpev.1998.0503"
+  },
+  {
+   "bib_id": 38,
+   "authors": [
+    {
+     "family": "Lyons-Weiler",
+     "given": "J"
+    },
+    {
+     "family": "Hoelzer",
+     "given": "GA"
+    },
+    {
+     "family": "Tausch",
+     "given": "RJ"
+    }
+   ],
+   "year": "1998",
+   "title": "Optimal outgroup analysis",
+   "container": "Biol J Linn Soc",
+   "volume": "64",
+   "first_page": "493",
+   "last_page": "511"
+  },
+  {
+   "bib_id": 39,
+   "authors": [
+    {
+     "family": "Drummond",
+     "given": "AJ"
+    },
+    {
+     "family": "Ho",
+     "given": "SYW"
+    },
+    {
+     "family": "Phillips",
+     "given": "MJ"
+    },
+    {
+     "family": "Rambaut",
+     "given": "A"
+    }
+   ],
+   "year": "2006",
+   "title": "Relaxed phylogenetics and dating with confidence",
+   "container": "PLoS Biol",
+   "volume": "4",
+   "doi": "10.1371/journal.pbio.0040088"
+  },
+  {
+   "bib_id": 40,
+   "authors": [
+    {
+     "family": "Tria",
+     "given": "FDK"
+    },
+    {
+     "family": "Landan",
+     "given": "G"
+    },
+    {
+     "family": "Dagan",
+     "given": "T"
+    }
+   ],
+   "year": "2017",
+   "title": "Phylogenetic rooting using minimal ancestor deviation",
+   "container": "Nat Ecol Evol",
+   "volume": "1",
+   "first_page": "193",
+   "doi": "10.1038/s41559-017-0193"
+  },
+  {
+   "bib_id": 41,
+   "authors": [
+    {
+     "family": "Farris",
+     "given": "JS"
+    }
+   ],
+   "year": "1972",
+   "title": "Estimating phylogenetic trees from distance matrices",
+   "container": "Am Nat",
+   "volume": "106",
+   "first_page": "645"
+  },
+  {
+   "bib_id": 42,
+   "authors": [
+    {
+     "family": "Mai",
+     "given": "U"
+    },
+    {
+     "family": "Sayyari",
+     "given": "E"
+    },
+    {
+     "family": "Mirarab",
+     "given": "S"
+    }
+   ],
+   "year": "2017",
+   "title": "Minimum variance rooting of phylogenetic trees and implications for species tree reconstruction",
+   "container": "PLoS One",
+   "volume": "12",
+   "doi": "10.1371/journal.pone.0182238"
+  },
+  {
+   "bib_id": 43,
+   "authors": [
+    {
+     "family": "Gogarten",
+     "given": "JP"
+    },
+    {
+     "family": "Kibak",
+     "given": "H"
+    },
+    {
+     "family": "Dittrich",
+     "given": "P"
+    },
+    {
+     "family": "Taiz",
+     "given": "L"
+    },
+    {
+     "family": "Bowman",
+     "given": "EJ"
+    },
+    {
+     "family": "Bowman",
+     "given": "BJ"
+    }
+   ],
+   "year": "1989",
+   "title": "Evolution of the vacuolar H+-ATPase: implications for the origin of eukaryotes",
+   "container": "Proc Natl Acad Sci U S A",
+   "volume": "86",
+   "first_page": "6661",
+   "doi": "10.1073/pnas.86.17.6661"
+  },
+  {
+   "bib_id": 44,
+   "authors": [
+    {
+     "family": "Iwabe",
+     "given": "N"
+    },
+    {
+     "family": "Kuma",
+     "given": "K"
+    },
+    {
+     "family": "Hasegawa",
+     "given": "M"
+    },
+    {
+     "family": "Osawa",
+     "given": "S"
+    },
+    {
+     "family": "Miyata",
+     "given": "T"
+    }
+   ],
+   "year": "1989",
+   "title": "Evolutionary relationship of archaebacteria, eubacteria, and eukaryotes inferred from phylogenetic trees of duplicated genes",
+   "container": "Proc Natl Acad Sci U S A",
+   "volume": "86",
+   "first_page": "9355",
+   "doi": "10.1073/pnas.86.23.9355"
+  },
+  {
+   "bib_id": 45,
+   "authors": [
+    {
+     "family": "Baldauf",
+     "given": "SL"
+    },
+    {
+     "family": "Palmer",
+     "given": "JD"
+    }
+   ],
+   "year": "1993",
+   "title": "Animals and fungi are each other’s closest relatives: congruent evidence from multiple proteins",
+   "container": "Proc Natl Acad Sci U S A",
+   "volume": "90",
+   "first_page": "11558",
+   "doi": "10.1073/pnas.90.24.11558"
+  },
+  {
+   "bib_id": 46,
+   "authors": [
+    {
+     "family": "Lake",
+     "given": "JA"
+    },
+    {
+     "family": "Herbold",
+     "given": "CW"
+    },
+    {
+     "family": "Rivera",
+     "given": "MC"
+    },
+    {
+     "family": "Servin",
+     "given": "JA"
+    },
+    {
+     "family": "Skophammer",
+     "given": "RG"
+    }
+   ],
+   "year": "2007",
+   "title": "Rooting the tree of life using nonubiquitous genes",
+   "container": "Mol Biol Evol",
+   "volume": "24",
+   "first_page": "130",
+   "doi": "10.1093/molbev/msl140"
+  },
+  {
+   "bib_id": 47,
+   "authors": [
+    {
+     "family": "Bouckaert",
+     "given": "R"
+    },
+    {
+     "family": "Vaughan",
+     "given": "TG"
+    },
+    {
+     "family": "Barido-Sottani",
+     "given": "J"
+    },
+    {
+     "family": "Duchêne",
+     "given": "S"
+    },
+    {
+     "family": "Fourment",
+     "given": "M"
+    },
+    {
+     "family": "Gavryushkina",
+     "given": "A"
+    }
+   ],
+   "year": "2019",
+   "title": "BEAST 2.5: An advanced software platform for Bayesian evolutionary analysis",
+   "container": "PLoS Comput Biol",
+   "volume": "15",
+   "doi": "10.1371/journal.pcbi.1006650"
+  },
+  {
+   "bib_id": 48,
+   "authors": [
+    {
+     "family": "Baele",
+     "given": "G"
+    },
+    {
+     "family": "Ji",
+     "given": "X"
+    },
+    {
+     "family": "Hassler",
+     "given": "GW"
+    },
+    {
+     "family": "McCrone",
+     "given": "JT"
+    },
+    {
+     "family": "Shao",
+     "given": "Y"
+    },
+    {
+     "family": "Zhang",
+     "given": "Z"
+    }
+   ],
+   "year": "2025",
+   "title": "BEAST X for Bayesian phylogenetic, phylogeographic and phylodynamic inference",
+   "container": "Nat Methods",
+   "volume": "22",
+   "first_page": "1653",
+   "doi": "10.1038/s41592-025-02751-x"
+  },
+  {
+   "bib_id": 49,
+   "authors": [
+    {
+     "family": "Stadler",
+     "given": "T"
+    }
+   ],
+   "year": "2010",
+   "title": "Sampling-through-time in birth-death trees",
+   "container": "J Theor Biol",
+   "volume": "267",
+   "first_page": "396",
+   "last_page": "404",
+   "doi": "10.1016/j.jtbi.2010.09.010"
+  },
+  {
+   "bib_id": 50,
+   "authors": [
+    {
+     "family": "Heath",
+     "given": "TA"
+    },
+    {
+     "family": "Huelsenbeck",
+     "given": "JP"
+    },
+    {
+     "family": "Stadler",
+     "given": "T"
+    }
+   ],
+   "year": "2014",
+   "title": "The fossilized birth-death process for coherent calibration of divergence-time estimates",
+   "container": "Proc Natl Acad Sci U S A",
+   "volume": "111",
+   "doi": "10.1073/pnas.1319091111"
+  },
+  {
+   "bib_id": 51,
+   "authors": [
+    {
+     "family": "Kingman",
+     "given": "JFC"
+    }
+   ],
+   "year": "2000",
+   "title": "Origins of the coalescent: 1974-1982",
+   "container": "Genetics",
+   "volume": "156",
+   "first_page": "1461"
+  },
+  {
+   "bib_id": 52,
+   "authors": [
+    {
+     "family": "Drummond",
+     "given": "AJ"
+    },
+    {
+     "family": "Rambaut",
+     "given": "A"
+    },
+    {
+     "family": "Shapiro",
+     "given": "B"
+    },
+    {
+     "family": "Pybus",
+     "given": "OG"
+    }
+   ],
+   "year": "2005",
+   "title": "Bayesian coalescent inference of past population dynamics from molecular sequences",
+   "container": "Mol Biol Evol",
+   "volume": "22",
+   "first_page": "1185",
+   "doi": "10.1093/molbev/msi103"
+  },
+  {
+   "bib_id": 53,
+   "authors": [
+    {
+     "family": "Wheeler",
+     "given": "WC"
+    }
+   ],
+   "year": "1990",
+   "title": "Nucleic acid sequence phylogeny and random outgroups",
+   "container": "Cladistics",
+   "volume": "6",
+   "first_page": "363",
+   "doi": "10.1111/j.1096-0031.1990.tb00550.x"
+  },
+  {
+   "bib_id": 54,
+   "authors": [
+    {
+     "family": "Hess",
+     "given": "PN"
+    },
+    {
+     "family": "de Moraes Russo",
+     "given": "CA"
+    }
+   ],
+   "year": "2007",
+   "title": "An empirical test of the midpoint rooting method",
+   "container": "Biol J Linn Soc Lond",
+   "volume": "92",
+   "first_page": "669",
+   "doi": "10.1111/j.1095-8312.2007.00864.x"
+  },
+  {
+   "bib_id": 55,
+   "authors": [
+    {
+     "family": "Tarrío",
+     "given": "R"
+    },
+    {
+     "family": "Rodríguez-Trelles",
+     "given": "F"
+    },
+    {
+     "family": "Ayala",
+     "given": "FJ"
+    }
+   ],
+   "year": "2000",
+   "title": "Tree rooting with outgroups when they differ in their nucleotide composition from the ingroup: the Drosophila saltans and willistoni groups, a case study",
+   "container": "Mol Phylogenet Evol",
+   "volume": "16",
+   "first_page": "344",
+   "doi": "10.1006/mpev.2000.0813"
+  },
+  {
+   "bib_id": 56,
+   "authors": [
+    {
+     "family": "Boykin",
+     "given": "LM"
+    },
+    {
+     "family": "Kubatko",
+     "given": "LS"
+    },
+    {
+     "family": "Lowrey",
+     "given": "TK"
+    }
+   ],
+   "year": "2010",
+   "title": "Comparison of methods for rooting phylogenetic trees: a case study using Orcuttieae (Poaceae: Chloridoideae)",
+   "container": "Mol Phylogenet Evol",
+   "volume": "54",
+   "first_page": "687",
+   "last_page": "700",
+   "doi": "10.1016/j.ympev.2009.11.016"
+  },
+  {
+   "bib_id": 57,
+   "authors": [
+    {
+     "family": "Williams",
+     "given": "TA"
+    }
+   ],
+   "year": "2014",
+   "title": "Evolution: rooting the eukaryotic tree of life",
+   "container": "Curr Biol",
+   "volume": "24",
+   "doi": "10.1016/j.cub.2014.01.026"
+  },
+  {
+   "bib_id": 58,
+   "authors": [
+    {
+     "family": "Boykin",
+     "given": "LM"
+    },
+    {
+     "family": "Bell",
+     "given": "CD"
+    },
+    {
+     "family": "Evans",
+     "given": "G"
+    },
+    {
+     "family": "Small",
+     "given": "I"
+    },
+    {
+     "family": "De Barro",
+     "given": "PJ"
+    }
+   ],
+   "year": "2013",
+   "title": "Is agriculture driving the diversification of the Bemisia tabaci species complex (Hemiptera: Sternorrhyncha: Aleyrodidae)?: Dating, diversification and biogeographic evidence revealed",
+   "container": "BMC Evol Biol",
+   "volume": "13",
+   "first_page": "228",
+   "doi": "10.1186/1471-2148-13-228"
+  },
+  {
+   "bib_id": 59,
+   "authors": [
+    {
+     "family": "Qiu",
+     "given": "YL"
+    },
+    {
+     "family": "Lee",
+     "given": "J"
+    },
+    {
+     "family": "Whitlock",
+     "given": "BA"
+    },
+    {
+     "family": "Bernasconi-Quadroni",
+     "given": "F"
+    },
+    {
+     "family": "Dombrovska",
+     "given": "O"
+    }
+   ],
+   "year": "2001",
+   "title": "Was the ANITA rooting of the angiosperm phylogeny affected by long-branch attraction?",
+   "container": "Mol Biol Evol",
+   "volume": "18",
+   "first_page": "1745",
+   "doi": "10.1093/molbev/18.9.1745"
+  },
+  {
+   "bib_id": 60,
+   "authors": [
+    {
+     "family": "Wheeler",
+     "given": "WC"
+    },
+    {
+     "family": "Gladstein",
+     "given": "DS"
+    }
+   ],
+   "year": "1994",
+   "title": "MALIGN: A Multiple Sequence Alignment Program",
+   "container": "J Hered",
+   "volume": "85",
+   "first_page": "417"
+  },
+  {
+   "bib_id": 61,
+   "authors": [
+    {
+     "family": "Hendy",
+     "given": "MD"
+    },
+    {
+     "family": "Penny",
+     "given": "D"
+    }
+   ],
+   "year": "1989",
+   "title": "A framework for the quantitative study of evolutionary trees",
+   "container": "Syst Biol",
+   "volume": "38",
+   "first_page": "297",
+   "last_page": "309"
+  },
+  {
+   "bib_id": 62,
+   "authors": [
+    {
+     "family": "Rota-Stabelli",
+     "given": "O"
+    },
+    {
+     "family": "Telford",
+     "given": "MJ"
+    }
+   ],
+   "year": "2008",
+   "title": "A multi criterion approach for the selection of optimal outgroups in phylogeny: recovering some support for Mandibulata over Myriochelata using mitogenomics",
+   "container": "Mol Phylogenet Evol",
+   "volume": "48",
+   "first_page": "103",
+   "doi": "10.1016/j.ympev.2008.03.033"
+  },
+  {
+   "bib_id": 63,
+   "authors": [
+    {
+     "family": "Gatesy",
+     "given": "J"
+    },
+    {
+     "family": "DeSalle",
+     "given": "R"
+    },
+    {
+     "family": "Wahlberg",
+     "given": "N"
+    }
+   ],
+   "year": "2007",
+   "title": "How many genes should a systematist sample? Conflicting insights from a phylogenomic matrix characterized by replicated incongruence",
+   "container": "Syst Biol",
+   "volume": "56",
+   "first_page": "355",
+   "doi": "10.1080/10635150701294733"
+  },
+  {
+   "bib_id": 64,
+   "authors": [
+    {
+     "family": "Holland",
+     "given": "BR"
+    },
+    {
+     "family": "Penny",
+     "given": "D"
+    },
+    {
+     "family": "Hendy",
+     "given": "MD"
+    }
+   ],
+   "year": "2003",
+   "title": "Outgroup misplacement and phylogenetic inaccuracy under a molecular clock--a simulation study",
+   "container": "Syst Biol",
+   "volume": "52",
+   "first_page": "229",
+   "doi": "10.1080/10635150390192771"
+  },
+  {
+   "bib_id": 65,
+   "authors": [
+    {
+     "family": "Stavrinides",
+     "given": "J"
+    },
+    {
+     "family": "Guttman",
+     "given": "DS"
+    }
+   ],
+   "year": "2004",
+   "title": "Mosaic evolution of the severe acute respiratory syndrome coronavirus",
+   "container": "J Virol",
+   "volume": "78",
+   "first_page": "76",
+   "last_page": "82",
+   "doi": "10.1128/jvi.78.1.76-82.2004"
+  },
+  {
+   "bib_id": 66,
+   "authors": [
+    {
+     "family": "Meier-Kolthoff",
+     "given": "JP"
+    },
+    {
+     "family": "Göker",
+     "given": "M"
+    }
+   ],
+   "year": "2017",
+   "title": "VICTOR: genome-based phylogeny and classification of prokaryotic viruses",
+   "container": "Bioinformatics",
+   "volume": "33",
+   "first_page": "3396",
+   "doi": "10.1093/bioinformatics/btx440"
+  },
+  {
+   "bib_id": 67,
+   "authors": [
+    {
+     "family": "Wybouw",
+     "given": "N"
+    },
+    {
+     "family": "Dermauw",
+     "given": "W"
+    },
+    {
+     "family": "Tirry",
+     "given": "L"
+    },
+    {
+     "family": "Stevens",
+     "given": "C"
+    },
+    {
+     "family": "Grbić",
+     "given": "M"
+    },
+    {
+     "family": "Feyereisen",
+     "given": "R"
+    }
+   ],
+   "year": "2014",
+   "title": "A gene horizontally transferred from bacteria protects arthropods from host plant cyanide poisoning",
+   "container": "Elife",
+   "volume": "3",
+   "doi": "10.7554/eLife.02365"
+  },
+  {
+   "bib_id": 68,
+   "authors": [
+    {
+     "family": "Tajima",
+     "given": "F"
+    }
+   ],
+   "year": "1993",
+   "title": "Simple methods for testing the molecular evolutionary clock hypothesis",
+   "container": "Genetics",
+   "volume": "135",
+   "first_page": "599",
+   "last_page": "607",
+   "doi": "10.1093/genetics/135.2.599"
+  },
+  {
+   "bib_id": 69,
+   "authors": [
+    {
+     "family": "Adam",
+     "given": "PS"
+    },
+    {
+     "family": "Kolyfetis",
+     "given": "GE"
+    },
+    {
+     "family": "Bornemann",
+     "given": "TLV"
+    },
+    {
+     "family": "Vorgias",
+     "given": "CE"
+    },
+    {
+     "family": "Probst",
+     "given": "AJ"
+    }
+   ],
+   "year": "2022",
+   "title": "Genomic remnants of ancestral methanogenesis and hydrogenotrophy in Archaea drive anaerobic carbon cycling",
+   "container": "Sci Adv",
+   "volume": "8",
+   "doi": "10.1126/sciadv.abm9651"
+  },
+  {
+   "bib_id": 70,
+   "authors": [
+    {
+     "family": "Rozenberg",
+     "given": "A"
+    },
+    {
+     "family": "Kaczmarczyk",
+     "given": "I"
+    },
+    {
+     "family": "Matzov",
+     "given": "D"
+    },
+    {
+     "family": "Vierock",
+     "given": "J"
+    },
+    {
+     "family": "Nagata",
+     "given": "T"
+    },
+    {
+     "family": "Sugiura",
+     "given": "M"
+    }
+   ],
+   "year": "2022",
+   "title": "Rhodopsin-bestrophin fusion proteins from unicellular algae form gigantic pentameric ion channels",
+   "container": "Nat Struct Mol Biol",
+   "volume": "29",
+   "first_page": "592",
+   "last_page": "603",
+   "doi": "10.1038/s41594-022-00783-x"
+  },
+  {
+   "bib_id": 71,
+   "authors": [
+    {
+     "family": "Mirarab",
+     "given": "S"
+    },
+    {
+     "family": "Bayzid",
+     "given": "MS"
+    },
+    {
+     "family": "Boussau",
+     "given": "B"
+    },
+    {
+     "family": "Warnow",
+     "given": "T"
+    }
+   ],
+   "year": "2014",
+   "title": "Statistical binning enables an accurate coalescent-based estimation of the avian tree",
+   "container": "Science",
+   "volume": "346",
+   "first_page": "1250463",
+   "doi": "10.1126/science.1250463"
+  },
+  {
+   "bib_id": 72,
+   "authors": [
+    {
+     "family": "Song",
+     "given": "S"
+    },
+    {
+     "family": "Liu",
+     "given": "L"
+    },
+    {
+     "family": "Edwards",
+     "given": "SV"
+    },
+    {
+     "family": "Wu",
+     "given": "S"
+    }
+   ],
+   "year": "2012",
+   "title": "Resolving conflict in eutherian mammal phylogeny using phylogenomics and the multispecies coalescent model",
+   "container": "Proc Natl Acad Sci U S A",
+   "volume": "109",
+   "first_page": "14942",
+   "doi": "10.1073/pnas.1211733109"
+  },
+  {
+   "bib_id": 73,
+   "authors": [
+    {
+     "family": "Bayzid",
+     "given": "MS"
+    },
+    {
+     "family": "Mirarab",
+     "given": "S"
+    },
+    {
+     "family": "Boussau",
+     "given": "B"
+    },
+    {
+     "family": "Warnow",
+     "given": "T"
+    }
+   ],
+   "year": "2015",
+   "title": "Weighted Statistical Binning: Enabling Statistically Consistent Genome-Scale Phylogenetic Analyses",
+   "container": "PLoS One",
+   "volume": "10",
+   "doi": "10.1371/journal.pone.0129183"
+  },
+  {
+   "bib_id": 74,
+   "authors": [
+    {
+     "family": "Mallo",
+     "given": "D"
+    },
+    {
+     "family": "De Oliveira Martins",
+     "given": "L"
+    },
+    {
+     "family": "Posada",
+     "given": "D"
+    }
+   ],
+   "year": "2016",
+   "title": "SimPhy: Phylogenomic Simulation of Gene, Locus, and Species Trees",
+   "container": "Syst Biol",
+   "volume": "65",
+   "first_page": "334",
+   "doi": "10.1093/sysbio/syv082"
+  },
+  {
+   "bib_id": 75,
+   "authors": [
+    {
+     "family": "Stamatakis",
+     "given": "A"
+    }
+   ],
+   "year": "2006",
+   "title": "RAxML-VI-HPC: maximum likelihood-based phylogenetic analyses with thousands of taxa and mixed models",
+   "container": "Bioinformatics",
+   "volume": "22",
+   "first_page": "2688",
+   "doi": "10.1093/bioinformatics/btl446"
+  },
+  {
+   "bib_id": 76,
+   "authors": [
+    {
+     "family": "Chung",
+     "given": "Y"
+    },
+    {
+     "family": "Ané",
+     "given": "C"
+    }
+   ],
+   "year": "2011",
+   "title": "Comparing two Bayesian methods for gene tree/species tree reconstruction: simulations with incomplete lineage sorting and horizontal gene transfer",
+   "container": "Syst Biol",
+   "volume": "60",
+   "first_page": "261",
+   "doi": "10.1093/sysbio/syr003"
+  },
+  {
+   "bib_id": 77,
+   "authors": [
+    {
+     "family": "Xi",
+     "given": "Z"
+    },
+    {
+     "family": "Liu",
+     "given": "L"
+    },
+    {
+     "family": "Rest",
+     "given": "JS"
+    },
+    {
+     "family": "Davis",
+     "given": "CC"
+    }
+   ],
+   "year": "2014",
+   "title": "Coalescent versus concatenation methods and the placement of Amborella as sister to water lilies",
+   "container": "Syst Biol",
+   "volume": "63",
+   "first_page": "919",
+   "doi": "10.1093/sysbio/syu055"
+  },
+  {
+   "bib_id": 78,
+   "authors": [
+    {
+     "family": "Group",
+     "given": "TAP"
+    },
+    {
+     "family": "Chase",
+     "given": "MW"
+    },
+    {
+     "family": "Christenhusz",
+     "given": "MJM"
+    },
+    {
+     "family": "Fay",
+     "given": "MF"
+    },
+    {
+     "family": "Byng",
+     "given": "JW"
+    },
+    {
+     "family": "Judd",
+     "given": "WS"
+    }
+   ],
+   "year": "2016",
+   "title": "An update of the Angiosperm Phylogeny Group classification for the orders and families of flowering plants: APG IV",
+   "container": "Bot J Linn Soc",
+   "volume": "181",
+   "first_page": "1",
+   "last_page": "20"
+  },
+  {
+   "bib_id": 79,
+   "authors": [
+    {
+     "family": "Xi",
+     "given": "Z"
+    },
+    {
+     "family": "Rest",
+     "given": "JS"
+    },
+    {
+     "family": "Davis",
+     "given": "CC"
+    }
+   ],
+   "year": "2013",
+   "title": "Phylogenomics and coalescent analyses resolve extant seed plant relationships",
+   "container": "PLoS One",
+   "volume": "8",
+   "doi": "10.1371/journal.pone.0080870"
+  },
+  {
+   "bib_id": 80,
+   "authors": [
+    {
+     "family": "Chiari",
+     "given": "Y"
+    },
+    {
+     "family": "Cahais",
+     "given": "V"
+    },
+    {
+     "family": "Galtier",
+     "given": "N"
+    },
+    {
+     "family": "Delsuc",
+     "given": "F"
+    }
+   ],
+   "year": "2012",
+   "title": "Phylogenomic analyses support the position of turtles as the sister group of birds and crocodiles (Archosauria)",
+   "container": "BMC Biol",
+   "volume": "10",
+   "first_page": "65",
+   "doi": "10.1186/1741-7007-10-65"
+  },
+  {
+   "bib_id": 81,
+   "authors": [
+    {
+     "family": "Ranwez",
+     "given": "V"
+    },
+    {
+     "family": "Criscuolo",
+     "given": "A"
+    },
+    {
+     "family": "Douzery",
+     "given": "EJP"
+    }
+   ],
+   "year": "2010",
+   "title": "SuperTriplets: a triplet-based supertree approach to phylogenomics",
+   "container": "Bioinformatics",
+   "volume": "26",
+   "doi": "10.1093/bioinformatics/btq196"
+  },
+  {
+   "bib_id": 82,
+   "authors": [
+    {
+     "family": "Robinson",
+     "given": "DF"
+    },
+    {
+     "family": "Foulds",
+     "given": "LR"
+    }
+   ],
+   "year": "1981",
+   "title": "Comparison of phylogenetic trees",
+   "container": "Math Biosci",
+   "volume": "53",
+   "first_page": "131"
+  },
+  {
+   "bib_id": 83,
+   "authors": [
+    {
+     "family": "Pyron",
+     "given": "RA"
+    },
+    {
+     "family": "Burbrink",
+     "given": "FT"
+    },
+    {
+     "family": "Wiens",
+     "given": "JJ"
+    }
+   ],
+   "year": "2013",
+   "title": "A phylogeny and revised classification of Squamata, including 4161 species of lizards and snakes",
+   "container": "BMC Evol Biol",
+   "volume": "13",
+   "first_page": "93",
+   "doi": "10.1186/1471-2148-13-93"
+  },
+  {
+   "bib_id": 84,
+   "authors": [
+    {
+     "family": "Braun",
+     "given": "EL"
+    },
+    {
+     "family": "Oliveros",
+     "given": "CH"
+    },
+    {
+     "family": "White Carreiro",
+     "given": "ND"
+    },
+    {
+     "family": "Zhao",
+     "given": "M"
+    },
+    {
+     "family": "Glenn",
+     "given": "TC"
+    },
+    {
+     "family": "Brumfield",
+     "given": "RT"
+    }
+   ],
+   "year": "2024",
+   "title": "Testing the mettle of METAL: A comparison of phylogenomic methods using a challenging but well-resolved phylogeny",
+   "container": "bioRxiv"
+  },
+  {
+   "bib_id": 85,
+   "authors": [
+    {
+     "family": "Foley",
+     "given": "NM"
+    },
+    {
+     "family": "Mason",
+     "given": "VC"
+    },
+    {
+     "family": "Harris",
+     "given": "AJ"
+    },
+    {
+     "family": "Bredemeyer",
+     "given": "KR"
+    },
+    {
+     "family": "Damas",
+     "given": "J"
+    },
+    {
+     "family": "Lewin",
+     "given": "HA"
+    }
+   ],
+   "year": "2023",
+   "title": "A genomic timescale for placental mammal evolution",
+   "container": "Science",
+   "volume": "380",
+   "doi": "10.1126/science.abl8189"
+  },
+  {
+   "bib_id": 86,
+   "authors": [
+    {
+     "family": "Mai",
+     "given": "U"
+    },
+    {
+     "family": "Charvel",
+     "given": "E"
+    },
+    {
+     "family": "Mirarab",
+     "given": "S"
+    }
+   ],
+   "year": "2024",
+   "title": "Expectation-Maximization enables Phylogenetic Dating under a Categorical Rate Model",
+   "container": "Syst Biol",
+   "volume": "73",
+   "first_page": "823",
+   "doi": "10.1093/sysbio/syae034"
+  },
+  {
+   "bib_id": 87,
+   "doi": "10.1137/1.9781611973105.130"
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-core-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "jats_doi": "10.1371/journal.pcbi.1014782"
+ }
+}

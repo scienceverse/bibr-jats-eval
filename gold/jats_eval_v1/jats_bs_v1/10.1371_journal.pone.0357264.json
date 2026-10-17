@@ -1,0 +1,924 @@
+{
+ "paper_id": "10.1371_journal.pone.0357264",
+ "info": {
+  "title": "Composite learning based finite time nonsingular terminal sliding mode path tracking control for intelligent vehicles",
+  "doi": "10.1371/journal.pone.0357264",
+  "file_name": "10.1371_journal.pone.0357264.pdf",
+  "abstract": "This paper addresses the path tracking control problem for intelligent vehicles subject to parametric uncertainties, unmodeled dynamics, and external disturbances. A composite learning-based finite-time nonsingular terminal sliding mode control (CL-FNTSMC) strategy is proposed. Unlike conventional adaptive sliding mode controllers that rely solely on tracking errors for parameter update—and thus require the restrictive persistent excitation condition-the proposed scheme incorporates a serial–parallel estimation model to construct prediction errors, which together with tracking errors drive a composite learning law. This mechanism ensures accurate online estimation of unknown parameters under the significantly weaker interval excitation condition. A nonsingular terminal sliding surface, constructed with a continuously differentiable nonlinear function, guarantees finite time convergence while inherently avoiding singularity. Furthermore, a nonlinear disturbance observer is integrated to estimate and compensate for lumped disturbances in real time, substantially enhancing robustness. Rigorous Lyapunov-based analysis establishes the practical finite time stability of the closed loop system. Comprehensive comparative simulations under aggressive disturbances and significant parametric uncertainties demonstrate that the proposed CL-FNTSMC achieves superior tracking accuracy, faster convergence, and markedly improved disturbance rejection compared with conventional NTSMC, adaptive fast NTSMC, and PID controllers. The results confirm that the proposed framework offers an excellent balance of fast transient response, high steady-state precision, and strong robustness."
+ },
+ "author": [
+  {
+   "author_id": 1,
+   "given": "Changgui",
+   "family": "Wu",
+   "affiliation": "The City Vocational College of Jiangsu (Nantong), Nantong, Jiangsu, P.R. China",
+   "email": "",
+   "orcid": "",
+   "corresponding": true
+  }
+ ],
+ "section": [
+  {
+   "section_id": 1,
+   "section_type": "abstract",
+   "header": "Abstract",
+   "level": 1,
+   "parent_section_id": null,
+   "classification_score": 1.0
+  }
+ ],
+ "text": [
+  {
+   "text_id": 1,
+   "section_id": 1,
+   "paragraph_id": 1,
+   "text": "This paper addresses the path tracking control problem for intelligent vehicles subject to parametric uncertainties, unmodeled dynamics, and external disturbances. A composite learning-based finite-time nonsingular terminal sliding mode control (CL-FNTSMC) strategy is proposed. Unlike conventional adaptive sliding mode controllers that rely solely on tracking errors for parameter update—and thus require the restrictive persistent excitation condition-the proposed scheme incorporates a serial–parallel estimation model to construct prediction errors, which together with tracking errors drive a composite learning law. This mechanism ensures accurate online estimation of unknown parameters under the significantly weaker interval excitation condition. A nonsingular terminal sliding surface, constructed with a continuously differentiable nonlinear function, guarantees finite time convergence while inherently avoiding singularity. Furthermore, a nonlinear disturbance observer is integrated to estimate and compensate for lumped disturbances in real time, substantially enhancing robustness. Rigorous Lyapunov-based analysis establishes the practical finite time stability of the closed loop system. Comprehensive comparative simulations under aggressive disturbances and significant parametric uncertainties demonstrate that the proposed CL-FNTSMC achieves superior tracking accuracy, faster convergence, and markedly improved disturbance rejection compared with conventional NTSMC, adaptive fast NTSMC, and PID controllers. The results confirm that the proposed framework offers an excellent balance of fast transient response, high steady-state precision, and strong robustness.",
+   "page_number": 1
+  }
+ ],
+ "bib": [
+  {
+   "bib_id": 1,
+   "authors": [
+    {
+     "family": "Cao",
+     "given": "D"
+    },
+    {
+     "family": "Wang",
+     "given": "X"
+    },
+    {
+     "family": "Li",
+     "given": "L"
+    },
+    {
+     "family": "Lv",
+     "given": "C"
+    },
+    {
+     "family": "Na",
+     "given": "X"
+    },
+    {
+     "family": "Xing",
+     "given": "Y"
+    }
+   ],
+   "year": "2022",
+   "title": "Future Directions of Intelligent Vehicles: Potentials, Possibilities, and Perspectives",
+   "container": "IEEE Trans Intell Veh",
+   "volume": "7",
+   "first_page": "7",
+   "last_page": "10",
+   "doi": "10.1109/tiv.2022.3157049"
+  },
+  {
+   "bib_id": 2,
+   "authors": [
+    {
+     "family": "Hu",
+     "given": "Z"
+    },
+    {
+     "family": "Lou",
+     "given": "S"
+    },
+    {
+     "family": "Xing",
+     "given": "Y"
+    },
+    {
+     "family": "Wang",
+     "given": "X"
+    },
+    {
+     "family": "Cao",
+     "given": "D"
+    },
+    {
+     "family": "Lv",
+     "given": "C"
+    }
+   ],
+   "year": "2022",
+   "title": "Review and Perspectives on Driver Digital Twin and Its Enabling Technologies for Intelligent Vehicles",
+   "container": "IEEE Trans Intell Veh",
+   "volume": "7",
+   "first_page": "417",
+   "doi": "10.1109/tiv.2022.3195635"
+  },
+  {
+   "bib_id": 3,
+   "authors": [
+    {
+     "family": "Shi",
+     "given": "K"
+    },
+    {
+     "family": "Huang",
+     "given": "L"
+    },
+    {
+     "family": "Jiang",
+     "given": "D"
+    },
+    {
+     "family": "Sun",
+     "given": "Y"
+    },
+    {
+     "family": "Tong",
+     "given": "X"
+    },
+    {
+     "family": "Xie",
+     "given": "Y"
+    }
+   ],
+   "year": "2022",
+   "title": "Path Planning Optimization of Intelligent Vehicle Based on Improved Genetic and Ant Colony Hybrid Algorithm",
+   "container": "Front Bioeng Biotechnol",
+   "volume": "10",
+   "first_page": "905983",
+   "doi": "10.3389/fbioe.2022.905983"
+  },
+  {
+   "bib_id": 4
+  },
+  {
+   "bib_id": 5,
+   "authors": [
+    {
+     "family": "Zhang",
+     "given": "X"
+    },
+    {
+     "family": "Yu",
+     "given": "X"
+    },
+    {
+     "family": "Ye",
+     "given": "X"
+    },
+    {
+     "family": "Pirouzi",
+     "given": "S"
+    }
+   ],
+   "year": "2023",
+   "title": "Economic energy managementof networked flexi-renewable energy hubs according to uncertainty modeling by the unscented transformation method",
+   "container": "Energy",
+   "volume": "278",
+   "first_page": "128054",
+   "doi": "10.1016/j.energy.2023.128054"
+  },
+  {
+   "bib_id": 6,
+   "authors": [
+    {
+     "family": "Altan",
+     "given": "A"
+    },
+    {
+     "family": "Hacıoğlu",
+     "given": "R"
+    }
+   ],
+   "year": "2020",
+   "title": "Model predictive control of three-axis gimbal system mounted on UAV for real-time target tracking under external disturbances",
+   "container": "Mechanical Systems and Signal Processing",
+   "volume": "138",
+   "first_page": "106548",
+   "doi": "10.1016/j.ymssp.2019.106548"
+  },
+  {
+   "bib_id": 7,
+   "authors": [
+    {
+     "family": "Johnson",
+     "given": "C"
+    }
+   ],
+   "year": "1971",
+   "title": "Accomodation of external disturbances in linear regulator and servomechanism problems",
+   "container": "IEEE Trans Automat Contr",
+   "volume": "16",
+   "first_page": "635",
+   "doi": "10.1109/tac.1971.1099830"
+  },
+  {
+   "bib_id": 8,
+   "authors": [
+    {
+     "family": "Zhou",
+     "given": "J"
+    },
+    {
+     "family": "Wang",
+     "given": "Y"
+    },
+    {
+     "family": "Zheng",
+     "given": "X"
+    },
+    {
+     "family": "Wang",
+     "given": "Z"
+    },
+    {
+     "family": "Shen",
+     "given": "H"
+    }
+   ],
+   "year": "2019",
+   "title": "Weighted H∞ consensus design for stochastic multi-agent systems subject to external disturbances and ADT switching topologies",
+   "container": "Nonlinear Dyn",
+   "volume": "96",
+   "first_page": "853",
+   "doi": "10.1007/s11071-019-04826-9"
+  },
+  {
+   "bib_id": 9,
+   "authors": [
+    {
+     "family": "Xia",
+     "given": "C"
+    },
+    {
+     "family": "Liu",
+     "given": "N"
+    },
+    {
+     "family": "Zhou",
+     "given": "Z"
+    },
+    {
+     "family": "Yan",
+     "given": "Y"
+    },
+    {
+     "family": "Shi",
+     "given": "T"
+    }
+   ],
+   "year": "2018",
+   "title": "Steady-State Performance Improvement for LQR-Based PMSM Drives",
+   "container": "IEEE Trans Power Electron",
+   "volume": "33",
+   "first_page": "10622",
+   "doi": "10.1109/tpel.2018.2803760"
+  },
+  {
+   "bib_id": 10,
+   "authors": [
+    {
+     "family": "Liu",
+     "given": "J"
+    },
+    {
+     "family": "Huang",
+     "given": "Z"
+    },
+    {
+     "family": "Xu",
+     "given": "X"
+    },
+    {
+     "family": "Zhang",
+     "given": "X"
+    },
+    {
+     "family": "Sun",
+     "given": "S"
+    },
+    {
+     "family": "Li",
+     "given": "D"
+    }
+   ],
+   "year": "2021",
+   "title": "Multi-Kernel Online Reinforcement Learning for Path Tracking Control of Intelligent Vehicles",
+   "container": "IEEE Trans Syst Man Cybern, Syst",
+   "volume": "51",
+   "first_page": "6962",
+   "doi": "10.1109/tsmc.2020.2966631"
+  },
+  {
+   "bib_id": 11,
+   "authors": [
+    {
+     "family": "Guan",
+     "given": "L"
+    },
+    {
+     "family": "Guo",
+     "given": "L"
+    },
+    {
+     "family": "Wu",
+     "given": "X"
+    },
+    {
+     "family": "Xu",
+     "given": "L"
+    },
+    {
+     "family": "Wang",
+     "given": "X"
+    }
+   ],
+   "year": "2026",
+   "title": "Path Tracking Control of Hierarchical and Refined Active Disturbance Rejection for Intelligent Vehicles Under Heterogeneous Disturbances",
+   "container": "IEEE Trans Veh Technol",
+   "volume": "75",
+   "first_page": "15475",
+   "doi": "10.1109/tvt.2026.3667709"
+  },
+  {
+   "bib_id": 12,
+   "authors": [
+    {
+     "family": "Zhu",
+     "given": "Z"
+    },
+    {
+     "family": "Yao",
+     "given": "Q"
+    },
+    {
+     "family": "Shi",
+     "given": "Y"
+    }
+   ],
+   "year": "2025",
+   "title": "Intelligent Vehicle Adaptive Robust Path Tracking Control Strategy Based on MPC and ADRC",
+   "container": "IntJ Automot Technol",
+   "volume": "27",
+   "first_page": "651",
+   "doi": "10.1007/s12239-025-00343-4"
+  },
+  {
+   "bib_id": 13,
+   "authors": [
+    {
+     "family": "Ji",
+     "given": "J"
+    },
+    {
+     "family": "Khajepour",
+     "given": "A"
+    },
+    {
+     "family": "Melek",
+     "given": "WW"
+    },
+    {
+     "family": "Huang",
+     "given": "Y"
+    }
+   ],
+   "year": "2017",
+   "title": "Path Planning and Tracking for Vehicle Collision Avoidance Based on Model Predictive Control With Multiconstraints",
+   "container": "IEEE Trans Veh Technol",
+   "volume": "66",
+   "first_page": "952",
+   "doi": "10.1109/tvt.2016.2555853"
+  },
+  {
+   "bib_id": 14,
+   "authors": [
+    {
+     "family": "Sun",
+     "given": "C"
+    },
+    {
+     "family": "Zhang",
+     "given": "X"
+    },
+    {
+     "family": "Zhou",
+     "given": "Q"
+    },
+    {
+     "family": "Tian",
+     "given": "Y"
+    }
+   ],
+   "year": "2019",
+   "title": "A Model Predictive Controller With Switched Tracking Error for Autonomous Vehicle Path Tracking",
+   "container": "IEEE Access",
+   "volume": "7",
+   "first_page": "53103",
+   "doi": "10.1109/access.2019.2912094"
+  },
+  {
+   "bib_id": 15,
+   "authors": [
+    {
+     "family": "Nascimento",
+     "given": "TP"
+    },
+    {
+     "family": "Dórea",
+     "given": "CET"
+    },
+    {
+     "family": "Gonçalves",
+     "given": "LMG"
+    }
+   ],
+   "year": "2018",
+   "title": "Nonholonomic mobile robots’ trajectory tracking model predictive control: a survey",
+   "container": "Robotica",
+   "volume": "36",
+   "first_page": "676",
+   "doi": "10.1017/s0263574717000637"
+  },
+  {
+   "bib_id": 16,
+   "authors": [
+    {
+     "family": "Kim",
+     "given": "E"
+    },
+    {
+     "family": "Kim",
+     "given": "J"
+    },
+    {
+     "family": "Sunwoo",
+     "given": "M"
+    }
+   ],
+   "year": "2014",
+   "title": "Model predictive control strategy for smooth path tracking of autonomous vehicles with steering actuator dynamics",
+   "container": "IntJ Automot Technol",
+   "volume": "15",
+   "first_page": "1155",
+   "doi": "10.1007/s12239-014-0120-9"
+  },
+  {
+   "bib_id": 17,
+   "authors": [
+    {
+     "family": "Wang",
+     "given": "Z"
+    },
+    {
+     "family": "Sun",
+     "given": "K"
+    },
+    {
+     "family": "Ma",
+     "given": "S"
+    },
+    {
+     "family": "Sun",
+     "given": "L"
+    },
+    {
+     "family": "Gao",
+     "given": "W"
+    },
+    {
+     "family": "Dong",
+     "given": "Z"
+    }
+   ],
+   "year": "2022",
+   "title": "Improved Linear Quadratic Regulator Lateral Path Tracking Approach Based on a Real-Time Updated Algorithm with Fuzzy Control and Cosine Similarity for Autonomous Vehicles",
+   "container": "Electronics",
+   "volume": "11",
+   "first_page": "3703",
+   "doi": "10.3390/electronics11223703"
+  },
+  {
+   "bib_id": 18,
+   "authors": [
+    {
+     "family": "Zhang",
+     "given": "H"
+    },
+    {
+     "family": "Gong",
+     "given": "J"
+    },
+    {
+     "family": "Jiang",
+     "given": "Y"
+    },
+    {
+     "family": "Xiong",
+     "given": "G"
+    },
+    {
+     "family": "Chen",
+     "given": "H"
+    }
+   ],
+   "year": "2012",
+   "title": "An iterative linear quadratic regulator based trajectory tracking controller for wheeled mobile robot",
+   "container": "J Zhejiang Univ - Sci C",
+   "volume": "13",
+   "first_page": "593",
+   "last_page": "600",
+   "doi": "10.1631/jzus.c1100379"
+  },
+  {
+   "bib_id": 19,
+   "authors": [
+    {
+     "family": "Ge",
+     "given": "Z"
+    },
+    {
+     "family": "Wang",
+     "given": "Y"
+    },
+    {
+     "family": "Lv",
+     "given": "M"
+    }
+   ],
+   "year": "2018",
+   "title": "Three-dimensional Trajectory Tracking Guidance Law Based on Linear Quadratic Regulator",
+   "container": "J Phys: Conf Ser",
+   "volume": "1039",
+   "first_page": "012042",
+   "doi": "10.1088/1742-6596/1039/1/012042"
+  },
+  {
+   "bib_id": 20,
+   "authors": [
+    {
+     "family": "Sun",
+     "given": "B"
+    },
+    {
+     "family": "Cui",
+     "given": "K"
+    },
+    {
+     "family": "Wang",
+     "given": "P"
+    },
+    {
+     "family": "Xie",
+     "given": "M"
+    },
+    {
+     "family": "Gao",
+     "given": "S"
+    },
+    {
+     "family": "Cheng",
+     "given": "S"
+    }
+   ],
+   "year": "2024",
+   "title": "A lateral and longitudinal control method based on linear quadratic regulator for intelligent vehicles considering future path changes",
+   "container": "Meas Sci Technol",
+   "volume": "36",
+   "first_page": "015103",
+   "doi": "10.1088/1361-6501/ad8023"
+  },
+  {
+   "bib_id": 21,
+   "doi": "10.1109/aiea62095.2024.10692994"
+  },
+  {
+   "bib_id": 22,
+   "authors": [
+    {
+     "family": "Cheng",
+     "given": "W"
+    },
+    {
+     "family": "Zhou",
+     "given": "H"
+    },
+    {
+     "family": "Liu",
+     "given": "Z"
+    },
+    {
+     "family": "Zhang",
+     "given": "X"
+    }
+   ],
+   "year": "2024",
+   "title": "A review on sliding mode control for intelligent vehicle path tracking: Challenges and perspectives",
+   "container": "IEEE Transactions on Intelligent Transportation Systems",
+   "volume": "25",
+   "first_page": "8903"
+  },
+  {
+   "bib_id": 23,
+   "authors": [
+    {
+     "family": "Zhang",
+     "given": "K"
+    },
+    {
+     "family": "Sun",
+     "given": "J"
+    },
+    {
+     "family": "Wang",
+     "given": "H"
+    },
+    {
+     "family": "Yang",
+     "given": "J"
+    }
+   ],
+   "year": "2023",
+   "title": "Sliding mode control for autonomous ground vehicles: A comprehensive survey",
+   "container": "Annual Reviews in Control",
+   "volume": "56",
+   "first_page": "100912"
+  },
+  {
+   "bib_id": 24,
+   "authors": [
+    {
+     "family": "Shtessel",
+     "given": "Y"
+    },
+    {
+     "family": "Edwards",
+     "given": "C"
+    },
+    {
+     "family": "Fridman",
+     "given": "L"
+    },
+    {
+     "family": "Levant",
+     "given": "A"
+    }
+   ],
+   "year": "2014",
+   "title": "Sliding mode control and observation"
+  },
+  {
+   "bib_id": 25,
+   "authors": [
+    {
+     "family": "Feng",
+     "given": "H"
+    },
+    {
+     "family": "Song",
+     "given": "Q"
+    },
+    {
+     "family": "Ma",
+     "given": "S"
+    },
+    {
+     "family": "Ma",
+     "given": "W"
+    },
+    {
+     "family": "Yin",
+     "given": "C"
+    },
+    {
+     "family": "Cao",
+     "given": "D"
+    }
+   ],
+   "year": "2022",
+   "title": "A new adaptive sliding mode controller based on the RBF neural network for an electro-hydraulic servo system",
+   "container": "ISA Trans",
+   "volume": "129",
+   "first_page": "472",
+   "doi": "10.1016/j.isatra.2021.12.044"
+  },
+  {
+   "bib_id": 26,
+   "authors": [
+    {
+     "family": "Yao",
+     "given": "D"
+    },
+    {
+     "family": "Li",
+     "given": "H"
+    },
+    {
+     "family": "Shi",
+     "given": "Y"
+    }
+   ],
+   "year": "2024",
+   "title": "Event-Based Average Consensus of Disturbed MASs via Fully Distributed Sliding Mode Control",
+   "container": "IEEE Trans Automat Contr",
+   "volume": "69",
+   "first_page": "2015",
+   "doi": "10.1109/tac.2023.3317505"
+  },
+  {
+   "bib_id": 27,
+   "authors": [
+    {
+     "family": "Ansari",
+     "given": "J"
+    },
+    {
+     "family": "Homayounzade",
+     "given": "M"
+    },
+    {
+     "family": "Abbasi",
+     "given": "AR"
+    }
+   ],
+   "year": "2023",
+   "title": "Load frequency control in power systems by a robust backstepping sliding mode controller design",
+   "container": "Energy Reports",
+   "volume": "10",
+   "first_page": "1287",
+   "doi": "10.1016/j.egyr.2023.08.008"
+  },
+  {
+   "bib_id": 28,
+   "authors": [
+    {
+     "family": "Zhang",
+     "given": "D"
+    },
+    {
+     "family": "Hu",
+     "given": "J"
+    },
+    {
+     "family": "Cheng",
+     "given": "J"
+    },
+    {
+     "family": "Wu",
+     "given": "Z-G"
+    },
+    {
+     "family": "Yan",
+     "given": "H"
+    }
+   ],
+   "year": "2024",
+   "title": "A Novel Disturbance Observer Based Fixed-Time Sliding Mode Control for Robotic Manipulators with Global Fast Convergence",
+   "container": "IEEE/CAA J Autom Sinica",
+   "volume": "11",
+   "first_page": "661",
+   "doi": "10.1109/jas.2023.123948"
+  },
+  {
+   "bib_id": 29,
+   "authors": [
+    {
+     "family": "Tan",
+     "given": "J"
+    },
+    {
+     "family": "Zhang",
+     "given": "K"
+    },
+    {
+     "family": "Li",
+     "given": "B"
+    },
+    {
+     "family": "Wu",
+     "given": "A-G"
+    }
+   ],
+   "year": "2023",
+   "title": "Event-Triggered Sliding Mode Control for Spacecraft Reorientation With Multiple Attitude Constraints",
+   "container": "IEEE Trans Aerosp Electron Syst",
+   "first_page": "1",
+   "last_page": "14",
+   "doi": "10.1109/taes.2023.3270391"
+  },
+  {
+   "bib_id": 30,
+   "authors": [
+    {
+     "family": "Wang",
+     "given": "Y"
+    },
+    {
+     "family": "Li",
+     "given": "L"
+    },
+    {
+     "family": "Zhang",
+     "given": "H"
+    },
+    {
+     "family": "Chen",
+     "given": "W"
+    }
+   ],
+   "year": "2025",
+   "title": "Adaptive sliding mode control for autonomous vehicle lateral motion under uncertain tire-road friction",
+   "container": "IEEE Transactions on Vehicular Technology",
+   "volume": "74",
+   "first_page": "4721"
+  },
+  {
+   "bib_id": 31,
+   "authors": [
+    {
+     "family": "Li",
+     "given": "Z"
+    },
+    {
+     "family": "Chen",
+     "given": "P"
+    },
+    {
+     "family": "Wang",
+     "given": "G"
+    },
+    {
+     "family": "Zhao",
+     "given": "L"
+    }
+   ],
+   "year": "2024",
+   "title": "Finite-time terminal sliding mode control for autonomous vehicle path tracking with actuator saturation",
+   "container": "Mechanism and Machine Theory",
+   "volume": "194",
+   "first_page": "105568"
+  },
+  {
+   "bib_id": 32,
+   "authors": [
+    {
+     "family": "Liu",
+     "given": "J"
+    },
+    {
+     "family": "Cui",
+     "given": "Y"
+    },
+    {
+     "family": "Wang",
+     "given": "H"
+    },
+    {
+     "family": "Tian",
+     "given": "Y"
+    },
+    {
+     "family": "Zhou",
+     "given": "X"
+    }
+   ],
+   "year": "2025",
+   "title": "Rigid Spacecraft Attitude Control Based on Finite‐Time Non‐Singular Sliding Mode and Extended State Disturbance Observer With Input Hysteresis",
+   "container": "Intl J Robust & Nonlinear",
+   "volume": "35",
+   "first_page": "4187",
+   "doi": "10.1002/rnc.7896"
+  },
+  {
+   "bib_id": 33,
+   "authors": [
+    {
+     "family": "Wang",
+     "given": "L"
+    },
+    {
+     "family": "Zhao",
+     "given": "J"
+    },
+    {
+     "family": "Yu",
+     "given": "Z"
+    },
+    {
+     "family": "Pan",
+     "given": "Z"
+    },
+    {
+     "family": "Zheng",
+     "given": "Z"
+    }
+   ],
+   "year": "2025",
+   "title": "Robust and High-Precision Position Control of PMLSM-Driven Feed Servo System Based on Adaptive Fast Nonsingular Terminal Sliding Mode",
+   "container": "IEEE Trans Transp Electrific",
+   "volume": "11",
+   "first_page": "4882",
+   "doi": "10.1109/tte.2024.3471771"
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-core-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "jats_doi": "10.1371/journal.pone.0357264"
+ }
+}

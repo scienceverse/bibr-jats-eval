@@ -1,0 +1,4448 @@
+{
+ "paper_id": "10.1162_opmi.a.373",
+ "info": {
+  "title": "Large Language Models as Distributional Baselines for Language Tasks",
+  "doi": "10.1162/OPMI.a.373",
+  "file_name": "10.1162_opmi.a.373.pdf",
+  "keywords": [
+   "large language models",
+   "baselines",
+   "distributional semantics",
+   "predictability",
+   "behavioral experimentation",
+   "psycholinguistics"
+  ],
+  "abstract": "In order to ask questions about the mechanisms underpinning human cognition, researchers must control for properties of stimuli that could confound detected effects. In experiments involving linguistic stimuli, this includes properties like frequency, length, and neighborhood size of those stimuli, which are known to affect behavioral and neural responses. With improvements in the performance and usability of language models, it is now possible to also control for how predictable stimuli and their parts are, on the basis of the distributions of words alone: their distributional predictability. This coincides with a resurgence of interest in the possibility that statistical language learning may underlie a broad range of human cognitive phenomena; indeed, there are both theoretical and empirical reasons to believe that humans rely on distributional information during certain cognitive tasks. This creates a confound, whereby experimental operationalizations of psychological constructs with linguistic stimuli may not in fact be testing what they are intended to test. Thus, the central contributions of this paper are twofold: first, we articulate the conditions under which distributional predictability threatens the internal validity of an experiment; and second, we provide concrete recommendations for how to control for this potential confound. Beyond these primary contributions, we survey techniques for measuring distributional predictability, review theoretical and empirical work supporting the role of distributional statistics in human cognition, and present several case studies illustrating the range of possible outcomes—from the “distributional baselines” only marginally affecting theoretical inferences to constituting fully deflationary confounds. We also enumerate and address potential objections to this approach. This paper is primarily intended for researchers in psychology, cognitive science, and linguistics who use linguistic stimuli but have not yet incorporated distributional baselines into their work."
+ },
+ "author": [
+  {
+   "author_id": 1,
+   "given": "Sean",
+   "family": "Trott",
+   "affiliation": "Department of Psychology, Rutgers University–Newark, Newark, NJ, USA",
+   "email": "",
+   "orcid": "",
+   "corresponding": true
+  },
+  {
+   "author_id": 2,
+   "given": "James",
+   "family": "Michaelov",
+   "affiliation": "Department of Cognitive Science, University of California, San Diego, La Jolla, CA, USA; Department of Brain and Cognitive Sciences, Massachusetts Institute of Technology, Cambridge, MA, USA",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 3,
+   "given": "Cameron",
+   "family": "Jones",
+   "affiliation": "Department of Cognitive Science, University of California, San Diego, La Jolla, CA, USA; Department of Psychology, Stony Brook University, Stony Brook, NY, USA",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 4,
+   "given": "Tyler",
+   "family": "Chang",
+   "affiliation": "Department of Cognitive Science, University of California, San Diego, La Jolla, CA, USA",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 5,
+   "given": "Benjamin",
+   "family": "Bergen",
+   "affiliation": "Department of Cognitive Science, University of California, San Diego, La Jolla, CA, USA",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  }
+ ],
+ "section": [
+  {
+   "section_id": 1,
+   "section_type": "abstract",
+   "header": "Abstract",
+   "level": 1,
+   "parent_section_id": null,
+   "classification_score": 1.0
+  }
+ ],
+ "text": [
+  {
+   "text_id": 1,
+   "section_id": 1,
+   "paragraph_id": 1,
+   "text": "In order to ask questions about the mechanisms underpinning human cognition, researchers must control for properties of stimuli that could confound detected effects. In experiments involving linguistic stimuli, this includes properties like frequency, length, and neighborhood size of those stimuli, which are known to affect behavioral and neural responses. With improvements in the performance and usability of language models, it is now possible to also control for how predictable stimuli and their parts are, on the basis of the distributions of words alone: their distributional predictability. This coincides with a resurgence of interest in the possibility that statistical language learning may underlie a broad range of human cognitive phenomena; indeed, there are both theoretical and empirical reasons to believe that humans rely on distributional information during certain cognitive tasks. This creates a confound, whereby experimental operationalizations of psychological constructs with linguistic stimuli may not in fact be testing what they are intended to test. Thus, the central contributions of this paper are twofold: first, we articulate the conditions under which distributional predictability threatens the internal validity of an experiment; and second, we provide concrete recommendations for how to control for this potential confound. Beyond these primary contributions, we survey techniques for measuring distributional predictability, review theoretical and empirical work supporting the role of distributional statistics in human cognition, and present several case studies illustrating the range of possible outcomes—from the “distributional baselines” only marginally affecting theoretical inferences to constituting fully deflationary confounds. We also enumerate and address potential objections to this approach. This paper is primarily intended for researchers in psychology, cognitive science, and linguistics who use linguistic stimuli but have not yet incorporated distributional baselines into their work.",
+   "page_number": 1
+  }
+ ],
+ "bib": [
+  {
+   "bib_id": 1,
+   "authors": [
+    {
+     "family": "Andrews",
+     "given": "M."
+    },
+    {
+     "family": "Vigliocco",
+     "given": "G."
+    },
+    {
+     "family": "Vinson",
+     "given": "D."
+    }
+   ],
+   "year": "2009",
+   "title": "Integrating experiential and distributional data to learn semantic representations",
+   "container": "Psychological Review",
+   "volume": "116",
+   "first_page": "463",
+   "last_page": "498",
+   "doi": "10.1037/a0016261"
+  },
+  {
+   "bib_id": 2,
+   "authors": [
+    {
+     "family": "Aurnhammer",
+     "given": "C."
+    },
+    {
+     "family": "Frank",
+     "given": "S. L."
+    }
+   ],
+   "year": "2019",
+   "title": "Evaluating information-theoretic measures of word prediction in naturalistic sentence reading",
+   "container": "Neuropsychologia",
+   "volume": "134",
+   "first_page": "107198",
+   "doi": "10.1016/j.neuropsychologia.2019.107198"
+  },
+  {
+   "bib_id": 3,
+   "authors": [
+    {
+     "family": "Barr",
+     "given": "D. J."
+    },
+    {
+     "family": "Levy",
+     "given": "R."
+    },
+    {
+     "family": "Scheepers",
+     "given": "C."
+    },
+    {
+     "family": "Tily",
+     "given": "H. J."
+    }
+   ],
+   "year": "2013",
+   "title": "Random effects structure for confirmatory hypothesis testing: Keep it maximal",
+   "container": "Journal of Memory and Language",
+   "volume": "68",
+   "first_page": "255",
+   "last_page": "278",
+   "doi": "10.1016/j.jml.2012.11.001"
+  },
+  {
+   "bib_id": 4,
+   "authors": [
+    {
+     "family": "Barsalou",
+     "given": "L. W."
+    }
+   ],
+   "year": "1999",
+   "title": "Perceptual symbol systems",
+   "container": "Behavioral and Brain Sciences",
+   "volume": "22",
+   "first_page": "577",
+   "last_page": "660",
+   "doi": "10.1017/S0140525X99002149"
+  },
+  {
+   "bib_id": 5,
+   "authors": [
+    {
+     "family": "Bates",
+     "given": "D."
+    },
+    {
+     "family": "Mächler",
+     "given": "M."
+    },
+    {
+     "family": "Bolker",
+     "given": "B."
+    },
+    {
+     "family": "Walker",
+     "given": "S."
+    }
+   ],
+   "year": "2015",
+   "title": "Fitting linear mixed-effects models using lme4",
+   "container": "Journal of Statistical Software",
+   "volume": "67",
+   "first_page": "1",
+   "last_page": "48",
+   "doi": "10.18637/jss.v067.i01"
+  },
+  {
+   "bib_id": 6,
+   "authors": [
+    {
+     "family": "Bavaresco",
+     "given": "A."
+    },
+    {
+     "family": "Fernández",
+     "given": "R."
+    }
+   ],
+   "year": "2025",
+   "title": "Experiential semantic information and brain alignment: Are multimodal models better than language models?",
+   "container": "arXiv",
+   "doi": "10.48550/arXiv.2504.00942"
+  },
+  {
+   "bib_id": 7,
+   "authors": [
+    {
+     "family": "Bavaresco",
+     "given": "A."
+    },
+    {
+     "family": "de Heer Kloots",
+     "given": "M."
+    },
+    {
+     "family": "Pezzelle",
+     "given": "S."
+    },
+    {
+     "family": "Fern´ndez",
+     "given": "R."
+    }
+   ],
+   "year": "2024",
+   "title": "Vision-language models align with human neural representations in concept processing",
+   "container": "arXiv",
+   "doi": "10.48550/arXiv.2407.17914"
+  },
+  {
+   "bib_id": 8,
+   "authors": [
+    {
+     "family": "Bedny",
+     "given": "M."
+    },
+    {
+     "family": "Pascual-Leone",
+     "given": "A."
+    },
+    {
+     "family": "Saxe",
+     "given": "R. R."
+    }
+   ],
+   "year": "2009",
+   "title": "Growing up blind does not change the neural bases of Theory of Mind",
+   "container": "Proceedings of the National Academy of Sciences",
+   "volume": "106",
+   "first_page": "11312",
+   "last_page": "11317",
+   "doi": "10.1073/pnas.0900010106"
+  },
+  {
+   "bib_id": 9,
+   "authors": [
+    {
+     "family": "Bender",
+     "given": "E. M."
+    },
+    {
+     "family": "Gebru",
+     "given": "T."
+    },
+    {
+     "family": "McMillan-Major",
+     "given": "A."
+    },
+    {
+     "family": "Shmitchell",
+     "given": "S."
+    }
+   ],
+   "year": "2021",
+   "title": "On the dangers of stochastic parrots: Can language models be too big?",
+   "container": "Proceedings of the 2021 ACM conference on fairness, accountability, and transparency",
+   "first_page": "610",
+   "last_page": "623",
+   "doi": "10.1145/3442188.3445922"
+  },
+  {
+   "bib_id": 10,
+   "authors": [
+    {
+     "family": "Bergen",
+     "given": "B."
+    }
+   ],
+   "year": "2015",
+   "title": "Embodiment, simulation and meaning",
+   "container": "The Routledge handbook of semantics",
+   "first_page": "142",
+   "last_page": "157"
+  },
+  {
+   "bib_id": 11,
+   "authors": [
+    {
+     "family": "Boleda",
+     "given": "G."
+    }
+   ],
+   "year": "2020",
+   "title": "Distributional semantics and linguistic theory",
+   "container": "Annual Review of Linguistics",
+   "volume": "6",
+   "first_page": "213",
+   "last_page": "234",
+   "doi": "10.1146/annurev-linguistics-011619-030303"
+  },
+  {
+   "bib_id": 12,
+   "authors": [
+    {
+     "family": "Brothers",
+     "given": "T."
+    },
+    {
+     "family": "Kuperberg",
+     "given": "G. R."
+    }
+   ],
+   "year": "2021",
+   "title": "Word predictability effects are linear, not logarithmic: Implications for probabilistic models of sentence comprehension",
+   "container": "Journal of Memory and Language",
+   "volume": "116",
+   "first_page": "104174",
+   "doi": "10.1016/j.jml.2020.104174"
+  },
+  {
+   "bib_id": 13,
+   "authors": [
+    {
+     "family": "Brown",
+     "given": "J. R."
+    },
+    {
+     "family": "Donelan-McCall",
+     "given": "N."
+    },
+    {
+     "family": "Dunn",
+     "given": "J."
+    }
+   ],
+   "year": "1996",
+   "title": "Why talk about mental states? The significance of children's conversations with friends, siblings, and mothers",
+   "container": "Child Development",
+   "volume": "67",
+   "first_page": "836",
+   "last_page": "849",
+   "doi": "10.2307/1131864"
+  },
+  {
+   "bib_id": 14,
+   "authors": [
+    {
+     "family": "Brown",
+     "given": "T."
+    },
+    {
+     "family": "Mann",
+     "given": "B."
+    },
+    {
+     "family": "Ryder",
+     "given": "N."
+    },
+    {
+     "family": "Subbiah",
+     "given": "M."
+    },
+    {
+     "family": "Kaplan",
+     "given": "J. D."
+    },
+    {
+     "family": "Dhariwal",
+     "given": "P."
+    },
+    {
+     "family": "Amodei",
+     "given": "D."
+    }
+   ],
+   "year": "2020",
+   "title": "Language models are few-shot learners",
+   "container": "Advances in Neural Information Processing Systems",
+   "volume": "33",
+   "first_page": "1877",
+   "last_page": "1901"
+  },
+  {
+   "bib_id": 15,
+   "authors": [
+    {
+     "family": "Burnham",
+     "given": "K. P."
+    },
+    {
+     "family": "Anderson",
+     "given": "D. R."
+    },
+    {
+     "family": "Huyvaert",
+     "given": "K. P."
+    }
+   ],
+   "year": "2011",
+   "title": "AIC model selection and multimodel inference in behavioral ecology: Some background, observations, and comparisons",
+   "container": "Behavioral Ecology and Sociobiology",
+   "volume": "65",
+   "first_page": "23",
+   "last_page": "35",
+   "doi": "10.1007/s00265-010-1029-6"
+  },
+  {
+   "bib_id": 16,
+   "authors": [
+    {
+     "family": "Carlini",
+     "given": "N."
+    },
+    {
+     "family": "Tramer",
+     "given": "F."
+    },
+    {
+     "family": "Wallace",
+     "given": "E."
+    },
+    {
+     "family": "Jagielski",
+     "given": "M."
+    },
+    {
+     "family": "Herbert-Voss",
+     "given": "A."
+    },
+    {
+     "family": "Lee",
+     "given": "K."
+    },
+    {
+     "family": "Raffel",
+     "given": "C."
+    }
+   ],
+   "year": "2021",
+   "title": "Extracting training data from large language models",
+   "container": "30th USENIX security symposium (USENIX Security 21)",
+   "first_page": "2633",
+   "last_page": "2650"
+  },
+  {
+   "bib_id": 17,
+   "authors": [
+    {
+     "family": "Connell",
+     "given": "L."
+    }
+   ],
+   "year": "2019",
+   "title": "What have labels ever done for us? The linguistic shortcut in conceptual processing",
+   "container": "Language, Cognition and Neuroscience",
+   "volume": "34",
+   "first_page": "1308",
+   "last_page": "1318",
+   "doi": "10.1080/23273798.2018.1471512"
+  },
+  {
+   "bib_id": 18,
+   "authors": [
+    {
+     "family": "DeLong",
+     "given": "K. A."
+    },
+    {
+     "family": "Trott",
+     "given": "S."
+    },
+    {
+     "family": "Kutas",
+     "given": "M."
+    }
+   ],
+   "year": "2023",
+   "title": "Offline dominance and zeugmatic similarity normings of variably ambiguous words assessed against a neural language model (BERT)",
+   "container": "Behavior Research Methods",
+   "volume": "55",
+   "first_page": "1537",
+   "last_page": "1557",
+   "doi": "10.3758/s13428-022-01869-6"
+  },
+  {
+   "bib_id": 19,
+   "authors": [
+    {
+     "family": "Dentella",
+     "given": "V."
+    },
+    {
+     "family": "Günther",
+     "given": "F."
+    },
+    {
+     "family": "Leivada",
+     "given": "E."
+    }
+   ],
+   "year": "2023",
+   "title": "Systematic testing of three language models reveals low language accuracy, absence of response stability, and a yes-response bias",
+   "container": "Proceedings of the National Academy of Sciences",
+   "volume": "120",
+   "first_page": "e2309583120",
+   "doi": "10.1073/pnas.2309583120"
+  },
+  {
+   "bib_id": 20,
+   "authors": [
+    {
+     "family": "Dove",
+     "given": "G."
+    }
+   ],
+   "year": "2020",
+   "title": "More than a scaffold: Language is a neuroenhancement",
+   "container": "Cognitive Neuropsychology",
+   "volume": "37",
+   "first_page": "288",
+   "last_page": "311",
+   "doi": "10.1080/02643294.2019.1637338"
+  },
+  {
+   "bib_id": 21,
+   "authors": [
+    {
+     "family": "Edelman",
+     "given": "E."
+    },
+    {
+     "family": "Tsilivis",
+     "given": "N."
+    },
+    {
+     "family": "Edelman",
+     "given": "B. L."
+    },
+    {
+     "family": "Malach",
+     "given": "E."
+    },
+    {
+     "family": "Goel",
+     "given": "S."
+    }
+   ],
+   "year": "2024",
+   "title": "The evolution of statistical induction heads: In-context learning Markov chains",
+   "container": "Advances in neural information processing systems",
+   "volume": "37",
+   "first_page": "642373"
+  },
+  {
+   "bib_id": 22,
+   "authors": [
+    {
+     "family": "Elman",
+     "given": "J. L."
+    }
+   ],
+   "year": "1990",
+   "title": "Finding structure in time",
+   "container": "Cognitive Science",
+   "volume": "14",
+   "first_page": "179",
+   "last_page": "211",
+   "doi": "10.1207/s15516709cog1402_1"
+  },
+  {
+   "bib_id": 23,
+   "authors": [
+    {
+     "family": "Elman",
+     "given": "J. L."
+    }
+   ],
+   "year": "2009",
+   "title": "On the meaning of words and dinosaur bones: Lexical knowledge without a lexicon",
+   "container": "Cognitive Science",
+   "volume": "33",
+   "first_page": "547",
+   "last_page": "582",
+   "doi": "10.1111/j.1551-6709.2009.01023.x"
+  },
+  {
+   "bib_id": 24,
+   "authors": [
+    {
+     "family": "Ettinger",
+     "given": "A."
+    }
+   ],
+   "year": "2020",
+   "title": "What BERT is not: Lessons from a new suite of psycholinguistic diagnostics for language models",
+   "container": "Transactions of the Association for Computational Linguistics",
+   "volume": "8",
+   "first_page": "34",
+   "last_page": "48",
+   "doi": "10.1162/tacl_a_00298"
+  },
+  {
+   "bib_id": 25,
+   "authors": [
+    {
+     "family": "Federmeier",
+     "given": "K. D."
+    }
+   ],
+   "year": "2022",
+   "title": "Connecting and considering: Electrophysiology provides insights into comprehension",
+   "container": "Psychophysiology",
+   "volume": "59",
+   "first_page": "e13940",
+   "doi": "10.1111/psyp.13940"
+  },
+  {
+   "bib_id": 26,
+   "authors": [
+    {
+     "family": "Firth",
+     "given": "J. R."
+    }
+   ],
+   "year": "1957",
+   "title": "A synopsis of linguistic theory, 1930–1955",
+   "container": "Studies in linguistic analysis",
+   "first_page": "1",
+   "last_page": "32"
+  },
+  {
+   "bib_id": 27,
+   "authors": [
+    {
+     "family": "Frank",
+     "given": "S. L."
+    },
+    {
+     "family": "Bod",
+     "given": "R."
+    }
+   ],
+   "year": "2011",
+   "title": "Insensitivity of the human sentence-processing system to hierarchical structure",
+   "container": "Psychological Science",
+   "volume": "22",
+   "first_page": "829",
+   "last_page": "834",
+   "doi": "10.1177/0956797611409589"
+  },
+  {
+   "bib_id": 28,
+   "authors": [
+    {
+     "family": "Frank",
+     "given": "S. L."
+    },
+    {
+     "family": "Fernandez Monsalve",
+     "given": "I."
+    },
+    {
+     "family": "Thompson",
+     "given": "R. L."
+    },
+    {
+     "family": "Vigliocco",
+     "given": "G."
+    }
+   ],
+   "year": "2013",
+   "title": "Reading time data for evaluating broad-coverage models of English sentence processing",
+   "container": "Behavior Research Methods",
+   "volume": "45",
+   "first_page": "1182",
+   "last_page": "1190",
+   "doi": "10.3758/s13428-012-0313-y"
+  },
+  {
+   "bib_id": 29,
+   "authors": [
+    {
+     "family": "Frank",
+     "given": "S. L."
+    },
+    {
+     "family": "Otten",
+     "given": "L. J."
+    },
+    {
+     "family": "Galli",
+     "given": "G."
+    },
+    {
+     "family": "Vigliocco",
+     "given": "G."
+    }
+   ],
+   "year": "2015",
+   "title": "The ERP response to the amount of information conveyed by words in sentences",
+   "container": "Brain and Language",
+   "volume": "140",
+   "first_page": "1",
+   "last_page": "11",
+   "doi": "10.1016/j.bandl.2014.10.006"
+  },
+  {
+   "bib_id": 30,
+   "authors": [
+    {
+     "family": "Futrell",
+     "given": "R."
+    },
+    {
+     "family": "Wilcox",
+     "given": "E."
+    },
+    {
+     "family": "Morita",
+     "given": "T."
+    },
+    {
+     "family": "Qian",
+     "given": "P."
+    },
+    {
+     "family": "Ballesteros",
+     "given": "M."
+    },
+    {
+     "family": "Levy",
+     "given": "R."
+    }
+   ],
+   "year": "2019",
+   "title": "Neural language models as psycholinguistic subjects: Representations of syntactic state",
+   "container": "arXiv",
+   "doi": "10.48550/arXiv.1903.03260"
+  },
+  {
+   "bib_id": 31,
+   "authors": [
+    {
+     "family": "Gelman",
+     "given": "A."
+    },
+    {
+     "family": "Hill",
+     "given": "J."
+    }
+   ],
+   "year": "2007",
+   "title": "Data analysis using regression and multilevel/hierarchical models"
+  },
+  {
+   "bib_id": 32,
+   "authors": [
+    {
+     "family": "Glenberg",
+     "given": "A. M."
+    },
+    {
+     "family": "Kaschak",
+     "given": "M. P."
+    }
+   ],
+   "year": "2002",
+   "title": "Grounding language in action",
+   "container": "Psychonomic Bulletin & Review",
+   "volume": "9",
+   "first_page": "558",
+   "last_page": "565",
+   "doi": "10.3758/BF03196313"
+  },
+  {
+   "bib_id": 33,
+   "authors": [
+    {
+     "family": "Glenberg",
+     "given": "A. M."
+    },
+    {
+     "family": "Robertson",
+     "given": "D. A."
+    }
+   ],
+   "year": "2000",
+   "title": "Symbol grounding and meaning: A comparison of high-dimensional and embodied theories of meaning",
+   "container": "Journal of Memory and Language",
+   "volume": "43",
+   "first_page": "379",
+   "last_page": "401",
+   "doi": "10.1006/jmla.2000.2714"
+  },
+  {
+   "bib_id": 34,
+   "authors": [
+    {
+     "family": "Golchin",
+     "given": "S."
+    },
+    {
+     "family": "Surdeanu",
+     "given": "M."
+    }
+   ],
+   "year": "2023",
+   "title": "Time travel in LLMs: Tracing data contamination in large language models",
+   "container": "arXiv",
+   "doi": "10.48550/arXiv.2308.08493"
+  },
+  {
+   "bib_id": 35,
+   "authors": [
+    {
+     "family": "Goldstein",
+     "given": "S."
+    },
+    {
+     "family": "Lederman",
+     "given": "H."
+    }
+   ],
+   "year": "2025",
+   "title": "What does ChatGPT want? An interpretationist guide"
+  },
+  {
+   "bib_id": 36,
+   "authors": [
+    {
+     "family": "Goodkind",
+     "given": "A."
+    },
+    {
+     "family": "Bicknell",
+     "given": "K."
+    }
+   ],
+   "year": "2021",
+   "title": "Local word statistics affect reading times independently of surprisal",
+   "container": "arXiv.",
+   "doi": "10.48550/arXiv.2103.04469"
+  },
+  {
+   "bib_id": 37,
+   "authors": [
+    {
+     "family": "Graesser",
+     "given": "A. C."
+    },
+    {
+     "family": "Singer",
+     "given": "M."
+    },
+    {
+     "family": "Trabasso",
+     "given": "T."
+    }
+   ],
+   "year": "1994",
+   "title": "Constructing inferences during narrative text comprehension",
+   "container": "Psychological Review",
+   "volume": "101",
+   "first_page": "371",
+   "last_page": "395",
+   "doi": "10.1037/0033-295X.101.3.371"
+  },
+  {
+   "bib_id": 38,
+   "authors": [
+    {
+     "family": "Grieve",
+     "given": "J."
+    },
+    {
+     "family": "Bartl",
+     "given": "S."
+    },
+    {
+     "family": "Fuoli",
+     "given": "M."
+    },
+    {
+     "family": "Grafmiller",
+     "given": "J."
+    },
+    {
+     "family": "Huang",
+     "given": "W."
+    },
+    {
+     "family": "Jawerbaum",
+     "given": "A."
+    },
+    {
+     "family": "Murakami",
+     "given": "A."
+    },
+    {
+     "family": "Perlman",
+     "given": "M."
+    },
+    {
+     "family": "Roemling",
+     "given": "D."
+    },
+    {
+     "family": "Winter",
+     "given": "B."
+    }
+   ],
+   "year": "2025",
+   "title": "The sociolinguistic foundations of language modeling",
+   "container": "Frontiers in Artificial Intelligence",
+   "volume": "7",
+   "first_page": "1472411",
+   "doi": "10.3389/frai.2024.1472411"
+  },
+  {
+   "bib_id": 39,
+   "authors": [
+    {
+     "family": "Günther",
+     "given": "F."
+    },
+    {
+     "family": "Cassani",
+     "given": "G."
+    }
+   ],
+   "year": "2025",
+   "title": "Large language models in psycholinguistic studies",
+   "doi": "10.31234/osf.io/cvnam_v1"
+  },
+  {
+   "bib_id": 40,
+   "authors": [
+    {
+     "family": "Günther",
+     "given": "F."
+    },
+    {
+     "family": "Dudschig",
+     "given": "C."
+    },
+    {
+     "family": "Kaup",
+     "given": "B."
+    }
+   ],
+   "year": "2018",
+   "title": "Symbol grounding without direct experience: Do words inherit sensorimotor activation from purely linguistic context?",
+   "container": "Cognitive Science",
+   "volume": "42",
+   "first_page": "336",
+   "last_page": "374",
+   "doi": "10.1111/cogs.12549"
+  },
+  {
+   "bib_id": 41,
+   "authors": [
+    {
+     "family": "Haber",
+     "given": "J."
+    },
+    {
+     "family": "Poesio",
+     "given": "M."
+    }
+   ],
+   "year": "2024",
+   "title": "Polysemy—Evidence from linguistics, behavioral science, and contextualized language models",
+   "container": "Computational Linguistics",
+   "volume": "50",
+   "first_page": "351",
+   "last_page": "417",
+   "doi": "10.1162/coli_a_00500"
+  },
+  {
+   "bib_id": 42,
+   "authors": [
+    {
+     "family": "Hale",
+     "given": "C. M."
+    },
+    {
+     "family": "Tager-Flusberg",
+     "given": "H."
+    }
+   ],
+   "year": "2003",
+   "title": "The influence of language on theory of mind: A training study",
+   "container": "Developmental Science",
+   "volume": "6",
+   "first_page": "346",
+   "last_page": "359",
+   "doi": "10.1111/1467-7687.00289"
+  },
+  {
+   "bib_id": 43,
+   "authors": [
+    {
+     "family": "Hale",
+     "given": "J."
+    }
+   ],
+   "year": "2016",
+   "title": "Information-theoretical complexity metrics",
+   "container": "Language and Linguistics Compass",
+   "volume": "10",
+   "first_page": "397",
+   "last_page": "412",
+   "doi": "10.1111/lnc3.12196"
+  },
+  {
+   "bib_id": 44,
+   "authors": [
+    {
+     "family": "Harris",
+     "given": "Z."
+    }
+   ],
+   "year": "1954",
+   "title": "Distributional structure",
+   "container": "Word",
+   "volume": "10",
+   "first_page": "146",
+   "last_page": "162",
+   "doi": "10.1080/00437956.1954.11659520"
+  },
+  {
+   "bib_id": 45,
+   "authors": [
+    {
+     "family": "Hart",
+     "given": "B."
+    },
+    {
+     "family": "Risley",
+     "given": "T. R."
+    }
+   ],
+   "year": "1992",
+   "title": "American parenting of language-learning children: Persisting differences in family-child interactions observed in natural home environments",
+   "container": "Developmental Psychology",
+   "volume": "28",
+   "first_page": "1096",
+   "doi": "10.1037/0012-1649.28.6.1096"
+  },
+  {
+   "bib_id": 46,
+   "authors": [
+    {
+     "family": "Henrich",
+     "given": "J."
+    },
+    {
+     "family": "Heine",
+     "given": "S. J."
+    },
+    {
+     "family": "Norenzayan",
+     "given": "A."
+    }
+   ],
+   "year": "2010",
+   "title": "The weirdest people in the world?",
+   "container": "Behavioral and Brain Sciences",
+   "volume": "33",
+   "first_page": "61",
+   "last_page": "83",
+   "doi": "10.1017/S0140525X0999152X"
+  },
+  {
+   "bib_id": 47,
+   "authors": [
+    {
+     "family": "Hobbs",
+     "given": "J. R."
+    }
+   ],
+   "year": "1979",
+   "title": "Coherence and coreference",
+   "container": "Cognitive Science",
+   "volume": "3",
+   "first_page": "67",
+   "last_page": "90",
+   "doi": "10.1207/s15516709cog0301_4"
+  },
+  {
+   "bib_id": 48,
+   "authors": [
+    {
+     "family": "Holtzman",
+     "given": "A."
+    },
+    {
+     "family": "West",
+     "given": "P."
+    },
+    {
+     "family": "Shwartz",
+     "given": "V."
+    },
+    {
+     "family": "Choi",
+     "given": "Y."
+    },
+    {
+     "family": "Zettlemoyer",
+     "given": "L."
+    }
+   ],
+   "year": "2021",
+   "title": "Surface form competition: Why the highest probability answer isn't always right",
+   "container": "arXiv",
+   "doi": "10.48550/arXiv.2104.08315"
+  },
+  {
+   "bib_id": 49,
+   "authors": [
+    {
+     "family": "Hoover",
+     "given": "J. L."
+    },
+    {
+     "family": "Sonderegger",
+     "given": "M."
+    },
+    {
+     "family": "Piantadosi",
+     "given": "S. T."
+    },
+    {
+     "family": "O’Donnell",
+     "given": "T. J."
+    }
+   ],
+   "year": "2023",
+   "title": "The plausibility of sampling as an algorithmic theory of sentence processing",
+   "container": "Open Mind: Discoveries in Cognitive Science",
+   "volume": "7",
+   "first_page": "350",
+   "last_page": "391",
+   "doi": "10.1162/opmi_a_00086"
+  },
+  {
+   "bib_id": 50,
+   "authors": [
+    {
+     "family": "Hosseini",
+     "given": "E. A."
+    },
+    {
+     "family": "Schrimpf",
+     "given": "M."
+    },
+    {
+     "family": "Zhang",
+     "given": "Y."
+    },
+    {
+     "family": "Bowman",
+     "given": "S."
+    },
+    {
+     "family": "Zaslavsky",
+     "given": "N."
+    },
+    {
+     "family": "Fedorenko",
+     "given": "E."
+    }
+   ],
+   "year": "2024",
+   "title": "Artificial neural network language models predict human brain responses to language even after a developmentally realistic amount of training",
+   "container": "Neurobiology of Language",
+   "volume": "5",
+   "first_page": "43",
+   "last_page": "63",
+   "doi": "10.1162/nol_a_00137"
+  },
+  {
+   "bib_id": 51,
+   "authors": [
+    {
+     "family": "Htut",
+     "given": "P. M."
+    },
+    {
+     "family": "Phang",
+     "given": "J."
+    },
+    {
+     "family": "Bordia",
+     "given": "S."
+    },
+    {
+     "family": "Bowman",
+     "given": "S. R."
+    }
+   ],
+   "year": "2019",
+   "title": "Do attention heads in BERT track syntactic dependencies?",
+   "container": "arXiv",
+   "doi": "10.48550/arXiv.1911.12246"
+  },
+  {
+   "bib_id": 52,
+   "authors": [
+    {
+     "family": "Hu",
+     "given": "J."
+    },
+    {
+     "family": "Floyd",
+     "given": "S."
+    },
+    {
+     "family": "Jouravlev",
+     "given": "O."
+    },
+    {
+     "family": "Fedorenko",
+     "given": "E."
+    },
+    {
+     "family": "Gibson",
+     "given": "E."
+    }
+   ],
+   "year": "2023",
+   "title": "A fine-grained comparison of pragmatic language understanding in humans and language models",
+   "container": "Proceedings of the 61st annual meeting of the association for computational linguistics (Volume 1: Long papers)",
+   "first_page": "4194",
+   "last_page": "4213",
+   "doi": "10.18653/v1/2023.acl-long.230"
+  },
+  {
+   "bib_id": 53,
+   "authors": [
+    {
+     "family": "Hu",
+     "given": "J."
+    },
+    {
+     "family": "Frank",
+     "given": "M. C."
+    }
+   ],
+   "year": "2024",
+   "title": "Auxiliary task demands mask the capabilities of smaller language models",
+   "container": "First Conference on Language Modeling"
+  },
+  {
+   "bib_id": 54,
+   "authors": [
+    {
+     "family": "Hu",
+     "given": "J."
+    },
+    {
+     "family": "Levy",
+     "given": "R."
+    }
+   ],
+   "year": "2023",
+   "title": "Prompting is not a substitute for probability measurements in large language models",
+   "container": "arXiv",
+   "doi": "10.48550/arXiv.2305.13264"
+  },
+  {
+   "bib_id": 55,
+   "authors": [
+    {
+     "family": "Hu",
+     "given": "J."
+    },
+    {
+     "family": "Mahowald",
+     "given": "K."
+    },
+    {
+     "family": "Lupyan",
+     "given": "G."
+    },
+    {
+     "family": "Ivanova",
+     "given": "A."
+    },
+    {
+     "family": "Levy",
+     "given": "R."
+    }
+   ],
+   "year": "2024",
+   "title": "Language models align with human judgments on key grammatical constructions",
+   "container": "Proceedings of the National Academy of Sciences",
+   "volume": "121",
+   "first_page": "e2400917121",
+   "doi": "10.1073/pnas.2400917121"
+  },
+  {
+   "bib_id": 56,
+   "authors": [
+    {
+     "family": "Hu",
+     "given": "J."
+    },
+    {
+     "family": "Wilcox",
+     "given": "E. G."
+    },
+    {
+     "family": "Song",
+     "given": "S."
+    },
+    {
+     "family": "Mahowald",
+     "given": "K."
+    },
+    {
+     "family": "Levy",
+     "given": "R. P."
+    }
+   ],
+   "year": "2026",
+   "title": "What can string probability tell us about grammaticality?",
+   "container": "Transactions of the Association for Computational Linguistics",
+   "volume": "14",
+   "first_page": "124",
+   "last_page": "146",
+   "doi": "10.1162/TACL.a.611"
+  },
+  {
+   "bib_id": 57,
+   "authors": [
+    {
+     "family": "Huang",
+     "given": "K. J."
+    },
+    {
+     "family": "Arehalli",
+     "given": "S."
+    },
+    {
+     "family": "Kugemoto",
+     "given": "M."
+    },
+    {
+     "family": "Muxica",
+     "given": "C."
+    },
+    {
+     "family": "Prasad",
+     "given": "G."
+    },
+    {
+     "family": "Dillon",
+     "given": "B."
+    },
+    {
+     "family": "Linzen",
+     "given": "T."
+    }
+   ],
+   "year": "2024",
+   "title": "Large-scale benchmark yields no evidence that language model surprisal explains syntactic disambiguation difficulty",
+   "container": "Journal of Memory and Language",
+   "volume": "137",
+   "first_page": "104510",
+   "doi": "10.1016/j.jml.2024.104510"
+  },
+  {
+   "bib_id": 58,
+   "authors": [
+    {
+     "family": "Hughes",
+     "given": "C."
+    },
+    {
+     "family": "Ensor",
+     "given": "R."
+    }
+   ],
+   "year": "2005",
+   "title": "Executive function and theory of mind in 2 year olds: A family affair?",
+   "container": "Developmental Neuropsychology",
+   "volume": "28",
+   "first_page": "645",
+   "last_page": "668",
+   "doi": "10.1207/s15326942dn2802_5"
+  },
+  {
+   "bib_id": 59,
+   "authors": [
+    {
+     "family": "Hussain",
+     "given": "Z."
+    },
+    {
+     "family": "Binz",
+     "given": "M."
+    },
+    {
+     "family": "Mata",
+     "given": "R."
+    },
+    {
+     "family": "Wulff",
+     "given": "D. U."
+    }
+   ],
+   "year": "2024",
+   "title": "A tutorial on open-source large language models for behavioral science",
+   "container": "Behavior Research Methods",
+   "volume": "56",
+   "first_page": "8214",
+   "last_page": "8237",
+   "doi": "10.3758/s13428-024-02455-8"
+  },
+  {
+   "bib_id": 60,
+   "authors": [
+    {
+     "family": "Johnson",
+     "given": "T."
+    },
+    {
+     "family": "Obradovich",
+     "given": "N."
+    }
+   ],
+   "year": "2024",
+   "title": "Measuring an artificial intelligence language model’s trust in humans using machine incentives",
+   "container": "Journal of Physics: Complexity",
+   "volume": "5",
+   "first_page": "015003",
+   "doi": "10.1088/2632-072X/ad1c69"
+  },
+  {
+   "bib_id": 61,
+   "authors": [
+    {
+     "family": "Jones",
+     "given": "C."
+    },
+    {
+     "family": "Bergen",
+     "given": "B."
+    }
+   ],
+   "year": "2024",
+   "title": "Does GPT-4 pass the Turing test?",
+   "container": "Proceedings of the 2024 conference of the North American chapter of the association for computational linguistics: Human language technologies (Volume 1: Long Papers)",
+   "first_page": "5183",
+   "last_page": "5210",
+   "doi": "10.18653/v1/2024.naacl-long.290"
+  },
+  {
+   "bib_id": 62,
+   "authors": [
+    {
+     "family": "Jones",
+     "given": "C. R."
+    },
+    {
+     "family": "Bergen",
+     "given": "B."
+    }
+   ],
+   "year": "2021",
+   "title": "The role of physical inference in pronoun resolution",
+   "container": "Proceedings of the Annual Meeting of the Cognitive Science Society",
+   "volume": "Vol. 43"
+  },
+  {
+   "bib_id": 63,
+   "authors": [
+    {
+     "family": "Jones",
+     "given": "C. R."
+    },
+    {
+     "family": "Bergen",
+     "given": "B."
+    }
+   ],
+   "year": "2024",
+   "title": "Does word knowledge account for the effect of world knowledge on pronoun interpretation?",
+   "container": "Language and Cognition",
+   "volume": "16",
+   "first_page": "1182",
+   "last_page": "1213",
+   "doi": "10.1017/langcog.2024.2"
+  },
+  {
+   "bib_id": 64,
+   "authors": [
+    {
+     "family": "Jones",
+     "given": "C. R."
+    },
+    {
+     "family": "Bergen",
+     "given": "B."
+    },
+    {
+     "family": "Trott",
+     "given": "S."
+    }
+   ],
+   "year": "2024",
+   "title": "Do multimodal large language models and humans ground language similarly?",
+   "container": "Computational Linguistics",
+   "volume": "50",
+   "first_page": "1415",
+   "last_page": "1440",
+   "doi": "10.1162/coli_a_00531"
+  },
+  {
+   "bib_id": 65,
+   "authors": [
+    {
+     "family": "Jones",
+     "given": "C. R."
+    },
+    {
+     "family": "Chang",
+     "given": "T. A."
+    },
+    {
+     "family": "Coulson",
+     "given": "S."
+    },
+    {
+     "family": "Michaelov",
+     "given": "J. A."
+    },
+    {
+     "family": "Trott",
+     "given": "S."
+    },
+    {
+     "family": "Bergen",
+     "given": "B."
+    }
+   ],
+   "year": "2022",
+   "title": "Distrubutional semantics still can't account for affordances",
+   "container": "Proceedings of the annual meeting of the cognitive science society",
+   "volume": "Vol. 44"
+  },
+  {
+   "bib_id": 66,
+   "authors": [
+    {
+     "family": "Jones",
+     "given": "C. R."
+    },
+    {
+     "family": "Trott",
+     "given": "S."
+    }
+   ],
+   "year": "2024",
+   "title": "Multimodal language models show evidence of embodied simulation",
+   "container": "Proceedings of the 2024 joint international conference on computational linguistics, language resources and evaluation (LREC-COLING 2024)",
+   "first_page": "11928",
+   "last_page": "11933"
+  },
+  {
+   "bib_id": 67,
+   "authors": [
+    {
+     "family": "Jones",
+     "given": "C. R."
+    },
+    {
+     "family": "Trott",
+     "given": "S."
+    },
+    {
+     "family": "Bergen",
+     "given": "B."
+    }
+   ],
+   "year": "2024",
+   "title": "Comparing humans and large language models on an Experimental Protocol Inventory for Theory of Mind Evaluation (EPITOME)",
+   "container": "Transactions of the Association for Computational Linguistics",
+   "volume": "12",
+   "first_page": "803",
+   "last_page": "819",
+   "doi": "10.1162/tacl_a_00674"
+  },
+  {
+   "bib_id": 68,
+   "authors": [
+    {
+     "family": "Jones",
+     "given": "C. R."
+    },
+    {
+     "family": "Trott",
+     "given": "S."
+    },
+    {
+     "family": "Bergen",
+     "given": "B."
+    }
+   ],
+   "year": "2024",
+   "title": "Does reading words help you to read minds? A comparison of humans and LLMs at a recursive mindreading task",
+   "container": "Proceedings of the annual meeting of the cognitive science society",
+   "volume": "Vol. 46"
+  },
+  {
+   "bib_id": 69,
+   "authors": [
+    {
+     "family": "Jurafsky",
+     "given": "D."
+    },
+    {
+     "family": "Martin",
+     "given": "J. H."
+    }
+   ],
+   "year": "2025",
+   "title": "Speech and language processing: An introduction to natural language processing, computational linguistics, and speech recognition with language models"
+  },
+  {
+   "bib_id": 70,
+   "authors": [
+    {
+     "family": "Kaplan",
+     "given": "J."
+    },
+    {
+     "family": "McCandlish",
+     "given": "S."
+    },
+    {
+     "family": "Henighan",
+     "given": "T."
+    },
+    {
+     "family": "Brown",
+     "given": "T. B."
+    },
+    {
+     "family": "Chess",
+     "given": "B."
+    },
+    {
+     "family": "Child",
+     "given": "R."
+    },
+    {
+     "family": "Gray",
+     "given": "S."
+    },
+    {
+     "family": "Radford",
+     "given": "A."
+    },
+    {
+     "family": "Wu",
+     "given": "J."
+    },
+    {
+     "family": "Amodei",
+     "given": "D."
+    }
+   ],
+   "year": "2020",
+   "title": "Scaling laws for neural language models",
+   "container": "arXiv",
+   "doi": "10.48550/arXiv.2001.08361"
+  },
+  {
+   "bib_id": 71,
+   "authors": [
+    {
+     "family": "Kauf",
+     "given": "C."
+    },
+    {
+     "family": "Ivanova",
+     "given": "A. A."
+    }
+   ],
+   "year": "2023",
+   "title": "A better way to do masked language model scoring",
+   "container": "Proceedings of the 61st annual meeting of the association for computational linguistics (Volume 2: Short Papers)",
+   "first_page": "925",
+   "last_page": "935",
+   "doi": "10.18653/v1/2023.acl-short.80"
+  },
+  {
+   "bib_id": 72,
+   "authors": [
+    {
+     "family": "Kauf",
+     "given": "C."
+    },
+    {
+     "family": "Ivanova",
+     "given": "A. A."
+    },
+    {
+     "family": "Rambelli",
+     "given": "G."
+    },
+    {
+     "family": "Chersoni",
+     "given": "E."
+    },
+    {
+     "family": "She",
+     "given": "J. S."
+    },
+    {
+     "family": "Chowdhury",
+     "given": "Z."
+    },
+    {
+     "family": "Fedorenko",
+     "given": "E."
+    },
+    {
+     "family": "Lenci",
+     "given": "A."
+    }
+   ],
+   "year": "2023",
+   "title": "Event knowledge in large language models: The gap between the impossible and the unlikely",
+   "container": "Cognitive Science",
+   "volume": "47",
+   "first_page": "e13386",
+   "doi": "10.1111/cogs.13386"
+  },
+  {
+   "bib_id": 73,
+   "authors": [
+    {
+     "family": "Kim",
+     "given": "W."
+    },
+    {
+     "family": "Son",
+     "given": "B."
+    },
+    {
+     "family": "Kim",
+     "given": "I."
+    }
+   ],
+   "year": "2021",
+   "title": "Vilt: Vision-and-language transformer without convolution or region supervision",
+   "container": "International conference on machine learning",
+   "first_page": "5583",
+   "last_page": "5594"
+  },
+  {
+   "bib_id": 74,
+   "authors": [
+    {
+     "family": "Kocijan",
+     "given": "V."
+    },
+    {
+     "family": "Davis",
+     "given": "E."
+    },
+    {
+     "family": "Lukasiewicz",
+     "given": "T."
+    },
+    {
+     "family": "Marcus",
+     "given": "G."
+    },
+    {
+     "family": "Morgenstern",
+     "given": "L."
+    }
+   ],
+   "year": "2023",
+   "title": "The defeat of the winograd schema challenge",
+   "container": "Artificial Intelligence",
+   "volume": "325",
+   "first_page": "103971",
+   "doi": "10.1016/j.artint.2023.103971"
+  },
+  {
+   "bib_id": 75,
+   "authors": [
+    {
+     "family": "Krieger",
+     "given": "B."
+    },
+    {
+     "family": "Brouwer",
+     "given": "H."
+    },
+    {
+     "family": "Aurnhammer",
+     "given": "C."
+    },
+    {
+     "family": "Crocker",
+     "given": "M. W."
+    }
+   ],
+   "year": "2025",
+   "title": "On the limits of LLM surprisal as a functional explanation of the N400 and P600",
+   "container": "Brain Research",
+   "volume": "1865",
+   "first_page": "149841",
+   "doi": "10.1016/j.brainres.2025.149841"
+  },
+  {
+   "bib_id": 76,
+   "authors": [
+    {
+     "family": "Kroupin",
+     "given": "I."
+    },
+    {
+     "family": "Davis",
+     "given": "H. E."
+    },
+    {
+     "family": "Henrich",
+     "given": "J."
+    }
+   ],
+   "year": "2025",
+   "title": "Beyond newton: Why assumptions of universality are critical to cognitive science, and how to finally move past them",
+   "container": "Psychological Review",
+   "volume": "132",
+   "first_page": "291",
+   "last_page": "310",
+   "doi": "10.1037/rev0000480"
+  },
+  {
+   "bib_id": 77,
+   "authors": [
+    {
+     "family": "Kuperberg",
+     "given": "G. R."
+    },
+    {
+     "family": "Brothers",
+     "given": "T."
+    },
+    {
+     "family": "Wlotko",
+     "given": "E. W."
+    }
+   ],
+   "year": "2020",
+   "title": "A tale of two positivities and the N400: Distinct neural signatures are evoked by confirmed and violated predictions at different levels of representation",
+   "container": "Journal of Cognitive Neuroscience",
+   "volume": "32",
+   "first_page": "12",
+   "last_page": "35",
+   "doi": "10.1162/jocn_a_01465"
+  },
+  {
+   "bib_id": 78,
+   "authors": [
+    {
+     "family": "Kuribayashi",
+     "given": "T."
+    },
+    {
+     "family": "Oseki",
+     "given": "Y."
+    },
+    {
+     "family": "Ito",
+     "given": "T."
+    },
+    {
+     "family": "Yoshida",
+     "given": "R."
+    },
+    {
+     "family": "Asahara",
+     "given": "M."
+    },
+    {
+     "family": "Inui",
+     "given": "K."
+    }
+   ],
+   "year": "2021",
+   "title": "Lower perplexity is not always human-like",
+   "container": "Proceedings of the 59th Annual Meeting of the Association for Computational Linguistics and the 11th International Joint Conference on natural Language Processing (Volume 1: Long Papers)",
+   "first_page": "5203",
+   "last_page": "5217",
+   "doi": "10.18653/v1/2021.acl-long.405"
+  },
+  {
+   "bib_id": 79,
+   "authors": [
+    {
+     "family": "Kutas",
+     "given": "M."
+    },
+    {
+     "family": "Federmeier",
+     "given": "K. D."
+    }
+   ],
+   "year": "2011",
+   "title": "Thirty years and counting: Finding meaning in the N400 component of the event-related brain potential (ERP)",
+   "container": "Annual Review of Psychology",
+   "volume": "62",
+   "first_page": "621",
+   "last_page": "647",
+   "doi": "10.1146/annurev.psych.093008.131123"
+  },
+  {
+   "bib_id": 80,
+   "authors": [
+    {
+     "family": "Kutas",
+     "given": "M."
+    },
+    {
+     "family": "Hillyard",
+     "given": "S. A."
+    }
+   ],
+   "year": "1980",
+   "title": "Reading senseless sentences: Brain potentials reflect semantic incongruity",
+   "container": "Science",
+   "volume": "207",
+   "first_page": "203",
+   "last_page": "205",
+   "doi": "10.1126/science.7350657"
+  },
+  {
+   "bib_id": 81,
+   "authors": [
+    {
+     "family": "Lampinen",
+     "given": "A."
+    }
+   ],
+   "year": "2024",
+   "title": "Can language models handle recursively nested grammatical structures? A case study on comparing models and humans",
+   "container": "Computational Linguistics",
+   "volume": "50",
+   "first_page": "1441",
+   "last_page": "1476",
+   "doi": "10.1162/coli_a_00525"
+  },
+  {
+   "bib_id": 82,
+   "authors": [
+    {
+     "family": "Landauer",
+     "given": "T. K."
+    },
+    {
+     "family": "Dumais",
+     "given": "S. T."
+    }
+   ],
+   "year": "1997",
+   "title": "A solution to Plato’s problem: The latent semantic analysis theory of acquisition, induction, and representation of knowledge",
+   "container": "Psychological Review",
+   "volume": "104",
+   "first_page": "211",
+   "last_page": "240",
+   "doi": "10.1037/0033-295X.104.2.211"
+  },
+  {
+   "bib_id": 83,
+   "authors": [
+    {
+     "family": "Lee",
+     "given": "H."
+    },
+    {
+     "family": "Phatale",
+     "given": "S."
+    },
+    {
+     "family": "Mansoor",
+     "given": "H."
+    },
+    {
+     "family": "Lu",
+     "given": "K. R."
+    },
+    {
+     "family": "Mesnard",
+     "given": "T."
+    },
+    {
+     "family": "Ferret",
+     "given": "J."
+    },
+    {
+     "family": "Rastogi",
+     "given": "A."
+    }
+   ],
+   "year": "2023",
+   "title": "Rlaif: Scaling reinforcement learning from human feedback with AI feedback"
+  },
+  {
+   "bib_id": 84,
+   "authors": [
+    {
+     "family": "Lenci",
+     "given": "A."
+    }
+   ],
+   "year": "2008",
+   "title": "Distributional semantics in linguistic and cognitive research",
+   "container": "Italian Journal of Linguistics",
+   "volume": "20",
+   "first_page": "1",
+   "last_page": "31"
+  },
+  {
+   "bib_id": 85,
+   "authors": [
+    {
+     "family": "Levy",
+     "given": "R."
+    }
+   ],
+   "year": "2008",
+   "title": "Expectation-based syntactic comprehension",
+   "container": "Cognition",
+   "volume": "106",
+   "first_page": "1126",
+   "last_page": "1177",
+   "doi": "10.1016/j.cognition.2007.05.006"
+  },
+  {
+   "bib_id": 86,
+   "authors": [
+    {
+     "family": "Levy",
+     "given": "R."
+    }
+   ],
+   "year": "2013",
+   "title": "Memory and surprisal in human sentence comprehension",
+   "container": "Sentence processing",
+   "first_page": "78",
+   "last_page": "114"
+  },
+  {
+   "bib_id": 87,
+   "authors": [
+    {
+     "family": "Levy",
+     "given": "R."
+    },
+    {
+     "family": "Fedorenko",
+     "given": "E."
+    },
+    {
+     "family": "Gibson",
+     "given": "E."
+    }
+   ],
+   "year": "2013",
+   "title": "The syntactic complexity of Russian relative clauses",
+   "container": "Journal of Memory and Language",
+   "volume": "69",
+   "first_page": "461",
+   "last_page": "495",
+   "doi": "10.1016/j.jml.2012.10.005"
+  },
+  {
+   "bib_id": 88,
+   "authors": [
+    {
+     "family": "Lewis",
+     "given": "M."
+    },
+    {
+     "family": "Zettersten",
+     "given": "M."
+    },
+    {
+     "family": "Lupyan",
+     "given": "G."
+    }
+   ],
+   "year": "2019",
+   "title": "Distributional semantics as a source of visual knowledge",
+   "container": "Proceedings of the National Academy of Sciences",
+   "volume": "116",
+   "first_page": "19237",
+   "last_page": "19238",
+   "doi": "10.1073/pnas.1910148116"
+  },
+  {
+   "bib_id": 89,
+   "authors": [
+    {
+     "family": "Li",
+     "given": "J."
+    },
+    {
+     "family": "Joanisse",
+     "given": "M. F."
+    }
+   ],
+   "year": "2021",
+   "title": "Word senses as clusters of meaning modulations: A computational model of polysemy",
+   "container": "Cognitive Science",
+   "volume": "45",
+   "first_page": "e12955",
+   "doi": "10.1111/cogs.12955"
+  },
+  {
+   "bib_id": 90,
+   "authors": [
+    {
+     "family": "Liesenfeld",
+     "given": "A."
+    },
+    {
+     "family": "Dingemanse",
+     "given": "M."
+    }
+   ],
+   "year": "2024",
+   "title": "Rethinking open source generative AI: Open-washing and the EU AI Act",
+   "first_page": "1774",
+   "last_page": "1787",
+   "doi": "10.1145/3630106.3659005"
+  },
+  {
+   "bib_id": 91,
+   "authors": [
+    {
+     "family": "Linzen",
+     "given": "T."
+    },
+    {
+     "family": "Dupoux",
+     "given": "E."
+    },
+    {
+     "family": "Goldberg",
+     "given": "Y."
+    }
+   ],
+   "year": "2016",
+   "title": "Assessing the ability of LSTMs to learn syntax-sensitive dependencies",
+   "container": "Transactions of the Association for Computational Linguistics",
+   "volume": "4",
+   "first_page": "521",
+   "last_page": "535",
+   "doi": "10.1162/tacl_a_00115"
+  },
+  {
+   "bib_id": 92,
+   "authors": [
+    {
+     "family": "Linzen",
+     "given": "T."
+    },
+    {
+     "family": "Leonard",
+     "given": "B."
+    }
+   ],
+   "year": "2018",
+   "title": "Distinct patterns of syntactic agreement errors in recurrent networks and humans",
+   "container": "Proceedings of the annual meeting of the cognitive science society",
+   "volume": "Vol. 40"
+  },
+  {
+   "bib_id": 93,
+   "authors": [
+    {
+     "family": "Louwerse",
+     "given": "M. M."
+    }
+   ],
+   "year": "2018",
+   "title": "Knowing the meaning of a word by the linguistic and perceptual company it keeps",
+   "container": "Topics in Cognitive Science",
+   "volume": "10",
+   "first_page": "573",
+   "last_page": "589",
+   "doi": "10.1111/tops.12349"
+  },
+  {
+   "bib_id": 94,
+   "authors": [
+    {
+     "family": "Louwerse",
+     "given": "M. M."
+    },
+    {
+     "family": "Jeuniaux",
+     "given": "P."
+    }
+   ],
+   "year": "2010",
+   "title": "The linguistic and embodied nature of conceptual processing",
+   "container": "Cognition",
+   "volume": "114",
+   "first_page": "96",
+   "last_page": "104",
+   "doi": "10.1016/j.cognition.2009.09.002"
+  },
+  {
+   "bib_id": 95,
+   "authors": [
+    {
+     "family": "Lupyan",
+     "given": "G."
+    },
+    {
+     "family": "Gentry",
+     "given": "H."
+    },
+    {
+     "family": "Zettersten",
+     "given": "M."
+    }
+   ],
+   "year": "2026",
+   "title": "How important is language for human-like intelligence?",
+   "container": "Perspectives on Psychological Science",
+   "volume": "21",
+   "first_page": "115",
+   "last_page": "120",
+   "doi": "10.1177/17456916251398539"
+  },
+  {
+   "bib_id": 96,
+   "authors": [
+    {
+     "family": "Lupyan",
+     "given": "G."
+    },
+    {
+     "family": "Winter",
+     "given": "B."
+    }
+   ],
+   "year": "2018",
+   "title": "Language is more abstract than you think, or, why aren't languages more iconic?",
+   "container": "Philosophical Transactions of the Royal Society B: Biological Sciences",
+   "volume": "373",
+   "first_page": "20170137",
+   "doi": "10.1098/rstb.2017.0137"
+  },
+  {
+   "bib_id": 97,
+   "authors": [
+    {
+     "family": "Marks",
+     "given": "L."
+    },
+    {
+     "family": "Paren",
+     "given": "A."
+    },
+    {
+     "family": "Krueger",
+     "given": "D."
+    },
+    {
+     "family": "Barez",
+     "given": "F."
+    }
+   ],
+   "year": "2024",
+   "title": "Enhancing neural network interpretability with feature-aligned sparse autoencoders",
+   "container": "arXiv",
+   "doi": "10.48550/arXiv.2411.01220"
+  },
+  {
+   "bib_id": 98,
+   "authors": [
+    {
+     "family": "Martínez",
+     "given": "G."
+    },
+    {
+     "family": "Molero",
+     "given": "J. D."
+    },
+    {
+     "family": "González",
+     "given": "S."
+    },
+    {
+     "family": "Conde",
+     "given": "J."
+    },
+    {
+     "family": "Brysbaert",
+     "given": "M."
+    },
+    {
+     "family": "Reviriego",
+     "given": "P."
+    }
+   ],
+   "year": "2024",
+   "title": "Using large language models to estimate features of multi-word expressions: Concreteness, valence, arousal",
+   "container": "Behavior Research Methods",
+   "volume": "57",
+   "first_page": "5",
+   "doi": "10.3758/s13428-024-02515-z"
+  },
+  {
+   "bib_id": 99,
+   "authors": [
+    {
+     "family": "McDonald",
+     "given": "S."
+    },
+    {
+     "family": "Ramscar",
+     "given": "M."
+    }
+   ],
+   "year": "2001",
+   "title": "Testing the distributional hypothesis: The influence of context on judgements of semantic similarity",
+   "container": "Proceedings of the Annual Meeting of the Cognitive Science Society",
+   "volume": "Vol. 23"
+  },
+  {
+   "bib_id": 100,
+   "authors": [
+    {
+     "family": "McDonald",
+     "given": "S. A."
+    },
+    {
+     "family": "Shillcock",
+     "given": "R. C."
+    }
+   ],
+   "year": "2003",
+   "title": "Eye movements reveal the on-line computation of lexical probabilities during reading",
+   "container": "Psychological Science",
+   "volume": "14",
+   "first_page": "648",
+   "last_page": "652",
+   "doi": "10.1046/j.0956-7976.2003.psci_1480.x"
+  },
+  {
+   "bib_id": 101,
+   "authors": [
+    {
+     "family": "Meister",
+     "given": "C."
+    },
+    {
+     "family": "Pimentel",
+     "given": "T."
+    },
+    {
+     "family": "Haller",
+     "given": "P."
+    },
+    {
+     "family": "Jäger",
+     "given": "L."
+    },
+    {
+     "family": "Cotterell",
+     "given": "R."
+    },
+    {
+     "family": "Levy",
+     "given": "R."
+    }
+   ],
+   "year": "2021",
+   "title": "Revisiting the uniform information density hypothesis",
+   "container": "Proceedings of the 2021 Conference on Empirical Methods in Natural Language Processing",
+   "first_page": "963",
+   "last_page": "980",
+   "doi": "10.18653/v1/2021.emnlp-main.74"
+  },
+  {
+   "bib_id": 102,
+   "authors": [
+    {
+     "family": "Merkx",
+     "given": "D."
+    },
+    {
+     "family": "Frank",
+     "given": "S. L."
+    }
+   ],
+   "year": "2021",
+   "title": "Human sentence processing: Recurrence or attention?",
+   "container": "Proceedings of the Workshop on Cognitive Modeling and Computational Linguistics",
+   "first_page": "12",
+   "last_page": "22",
+   "doi": "10.18653/v1/2021.cmcl-1.2"
+  },
+  {
+   "bib_id": 103,
+   "authors": [
+    {
+     "family": "Michaelov",
+     "given": "J."
+    },
+    {
+     "family": "Bergen",
+     "given": "B."
+    }
+   ],
+   "year": "2022",
+   "title": "The more human-like the language model, the more surprisal is the best predictor of N400 amplitude",
+   "container": "NeurIPS 2022 workshop on information-theoretic principles in cognitive systems"
+  },
+  {
+   "bib_id": 104,
+   "authors": [
+    {
+     "family": "Michaelov",
+     "given": "J. A."
+    },
+    {
+     "family": "Arnett",
+     "given": "C."
+    },
+    {
+     "family": "Bergen",
+     "given": "B. K."
+    }
+   ],
+   "year": "2024",
+   "title": "Revenge of the fallen? Recurrent models match transformers at predicting human language comprehension metrics",
+   "container": "First conference on language modeling"
+  },
+  {
+   "bib_id": 105,
+   "authors": [
+    {
+     "family": "Michaelov",
+     "given": "J. A."
+    },
+    {
+     "family": "Bergen",
+     "given": "B. K."
+    }
+   ],
+   "year": "2020",
+   "title": "How well does surprisal explain N400 amplitude under different experimental conditions?",
+   "container": "Proceedings of the 24th Conference on Computational natural Language Learning",
+   "first_page": "652",
+   "last_page": "663",
+   "doi": "10.18653/v1/2020.conll-1.53"
+  },
+  {
+   "bib_id": 106,
+   "authors": [
+    {
+     "family": "Michaelov",
+     "given": "J. A."
+    },
+    {
+     "family": "Bardolph",
+     "given": "M. D."
+    },
+    {
+     "family": "Coulson",
+     "given": "S."
+    },
+    {
+     "family": "Bergen",
+     "given": "B."
+    }
+   ],
+   "year": "2021",
+   "title": "Different kinds of cognitive plausibility: Why are transformers better than RNNs at predicting N400 amplitude?",
+   "container": "Proceedings of the annual meeting of the cognitive science society",
+   "volume": "Vol. 43"
+  },
+  {
+   "bib_id": 107,
+   "authors": [
+    {
+     "family": "Michaelov",
+     "given": "J. A."
+    },
+    {
+     "family": "Bardolph",
+     "given": "M. D."
+    },
+    {
+     "family": "Van Petten",
+     "given": "C. K."
+    },
+    {
+     "family": "Bergen",
+     "given": "B. K."
+    },
+    {
+     "family": "Coulson",
+     "given": "S."
+    }
+   ],
+   "year": "2024",
+   "title": "Strong prediction: Language model surprisal explains multiple N400 effects",
+   "container": "Neurobiology of Language",
+   "volume": "5",
+   "first_page": "107",
+   "last_page": "135",
+   "doi": "10.1162/nol_a_00105"
+  },
+  {
+   "bib_id": 108,
+   "authors": [
+    {
+     "family": "Michaelov",
+     "given": "J. A."
+    },
+    {
+     "family": "Bergen",
+     "given": "B. K."
+    }
+   ],
+   "year": "2024",
+   "title": "On the mathematical relationship between contextual probability and N400 amplitude",
+   "container": "Open Mind: Discoveries in Cognitive Science",
+   "volume": "8",
+   "first_page": "859",
+   "last_page": "897",
+   "doi": "10.1162/opmi_a_00150"
+  },
+  {
+   "bib_id": 109,
+   "authors": [
+    {
+     "family": "Michaelov",
+     "given": "J. A."
+    },
+    {
+     "family": "Bergen",
+     "given": "B. K."
+    }
+   ],
+   "year": "2026",
+   "title": "Better language models better model the N400, but not reading time",
+   "container": "Journal of Memory and Language",
+   "volume": "149",
+   "first_page": "104762",
+   "doi": "10.1016/j.jml.2026.104762"
+  },
+  {
+   "bib_id": 110,
+   "authors": [
+    {
+     "family": "Michaelov",
+     "given": "J. A."
+    },
+    {
+     "family": "Coulson",
+     "given": "S."
+    },
+    {
+     "family": "Bergen",
+     "given": "B. K."
+    }
+   ],
+   "year": "2022",
+   "title": "So cloze yet so far: N400 amplitude is better predicted by distributional information than human predictability judgements",
+   "container": "IEEE Transactions on Cognitive and Developmental Systems",
+   "volume": "15",
+   "first_page": "1033",
+   "last_page": "1042",
+   "doi": "10.1109/TCDS.2022.3176783"
+  },
+  {
+   "bib_id": 111,
+   "authors": [
+    {
+     "family": "Michaelov",
+     "given": "J. A."
+    },
+    {
+     "family": "Estacio",
+     "given": "R."
+    },
+    {
+     "family": "Zhang",
+     "given": "Z."
+    },
+    {
+     "family": "Bergen",
+     "given": "B. K."
+    }
+   ],
+   "year": "2025",
+   "title": "Not quite Sherlock Holmes: Language model predictions do not reliably differentiate impossible from improbable events",
+   "container": "Findings of the association for computational linguistics: ACL 2025",
+   "first_page": "13528",
+   "last_page": "13551",
+   "doi": "10.18653/v1/2025.findings-acl.696"
+  },
+  {
+   "bib_id": 112,
+   "authors": [
+    {
+     "family": "Mikolov",
+     "given": "T."
+    },
+    {
+     "family": "Chen",
+     "given": "K."
+    },
+    {
+     "family": "Corrado",
+     "given": "G."
+    },
+    {
+     "family": "Dean",
+     "given": "J."
+    }
+   ],
+   "year": "2013",
+   "title": "Efficient estimation of word representations in vector space",
+   "container": "arXiv",
+   "doi": "10.48550/arXiv.1301.3781"
+  },
+  {
+   "bib_id": 113,
+   "authors": [
+    {
+     "family": "Misra",
+     "given": "K."
+    }
+   ],
+   "year": "2022",
+   "title": "minicons: Enabling flexible behavioral and representational analyses of transformer language models",
+   "container": "arXiv",
+   "doi": "10.48550/arXiv.2203.13112"
+  },
+  {
+   "bib_id": 114,
+   "authors": [
+    {
+     "family": "Misra",
+     "given": "K."
+    },
+    {
+     "family": "Ettinger",
+     "given": "A."
+    },
+    {
+     "family": "Rayz",
+     "given": "J."
+    }
+   ],
+   "year": "2020",
+   "title": "Exploring BERT’s sensitivity to lexical cues using tests from semantic priming",
+   "container": "Findings of the association for computational linguistics: EMNLP 2020",
+   "first_page": "4625",
+   "last_page": "4635",
+   "doi": "10.18653/v1/2020.findings-emnlp.415"
+  },
+  {
+   "bib_id": 115,
+   "authors": [
+    {
+     "family": "Misra",
+     "given": "K."
+    },
+    {
+     "family": "Kim",
+     "given": "N."
+    }
+   ],
+   "year": "2024",
+   "title": "Generating novel experimental hypotheses from language models: A case study on cross-dative generalization",
+   "container": "arXiv"
+  },
+  {
+   "bib_id": 116,
+   "authors": [
+    {
+     "family": "Misra",
+     "given": "K."
+    },
+    {
+     "family": "Mahowald",
+     "given": "K."
+    }
+   ],
+   "year": "2024",
+   "title": "Language models learn rare phenomena from less rare phenomena: The Case of the Missing AANNs",
+   "container": "Proceedings of the 2024 conference on empirical methods in natural language processing",
+   "first_page": "913",
+   "last_page": "929",
+   "doi": "10.18653/v1/2024.emnlp-main.53"
+  },
+  {
+   "bib_id": 117,
+   "authors": [
+    {
+     "family": "Nair",
+     "given": "S."
+    },
+    {
+     "family": "Srinivasan",
+     "given": "M."
+    },
+    {
+     "family": "Meylan",
+     "given": "S."
+    }
+   ],
+   "year": "2020",
+   "title": "Contextualized word embeddings encode aspects of human-like word sense knowledge",
+   "container": "arXiv",
+   "doi": "10.48550/arXiv.2010.13057"
+  },
+  {
+   "bib_id": 118,
+   "authors": [
+    {
+     "family": "Nicenboim",
+     "given": "B."
+    },
+    {
+     "family": "Schad",
+     "given": "D. J."
+    },
+    {
+     "family": "Vasishth",
+     "given": "S."
+    }
+   ],
+   "year": "2025",
+   "title": "Introduction to Bayesian data analysis for cognitive science",
+   "doi": "10.1201/9780429342646"
+  },
+  {
+   "bib_id": 119,
+   "authors": [
+    {
+     "family": "Nieuwland",
+     "given": "M. S."
+    },
+    {
+     "family": "Arkhipova",
+     "given": "Y."
+    },
+    {
+     "family": "Rodríguez-Gómez",
+     "given": "P."
+    }
+   ],
+   "year": "2020",
+   "title": "Anticipating words during spoken discourse comprehension: A large-scale, pre-registered replication study using brain potentials",
+   "container": "Cortex",
+   "volume": "133",
+   "first_page": "1",
+   "last_page": "36",
+   "doi": "10.1016/j.cortex.2020.09.007"
+  },
+  {
+   "bib_id": 120,
+   "authors": [
+    {
+     "family": "Oh",
+     "given": "B.-D."
+    },
+    {
+     "family": "Clark",
+     "given": "C."
+    },
+    {
+     "family": "Schuler",
+     "given": "W."
+    }
+   ],
+   "year": "2022",
+   "title": "Comparison of structural parsers and neural language models as surprisal estimators",
+   "container": "Frontiers in Artificial Intelligence",
+   "volume": "5",
+   "first_page": "777963",
+   "doi": "10.3389/frai.2022.777963"
+  },
+  {
+   "bib_id": 121,
+   "authors": [
+    {
+     "family": "Oh",
+     "given": "B.-D."
+    },
+    {
+     "family": "Schuler",
+     "given": "W."
+    }
+   ],
+   "year": "2023",
+   "title": "Why does surprisal from larger transformer-based language models provide a poorer fit to human reading times?",
+   "container": "Transactions of the Association for Computational Linguistics",
+   "volume": "11",
+   "first_page": "336",
+   "last_page": "350",
+   "doi": "10.1162/tacl_a_00548"
+  },
+  {
+   "bib_id": 122,
+   "authors": [
+    {
+     "family": "Oh",
+     "given": "B.-D."
+    },
+    {
+     "family": "Yue",
+     "given": "S."
+    },
+    {
+     "family": "Schuler",
+     "given": "W."
+    }
+   ],
+   "year": "2024",
+   "title": "Frequency explains the inverse correlation of large language models’ size, training data amount, and surprisal's fit to reading times",
+   "container": "arXiv",
+   "doi": "10.48550/arXiv.2402.02255"
+  },
+  {
+   "bib_id": 123,
+   "authors": [
+    {
+     "family": "Olah",
+     "given": "C."
+    },
+    {
+     "family": "Cammarata",
+     "given": "N."
+    },
+    {
+     "family": "Schubert",
+     "given": "L."
+    },
+    {
+     "family": "Goh",
+     "given": "G."
+    },
+    {
+     "family": "Petrov",
+     "given": "M."
+    },
+    {
+     "family": "Carter",
+     "given": "S."
+    }
+   ],
+   "year": "2020",
+   "title": "Zoom in: An introduction to circuits",
+   "container": "Distill",
+   "volume": "5",
+   "first_page": "e00024",
+   "last_page": "e00001",
+   "doi": "10.23915/distill.00024.001"
+  },
+  {
+   "bib_id": 124,
+   "authors": [
+    {
+     "family": "Olsson",
+     "given": "C."
+    },
+    {
+     "family": "Elhage",
+     "given": "N."
+    },
+    {
+     "family": "Nanda",
+     "given": "N."
+    },
+    {
+     "family": "Joseph",
+     "given": "N."
+    },
+    {
+     "family": "DasSarma",
+     "given": "N."
+    },
+    {
+     "family": "Henighan",
+     "given": "T."
+    },
+    {
+     "family": "Mann",
+     "given": "B."
+    },
+    {
+     "family": "Askell",
+     "given": "A."
+    },
+    {
+     "family": "Bai",
+     "given": "Y."
+    },
+    {
+     "family": "Chen",
+     "given": "A."
+    },
+    {
+     "family": "Conerly",
+     "given": "T."
+    },
+    {
+     "family": "Drain",
+     "given": "D."
+    },
+    {
+     "family": "Ganguli",
+     "given": "D."
+    },
+    {
+     "family": "Hatfield-Dodds",
+     "given": "Z."
+    },
+    {
+     "family": "Hernandez",
+     "given": "D."
+    },
+    {
+     "family": "Johnston",
+     "given": "S."
+    },
+    {
+     "family": "Jones",
+     "given": "A."
+    },
+    {
+     "family": "Kernion",
+     "given": "J."
+    },
+    {
+     "family": "Lovitt",
+     "given": "L."
+    },
+    {
+     "family": "Olah",
+     "given": "C."
+    }
+   ],
+   "year": "2022",
+   "title": "In-context learning and induction heads",
+   "container": "arXiv",
+   "doi": "10.48550/arXiv.2209.11895"
+  },
+  {
+   "bib_id": 125,
+   "authors": [
+    {
+     "family": "Ong",
+     "given": "D. C."
+    }
+   ],
+   "year": "2024",
+   "title": "GPT-ology, computational models, silicon sampling: How should we think about LLMs in cognitive science?",
+   "container": "arXiv",
+   "doi": "10.48550/arXiv.2406.09464"
+  },
+  {
+   "bib_id": 126,
+   "authors": [
+    {
+     "family": "Ouyang",
+     "given": "L."
+    },
+    {
+     "family": "Boroditsky",
+     "given": "L."
+    },
+    {
+     "family": "Frank",
+     "given": "M. C."
+    }
+   ],
+   "year": "2017",
+   "title": "Semantic coherence facilitates distributional learning",
+   "container": "Cognitive Science",
+   "volume": "41",
+   "first_page": "855",
+   "last_page": "884",
+   "doi": "10.1111/cogs.12360"
+  },
+  {
+   "bib_id": 127,
+   "authors": [
+    {
+     "family": "Ouyang",
+     "given": "L."
+    },
+    {
+     "family": "Wu",
+     "given": "J."
+    },
+    {
+     "family": "Jiang",
+     "given": "X."
+    },
+    {
+     "family": "Almeida",
+     "given": "D."
+    },
+    {
+     "family": "Wainwright",
+     "given": "C. L."
+    },
+    {
+     "family": "Mishkin",
+     "given": "P."
+    },
+    {
+     "family": "Zhang",
+     "given": "C."
+    },
+    {
+     "family": "Agarwal",
+     "given": "S."
+    },
+    {
+     "family": "Slama",
+     "given": "K."
+    },
+    {
+     "family": "Ray",
+     "given": "A."
+    },
+    {
+     "family": "Schulman",
+     "given": "J."
+    },
+    {
+     "family": "Hilton",
+     "given": "J."
+    },
+    {
+     "family": "Kelton",
+     "given": "F."
+    },
+    {
+     "family": "Miller",
+     "given": "L."
+    },
+    {
+     "family": "Simens",
+     "given": "M."
+    },
+    {
+     "family": "Askell",
+     "given": "A."
+    },
+    {
+     "family": "Welinder",
+     "given": "P."
+    },
+    {
+     "family": "Christiano",
+     "given": "P."
+    },
+    {
+     "family": "Leike",
+     "given": "J."
+    },
+    {
+     "family": "Lowe",
+     "given": "R."
+    }
+   ],
+   "year": "2022",
+   "title": "Training language models to follow instructions with human feedback",
+   "container": "Advances in Neural Information Processing Systems",
+   "volume": "35",
+   "first_page": "27730",
+   "last_page": "27744"
+  },
+  {
+   "bib_id": 128,
+   "authors": [
+    {
+     "family": "Parviz",
+     "given": "M."
+    },
+    {
+     "family": "Johnson",
+     "given": "M."
+    },
+    {
+     "family": "Johnson",
+     "given": "B."
+    },
+    {
+     "family": "Brock",
+     "given": "J."
+    }
+   ],
+   "year": "2011",
+   "title": "Using language models and latent semantic analysis to characterise the N400m neural response",
+   "container": "Proceedings of the Australasian language technology association workshop 2011",
+   "first_page": "38",
+   "last_page": "46"
+  },
+  {
+   "bib_id": 129,
+   "authors": [
+    {
+     "family": "Piantadosi",
+     "given": "S. T."
+    },
+    {
+     "family": "Tily",
+     "given": "H."
+    },
+    {
+     "family": "Gibson",
+     "given": "E."
+    }
+   ],
+   "year": "2013",
+   "title": "Information content versus word length in natural language: A reply to ferrer-i-cancho and moscoso del prado martin",
+   "container": "arXiv",
+   "doi": "10.48550/arXiv.1307.672"
+  },
+  {
+   "bib_id": 130,
+   "authors": [
+    {
+     "family": "R Core Team",
+     "given": ""
+    }
+   ],
+   "year": "2021",
+   "title": "R: A language and environment for statistical computing"
+  },
+  {
+   "bib_id": 131,
+   "authors": [
+    {
+     "family": "Rabs",
+     "given": "E."
+    },
+    {
+     "family": "Delogu",
+     "given": "F."
+    },
+    {
+     "family": "Drenhaus",
+     "given": "H."
+    },
+    {
+     "family": "Crocker",
+     "given": "M. W."
+    }
+   ],
+   "year": "2022",
+   "title": "Situational expectancy or association? The influence of event knowledge on the N400",
+   "container": "Language, Cognition and Neuroscience",
+   "volume": "37",
+   "first_page": "766",
+   "last_page": "784",
+   "doi": "10.1080/23273798.2021.2022171"
+  },
+  {
+   "bib_id": 132,
+   "authors": [
+    {
+     "family": "Radford",
+     "given": "A."
+    },
+    {
+     "family": "Kim",
+     "given": "J. W."
+    },
+    {
+     "family": "Hallacy",
+     "given": "C."
+    },
+    {
+     "family": "Ramesh",
+     "given": "A."
+    },
+    {
+     "family": "Goh",
+     "given": "G."
+    },
+    {
+     "family": "Agarwal",
+     "given": "S."
+    },
+    {
+     "family": "Sutskever",
+     "given": "I."
+    }
+   ],
+   "year": "2021",
+   "title": "Learning transferable visual models from natural language supervision",
+   "container": "International conference on machine learning",
+   "first_page": "8748",
+   "last_page": "8763"
+  },
+  {
+   "bib_id": 133,
+   "authors": [
+    {
+     "family": "Radford",
+     "given": "A."
+    },
+    {
+     "family": "Wu",
+     "given": "J."
+    },
+    {
+     "family": "Child",
+     "given": "R."
+    },
+    {
+     "family": "Luan",
+     "given": "D."
+    },
+    {
+     "family": "Amodei",
+     "given": "D."
+    },
+    {
+     "family": "Sutskever",
+     "given": "I."
+    }
+   ],
+   "year": "2019",
+   "title": "Language models are unsupervised multitask learners",
+   "container": "OpenAI Blog",
+   "volume": "1",
+   "first_page": "9"
+  },
+  {
+   "bib_id": 134,
+   "authors": [
+    {
+     "family": "Rathi",
+     "given": "I."
+    },
+    {
+     "family": "Taylor",
+     "given": "S."
+    },
+    {
+     "family": "Bergen",
+     "given": "B. K."
+    },
+    {
+     "family": "Jones",
+     "given": "C. R."
+    }
+   ],
+   "year": "2024",
+   "title": "GPT-4 is judged more human than humans in displaced and inverted Turing tests",
+   "container": "arXiv",
+   "doi": "10.48550/arXiv.2407.08853"
+  },
+  {
+   "bib_id": 135,
+   "authors": [
+    {
+     "family": "Rayner",
+     "given": "K."
+    },
+    {
+     "family": "Bertera",
+     "given": "J. H."
+    }
+   ],
+   "year": "1979",
+   "title": "Reading without a fovea",
+   "container": "Science",
+   "volume": "206",
+   "first_page": "468",
+   "last_page": "469",
+   "doi": "10.1126/science.504987"
+  },
+  {
+   "bib_id": 136,
+   "authors": [
+    {
+     "family": "Rivière",
+     "given": "P. D."
+    },
+    {
+     "family": "Beatty-Martínez",
+     "given": "A. L."
+    },
+    {
+     "family": "Trott",
+     "given": "S."
+    }
+   ],
+   "year": "2025",
+   "title": "Evaluating contextualized representations of (Spanish) ambiguous words: A new lexical resource and empirical analysis",
+   "container": "Proceedings of the 2025 conference of the nations of the Americas chapter of the association for computational linguistics: Human language technologies (Volume 1: Long Papers)",
+   "first_page": "8322",
+   "last_page": "8338"
+  },
+  {
+   "bib_id": 137,
+   "authors": [
+    {
+     "family": "Rivière",
+     "given": "P. D."
+    },
+    {
+     "family": "Trott",
+     "given": "S."
+    }
+   ],
+   "year": "2025",
+   "title": "Start making sense(s): A developmental probe of attention specialization using lexical ambiguity",
+   "container": "arXiv",
+   "doi": "10.48550/arXiv.2511.21974"
+  },
+  {
+   "bib_id": 138,
+   "authors": [
+    {
+     "family": "Rohde",
+     "given": "H."
+    },
+    {
+     "family": "Futrell",
+     "given": "R."
+    },
+    {
+     "family": "Lucas",
+     "given": "C. G."
+    }
+   ],
+   "year": "2021",
+   "title": "What's new? A comprehension bias in favor of informativity",
+   "container": "Cognition",
+   "volume": "209",
+   "first_page": "104491",
+   "doi": "10.1016/j.cognition.2020.104491"
+  },
+  {
+   "bib_id": 139,
+   "authors": [
+    {
+     "family": "Samuel",
+     "given": "D."
+    }
+   ],
+   "year": "2024",
+   "title": "BERTs are generative in-context learners",
+   "container": "Advances in Neural Information Processing Systems",
+   "volume": "37",
+   "first_page": "2558",
+   "last_page": "2589"
+  },
+  {
+   "bib_id": 140,
+   "authors": [
+    {
+     "family": "Sanford",
+     "given": "A. J."
+    },
+    {
+     "family": "Garrod",
+     "given": "S. C."
+    }
+   ],
+   "year": "1998",
+   "title": "The role of scenario mapping in text comprehension",
+   "container": "Discourse Processes",
+   "volume": "26",
+   "first_page": "159",
+   "last_page": "190",
+   "doi": "10.1080/01638539809545043"
+  },
+  {
+   "bib_id": 141,
+   "authors": [
+    {
+     "family": "Schrimpf",
+     "given": "M."
+    },
+    {
+     "family": "Blank",
+     "given": "I. A."
+    },
+    {
+     "family": "Tuckute",
+     "given": "G."
+    },
+    {
+     "family": "Kauf",
+     "given": "C."
+    },
+    {
+     "family": "Hosseini",
+     "given": "E. A."
+    },
+    {
+     "family": "Kanwisher",
+     "given": "N."
+    },
+    {
+     "family": "Tenenbaum",
+     "given": "B."
+    },
+    {
+     "family": "Fedorenko",
+     "given": "E."
+    }
+   ],
+   "year": "2021",
+   "title": "The neural architecture of language: Integrative modeling converges on predictive processing",
+   "container": "Proceedings of the National Academy of Sciences",
+   "volume": "118",
+   "first_page": "e2105646118",
+   "doi": "10.1073/pnas.2105646118"
+  },
+  {
+   "bib_id": 142,
+   "authors": [
+    {
+     "family": "Sennrich",
+     "given": "R."
+    },
+    {
+     "family": "Haddow",
+     "given": "B."
+    },
+    {
+     "family": "Birch",
+     "given": "A."
+    }
+   ],
+   "year": "2016",
+   "title": "Neural machine translation of rare words with subword units",
+   "container": "Proceedings of the 54th annual meeting of the association for computational linguistics (Volume 1: Long papers)",
+   "first_page": "1715",
+   "last_page": "1725"
+  },
+  {
+   "bib_id": 143,
+   "authors": [
+    {
+     "family": "Shain",
+     "given": "C."
+    }
+   ],
+   "year": "2019",
+   "title": "A large-scale study of the effects of word frequency and predictability in naturalistic reading",
+   "container": "Proceedings of the 2019 conference of the North American chapter of the association for computational linguistics: Human language technologies, Volume 1 (Long and Short papers)",
+   "first_page": "4086",
+   "last_page": "4094",
+   "doi": "10.18653/v1/N19-1413"
+  },
+  {
+   "bib_id": 144,
+   "authors": [
+    {
+     "family": "Shain",
+     "given": "C."
+    },
+    {
+     "family": "Meister",
+     "given": "C."
+    },
+    {
+     "family": "Pimentel",
+     "given": "T."
+    },
+    {
+     "family": "Cotterell",
+     "given": "R."
+    },
+    {
+     "family": "Levy",
+     "given": "R."
+    }
+   ],
+   "year": "2024",
+   "title": "Large-scale evidence for logarithmic effects of word predictability on reading time",
+   "container": "Proceedings of the National Academy of Sciences",
+   "volume": "121",
+   "first_page": "e2307876121",
+   "doi": "10.1073/pnas.2307876121"
+  },
+  {
+   "bib_id": 145,
+   "authors": [
+    {
+     "family": "Shao",
+     "given": "Z."
+    },
+    {
+     "family": "Wang",
+     "given": "P."
+    },
+    {
+     "family": "Zhu",
+     "given": "Q."
+    },
+    {
+     "family": "Xu",
+     "given": "R."
+    },
+    {
+     "family": "Song",
+     "given": "J."
+    },
+    {
+     "family": "Bi",
+     "given": "X."
+    },
+    {
+     "family": "Zhang",
+     "given": "H."
+    },
+    {
+     "family": "Zhang",
+     "given": "M."
+    },
+    {
+     "family": "Li",
+     "given": "Y. K."
+    },
+    {
+     "family": "Wu",
+     "given": "Y."
+    },
+    {
+     "family": "Guo",
+     "given": "D."
+    }
+   ],
+   "year": "2024",
+   "title": "Deepseekmath: Pushing the limits of mathematical reasoning in open language models",
+   "container": "arXiv",
+   "doi": "10.48550/arXiv.2402.03300"
+  },
+  {
+   "bib_id": 146,
+   "authors": [
+    {
+     "family": "Sharkey",
+     "given": "L."
+    },
+    {
+     "family": "Chughtai",
+     "given": "B."
+    },
+    {
+     "family": "Batson",
+     "given": "J."
+    },
+    {
+     "family": "Lindsey",
+     "given": "J."
+    },
+    {
+     "family": "Wu",
+     "given": "J."
+    },
+    {
+     "family": "Bushnaq",
+     "given": "L."
+    },
+    {
+     "family": "Goldowsky-Dill",
+     "given": "N."
+    },
+    {
+     "family": "Heimersheim",
+     "given": "S."
+    },
+    {
+     "family": "Ortega",
+     "given": "A."
+    },
+    {
+     "family": "Bloom",
+     "given": "J."
+    },
+    {
+     "family": "Biderman",
+     "given": "S."
+    },
+    {
+     "family": "Garriga-Alonso",
+     "given": "A."
+    },
+    {
+     "family": "Conmy",
+     "given": "A."
+    },
+    {
+     "family": "Nanda",
+     "given": "N."
+    },
+    {
+     "family": "Rumbelow",
+     "given": "J."
+    },
+    {
+     "family": "Wattenberg",
+     "given": "M."
+    },
+    {
+     "family": "Schoots",
+     "given": "N."
+    },
+    {
+     "family": "Miller",
+     "given": "J."
+    },
+    {
+     "family": "Michaud",
+     "given": "E. J."
+    },
+    {
+     "family": "McGrath",
+     "given": "T."
+    }
+   ],
+   "year": "2025",
+   "title": "Open problems in mechanistic interpretability",
+   "container": "arXiv",
+   "doi": "10.48550/arXiv.2501.16496"
+  },
+  {
+   "bib_id": 147,
+   "authors": [
+    {
+     "family": "Slaats",
+     "given": "S."
+    },
+    {
+     "family": "Martin",
+     "given": "A. E."
+    }
+   ],
+   "year": "2025",
+   "title": "What’s surprising about surprisal",
+   "container": "Computational Brain & Behavior",
+   "volume": "8",
+   "first_page": "233",
+   "last_page": "248",
+   "doi": "10.1007/s42113-025-00237-9"
+  },
+  {
+   "bib_id": 148,
+   "authors": [
+    {
+     "family": "Smith",
+     "given": "N. J."
+    },
+    {
+     "family": "Levy",
+     "given": "R."
+    }
+   ],
+   "year": "2008",
+   "title": "Optimal processing times in reading: A formal model and empirical investigation",
+   "container": "Proceedings of the annual meeting of the cognitive science society",
+   "volume": "Vol. 30"
+  },
+  {
+   "bib_id": 149,
+   "authors": [
+    {
+     "family": "Smith",
+     "given": "N. J."
+    },
+    {
+     "family": "Levy",
+     "given": "R."
+    }
+   ],
+   "year": "2013",
+   "title": "The effect of word predictability on reading time is logarithmic",
+   "container": "Cognition",
+   "volume": "128",
+   "first_page": "302",
+   "last_page": "319",
+   "doi": "10.1016/j.cognition.2013.02.013"
+  },
+  {
+   "bib_id": 150,
+   "authors": [
+    {
+     "family": "Song",
+     "given": "S."
+    },
+    {
+     "family": "Hu",
+     "given": "J."
+    },
+    {
+     "family": "Mahowald",
+     "given": "K."
+    }
+   ],
+   "year": "2025",
+   "title": "Language models fail to introspect about their knowledge of language",
+   "container": "arXiv",
+   "doi": "10.48550/arXiv.2503.07513"
+  },
+  {
+   "bib_id": 151,
+   "authors": [
+    {
+     "family": "Staub",
+     "given": "A."
+    }
+   ],
+   "year": "2011",
+   "title": "The effect of lexical predictability on distributions of eye fixation durations",
+   "container": "Psychonomic Bulletin & Review",
+   "volume": "18",
+   "first_page": "371",
+   "last_page": "376",
+   "doi": "10.3758/s13423-010-0046-9"
+  },
+  {
+   "bib_id": 152,
+   "authors": [
+    {
+     "family": "Steegen",
+     "given": "S."
+    },
+    {
+     "family": "Tuerlinckx",
+     "given": "F."
+    },
+    {
+     "family": "Gelman",
+     "given": "A."
+    },
+    {
+     "family": "Vanpaemel",
+     "given": "W."
+    }
+   ],
+   "year": "2016",
+   "title": "Increasing transparency through a multiverse analysis",
+   "container": "Perspectives on Psychological Science",
+   "volume": "11",
+   "first_page": "702",
+   "last_page": "712",
+   "doi": "10.1177/1745691616658637"
+  },
+  {
+   "bib_id": 153,
+   "authors": [
+    {
+     "family": "Szewczyk",
+     "given": "J. M."
+    },
+    {
+     "family": "Federmeier",
+     "given": "K. D."
+    }
+   ],
+   "year": "2022",
+   "title": "Context-based facilitation of semantic access follows both logarithmic and linear functions of stimulus probability",
+   "container": "Journal of Memory and Language",
+   "volume": "123",
+   "first_page": "104311",
+   "doi": "10.1016/j.jml.2021.104311"
+  },
+  {
+   "bib_id": 154,
+   "authors": [
+    {
+     "family": "Taylor",
+     "given": "W. L."
+    }
+   ],
+   "year": "1953",
+   "title": "“Cloze procedure”: A new tool for measuring readability",
+   "container": "Journalism Quarterly",
+   "volume": "30",
+   "first_page": "415",
+   "last_page": "433",
+   "doi": "10.1177/107769905303000401"
+  },
+  {
+   "bib_id": 155,
+   "authors": [
+    {
+     "family": "Trott",
+     "given": "S."
+    }
+   ],
+   "year": "2024",
+   "title": "Can large language models help augment English psycholinguistic datasets?",
+   "container": "Behavior Research Methods",
+   "volume": "56",
+   "first_page": "6082",
+   "last_page": "6100",
+   "doi": "10.3758/s13428-024-02337-z"
+  },
+  {
+   "bib_id": 156,
+   "authors": [
+    {
+     "family": "Trott",
+     "given": "S."
+    }
+   ],
+   "year": "2025",
+   "title": "Toward a theory of generalizability in LLM mechanistic interpretability research",
+   "container": "arXiv",
+   "doi": "10.48550/arXiv.2509.22831"
+  },
+  {
+   "bib_id": 157,
+   "authors": [
+    {
+     "family": "Trott",
+     "given": "S."
+    },
+    {
+     "family": "Bergen",
+     "given": "B."
+    }
+   ],
+   "year": "2021",
+   "title": "RAW-C: Relatedness of ambiguous words in context (A new lexical resource for English)",
+   "container": "Proceedings of the 59th annual meeting of the association for computational linguistics and the 11th international joint conference on natural language processing (Volume 1: Long Papers)",
+   "first_page": "7077",
+   "last_page": "7087",
+   "doi": "10.18653/v1/2021.acl-long.550"
+  },
+  {
+   "bib_id": 158,
+   "authors": [
+    {
+     "family": "Trott",
+     "given": "S."
+    },
+    {
+     "family": "Bergen",
+     "given": "B."
+    }
+   ],
+   "year": "2023",
+   "title": "Word meaning is both categorical and continuous",
+   "container": "Psychological Review",
+   "volume": "130",
+   "first_page": "1239",
+   "last_page": "1261",
+   "doi": "10.1037/rev0000420"
+  },
+  {
+   "bib_id": 159,
+   "authors": [
+    {
+     "family": "Trott",
+     "given": "S."
+    },
+    {
+     "family": "Jones",
+     "given": "C."
+    },
+    {
+     "family": "Chang",
+     "given": "T."
+    },
+    {
+     "family": "Michaelov",
+     "given": "J."
+    },
+    {
+     "family": "Bergen",
+     "given": "B."
+    }
+   ],
+   "year": "2023",
+   "title": "Do large language models know what humans know?",
+   "container": "Cognitive Science",
+   "volume": "47",
+   "first_page": "e13309",
+   "doi": "10.1111/cogs.13309"
+  },
+  {
+   "bib_id": 160,
+   "authors": [
+    {
+     "family": "Trott",
+     "given": "S."
+    },
+    {
+     "family": "Taylor",
+     "given": "S. M."
+    },
+    {
+     "family": "Jones",
+     "given": "C. R."
+    },
+    {
+     "family": "Michaelov",
+     "given": "J. A."
+    },
+    {
+     "family": "Rivière",
+     "given": "P. D."
+    }
+   ],
+   "year": "2026",
+   "title": "Language statistics and false belief reasoning: Evidence from 41 open-weight LMS",
+   "container": "Proceedings of the 64th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)",
+   "first_page": "39816",
+   "last_page": "39833",
+   "doi": "10.18653/v1/2026.acl-long.1849"
+  },
+  {
+   "bib_id": 161,
+   "authors": [
+    {
+     "family": "Trott",
+     "given": "S."
+    },
+    {
+     "family": "Walker",
+     "given": "D. E."
+    },
+    {
+     "family": "Taylor",
+     "given": "S. M."
+    },
+    {
+     "family": "Coulson",
+     "given": "S."
+    }
+   ],
+   "year": "2025",
+   "title": "Turing jest: Distributional semantics and one-line jokes",
+   "container": "Cognitive Science",
+   "volume": "49",
+   "first_page": "e70066",
+   "doi": "10.1111/cogs.70066"
+  },
+  {
+   "bib_id": 162,
+   "authors": [
+    {
+     "family": "van Berkum",
+     "given": "J. J."
+    },
+    {
+     "family": "Hagoort",
+     "given": "P."
+    },
+    {
+     "family": "Brown",
+     "given": "C. M."
+    }
+   ],
+   "year": "1999",
+   "title": "Semantic integration in sentences and discourse: Evidence from the N400",
+   "container": "Journal of Cognitive Neuroscience",
+   "volume": "11",
+   "first_page": "657",
+   "last_page": "671",
+   "doi": "10.1162/089892999563724"
+  },
+  {
+   "bib_id": 163,
+   "authors": [
+    {
+     "family": "Van Petten",
+     "given": "C."
+    }
+   ],
+   "year": "2014",
+   "title": "Examining the N400 semantic context effect item-by-item: Relationship to corpus-based measures of word co-occurrence",
+   "container": "International Journal of Psychophysiology",
+   "volume": "94",
+   "first_page": "407",
+   "last_page": "419",
+   "doi": "10.1016/j.ijpsycho.2014.10.012"
+  },
+  {
+   "bib_id": 164,
+   "authors": [
+    {
+     "family": "Van Petten",
+     "given": "C."
+    },
+    {
+     "family": "Luka",
+     "given": "B. J."
+    }
+   ],
+   "year": "2012",
+   "title": "Prediction during language comprehension: Benefits, costs, and ERP components",
+   "container": "International Journal of Psychophysiology",
+   "volume": "83",
+   "first_page": "176",
+   "last_page": "190",
+   "doi": "10.1016/j.ijpsycho.2011.09.015"
+  },
+  {
+   "bib_id": 165,
+   "authors": [
+    {
+     "family": "van Schijndel",
+     "given": "M."
+    },
+    {
+     "family": "Linzen",
+     "given": "T."
+    }
+   ],
+   "year": "2021",
+   "title": "Single-stage prediction models do not explain the magnitude of syntactic disambiguation difficulty",
+   "container": "Cognitive Science",
+   "volume": "45",
+   "first_page": "e12988",
+   "doi": "10.1111/cogs.12988"
+  },
+  {
+   "bib_id": 166,
+   "authors": [
+    {
+     "family": "Vasishth",
+     "given": "S."
+    },
+    {
+     "family": "Nicenboim",
+     "given": "B."
+    },
+    {
+     "family": "Beckman",
+     "given": "M. E."
+    },
+    {
+     "family": "Li",
+     "given": "F."
+    },
+    {
+     "family": "Kong",
+     "given": "E. J."
+    }
+   ],
+   "year": "2018",
+   "title": "Bayesian data analysis in the phonetic sciences: A tutorial introduction",
+   "container": "Journal of Phonetics",
+   "volume": "71",
+   "first_page": "147",
+   "last_page": "161",
+   "doi": "10.1016/j.wocn.2018.07.008"
+  },
+  {
+   "bib_id": 167,
+   "authors": [
+    {
+     "family": "Vaswani",
+     "given": "A."
+    },
+    {
+     "family": "Shazeer",
+     "given": "N."
+    },
+    {
+     "family": "Parmar",
+     "given": "N."
+    },
+    {
+     "family": "Uszkoreit",
+     "given": "J."
+    },
+    {
+     "family": "Jones",
+     "given": "L."
+    },
+    {
+     "family": "Gomez",
+     "given": "A. N."
+    },
+    {
+     "family": "Polosukhin",
+     "given": "I."
+    }
+   ],
+   "year": "2017",
+   "title": "Attention is all you need",
+   "container": "Advances in Neural Information Processing Systems",
+   "volume": "30"
+  },
+  {
+   "bib_id": 168,
+   "authors": [
+    {
+     "family": "Vinaya",
+     "given": "H."
+    },
+    {
+     "family": "Trott",
+     "given": "S."
+    },
+    {
+     "family": "Pecher",
+     "given": "D."
+    },
+    {
+     "family": "Zeelenberg",
+     "given": "R."
+    },
+    {
+     "family": "Coulson",
+     "given": "S."
+    }
+   ],
+   "year": "2024",
+   "title": "Context-dependent and dynamic effects of distributional and sensorimotor distance measures on EEG",
+   "container": "Proceedings of the Annual Meeting of the Cognitive Science Society",
+   "volume": "46"
+  },
+  {
+   "bib_id": 169,
+   "authors": [
+    {
+     "family": "Vinaya",
+     "given": "H."
+    },
+    {
+     "family": "Trott",
+     "given": "S."
+    },
+    {
+     "family": "Pecher",
+     "given": "D."
+    },
+    {
+     "family": "Zeelenberg",
+     "given": "R."
+    },
+    {
+     "family": "Coulson",
+     "given": "S."
+    }
+   ],
+   "year": "2025",
+   "title": "Words and worlds both: Dynamic effects of distributional and sensorimotor information in semantic processing",
+   "container": "Open Mind: Discoveries in Cognitive Science",
+   "volume": "9",
+   "first_page": "2149",
+   "last_page": "2174",
+   "doi": "10.1162/OPMI.a.316"
+  },
+  {
+   "bib_id": 170,
+   "authors": [
+    {
+     "family": "Wang",
+     "given": "A."
+    },
+    {
+     "family": "Singh",
+     "given": "A."
+    },
+    {
+     "family": "Michael",
+     "given": "J."
+    },
+    {
+     "family": "Hill",
+     "given": "F."
+    },
+    {
+     "family": "Levy",
+     "given": "O."
+    },
+    {
+     "family": "Bowman",
+     "given": "S. R."
+    }
+   ],
+   "year": "2018",
+   "title": "GLUE: A multi-task benchmark and analysis platform for natural language understanding",
+   "container": "arXiv",
+   "doi": "10.48550/arXiv.1804.07461"
+  },
+  {
+   "bib_id": 171,
+   "authors": [
+    {
+     "family": "Wang",
+     "given": "K."
+    },
+    {
+     "family": "Variengien",
+     "given": "A."
+    },
+    {
+     "family": "Conmy",
+     "given": "A."
+    },
+    {
+     "family": "Shlegeris",
+     "given": "B."
+    },
+    {
+     "family": "Steinhardt",
+     "given": "J."
+    }
+   ],
+   "year": "2022",
+   "title": "Interpretability in the wild: A circuit for indirect object identification in GPT-2 small",
+   "container": "arXiv",
+   "doi": "10.48550/arXiv.2211.00593"
+  },
+  {
+   "bib_id": 172,
+   "authors": [
+    {
+     "family": "Warstadt",
+     "given": "A."
+    },
+    {
+     "family": "Mueller",
+     "given": "A."
+    },
+    {
+     "family": "Choshen",
+     "given": "L."
+    },
+    {
+     "family": "Wilcox",
+     "given": "E."
+    },
+    {
+     "family": "Zhuang",
+     "given": "C."
+    },
+    {
+     "family": "Ciro",
+     "given": "J."
+    },
+    {
+     "family": "Mosquera",
+     "given": "R."
+    },
+    {
+     "family": "Paranjape",
+     "given": "B."
+    },
+    {
+     "family": "Williams",
+     "given": "A."
+    },
+    {
+     "family": "Linzen",
+     "given": "T."
+    },
+    {
+     "family": "Cotterell",
+     "given": "R."
+    }
+   ],
+   "year": "2025",
+   "title": "Findings of the BabyLM challenge: Sample-efficient pretraining on developmentally plausible corpora",
+   "container": "arXiv",
+   "doi": "10.48550/arXiv.2504.08165"
+  },
+  {
+   "bib_id": 173,
+   "authors": [
+    {
+     "family": "Wilcox",
+     "given": "E. G."
+    },
+    {
+     "family": "Gauthier",
+     "given": "J."
+    },
+    {
+     "family": "Hu",
+     "given": "J."
+    },
+    {
+     "family": "Qian",
+     "given": "P."
+    },
+    {
+     "family": "Levy",
+     "given": "R."
+    }
+   ],
+   "year": "2020",
+   "title": "On the predictive power of neural language models for human real-time comprehension behavior",
+   "container": "arXiv",
+   "doi": "10.48550/arXiv.2006.01912"
+  },
+  {
+   "bib_id": 174,
+   "authors": [
+    {
+     "family": "Wilcox",
+     "given": "E. G."
+    },
+    {
+     "family": "Meister",
+     "given": "C. I."
+    },
+    {
+     "family": "Cotterell",
+     "given": "R."
+    },
+    {
+     "family": "Pimentel",
+     "given": "T."
+    }
+   ],
+   "year": "2023",
+   "title": "Language model quality correlates with psychometric predictive power in multiple languages",
+   "container": "Proceedings of the 2023 conference on empirical methods in natural language processing",
+   "first_page": "7503",
+   "last_page": "7511",
+   "doi": "10.18653/v1/2023.emnlp-main.466"
+  },
+  {
+   "bib_id": 175,
+   "authors": [
+    {
+     "family": "Winter",
+     "given": "B."
+    }
+   ],
+   "year": "2019",
+   "title": "Statistics for linguists: An introduction using R",
+   "doi": "10.4324/9781315165547"
+  },
+  {
+   "bib_id": 176,
+   "authors": [
+    {
+     "family": "Yao",
+     "given": "W."
+    },
+    {
+     "family": "Yang",
+     "given": "W."
+    },
+    {
+     "family": "Wang",
+     "given": "Z."
+    },
+    {
+     "family": "Lin",
+     "given": "Y."
+    },
+    {
+     "family": "Liu",
+     "given": "Y."
+    }
+   ],
+   "year": "2025",
+   "title": "Understanding the capabilities and limitations of weak-to-strong generalization",
+   "container": "Scaling self-improving foundation Models without human supervision"
+  },
+  {
+   "bib_id": 177,
+   "authors": [
+    {
+     "family": "Ziems",
+     "given": "C."
+    },
+    {
+     "family": "Held",
+     "given": "W."
+    },
+    {
+     "family": "Shaikh",
+     "given": "O."
+    },
+    {
+     "family": "Chen",
+     "given": "J."
+    },
+    {
+     "family": "Zhang",
+     "given": "Z."
+    },
+    {
+     "family": "Yang",
+     "given": "D."
+    }
+   ],
+   "year": "2024",
+   "title": "Can large language models transform computational social science?",
+   "container": "Computational Linguistics",
+   "volume": "50",
+   "first_page": "237",
+   "last_page": "291",
+   "doi": "10.1162/coli_a_00502"
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-core-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "jats_doi": "10.1162/OPMI.a.373"
+ }
+}

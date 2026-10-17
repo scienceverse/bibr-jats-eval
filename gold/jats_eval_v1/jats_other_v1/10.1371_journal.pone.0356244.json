@@ -1,0 +1,655 @@
+{
+ "paper_id": "10.1371_journal.pone.0356244",
+ "info": {
+  "title": "Cost-effectiveness analysis of computer aided detection for tuberculosis in Ghana: A decision-analytic modeling study",
+  "doi": "10.1371/journal.pone.0356244",
+  "file_name": "10.1371_journal.pone.0356244.pdf",
+  "abstract": "Background: The financial sustainability of universal molecular testing for tuberculosis (TB) remains a critical challenge in high-burden settings. In Ghana, the national program utilizes GeneXpert MTB/RIF for confirmation, yet the high unit cost necessitates efficient triage tools. This study evaluates the cost-effectiveness of Computer-Aided Detection (CAD) based triage compared to the standard of care in Ghana. Methods: This is a prospective cross-sectional diagnostic accuracy study, with an embedded decision-analytic economic evaluation, using primary data from 701 symptomatic outpatients across 23 facilities in Ghana. The cost-effectiveness analysis compared the vendor-recommended threshold of 51 with locally calibrated CAD scores of 56 (weighted Youden) and 68 (standard Youden). These were evaluated against the current Standard of Care (symptom screening and human-read chest X-ray). Health outcomes were measured in Quality-Adjusted Life Years (QALYs) lost, applying a severe morbidity penalty to missed TB cases (False Negatives) to account for prolonged suffering. The primary outcome was the Incremental Cost-Effectiveness Ratio (ICER). Analysis was conducted with R version 4.3. Results: The CAD-based triage at the weighted Youden threshold of 56 was identified as the optimal clinical strategy, being both more effective and less expensive than the current Standard of Care (SoC). The total health system pathway cost for the CAD-56 strategy and SoC was US$23,449.01 and US$33,239.09, respectively. Threshold of CAD-56 instead of the SoC saved the health system US$9,790.08 on 701 individuals screened and yielding an incremental health gain of 10.08 Quality-Adjusted Life Years (QALYs). Conclusion: Implementing locally calibrated CAD4TB version 7 at an optimized threshold of 56 as a gatekeeper for molecular testing would be a dominant economic strategy for TB control in Ghana. The findings provide a preliminary evidence for further assessment with nationwide data before national rollout of AI-based triage."
+ },
+ "author": [
+  {
+   "author_id": 1,
+   "given": "Yaw",
+   "family": "Adusi-Poku",
+   "affiliation": "Department of Epidemiology and Biostatistics, School of Public Health, KNUST, Kumasi, Ghana",
+   "email": "",
+   "orcid": "",
+   "corresponding": true
+  },
+  {
+   "author_id": 2,
+   "given": "Jacob Solomon",
+   "family": "Idan",
+   "affiliation": "Department of Epidemiology and Biostatistics, School of Public Health, KNUST, Kumasi, Ghana",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 3,
+   "given": "Aliyu",
+   "family": "Mohammed",
+   "affiliation": "Department of Epidemiology and Biostatistics, School of Public Health, KNUST, Kumasi, Ghana",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 4,
+   "given": "Bernard Wadie",
+   "family": "Adu",
+   "affiliation": "National Tuberculosis Control Programme, Ghana",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 5,
+   "given": "Emmanuel Kweku",
+   "family": "Nakua",
+   "affiliation": "Department of Epidemiology and Biostatistics, School of Public Health, KNUST, Kumasi, Ghana",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 6,
+   "given": "Ellis",
+   "family": "Owusu-Dabo",
+   "affiliation": "Department of Epidemiology and Biostatistics, School of Public Health, KNUST, Kumasi, Ghana",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  }
+ ],
+ "section": [
+  {
+   "section_id": 1,
+   "section_type": "abstract",
+   "header": "Abstract",
+   "level": 1,
+   "parent_section_id": null,
+   "classification_score": 1.0
+  }
+ ],
+ "text": [
+  {
+   "text_id": 1,
+   "section_id": 1,
+   "paragraph_id": 1,
+   "text": "Background: The financial sustainability of universal molecular testing for tuberculosis (TB) remains a critical challenge in high-burden settings. In Ghana, the national program utilizes GeneXpert MTB/RIF for confirmation, yet the high unit cost necessitates efficient triage tools. This study evaluates the cost-effectiveness of Computer-Aided Detection (CAD) based triage compared to the standard of care in Ghana. Methods: This is a prospective cross-sectional diagnostic accuracy study, with an embedded decision-analytic economic evaluation, using primary data from 701 symptomatic outpatients across 23 facilities in Ghana. The cost-effectiveness analysis compared the vendor-recommended threshold of 51 with locally calibrated CAD scores of 56 (weighted Youden) and 68 (standard Youden). These were evaluated against the current Standard of Care (symptom screening and human-read chest X-ray). Health outcomes were measured in Quality-Adjusted Life Years (QALYs) lost, applying a severe morbidity penalty to missed TB cases (False Negatives) to account for prolonged suffering. The primary outcome was the Incremental Cost-Effectiveness Ratio (ICER). Analysis was conducted with R version 4.3. Results: The CAD-based triage at the weighted Youden threshold of 56 was identified as the optimal clinical strategy, being both more effective and less expensive than the current Standard of Care (SoC). The total health system pathway cost for the CAD-56 strategy and SoC was US$23,449.01 and US$33,239.09, respectively. Threshold of CAD-56 instead of the SoC saved the health system US$9,790.08 on 701 individuals screened and yielding an incremental health gain of 10.08 Quality-Adjusted Life Years (QALYs). Conclusion: Implementing locally calibrated CAD4TB version 7 at an optimized threshold of 56 as a gatekeeper for molecular testing would be a dominant economic strategy for TB control in Ghana. The findings provide a preliminary evidence for further assessment with nationwide data before national rollout of AI-based triage.",
+   "page_number": 1
+  }
+ ],
+ "bib": [
+  {
+   "bib_id": 1,
+   "authors": [
+    {
+     "family": "World Health Organization",
+     "given": ""
+    }
+   ],
+   "year": "2025",
+   "title": "Global tuberculosis report 2025 [Internet]"
+  },
+  {
+   "bib_id": 2,
+   "authors": [
+    {
+     "family": "Adusi-Poku",
+     "given": "Y"
+    },
+    {
+     "family": "Addai",
+     "given": "L"
+    },
+    {
+     "family": "Wadie",
+     "given": "B"
+    },
+    {
+     "family": "Afutu",
+     "given": "FK"
+    },
+    {
+     "family": "Bruce",
+     "given": "SAK"
+    },
+    {
+     "family": "Baddoo",
+     "given": "NA"
+    }
+   ],
+   "year": "2024",
+   "title": "Implementation of systematic screening for tuberculosis disease and tuberculosis preventive treatment among people living with HIV attending antiretroviral treatment clinics in Ghana: a national pilot study",
+   "container": "BMJ Open",
+   "volume": "14",
+   "doi": "10.1136/bmjopen-2023-083557"
+  },
+  {
+   "bib_id": 3,
+   "authors": [
+    {
+     "family": "WHO",
+     "given": ""
+    }
+   ],
+   "year": "2021",
+   "title": "Recommendations for tools for systematic screening for TB disease"
+  },
+  {
+   "bib_id": 4,
+   "authors": [
+    {
+     "family": "Alsdurf",
+     "given": "H"
+    },
+    {
+     "family": "Empringham",
+     "given": "B"
+    },
+    {
+     "family": "Miller",
+     "given": "C"
+    },
+    {
+     "family": "Zwerling",
+     "given": "A"
+    }
+   ],
+   "year": "2021",
+   "title": "Tuberculosis screening costs and cost-effectiveness in high-risk groups: a systematic review",
+   "container": "BMC Infect Dis",
+   "volume": "21",
+   "first_page": "935",
+   "doi": "10.1186/s12879-021-06633-3"
+  },
+  {
+   "bib_id": 5,
+   "authors": [
+    {
+     "family": "Qin",
+     "given": "ZZ"
+    },
+    {
+     "family": "Ahmed",
+     "given": "S"
+    },
+    {
+     "family": "Sarker",
+     "given": "MS"
+    },
+    {
+     "family": "Paul",
+     "given": "K"
+    },
+    {
+     "family": "Adel",
+     "given": "ASS"
+    },
+    {
+     "family": "Naheyan",
+     "given": "T"
+    }
+   ],
+   "year": "2021",
+   "title": "Tuberculosis detection from chest x-rays for triaging in a high tuberculosis-burden setting: an evaluation of five artificial intelligence algorithms",
+   "container": "Lancet Digit Health",
+   "volume": "3",
+   "doi": "10.1016/S2589-7500(21)00116-3"
+  },
+  {
+   "bib_id": 6,
+   "authors": [
+    {
+     "family": "Murphy",
+     "given": "K"
+    },
+    {
+     "family": "Habib",
+     "given": "SS"
+    },
+    {
+     "family": "Zaidi",
+     "given": "SMA"
+    },
+    {
+     "family": "Khowaja",
+     "given": "S"
+    },
+    {
+     "family": "Khan",
+     "given": "A"
+    },
+    {
+     "family": "Melendez",
+     "given": "J"
+    }
+   ],
+   "year": "2020",
+   "title": "Computer aided detection of tuberculosis on chest radiographs: An evaluation of the CAD4TB v6 system",
+   "container": "Sci Rep",
+   "volume": "10",
+   "first_page": "1",
+   "last_page": "11",
+   "doi": "10.1038/s41598-020-62148-y"
+  },
+  {
+   "bib_id": 7,
+   "authors": [
+    {
+     "family": "Bashir",
+     "given": "S"
+    },
+    {
+     "family": "Kik",
+     "given": "SV"
+    },
+    {
+     "family": "Ruhwald",
+     "given": "M"
+    },
+    {
+     "family": "Khan",
+     "given": "A"
+    },
+    {
+     "family": "Tariq",
+     "given": "M"
+    },
+    {
+     "family": "Hussain",
+     "given": "H"
+    }
+   ],
+   "year": "2022",
+   "title": "Economic analysis of different throughput scenarios and implementation strategies of computer-aided detection software as a screening and triage test for pulmonary TB",
+   "container": "PLoS One",
+   "volume": "17",
+   "doi": "10.1371/journal.pone.0277393"
+  },
+  {
+   "bib_id": 8,
+   "authors": [
+    {
+     "family": "WHO",
+     "given": ""
+    }
+   ],
+   "year": "2021"
+  },
+  {
+   "bib_id": 9,
+   "authors": [
+    {
+     "family": "Universal Delft",
+     "given": ""
+    }
+   ],
+   "year": "2020"
+  },
+  {
+   "bib_id": 10,
+   "authors": [
+    {
+     "family": "Sule",
+     "given": "DS"
+    },
+    {
+     "family": "Kyei",
+     "given": "KA"
+    },
+    {
+     "family": "Antwi",
+     "given": "WK"
+    },
+    {
+     "family": "Acquah",
+     "given": "G"
+    },
+    {
+     "family": "Dzefi-Tettey",
+     "given": "K"
+    },
+    {
+     "family": "Daniels",
+     "given": "J"
+    }
+   ],
+   "year": "2026",
+   "title": "Diagnostic accuracy of AI-assisted chest radiographs in tuberculosis screening: A Ghanaian clinical study",
+   "container": "PLoS One",
+   "volume": "21",
+   "doi": "10.1371/journal.pone.0342988"
+  },
+  {
+   "bib_id": 11,
+   "authors": [
+    {
+     "family": "Amartey",
+     "given": "KN"
+    },
+    {
+     "family": "Appiah",
+     "given": "PC"
+    },
+    {
+     "family": "Ababio",
+     "given": "BK"
+    },
+    {
+     "family": "Yanah",
+     "given": "AB"
+    },
+    {
+     "family": "Mensah-Nelson",
+     "given": "MP"
+    },
+    {
+     "family": "Kpodo",
+     "given": "R"
+    }
+   ],
+   "year": "2026",
+   "title": "The use of computer-aided detection for tuberculosis (TB) diagnosis in the Bono East, Ghana",
+   "container": "J Glob Health Sci",
+   "volume": "8",
+   "doi": "10.35500/jghs.2026.8.e3"
+  },
+  {
+   "bib_id": 12,
+   "authors": [
+    {
+     "family": "Jo",
+     "given": "Y"
+    },
+    {
+     "family": "Kagujje",
+     "given": "M"
+    },
+    {
+     "family": "Johnson",
+     "given": "K"
+    },
+    {
+     "family": "Dowdy",
+     "given": "D"
+    },
+    {
+     "family": "Hangoma",
+     "given": "P"
+    },
+    {
+     "family": "Chiliukutu",
+     "given": "L"
+    }
+   ],
+   "year": "2021",
+   "title": "Costs and cost-effectiveness of a comprehensive tuberculosis case finding strategy in Zambia",
+   "container": "PLoS One",
+   "volume": "16",
+   "doi": "10.1371/journal.pone.0256531"
+  },
+  {
+   "bib_id": 13,
+   "authors": [
+    {
+     "family": "Fehr",
+     "given": "J"
+    },
+    {
+     "family": "Konigorski",
+     "given": "S"
+    },
+    {
+     "family": "Olivier",
+     "given": "S"
+    },
+    {
+     "family": "Gunda",
+     "given": "R"
+    },
+    {
+     "family": "Surujdeen",
+     "given": "A"
+    },
+    {
+     "family": "Gareta",
+     "given": "D"
+    }
+   ],
+   "year": "2021",
+   "title": "Computer-aided interpretation of chest radiography reveals the spectrum of tuberculosis in rural South Africa",
+   "container": "NPJ Digit Med",
+   "volume": "4",
+   "first_page": "106",
+   "doi": "10.1038/s41746-021-00471-y"
+  },
+  {
+   "bib_id": 14,
+   "authors": [
+    {
+     "family": "Buderer",
+     "given": "NM"
+    }
+   ],
+   "year": "1996",
+   "title": "Statistical methodology: I. Incorporating the prevalence of disease into the sample size calculation for sensitivity and specificity",
+   "container": "Acad Emerg Med",
+   "volume": "3",
+   "first_page": "895",
+   "last_page": "900",
+   "doi": "10.1111/j.1553-2712.1996.tb03538.x"
+  },
+  {
+   "bib_id": 15,
+   "authors": [
+    {
+     "family": "Leeflang",
+     "given": "MMG"
+    },
+    {
+     "family": "Allerberger",
+     "given": "F"
+    }
+   ],
+   "year": "2019",
+   "title": "Sample size calculations for diagnostic studies",
+   "container": "Clin Microbiol Infect",
+   "volume": "25",
+   "first_page": "777",
+   "doi": "10.1016/j.cmi.2019.04.011"
+  },
+  {
+   "bib_id": 16,
+   "authors": [
+    {
+     "family": "Qin",
+     "given": "ZZ"
+    }
+   ],
+   "year": "2021",
+   "first_page": "1"
+  },
+  {
+   "bib_id": 17,
+   "authors": [
+    {
+     "family": "Addo",
+     "given": "R"
+    },
+    {
+     "family": "Mulhern",
+     "given": "B"
+    },
+    {
+     "family": "Norman",
+     "given": "R"
+    },
+    {
+     "family": "Owusu",
+     "given": "R"
+    },
+    {
+     "family": "Viney",
+     "given": "R"
+    },
+    {
+     "family": "Nonvignon",
+     "given": "J"
+    }
+   ],
+   "year": "2025",
+   "title": "An EQ-5D-5L Value Set for Ghana Using an Adapted EuroQol Valuation Technology Protocol",
+   "container": "Value Health Reg Issues",
+   "volume": "45",
+   "first_page": "101045",
+   "doi": "10.1016/j.vhri.2024.101045"
+  },
+  {
+   "bib_id": 18,
+   "authors": [
+    {
+     "family": "Owusu",
+     "given": "R"
+    },
+    {
+     "family": "Pritchard",
+     "given": "D"
+    },
+    {
+     "family": "Heupink",
+     "given": "LF"
+    },
+    {
+     "family": "Gulbi",
+     "given": "G"
+    },
+    {
+     "family": "Asare",
+     "given": "B"
+    },
+    {
+     "family": "Amankwah",
+     "given": "I"
+    }
+   ],
+   "year": "2025",
+   "title": "Cost-effectiveness and budget impact of covering Burkitt lymphoma in children under Ghana’s National Health Insurance Scheme",
+   "container": "Cost Eff Resour Alloc",
+   "volume": "23",
+   "first_page": "1",
+   "doi": "10.1186/s12962-025-00603-1"
+  },
+  {
+   "bib_id": 19,
+   "authors": [
+    {
+     "family": "Delft Imaging Systems",
+     "given": ""
+    }
+   ],
+   "year": "2021"
+  },
+  {
+   "bib_id": 20,
+   "authors": [
+    {
+     "family": "WHO",
+     "given": ""
+    }
+   ],
+   "year": "2021",
+   "title": "WHO consolidated guidelines on tuberculosis: Module 2: Screening: systematic screening for tuberculosis disease"
+  },
+  {
+   "bib_id": 21,
+   "authors": [
+    {
+     "family": "The GlobaL Fund",
+     "given": ""
+    }
+   ],
+   "year": "2023"
+  },
+  {
+   "bib_id": 22,
+   "authors": [
+    {
+     "family": "Odume",
+     "given": "B"
+    },
+    {
+     "family": "Inumanye",
+     "given": "O"
+    },
+    {
+     "family": "Best",
+     "given": "O"
+    },
+    {
+     "family": "Chike",
+     "given": "AE"
+    }
+   ],
+   "year": "2025",
+   "title": "Determining Threshold for Computer-Aided Detection (CAD) in Pre-Diagnostic Pulmonary TB Screening for Targeted Community TB Case Finding Using Portable Digital X-Ray in Nigeria",
+   "container": "J Tuberc Res",
+   "volume": "13",
+   "first_page": "135",
+   "doi": "10.4236/jtr.2025.134013"
+  },
+  {
+   "bib_id": 23,
+   "authors": [
+    {
+     "family": "Nzimande",
+     "given": "N"
+    },
+    {
+     "family": "Murphy",
+     "given": "K"
+    },
+    {
+     "family": "Reither",
+     "given": "K"
+    },
+    {
+     "family": "Bosman",
+     "given": "S"
+    },
+    {
+     "family": "Ayakaka",
+     "given": "I"
+    },
+    {
+     "family": "Glass",
+     "given": "TR"
+    }
+   ],
+   "year": "2025",
+   "title": "Performance of CAD4TB artificial intelligence technology in TB screening programmes among the adult population in South Africa and Lesotho",
+   "container": "J Clin Tuberc Other Mycobact Dis",
+   "volume": "40",
+   "first_page": "100540",
+   "doi": "10.1016/j.jctube.2025.100540"
+  },
+  {
+   "bib_id": 24,
+   "authors": [
+    {
+     "family": "Ghana Health Service",
+     "given": ""
+    }
+   ],
+   "year": "2023",
+   "title": "Ghana National TB Programme Report 2023"
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-core-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "jats_doi": "10.1371/journal.pone.0356244"
+ }
+}

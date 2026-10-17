@@ -1,0 +1,2976 @@
+{
+ "paper_id": "10.1017_s0033291726105480",
+ "info": {
+  "title": "Anxiety and depression subtypes and their psychotherapy response: A network analysis of 33,675 patients",
+  "doi": "10.1017/S0033291726105480",
+  "file_name": "10.1017_s0033291726105480.pdf",
+  "keywords": [
+   "anxiety",
+   "depression",
+   "digital mental health",
+   "network analysis",
+   "psychotherapy",
+   "symptom clusters"
+  ],
+  "abstract": "Background: Major depressive disorder and generalized anxiety disorder frequently co-occur, leading to heterogeneous presentations that complicate diagnosis and treatment. While diagnostic categories often obscure symptom variability, network approaches offer a powerful way to examine how symptoms relate to one another within and across conditions. By identifying symptom clusters, these methods can provide insights into potential mechanisms of comorbidity and symptom maintenance and may ultimately help guide more personalized treatment. Methods: We examined patients (N = 33,675) seeking treatment for anxiety or depression through a message-based psychotherapy platform. Participants completed standardized measures of anxiety (GAD-7) and depression (PHQ-9) at baseline. We estimated a Gaussian Graphical Model of anxiety and depressive symptoms and identified overlapping symptom clusters using a modified Walktrap algorithm. We assigned patients to clusters based on presenting symptoms. In a subsample (n = 10,718), we examined the relationship between baseline cluster probabilities and three outcome trajectories over 12 weeks of treatment. Results: We found four baseline symptom clusters relating to Affective Dysregulation, Worries, Neurovegetative symptoms, and Hyperarousal. Affective Dysregulation and Neurovegetative clusters were associated with poorer outcomes, whereas Worries and Hyperarousal were associated with recovery over partial improvement; Hyperarousal also differentiated recovery from non-response. Conclusions: Symptom clusters derived from standard screening measures were associated with differential treatment trajectories. Targeting these symptom configurations may be particularly effective at disrupting multiple symptom pathways. Future research should examine whether personalized treatment strategies that consider symptom clusters based on simple screening in practice settings yield greater clinical improvement than traditional diagnostic categories."
+ },
+ "author": [
+  {
+   "author_id": 1,
+   "given": "Zoë",
+   "family": "Mermin",
+   "affiliation": "Department of Psychiatry, New York University Grossman School of Medicine, New York, NY, USA",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 2,
+   "given": "Donald J",
+   "family": "Robinaugh",
+   "affiliation": "Department of Applied Psychology, Northeastern University, Boston, MA, USA; Department of Art + Design, Northeastern University, Boston, MA, USA; Department of Psychiatry, Massachusetts General Hospital, Boston, MA, USA",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 3,
+   "given": "Thomas D",
+   "family": "Hull",
+   "affiliation": "Talkspace, New York, NY, USA",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 4,
+   "given": "Kristin L",
+   "family": "Szuhany",
+   "affiliation": "Department of Psychiatry, New York University Grossman School of Medicine, New York, NY, USA",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 5,
+   "given": "Naomi",
+   "family": "Simon",
+   "affiliation": "Department of Psychiatry, New York University Grossman School of Medicine, New York, NY, USA",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 6,
+   "given": "Matteo",
+   "family": "Malgaroli",
+   "affiliation": "Department of Psychiatry, New York University Grossman School of Medicine, New York, NY, USA; New York University Center for Data Science, New York, NY, USA",
+   "email": "",
+   "orcid": "",
+   "corresponding": true
+  }
+ ],
+ "section": [
+  {
+   "section_id": 1,
+   "section_type": "abstract",
+   "header": "Abstract",
+   "level": 1,
+   "parent_section_id": null,
+   "classification_score": 1.0
+  }
+ ],
+ "text": [
+  {
+   "text_id": 1,
+   "section_id": 1,
+   "paragraph_id": 1,
+   "text": "Background: Major depressive disorder and generalized anxiety disorder frequently co-occur, leading to heterogeneous presentations that complicate diagnosis and treatment. While diagnostic categories often obscure symptom variability, network approaches offer a powerful way to examine how symptoms relate to one another within and across conditions. By identifying symptom clusters, these methods can provide insights into potential mechanisms of comorbidity and symptom maintenance and may ultimately help guide more personalized treatment. Methods: We examined patients (N = 33,675) seeking treatment for anxiety or depression through a message-based psychotherapy platform. Participants completed standardized measures of anxiety (GAD-7) and depression (PHQ-9) at baseline. We estimated a Gaussian Graphical Model of anxiety and depressive symptoms and identified overlapping symptom clusters using a modified Walktrap algorithm. We assigned patients to clusters based on presenting symptoms. In a subsample (n = 10,718), we examined the relationship between baseline cluster probabilities and three outcome trajectories over 12 weeks of treatment. Results: We found four baseline symptom clusters relating to Affective Dysregulation, Worries, Neurovegetative symptoms, and Hyperarousal. Affective Dysregulation and Neurovegetative clusters were associated with poorer outcomes, whereas Worries and Hyperarousal were associated with recovery over partial improvement; Hyperarousal also differentiated recovery from non-response. Conclusions: Symptom clusters derived from standard screening measures were associated with differential treatment trajectories. Targeting these symptom configurations may be particularly effective at disrupting multiple symptom pathways. Future research should examine whether personalized treatment strategies that consider symptom clusters based on simple screening in practice settings yield greater clinical improvement than traditional diagnostic categories.",
+   "page_number": 1
+  }
+ ],
+ "bib": [
+  {
+   "bib_id": 1,
+   "authors": [
+    {
+     "family": "Adwi",
+     "given": "M."
+    },
+    {
+     "family": "Mahmoud",
+     "given": "B."
+    },
+    {
+     "family": "Amer",
+     "given": "N."
+    },
+    {
+     "family": "Alamrawy",
+     "given": "R. G."
+    },
+    {
+     "family": "Sadek",
+     "given": "I."
+    },
+    {
+     "family": "Elsheikh",
+     "given": "M."
+    }
+   ],
+   "year": "2025",
+   "title": "Understanding the differences between online and offline mental health help seekers: Cross-sectional comparative study",
+   "container": "JMIR Human Factors",
+   "volume": "12",
+   "first_page": "e69305",
+   "doi": "10.2196/69305"
+  },
+  {
+   "bib_id": 2,
+   "authors": [
+    {
+     "family": "Andersson",
+     "given": "E."
+    },
+    {
+     "family": "Ljótsson",
+     "given": "B."
+    },
+    {
+     "family": "Hedman-Lagerlöf",
+     "given": "M."
+    },
+    {
+     "family": "Nygren",
+     "given": "L."
+    },
+    {
+     "family": "Persson",
+     "given": "M."
+    },
+    {
+     "family": "Rosengren",
+     "given": "K."
+    },
+    {
+     "family": "Gezelius",
+     "given": "A."
+    },
+    {
+     "family": "Andersson",
+     "given": "L."
+    },
+    {
+     "family": "Sundquist",
+     "given": "T."
+    },
+    {
+     "family": "Ivanov",
+     "given": "V. Z."
+    },
+    {
+     "family": "Bjureberg",
+     "given": "J."
+    },
+    {
+     "family": "Hedman-Lagerlöf",
+     "given": "E."
+    }
+   ],
+   "year": "2021",
+   "title": "Targeting excessive worry with internet-based extinction therapy: A randomised controlled trial with mediation analysis and economical evaluation",
+   "container": "Psychological Medicine",
+   "volume": "51",
+   "first_page": "2023",
+   "last_page": "2033",
+   "doi": "10.1017/S0033291720000781"
+  },
+  {
+   "bib_id": 3,
+   "authors": [
+    {
+     "family": "Bai",
+     "given": "W."
+    },
+    {
+     "family": "Xi",
+     "given": "H.-T."
+    },
+    {
+     "family": "Zhu",
+     "given": "Q."
+    },
+    {
+     "family": "Ji",
+     "given": "M."
+    },
+    {
+     "family": "Zhang",
+     "given": "H."
+    },
+    {
+     "family": "Yang",
+     "given": "B.-X."
+    },
+    {
+     "family": "Cai",
+     "given": "H."
+    },
+    {
+     "family": "Liu",
+     "given": "R."
+    },
+    {
+     "family": "Zhao",
+     "given": "Y.-J."
+    },
+    {
+     "family": "Chen",
+     "given": "L."
+    },
+    {
+     "family": "Ge",
+     "given": "Z. M."
+    },
+    {
+     "family": "Wang",
+     "given": "Z."
+    },
+    {
+     "family": "Han",
+     "given": "L."
+    },
+    {
+     "family": "Chen",
+     "given": "P."
+    },
+    {
+     "family": "Liu",
+     "given": "S."
+    },
+    {
+     "family": "Cheung",
+     "given": "T."
+    },
+    {
+     "family": "Tang",
+     "given": "Y. L."
+    },
+    {
+     "family": "Jackson",
+     "given": "T."
+    },
+    {
+     "family": "An",
+     "given": "F."
+    },
+    {
+     "family": "Xiang",
+     "given": "Y. T."
+    }
+   ],
+   "year": "2021",
+   "title": "Network analysis of anxiety and depressive symptoms among nursing students during the COVID-19 pandemic",
+   "container": "Journal of Affective Disorders",
+   "volume": "294",
+   "first_page": "753",
+   "last_page": "760",
+   "doi": "10.1016/j.jad.2021.07.072"
+  },
+  {
+   "bib_id": 4,
+   "authors": [
+    {
+     "family": "Beard",
+     "given": "C."
+    },
+    {
+     "family": "Millner",
+     "given": "A. J."
+    },
+    {
+     "family": "Forgeard",
+     "given": "M. J."
+    },
+    {
+     "family": "Fried",
+     "given": "E. I."
+    },
+    {
+     "family": "Hsu",
+     "given": "K. J."
+    },
+    {
+     "family": "Treadway",
+     "given": "M. T."
+    },
+    {
+     "family": "Leonard",
+     "given": "C. V."
+    },
+    {
+     "family": "Kertz",
+     "given": "S."
+    },
+    {
+     "family": "Björgvinsson",
+     "given": "T."
+    }
+   ],
+   "year": "2016",
+   "title": "Network analysis of depression and anxiety symptom relationships in a psychiatric sample",
+   "container": "Psychological Medicine",
+   "volume": "46",
+   "first_page": "3359",
+   "last_page": "3369",
+   "doi": "10.1017/S0033291716002300"
+  },
+  {
+   "bib_id": 5,
+   "authors": [
+    {
+     "family": "Belli",
+     "given": "S. R."
+    },
+    {
+     "family": "Tichelaar",
+     "given": "M."
+    },
+    {
+     "family": "Epskamp",
+     "given": "S."
+    },
+    {
+     "family": "Ebrahimi",
+     "given": "O."
+    },
+    {
+     "family": "O’Driscoll",
+     "given": "C."
+    }
+   ],
+   "year": "2026",
+   "title": "A systematic review and meta-analytic gaussian network aggregation of anxious symptom",
+   "doi": "10.31234/osf.io/cvqd6_v1"
+  },
+  {
+   "bib_id": 6,
+   "authors": [
+    {
+     "family": "Borsboom",
+     "given": "D."
+    }
+   ],
+   "year": "2017",
+   "title": "A network theory of mental disorders",
+   "container": "World Psychiatry",
+   "volume": "16",
+   "first_page": "5",
+   "last_page": "13",
+   "doi": "10.1002/wps.20375"
+  },
+  {
+   "bib_id": 7,
+   "authors": [
+    {
+     "family": "Borsboom",
+     "given": "D."
+    },
+    {
+     "family": "Cramer",
+     "given": "A. O."
+    }
+   ],
+   "year": "2013",
+   "title": "Network analysis: An integrative approach to the structure of psychopathology",
+   "container": "Annual Review of Clinical Psychology",
+   "volume": "9",
+   "first_page": "91",
+   "last_page": "121",
+   "doi": "10.1146/annurev-clinpsy-050212-185608"
+  },
+  {
+   "bib_id": 8,
+   "authors": [
+    {
+     "family": "Cai",
+     "given": "H."
+    },
+    {
+     "family": "Chen",
+     "given": "M.-Y."
+    },
+    {
+     "family": "Li",
+     "given": "X.-H."
+    },
+    {
+     "family": "Zhang",
+     "given": "L."
+    },
+    {
+     "family": "Su",
+     "given": "Z."
+    },
+    {
+     "family": "Cheung",
+     "given": "T."
+    },
+    {
+     "family": "Tang",
+     "given": "Y.-L."
+    },
+    {
+     "family": "Malgaroli",
+     "given": "M."
+    },
+    {
+     "family": "Jackson",
+     "given": "T."
+    },
+    {
+     "family": "Zhang",
+     "given": "Q."
+    },
+    {
+     "family": "Xiang",
+     "given": "Y. T."
+    }
+   ],
+   "year": "2024",
+   "title": "A network model of depressive and anxiety symptoms: A statistical evaluation",
+   "container": "Molecular Psychiatry",
+   "volume": "29",
+   "first_page": "767",
+   "last_page": "781",
+   "doi": "10.1038/s41380-023-02369-5"
+  },
+  {
+   "bib_id": 9,
+   "authors": [
+    {
+     "family": "Carragher",
+     "given": "N."
+    },
+    {
+     "family": "Adamson",
+     "given": "G."
+    },
+    {
+     "family": "Bunting",
+     "given": "B."
+    },
+    {
+     "family": "McCann",
+     "given": "S."
+    }
+   ],
+   "year": "2009",
+   "title": "Subtypes of depression in a nationally representative sample",
+   "container": "Journal of Affective Disorders",
+   "volume": "113",
+   "first_page": "88",
+   "last_page": "99",
+   "doi": "10.1016/j.jad.2008.05.015"
+  },
+  {
+   "bib_id": 10,
+   "authors": [
+    {
+     "family": "Chen",
+     "given": "H."
+    },
+    {
+     "family": "Wang",
+     "given": "X."
+    },
+    {
+     "family": "Huang",
+     "given": "Y."
+    },
+    {
+     "family": "Li",
+     "given": "G."
+    },
+    {
+     "family": "Liu",
+     "given": "Z."
+    },
+    {
+     "family": "Li",
+     "given": "Y."
+    },
+    {
+     "family": "Geng",
+     "given": "H."
+    }
+   ],
+   "year": "2019",
+   "title": "Prevalence, risk factors and multi-group latent class analysis of lifetime anxiety disorders comorbid depressive symptoms",
+   "container": "Journal of Affective Disorders",
+   "volume": "243",
+   "first_page": "360",
+   "last_page": "365",
+   "doi": "10.1016/j.jad.2018.09.053"
+  },
+  {
+   "bib_id": 11,
+   "authors": [
+    {
+     "family": "Clark",
+     "given": "D. A."
+    },
+    {
+     "family": "Steer",
+     "given": "R. A."
+    },
+    {
+     "family": "Beck",
+     "given": "A. T."
+    }
+   ],
+   "year": "1994",
+   "title": "Common and specific dimensions of self-reported anxiety and depression: Implications for the cognitive and tripartite models",
+   "container": "Journal of Abnormal Psychology",
+   "volume": "103",
+   "first_page": "645",
+   "last_page": "654",
+   "doi": "10.1037/0021-843X.103.4.645"
+  },
+  {
+   "bib_id": 12,
+   "authors": [
+    {
+     "family": "Clark",
+     "given": "L. A."
+    },
+    {
+     "family": "Watson",
+     "given": "D."
+    }
+   ],
+   "year": "1991",
+   "title": "Tripartite model of anxiety and depression: Psychometric evidence and taxonomic implications",
+   "container": "Journal of Abnormal Psychology",
+   "volume": "100",
+   "first_page": "316",
+   "last_page": "336",
+   "doi": "10.1037/0021-843X.100.3.316"
+  },
+  {
+   "bib_id": 13,
+   "authors": [
+    {
+     "family": "Contreras",
+     "given": "A."
+    },
+    {
+     "family": "Butter",
+     "given": "S."
+    },
+    {
+     "family": "Granziol",
+     "given": "U."
+    },
+    {
+     "family": "Panzeri",
+     "given": "A."
+    },
+    {
+     "family": "Peinado",
+     "given": "V."
+    },
+    {
+     "family": "Trucharte",
+     "given": "A."
+    },
+    {
+     "family": "Zavlis",
+     "given": "O."
+    },
+    {
+     "family": "Valiente",
+     "given": "C."
+    },
+    {
+     "family": "Vázquez",
+     "given": "C."
+    },
+    {
+     "family": "Murphy",
+     "given": "J."
+    },
+    {
+     "family": "Bertamini",
+     "given": "M."
+    },
+    {
+     "family": "Shevlin",
+     "given": "M."
+    },
+    {
+     "family": "Hartman",
+     "given": "T. K."
+    },
+    {
+     "family": "Bruno",
+     "given": "G."
+    },
+    {
+     "family": "Mignemi",
+     "given": "G."
+    },
+    {
+     "family": "Spoto",
+     "given": "A."
+    },
+    {
+     "family": "Vidotto",
+     "given": "G."
+    },
+    {
+     "family": "Bentall",
+     "given": "R. P."
+    }
+   ],
+   "year": "2024",
+   "title": "The network structure of psychopathological and resilient responses to the pandemic: A multicountry general population study of depression and anxiety",
+   "container": "Journal of Traumatic Stress",
+   "volume": "37",
+   "first_page": "126",
+   "last_page": "140",
+   "doi": "10.1002/jts.22988"
+  },
+  {
+   "bib_id": 14,
+   "authors": [
+    {
+     "family": "Coplan",
+     "given": "J. D."
+    },
+    {
+     "family": "Aaronson",
+     "given": "C. J."
+    },
+    {
+     "family": "Panthangi",
+     "given": "V."
+    },
+    {
+     "family": "Kim",
+     "given": "Y."
+    }
+   ],
+   "year": "2015",
+   "title": "Treating comorbid anxiety and depression: Psychosocial and pharmacological approaches",
+   "container": "World Journal of Psychiatry",
+   "volume": "5",
+   "first_page": "366",
+   "last_page": "378",
+   "doi": "10.5498/wjp.v5.i4.366"
+  },
+  {
+   "bib_id": 15,
+   "authors": [
+    {
+     "family": "Craske",
+     "given": "M. G."
+    },
+    {
+     "family": "Meuret",
+     "given": "A. E."
+    },
+    {
+     "family": "Ritz",
+     "given": "T."
+    },
+    {
+     "family": "Treanor",
+     "given": "M."
+    },
+    {
+     "family": "Dour",
+     "given": "H."
+    },
+    {
+     "family": "Rosenfield",
+     "given": "D."
+    }
+   ],
+   "year": "2019",
+   "title": "Positive affect treatment for depression and anxiety: A randomized clinical trial for a core feature of anhedonia",
+   "container": "Journal of Consulting and Clinical Psychology",
+   "volume": "87",
+   "first_page": "457",
+   "last_page": "471",
+   "doi": "10.1037/ccp0000396"
+  },
+  {
+   "bib_id": 16,
+   "authors": [
+    {
+     "family": "Dalgleish",
+     "given": "T."
+    },
+    {
+     "family": "Black",
+     "given": "M."
+    },
+    {
+     "family": "Johnston",
+     "given": "D."
+    },
+    {
+     "family": "Bevan",
+     "given": "A."
+    }
+   ],
+   "year": "2020",
+   "title": "Transdiagnostic approaches to mental health problems: Current status and future directions",
+   "container": "Journal of Consulting and Clinical Psychology",
+   "volume": "88",
+   "first_page": "179",
+   "last_page": "195",
+   "doi": "10.1037/ccp0000482"
+  },
+  {
+   "bib_id": 17,
+   "authors": [
+    {
+     "family": "De Ron",
+     "given": "J."
+    },
+    {
+     "family": "Fried",
+     "given": "E. I."
+    },
+    {
+     "family": "Epskamp",
+     "given": "S."
+    }
+   ],
+   "year": "2021",
+   "title": "Psychological networks in clinical populations: Investigating the consequences of Berkson’s bias",
+   "container": "Psychological Medicine",
+   "volume": "51",
+   "first_page": "168",
+   "last_page": "176",
+   "doi": "10.1017/S0033291719003209"
+  },
+  {
+   "bib_id": 18,
+   "authors": [
+    {
+     "family": "Denninger",
+     "given": "J. W."
+    },
+    {
+     "family": "Papakostas",
+     "given": "G. I."
+    },
+    {
+     "family": "Mahal",
+     "given": "Y."
+    },
+    {
+     "family": "Merens",
+     "given": "W."
+    },
+    {
+     "family": "Alpert",
+     "given": "J. E."
+    },
+    {
+     "family": "Nierenberg",
+     "given": "A. A."
+    },
+    {
+     "family": "Yeung",
+     "given": "A."
+    },
+    {
+     "family": "Fava",
+     "given": "M."
+    }
+   ],
+   "year": "2006",
+   "title": "Somatic symptoms in outpatients with major depressive disorder treated with fluoxetine",
+   "container": "Psychosomatics",
+   "volume": "47",
+   "first_page": "348",
+   "last_page": "352",
+   "doi": "10.1176/appi.psy.47.4.348"
+  },
+  {
+   "bib_id": 19,
+   "authors": [
+    {
+     "family": "Detke",
+     "given": "M. J."
+    },
+    {
+     "family": "Lu",
+     "given": "Y."
+    },
+    {
+     "family": "Goldstein",
+     "given": "D. J."
+    },
+    {
+     "family": "Hayes",
+     "given": "J. R."
+    },
+    {
+     "family": "Demitrack",
+     "given": "M. A."
+    }
+   ],
+   "year": "2002",
+   "title": "Duloxetine, 60 mg once daily, for major depressive disorder",
+   "container": "Journal of Clinical Psychiatry",
+   "volume": "63",
+   "first_page": "308",
+   "last_page": "315",
+   "doi": "10.4088/JCP.v63n0407"
+  },
+  {
+   "bib_id": 20,
+   "authors": [
+    {
+     "family": "Dunbar",
+     "given": "M."
+    },
+    {
+     "family": "Ford",
+     "given": "G."
+    },
+    {
+     "family": "Hunt",
+     "given": "K."
+    },
+    {
+     "family": "Der",
+     "given": "G."
+    }
+   ],
+   "year": "2000",
+   "title": "A confirmatory factor analysis of the hospital anxiety and depression scale: Comparing empirically and theoretically derived structures",
+   "container": "British Journal of Clinical Psychology",
+   "volume": "39",
+   "first_page": "79",
+   "last_page": "94",
+   "doi": "10.1348/014466500163121"
+  },
+  {
+   "bib_id": 21,
+   "authors": [
+    {
+     "family": "Epskamp",
+     "given": "S."
+    },
+    {
+     "family": "Borsboom",
+     "given": "D."
+    },
+    {
+     "family": "Fried",
+     "given": "E. I."
+    }
+   ],
+   "year": "2018",
+   "title": "Estimating psychological networks and their accuracy: A tutorial paper",
+   "container": "Behavior Research Methods",
+   "volume": "50",
+   "first_page": "195",
+   "last_page": "212",
+   "doi": "10.3758/s13428-017-0862-1"
+  },
+  {
+   "bib_id": 22,
+   "authors": [
+    {
+     "family": "Epskamp",
+     "given": "S."
+    },
+    {
+     "family": "Cramer",
+     "given": "A. O."
+    },
+    {
+     "family": "Waldorp",
+     "given": "L. J."
+    },
+    {
+     "family": "Schmittmann",
+     "given": "V. D."
+    },
+    {
+     "family": "Borsboom",
+     "given": "D."
+    }
+   ],
+   "year": "2012",
+   "title": "Qgraph: Network visualizations of relationships in psychometric data",
+   "container": "Journal of Statistical Software",
+   "volume": "48",
+   "first_page": "1",
+   "last_page": "18",
+   "doi": "10.18637/jss.v048.i04"
+  },
+  {
+   "bib_id": 23,
+   "authors": [
+    {
+     "family": "Fava",
+     "given": "M."
+    }
+   ],
+   "year": "2002",
+   "title": "Somatic symptoms, depression, and antidepressant treatment",
+   "container": "Journal of Clinical Psychiatry",
+   "volume": "63",
+   "first_page": "305",
+   "last_page": "307",
+   "doi": "10.4088/JCP.v63n0406"
+  },
+  {
+   "bib_id": 24,
+   "authors": [
+    {
+     "family": "Foygel",
+     "given": "R."
+    },
+    {
+     "family": "Drton",
+     "given": "M."
+    }
+   ],
+   "year": "2010",
+   "title": "Extended Bayesian information criteria for gaussian graphical models",
+   "container": "Advances in Neural Information Processing Systems",
+   "volume": "23"
+  },
+  {
+   "bib_id": 25,
+   "authors": [
+    {
+     "family": "Fried",
+     "given": "E. I."
+    }
+   ],
+   "year": "2015",
+   "title": "Problematic assumptions have slowed down depression research: Why symptoms, not syndromes are the way forward",
+   "container": "Frontiers in Psychology",
+   "volume": "6",
+   "first_page": "309",
+   "doi": "10.3389/fpsyg.2015.00309"
+  },
+  {
+   "bib_id": 26,
+   "authors": [
+    {
+     "family": "Fried",
+     "given": "E. I."
+    }
+   ],
+   "year": "2017",
+   "title": "The 52 symptoms of major depression: Lack of content overlap among seven common depression scales",
+   "container": "Journal of Affective Disorders",
+   "volume": "208",
+   "first_page": "191",
+   "last_page": "197",
+   "doi": "10.1016/j.jad.2016.10.019"
+  },
+  {
+   "bib_id": 27,
+   "authors": [
+    {
+     "family": "Furukawa",
+     "given": "Y."
+    },
+    {
+     "family": "Nagaoka",
+     "given": "D."
+    },
+    {
+     "family": "Sato",
+     "given": "S."
+    },
+    {
+     "family": "Toyomoto",
+     "given": "R."
+    },
+    {
+     "family": "Takashina",
+     "given": "H. N."
+    },
+    {
+     "family": "Kobayashi",
+     "given": "K."
+    },
+    {
+     "family": "Sakata",
+     "given": "M."
+    },
+    {
+     "family": "Nakajima",
+     "given": "S."
+    },
+    {
+     "family": "Ito",
+     "given": "M."
+    },
+    {
+     "family": "Yamamoto",
+     "given": "R."
+    },
+    {
+     "family": "Hara",
+     "given": "S."
+    },
+    {
+     "family": "Sakakibara",
+     "given": "E."
+    },
+    {
+     "family": "Perlis",
+     "given": "M."
+    },
+    {
+     "family": "Kasai",
+     "given": "K."
+    }
+   ],
+   "year": "2024",
+   "title": "Cognitive behavioral therapy for insomnia to treat major depressive disorder with comorbid insomnia: A systematic review and meta-analysis",
+   "container": "Journal of Affective Disorders",
+   "volume": "367",
+   "first_page": "359",
+   "last_page": "366",
+   "doi": "10.1016/j.jad.2024.09.017"
+  },
+  {
+   "bib_id": 28,
+   "authors": [
+    {
+     "family": "Golino",
+     "given": "H."
+    },
+    {
+     "family": "Christensen",
+     "given": "A."
+    }
+   ],
+   "year": "2025"
+  },
+  {
+   "bib_id": 29,
+   "authors": [
+    {
+     "family": "Hehlmann",
+     "given": "M. I."
+    },
+    {
+     "family": "Moggia",
+     "given": "D."
+    },
+    {
+     "family": "Schwartz",
+     "given": "B."
+    },
+    {
+     "family": "Driver",
+     "given": "C."
+    },
+    {
+     "family": "Eberhardt",
+     "given": "S."
+    },
+    {
+     "family": "Lutz",
+     "given": "W."
+    }
+   ],
+   "year": "2024",
+   "title": "Outcome prediction in psychological therapy with continuous time dynamic modeling of affective states and emotion regulation",
+   "container": "Journal of Consulting and Clinical Psychology",
+   "volume": "92",
+   "first_page": "517",
+   "last_page": "530",
+   "doi": "10.1037/ccp0000862"
+  },
+  {
+   "bib_id": 30,
+   "authors": [
+    {
+     "family": "Hernán",
+     "given": "M. A."
+    },
+    {
+     "family": "Hernández-Díaz",
+     "given": "S."
+    },
+    {
+     "family": "Robins",
+     "given": "J. M."
+    }
+   ],
+   "year": "2004",
+   "title": "A structural approach to selection bias",
+   "container": "Epidemiology",
+   "volume": "15",
+   "first_page": "615",
+   "last_page": "625",
+   "doi": "10.1097/01.ede.0000135174.63482.43"
+  },
+  {
+   "bib_id": 31,
+   "authors": [
+    {
+     "family": "Hertenstein",
+     "given": "E."
+    },
+    {
+     "family": "Trinca",
+     "given": "E."
+    },
+    {
+     "family": "Wunderlin",
+     "given": "M."
+    },
+    {
+     "family": "Schneider",
+     "given": "C. L."
+    },
+    {
+     "family": "Zuest",
+     "given": "M. A."
+    },
+    {
+     "family": "Feher",
+     "given": "K. D."
+    },
+    {
+     "family": "Su",
+     "given": "T."
+    },
+    {
+     "family": "Straten",
+     "given": "A. v."
+    },
+    {
+     "family": "Berger",
+     "given": "T."
+    },
+    {
+     "family": "Baglioni",
+     "given": "C."
+    }
+   ],
+   "year": "2022",
+   "title": "Cognitive behavioral therapy for insomnia in patients with mental disorders and comorbid insomnia: A systematic review and meta-analysis",
+   "container": "Sleep Medicine Reviews",
+   "volume": "62",
+   "first_page": "101597",
+   "doi": "10.1016/j.smrv.2022.101597"
+  },
+  {
+   "bib_id": 32,
+   "authors": [
+    {
+     "family": "Hirschfeld",
+     "given": "R. M."
+    }
+   ],
+   "year": "2001",
+   "title": "The comorbidity of major depression and anxiety disorders: Recognition and management in primary care",
+   "container": "Primary Care Companion for CNS Disorders",
+   "volume": "3",
+   "first_page": "244",
+   "last_page": "254",
+   "doi": "10.4088/PCC.v03n0609"
+  },
+  {
+   "bib_id": 33,
+   "authors": [
+    {
+     "family": "Hoyle",
+     "given": "R. H."
+    },
+    {
+     "family": "Lynam",
+     "given": "D. R."
+    },
+    {
+     "family": "Miller",
+     "given": "J. D."
+    },
+    {
+     "family": "Pek",
+     "given": "J."
+    }
+   ],
+   "year": "2023",
+   "title": "The questionable practice of Partialing to refine scores on and inferences about measures of psychological constructs",
+   "container": "Annual Review of Clinical Psychology",
+   "volume": "19",
+   "first_page": "155",
+   "last_page": "176",
+   "doi": "10.1146/annurev-clinpsy-071720-015436"
+  },
+  {
+   "bib_id": 34,
+   "authors": [
+    {
+     "family": "Hull",
+     "given": "T. D."
+    },
+    {
+     "family": "Malgaroli",
+     "given": "M."
+    },
+    {
+     "family": "Connolly",
+     "given": "P. S."
+    },
+    {
+     "family": "Feuerstein",
+     "given": "S."
+    },
+    {
+     "family": "Simon",
+     "given": "N. M."
+    }
+   ],
+   "year": "2020",
+   "title": "Two-way messaging therapy for depression and anxiety: Longitudinal response trajectories",
+   "container": "BMC Psychiatry",
+   "volume": "20",
+   "first_page": "297",
+   "doi": "10.1186/s12888-020-02721-x"
+  },
+  {
+   "bib_id": 35,
+   "authors": [
+    {
+     "family": "Husen",
+     "given": "K."
+    },
+    {
+     "family": "Rafaeli",
+     "given": "E."
+    },
+    {
+     "family": "Rubel",
+     "given": "J."
+    },
+    {
+     "family": "Bar-Kalifa",
+     "given": "E."
+    },
+    {
+     "family": "Lutz",
+     "given": "W."
+    }
+   ],
+   "year": "2016",
+   "title": "Daily affect dynamics predict early response in CBT: Feasibility and predictive validity of EMA for outpatient psychotherapy",
+   "container": "Journal of Affective Disorders",
+   "volume": "206",
+   "first_page": "305",
+   "last_page": "314",
+   "doi": "10.1016/j.jad.2016.08.025"
+  },
+  {
+   "bib_id": 36,
+   "authors": [
+    {
+     "family": "Irwin",
+     "given": "M. R."
+    },
+    {
+     "family": "Carrillo",
+     "given": "C."
+    },
+    {
+     "family": "Sadeghi",
+     "given": "N."
+    },
+    {
+     "family": "Bjurstrom",
+     "given": "M. F."
+    },
+    {
+     "family": "Breen",
+     "given": "E. C."
+    },
+    {
+     "family": "Olmstead",
+     "given": "R."
+    }
+   ],
+   "year": "2022",
+   "title": "Prevention of incident and recurrent major depression in older adults with insomnia: A randomized clinical trial",
+   "container": "JAMA Psychiatry",
+   "volume": "79",
+   "first_page": "33",
+   "last_page": "41",
+   "doi": "10.1001/jamapsychiatry.2021.3422"
+  },
+  {
+   "bib_id": 37,
+   "authors": [
+    {
+     "family": "Jones",
+     "given": "P."
+    }
+   ],
+   "year": "2025"
+  },
+  {
+   "bib_id": 38,
+   "authors": [
+    {
+     "family": "Jurado-González",
+     "given": "F."
+    },
+    {
+     "family": "García-Torres",
+     "given": "F."
+    },
+    {
+     "family": "Contreras",
+     "given": "A."
+    },
+    {
+     "family": "Muñoz-Navarro",
+     "given": "R."
+    },
+    {
+     "family": "González-Blanch",
+     "given": "C."
+    },
+    {
+     "family": "Medrano",
+     "given": "L. A."
+    },
+    {
+     "family": "Ruiz-Rodríguez",
+     "given": "P."
+    },
+    {
+     "family": "Cano-Vindel",
+     "given": "A."
+    },
+    {
+     "family": "Moriana",
+     "given": "J. A."
+    }
+   ],
+   "year": "2024",
+   "title": "Mapping bridges between anxiety, depression, and somatic symptoms in primary care patients: A network perspective",
+   "container": "Current Psychology",
+   "volume": "43",
+   "first_page": "4292",
+   "last_page": "4304",
+   "doi": "10.1007/s12144-023-04657-3"
+  },
+  {
+   "bib_id": 39,
+   "authors": [
+    {
+     "family": "Kaiser",
+     "given": "T."
+    },
+    {
+     "family": "Herzog",
+     "given": "P."
+    },
+    {
+     "family": "Voderholzer",
+     "given": "U."
+    },
+    {
+     "family": "Brakemeier",
+     "given": "E."
+    }
+   ],
+   "year": "2021",
+   "title": "Unraveling the comorbidity of depression and anxiety in a large inpatient sample: Network analysis to examine bridge symptoms",
+   "container": "Depression and Anxiety",
+   "volume": "38",
+   "first_page": "307",
+   "last_page": "317",
+   "doi": "10.1002/da.23136"
+  },
+  {
+   "bib_id": 40,
+   "authors": [
+    {
+     "family": "Kendler",
+     "given": "K. S."
+    }
+   ],
+   "year": "2009",
+   "title": "An historical framework for psychiatric nosology",
+   "container": "Psychological Medicine",
+   "volume": "39",
+   "first_page": "1935",
+   "last_page": "1941",
+   "doi": "10.1017/S0033291709005753"
+  },
+  {
+   "bib_id": 41,
+   "authors": [
+    {
+     "family": "Kotov",
+     "given": "R."
+    },
+    {
+     "family": "Krueger",
+     "given": "R. F."
+    },
+    {
+     "family": "Watson",
+     "given": "D."
+    }
+   ],
+   "year": "2018",
+   "title": "A paradigm shift in psychiatric classification: The hierarchical taxonomy of psychopathology (HiTOP)",
+   "container": "World Psychiatry",
+   "volume": "17",
+   "first_page": "24",
+   "last_page": "25",
+   "doi": "10.1002/wps.20478"
+  },
+  {
+   "bib_id": 42,
+   "authors": [
+    {
+     "family": "Kroenke",
+     "given": "K."
+    },
+    {
+     "family": "Spitzer",
+     "given": "R. L."
+    }
+   ],
+   "year": "2002",
+   "title": "The PHQ-9: A new depression diagnostic and severity measure",
+   "container": "Psychiatric Annals",
+   "volume": "32",
+   "first_page": "509",
+   "last_page": "515",
+   "doi": "10.3928/0048-5713-20020901-06"
+  },
+  {
+   "bib_id": 43,
+   "authors": [
+    {
+     "family": "Kroenke",
+     "given": "K."
+    },
+    {
+     "family": "Spitzer",
+     "given": "R. L."
+    },
+    {
+     "family": "Williams",
+     "given": "J. B."
+    }
+   ],
+   "year": "2001",
+   "title": "The PHQ-9: Validity of a brief depression severity measure",
+   "container": "Journal of General Internal Medicine",
+   "volume": "16",
+   "first_page": "606",
+   "last_page": "613",
+   "doi": "10.1046/j.1525-1497.2001.016009606.x"
+  },
+  {
+   "bib_id": 44,
+   "authors": [
+    {
+     "family": "Kroenke",
+     "given": "K."
+    },
+    {
+     "family": "Spitzer",
+     "given": "R. L."
+    },
+    {
+     "family": "Williams",
+     "given": "J. B. W."
+    },
+    {
+     "family": "Monahan",
+     "given": "P. O."
+    },
+    {
+     "family": "Löwe",
+     "given": "B."
+    }
+   ],
+   "year": "2007",
+   "title": "Anxiety disorders in primary care: Prevalence, impairment, comorbidity, and detection",
+   "container": "Annals of Internal Medicine",
+   "volume": "146",
+   "first_page": "317",
+   "last_page": "325",
+   "doi": "10.7326/0003-4819-146-5-200703060-00004"
+  },
+  {
+   "bib_id": 45,
+   "authors": [
+    {
+     "family": "Levis",
+     "given": "B."
+    },
+    {
+     "family": "Benedetti",
+     "given": "A."
+    },
+    {
+     "family": "Thombs",
+     "given": "B. D."
+    },
+    {
+     "family": "DEPRESsion Screening Data (DEPRESSD) Collaboration",
+     "given": ""
+    }
+   ],
+   "year": "2019",
+   "container": "BMJ",
+   "volume": "365",
+   "first_page": "l1476",
+   "doi": "10.1136/bmj.l1476"
+  },
+  {
+   "bib_id": 46,
+   "authors": [
+    {
+     "family": "Liu",
+     "given": "Y."
+    },
+    {
+     "family": "Zhao",
+     "given": "J."
+    },
+    {
+     "family": "Fan",
+     "given": "X."
+    },
+    {
+     "family": "Guo",
+     "given": "W."
+    }
+   ],
+   "year": "2019",
+   "title": "Dysfunction in serotonergic and noradrenergic systems and somatic symptoms in psychiatric disorders",
+   "container": "Frontiers in Psychiatry",
+   "volume": "10",
+   "first_page": "286",
+   "doi": "10.3389/fpsyt.2019.00286"
+  },
+  {
+   "bib_id": 47,
+   "authors": [
+    {
+     "family": "Malgaroli",
+     "given": "M."
+    },
+    {
+     "family": "Calderon",
+     "given": "A."
+    },
+    {
+     "family": "Bonanno",
+     "given": "G. A."
+    }
+   ],
+   "year": "2021",
+   "title": "Networks of major depressive disorder: A systematic review",
+   "container": "Clinical Psychology Review",
+   "volume": "85",
+   "first_page": "102000",
+   "doi": "10.1016/j.cpr.2021.102000"
+  },
+  {
+   "bib_id": 48,
+   "authors": [
+    {
+     "family": "Moriana",
+     "given": "J. A."
+    },
+    {
+     "family": "Jurado-González",
+     "given": "F. J."
+    },
+    {
+     "family": "García-Torres",
+     "given": "F."
+    },
+    {
+     "family": "Contreras",
+     "given": "A."
+    },
+    {
+     "family": "Muñoz-Navarro",
+     "given": "R."
+    },
+    {
+     "family": "González-Blanch",
+     "given": "C."
+    },
+    {
+     "family": "Medrano",
+     "given": "L. A."
+    },
+    {
+     "family": "Ruiz-Rodríguez",
+     "given": "P."
+    },
+    {
+     "family": "Cano-Vindel",
+     "given": "A."
+    }
+   ],
+   "year": "2022",
+   "title": "Exploring the structure of the GAD-7 scale in primary care patients with emotional disorders: A network analysis approach",
+   "container": "Journal of Clinical Psychology",
+   "volume": "78",
+   "first_page": "283",
+   "last_page": "297",
+   "doi": "10.1002/jclp.23217"
+  },
+  {
+   "bib_id": 49,
+   "authors": [
+    {
+     "family": "Nelson",
+     "given": "B. W."
+    },
+    {
+     "family": "Forman-Hoffman",
+     "given": "V. L."
+    },
+    {
+     "family": "Peiper",
+     "given": "N. C."
+    }
+   ],
+   "year": "2024",
+   "title": "Preliminary effectiveness of a therapist-supported digital mental health intervention in reducing suicidal ideation",
+   "container": "Archives of Suicide Research",
+   "volume": "28",
+   "first_page": "934",
+   "last_page": "947",
+   "doi": "10.1080/13811118.2023.2262540"
+  },
+  {
+   "bib_id": 50,
+   "authors": [
+    {
+     "family": "Olatunji",
+     "given": "B. O."
+    },
+    {
+     "family": "Cisler",
+     "given": "J. M."
+    },
+    {
+     "family": "Tolin",
+     "given": "D. F."
+    }
+   ],
+   "year": "2010",
+   "title": "A meta-analysis of the influence of comorbidity on treatment outcome in the anxiety disorders",
+   "container": "Clinical Psychology Review",
+   "volume": "30",
+   "first_page": "642",
+   "last_page": "654",
+   "doi": "10.1016/j.cpr.2010.04.008"
+  },
+  {
+   "bib_id": 51,
+   "authors": [
+    {
+     "family": "Olfson",
+     "given": "M."
+    },
+    {
+     "family": "McClellan",
+     "given": "C."
+    },
+    {
+     "family": "Zuvekas",
+     "given": "S. H."
+    },
+    {
+     "family": "Blanco",
+     "given": "C."
+    }
+   ],
+   "year": "2025",
+   "title": "Telemental health, hybrid, and in-person outpatient mental health care in the US",
+   "container": "JAMA Psychiatry",
+   "volume": "83",
+   "first_page": "59",
+   "last_page": "67"
+  },
+  {
+   "bib_id": 52,
+   "authors": [
+    {
+     "family": "Pardes",
+     "given": "A."
+    },
+    {
+     "family": "Lynch",
+     "given": "W."
+    },
+    {
+     "family": "Miclette",
+     "given": "M."
+    },
+    {
+     "family": "McGeoch",
+     "given": "E."
+    },
+    {
+     "family": "Daly",
+     "given": "B. P."
+    }
+   ],
+   "year": "2022",
+   "title": "Use of a mobile health (mHealth) platform for remote assessment of suicidal ideation, depression, and anxiety: A longitudinal retrospective study",
+   "container": "Innovations in Digital Health, Diagnostics, and Biomarkers",
+   "volume": "2",
+   "first_page": "8",
+   "last_page": "15",
+   "doi": "10.36401/IDDB-21-03"
+  },
+  {
+   "bib_id": 53,
+   "authors": [
+    {
+     "family": "Park",
+     "given": "S.-C."
+    },
+    {
+     "family": "Kim",
+     "given": "D."
+    }
+   ],
+   "year": "2020",
+   "title": "The centrality of depression and anxiety symptoms in major depressive disorder determined using a network analysis",
+   "container": "Journal of Affective Disorders",
+   "volume": "271",
+   "first_page": "19",
+   "last_page": "26",
+   "doi": "10.1016/j.jad.2020.03.078"
+  },
+  {
+   "bib_id": 54,
+   "authors": [
+    {
+     "family": "Park",
+     "given": "S.-C."
+    },
+    {
+     "family": "Kim",
+     "given": "Y."
+    },
+    {
+     "family": "Kim",
+     "given": "K."
+    },
+    {
+     "family": "Woo",
+     "given": "Y. S."
+    },
+    {
+     "family": "Kim",
+     "given": "J.-B."
+    },
+    {
+     "family": "Jang",
+     "given": "E. Y."
+    },
+    {
+     "family": "Lee",
+     "given": "H.-Y."
+    },
+    {
+     "family": "Yim",
+     "given": "H.-W."
+    },
+    {
+     "family": "Ham",
+     "given": "B.-J."
+    },
+    {
+     "family": "Kim",
+     "given": "J.-M."
+    },
+    {
+     "family": "Park",
+     "given": "Y. C."
+    }
+   ],
+   "year": "2021",
+   "title": "Network analysis of the symptoms of depressive disorders over the course of therapy: Changes in centrality measures",
+   "container": "Psychiatry Investigation",
+   "volume": "18",
+   "first_page": "48",
+   "last_page": "58",
+   "doi": "10.30773/pi.2020.0367"
+  },
+  {
+   "bib_id": 55,
+   "authors": [
+    {
+     "family": "Peeters",
+     "given": "F."
+    },
+    {
+     "family": "Berkhof",
+     "given": "J."
+    },
+    {
+     "family": "Rottenberg",
+     "given": "J."
+    },
+    {
+     "family": "Nicolson",
+     "given": "N. A."
+    }
+   ],
+   "year": "2010",
+   "title": "Ambulatory emotional reactivity to negative daily life events predicts remission from major depressive disorder",
+   "container": "Behaviour Research and Therapy",
+   "volume": "48",
+   "first_page": "754",
+   "last_page": "760",
+   "doi": "10.1016/j.brat.2010.04.008"
+  },
+  {
+   "bib_id": 56,
+   "authors": [
+    {
+     "family": "Plummer",
+     "given": "F."
+    },
+    {
+     "family": "Manea",
+     "given": "L."
+    },
+    {
+     "family": "Trepel",
+     "given": "D."
+    },
+    {
+     "family": "McMillan",
+     "given": "D."
+    }
+   ],
+   "year": "2016",
+   "title": "Screening for anxiety disorders with the GAD-7 and GAD-2: A systematic review and diagnostic metaanalysis",
+   "container": "General Hospital Psychiatry",
+   "volume": "39",
+   "first_page": "24",
+   "last_page": "31",
+   "doi": "10.1016/j.genhosppsych.2015.11.005"
+  },
+  {
+   "bib_id": 57,
+   "authors": [
+    {
+     "family": "Pons",
+     "given": "P."
+    },
+    {
+     "family": "Latapy",
+     "given": "M."
+    }
+   ],
+   "year": "2006",
+   "title": "Computing communities in large networks using random walks",
+   "container": "Journal of Graph Algorithms and Applications",
+   "volume": "10",
+   "first_page": "191",
+   "last_page": "218",
+   "doi": "10.7155/jgaa.00124"
+  },
+  {
+   "bib_id": 58,
+   "authors": [
+    {
+     "family": "Posner",
+     "given": "K."
+    },
+    {
+     "family": "Brown",
+     "given": "G. K."
+    },
+    {
+     "family": "Stanley",
+     "given": "B."
+    },
+    {
+     "family": "Brent",
+     "given": "D. A."
+    },
+    {
+     "family": "Yershova",
+     "given": "K. V."
+    },
+    {
+     "family": "Oquendo",
+     "given": "M. A."
+    },
+    {
+     "family": "Currier",
+     "given": "G. W."
+    },
+    {
+     "family": "Melvin",
+     "given": "G. A."
+    },
+    {
+     "family": "Greenhill",
+     "given": "L."
+    },
+    {
+     "family": "Shen",
+     "given": "S."
+    },
+    {
+     "family": "Mann",
+     "given": "J. J."
+    }
+   ],
+   "year": "2011",
+   "title": "The Columbia-suicide severity rating scale: Initial validity and internal consistency findings from three multisite studies with adolescents and adults",
+   "container": "The American Journal of Psychiatry",
+   "volume": "168",
+   "first_page": "1266",
+   "last_page": "1277",
+   "doi": "10.1176/appi.ajp.2011.10111704"
+  },
+  {
+   "bib_id": 59,
+   "authors": [
+    {
+     "family": "Pugh",
+     "given": "D."
+    },
+    {
+     "family": "Saunders",
+     "given": "R."
+    },
+    {
+     "family": "Jones",
+     "given": "A."
+    },
+    {
+     "family": "Dunn",
+     "given": "B. D."
+    },
+    {
+     "family": "Buckman",
+     "given": "J. E."
+    }
+   ],
+   "year": "2025",
+   "title": "Evaluating the efficacy of psychotherapeutic and pharmacological treatments for depression on anhedonia: A systematic review and meta-analysis",
+   "container": "Journal of Affective Disorders",
+   "volume": "393",
+   "first_page": "120165"
+  },
+  {
+   "bib_id": 60,
+   "authors": [
+    {
+     "family": "Pullmann",
+     "given": "M. D."
+    },
+    {
+     "family": "Rouvere",
+     "given": "J."
+    },
+    {
+     "family": "Raue",
+     "given": "P. J."
+    },
+    {
+     "family": "Fillipo",
+     "given": "I. R. G."
+    },
+    {
+     "family": "Mosser",
+     "given": "B. A."
+    },
+    {
+     "family": "Heagerty",
+     "given": "P. J."
+    },
+    {
+     "family": "Fridling-Cook",
+     "given": "N."
+    },
+    {
+     "family": "Padmanabhan",
+     "given": "A."
+    },
+    {
+     "family": "Hull",
+     "given": "T. D."
+    },
+    {
+     "family": "Areán",
+     "given": "P. A."
+    }
+   ],
+   "year": "2025",
+   "title": "Message-based vs video-based psychotherapy for depression: A randomized clinical trial",
+   "container": "JAMA Network Open",
+   "volume": "8",
+   "first_page": "e2540065",
+   "last_page": "e2540065",
+   "doi": "10.1001/jamanetworkopen.2025.40065"
+  },
+  {
+   "bib_id": 61,
+   "authors": [
+    {
+     "family": "Ren",
+     "given": "L."
+    },
+    {
+     "family": "Wang",
+     "given": "Y."
+    },
+    {
+     "family": "Wu",
+     "given": "L."
+    },
+    {
+     "family": "Wei",
+     "given": "Z."
+    },
+    {
+     "family": "Cui",
+     "given": "L.-B."
+    },
+    {
+     "family": "Wei",
+     "given": "X."
+    },
+    {
+     "family": "Hu",
+     "given": "X."
+    },
+    {
+     "family": "Peng",
+     "given": "J."
+    },
+    {
+     "family": "Jin",
+     "given": "Y."
+    },
+    {
+     "family": "Li",
+     "given": "F."
+    },
+    {
+     "family": "Yang",
+     "given": "Q."
+    },
+    {
+     "family": "Liu",
+     "given": "X."
+    }
+   ],
+   "year": "2021",
+   "title": "Network structure of depression and anxiety symptoms in Chinese female nursing students",
+   "container": "BMC Psychiatry",
+   "volume": "21",
+   "first_page": "279",
+   "doi": "10.1186/s12888-021-03276-1"
+  },
+  {
+   "bib_id": 62,
+   "authors": [
+    {
+     "family": "Ribeiro Santiago",
+     "given": "P. H."
+    },
+    {
+     "family": "Soares",
+     "given": "G. H."
+    },
+    {
+     "family": "Quintero",
+     "given": "A."
+    },
+    {
+     "family": "Jamieson",
+     "given": "L."
+    }
+   ],
+   "year": "2024",
+   "title": "Comparing the clique percolation algorithm to other overlapping community detection algorithms in psychological networks: A Monte Carlo simulation study",
+   "container": "Behavior Research Methods",
+   "volume": "56",
+   "first_page": "7219",
+   "last_page": "7240",
+   "doi": "10.3758/s13428-024-02415-2"
+  },
+  {
+   "bib_id": 63,
+   "authors": [
+    {
+     "family": "Saha",
+     "given": "S."
+    },
+    {
+     "family": "Lim",
+     "given": "C. C."
+    },
+    {
+     "family": "Cannon",
+     "given": "D. L."
+    },
+    {
+     "family": "Burton",
+     "given": "L."
+    },
+    {
+     "family": "Bremner",
+     "given": "M."
+    },
+    {
+     "family": "Cosgrove",
+     "given": "P."
+    },
+    {
+     "family": "Huo",
+     "given": "Y."
+    },
+    {
+     "family": "J McGrath",
+     "given": "J."
+    }
+   ],
+   "year": "2021",
+   "title": "Co-morbidity between mood and anxiety disorders: A systematic review and meta-analysis",
+   "container": "Depression and Anxiety",
+   "volume": "38",
+   "first_page": "286",
+   "last_page": "306",
+   "doi": "10.1002/da.23113"
+  },
+  {
+   "bib_id": 64,
+   "authors": [
+    {
+     "family": "Snyder",
+     "given": "H. R."
+    },
+    {
+     "family": "Silton",
+     "given": "R. L."
+    },
+    {
+     "family": "Hankin",
+     "given": "B. L."
+    },
+    {
+     "family": "Smolker",
+     "given": "H. R."
+    },
+    {
+     "family": "Kaiser",
+     "given": "R. H."
+    },
+    {
+     "family": "Banich",
+     "given": "M. T."
+    },
+    {
+     "family": "Miller",
+     "given": "G. A."
+    },
+    {
+     "family": "Heller",
+     "given": "W."
+    }
+   ],
+   "year": "2023",
+   "title": "The dimensional structure of internalizing psychopathology: Relation to diagnostic categories",
+   "container": "Clinical Psychological Science",
+   "volume": "11",
+   "first_page": "1044",
+   "last_page": "1063",
+   "doi": "10.1177/21677026221119483"
+  },
+  {
+   "bib_id": 65,
+   "authors": [
+    {
+     "family": "Spitzer",
+     "given": "R. L."
+    },
+    {
+     "family": "Kroenke",
+     "given": "K."
+    },
+    {
+     "family": "Williams",
+     "given": "J. B. W."
+    },
+    {
+     "family": "Löwe",
+     "given": "B."
+    }
+   ],
+   "year": "2006",
+   "title": "A brief measure for assessing generalized anxiety disorder: The GAD-7",
+   "container": "Archives of Internal Medicine",
+   "volume": "166",
+   "first_page": "1092",
+   "last_page": "1097",
+   "doi": "10.1001/archinte.166.10.1092"
+  },
+  {
+   "bib_id": 66,
+   "authors": [
+    {
+     "family": "Stekhoven",
+     "given": "D. J."
+    },
+    {
+     "family": "Bühlmann",
+     "given": "P."
+    }
+   ],
+   "year": "2012",
+   "title": "MissForest—Non-parametric missing value imputation for mixed-type data",
+   "container": "Bioinformatics",
+   "volume": "28",
+   "first_page": "112",
+   "last_page": "118",
+   "doi": "10.1093/bioinformatics/btr597"
+  },
+  {
+   "bib_id": 67,
+   "authors": [
+    {
+     "family": "Su",
+     "given": "Y."
+    },
+    {
+     "family": "Li",
+     "given": "M."
+    },
+    {
+     "family": "Meng",
+     "given": "X."
+    }
+   ],
+   "year": "2024",
+   "title": "Symptom patterns in the co-occurrence of depressive and generalized anxiety symptoms: A network analysis of a Canadian nationally representative sample",
+   "container": "Journal of Affective Disorders",
+   "volume": "351",
+   "first_page": "888",
+   "last_page": "894",
+   "doi": "10.1016/j.jad.2024.01.266"
+  },
+  {
+   "bib_id": 68,
+   "authors": [
+    {
+     "family": "Sullivan",
+     "given": "P. F."
+    },
+    {
+     "family": "Kessler",
+     "given": "R. C."
+    },
+    {
+     "family": "Kendler",
+     "given": "K. S."
+    }
+   ],
+   "year": "1998",
+   "title": "Latent class analysis of lifetime depressive symptoms in the national comorbidity survey",
+   "container": "American Journal of Psychiatry",
+   "volume": "155",
+   "first_page": "1398",
+   "last_page": "1406",
+   "doi": "10.1176/ajp.155.10.1398"
+  },
+  {
+   "bib_id": 69,
+   "authors": [
+    {
+     "family": "Tamm",
+     "given": "S."
+    },
+    {
+     "family": "Katrina",
+     "given": "Y."
+    },
+    {
+     "family": "Hellier",
+     "given": "J."
+    },
+    {
+     "family": "Saunders",
+     "given": "K. E."
+    },
+    {
+     "family": "Harmer",
+     "given": "C. J."
+    },
+    {
+     "family": "Espie",
+     "given": "C. A."
+    },
+    {
+     "family": "Reid",
+     "given": "M."
+    },
+    {
+     "family": "Kyle",
+     "given": "S. D."
+    }
+   ],
+   "year": "2025",
+   "title": "Emotional processing following digital cognitive behavioral therapy for insomnia in people with depressive symptoms: A randomized clinical trial",
+   "container": "JAMA Network Open",
+   "volume": "8",
+   "first_page": "e2461502",
+   "last_page": "e2461502",
+   "doi": "10.1001/jamanetworkopen.2024.61502"
+  },
+  {
+   "bib_id": 70,
+   "authors": [
+    {
+     "family": "Ten Have",
+     "given": "M."
+    },
+    {
+     "family": "Tuithof",
+     "given": "M."
+    },
+    {
+     "family": "Van Dorsselaer",
+     "given": "S."
+    },
+    {
+     "family": "Batelaan",
+     "given": "N. M."
+    },
+    {
+     "family": "Penninx",
+     "given": "B. W."
+    },
+    {
+     "family": "Luik",
+     "given": "A. I."
+    },
+    {
+     "family": "Vermunt",
+     "given": "J. K."
+    }
+   ],
+   "year": "2024",
+   "title": "Identification of latent classes in mood and anxiety disorders and their transitions over time: A follow-up study in the adult general population",
+   "container": "Psychological Medicine",
+   "volume": "54",
+   "first_page": "3417",
+   "last_page": "3424",
+   "doi": "10.1017/S0033291724001740"
+  },
+  {
+   "bib_id": 71,
+   "authors": [
+    {
+     "family": "Terlizzi",
+     "given": "E. P."
+    },
+    {
+     "family": "Zablotsky",
+     "given": "B."
+    }
+   ],
+   "year": "2024"
+  },
+  {
+   "bib_id": 72,
+   "authors": [
+    {
+     "family": "Tomitaka",
+     "given": "S."
+    },
+    {
+     "family": "Kawasaki",
+     "given": "Y."
+    },
+    {
+     "family": "Ide",
+     "given": "K."
+    },
+    {
+     "family": "Akutagawa",
+     "given": "M."
+    },
+    {
+     "family": "Yamada",
+     "given": "H."
+    },
+    {
+     "family": "Ono",
+     "given": "Y."
+    },
+    {
+     "family": "Furukawa",
+     "given": "T. A."
+    }
+   ],
+   "year": "2018",
+   "title": "Distributional patterns of item responses and total scores on the PHQ-9 in the general population: Data from the National Health and nutrition examination survey",
+   "container": "BMC Psychiatry",
+   "volume": "18",
+   "first_page": "108",
+   "doi": "10.1186/s12888-018-1696-9"
+  },
+  {
+   "bib_id": 73,
+   "authors": [
+    {
+     "family": "Topper",
+     "given": "M."
+    },
+    {
+     "family": "Emmelkamp",
+     "given": "P. M."
+    },
+    {
+     "family": "Watkins",
+     "given": "E."
+    },
+    {
+     "family": "Ehring",
+     "given": "T."
+    }
+   ],
+   "year": "2017",
+   "title": "Prevention of anxiety disorders and depression by targeting excessive worry and rumination in adolescents and young adults: A randomized controlled trial",
+   "container": "Behaviour Research and Therapy",
+   "volume": "90",
+   "first_page": "123",
+   "last_page": "136",
+   "doi": "10.1016/j.brat.2016.12.015"
+  },
+  {
+   "bib_id": 74,
+   "authors": [
+    {
+     "family": "Tundo",
+     "given": "A."
+    },
+    {
+     "family": "Musetti",
+     "given": "L."
+    },
+    {
+     "family": "Del Grande",
+     "given": "C."
+    },
+    {
+     "family": "de Filippis",
+     "given": "R."
+    },
+    {
+     "family": "Proietti",
+     "given": "L."
+    },
+    {
+     "family": "Marazziti",
+     "given": "D."
+    },
+    {
+     "family": "Gibertoni",
+     "given": "D."
+    },
+    {
+     "family": "Dell’Osso",
+     "given": "L."
+    }
+   ],
+   "year": "2021",
+   "title": "The relationship between depression with anxious distress DSM-5 specifier and mixed depression: A network analysis",
+   "container": "CNS Spectrums",
+   "volume": "26",
+   "first_page": "251",
+   "last_page": "257",
+   "doi": "10.1017/S1092852920000085"
+  },
+  {
+   "bib_id": 75,
+   "authors": [
+    {
+     "family": "Ulbricht",
+     "given": "C. M."
+    },
+    {
+     "family": "Chrysanthopoulou",
+     "given": "S. A."
+    },
+    {
+     "family": "Levin",
+     "given": "L."
+    },
+    {
+     "family": "Lapane",
+     "given": "K. L."
+    }
+   ],
+   "year": "2018",
+   "title": "The use of latent class analysis for identifying subtypes of depression: A systematic review",
+   "container": "Psychiatry Research",
+   "volume": "266",
+   "first_page": "228",
+   "last_page": "246",
+   "doi": "10.1016/j.psychres.2018.03.003"
+  },
+  {
+   "bib_id": 76,
+   "authors": [
+    {
+     "family": "Vakkalanka",
+     "given": "J. P."
+    },
+    {
+     "family": "Gadag",
+     "given": "K."
+    },
+    {
+     "family": "Lavin",
+     "given": "L."
+    },
+    {
+     "family": "Ternes",
+     "given": "S."
+    },
+    {
+     "family": "Healy",
+     "given": "H. S."
+    },
+    {
+     "family": "Merchant",
+     "given": "K. A."
+    },
+    {
+     "family": "Scott",
+     "given": "W."
+    },
+    {
+     "family": "Wiggins",
+     "given": "W."
+    },
+    {
+     "family": "Ward",
+     "given": "M. M."
+    },
+    {
+     "family": "Mohr",
+     "given": "N. M."
+    }
+   ],
+   "year": "2024",
+   "title": "Telehealth use and health equity for mental health and substance use disorder during the COVID-19 pandemic: A systematic review",
+   "container": "Telemedicine and e-Health",
+   "volume": "30",
+   "first_page": "1205",
+   "last_page": "1220",
+   "doi": "10.1089/tmj.2023.0588"
+  },
+  {
+   "bib_id": 77,
+   "authors": [
+    {
+     "family": "Wahlund",
+     "given": "T."
+    },
+    {
+     "family": "Perrin",
+     "given": "S."
+    },
+    {
+     "family": "Olofsdotter Lauri",
+     "given": "K."
+    },
+    {
+     "family": "Burman",
+     "given": "M."
+    },
+    {
+     "family": "Dagerborn",
+     "given": "S."
+    },
+    {
+     "family": "Meregalli",
+     "given": "M."
+    },
+    {
+     "family": "Västhagen",
+     "given": "M."
+    },
+    {
+     "family": "Jolstedt",
+     "given": "M."
+    },
+    {
+     "family": "Nord",
+     "given": "M."
+    },
+    {
+     "family": "Serlachius",
+     "given": "E."
+    },
+    {
+     "family": "Vigerland",
+     "given": "S."
+    },
+    {
+     "family": "Andersson",
+     "given": "E."
+    }
+   ],
+   "year": "2025",
+   "title": "Internet-delivered cognitive behavioral therapy for adolescents with excessive worry: A randomized controlled trial with mediation analysis",
+   "container": "Cognitive Behaviour Therapy",
+   "first_page": "1",
+   "last_page": "23",
+   "doi": "10.1080/16506073.2025.2515196"
+  },
+  {
+   "bib_id": 78,
+   "authors": [
+    {
+     "family": "Wampold",
+     "given": "B. E."
+    }
+   ],
+   "year": "2015",
+   "title": "How important are the common factors in psychotherapy? An update",
+   "container": "World Psychiatry",
+   "volume": "14",
+   "first_page": "270",
+   "last_page": "277",
+   "doi": "10.1002/wps.20238"
+  },
+  {
+   "bib_id": 79,
+   "authors": [
+    {
+     "family": "Wichers",
+     "given": "M."
+    },
+    {
+     "family": "Lothmann",
+     "given": "C."
+    },
+    {
+     "family": "Simons",
+     "given": "C. J."
+    },
+    {
+     "family": "Nicolson",
+     "given": "N. A."
+    },
+    {
+     "family": "Peeters",
+     "given": "F."
+    }
+   ],
+   "year": "2012",
+   "title": "The dynamic interplay between negative and positive emotions in daily life predicts response to treatment in depression: A momentary assessment study",
+   "container": "British Journal of Clinical Psychology",
+   "volume": "51",
+   "first_page": "206",
+   "last_page": "222",
+   "doi": "10.1111/j.2044-8260.2011.02021.x"
+  },
+  {
+   "bib_id": 80,
+   "authors": [
+    {
+     "family": "Widiger",
+     "given": "T. A."
+    },
+    {
+     "family": "Clark",
+     "given": "L. A."
+    }
+   ],
+   "year": "2000",
+   "title": "Toward DSM—V and the classification of psychopathology",
+   "container": "Psychological Bulletin",
+   "volume": "126",
+   "first_page": "946",
+   "last_page": "963",
+   "doi": "10.1037/0033-2909.126.6.946"
+  },
+  {
+   "bib_id": 81,
+   "authors": [
+    {
+     "family": "World Health Organization",
+     "given": ""
+    }
+   ],
+   "year": "2022",
+   "title": "World mental health report: Transforming mental health for all",
+   "container": "World Psychiatry",
+   "volume": "21",
+   "first_page": "391",
+   "last_page": "392"
+  },
+  {
+   "bib_id": 82,
+   "authors": [
+    {
+     "family": "Wu",
+     "given": "L."
+    },
+    {
+     "family": "Ren",
+     "given": "L."
+    },
+    {
+     "family": "Li",
+     "given": "F."
+    },
+    {
+     "family": "Shi",
+     "given": "K."
+    },
+    {
+     "family": "Fang",
+     "given": "P."
+    },
+    {
+     "family": "Wang",
+     "given": "X."
+    },
+    {
+     "family": "Feng",
+     "given": "T."
+    },
+    {
+     "family": "Wu",
+     "given": "S."
+    },
+    {
+     "family": "Liu",
+     "given": "X."
+    }
+   ],
+   "year": "2023",
+   "title": "Network analysis of anxiety symptoms in front-line medical staff during the COVID-19 pandemic",
+   "container": "Brain Sciences",
+   "volume": "13",
+   "first_page": "1155",
+   "doi": "10.3390/brainsci13081155"
+  },
+  {
+   "bib_id": 83,
+   "authors": [
+    {
+     "family": "Wu",
+     "given": "Y."
+    },
+    {
+     "family": "Levis",
+     "given": "B."
+    },
+    {
+     "family": "Riehm",
+     "given": "K. E."
+    },
+    {
+     "family": "Saadat",
+     "given": "N."
+    },
+    {
+     "family": "Levis",
+     "given": "A. W."
+    },
+    {
+     "family": "Azar",
+     "given": "M."
+    },
+    {
+     "family": "Rice",
+     "given": "D. B."
+    },
+    {
+     "family": "Boruff",
+     "given": "J."
+    },
+    {
+     "family": "Cuijpers",
+     "given": "P."
+    },
+    {
+     "family": "Gilbody",
+     "given": "S."
+    },
+    {
+     "family": "Ioannidis",
+     "given": "J. P. A."
+    },
+    {
+     "family": "Kloda",
+     "given": "L. A."
+    },
+    {
+     "family": "McMillan",
+     "given": "D."
+    },
+    {
+     "family": "Patten",
+     "given": "S. B."
+    },
+    {
+     "family": "Shrier",
+     "given": "I."
+    },
+    {
+     "family": "Ziegelstein",
+     "given": "R. C."
+    },
+    {
+     "family": "Akena",
+     "given": "D. H."
+    },
+    {
+     "family": "Arroll",
+     "given": "B."
+    },
+    {
+     "family": "Ayalon",
+     "given": "L."
+    },
+    {
+     "family": "Thombs",
+     "given": "B. D."
+    }
+   ],
+   "year": "2020",
+   "title": "Equivalency of the diagnostic accuracy of the PHQ-8 and PHQ-9: A systematic review and individual participant data meta-analysis",
+   "container": "Psychological Medicine",
+   "volume": "50",
+   "first_page": "1368",
+   "last_page": "1380",
+   "doi": "10.1017/S0033291719001314"
+  },
+  {
+   "bib_id": 84,
+   "authors": [
+    {
+     "family": "Zhang",
+     "given": "P."
+    },
+    {
+     "family": "Wang",
+     "given": "L."
+    },
+    {
+     "family": "Zhou",
+     "given": "Q."
+    },
+    {
+     "family": "Dong",
+     "given": "X."
+    },
+    {
+     "family": "Guo",
+     "given": "Y."
+    },
+    {
+     "family": "Wang",
+     "given": "P."
+    },
+    {
+     "family": "He",
+     "given": "W."
+    },
+    {
+     "family": "Wang",
+     "given": "R."
+    },
+    {
+     "family": "Wu",
+     "given": "T."
+    },
+    {
+     "family": "Yao",
+     "given": "Z."
+    },
+    {
+     "family": "Hu",
+     "given": "B."
+    },
+    {
+     "family": "Wang",
+     "given": "Y."
+    },
+    {
+     "family": "Zhang",
+     "given": "Q."
+    },
+    {
+     "family": "Sun",
+     "given": "C."
+    }
+   ],
+   "year": "2023",
+   "title": "A network analysis of anxiety and depression symptoms in Chinese disabled elderly",
+   "container": "Journal of Affective Disorders",
+   "volume": "333",
+   "first_page": "535",
+   "last_page": "542",
+   "doi": "10.1016/j.jad.2023.04.065"
+  },
+  {
+   "bib_id": 85,
+   "authors": [
+    {
+     "family": "Zhiguo",
+     "given": "W."
+    },
+    {
+     "family": "Yiru",
+     "given": "F."
+    }
+   ],
+   "year": "2014",
+   "title": "Comorbidity of depressive and anxiety disorders: Challenges in diagnosis and assessment",
+   "container": "Shanghai Archives of Psychiatry",
+   "volume": "26",
+   "first_page": "227"
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-core-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "jats_doi": "10.1017/S0033291726105480"
+ }
+}

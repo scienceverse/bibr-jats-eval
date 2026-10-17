@@ -1,0 +1,677 @@
+{
+ "paper_id": "10.1371_journal.pone.0357492",
+ "info": {
+  "title": "Confidence-guided integration of otoscopy videos and tympanometry for middle ear disease diagnosis: A multi-center otoscopy study with external paired-cohort evaluation",
+  "doi": "10.1371/journal.pone.0357492",
+  "file_name": "10.1371_journal.pone.0357492.pdf",
+  "abstract": "Accurate diagnosis of middle ear diseases using otoscopy remains challenging, particularly in primary care settings where clinician experience with otoscopy varies and visual examination alone may not fully capture middle ear physiology. Although AI-based models have shown promise for automated otoscopy interpretation, most rely primarily on visual information, creating an opportunity to improve diagnostic robustness by integrating complementary physiological measurements. Here, we present OtoTymp-AI, a confidence-guided multimodal decision-fusion framework that integrates otoscopy video analysis with conventional 226 Hz tympanometry. A convolutional neural network was trained to classify otoscopy videos, and tympanometric measurements were incorporated through a clinically interpretable, rule-guided decision strategy to refine visually uncertain predictions rather than through jointly trained multimodal representation learning. Within this multi-center otoscopy study, multimodal evaluation was performed in one independent external cohort comprising 104 videos with paired tympanometry across six diagnostic categories. In this exploratory paired-cohort analysis, the video-only CNN achieved an overall accuracy of 63.46% (95% CI, 53.88–72.08), while the hybrid video-plus-tympanometry framework achieved 81.73% accuracy (95% CI, 73.22–87.98) at the best observed threshold of 0.90, corresponding to an observed absolute improvement of 18.27 percentage points over the CNN-only model (95% paired bootstrap CI, 9.62–26.92). Improvements were observed for selected categories represented in this cohort, including effusion and retraction, although confidence intervals were wide for categories with small positive sample sizes. These findings suggest that integrating anatomical video information with physiological tympanometry may improve AI-assisted middle ear diagnosis in this external paired cohort, but the operating threshold and per-class performance require confirmation in larger prospective paired multimodal cohorts."
+ },
+ "author": [
+  {
+   "author_id": 1,
+   "given": "Hao",
+   "family": "Lu",
+   "affiliation": "Center for Artificial Intelligence Research, Wake Forest University School of Medicine, Winston-Salem, North Carolina, United States of America",
+   "email": "",
+   "orcid": "",
+   "corresponding": true
+  },
+  {
+   "author_id": 2,
+   "given": "Carl D.",
+   "family": "Langefeld",
+   "affiliation": "Center for Artificial Intelligence Research, Wake Forest University School of Medicine, Winston-Salem, North Carolina, United States of America; Department of Biostatistics and Data Science, Wake Forest University School of Medicine, Winston-Salem, North Carolina, United States of America",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 3,
+   "given": "Amy",
+   "family": "Zinnia",
+   "affiliation": "Department of Biostatistics and Data Science, Wake Forest University School of Medicine, Winston-Salem, North Carolina, United States of America",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 4,
+   "given": "Muhammet Fatih",
+   "family": "Demir",
+   "affiliation": "Center for Artificial Intelligence Research, Wake Forest University School of Medicine, Winston-Salem, North Carolina, United States of America",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 5,
+   "given": "Shalaka",
+   "family": "Chavan",
+   "affiliation": "Center for Artificial Intelligence Research, Wake Forest University School of Medicine, Winston-Salem, North Carolina, United States of America",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 6,
+   "given": "Charles A.",
+   "family": "Elmaraghy",
+   "affiliation": "Department of Otolaryngology—Head and Neck Surgery, Nationwide Children’s Hospital and The Ohio State University, Columbus, Ohio, United States of America",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 7,
+   "given": "Margaret",
+   "family": "Wilson",
+   "affiliation": "Department of Otolaryngology-Head and Neck Surgery, Vanderbilt University Medical Center, Nashville, Tennessee, United States of America",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 8,
+   "given": "Muhammad Khalid Khan",
+   "family": "Niazi",
+   "affiliation": "Department of Pathology, The Ohio State University, Columbus, Ohio, United States of America",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 9,
+   "given": "Aaron C.",
+   "family": "Moberly",
+   "affiliation": "Department of Otolaryngology-Head and Neck Surgery, Vanderbilt University Medical Center, Nashville, Tennessee, United States of America",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 10,
+   "given": "Metin N.",
+   "family": "Gurcan",
+   "affiliation": "Center for Artificial Intelligence Research, Wake Forest University School of Medicine, Winston-Salem, North Carolina, United States of America",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  }
+ ],
+ "section": [
+  {
+   "section_id": 1,
+   "section_type": "abstract",
+   "header": "Abstract",
+   "level": 1,
+   "parent_section_id": null,
+   "classification_score": 1.0
+  }
+ ],
+ "text": [
+  {
+   "text_id": 1,
+   "section_id": 1,
+   "paragraph_id": 1,
+   "text": "Accurate diagnosis of middle ear diseases using otoscopy remains challenging, particularly in primary care settings where clinician experience with otoscopy varies and visual examination alone may not fully capture middle ear physiology. Although AI-based models have shown promise for automated otoscopy interpretation, most rely primarily on visual information, creating an opportunity to improve diagnostic robustness by integrating complementary physiological measurements. Here, we present OtoTymp-AI, a confidence-guided multimodal decision-fusion framework that integrates otoscopy video analysis with conventional 226 Hz tympanometry. A convolutional neural network was trained to classify otoscopy videos, and tympanometric measurements were incorporated through a clinically interpretable, rule-guided decision strategy to refine visually uncertain predictions rather than through jointly trained multimodal representation learning. Within this multi-center otoscopy study, multimodal evaluation was performed in one independent external cohort comprising 104 videos with paired tympanometry across six diagnostic categories. In this exploratory paired-cohort analysis, the video-only CNN achieved an overall accuracy of 63.46% (95% CI, 53.88–72.08), while the hybrid video-plus-tympanometry framework achieved 81.73% accuracy (95% CI, 73.22–87.98) at the best observed threshold of 0.90, corresponding to an observed absolute improvement of 18.27 percentage points over the CNN-only model (95% paired bootstrap CI, 9.62–26.92). Improvements were observed for selected categories represented in this cohort, including effusion and retraction, although confidence intervals were wide for categories with small positive sample sizes. These findings suggest that integrating anatomical video information with physiological tympanometry may improve AI-assisted middle ear diagnosis in this external paired cohort, but the operating threshold and per-class performance require confirmation in larger prospective paired multimodal cohorts.",
+   "page_number": 1
+  }
+ ],
+ "bib": [
+  {
+   "bib_id": 1,
+   "authors": [
+    {
+     "family": "Monasta",
+     "given": "L"
+    },
+    {
+     "family": "Ronfani",
+     "given": "L"
+    },
+    {
+     "family": "Marchetti",
+     "given": "F"
+    },
+    {
+     "family": "Montico",
+     "given": "M"
+    },
+    {
+     "family": "Vecchi Brumatti",
+     "given": "L"
+    },
+    {
+     "family": "Bavcar",
+     "given": "A"
+    }
+   ],
+   "year": "2012",
+   "title": "Burden of disease caused by otitis media: systematic review and global estimates",
+   "container": "PLoS One",
+   "volume": "7",
+   "doi": "10.1371/journal.pone.0036226"
+  },
+  {
+   "bib_id": 2,
+   "authors": [
+    {
+     "family": "Teele",
+     "given": "DW"
+    },
+    {
+     "family": "Klein",
+     "given": "JO"
+    },
+    {
+     "family": "Rosner",
+     "given": "BA"
+    }
+   ],
+   "year": "1980",
+   "title": "Epidemiology of otitis media in children",
+   "container": "Ann Otol Rhinol Laryngol Suppl",
+   "volume": "89",
+   "first_page": "5",
+   "last_page": "6",
+   "doi": "10.1177/00034894800890s304"
+  },
+  {
+   "bib_id": 3,
+   "authors": [
+    {
+     "family": "Rosenfeld",
+     "given": "RM"
+    },
+    {
+     "family": "Shin",
+     "given": "JJ"
+    },
+    {
+     "family": "Schwartz",
+     "given": "SR"
+    },
+    {
+     "family": "Coggins",
+     "given": "R"
+    },
+    {
+     "family": "Gagnon",
+     "given": "L"
+    },
+    {
+     "family": "Hackell",
+     "given": "JM"
+    }
+   ],
+   "year": "2016",
+   "title": "Clinical practice guideline: otitis media with effusion (Update)",
+   "container": "Otolaryngol Head Neck Surg",
+   "volume": "154",
+   "doi": "10.1177/0194599815623467"
+  },
+  {
+   "bib_id": 4,
+   "authors": [
+    {
+     "family": "Pozin",
+     "given": "M"
+    },
+    {
+     "family": "Nyaeme",
+     "given": "M"
+    },
+    {
+     "family": "Peterman",
+     "given": "N"
+    },
+    {
+     "family": "Jagasia",
+     "given": "A"
+    }
+   ],
+   "year": "2024",
+   "title": "Geospatial evaluation of access to otolaryngology care in the United States",
+   "container": "Laryngoscope Investig Otolaryngol",
+   "volume": "9",
+   "doi": "10.1002/lio2.1239"
+  },
+  {
+   "bib_id": 5,
+   "authors": [
+    {
+     "family": "Pourshahrokhi",
+     "given": "N"
+    },
+    {
+     "family": "Norouzi",
+     "given": "S"
+    },
+    {
+     "family": "Mianroodi",
+     "given": "AA"
+    },
+    {
+     "family": "Ahmadian",
+     "given": "L"
+    }
+   ],
+   "year": "2025",
+   "title": "Evaluating the efficacy of digital otoscopes in rural pediatric otitis media diagnosis: a comparative study of general practitioners and ENT specialists",
+   "container": "Int J Med Inform",
+   "volume": "204",
+   "first_page": "106042",
+   "doi": "10.1016/j.ijmedinf.2025.106042"
+  },
+  {
+   "bib_id": 6,
+   "authors": [
+    {
+     "family": "Cavuoto Petrizzo",
+     "given": "M"
+    },
+    {
+     "family": "Olvet",
+     "given": "DM"
+    },
+    {
+     "family": "Samuels",
+     "given": "R"
+    },
+    {
+     "family": "Paul",
+     "given": "A"
+    },
+    {
+     "family": "John",
+     "given": "JT"
+    },
+    {
+     "family": "Pawelczak",
+     "given": "M"
+    }
+   ],
+   "year": "2023",
+   "title": "Utilization of video otoscopes for otoscopy skills training of third year medical students",
+   "container": "Adv Med Educ Pract",
+   "volume": "14",
+   "first_page": "363",
+   "doi": "10.2147/AMEP.S396046"
+  },
+  {
+   "bib_id": 7,
+   "authors": [
+    {
+     "family": "Hedman",
+     "given": "M"
+    },
+    {
+     "family": "Kosuta",
+     "given": "V"
+    },
+    {
+     "family": "Lindmark",
+     "given": "M"
+    },
+    {
+     "family": "Sandström",
+     "given": "J"
+    },
+    {
+     "family": "Trinh",
+     "given": "B"
+    },
+    {
+     "family": "Sundvall",
+     "given": "P-D"
+    }
+   ],
+   "year": "2026",
+   "title": "Diagnostic accuracy of otitis media with and without a fictitious AI support among physicians in primary care and medical students",
+   "container": "Scand J Prim Health Care",
+   "volume": "44",
+   "first_page": "1",
+   "last_page": "13",
+   "doi": "10.1080/02813432.2025.2571936"
+  },
+  {
+   "bib_id": 8,
+   "authors": [
+    {
+     "family": "Guo",
+     "given": "Z"
+    }
+   ],
+   "year": "2024",
+   "title": "Global, regional, and national burden of hearing loss in children and adolescents, 1990–2021: a systematic analysis from the Global Burden of Disease Study 2021",
+   "container": "BMC Public Health",
+   "volume": "24",
+   "first_page": "2521"
+  },
+  {
+   "bib_id": 9,
+   "authors": [
+    {
+     "family": "Cha",
+     "given": "D"
+    },
+    {
+     "family": "Pae",
+     "given": "C"
+    },
+    {
+     "family": "Seong",
+     "given": "S-B"
+    },
+    {
+     "family": "Choi",
+     "given": "JY"
+    },
+    {
+     "family": "Park",
+     "given": "H-J"
+    }
+   ],
+   "year": "2019",
+   "title": "Automated diagnosis of ear disease using ensemble deep learning with a big otoendoscopy image database",
+   "container": "EBioMedicine",
+   "volume": "45",
+   "first_page": "606",
+   "doi": "10.1016/j.ebiom.2019.06.050"
+  },
+  {
+   "bib_id": 10,
+   "authors": [
+    {
+     "family": "Camalan",
+     "given": "S"
+    },
+    {
+     "family": "Niazi",
+     "given": "MKK"
+    },
+    {
+     "family": "Moberly",
+     "given": "AC"
+    },
+    {
+     "family": "Teknos",
+     "given": "T"
+    },
+    {
+     "family": "Essig",
+     "given": "G"
+    },
+    {
+     "family": "Elmaraghy",
+     "given": "C"
+    }
+   ],
+   "year": "2020",
+   "title": "OtoMatch: content-based eardrum image retrieval using deep learning",
+   "container": "PLoS One",
+   "volume": "15",
+   "doi": "10.1371/journal.pone.0232776"
+  },
+  {
+   "bib_id": 11,
+   "authors": [
+    {
+     "family": "Camalan",
+     "given": "S"
+    },
+    {
+     "family": "Moberly",
+     "given": "AC"
+    },
+    {
+     "family": "Teknos",
+     "given": "T"
+    },
+    {
+     "family": "Essig",
+     "given": "G"
+    },
+    {
+     "family": "Elmaraghy",
+     "given": "C"
+    },
+    {
+     "family": "Taj-Schaal",
+     "given": "N"
+    }
+   ],
+   "year": "2021",
+   "title": "OtoPair: combining right and left eardrum otoscopy images to improve the accuracy of automated image analysis",
+   "container": "Applied Sciences",
+   "volume": "11",
+   "first_page": "1831",
+   "doi": "10.3390/app11041831"
+  },
+  {
+   "bib_id": 12,
+   "authors": [
+    {
+     "family": "Camalan",
+     "given": "S"
+    },
+    {
+     "family": "Langefeld",
+     "given": "CD"
+    },
+    {
+     "family": "Zinnia",
+     "given": "A"
+    },
+    {
+     "family": "McKee",
+     "given": "B"
+    },
+    {
+     "family": "Carlson",
+     "given": "ML"
+    },
+    {
+     "family": "Deep",
+     "given": "NL"
+    }
+   ],
+   "year": "2025",
+   "title": "Digital otoscopy with computer-aided composite image generation: impact on the correct diagnosis, confidence, and time",
+   "container": "Otolaryngol Head Neck Surg",
+   "volume": "172",
+   "first_page": "152",
+   "doi": "10.1002/ohn.965"
+  },
+  {
+   "bib_id": 13,
+   "authors": [
+    {
+     "family": "Habib",
+     "given": "A-R"
+    },
+    {
+     "family": "Xu",
+     "given": "Y"
+    },
+    {
+     "family": "Bock",
+     "given": "K"
+    },
+    {
+     "family": "Mohanty",
+     "given": "S"
+    },
+    {
+     "family": "Sederholm",
+     "given": "T"
+    },
+    {
+     "family": "Weeks",
+     "given": "WB"
+    }
+   ],
+   "year": "2023",
+   "title": "Evaluating the generalizability of deep learning image classification algorithms to detect middle ear disease using otoscopy",
+   "container": "Sci Rep",
+   "volume": "13",
+   "first_page": "5368",
+   "doi": "10.1038/s41598-023-31921-0"
+  },
+  {
+   "bib_id": 14,
+   "doi": "10.1117/12.2549394"
+  },
+  {
+   "bib_id": 15,
+   "authors": [
+    {
+     "family": "Polterauer-Neuling",
+     "given": "D"
+    }
+   ],
+   "year": "2025",
+   "title": "Early results from a pressureless middle ear diagnostic and its relation to the types of tympanometry results",
+   "container": "Preprints"
+  },
+  {
+   "bib_id": 16,
+   "authors": [
+    {
+     "family": "Alvarenga",
+     "given": "KF"
+    },
+    {
+     "family": "Melo",
+     "given": "AR"
+    },
+    {
+     "family": "Rays",
+     "given": "MS"
+    },
+    {
+     "family": "Amorim",
+     "given": "AAL"
+    },
+    {
+     "family": "Jacob",
+     "given": "LCB"
+    },
+    {
+     "family": "Araújo",
+     "given": "ES"
+    }
+   ],
+   "year": "2024",
+   "title": "From research to clinical practice: an analysis of 226 Hz-probe tone tympanometry to identify otitis media with effusion in children",
+   "container": "Auris Nasus Larynx",
+   "volume": "51",
+   "first_page": "569",
+   "doi": "10.1016/j.anl.2023.12.005"
+  },
+  {
+   "bib_id": 17,
+   "doi": "10.1117/12.3006926"
+  },
+  {
+   "bib_id": 18,
+   "doi": "10.1117/12.3046822"
+  },
+  {
+   "bib_id": 19
+  },
+  {
+   "bib_id": 20,
+   "authors": [
+    {
+     "family": "Camalan",
+     "given": "S"
+    }
+   ],
+   "year": "2025"
+  },
+  {
+   "bib_id": 21,
+   "authors": [
+    {
+     "family": "Shaikh",
+     "given": "N"
+    },
+    {
+     "family": "Conway",
+     "given": "SJ"
+    },
+    {
+     "family": "Kovacevic",
+     "given": "J"
+    },
+    {
+     "family": "Condessa",
+     "given": "F"
+    },
+    {
+     "family": "Shope",
+     "given": "TR"
+    },
+    {
+     "family": "Haralam",
+     "given": "MA"
+    }
+   ],
+   "year": "2024",
+   "title": "Development and validation of an automated classifier to diagnose acute otitis media in children",
+   "container": "JAMA Pediatr",
+   "volume": "178",
+   "first_page": "401",
+   "doi": "10.1001/jamapediatrics.2024.0011"
+  },
+  {
+   "bib_id": 22,
+   "authors": [
+    {
+     "family": "Crundwell",
+     "given": "G."
+    },
+    {
+     "family": "Phillips",
+     "given": "JS"
+    },
+    {
+     "family": "Bhalla",
+     "given": "R"
+    },
+    {
+     "family": "Paleri",
+     "given": "V"
+    },
+    {
+     "family": "Powell",
+     "given": "SM"
+    }
+   ],
+   "year": "2025",
+   "title": "Clinical and audiological assessment of hearing in adults",
+   "container": "Oxford Textbook of Otolaryngology",
+   "first_page": "27",
+   "last_page": "36",
+   "doi": "10.1093/med/9780192871633.003.0005"
+  },
+  {
+   "bib_id": 23,
+   "authors": [
+    {
+     "family": "Sanford",
+     "given": "CA"
+    }
+   ],
+   "year": "2023",
+   "title": "Implementation of wideband acoustic immittance in clinical practice: relationships among audiologic and otologic findings",
+   "container": "Seminars in Hearing"
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-core-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "jats_doi": "10.1371/journal.pone.0357492"
+ }
+}

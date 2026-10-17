@@ -1,0 +1,3163 @@
+{
+ "paper_id": "10.7554_elife.108224",
+ "info": {
+  "title": "Arrayed single-gene perturbations identify drivers of human anterior neural tube closure",
+  "doi": "10.7554/eLife.108224",
+  "file_name": "10.7554_elife.108224.pdf",
+  "abstract": "Genetic studies of human embryonic morphogenesis are constrained by ethical and practical challenges, restricting insights into developmental mechanisms and disorders. Human pluripotent stem cell (hPSC)-derived organoids provide a powerful alternative for the study of embryonic morphogenesis. However, screening for genetic drivers of morphogenesis in vitro has been infeasible due to organoid variability and the high costs of performing scaled tissue-wide single-gene perturbations. By overcoming both these limitations, we developed a platform that integrates reproducible organoid morphogenesis with uniform single-gene perturbations, enabling high-throughput arrayed CRISPR interference screening in hPSC-derived organoids. To demonstrate the power of this platform, we screened 77 transcription factors in an organoid model of anterior neurulation to identify ZIC2, SOX11, and ZNF521 as essential regulators of neural tube closure. We discovered that ZIC2 and SOX11 are required for closure, while ZNF521 prevents ectopic closure points. Single-cell transcriptomic analysis of perturbed organoids revealed co-regulated gene targets of ZIC2 and SOX11 and an opposing role for ZNF521, suggesting that these transcription factors jointly govern a gene regulatory program driving neural tube closure in the anterior forebrain region. Our single-gene perturbation platform enables high-throughput genetic screening of in vitro models of human embryonic morphogenesis."
+ },
+ "author": [
+  {
+   "author_id": 1,
+   "given": "Roya E",
+   "family": "Huang",
+   "affiliation": "Department of Stem Cell and Regenerative Biology, Harvard University Cambridge United States; School of Engineering and Applied Sciences, Harvard University Cambridge United States; Department of Molecular and Cellular Biology, Harvard University Cambridge United States",
+   "email": "",
+   "orcid": "0000-0001-7267-4758",
+   "corresponding": true
+  },
+  {
+   "author_id": 2,
+   "given": "Giridhar M",
+   "family": "Anand",
+   "affiliation": "Department of Stem Cell and Regenerative Biology, Harvard University Cambridge United States; School of Engineering and Applied Sciences, Harvard University Cambridge United States; Department of Molecular and Cellular Biology, Harvard University Cambridge United States",
+   "email": "",
+   "orcid": "0009-0002-0565-6642",
+   "corresponding": true
+  },
+  {
+   "author_id": 3,
+   "given": "Heitor C",
+   "family": "Megale",
+   "affiliation": "Department of Stem Cell and Regenerative Biology, Harvard University Cambridge United States; School of Engineering and Applied Sciences, Harvard University Cambridge United States; Department of Molecular and Cellular Biology, Harvard University Cambridge United States",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 4,
+   "given": "Jason",
+   "family": "Chen",
+   "affiliation": "Department of Stem Cell and Regenerative Biology, Harvard University Cambridge United States; Department of Molecular and Cellular Biology, Harvard University Cambridge United States",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 5,
+   "given": "Chudi",
+   "family": "Abraham-Igwe",
+   "affiliation": "Department of Molecular and Cellular Biology, Harvard University Cambridge United States",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 6,
+   "given": "Sharad",
+   "family": "Ramanathan",
+   "affiliation": "Department of Stem Cell and Regenerative Biology, Harvard University Cambridge United States; School of Engineering and Applied Sciences, Harvard University Cambridge United States; Department of Molecular and Cellular Biology, Harvard University Cambridge United States",
+   "email": "",
+   "orcid": "0000-0001-9445-1248",
+   "corresponding": true
+  }
+ ],
+ "section": [
+  {
+   "section_id": 1,
+   "section_type": "abstract",
+   "header": "Abstract",
+   "level": 1,
+   "parent_section_id": null,
+   "classification_score": 1.0
+  }
+ ],
+ "text": [
+  {
+   "text_id": 1,
+   "section_id": 1,
+   "paragraph_id": 1,
+   "text": "Genetic studies of human embryonic morphogenesis are constrained by ethical and practical challenges, restricting insights into developmental mechanisms and disorders. Human pluripotent stem cell (hPSC)-derived organoids provide a powerful alternative for the study of embryonic morphogenesis. However, screening for genetic drivers of morphogenesis in vitro has been infeasible due to organoid variability and the high costs of performing scaled tissue-wide single-gene perturbations. By overcoming both these limitations, we developed a platform that integrates reproducible organoid morphogenesis with uniform single-gene perturbations, enabling high-throughput arrayed CRISPR interference screening in hPSC-derived organoids. To demonstrate the power of this platform, we screened 77 transcription factors in an organoid model of anterior neurulation to identify ZIC2, SOX11, and ZNF521 as essential regulators of neural tube closure. We discovered that ZIC2 and SOX11 are required for closure, while ZNF521 prevents ectopic closure points. Single-cell transcriptomic analysis of perturbed organoids revealed co-regulated gene targets of ZIC2 and SOX11 and an opposing role for ZNF521, suggesting that these transcription factors jointly govern a gene regulatory program driving neural tube closure in the anterior forebrain region. Our single-gene perturbation platform enables high-throughput genetic screening of in vitro models of human embryonic morphogenesis.",
+   "page_number": 1
+  }
+ ],
+ "bib": [
+  {
+   "bib_id": 1,
+   "authors": [
+    {
+     "family": "Aguilera-Castrejon",
+     "given": "A"
+    },
+    {
+     "family": "Oldak",
+     "given": "B"
+    },
+    {
+     "family": "Shani",
+     "given": "T"
+    },
+    {
+     "family": "Ghanem",
+     "given": "N"
+    },
+    {
+     "family": "Itzkovich",
+     "given": "C"
+    },
+    {
+     "family": "Slomovich",
+     "given": "S"
+    },
+    {
+     "family": "Tarazi",
+     "given": "S"
+    },
+    {
+     "family": "Bayerl",
+     "given": "J"
+    },
+    {
+     "family": "Chugaeva",
+     "given": "V"
+    },
+    {
+     "family": "Ayyash",
+     "given": "M"
+    },
+    {
+     "family": "Ashouokhi",
+     "given": "S"
+    },
+    {
+     "family": "Sheban",
+     "given": "D"
+    },
+    {
+     "family": "Livnat",
+     "given": "N"
+    },
+    {
+     "family": "Lasman",
+     "given": "L"
+    },
+    {
+     "family": "Viukov",
+     "given": "S"
+    },
+    {
+     "family": "Zerbib",
+     "given": "M"
+    },
+    {
+     "family": "Addadi",
+     "given": "Y"
+    },
+    {
+     "family": "Rais",
+     "given": "Y"
+    },
+    {
+     "family": "Cheng",
+     "given": "S"
+    },
+    {
+     "family": "Stelzer",
+     "given": "Y"
+    }
+   ],
+   "year": "2021",
+   "title": "Ex utero mouse embryogenesis from pre-gastrulation to late organogenesis",
+   "container": "Nature",
+   "volume": "593",
+   "first_page": "119",
+   "last_page": "124",
+   "doi": "10.1038/s41586-021-03416-3"
+  },
+  {
+   "bib_id": 2,
+   "authors": [
+    {
+     "family": "Al-Jawahiri",
+     "given": "R"
+    },
+    {
+     "family": "Foroutan",
+     "given": "A"
+    },
+    {
+     "family": "Kerkhof",
+     "given": "J"
+    },
+    {
+     "family": "McConkey",
+     "given": "H"
+    },
+    {
+     "family": "Levy",
+     "given": "M"
+    },
+    {
+     "family": "Haghshenas",
+     "given": "S"
+    },
+    {
+     "family": "Rooney",
+     "given": "K"
+    },
+    {
+     "family": "Turner",
+     "given": "J"
+    },
+    {
+     "family": "Shears",
+     "given": "D"
+    },
+    {
+     "family": "Holder",
+     "given": "M"
+    },
+    {
+     "family": "Lefroy",
+     "given": "H"
+    },
+    {
+     "family": "Castle",
+     "given": "B"
+    },
+    {
+     "family": "Reis",
+     "given": "LM"
+    },
+    {
+     "family": "Semina",
+     "given": "EV"
+    },
+    {
+     "family": "University of Washington Centre for Mendelian Genomics (UW-CMG)",
+     "given": ""
+    },
+    {
+     "family": "Lachlan",
+     "given": "K"
+    },
+    {
+     "family": "Chandler",
+     "given": "K"
+    },
+    {
+     "family": "Wright",
+     "given": "T"
+    },
+    {
+     "family": "Clayton-Smith",
+     "given": "J"
+    },
+    {
+     "family": "Hug",
+     "given": "FP"
+    },
+    {
+     "family": "Reis",
+     "given": "A"
+    }
+   ],
+   "year": "2022",
+   "title": "SOX11 variants cause a neurodevelopmental disorder with infrequent ocular malformations and hypogonadotropic hypogonadism and with distinct DNA methylation profile",
+   "container": "Genetics in Medicine",
+   "volume": "24",
+   "first_page": "1261",
+   "last_page": "1273",
+   "doi": "10.1016/j.gim.2022.02.013"
+  },
+  {
+   "bib_id": 3,
+   "authors": [
+    {
+     "family": "al Yacoub",
+     "given": "N"
+    },
+    {
+     "family": "Romanowska",
+     "given": "M"
+    },
+    {
+     "family": "Haritonova",
+     "given": "N"
+    },
+    {
+     "family": "Foerster",
+     "given": "J"
+    }
+   ],
+   "year": "2007",
+   "title": "Optimized production and concentration of lentiviral vectors containing large inserts",
+   "container": "The Journal of Gene Medicine",
+   "volume": "9",
+   "first_page": "579",
+   "last_page": "584",
+   "doi": "10.1002/jgm.1052"
+  },
+  {
+   "bib_id": 4,
+   "authors": [
+    {
+     "family": "Anand",
+     "given": "GM"
+    },
+    {
+     "family": "Megale",
+     "given": "HC"
+    },
+    {
+     "family": "Murphy",
+     "given": "SH"
+    },
+    {
+     "family": "Weis",
+     "given": "T"
+    },
+    {
+     "family": "Lin",
+     "given": "Z"
+    },
+    {
+     "family": "He",
+     "given": "Y"
+    },
+    {
+     "family": "Wang",
+     "given": "X"
+    },
+    {
+     "family": "Liu",
+     "given": "J"
+    },
+    {
+     "family": "Ramanathan",
+     "given": "S"
+    }
+   ],
+   "year": "2023",
+   "title": "Controlling organoid symmetry breaking uncovers an excitable system underlying human axial elongation",
+   "container": "Cell",
+   "volume": "186",
+   "first_page": "497",
+   "last_page": "512",
+   "doi": "10.1016/j.cell.2022.12.043"
+  },
+  {
+   "bib_id": 5,
+   "authors": [
+    {
+     "family": "Bondurand",
+     "given": "N"
+    },
+    {
+     "family": "Kobetz",
+     "given": "A"
+    },
+    {
+     "family": "Pingault",
+     "given": "V"
+    },
+    {
+     "family": "Lemort",
+     "given": "N"
+    },
+    {
+     "family": "Encha-Razavi",
+     "given": "F"
+    },
+    {
+     "family": "Couly",
+     "given": "G"
+    },
+    {
+     "family": "Goerich",
+     "given": "DE"
+    },
+    {
+     "family": "Wegner",
+     "given": "M"
+    },
+    {
+     "family": "Abitbol",
+     "given": "M"
+    },
+    {
+     "family": "Goossens",
+     "given": "M"
+    }
+   ],
+   "year": "1998",
+   "title": "Expression of the SOX10 gene during human development",
+   "container": "FEBS Letters",
+   "volume": "432",
+   "first_page": "168",
+   "last_page": "172",
+   "doi": "10.1016/s0014-5793(98)00843-6"
+  },
+  {
+   "bib_id": 6,
+   "authors": [
+    {
+     "family": "Bonnard",
+     "given": "C"
+    },
+    {
+     "family": "Navaratnam",
+     "given": "N"
+    },
+    {
+     "family": "Ghosh",
+     "given": "K"
+    },
+    {
+     "family": "Chan",
+     "given": "PW"
+    },
+    {
+     "family": "Tan",
+     "given": "TT"
+    },
+    {
+     "family": "Pomp",
+     "given": "O"
+    },
+    {
+     "family": "Ng",
+     "given": "AYJ"
+    },
+    {
+     "family": "Tohari",
+     "given": "S"
+    },
+    {
+     "family": "Changede",
+     "given": "R"
+    },
+    {
+     "family": "Carling",
+     "given": "D"
+    },
+    {
+     "family": "Venkatesh",
+     "given": "B"
+    },
+    {
+     "family": "Altunoglu",
+     "given": "U"
+    },
+    {
+     "family": "Kayserili",
+     "given": "H"
+    },
+    {
+     "family": "Reversade",
+     "given": "B"
+    }
+   ],
+   "year": "2020",
+   "title": "A loss-of-function NUAK2 mutation in humans causes anencephaly due to impaired Hippo-YAP signaling",
+   "container": "The Journal of Experimental Medicine",
+   "volume": "217",
+   "first_page": "e20191561",
+   "doi": "10.1084/jem.20191561"
+  },
+  {
+   "bib_id": 7,
+   "authors": [
+    {
+     "family": "Britton",
+     "given": "G"
+    },
+    {
+     "family": "Heemskerk",
+     "given": "I"
+    },
+    {
+     "family": "Hodge",
+     "given": "R"
+    },
+    {
+     "family": "Qutub",
+     "given": "AA"
+    },
+    {
+     "family": "Warmflash",
+     "given": "A"
+    }
+   ],
+   "year": "2019",
+   "title": "A novel self-organizing embryonic stem cell system reveals signaling logic underlying the patterning of human ectoderm",
+   "container": "Development",
+   "volume": "146",
+   "first_page": "dev179093",
+   "doi": "10.1242/dev.179093"
+  },
+  {
+   "bib_id": 8,
+   "authors": [
+    {
+     "family": "Brown",
+     "given": "LY"
+    },
+    {
+     "family": "Dong",
+     "given": "W"
+    },
+    {
+     "family": "Kantor",
+     "given": "B"
+    }
+   ],
+   "year": "2020",
+   "title": "An improved protocol for the production of lentiviral vectors",
+   "container": "STAR Protocols",
+   "volume": "1",
+   "first_page": "100152",
+   "doi": "10.1016/j.xpro.2020.100152"
+  },
+  {
+   "bib_id": 9,
+   "authors": [
+    {
+     "family": "Corbin",
+     "given": "JG"
+    },
+    {
+     "family": "Rutlin",
+     "given": "M"
+    },
+    {
+     "family": "Gaiano",
+     "given": "N"
+    },
+    {
+     "family": "Fishell",
+     "given": "G"
+    }
+   ],
+   "year": "2003",
+   "title": "Combinatorial function of the homeodomain proteins Nkx2.1 and Gsh2 in ventral telencephalic patterning",
+   "container": "Development",
+   "volume": "130",
+   "first_page": "4895",
+   "last_page": "4906",
+   "doi": "10.1242/dev.00717"
+  },
+  {
+   "bib_id": 10,
+   "authors": [
+    {
+     "family": "Corsini",
+     "given": "NS"
+    },
+    {
+     "family": "Knoblich",
+     "given": "JA"
+    }
+   ],
+   "year": "2022",
+   "title": "Human organoids: New strategies and methods for analyzing human development and disease",
+   "container": "Cell",
+   "volume": "185",
+   "first_page": "2756",
+   "last_page": "2769",
+   "doi": "10.1016/j.cell.2022.06.051"
+  },
+  {
+   "bib_id": 11,
+   "authors": [
+    {
+     "family": "Debacker",
+     "given": "C"
+    },
+    {
+     "family": "Catala",
+     "given": "M"
+    },
+    {
+     "family": "Labastie",
+     "given": "MC"
+    }
+   ],
+   "year": "1999",
+   "title": "Embryonic expression of the human GATA-3 gene",
+   "container": "Mechanisms of Development",
+   "volume": "85",
+   "first_page": "183",
+   "last_page": "187",
+   "doi": "10.1016/s0925-4773(99)00088-x"
+  },
+  {
+   "bib_id": 12,
+   "authors": [
+    {
+     "family": "Dottori",
+     "given": "M"
+    },
+    {
+     "family": "Gross",
+     "given": "MK"
+    },
+    {
+     "family": "Labosky",
+     "given": "P"
+    },
+    {
+     "family": "Goulding",
+     "given": "M"
+    }
+   ],
+   "year": "2001",
+   "title": "The winged-helix transcription factor Foxd3 suppresses interneuron differentiation and promotes neural crest cell fate",
+   "container": "Development",
+   "volume": "128",
+   "first_page": "4127",
+   "last_page": "4138",
+   "doi": "10.1242/dev.128.21.4127"
+  },
+  {
+   "bib_id": 13,
+   "authors": [
+    {
+     "family": "Elms",
+     "given": "P"
+    },
+    {
+     "family": "Siggers",
+     "given": "P"
+    },
+    {
+     "family": "Napper",
+     "given": "D"
+    },
+    {
+     "family": "Greenfield",
+     "given": "A"
+    },
+    {
+     "family": "Arkell",
+     "given": "R"
+    }
+   ],
+   "year": "2003",
+   "title": "Zic2 is required for neural crest formation and hindbrain patterning during mouse development",
+   "container": "Developmental Biology",
+   "volume": "264",
+   "first_page": "391",
+   "last_page": "406",
+   "doi": "10.1016/j.ydbio.2003.09.005"
+  },
+  {
+   "bib_id": 14,
+   "authors": [
+    {
+     "family": "Esk",
+     "given": "C"
+    },
+    {
+     "family": "Lindenhofer",
+     "given": "D"
+    },
+    {
+     "family": "Haendeler",
+     "given": "S"
+    },
+    {
+     "family": "Wester",
+     "given": "RA"
+    },
+    {
+     "family": "Pflug",
+     "given": "F"
+    },
+    {
+     "family": "Schroeder",
+     "given": "B"
+    },
+    {
+     "family": "Bagley",
+     "given": "JA"
+    },
+    {
+     "family": "Elling",
+     "given": "U"
+    },
+    {
+     "family": "Zuber",
+     "given": "J"
+    },
+    {
+     "family": "von Haeseler",
+     "given": "A"
+    },
+    {
+     "family": "Knoblich",
+     "given": "JA"
+    }
+   ],
+   "year": "2020",
+   "title": "A human tissue screen identifies a regulator of ER secretion as a brain-size determinant",
+   "container": "Science",
+   "volume": "370",
+   "first_page": "935",
+   "last_page": "941",
+   "doi": "10.1126/science.abb5390"
+  },
+  {
+   "bib_id": 15,
+   "authors": [
+    {
+     "family": "Finkelshtein",
+     "given": "D"
+    },
+    {
+     "family": "Werman",
+     "given": "A"
+    },
+    {
+     "family": "Novick",
+     "given": "D"
+    },
+    {
+     "family": "Barak",
+     "given": "S"
+    },
+    {
+     "family": "Rubinstein",
+     "given": "M"
+    }
+   ],
+   "year": "2013",
+   "title": "LDL receptor and its family members serve as the cellular receptors for vesicular stomatitis virus",
+   "container": "PNAS",
+   "volume": "110",
+   "first_page": "7306",
+   "last_page": "7311",
+   "doi": "10.1073/pnas.1214441110"
+  },
+  {
+   "bib_id": 16,
+   "authors": [
+    {
+     "family": "Fleck",
+     "given": "JS"
+    },
+    {
+     "family": "Jansen",
+     "given": "SMJ"
+    },
+    {
+     "family": "Wollny",
+     "given": "D"
+    },
+    {
+     "family": "Zenk",
+     "given": "F"
+    },
+    {
+     "family": "Seimiya",
+     "given": "M"
+    },
+    {
+     "family": "Jain",
+     "given": "A"
+    },
+    {
+     "family": "Okamoto",
+     "given": "R"
+    },
+    {
+     "family": "Santel",
+     "given": "M"
+    },
+    {
+     "family": "He",
+     "given": "Z"
+    },
+    {
+     "family": "Camp",
+     "given": "JG"
+    },
+    {
+     "family": "Treutlein",
+     "given": "B"
+    }
+   ],
+   "year": "2023",
+   "title": "Inferring and perturbing cell fate regulomes in human brain organoids",
+   "container": "Nature",
+   "volume": "621",
+   "first_page": "365",
+   "last_page": "372",
+   "doi": "10.1038/s41586-022-05279-8"
+  },
+  {
+   "bib_id": 17,
+   "authors": [
+    {
+     "family": "Ha",
+     "given": "YJJ"
+    },
+    {
+     "family": "Nisal",
+     "given": "A"
+    },
+    {
+     "family": "Tang",
+     "given": "I"
+    },
+    {
+     "family": "Lee",
+     "given": "C"
+    },
+    {
+     "family": "Jhamb",
+     "given": "I"
+    },
+    {
+     "family": "Wallace",
+     "given": "C"
+    },
+    {
+     "family": "Howarth",
+     "given": "R"
+    },
+    {
+     "family": "Schroeder",
+     "given": "S"
+    },
+    {
+     "family": "Vong",
+     "given": "KI"
+    },
+    {
+     "family": "Meave",
+     "given": "N"
+    },
+    {
+     "family": "Jiwani",
+     "given": "F"
+    },
+    {
+     "family": "Barrows",
+     "given": "C"
+    },
+    {
+     "family": "Lee",
+     "given": "S"
+    },
+    {
+     "family": "Jiang",
+     "given": "N"
+    },
+    {
+     "family": "Patel",
+     "given": "A"
+    },
+    {
+     "family": "Bagga",
+     "given": "K"
+    },
+    {
+     "family": "Banka",
+     "given": "N"
+    },
+    {
+     "family": "Friedman",
+     "given": "L"
+    },
+    {
+     "family": "Blanco",
+     "given": "FA"
+    },
+    {
+     "family": "Yu",
+     "given": "S"
+    },
+    {
+     "family": "Le",
+     "given": "JT"
+    },
+    {
+     "family": "Lee",
+     "given": "JE"
+    },
+    {
+     "family": "Le",
+     "given": "JT"
+    },
+    {
+     "family": "Kim",
+     "given": "S"
+    }
+   ],
+   "year": "2025",
+   "title": "The contribution of de novo coding mutations to meningomyelocele",
+   "container": "Nature",
+   "volume": "641",
+   "first_page": "419",
+   "last_page": "426",
+   "doi": "10.1038/s41586-025-08676-x"
+  },
+  {
+   "bib_id": 18,
+   "authors": [
+    {
+     "family": "Hempel",
+     "given": "A"
+    },
+    {
+     "family": "Pagnamenta",
+     "given": "AT"
+    },
+    {
+     "family": "Blyth",
+     "given": "M"
+    },
+    {
+     "family": "Mansour",
+     "given": "S"
+    },
+    {
+     "family": "McConnell",
+     "given": "V"
+    },
+    {
+     "family": "Kou",
+     "given": "I"
+    },
+    {
+     "family": "Ikegawa",
+     "given": "S"
+    },
+    {
+     "family": "Tsurusaki",
+     "given": "Y"
+    },
+    {
+     "family": "Matsumoto",
+     "given": "N"
+    },
+    {
+     "family": "Lo-Castro",
+     "given": "A"
+    },
+    {
+     "family": "Plessis",
+     "given": "G"
+    },
+    {
+     "family": "Albrecht",
+     "given": "B"
+    },
+    {
+     "family": "Battaglia",
+     "given": "A"
+    },
+    {
+     "family": "Taylor",
+     "given": "JC"
+    },
+    {
+     "family": "Howard",
+     "given": "MF"
+    },
+    {
+     "family": "Keays",
+     "given": "D"
+    },
+    {
+     "family": "Sohal",
+     "given": "AS"
+    },
+    {
+     "family": "DDD Collaboration",
+     "given": ""
+    },
+    {
+     "family": "Kühl",
+     "given": "SJ"
+    },
+    {
+     "family": "Kini",
+     "given": "U"
+    }
+   ],
+   "year": "2016",
+   "title": "Deletions and de novo mutations of SOX11 are associated with a neurodevelopmental disorder with features of Coffin-Siris syndrome",
+   "container": "Journal of Medical Genetics",
+   "volume": "53",
+   "first_page": "152",
+   "last_page": "162",
+   "doi": "10.1136/jmedgenet-2015-103393"
+  },
+  {
+   "bib_id": 19,
+   "authors": [
+    {
+     "family": "Hermesz",
+     "given": "E"
+    },
+    {
+     "family": "Mackem",
+     "given": "S"
+    },
+    {
+     "family": "Mahon",
+     "given": "KA"
+    }
+   ],
+   "year": "1996",
+   "title": "Rpx: a novel anterior-restricted homeobox gene progressively activated in the prechordal plate, anterior neural plate and Rathke’s pouch of the mouse embryo",
+   "container": "Development",
+   "volume": "122",
+   "first_page": "41",
+   "last_page": "52",
+   "doi": "10.1242/dev.122.1.41"
+  },
+  {
+   "bib_id": 20,
+   "authors": [
+    {
+     "family": "Hofbauer",
+     "given": "P"
+    },
+    {
+     "family": "Jahnel",
+     "given": "SM"
+    },
+    {
+     "family": "Papai",
+     "given": "N"
+    },
+    {
+     "family": "Giesshammer",
+     "given": "M"
+    },
+    {
+     "family": "Deyett",
+     "given": "A"
+    },
+    {
+     "family": "Schmidt",
+     "given": "C"
+    },
+    {
+     "family": "Penc",
+     "given": "M"
+    },
+    {
+     "family": "Tavernini",
+     "given": "K"
+    },
+    {
+     "family": "Grdseloff",
+     "given": "N"
+    },
+    {
+     "family": "Meledeth",
+     "given": "C"
+    },
+    {
+     "family": "Ginistrelli",
+     "given": "LC"
+    },
+    {
+     "family": "Ctortecka",
+     "given": "C"
+    },
+    {
+     "family": "Šalic",
+     "given": "Š"
+    },
+    {
+     "family": "Novatchkova",
+     "given": "M"
+    },
+    {
+     "family": "Mendjan",
+     "given": "S"
+    }
+   ],
+   "year": "2021",
+   "title": "Cardioids reveal self-organizing principles of human cardiogenesis",
+   "container": "Cell",
+   "volume": "184",
+   "first_page": "3299",
+   "last_page": "3317",
+   "doi": "10.1016/j.cell.2021.04.034"
+  },
+  {
+   "bib_id": 21,
+   "authors": [
+    {
+     "family": "Hofer",
+     "given": "M"
+    },
+    {
+     "family": "Lutolf",
+     "given": "MP"
+    }
+   ],
+   "year": "2021",
+   "title": "Engineering organoids",
+   "container": "Nature Reviews. Materials",
+   "volume": "6",
+   "first_page": "402",
+   "last_page": "420",
+   "doi": "10.1038/s41578-021-00279-y"
+  },
+  {
+   "bib_id": 22,
+   "authors": [
+    {
+     "family": "Huang",
+     "given": "RE"
+    },
+    {
+     "family": "Anand",
+     "given": "GM"
+    }
+   ],
+   "year": "2026",
+   "title": "Software Heritage"
+  },
+  {
+   "bib_id": 23,
+   "authors": [
+    {
+     "family": "Huber",
+     "given": "A"
+    },
+    {
+     "family": "Dijkstra",
+     "given": "C"
+    },
+    {
+     "family": "Ernst",
+     "given": "M"
+    },
+    {
+     "family": "Eissmann",
+     "given": "MF"
+    }
+   ],
+   "year": "2023",
+   "title": "Generation of gene-of-interest knockouts in murine organoids using CRISPR-Cas9",
+   "container": "STAR Protocols",
+   "volume": "4",
+   "first_page": "102076",
+   "doi": "10.1016/j.xpro.2023.102076"
+  },
+  {
+   "bib_id": 24,
+   "authors": [
+    {
+     "family": "Ishida",
+     "given": "M"
+    },
+    {
+     "family": "Cullup",
+     "given": "T"
+    },
+    {
+     "family": "Boustred",
+     "given": "C"
+    },
+    {
+     "family": "James",
+     "given": "C"
+    },
+    {
+     "family": "Docker",
+     "given": "J"
+    },
+    {
+     "family": "English",
+     "given": "C"
+    },
+    {
+     "family": "Lench",
+     "given": "N"
+    },
+    {
+     "family": "Copp",
+     "given": "AJ"
+    },
+    {
+     "family": "Moore",
+     "given": "GE"
+    },
+    {
+     "family": "Greene",
+     "given": "NDE"
+    },
+    {
+     "family": "Stanier",
+     "given": "P"
+    },
+    {
+     "family": "GOSgene",
+     "given": ""
+    }
+   ],
+   "year": "2018",
+   "title": "A targeted sequencing panel identifies rare damaging variants in multiple genes in the cranial neural tube defect, anencephaly",
+   "container": "Clinical Genetics",
+   "volume": "93",
+   "first_page": "870",
+   "last_page": "879",
+   "doi": "10.1111/cge.13189"
+  },
+  {
+   "bib_id": 25,
+   "authors": [
+    {
+     "family": "Jacobson",
+     "given": "AG"
+    }
+   ],
+   "year": "1991",
+   "title": "Experimental analyses of the shaping of the neural plate and tube",
+   "container": "American Zoologist",
+   "volume": "31",
+   "first_page": "628",
+   "last_page": "643",
+   "doi": "10.1093/icb/31.4.628"
+  },
+  {
+   "bib_id": 26,
+   "authors": [
+    {
+     "family": "Justice",
+     "given": "MJ"
+    },
+    {
+     "family": "Dhillon",
+     "given": "P"
+    }
+   ],
+   "year": "2016",
+   "title": "Using the mouse to model human disease: increasing validity and reproducibility",
+   "container": "Disease Models & Mechanisms",
+   "volume": "9",
+   "first_page": "101",
+   "last_page": "103",
+   "doi": "10.1242/dmm.024547"
+  },
+  {
+   "bib_id": 27,
+   "authors": [
+    {
+     "family": "Karfunkel",
+     "given": "P"
+    }
+   ],
+   "year": "1974",
+   "title": "The mechanisms of neural tube formation",
+   "container": "International Review of Cytology",
+   "volume": "38",
+   "first_page": "245",
+   "last_page": "271",
+   "doi": "10.1016/s0074-7696(08)60927-4"
+  },
+  {
+   "bib_id": 28,
+   "authors": [
+    {
+     "family": "Karzbrun",
+     "given": "E"
+    },
+    {
+     "family": "Khankhel",
+     "given": "AH"
+    },
+    {
+     "family": "Megale",
+     "given": "HC"
+    },
+    {
+     "family": "Glasauer",
+     "given": "SMK"
+    },
+    {
+     "family": "Wyle",
+     "given": "Y"
+    },
+    {
+     "family": "Britton",
+     "given": "G"
+    },
+    {
+     "family": "Warmflash",
+     "given": "A"
+    },
+    {
+     "family": "Kosik",
+     "given": "KS"
+    },
+    {
+     "family": "Siggia",
+     "given": "ED"
+    },
+    {
+     "family": "Shraiman",
+     "given": "BI"
+    },
+    {
+     "family": "Streichan",
+     "given": "SJ"
+    }
+   ],
+   "year": "2021",
+   "title": "Human neural tube morphogenesis in vitro by geometric constraints",
+   "container": "Nature",
+   "volume": "599",
+   "first_page": "268",
+   "last_page": "272",
+   "doi": "10.1038/s41586-021-04026-9"
+  },
+  {
+   "bib_id": 29,
+   "authors": [
+    {
+     "family": "Laclef",
+     "given": "C"
+    },
+    {
+     "family": "Hamard",
+     "given": "G"
+    },
+    {
+     "family": "Demignon",
+     "given": "J"
+    },
+    {
+     "family": "Souil",
+     "given": "E"
+    },
+    {
+     "family": "Houbron",
+     "given": "C"
+    },
+    {
+     "family": "Maire",
+     "given": "P"
+    }
+   ],
+   "year": "2003",
+   "title": "Altered myogenesis in Six1-deficient mice",
+   "container": "Development",
+   "volume": "130",
+   "first_page": "2239",
+   "last_page": "2252",
+   "doi": "10.1242/dev.00440"
+  },
+  {
+   "bib_id": 30,
+   "authors": [
+    {
+     "family": "Leask",
+     "given": "A"
+    },
+    {
+     "family": "Byrne",
+     "given": "C"
+    },
+    {
+     "family": "Fuchs",
+     "given": "E"
+    }
+   ],
+   "year": "1991",
+   "title": "Transcription factor AP2 and its role in epidermal-specific gene expression",
+   "container": "PNAS",
+   "volume": "88",
+   "first_page": "7948",
+   "last_page": "7952",
+   "doi": "10.1073/pnas.88.18.7948"
+  },
+  {
+   "bib_id": 31,
+   "authors": [
+    {
+     "family": "Lee",
+     "given": "JY"
+    },
+    {
+     "family": "Lee",
+     "given": "HH"
+    }
+   ],
+   "year": "2018",
+   "title": "A new chemical complex can rapidly concentrate lentivirus and significantly enhance gene transduction",
+   "container": "Cytotechnology",
+   "volume": "70",
+   "first_page": "193",
+   "last_page": "201",
+   "doi": "10.1007/s10616-017-0133-0"
+  },
+  {
+   "bib_id": 32,
+   "authors": [
+    {
+     "family": "Li",
+     "given": "JY"
+    },
+    {
+     "family": "Joyner",
+     "given": "AL"
+    }
+   ],
+   "year": "2001",
+   "title": "Otx2 and Gbx2 are required for refinement and not induction of mid-hindbrain gene expression",
+   "container": "Development",
+   "volume": "128",
+   "first_page": "4979",
+   "last_page": "4991",
+   "doi": "10.1242/dev.128.24.4979"
+  },
+  {
+   "bib_id": 33,
+   "authors": [
+    {
+     "family": "Li",
+     "given": "H"
+    },
+    {
+     "family": "Zhang",
+     "given": "J"
+    },
+    {
+     "family": "Chen",
+     "given": "S"
+    },
+    {
+     "family": "Wang",
+     "given": "F"
+    },
+    {
+     "family": "Zhang",
+     "given": "T"
+    },
+    {
+     "family": "Niswander",
+     "given": "L"
+    }
+   ],
+   "year": "2018",
+   "title": "Genetic contribution of retinoid-related genes to neural tube defects",
+   "container": "Human Mutation",
+   "volume": "39",
+   "first_page": "550",
+   "last_page": "562",
+   "doi": "10.1002/humu.23397"
+  },
+  {
+   "bib_id": 34,
+   "authors": [
+    {
+     "family": "Li",
+     "given": "C"
+    },
+    {
+     "family": "Fleck",
+     "given": "JS"
+    },
+    {
+     "family": "Martins-Costa",
+     "given": "C"
+    },
+    {
+     "family": "Burkard",
+     "given": "TR"
+    },
+    {
+     "family": "Themann",
+     "given": "J"
+    },
+    {
+     "family": "Stuempflen",
+     "given": "M"
+    },
+    {
+     "family": "Peer",
+     "given": "AM"
+    },
+    {
+     "family": "Vertesy",
+     "given": "Á"
+    },
+    {
+     "family": "Littleboy",
+     "given": "JB"
+    },
+    {
+     "family": "Esk",
+     "given": "C"
+    },
+    {
+     "family": "Elling",
+     "given": "U"
+    },
+    {
+     "family": "Kasprian",
+     "given": "G"
+    },
+    {
+     "family": "Corsini",
+     "given": "NS"
+    },
+    {
+     "family": "Treutlein",
+     "given": "B"
+    },
+    {
+     "family": "Knoblich",
+     "given": "JA"
+    }
+   ],
+   "year": "2023",
+   "title": "Single-cell brain organoid screening identifies developmental defects in autism",
+   "container": "Nature",
+   "volume": "621",
+   "first_page": "373",
+   "last_page": "380",
+   "doi": "10.1038/s41586-023-06473-y"
+  },
+  {
+   "bib_id": 35,
+   "authors": [
+    {
+     "family": "Mandegar",
+     "given": "MA"
+    },
+    {
+     "family": "Huebsch",
+     "given": "N"
+    },
+    {
+     "family": "Frolov",
+     "given": "EB"
+    },
+    {
+     "family": "Shin",
+     "given": "E"
+    },
+    {
+     "family": "Truong",
+     "given": "A"
+    },
+    {
+     "family": "Olvera",
+     "given": "MP"
+    },
+    {
+     "family": "Chan",
+     "given": "AH"
+    },
+    {
+     "family": "Miyaoka",
+     "given": "Y"
+    },
+    {
+     "family": "Holmes",
+     "given": "K"
+    },
+    {
+     "family": "Spencer",
+     "given": "CI"
+    },
+    {
+     "family": "Judge",
+     "given": "LM"
+    },
+    {
+     "family": "Gordon",
+     "given": "DE"
+    },
+    {
+     "family": "Eskildsen",
+     "given": "TV"
+    },
+    {
+     "family": "Villalta",
+     "given": "JE"
+    },
+    {
+     "family": "Horlbeck",
+     "given": "MA"
+    },
+    {
+     "family": "Gilbert",
+     "given": "LA"
+    },
+    {
+     "family": "Krogan",
+     "given": "NJ"
+    },
+    {
+     "family": "Sheikh",
+     "given": "SP"
+    },
+    {
+     "family": "Weissman",
+     "given": "JS"
+    },
+    {
+     "family": "Qi",
+     "given": "LS"
+    }
+   ],
+   "year": "2016",
+   "title": "CRISPR interference efficiently induces specific and reversible gene silencing in human iPSCs",
+   "container": "Cell Stem Cell",
+   "volume": "18",
+   "first_page": "541",
+   "last_page": "553",
+   "doi": "10.1016/j.stem.2016.01.022"
+  },
+  {
+   "bib_id": 36,
+   "authors": [
+    {
+     "family": "McLarren",
+     "given": "KW"
+    },
+    {
+     "family": "Litsiou",
+     "given": "A"
+    },
+    {
+     "family": "Streit",
+     "given": "A"
+    }
+   ],
+   "year": "2003",
+   "title": "DLX5 positions the neural crest and preplacode region at the border of the neural plate",
+   "container": "Developmental Biology",
+   "volume": "259",
+   "first_page": "34",
+   "last_page": "47",
+   "doi": "10.1016/s0012-1606(03)00177-5"
+  },
+  {
+   "bib_id": 37,
+   "authors": [
+    {
+     "family": "Melton",
+     "given": "S"
+    },
+    {
+     "family": "Ramanathan",
+     "given": "S"
+    }
+   ],
+   "year": "2021",
+   "title": "Discovering a sparse set of pairwise discriminating features in high-dimensional data",
+   "container": "Bioinformatics",
+   "volume": "37",
+   "first_page": "202",
+   "last_page": "212",
+   "doi": "10.1093/bioinformatics/btaa690"
+  },
+  {
+   "bib_id": 38,
+   "authors": [
+    {
+     "family": "Menche",
+     "given": "C"
+    },
+    {
+     "family": "Farin",
+     "given": "HF"
+    }
+   ],
+   "year": "2021",
+   "title": "Strategies for genetic manipulation of adult stem cell-derived organoids",
+   "container": "Experimental & Molecular Medicine",
+   "volume": "53",
+   "first_page": "1483",
+   "last_page": "1494",
+   "doi": "10.1038/s12276-021-00609-8"
+  },
+  {
+   "bib_id": 39,
+   "authors": [
+    {
+     "family": "Miao",
+     "given": "Y"
+    },
+    {
+     "family": "Djeffal",
+     "given": "Y"
+    },
+    {
+     "family": "De Simone",
+     "given": "A"
+    },
+    {
+     "family": "Zhu",
+     "given": "K"
+    },
+    {
+     "family": "Lee",
+     "given": "JG"
+    },
+    {
+     "family": "Lu",
+     "given": "Z"
+    },
+    {
+     "family": "Silberfeld",
+     "given": "A"
+    },
+    {
+     "family": "Rao",
+     "given": "J"
+    },
+    {
+     "family": "Tarazona",
+     "given": "OA"
+    },
+    {
+     "family": "Mongera",
+     "given": "A"
+    },
+    {
+     "family": "Rigoni",
+     "given": "P"
+    },
+    {
+     "family": "Diaz-Cuadros",
+     "given": "M"
+    },
+    {
+     "family": "Song",
+     "given": "LMS"
+    },
+    {
+     "family": "Di Talia",
+     "given": "S"
+    },
+    {
+     "family": "Pourquié",
+     "given": "O"
+    }
+   ],
+   "year": "2023",
+   "title": "Reconstruction and deconstruction of human somitogenesis in vitro",
+   "container": "Nature",
+   "volume": "614",
+   "first_page": "500",
+   "last_page": "508",
+   "doi": "10.1038/s41586-022-05655-4"
+  },
+  {
+   "bib_id": 40,
+   "authors": [
+    {
+     "family": "Nagai",
+     "given": "T"
+    },
+    {
+     "family": "Aruga",
+     "given": "J"
+    },
+    {
+     "family": "Minowa",
+     "given": "O"
+    },
+    {
+     "family": "Sugimoto",
+     "given": "T"
+    },
+    {
+     "family": "Ohno",
+     "given": "Y"
+    },
+    {
+     "family": "Noda",
+     "given": "T"
+    },
+    {
+     "family": "Mikoshiba",
+     "given": "K"
+    }
+   ],
+   "year": "2000",
+   "title": "Zic2 regulates the kinetics of neurulation",
+   "container": "PNAS",
+   "volume": "97",
+   "first_page": "1618",
+   "last_page": "1623",
+   "doi": "10.1073/pnas.97.4.1618"
+  },
+  {
+   "bib_id": 41,
+   "authors": [
+    {
+     "family": "Nakatsu",
+     "given": "T"
+    },
+    {
+     "family": "Uwabe",
+     "given": "C"
+    },
+    {
+     "family": "Shiota",
+     "given": "K"
+    }
+   ],
+   "year": "2000",
+   "title": "Neural tube closure in humans initiates at multiple sites: evidence from human embryos and implications for the pathogenesis of neural tube defects",
+   "container": "Anatomy and Embryology",
+   "volume": "201",
+   "first_page": "455",
+   "last_page": "466",
+   "doi": "10.1007/s004290050332"
+  },
+  {
+   "bib_id": 42,
+   "authors": [
+    {
+     "family": "Nikolopoulou",
+     "given": "E"
+    },
+    {
+     "family": "Galea",
+     "given": "GL"
+    },
+    {
+     "family": "Rolo",
+     "given": "A"
+    },
+    {
+     "family": "Greene",
+     "given": "NDE"
+    },
+    {
+     "family": "Copp",
+     "given": "AJ"
+    }
+   ],
+   "year": "2017",
+   "title": "Neural tube closure: cellular, molecular and biomechanical mechanisms",
+   "container": "Development",
+   "volume": "144",
+   "first_page": "552",
+   "last_page": "566",
+   "doi": "10.1242/dev.145904"
+  },
+  {
+   "bib_id": 43,
+   "authors": [
+    {
+     "family": "Nüsslein-Volhard",
+     "given": "C"
+    },
+    {
+     "family": "Wieschaus",
+     "given": "E"
+    }
+   ],
+   "year": "1980",
+   "title": "Mutations affecting segment number and polarity in Drosophila",
+   "container": "Nature",
+   "volume": "287",
+   "first_page": "795",
+   "last_page": "801",
+   "doi": "10.1038/287795a0"
+  },
+  {
+   "bib_id": 44,
+   "authors": [
+    {
+     "family": "Nüsslein-Volhard",
+     "given": "C"
+    }
+   ],
+   "year": "2012",
+   "title": "The zebrafish issue of development",
+   "container": "Development",
+   "volume": "139",
+   "first_page": "4099",
+   "last_page": "4103",
+   "doi": "10.1242/dev.085217"
+  },
+  {
+   "bib_id": 45,
+   "authors": [
+    {
+     "family": "Oldak",
+     "given": "B"
+    },
+    {
+     "family": "Wildschutz",
+     "given": "E"
+    },
+    {
+     "family": "Bondarenko",
+     "given": "V"
+    },
+    {
+     "family": "Comar",
+     "given": "M-Y"
+    },
+    {
+     "family": "Zhao",
+     "given": "C"
+    },
+    {
+     "family": "Aguilera-Castrejon",
+     "given": "A"
+    },
+    {
+     "family": "Tarazi",
+     "given": "S"
+    },
+    {
+     "family": "Viukov",
+     "given": "S"
+    },
+    {
+     "family": "Pham",
+     "given": "TXA"
+    },
+    {
+     "family": "Ashouokhi",
+     "given": "S"
+    },
+    {
+     "family": "Lokshtanov",
+     "given": "D"
+    },
+    {
+     "family": "Roncato",
+     "given": "F"
+    },
+    {
+     "family": "Ariel",
+     "given": "E"
+    },
+    {
+     "family": "Rose",
+     "given": "M"
+    },
+    {
+     "family": "Livnat",
+     "given": "N"
+    },
+    {
+     "family": "Shani",
+     "given": "T"
+    },
+    {
+     "family": "Joubran",
+     "given": "C"
+    },
+    {
+     "family": "Cohen",
+     "given": "R"
+    },
+    {
+     "family": "Addadi",
+     "given": "Y"
+    },
+    {
+     "family": "Chemla",
+     "given": "M"
+    }
+   ],
+   "year": "2023",
+   "title": "Complete human day 14 post-implantation embryo models from naive ES cells",
+   "container": "Nature",
+   "volume": "622",
+   "first_page": "562",
+   "last_page": "573",
+   "doi": "10.1038/s41586-023-06604-5"
+  },
+  {
+   "bib_id": 46,
+   "authors": [
+    {
+     "family": "Oliver",
+     "given": "G"
+    },
+    {
+     "family": "Mailhos",
+     "given": "A"
+    },
+    {
+     "family": "Wehr",
+     "given": "R"
+    },
+    {
+     "family": "Copeland",
+     "given": "NG"
+    },
+    {
+     "family": "Jenkins",
+     "given": "NA"
+    },
+    {
+     "family": "Gruss",
+     "given": "P"
+    }
+   ],
+   "year": "1995",
+   "title": "Six3, a murine homologue of the sine oculis gene, demarcates the most anterior border of the developing neural plate and is expressed during eye development",
+   "container": "Development",
+   "volume": "121",
+   "first_page": "4045",
+   "last_page": "4055",
+   "doi": "10.1242/dev.121.12.4045"
+  },
+  {
+   "bib_id": 47,
+   "authors": [
+    {
+     "family": "O’Rahilly",
+     "given": "R"
+    },
+    {
+     "family": "Müller",
+     "given": "F"
+    }
+   ],
+   "year": "2002",
+   "title": "The two sites of fusion of the neural folds and the two neuropores in the human embryo",
+   "container": "Teratology",
+   "volume": "65",
+   "first_page": "162",
+   "last_page": "170",
+   "doi": "10.1002/tera.10007"
+  },
+  {
+   "bib_id": 48,
+   "authors": [
+    {
+     "family": "Ortmann",
+     "given": "D"
+    },
+    {
+     "family": "Vallier",
+     "given": "L"
+    }
+   ],
+   "year": "2017",
+   "title": "Variability of human pluripotent stem cell lines",
+   "container": "Current Opinion in Genetics & Development",
+   "volume": "46",
+   "first_page": "179",
+   "last_page": "185",
+   "doi": "10.1016/j.gde.2017.07.004"
+  },
+  {
+   "bib_id": 49,
+   "authors": [
+    {
+     "family": "Püschel",
+     "given": "AW"
+    },
+    {
+     "family": "Westerfield",
+     "given": "M"
+    },
+    {
+     "family": "Dressler",
+     "given": "GR"
+    }
+   ],
+   "year": "1992",
+   "title": "Comparative analysis of Pax-2 protein distributions during neurulation in mice and zebrafish",
+   "container": "Mechanisms of Development",
+   "volume": "38",
+   "first_page": "197",
+   "last_page": "208",
+   "doi": "10.1016/0925-4773(92)90053-m"
+  },
+  {
+   "bib_id": 50,
+   "authors": [
+    {
+     "family": "Replogle",
+     "given": "JM"
+    },
+    {
+     "family": "Norman",
+     "given": "TM"
+    },
+    {
+     "family": "Xu",
+     "given": "A"
+    },
+    {
+     "family": "Hussmann",
+     "given": "JA"
+    },
+    {
+     "family": "Chen",
+     "given": "J"
+    },
+    {
+     "family": "Cogan",
+     "given": "JZ"
+    },
+    {
+     "family": "Meer",
+     "given": "EJ"
+    },
+    {
+     "family": "Terry",
+     "given": "JM"
+    },
+    {
+     "family": "Riordan",
+     "given": "DP"
+    },
+    {
+     "family": "Srinivas",
+     "given": "N"
+    },
+    {
+     "family": "Fiddes",
+     "given": "IT"
+    },
+    {
+     "family": "Arthur",
+     "given": "JG"
+    },
+    {
+     "family": "Alvarado",
+     "given": "LJ"
+    },
+    {
+     "family": "Pfeiffer",
+     "given": "KA"
+    },
+    {
+     "family": "Mikkelsen",
+     "given": "TS"
+    },
+    {
+     "family": "Weissman",
+     "given": "JS"
+    },
+    {
+     "family": "Adamson",
+     "given": "B"
+    }
+   ],
+   "year": "2020",
+   "title": "Combinatorial single-cell CRISPR screens by direct guide RNA capture and targeted sequencing",
+   "container": "Nature Biotechnology",
+   "volume": "38",
+   "first_page": "954",
+   "last_page": "961",
+   "doi": "10.1038/s41587-020-0470-y"
+  },
+  {
+   "bib_id": 51,
+   "authors": [
+    {
+     "family": "Replogle",
+     "given": "JM"
+    },
+    {
+     "family": "Saunders",
+     "given": "RA"
+    },
+    {
+     "family": "Pogson",
+     "given": "AN"
+    },
+    {
+     "family": "Hussmann",
+     "given": "JA"
+    },
+    {
+     "family": "Lenail",
+     "given": "A"
+    },
+    {
+     "family": "Guna",
+     "given": "A"
+    },
+    {
+     "family": "Mascibroda",
+     "given": "L"
+    },
+    {
+     "family": "Wagner",
+     "given": "EJ"
+    },
+    {
+     "family": "Adelman",
+     "given": "K"
+    },
+    {
+     "family": "Lithwick-Yanai",
+     "given": "G"
+    },
+    {
+     "family": "Iremadze",
+     "given": "N"
+    },
+    {
+     "family": "Oberstrass",
+     "given": "F"
+    },
+    {
+     "family": "Lipson",
+     "given": "D"
+    },
+    {
+     "family": "Bonnar",
+     "given": "JL"
+    },
+    {
+     "family": "Jost",
+     "given": "M"
+    },
+    {
+     "family": "Norman",
+     "given": "TM"
+    },
+    {
+     "family": "Weissman",
+     "given": "JS"
+    }
+   ],
+   "year": "2022",
+   "title": "Mapping information-rich genotype-phenotype landscapes with genome-scale Perturb-seq",
+   "container": "Cell",
+   "volume": "185",
+   "first_page": "2559",
+   "last_page": "2575",
+   "doi": "10.1016/j.cell.2022.05.013"
+  },
+  {
+   "bib_id": 52,
+   "authors": [
+    {
+     "family": "Roellig",
+     "given": "D"
+    },
+    {
+     "family": "Tan-Cabugao",
+     "given": "J"
+    },
+    {
+     "family": "Esaian",
+     "given": "S"
+    },
+    {
+     "family": "Bronner",
+     "given": "ME"
+    }
+   ],
+   "year": "2017",
+   "title": "Dynamic transcriptional signature and cell fate analysis reveals plasticity of individual neural plate border cells",
+   "container": "eLife",
+   "volume": "6",
+   "first_page": "e21620",
+   "doi": "10.7554/eLife.21620"
+  },
+  {
+   "bib_id": 53,
+   "authors": [
+    {
+     "family": "Sanaki-Matsumiya",
+     "given": "M"
+    },
+    {
+     "family": "Kageyama",
+     "given": "R"
+    }
+   ],
+   "year": "2022",
+   "title": "Time-lapse bioluminescence imaging of Hes7 expression in vitro and ex vivo",
+   "container": "Methods in Molecular Biology",
+   "volume": "2525",
+   "first_page": "321",
+   "last_page": "332",
+   "doi": "10.1007/978-1-0716-2473-9_25"
+  },
+  {
+   "bib_id": 54,
+   "authors": [
+    {
+     "family": "Schelshorn",
+     "given": "DW"
+    },
+    {
+     "family": "Schneider",
+     "given": "A"
+    },
+    {
+     "family": "Kuschinsky",
+     "given": "W"
+    },
+    {
+     "family": "Weber",
+     "given": "D"
+    },
+    {
+     "family": "Krüger",
+     "given": "C"
+    },
+    {
+     "family": "Dittgen",
+     "given": "T"
+    },
+    {
+     "family": "Bürgers",
+     "given": "HF"
+    },
+    {
+     "family": "Sabouri",
+     "given": "F"
+    },
+    {
+     "family": "Gassler",
+     "given": "N"
+    },
+    {
+     "family": "Bach",
+     "given": "A"
+    },
+    {
+     "family": "Maurer",
+     "given": "MH"
+    }
+   ],
+   "year": "2009",
+   "title": "Expression of hemoglobin in rodent neurons",
+   "container": "Journal of Cerebral Blood Flow and Metabolism",
+   "volume": "29",
+   "first_page": "585",
+   "last_page": "595",
+   "doi": "10.1038/jcbfm.2008.152"
+  },
+  {
+   "bib_id": 55,
+   "authors": [
+    {
+     "family": "Singh",
+     "given": "N"
+    },
+    {
+     "family": "Kumble Bhat",
+     "given": "V"
+    },
+    {
+     "family": "Tiwari",
+     "given": "A"
+    },
+    {
+     "family": "Kodaganur",
+     "given": "SG"
+    },
+    {
+     "family": "Tontanahal",
+     "given": "SJ"
+    },
+    {
+     "family": "Sarda",
+     "given": "A"
+    },
+    {
+     "family": "Malini",
+     "given": "KV"
+    },
+    {
+     "family": "Kumar",
+     "given": "A"
+    }
+   ],
+   "year": "2017",
+   "title": "A homozygous mutation in TRIM36 causes autosomal recessive anencephaly in an Indian family",
+   "container": "Human Molecular Genetics",
+   "volume": "26",
+   "first_page": "1104",
+   "last_page": "1114",
+   "doi": "10.1093/hmg/ddx020"
+  },
+  {
+   "bib_id": 56,
+   "authors": [
+    {
+     "family": "Skarnes",
+     "given": "WC"
+    },
+    {
+     "family": "Rosen",
+     "given": "B"
+    },
+    {
+     "family": "West",
+     "given": "AP"
+    },
+    {
+     "family": "Koutsourakis",
+     "given": "M"
+    },
+    {
+     "family": "Bushell",
+     "given": "W"
+    },
+    {
+     "family": "Iyer",
+     "given": "V"
+    },
+    {
+     "family": "Mujica",
+     "given": "AO"
+    },
+    {
+     "family": "Thomas",
+     "given": "M"
+    },
+    {
+     "family": "Harrow",
+     "given": "J"
+    },
+    {
+     "family": "Cox",
+     "given": "T"
+    },
+    {
+     "family": "Jackson",
+     "given": "D"
+    },
+    {
+     "family": "Severin",
+     "given": "J"
+    },
+    {
+     "family": "Biggs",
+     "given": "P"
+    },
+    {
+     "family": "Fu",
+     "given": "J"
+    },
+    {
+     "family": "Nefedov",
+     "given": "M"
+    },
+    {
+     "family": "de Jong",
+     "given": "PJ"
+    },
+    {
+     "family": "Stewart",
+     "given": "AF"
+    },
+    {
+     "family": "Bradley",
+     "given": "A"
+    }
+   ],
+   "year": "2011",
+   "title": "A conditional knockout resource for the genome-wide study of mouse gene function",
+   "container": "Nature",
+   "volume": "474",
+   "first_page": "337",
+   "last_page": "342",
+   "doi": "10.1038/nature10163"
+  },
+  {
+   "bib_id": 57,
+   "authors": [
+    {
+     "family": "Smith",
+     "given": "JL"
+    },
+    {
+     "family": "Schoenwolf",
+     "given": "GC"
+    }
+   ],
+   "year": "1997",
+   "title": "Neurulation: coming to closure",
+   "container": "Trends in Neurosciences",
+   "volume": "20",
+   "first_page": "510",
+   "last_page": "517",
+   "doi": "10.1016/s0166-2236(97)01121-1"
+  },
+  {
+   "bib_id": 58,
+   "authors": [
+    {
+     "family": "Sock",
+     "given": "E"
+    },
+    {
+     "family": "Rettig",
+     "given": "SD"
+    },
+    {
+     "family": "Enderich",
+     "given": "J"
+    },
+    {
+     "family": "Bösl",
+     "given": "MR"
+    },
+    {
+     "family": "Tamm",
+     "given": "ER"
+    },
+    {
+     "family": "Wegner",
+     "given": "M"
+    }
+   ],
+   "year": "2004",
+   "title": "Gene targeting reveals a widespread role for the high-mobility-group transcription factor Sox11 in tissue remodeling",
+   "container": "Molecular and Cellular Biology",
+   "volume": "24",
+   "first_page": "6635",
+   "last_page": "6644",
+   "doi": "10.1128/MCB.24.15.6635-6644.2004"
+  },
+  {
+   "bib_id": 59,
+   "authors": [
+    {
+     "family": "Sun",
+     "given": "D"
+    },
+    {
+     "family": "Evans",
+     "given": "L"
+    },
+    {
+     "family": "Perrone",
+     "given": "F"
+    },
+    {
+     "family": "Sokleva",
+     "given": "V"
+    },
+    {
+     "family": "Lim",
+     "given": "K"
+    },
+    {
+     "family": "Rezakhani",
+     "given": "S"
+    },
+    {
+     "family": "Lutolf",
+     "given": "M"
+    },
+    {
+     "family": "Zilbauer",
+     "given": "M"
+    },
+    {
+     "family": "Rawlins",
+     "given": "EL"
+    }
+   ],
+   "year": "2021",
+   "title": "A functional genetic toolbox for human tissue-derived organoids",
+   "container": "eLife",
+   "volume": "10",
+   "first_page": "e67886",
+   "doi": "10.7554/eLife.67886"
+  },
+  {
+   "bib_id": 60,
+   "authors": [
+    {
+     "family": "Takagi",
+     "given": "T"
+    },
+    {
+     "family": "Moribe",
+     "given": "H"
+    },
+    {
+     "family": "Kondoh",
+     "given": "H"
+    },
+    {
+     "family": "Higashi",
+     "given": "Y"
+    }
+   ],
+   "year": "1998",
+   "title": "DeltaEF1, a zinc finger and homeodomain transcription factor, is required for skeleton patterning in multiple lineages",
+   "container": "Development",
+   "volume": "125",
+   "first_page": "21",
+   "last_page": "31",
+   "doi": "10.1242/dev.125.1.21"
+  },
+  {
+   "bib_id": 61,
+   "authors": [
+    {
+     "family": "Torres",
+     "given": "M"
+    },
+    {
+     "family": "Gómez-Pardo",
+     "given": "E"
+    },
+    {
+     "family": "Gruss",
+     "given": "P"
+    }
+   ],
+   "year": "1996",
+   "title": "Pax2 contributes to inner ear patterning and optic nerve trajectory",
+   "container": "Development",
+   "volume": "122",
+   "first_page": "3381",
+   "last_page": "3391",
+   "doi": "10.1242/dev.122.11.3381"
+  },
+  {
+   "bib_id": 62,
+   "authors": [
+    {
+     "family": "Valcourt",
+     "given": "JR"
+    },
+    {
+     "family": "Huang",
+     "given": "RE"
+    },
+    {
+     "family": "Kundu",
+     "given": "S"
+    },
+    {
+     "family": "Venkatasubramanian",
+     "given": "D"
+    },
+    {
+     "family": "Kingston",
+     "given": "RE"
+    },
+    {
+     "family": "Ramanathan",
+     "given": "S"
+    }
+   ],
+   "year": "2021",
+   "title": "Modulating mesendoderm competence during human germ layer differentiation",
+   "container": "Cell Reports",
+   "volume": "37",
+   "first_page": "109990",
+   "doi": "10.1016/j.celrep.2021.109990"
+  },
+  {
+   "bib_id": 63,
+   "authors": [
+    {
+     "family": "Van de Putte",
+     "given": "T"
+    },
+    {
+     "family": "Maruhashi",
+     "given": "M"
+    },
+    {
+     "family": "Francis",
+     "given": "A"
+    },
+    {
+     "family": "Nelles",
+     "given": "L"
+    },
+    {
+     "family": "Kondoh",
+     "given": "H"
+    },
+    {
+     "family": "Huylebroeck",
+     "given": "D"
+    },
+    {
+     "family": "Higashi",
+     "given": "Y"
+    }
+   ],
+   "year": "2003",
+   "title": "Mice lacking ZFHX1B, the gene that codes for Smad-interacting protein-1, reveal a role for multiple neural crest cell defects in the etiology of Hirschsprung disease-mental retardation syndrome",
+   "container": "American Journal of Human Genetics",
+   "volume": "72",
+   "first_page": "465",
+   "last_page": "470",
+   "doi": "10.1086/346092"
+  },
+  {
+   "bib_id": 64,
+   "authors": [
+    {
+     "family": "van der Valk",
+     "given": "WH"
+    },
+    {
+     "family": "van Beelen",
+     "given": "ESA"
+    },
+    {
+     "family": "Steinhart",
+     "given": "MR"
+    },
+    {
+     "family": "Nist-Lund",
+     "given": "C"
+    },
+    {
+     "family": "Osorio",
+     "given": "D"
+    },
+    {
+     "family": "de Groot",
+     "given": "JCMJ"
+    },
+    {
+     "family": "Sun",
+     "given": "L"
+    },
+    {
+     "family": "van Benthem",
+     "given": "PPG"
+    },
+    {
+     "family": "Koehler",
+     "given": "KR"
+    },
+    {
+     "family": "Locher",
+     "given": "H"
+    }
+   ],
+   "year": "2023",
+   "title": "A single-cell level comparison of human inner ear organoids with the human cochlea and vestibular organs",
+   "container": "Cell Reports",
+   "volume": "42",
+   "first_page": "112623",
+   "doi": "10.1016/j.celrep.2023.112623"
+  },
+  {
+   "bib_id": 65,
+   "authors": [
+    {
+     "family": "Virtual Human Embryo",
+     "given": ""
+    }
+   ],
+   "year": "2026",
+   "title": "Virtual Human Embryo"
+  },
+  {
+   "bib_id": 66,
+   "authors": [
+    {
+     "family": "Walther",
+     "given": "C"
+    },
+    {
+     "family": "Gruss",
+     "given": "P"
+    }
+   ],
+   "year": "1991",
+   "title": "Pax-6, a murine paired box gene, is expressed in the developing CNS",
+   "container": "Development",
+   "volume": "113",
+   "first_page": "1435",
+   "last_page": "1449",
+   "doi": "10.1242/dev.113.4.1435"
+  },
+  {
+   "bib_id": 67,
+   "authors": [
+    {
+     "family": "Xu",
+     "given": "Y"
+    },
+    {
+     "family": "Baldassare",
+     "given": "M"
+    },
+    {
+     "family": "Fisher",
+     "given": "P"
+    },
+    {
+     "family": "Rathbun",
+     "given": "G"
+    },
+    {
+     "family": "Oltz",
+     "given": "EM"
+    },
+    {
+     "family": "Yancopoulos",
+     "given": "GD"
+    },
+    {
+     "family": "Jessell",
+     "given": "TM"
+    },
+    {
+     "family": "Alt",
+     "given": "FW"
+    }
+   ],
+   "year": "1993",
+   "title": "LH-2: a LIM/homeodomain gene expressed in developing lymphocytes and neural cells",
+   "container": "PNAS",
+   "volume": "90",
+   "first_page": "227",
+   "last_page": "231",
+   "doi": "10.1073/pnas.90.1.227"
+  },
+  {
+   "bib_id": 68,
+   "authors": [
+    {
+     "family": "Xue",
+     "given": "L"
+    },
+    {
+     "family": "Cai",
+     "given": "JY"
+    },
+    {
+     "family": "Ma",
+     "given": "J"
+    },
+    {
+     "family": "Huang",
+     "given": "Z"
+    },
+    {
+     "family": "Guo",
+     "given": "MX"
+    },
+    {
+     "family": "Fu",
+     "given": "LZ"
+    },
+    {
+     "family": "Shi",
+     "given": "YB"
+    },
+    {
+     "family": "Li",
+     "given": "WX"
+    }
+   ],
+   "year": "2013",
+   "title": "Global expression profiling reveals genetic programs underlying the developmental divergence between mouse and human embryogenesis",
+   "container": "BMC Genomics",
+   "volume": "14",
+   "first_page": "568",
+   "doi": "10.1186/1471-2164-14-568"
+  },
+  {
+   "bib_id": 69,
+   "authors": [
+    {
+     "family": "Xue",
+     "given": "X"
+    },
+    {
+     "family": "Liu",
+     "given": "Y"
+    },
+    {
+     "family": "Fu",
+     "given": "J"
+    }
+   ],
+   "year": "2025",
+   "title": "Bioengineering embryo models",
+   "container": "Nature Reviews Bioengineering",
+   "volume": "3",
+   "first_page": "11",
+   "last_page": "29",
+   "doi": "10.1038/s44222-024-00241-x"
+  },
+  {
+   "bib_id": 70,
+   "authors": [
+    {
+     "family": "Yaman",
+     "given": "YI"
+    },
+    {
+     "family": "Ramanathan",
+     "given": "S"
+    }
+   ],
+   "year": "2023",
+   "title": "Controlling human organoid symmetry breaking reveals signaling gradients drive segmentation clock waves",
+   "container": "Cell",
+   "volume": "186",
+   "first_page": "513",
+   "last_page": "527",
+   "doi": "10.1016/j.cell.2022.12.042"
+  },
+  {
+   "bib_id": 71,
+   "authors": [
+    {
+     "family": "Yamanaka",
+     "given": "Y"
+    },
+    {
+     "family": "Hamidi",
+     "given": "S"
+    },
+    {
+     "family": "Yoshioka-Kobayashi",
+     "given": "K"
+    },
+    {
+     "family": "Munira",
+     "given": "S"
+    },
+    {
+     "family": "Sunadome",
+     "given": "K"
+    },
+    {
+     "family": "Zhang",
+     "given": "Y"
+    },
+    {
+     "family": "Kurokawa",
+     "given": "Y"
+    },
+    {
+     "family": "Ericsson",
+     "given": "R"
+    },
+    {
+     "family": "Mieda",
+     "given": "A"
+    },
+    {
+     "family": "Thompson",
+     "given": "JL"
+    },
+    {
+     "family": "Kerwin",
+     "given": "J"
+    },
+    {
+     "family": "Lisgo",
+     "given": "S"
+    },
+    {
+     "family": "Yamamoto",
+     "given": "T"
+    },
+    {
+     "family": "Moris",
+     "given": "N"
+    },
+    {
+     "family": "Martinez-Arias",
+     "given": "A"
+    },
+    {
+     "family": "Tsujimura",
+     "given": "T"
+    },
+    {
+     "family": "Alev",
+     "given": "C"
+    }
+   ],
+   "year": "2023",
+   "title": "Reconstituting human somitogenesis in vitro",
+   "container": "Nature",
+   "volume": "614",
+   "first_page": "509",
+   "last_page": "520",
+   "doi": "10.1038/s41586-022-05649-2"
+  },
+  {
+   "bib_id": 72,
+   "authors": [
+    {
+     "family": "Yuan",
+     "given": "W"
+    },
+    {
+     "family": "Chen",
+     "given": "J"
+    },
+    {
+     "family": "Cao",
+     "given": "Y"
+    },
+    {
+     "family": "Yang",
+     "given": "L"
+    },
+    {
+     "family": "Shen",
+     "given": "L"
+    },
+    {
+     "family": "Bian",
+     "given": "Q"
+    },
+    {
+     "family": "Bin",
+     "given": "S"
+    },
+    {
+     "family": "Li",
+     "given": "P"
+    },
+    {
+     "family": "Cao",
+     "given": "J"
+    },
+    {
+     "family": "Fang",
+     "given": "H"
+    },
+    {
+     "family": "Gu",
+     "given": "H"
+    },
+    {
+     "family": "Li",
+     "given": "H"
+    }
+   ],
+   "year": "2018",
+   "title": "Comparative analysis and optimization of protocols for producing recombinant lentivirus carrying the anti-Her2 chimeric antigen receptor gene",
+   "container": "The Journal of Gene Medicine",
+   "volume": "20",
+   "first_page": "e3027",
+   "doi": "10.1002/jgm.3027"
+  },
+  {
+   "bib_id": 73,
+   "authors": [
+    {
+     "family": "Zeng",
+     "given": "B"
+    },
+    {
+     "family": "Liu",
+     "given": "Z"
+    },
+    {
+     "family": "Lu",
+     "given": "Y"
+    },
+    {
+     "family": "Zhong",
+     "given": "S"
+    },
+    {
+     "family": "Qin",
+     "given": "S"
+    },
+    {
+     "family": "Huang",
+     "given": "L"
+    },
+    {
+     "family": "Zeng",
+     "given": "Y"
+    },
+    {
+     "family": "Li",
+     "given": "Z"
+    },
+    {
+     "family": "Dong",
+     "given": "H"
+    },
+    {
+     "family": "Shi",
+     "given": "Y"
+    },
+    {
+     "family": "Yang",
+     "given": "J"
+    },
+    {
+     "family": "Dai",
+     "given": "Y"
+    },
+    {
+     "family": "Ma",
+     "given": "Q"
+    },
+    {
+     "family": "Sun",
+     "given": "L"
+    },
+    {
+     "family": "Bian",
+     "given": "L"
+    },
+    {
+     "family": "Han",
+     "given": "D"
+    },
+    {
+     "family": "Chen",
+     "given": "Y"
+    },
+    {
+     "family": "Qiu",
+     "given": "X"
+    },
+    {
+     "family": "Wang",
+     "given": "W"
+    },
+    {
+     "family": "Marín",
+     "given": "O"
+    },
+    {
+     "family": "Wang",
+     "given": "Y"
+    },
+    {
+     "family": "Wang",
+     "given": "X"
+    }
+   ],
+   "year": "2023",
+   "title": "The single-cell and spatial transcriptional landscape of human gastrulation and early brain development",
+   "container": "Cell Stem Cell",
+   "volume": "30",
+   "first_page": "851",
+   "last_page": "866",
+   "doi": "10.1016/j.stem.2023.04.016"
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-core-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "jats_doi": "10.7554/eLife.108224"
+ }
+}

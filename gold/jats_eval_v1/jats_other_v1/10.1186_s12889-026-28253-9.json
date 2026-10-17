@@ -1,0 +1,1879 @@
+{
+ "paper_id": "10.1186_s12889-026-28253-9",
+ "info": {
+  "title": "Identifying predictor factors for asthma using machine learning: evidence from the English Longitudinal Study of Ageing",
+  "doi": "10.1186/s12889-026-28253-9",
+  "file_name": "10.1186_s12889-026-28253-9.pdf",
+  "keywords": [
+   "Asthma",
+   "Predictor factors",
+   "Machine learning",
+   "SHapley additive exPlanations",
+   "Predictive model"
+  ],
+  "abstract": "Background: Asthma is a common chronic inflammatory airway disease. Accumulating evidence highlights the roles of demographic, lifestyle, and comorbidity factors in the risk of asthma. This study aimed to identify predictor factors of asthma using machine learning approaches. Methods: Data were obtained from the 10th wave (2021–2023) of the English Longitudinal Study of Ageing (ELSA). Participants aged ≥ 50 years with complete information on asthma status and relevant variables were included. Baseline characteristics were compared between asthma and control groups. Subsequently, Least Absolute Shrinkage and Selection Operator (LASSO) regression was used to identify candidate variables. Eight machine learning algorithms were developed and compared to evaluate diagnostic performance. The optimal model was selected and used to determine key variables. Additionally, SHapley Additive exPlanations (SHAP) analysis was applied to interpret variable contributions. Finally, a nomogram was constructed based on the key variables. Results: A total of 3429 participants (535 asthma cases) were analyzed. Asthma was significantly associated with 19 baseline variables. LASSO regression retained 14 candidate variables. Among eight machine learning models, the Bagging Tree (BT) model achieved the highest diagnostic performance (micro-averaged area under the curve (AUC) = 0.856; macro-averaged AUC = 0.881). SHAP analysis identified alcohol consumption, marital status, and disease lung as the most influential variables. A total of 11 key variables were identified by the BT model, including marital status, vigorous physical activity, moderate physical activity, alcohol consumption, frequency of feeling isolated, depression, headache, activity limitations, disease lung, arthritis, and psychiatric disease. The nomogram showed good calibration (Hosmer-Lemeshow test p = 0.0857), but its discriminatory ability was moderate (AUC = 0.662). Conclusions: This study demonstrated that socio-behavioral factors, psychological distress, and respiratory comorbidities played important roles in asthma risk stratification. Machine learning with multidimensional variables offers a useful exploratory framework for identifying potential predictor factors and generating hypotheses for asthma prevention, although its predictive accuracy remains moderate. Supplementary Information: The online version contains supplementary material available at https://doi.org/10.1186/s12889-026-28253-9."
+ },
+ "author": [
+  {
+   "author_id": 1,
+   "given": "Zhao Chen",
+   "family": "Yang",
+   "affiliation": "Department of Respiratory/Gerontology, Xi’an Honghui Hospital, Honghui Hospital, Xi’an Jiaotong University, Xi’an, China",
+   "email": "",
+   "orcid": "",
+   "corresponding": true
+  },
+  {
+   "author_id": 2,
+   "given": "Zhou",
+   "family": "Xiao",
+   "affiliation": "Department of Respiratory/Gerontology, Xi’an Honghui Hospital, Honghui Hospital, Xi’an Jiaotong University, Xi’an, China",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  }
+ ],
+ "section": [
+  {
+   "section_id": 1,
+   "section_type": "abstract",
+   "header": "Abstract",
+   "level": 1,
+   "parent_section_id": null,
+   "classification_score": 1.0
+  }
+ ],
+ "text": [
+  {
+   "text_id": 1,
+   "section_id": 1,
+   "paragraph_id": 1,
+   "text": "Background: Asthma is a common chronic inflammatory airway disease. Accumulating evidence highlights the roles of demographic, lifestyle, and comorbidity factors in the risk of asthma. This study aimed to identify predictor factors of asthma using machine learning approaches. Methods: Data were obtained from the 10th wave (2021–2023) of the English Longitudinal Study of Ageing (ELSA). Participants aged ≥ 50 years with complete information on asthma status and relevant variables were included. Baseline characteristics were compared between asthma and control groups. Subsequently, Least Absolute Shrinkage and Selection Operator (LASSO) regression was used to identify candidate variables. Eight machine learning algorithms were developed and compared to evaluate diagnostic performance. The optimal model was selected and used to determine key variables. Additionally, SHapley Additive exPlanations (SHAP) analysis was applied to interpret variable contributions. Finally, a nomogram was constructed based on the key variables. Results: A total of 3429 participants (535 asthma cases) were analyzed. Asthma was significantly associated with 19 baseline variables. LASSO regression retained 14 candidate variables. Among eight machine learning models, the Bagging Tree (BT) model achieved the highest diagnostic performance (micro-averaged area under the curve (AUC) = 0.856; macro-averaged AUC = 0.881). SHAP analysis identified alcohol consumption, marital status, and disease lung as the most influential variables. A total of 11 key variables were identified by the BT model, including marital status, vigorous physical activity, moderate physical activity, alcohol consumption, frequency of feeling isolated, depression, headache, activity limitations, disease lung, arthritis, and psychiatric disease. The nomogram showed good calibration (Hosmer-Lemeshow test p = 0.0857), but its discriminatory ability was moderate (AUC = 0.662). Conclusions: This study demonstrated that socio-behavioral factors, psychological distress, and respiratory comorbidities played important roles in asthma risk stratification. Machine learning with multidimensional variables offers a useful exploratory framework for identifying potential predictor factors and generating hypotheses for asthma prevention, although its predictive accuracy remains moderate. Supplementary Information: The online version contains supplementary material available at https://doi.org/10.1186/s12889-026-28253-9.",
+   "page_number": 1
+  }
+ ],
+ "bib": [
+  {
+   "bib_id": 1,
+   "authors": [
+    {
+     "family": "Wang",
+     "given": "R"
+    },
+    {
+     "family": "Murray",
+     "given": "CS"
+    },
+    {
+     "family": "Fowler",
+     "given": "SJ"
+    },
+    {
+     "family": "Simpson",
+     "given": "A"
+    },
+    {
+     "family": "Durrington",
+     "given": "HJ"
+    }
+   ],
+   "year": "2021",
+   "title": "Asthma diagnosis: into the fourth dimension",
+   "container": "Thorax",
+   "volume": "76",
+   "first_page": "624"
+  },
+  {
+   "bib_id": 2,
+   "authors": [
+    {
+     "family": "Varricchi",
+     "given": "G"
+    },
+    {
+     "family": "Ferri",
+     "given": "S"
+    },
+    {
+     "family": "Pepys",
+     "given": "J"
+    },
+    {
+     "family": "Poto",
+     "given": "R"
+    },
+    {
+     "family": "Spadaro",
+     "given": "G"
+    },
+    {
+     "family": "Nappi",
+     "given": "E"
+    }
+   ],
+   "year": "2022",
+   "title": "Biologics and airway remodeling in severe asthma",
+   "container": "Allergy",
+   "volume": "77",
+   "first_page": "3538"
+  },
+  {
+   "bib_id": 3,
+   "authors": [
+    {
+     "family": "Bousquet",
+     "given": "J"
+    },
+    {
+     "family": "Schünemann",
+     "given": "HJ"
+    },
+    {
+     "family": "Sousa-Pinto",
+     "given": "B"
+    },
+    {
+     "family": "Zuberbier",
+     "given": "T"
+    },
+    {
+     "family": "Togias",
+     "given": "A"
+    },
+    {
+     "family": "Samolinski",
+     "given": "B"
+    }
+   ],
+   "year": "2024",
+   "title": "Concepts for the Development of Person-Centered, Digitally Enabled, Artificial Intelligence-Assisted ARIA Care Pathways (ARIA 2024). The journal of allergy and clinical immunology",
+   "container": "Pract",
+   "volume": "12",
+   "first_page": "2648",
+   "last_page": "e26682642"
+  },
+  {
+   "bib_id": 4,
+   "authors": [
+    {
+     "family": "Fan",
+     "given": "Z"
+    },
+    {
+     "family": "Xu",
+     "given": "M"
+    },
+    {
+     "family": "Chen",
+     "given": "S"
+    },
+    {
+     "family": "Wang",
+     "given": "J"
+    },
+    {
+     "family": "Gong",
+     "given": "Y"
+    },
+    {
+     "family": "Feng",
+     "given": "X"
+    }
+   ],
+   "year": "2024",
+   "title": "Association of Socioeconomic Status and a Broad Combination of Lifestyle Factors With Adult-Onset Asthma: A Cohort Study. The journal of allergy and clinical immunology",
+   "container": "Pract",
+   "volume": "12",
+   "first_page": "2066"
+  },
+  {
+   "bib_id": 5,
+   "authors": [
+    {
+     "family": "Renz",
+     "given": "H"
+    },
+    {
+     "family": "Skevaki",
+     "given": "C"
+    }
+   ],
+   "year": "2021",
+   "title": "Early life microbial exposures and allergy risks: opportunities for prevention",
+   "container": "Nat Rev Immunol",
+   "volume": "21",
+   "first_page": "177"
+  },
+  {
+   "bib_id": 6,
+   "authors": [
+    {
+     "family": "Melén",
+     "given": "E"
+    },
+    {
+     "family": "Zar",
+     "given": "HJ"
+    },
+    {
+     "family": "Siroux",
+     "given": "V"
+    },
+    {
+     "family": "Shaw",
+     "given": "D"
+    },
+    {
+     "family": "Saglani",
+     "given": "S"
+    },
+    {
+     "family": "Koppelman",
+     "given": "GH"
+    }
+   ],
+   "year": "2024",
+   "title": "Asthma Inception: Epidemiologic Risk Factors and Natural History Across the Life Course",
+   "container": "Am J Respir Crit Care Med",
+   "volume": "210",
+   "first_page": "737"
+  },
+  {
+   "bib_id": 7,
+   "authors": [
+    {
+     "family": "Thio",
+     "given": "CL"
+    },
+    {
+     "family": "Chang",
+     "given": "YJ"
+    }
+   ],
+   "year": "2023",
+   "title": "The modulation of pulmonary group 2 innate lymphoid cell function in asthma: from inflammatory mediators to environmental and metabolic factors",
+   "container": "Exp Mol Med",
+   "volume": "55",
+   "first_page": "1872"
+  },
+  {
+   "bib_id": 8,
+   "authors": [
+    {
+     "family": "Li",
+     "given": "H"
+    },
+    {
+     "family": "Tang",
+     "given": "X"
+    },
+    {
+     "family": "Guo",
+     "given": "X"
+    },
+    {
+     "family": "Zhang",
+     "given": "M"
+    },
+    {
+     "family": "Zhang",
+     "given": "M"
+    },
+    {
+     "family": "Nie",
+     "given": "J"
+    }
+   ],
+   "year": "2024",
+   "title": "Association of dietary patterns with chronic respiratory health among U.S. adults",
+   "container": "Front Immunol",
+   "volume": "15",
+   "first_page": "1457860"
+  },
+  {
+   "bib_id": 9
+  },
+  {
+   "bib_id": 10,
+   "authors": [
+    {
+     "family": "Kim",
+     "given": "FS"
+    },
+    {
+     "family": "Rocha",
+     "given": "JL"
+    },
+    {
+     "family": "Lunardi",
+     "given": "AC"
+    },
+    {
+     "family": "Bos",
+     "given": "DSG"
+    },
+    {
+     "family": "Santos",
+     "given": "EA"
+    },
+    {
+     "family": "Marques da Silva",
+     "given": "CCB"
+    }
+   ],
+   "year": "2024",
+   "title": "Effects of Combined Aerobic and Breathing Exercises on Asthma Control: A Randomized Controlled Trial. The journal of allergy and clinical immunology",
+   "container": "Pract",
+   "volume": "12",
+   "first_page": "3328"
+  },
+  {
+   "bib_id": 11
+  },
+  {
+   "bib_id": 12,
+   "authors": [
+    {
+     "family": "Kuder",
+     "given": "MM"
+    },
+    {
+     "family": "Clark",
+     "given": "M"
+    },
+    {
+     "family": "Cooley",
+     "given": "C"
+    },
+    {
+     "family": "Prieto-Centurion",
+     "given": "V"
+    },
+    {
+     "family": "Danley",
+     "given": "A"
+    },
+    {
+     "family": "Riley",
+     "given": "I"
+    }
+   ],
+   "year": "2021",
+   "title": "A Systematic Review of the Effect of Physical Activity on Asthma Outcomes. The journal of allergy and clinical immunology",
+   "container": "Pract",
+   "volume": "9",
+   "first_page": "3407",
+   "last_page": "e34213408"
+  },
+  {
+   "bib_id": 13,
+   "authors": [
+    {
+     "family": "Ledford",
+     "given": "DK"
+    },
+    {
+     "family": "Kim",
+     "given": "TB"
+    },
+    {
+     "family": "Ortega",
+     "given": "VE"
+    },
+    {
+     "family": "Cardet",
+     "given": "JC"
+    }
+   ],
+   "year": "2025",
+   "title": "Asthma and respiratory comorbidities",
+   "container": "J Allergy Clin Immunol",
+   "volume": "155",
+   "first_page": "316"
+  },
+  {
+   "bib_id": 14,
+   "authors": [
+    {
+     "family": "Gibson",
+     "given": "PG"
+    },
+    {
+     "family": "McDonald",
+     "given": "VM"
+    },
+    {
+     "family": "Granchelli",
+     "given": "A"
+    },
+    {
+     "family": "Olin",
+     "given": "JT"
+    }
+   ],
+   "year": "2021",
+   "title": "Asthma and Comorbid Conditions-Pulmonary Comorbidity. The journal of allergy and clinical immunology",
+   "container": "Pract",
+   "volume": "9",
+   "first_page": "3868"
+  },
+  {
+   "bib_id": 15,
+   "authors": [
+    {
+     "family": "Dahl",
+     "given": "R"
+    }
+   ],
+   "year": "2006",
+   "title": "Systemic side effects of inhaled corticosteroids in patients with asthma",
+   "container": "Respir Med",
+   "volume": "100",
+   "first_page": "1307"
+  },
+  {
+   "bib_id": 16,
+   "authors": [
+    {
+     "family": "Rolla",
+     "given": "G"
+    }
+   ],
+   "year": "2023",
+   "title": "Why Current Therapy Does Not Cure Asthma. Is It Time to Move Towards a One Health Approach?",
+   "container": "J asthma allergy",
+   "volume": "16",
+   "first_page": "933"
+  },
+  {
+   "bib_id": 17,
+   "authors": [
+    {
+     "family": "Barnes",
+     "given": "PJ"
+    }
+   ],
+   "year": "2013",
+   "title": "Corticosteroid resistance in patients with asthma and chronic obstructive pulmonary disease",
+   "container": "J Allergy Clin Immunol",
+   "volume": "131",
+   "first_page": "636"
+  },
+  {
+   "bib_id": 18,
+   "authors": [
+    {
+     "family": "Chen",
+     "given": "S"
+    },
+    {
+     "family": "Kuper",
+     "given": "H"
+    }
+   ],
+   "year": "2023",
+   "title": "Tracing the temporal trends of modifiable risk factors in dementia: insights from the English Longitudinal Study of Ageing (2004–2019)",
+   "container": "Lancet (London England)",
+   "volume": "402",
+   "first_page": "S34"
+  },
+  {
+   "bib_id": 19,
+   "authors": [
+    {
+     "family": "Hackett",
+     "given": "RA"
+    },
+    {
+     "family": "Hudson",
+     "given": "JL"
+    },
+    {
+     "family": "Chilcot",
+     "given": "J"
+    }
+   ],
+   "year": "2020",
+   "title": "Loneliness and type 2 diabetes incidence: findings from the English Longitudinal Study of Ageing",
+   "container": "Diabetologia",
+   "volume": "63",
+   "first_page": "2329"
+  },
+  {
+   "bib_id": 20,
+   "authors": [
+    {
+     "family": "Beard",
+     "given": "JR"
+    },
+    {
+     "family": "Hanewald",
+     "given": "K"
+    },
+    {
+     "family": "Si",
+     "given": "Y"
+    },
+    {
+     "family": "Amuthavalli Thiyagarajan",
+     "given": "J"
+    },
+    {
+     "family": "Moreno-Agostino",
+     "given": "D"
+    }
+   ],
+   "year": "2025",
+   "title": "Cohort trends in intrinsic capacity in England and China",
+   "container": "Nat aging",
+   "volume": "5",
+   "first_page": "87",
+   "last_page": "98"
+  },
+  {
+   "bib_id": 21,
+   "authors": [
+    {
+     "family": "Xiong",
+     "given": "Y"
+    },
+    {
+     "family": "Zhong",
+     "given": "Q"
+    },
+    {
+     "family": "Zhang",
+     "given": "Y"
+    },
+    {
+     "family": "Liu",
+     "given": "Z"
+    },
+    {
+     "family": "Wang",
+     "given": "X"
+    }
+   ],
+   "year": "2024",
+   "title": "The association between circadian syndrome and chronic kidney disease in an aging population: a 4-year follow-up study",
+   "container": "Front Endocrinol",
+   "volume": "15",
+   "first_page": "1338110"
+  },
+  {
+   "bib_id": 22
+  },
+  {
+   "bib_id": 23
+  },
+  {
+   "bib_id": 24,
+   "authors": [
+    {
+     "family": "Li",
+     "given": "P"
+    },
+    {
+     "family": "Zhang",
+     "given": "C"
+    },
+    {
+     "family": "Gao",
+     "given": "S"
+    },
+    {
+     "family": "Zhang",
+     "given": "Y"
+    },
+    {
+     "family": "Liang",
+     "given": "X"
+    },
+    {
+     "family": "Wang",
+     "given": "C"
+    }
+   ],
+   "year": "2023",
+   "title": "Association Between Daily Internet Use and Incidence of Chronic Diseases Among Older Adults: Prospective Cohort Study",
+   "container": "J Med Internet Res",
+   "volume": "25",
+   "first_page": "e46298"
+  },
+  {
+   "bib_id": 25,
+   "authors": [
+    {
+     "family": "Leukel",
+     "given": "PJ"
+    },
+    {
+     "family": "Piette",
+     "given": "JD"
+    },
+    {
+     "family": "Lee",
+     "given": "AA"
+    }
+   ],
+   "year": "2025",
+   "title": "Impact of Loneliness and Social Support on Acute Health Service Use and Symptom Exacerbation Among Adults with Asthma and COPD",
+   "container": "J Clin Psychol Med Settings",
+   "volume": "32",
+   "first_page": "375"
+  },
+  {
+   "bib_id": 26
+  },
+  {
+   "bib_id": 27,
+   "authors": [
+    {
+     "family": "Miligkos",
+     "given": "M"
+    },
+    {
+     "family": "Oh",
+     "given": "J"
+    },
+    {
+     "family": "Kwon",
+     "given": "R"
+    },
+    {
+     "family": "Konstantinou",
+     "given": "GΝ"
+    },
+    {
+     "family": "Kim",
+     "given": "S"
+    },
+    {
+     "family": "Yon",
+     "given": "DK"
+    }
+   ],
+   "year": "2025",
+   "title": "Epidemiology of asthma across the ages",
+   "container": "Ann Allergy Asthma Immunol",
+   "volume": "134",
+   "first_page": "376",
+   "last_page": "e384313"
+  },
+  {
+   "bib_id": 28,
+   "authors": [
+    {
+     "family": "Kamga",
+     "given": "A"
+    },
+    {
+     "family": "Rochefort-Morel",
+     "given": "C"
+    },
+    {
+     "family": "Guen",
+     "given": "YL"
+    },
+    {
+     "family": "Ouksel",
+     "given": "H"
+    },
+    {
+     "family": "Pipet",
+     "given": "A"
+    },
+    {
+     "family": "Leroyer",
+     "given": "C"
+    }
+   ],
+   "year": "2022",
+   "title": "Asthma and smoking: A review",
+   "container": "Respiratory Med Res",
+   "volume": "82",
+   "first_page": "100916"
+  },
+  {
+   "bib_id": 29,
+   "authors": [
+    {
+     "family": "Price",
+     "given": "OJ"
+    },
+    {
+     "family": "Simpson",
+     "given": "AJ"
+    }
+   ],
+   "year": "2023",
+   "title": "Exercise and asthma – trigger or treatment?",
+   "container": "Respir Med",
+   "volume": "213",
+   "first_page": "107247"
+  },
+  {
+   "bib_id": 30,
+   "authors": [
+    {
+     "family": "Nielsen",
+     "given": "LB"
+    },
+    {
+     "family": "Johansen",
+     "given": "MO"
+    },
+    {
+     "family": "Riddersholm",
+     "given": "SJ"
+    },
+    {
+     "family": "Weinreich",
+     "given": "UM"
+    }
+   ],
+   "year": "2024",
+   "title": "The association between alcohol consumption and pulmonary function: a scoping review",
+   "container": "Eur Respiratory Rev",
+   "volume": "33",
+   "first_page": "230233"
+  },
+  {
+   "bib_id": 31,
+   "authors": [
+    {
+     "family": "Smith",
+     "given": "KJ"
+    },
+    {
+     "family": "Gavey",
+     "given": "S"
+    },
+    {
+     "family": "Riddell",
+     "given": "NE"
+    },
+    {
+     "family": "Kontari",
+     "given": "P"
+    },
+    {
+     "family": "Victor",
+     "given": "C"
+    }
+   ],
+   "year": "2020",
+   "title": "The association between loneliness, social isolation and inflammation: A systematic review and meta-analysis",
+   "container": "Neurosci Biobehavioral Reviews",
+   "volume": "112",
+   "first_page": "519"
+  },
+  {
+   "bib_id": 32
+  },
+  {
+   "bib_id": 33,
+   "authors": [
+    {
+     "family": "Palumbo",
+     "given": "ML"
+    },
+    {
+     "family": "Prochnik",
+     "given": "A"
+    },
+    {
+     "family": "Wald",
+     "given": "MR"
+    },
+    {
+     "family": "Genaro",
+     "given": "AM"
+    }
+   ],
+   "year": "2020",
+   "title": "Chronic Stress and Glucocorticoid Receptor Resistance in Asthma",
+   "container": "Clin Ther",
+   "volume": "42",
+   "first_page": "993",
+   "last_page": "1006"
+  },
+  {
+   "bib_id": 34,
+   "authors": [
+    {
+     "family": "Liu",
+     "given": "X"
+    },
+    {
+     "family": "Plana-Ripoll",
+     "given": "O"
+    },
+    {
+     "family": "McGrath",
+     "given": "JJ"
+    },
+    {
+     "family": "Petersen",
+     "given": "LV"
+    },
+    {
+     "family": "Dharmage",
+     "given": "SC"
+    },
+    {
+     "family": "Momen",
+     "given": "NC"
+    }
+   ],
+   "year": "2023",
+   "title": "Bidirectional Associations Between Asthma and Types of Mental Disorders",
+   "container": "J Allergy Clin Immunology: Pract",
+   "volume": "11",
+   "first_page": "799",
+   "last_page": "e808714"
+  },
+  {
+   "bib_id": 35,
+   "authors": [
+    {
+     "family": "Panos",
+     "given": "A"
+    },
+    {
+     "family": "Mavridis",
+     "given": "D"
+    }
+   ],
+   "year": "2020",
+   "title": "TableOne: an online web application and R package for summarising and visualising data",
+   "container": "Evid Based Ment Health",
+   "volume": "23",
+   "first_page": "127"
+  },
+  {
+   "bib_id": 36,
+   "authors": [
+    {
+     "family": "Friedman",
+     "given": "J"
+    },
+    {
+     "family": "Hastie",
+     "given": "T"
+    },
+    {
+     "family": "Tibshirani",
+     "given": "R"
+    }
+   ],
+   "year": "2010",
+   "title": "Regularization Paths for Generalized Linear Models via Coordinate Descent",
+   "container": "J Stat Softw",
+   "volume": "33",
+   "first_page": "1",
+   "last_page": "22"
+  },
+  {
+   "bib_id": 37,
+   "authors": [
+    {
+     "family": "Goncharova",
+     "given": "IA"
+    },
+    {
+     "family": "Nazarenko",
+     "given": "MS"
+    },
+    {
+     "family": "Babushkina",
+     "given": "NP"
+    },
+    {
+     "family": "Markov",
+     "given": "AV"
+    },
+    {
+     "family": "Pecherina",
+     "given": "TB"
+    },
+    {
+     "family": "Kashtalap",
+     "given": "VV"
+    }
+   ],
+   "year": "2020",
+   "title": "[Genetic Predisposition to Early Myocardial Infarction]",
+   "container": "Mol Biol",
+   "volume": "54",
+   "first_page": "224"
+  },
+  {
+   "bib_id": 38,
+   "authors": [
+    {
+     "family": "Andersson",
+     "given": "B"
+    },
+    {
+     "family": "Langen",
+     "given": "B"
+    },
+    {
+     "family": "Liu",
+     "given": "P"
+    },
+    {
+     "family": "Dávila López",
+     "given": "M"
+    }
+   ],
+   "year": "2023",
+   "title": "Development of a machine learning framework for radiation biomarker discovery and absorbed dose prediction",
+   "container": "Front Oncol",
+   "volume": "13",
+   "first_page": "1156009"
+  },
+  {
+   "bib_id": 39,
+   "authors": [
+    {
+     "family": "Shi",
+     "given": "H"
+    },
+    {
+     "family": "Yuan",
+     "given": "X"
+    },
+    {
+     "family": "Liu",
+     "given": "G"
+    },
+    {
+     "family": "Fan",
+     "given": "W"
+    }
+   ],
+   "year": "2023",
+   "title": "Identifying and Validating GSTM5 as an Immunogenic Gene in Diabetic Foot Ulcer Using Bioinformatics and Machine Learning",
+   "container": "J Inflamm Res",
+   "volume": "16",
+   "first_page": "6241"
+  },
+  {
+   "bib_id": 40
+  },
+  {
+   "bib_id": 41,
+   "authors": [
+    {
+     "family": "Sharma",
+     "given": "VK"
+    },
+    {
+     "family": "Glick",
+     "given": "J"
+    },
+    {
+     "family": "Liao",
+     "given": "Q"
+    },
+    {
+     "family": "Shen",
+     "given": "C"
+    },
+    {
+     "family": "Vouros",
+     "given": "P"
+    }
+   ],
+   "year": "2012",
+   "title": "GenoMass software: a tool based on electrospray ionization tandem mass spectrometry for characterization and sequencing of oligonucleotide adducts",
+   "container": "J Mass Spectrom",
+   "volume": "47",
+   "first_page": "490",
+   "last_page": "501"
+  },
+  {
+   "bib_id": 42,
+   "authors": [
+    {
+     "family": "Beck",
+     "given": "MW"
+    }
+   ],
+   "year": "2018",
+   "title": "NeuralNetTools: Visualization and Analysis Tools for Neural Networks",
+   "container": "J Stat Softw",
+   "volume": "85",
+   "first_page": "1",
+   "last_page": "20"
+  },
+  {
+   "bib_id": 43,
+   "authors": [
+    {
+     "family": "Salditt",
+     "given": "M"
+    },
+    {
+     "family": "Humberg",
+     "given": "S"
+    },
+    {
+     "family": "Nestler",
+     "given": "S"
+    }
+   ],
+   "year": "2023",
+   "title": "Gradient Tree Boosting for Hierarchical Data",
+   "container": "Multivar Behav Res",
+   "volume": "58",
+   "first_page": "911"
+  },
+  {
+   "bib_id": 44,
+   "authors": [
+    {
+     "family": "Robin",
+     "given": "X"
+    },
+    {
+     "family": "Turck",
+     "given": "N"
+    },
+    {
+     "family": "Hainard",
+     "given": "A"
+    },
+    {
+     "family": "Tiberti",
+     "given": "N"
+    },
+    {
+     "family": "Lisacek",
+     "given": "F"
+    },
+    {
+     "family": "Sanchez",
+     "given": "JC"
+    }
+   ],
+   "year": "2011",
+   "title": "pROC: an open-source package for R and S + to analyze and compare ROC curves",
+   "container": "BMC Bioinformatics",
+   "volume": "12",
+   "first_page": "77"
+  },
+  {
+   "bib_id": 45
+  },
+  {
+   "bib_id": 46,
+   "authors": [
+    {
+     "family": "Lin",
+     "given": "N"
+    },
+    {
+     "family": "Shi",
+     "given": "Y"
+    },
+    {
+     "family": "Ye",
+     "given": "M"
+    },
+    {
+     "family": "Zhang",
+     "given": "Y"
+    },
+    {
+     "family": "Jia",
+     "given": "X"
+    }
+   ],
+   "year": "2025",
+   "title": "Deep transfer learning radiomics for distinguishing sinonasal malignancies: a preliminary MRI study",
+   "container": "Future Oncol",
+   "volume": "21",
+   "first_page": "975"
+  },
+  {
+   "bib_id": 47,
+   "authors": [
+    {
+     "family": "Guo",
+     "given": "C"
+    },
+    {
+     "family": "Yang",
+     "given": "X"
+    },
+    {
+     "family": "Li",
+     "given": "L"
+    }
+   ],
+   "year": "2024",
+   "title": "Pyroptosis-Related Gene Signature Predicts Prognosis and Response to Immunotherapy and Medication in Pediatric and Young Adult Osteosarcoma Patients",
+   "container": "J Inflamm Res",
+   "volume": "17",
+   "first_page": "417"
+  },
+  {
+   "bib_id": 48,
+   "authors": [
+    {
+     "family": "Lin",
+     "given": "G"
+    },
+    {
+     "family": "Gao",
+     "given": "Z"
+    },
+    {
+     "family": "Wu",
+     "given": "S"
+    },
+    {
+     "family": "Zheng",
+     "given": "J"
+    },
+    {
+     "family": "Guo",
+     "given": "X"
+    },
+    {
+     "family": "Zheng",
+     "given": "X"
+    }
+   ],
+   "year": "2024",
+   "title": "scRNA-seq revealed high stemness epithelial malignant cell clusters and prognostic models of lung adenocarcinoma",
+   "container": "Sci Rep",
+   "volume": "14",
+   "first_page": "3709"
+  },
+  {
+   "bib_id": 49,
+   "authors": [
+    {
+     "family": "Zhu",
+     "given": "H"
+    },
+    {
+     "family": "Hu",
+     "given": "H"
+    },
+    {
+     "family": "Hao",
+     "given": "B"
+    },
+    {
+     "family": "Zhan",
+     "given": "W"
+    },
+    {
+     "family": "Yan",
+     "given": "T"
+    },
+    {
+     "family": "Zhang",
+     "given": "J"
+    }
+   ],
+   "year": "2024",
+   "title": "Insights into a Machine Learning-Based Palmitoylation-Related Gene Model for Predicting the Prognosis and Treatment Response of Breast Cancer Patients",
+   "container": "Technol Cancer Res Treat",
+   "volume": "23",
+   "first_page": "15330338241263434"
+  },
+  {
+   "bib_id": 50,
+   "authors": [
+    {
+     "family": "Liu",
+     "given": "C"
+    },
+    {
+     "family": "He",
+     "given": "Y"
+    },
+    {
+     "family": "Luo",
+     "given": "J"
+    }
+   ],
+   "year": "2024",
+   "title": "Application of Chest CT Imaging Feature Model in Distinguishing Squamous Cell Carcinoma and Adenocarcinoma of the Lung",
+   "container": "Cancer Manage Res",
+   "volume": "16",
+   "first_page": "547"
+  },
+  {
+   "bib_id": 51,
+   "authors": [
+    {
+     "family": "Chen",
+     "given": "Y"
+    },
+    {
+     "family": "Ju",
+     "given": "H"
+    },
+    {
+     "family": "Xie",
+     "given": "K"
+    },
+    {
+     "family": "Zhao",
+     "given": "X"
+    }
+   ],
+   "year": "2024",
+   "title": "Association of inflammatory score with all-cause and cardiovascular mortality in patients with metabolic syndrome: NHANES longitudinal cohort study",
+   "container": "Front Immunol",
+   "volume": "15",
+   "first_page": "1410871"
+  },
+  {
+   "bib_id": 52,
+   "authors": [
+    {
+     "family": "Mangiola",
+     "given": "S"
+    },
+    {
+     "family": "Doyle",
+     "given": "MA"
+    },
+    {
+     "family": "Papenfuss",
+     "given": "AT"
+    }
+   ],
+   "year": "2021",
+   "title": "Interfacing Seurat with the R tidy universe",
+   "container": "Bioinf (Oxford England)",
+   "volume": "37",
+   "first_page": "4100"
+  },
+  {
+   "bib_id": 53,
+   "authors": [
+    {
+     "family": "Lieberoth",
+     "given": "S"
+    },
+    {
+     "family": "Backer",
+     "given": "V"
+    },
+    {
+     "family": "Kyvik",
+     "given": "KO"
+    },
+    {
+     "family": "Skadhauge",
+     "given": "LR"
+    },
+    {
+     "family": "Tolstrup",
+     "given": "JS"
+    },
+    {
+     "family": "Grønbæk",
+     "given": "M"
+    }
+   ],
+   "year": "2012",
+   "title": "Intake of alcohol and risk of adult-onset asthma",
+   "container": "Respir Med",
+   "volume": "106",
+   "first_page": "184"
+  },
+  {
+   "bib_id": 54,
+   "authors": [
+    {
+     "family": "Silva",
+     "given": "AM"
+    },
+    {
+     "family": "Levy",
+     "given": "J"
+    },
+    {
+     "family": "De Carli",
+     "given": "E"
+    },
+    {
+     "family": "Cacau",
+     "given": "LT"
+    },
+    {
+     "family": "de Alvarenga",
+     "given": "JFR"
+    },
+    {
+     "family": "Benseñor",
+     "given": "IJM"
+    }
+   ],
+   "year": "2024",
+   "title": "Biomarker panels for fruit intake assessment: a metabolomics analysis in the ELSA-Brasil study",
+   "container": "Metabolomics: Official J Metabolomic Soc",
+   "volume": "20",
+   "first_page": "88"
+  },
+  {
+   "bib_id": 55,
+   "authors": [
+    {
+     "family": "Olsthoorn",
+     "given": "SEM"
+    },
+    {
+     "family": "van Krimpen",
+     "given": "A"
+    },
+    {
+     "family": "Hendriks",
+     "given": "RW"
+    },
+    {
+     "family": "Stadhouders",
+     "given": "R"
+    }
+   ],
+   "year": "2025",
+   "title": "Chronic Inflammation in Asthma: Looking Beyond the Th2 Cell",
+   "container": "Immunol Rev",
+   "volume": "330",
+   "first_page": "e70010"
+  },
+  {
+   "bib_id": 56,
+   "authors": [
+    {
+     "family": "Nguyen",
+     "given": "H"
+    },
+    {
+     "family": "Nasir",
+     "given": "M"
+    }
+   ],
+   "year": "2024",
+   "title": "Management of Chronic Asthma in Adults",
+   "container": "Med Clin N Am",
+   "volume": "108",
+   "first_page": "629"
+  },
+  {
+   "bib_id": 57,
+   "authors": [
+    {
+     "family": "Xu",
+     "given": "Q"
+    },
+    {
+     "family": "Zhou",
+     "given": "Q"
+    },
+    {
+     "family": "Chen",
+     "given": "J"
+    },
+    {
+     "family": "Li",
+     "given": "T"
+    },
+    {
+     "family": "Ma",
+     "given": "J"
+    },
+    {
+     "family": "Du",
+     "given": "R"
+    }
+   ],
+   "year": "2023",
+   "title": "The incidence of asthma attributable to temperature variability: An ecological study based on 1990–2019 GBD data",
+   "container": "Sci Total Environ",
+   "volume": "904",
+   "first_page": "166726"
+  },
+  {
+   "bib_id": 58,
+   "authors": [
+    {
+     "family": "Miller",
+     "given": "RL"
+    },
+    {
+     "family": "Grayson",
+     "given": "MH"
+    },
+    {
+     "family": "Strothman",
+     "given": "K"
+    }
+   ],
+   "year": "2021",
+   "title": "Advances in asthma: New understandings of asthma’s natural history, risk factors, underlying mechanisms, and clinical management",
+   "container": "J Allergy Clin Immunol",
+   "volume": "148",
+   "first_page": "1430"
+  },
+  {
+   "bib_id": 59
+  },
+  {
+   "bib_id": 60,
+   "authors": [
+    {
+     "family": "Polivka",
+     "given": "BJ"
+    },
+    {
+     "family": "Huntington-Moskos",
+     "given": "L"
+    },
+    {
+     "family": "Antimisiaris",
+     "given": "DE"
+    },
+    {
+     "family": "Cavallazzi",
+     "given": "RS"
+    },
+    {
+     "family": "Folz",
+     "given": "RJ"
+    }
+   ],
+   "year": "2022",
+   "title": "Phenotyping older adults with asthma by means of cluster analysis",
+   "container": "Ann Allergy Asthma Immunol",
+   "volume": "129",
+   "first_page": "376"
+  },
+  {
+   "bib_id": 61,
+   "authors": [
+    {
+     "family": "Ji",
+     "given": "T"
+    },
+    {
+     "family": "Lv",
+     "given": "Y"
+    },
+    {
+     "family": "Yang",
+     "given": "J"
+    },
+    {
+     "family": "Diao",
+     "given": "X"
+    },
+    {
+     "family": "Gu",
+     "given": "J"
+    }
+   ],
+   "year": "2025",
+   "title": "Association between depression and asthma: insight from observational and genetic evidence",
+   "container": "BMC Psychiatry",
+   "volume": "25",
+   "first_page": "786"
+  },
+  {
+   "bib_id": 62,
+   "authors": [
+    {
+     "family": "Yu",
+     "given": "R"
+    },
+    {
+     "family": "Chen",
+     "given": "Z"
+    },
+    {
+     "family": "Zou",
+     "given": "L"
+    }
+   ],
+   "year": "2025",
+   "title": "The impact of sleep quality on asthma incidence in middle-aged and older adults: evidence from a prospective cohort study",
+   "container": "Front public health",
+   "volume": "13",
+   "first_page": "1646053"
+  },
+  {
+   "bib_id": 63,
+   "authors": [
+    {
+     "family": "Vennu",
+     "given": "V"
+    },
+    {
+     "family": "Abdulrahman",
+     "given": "TA"
+    },
+    {
+     "family": "Alenazi",
+     "given": "AM"
+    },
+    {
+     "family": "Bindawas",
+     "given": "SM"
+    }
+   ],
+   "year": "2020",
+   "title": "Associations between social determinants and the presence of chronic diseases: data from the osteoarthritis Initiative",
+   "container": "BMC Public Health",
+   "volume": "20",
+   "first_page": "1323"
+  },
+  {
+   "bib_id": 64
+  },
+  {
+   "bib_id": 65,
+   "authors": [
+    {
+     "family": "Meng",
+     "given": "L"
+    },
+    {
+     "family": "Xu",
+     "given": "R"
+    },
+    {
+     "family": "Li",
+     "given": "J"
+    },
+    {
+     "family": "Hu",
+     "given": "J"
+    },
+    {
+     "family": "Xu",
+     "given": "H"
+    },
+    {
+     "family": "Wu",
+     "given": "D"
+    }
+   ],
+   "year": "2024",
+   "title": "The silent epidemic: exploring the link between loneliness and chronic diseases in China’s elderly",
+   "container": "BMC Geriatr",
+   "volume": "24",
+   "first_page": "710"
+  },
+  {
+   "bib_id": 66,
+   "authors": [
+    {
+     "family": "Sipowicz",
+     "given": "K"
+    },
+    {
+     "family": "Podlecka",
+     "given": "M"
+    },
+    {
+     "family": "Mokros",
+     "given": "Ł"
+    },
+    {
+     "family": "Pietras",
+     "given": "T"
+    },
+    {
+     "family": "Łuczyńska",
+     "given": "K"
+    }
+   ],
+   "year": "2023",
+   "title": "The feeling of loneliness and the sense of meaning in life in patients with various levels of bronchial asthma control",
+   "container": "J asthma: official J Association Care Asthma",
+   "volume": "60",
+   "first_page": "1402"
+  },
+  {
+   "bib_id": 67,
+   "authors": [
+    {
+     "family": "Ang",
+     "given": "J"
+    },
+    {
+     "family": "Moussa",
+     "given": "R"
+    },
+    {
+     "family": "Shaikh",
+     "given": "S"
+    },
+    {
+     "family": "Mele",
+     "given": "S"
+    }
+   ],
+   "year": "2023",
+   "title": "Effects of aerobic exercise on asthma control and quality of life in adults: a systematic review",
+   "container": "J asthma: official J Association Care Asthma",
+   "volume": "60",
+   "first_page": "845"
+  },
+  {
+   "bib_id": 68
+  },
+  {
+   "bib_id": 69,
+   "authors": [
+    {
+     "family": "Kang",
+     "given": "LL"
+    },
+    {
+     "family": "Chen",
+     "given": "PE"
+    },
+    {
+     "family": "Tung",
+     "given": "TH"
+    },
+    {
+     "family": "Chien",
+     "given": "CW"
+    }
+   ],
+   "year": "2021",
+   "title": "Association Between Asthma and Migraine: A Systematic Review and Meta-Analysis of Observational Studies",
+   "container": "Front allergy",
+   "volume": "2",
+   "first_page": "741135"
+  },
+  {
+   "bib_id": 70
+  },
+  {
+   "bib_id": 71,
+   "authors": [
+    {
+     "family": "Julkunen",
+     "given": "H"
+    },
+    {
+     "family": "Rousu",
+     "given": "J"
+    }
+   ],
+   "year": "2025",
+   "title": "Comprehensive interaction modeling with machine learning improves prediction of disease risk in the UK Biobank",
+   "container": "Nat Commun",
+   "volume": "16",
+   "first_page": "6620"
+  },
+  {
+   "bib_id": 72
+  },
+  {
+   "bib_id": 73,
+   "authors": [
+    {
+     "family": "Zhu",
+     "given": "M"
+    },
+    {
+     "family": "Chen",
+     "given": "A"
+    }
+   ],
+   "year": "2024",
+   "title": "Epidemiological characteristics of asthma-COPD overlap, its association with all-cause mortality, and the mediating role of depressive symptoms: evidence from NHANES 2005–2018",
+   "container": "BMC Public Health",
+   "volume": "24",
+   "first_page": "1423"
+  },
+  {
+   "bib_id": 74,
+   "authors": [
+    {
+     "family": "Wüthrich",
+     "given": "B"
+    }
+   ],
+   "year": "2018",
+   "title": "Allergic and intolerance reactions to wine",
+   "container": "Allergologie select",
+   "volume": "2",
+   "first_page": "80"
+  },
+  {
+   "bib_id": 75,
+   "authors": [
+    {
+     "family": "Kawano",
+     "given": "T"
+    },
+    {
+     "family": "Matsuse",
+     "given": "H"
+    },
+    {
+     "family": "Kondo",
+     "given": "Y"
+    },
+    {
+     "family": "Machida",
+     "given": "I"
+    },
+    {
+     "family": "Saeki",
+     "given": "S"
+    },
+    {
+     "family": "Tomari",
+     "given": "S"
+    }
+   ],
+   "year": "2004",
+   "title": "Acetaldehyde induces histamine release from human airway mast cells to cause bronchoconstriction",
+   "container": "Int Arch Allergy Immunol",
+   "volume": "134",
+   "first_page": "233"
+  },
+  {
+   "bib_id": 76
+  },
+  {
+   "bib_id": 77,
+   "authors": [
+    {
+     "family": "Brown",
+     "given": "ES"
+    }
+   ],
+   "year": "2023",
+   "title": "The Complex Relationship Between Asthma and Psychiatric Illnesses. The journal of allergy and clinical immunology",
+   "container": "Pract",
+   "volume": "11",
+   "first_page": "809"
+  },
+  {
+   "bib_id": 78,
+   "authors": [
+    {
+     "family": "Kim",
+     "given": "JG"
+    },
+    {
+     "family": "Kang",
+     "given": "J"
+    },
+    {
+     "family": "Lee",
+     "given": "JH"
+    },
+    {
+     "family": "Koo",
+     "given": "HK"
+    }
+   ],
+   "year": "2023",
+   "title": "Association of rheumatoid arthritis with bronchial asthma and asthma-related comorbidities: A population-based national surveillance study",
+   "container": "Front Med",
+   "volume": "10",
+   "first_page": "1006290"
+  },
+  {
+   "bib_id": 79,
+   "authors": [
+    {
+     "family": "Alba",
+     "given": "AC"
+    },
+    {
+     "family": "Agoritsas",
+     "given": "T"
+    },
+    {
+     "family": "Walsh",
+     "given": "M"
+    },
+    {
+     "family": "Hanna",
+     "given": "S"
+    },
+    {
+     "family": "Iorio",
+     "given": "A"
+    },
+    {
+     "family": "Devereaux",
+     "given": "PJ"
+    }
+   ],
+   "year": "2017",
+   "title": "Discrimination and Calibration of Clinical Prediction Models",
+   "container": "JAMA",
+   "volume": "318",
+   "first_page": "1377"
+  },
+  {
+   "bib_id": 80
+  },
+  {
+   "bib_id": 81,
+   "authors": [
+    {
+     "family": "Johansson",
+     "given": "H"
+    },
+    {
+     "family": "Mersha",
+     "given": "TB"
+    },
+    {
+     "family": "Brandt",
+     "given": "EB"
+    },
+    {
+     "family": "Khurana Hershey",
+     "given": "GK"
+    }
+   ],
+   "year": "2019",
+   "title": "Interactions between environmental pollutants and genetic susceptibility in asthma risk",
+   "container": "Curr Opin Immunol",
+   "volume": "60",
+   "first_page": "156"
+  },
+  {
+   "bib_id": 82,
+   "authors": [
+    {
+     "family": "Hizawa",
+     "given": "N"
+    }
+   ],
+   "year": "2023",
+   "title": "The understanding of asthma pathogenesis in the era of precision medicine",
+   "container": "Allergology Int",
+   "volume": "72",
+   "first_page": "3",
+   "last_page": "10"
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-core-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "jats_doi": "10.1186/s12889-026-28253-9"
+ }
+}

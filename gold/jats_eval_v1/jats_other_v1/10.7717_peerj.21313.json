@@ -1,0 +1,4153 @@
+{
+ "paper_id": "10.7717_peerj.21313",
+ "info": {
+  "title": "Metabolomic datasets in COVID-19 research: a systematic literature review of availability, characteristics, and methodologies",
+  "doi": "10.7717/peerj.21313",
+  "file_name": "10.7717_peerj.21313.pdf",
+  "keywords": [
+   "COVID-19",
+   "Metabolomic datasets",
+   "Metabolomics",
+   "Data sharing",
+   "FAIR",
+   "Systematic review",
+   "Biomarkers"
+  ],
+  "abstract": "The COVID-19 pandemic has accelerated the integration of metabolomics and Machine Learning in biomedical research, resulting in the creation of numerous datasets with high potential for reuse. However, information regarding their accessibility, quality, and usability remains scattered and inconsistent. This systematic review aims to identify and evaluate publicly available human metabolomic datasets related to COVID-19, providing detailed information on their main characteristics and how to access them, with the goal to inform their potential for reuse in future research. Following PRISMA guidelines and the Kitchenham methodology, we conducted a comprehensive search of the scientific literature and specialized metabolomics repositories, identifying 110 unique datasets. Each dataset was assessed based on 15 variables related to data availability, accessibility, collection methodologies, sample sizes, and the extent of participant metadata provided. These datasets offer significant value for secondary analyses and ML applications, contributing to insights into disease mechanisms, early diagnosis, and patient stratification. By offering a structured overview of dataset characteristics, this review aims to support researchers in identifying suitable resources, encourages data reuse, and promotes best practices for data sharing and standardization in the context of COVID-19 and metabolomics. Nonetheless, our findings reveal critical limitations, including the underuse of dedicated repositories, frequent unavailability of raw data, lack of standardization in processed data, and insufficient metadata—particularly regarding participant demographics and clinical information. Inconsistencies in data formats and reporting standards further hinder dataset findability, interoperability, and reuse. To enhance the value and impact of future metabolomic research, we recommend adopting standardized reporting guidelines, improving metadata completeness, ensuring the availability of raw data, and promoting the use of interoperable repositories to facilitate reproducibility, integration, and broader application of shared datasets."
+ },
+ "author": [
+  {
+   "author_id": 1,
+   "given": "Hugo A.",
+   "family": "Torres-Pasillas",
+   "affiliation": "Unidad Académica de Ingeniería Eléctrica, Universidad Autónoma de Zacatecas, Zacatecas, Mexico",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 2,
+   "given": "Huizilopoztli",
+   "family": "Luna-García",
+   "affiliation": "Unidad Académica de Ingeniería Eléctrica, Universidad Autónoma de Zacatecas, Zacatecas, Mexico",
+   "email": "",
+   "orcid": "",
+   "corresponding": true
+  },
+  {
+   "author_id": 3,
+   "given": "José María",
+   "family": "Celaya-Padilla",
+   "affiliation": "Unidad Académica de Ingeniería Eléctrica, Universidad Autónoma de Zacatecas, Zacatecas, Mexico",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 4,
+   "given": "Carlos H.",
+   "family": "Espino-Salinas",
+   "affiliation": "Unidad Académica de Ingeniería Eléctrica, Universidad Autónoma de Zacatecas, Zacatecas, Mexico",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 5,
+   "given": "Claudia",
+   "family": "Acra-Despradel",
+   "affiliation": "Universidad Nacional Pedro Henríquez Ureña, Santo Domingo, Dominican Republic",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 6,
+   "given": "Klinge",
+   "family": "Villalba-Condori",
+   "affiliation": "Universidad Católica de Santa María, Arequipa, Peru",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 7,
+   "given": "Yenhny Margareth",
+   "family": "Cárdenas Núñez",
+   "affiliation": "Universidad Católica de Santa María, Arequipa, Peru",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  }
+ ],
+ "section": [
+  {
+   "section_id": 1,
+   "section_type": "abstract",
+   "header": "Abstract",
+   "level": 1,
+   "parent_section_id": null,
+   "classification_score": 1.0
+  }
+ ],
+ "text": [
+  {
+   "text_id": 1,
+   "section_id": 1,
+   "paragraph_id": 1,
+   "text": "The COVID-19 pandemic has accelerated the integration of metabolomics and Machine Learning in biomedical research, resulting in the creation of numerous datasets with high potential for reuse. However, information regarding their accessibility, quality, and usability remains scattered and inconsistent. This systematic review aims to identify and evaluate publicly available human metabolomic datasets related to COVID-19, providing detailed information on their main characteristics and how to access them, with the goal to inform their potential for reuse in future research. Following PRISMA guidelines and the Kitchenham methodology, we conducted a comprehensive search of the scientific literature and specialized metabolomics repositories, identifying 110 unique datasets. Each dataset was assessed based on 15 variables related to data availability, accessibility, collection methodologies, sample sizes, and the extent of participant metadata provided. These datasets offer significant value for secondary analyses and ML applications, contributing to insights into disease mechanisms, early diagnosis, and patient stratification. By offering a structured overview of dataset characteristics, this review aims to support researchers in identifying suitable resources, encourages data reuse, and promotes best practices for data sharing and standardization in the context of COVID-19 and metabolomics. Nonetheless, our findings reveal critical limitations, including the underuse of dedicated repositories, frequent unavailability of raw data, lack of standardization in processed data, and insufficient metadata—particularly regarding participant demographics and clinical information. Inconsistencies in data formats and reporting standards further hinder dataset findability, interoperability, and reuse. To enhance the value and impact of future metabolomic research, we recommend adopting standardized reporting guidelines, improving metadata completeness, ensuring the availability of raw data, and promoting the use of interoperable repositories to facilitate reproducibility, integration, and broader application of shared datasets.",
+   "page_number": 1
+  }
+ ],
+ "bib": [
+  {
+   "bib_id": 1,
+   "authors": [
+    {
+     "family": "Baiges-Gaya",
+     "given": "G"
+    },
+    {
+     "family": "Iftimie",
+     "given": "S"
+    },
+    {
+     "family": "Castañé",
+     "given": "H"
+    },
+    {
+     "family": "Rodríguez-Tomàs",
+     "given": "E"
+    },
+    {
+     "family": "Jiménez-Franco",
+     "given": "A"
+    },
+    {
+     "family": "López-Azcona",
+     "given": "AF"
+    },
+    {
+     "family": "Castro",
+     "given": "A"
+    },
+    {
+     "family": "Camps",
+     "given": "J"
+    },
+    {
+     "family": "Joven",
+     "given": "J"
+    }
+   ],
+   "year": "2023",
+   "title": "Combining semi-targeted metabolomics and machine learning to identify metabolic alterations in the serum and urine of hospitalized patients with COVID-19",
+   "container": "Biomolecules",
+   "volume": "13",
+   "first_page": "163",
+   "doi": "10.3390/biom13010163"
+  },
+  {
+   "bib_id": 2,
+   "authors": [
+    {
+     "family": "Bardanzellu",
+     "given": "F"
+    },
+    {
+     "family": "Fanos",
+     "given": "V"
+    }
+   ],
+   "year": "2022",
+   "title": "Metabolomics, microbiomics, machine learning during the COVID-19 pandemic",
+   "container": "Pediatric Allergy and Immunology",
+   "volume": "33",
+   "first_page": "86",
+   "last_page": "88",
+   "doi": "10.1111/pai.13640"
+  },
+  {
+   "bib_id": 3,
+   "authors": [
+    {
+     "family": "Bi",
+     "given": "X"
+    },
+    {
+     "family": "Liu",
+     "given": "W"
+    },
+    {
+     "family": "Ding",
+     "given": "X"
+    },
+    {
+     "family": "Liang",
+     "given": "S"
+    },
+    {
+     "family": "Zheng",
+     "given": "Y"
+    },
+    {
+     "family": "Zhu",
+     "given": "X"
+    },
+    {
+     "family": "Quan",
+     "given": "S"
+    },
+    {
+     "family": "Yi",
+     "given": "X"
+    },
+    {
+     "family": "Xiang",
+     "given": "N"
+    },
+    {
+     "family": "Du",
+     "given": "J"
+    },
+    {
+     "family": "Lyu",
+     "given": "H"
+    },
+    {
+     "family": "Yu",
+     "given": "D"
+    },
+    {
+     "family": "Zhang",
+     "given": "C"
+    },
+    {
+     "family": "Xu",
+     "given": "L"
+    },
+    {
+     "family": "Ge",
+     "given": "W"
+    },
+    {
+     "family": "Zhan",
+     "given": "X"
+    },
+    {
+     "family": "He",
+     "given": "J"
+    },
+    {
+     "family": "Xiong",
+     "given": "Z"
+    },
+    {
+     "family": "Zhang",
+     "given": "S"
+    },
+    {
+     "family": "Li",
+     "given": "Y"
+    },
+    {
+     "family": "Xu",
+     "given": "P"
+    },
+    {
+     "family": "Zhu",
+     "given": "G"
+    },
+    {
+     "family": "Wang",
+     "given": "D"
+    },
+    {
+     "family": "Zhu",
+     "given": "H"
+    },
+    {
+     "family": "Chen",
+     "given": "S"
+    },
+    {
+     "family": "Li",
+     "given": "J"
+    },
+    {
+     "family": "Zhao",
+     "given": "H"
+    },
+    {
+     "family": "Zhu",
+     "given": "Y"
+    },
+    {
+     "family": "Liu",
+     "given": "H"
+    },
+    {
+     "family": "Xu",
+     "given": "J"
+    },
+    {
+     "family": "Shen",
+     "given": "B"
+    },
+    {
+     "family": "Guo",
+     "given": "T"
+    }
+   ],
+   "year": "2022",
+   "title": "Proteomic and metabolomic profiling of urine uncovers immune responses in patients with COVID-19",
+   "container": "Cell Reports",
+   "volume": "38"
+  },
+  {
+   "bib_id": 4,
+   "authors": [
+    {
+     "family": "Blaženović",
+     "given": "I"
+    },
+    {
+     "family": "Kind",
+     "given": "T"
+    },
+    {
+     "family": "Ji",
+     "given": "J"
+    },
+    {
+     "family": "Fiehn",
+     "given": "O"
+    }
+   ],
+   "year": "2018",
+   "title": "Software tools and approaches for compound identification of LC-MS/MS data in metabolomics",
+   "container": "Metabolites",
+   "volume": "8",
+   "first_page": "31",
+   "doi": "10.3390/metabo8020031"
+  },
+  {
+   "bib_id": 5,
+   "authors": [
+    {
+     "family": "Boeckhout",
+     "given": "M"
+    },
+    {
+     "family": "Zielhuis",
+     "given": "GA"
+    },
+    {
+     "family": "Bredenoord",
+     "given": "AL"
+    }
+   ],
+   "year": "2018",
+   "title": "The FAIR guiding principles for data stewardship: fair enough?",
+   "container": "European Journal of Human Genetics",
+   "volume": "26",
+   "first_page": "931",
+   "last_page": "936",
+   "doi": "10.1038/s41431-018-0160-0"
+  },
+  {
+   "bib_id": 6,
+   "authors": [
+    {
+     "family": "Broadhurst",
+     "given": "D"
+    },
+    {
+     "family": "Goodacre",
+     "given": "R"
+    },
+    {
+     "family": "Reinke",
+     "given": "SN"
+    },
+    {
+     "family": "Kuligowski",
+     "given": "J"
+    },
+    {
+     "family": "Wilson",
+     "given": "ID"
+    },
+    {
+     "family": "Lewis",
+     "given": "MR"
+    },
+    {
+     "family": "Dunn",
+     "given": "WB"
+    }
+   ],
+   "year": "2018",
+   "title": "Guidelines and considerations for the use of system suitability and quality control samples in mass spectrometry assays applied in untargeted clinical metabolomic studies",
+   "container": "Metabolomics",
+   "volume": "14",
+   "first_page": "1",
+   "last_page": "17"
+  },
+  {
+   "bib_id": 7,
+   "authors": [
+    {
+     "family": "Brown",
+     "given": "MV"
+    },
+    {
+     "family": "McDunn",
+     "given": "JE"
+    },
+    {
+     "family": "Gunst",
+     "given": "PR"
+    },
+    {
+     "family": "Smith",
+     "given": "EM"
+    },
+    {
+     "family": "Milburn",
+     "given": "MV"
+    },
+    {
+     "family": "Troyer",
+     "given": "DA"
+    },
+    {
+     "family": "Lawton",
+     "given": "KA"
+    }
+   ],
+   "year": "2012",
+   "title": "Cancer detection and biopsy classification using concurrent histopathological and metabolomic analysis of core biopsies",
+   "container": "Genome Medicine",
+   "volume": "4",
+   "first_page": "1",
+   "last_page": "12"
+  },
+  {
+   "bib_id": 8,
+   "authors": [
+    {
+     "family": "Chen",
+     "given": "Q"
+    },
+    {
+     "family": "Allot",
+     "given": "A"
+    },
+    {
+     "family": "Leaman",
+     "given": "R"
+    },
+    {
+     "family": "Wei",
+     "given": "C-H"
+    },
+    {
+     "family": "Aghaarabi",
+     "given": "E"
+    },
+    {
+     "family": "Guerrerio",
+     "given": "JJ"
+    },
+    {
+     "family": "Xu",
+     "given": "L"
+    },
+    {
+     "family": "Lu",
+     "given": "Z"
+    }
+   ],
+   "year": "2023",
+   "title": "LitCovid in 2022: an information resource for the COVID-19 literature",
+   "container": "Nucleic Acids Research",
+   "volume": "51",
+   "first_page": "D1512",
+   "last_page": "D1518",
+   "doi": "10.1093/nar/gkac1005"
+  },
+  {
+   "bib_id": 9,
+   "authors": [
+    {
+     "family": "Chen",
+     "given": "Y"
+    },
+    {
+     "family": "Wang",
+     "given": "B"
+    },
+    {
+     "family": "Zhao",
+     "given": "Y"
+    },
+    {
+     "family": "Shao",
+     "given": "X"
+    },
+    {
+     "family": "Wang",
+     "given": "M"
+    },
+    {
+     "family": "Ma",
+     "given": "F"
+    },
+    {
+     "family": "Yang",
+     "given": "L"
+    },
+    {
+     "family": "Nie",
+     "given": "M"
+    },
+    {
+     "family": "Jin",
+     "given": "P"
+    },
+    {
+     "family": "Yao",
+     "given": "K"
+    },
+    {
+     "family": "Song",
+     "given": "H"
+    },
+    {
+     "family": "Lou",
+     "given": "S"
+    },
+    {
+     "family": "Wang",
+     "given": "H"
+    },
+    {
+     "family": "Yang",
+     "given": "T"
+    },
+    {
+     "family": "Tian",
+     "given": "Y"
+    },
+    {
+     "family": "Han",
+     "given": "P"
+    },
+    {
+     "family": "Hu",
+     "given": "Z"
+    }
+   ],
+   "year": "2024",
+   "title": "Metabolomic machine learning predictor for diagnosis and prognosis of gastric cancer",
+   "container": "Nature Communications",
+   "volume": "15",
+   "first_page": "1657",
+   "doi": "10.1038/s41467-024-46043-y"
+  },
+  {
+   "bib_id": 10,
+   "authors": [
+    {
+     "family": "Cucinotta",
+     "given": "D"
+    },
+    {
+     "family": "Vanelli",
+     "given": "M"
+    }
+   ],
+   "year": "2020",
+   "title": "WHO declares COVID-19 a pandemic",
+   "container": "Acta Bio Medica: Atenei Parmensis",
+   "volume": "91",
+   "first_page": "157"
+  },
+  {
+   "bib_id": 11,
+   "authors": [
+    {
+     "family": "Dyke",
+     "given": "SOM"
+    },
+    {
+     "family": "Linden",
+     "given": "M"
+    },
+    {
+     "family": "Lappalainen",
+     "given": "I"
+    },
+    {
+     "family": "De Argila",
+     "given": "JR"
+    },
+    {
+     "family": "Carey",
+     "given": "K"
+    },
+    {
+     "family": "Lloyd",
+     "given": "D"
+    },
+    {
+     "family": "Spalding",
+     "given": "JD"
+    },
+    {
+     "family": "Cabili",
+     "given": "MN"
+    },
+    {
+     "family": "Kerry",
+     "given": "G"
+    },
+    {
+     "family": "Foreman",
+     "given": "J"
+    },
+    {
+     "family": "Cutts",
+     "given": "T"
+    },
+    {
+     "family": "Shabani",
+     "given": "M"
+    },
+    {
+     "family": "Rodriguez",
+     "given": "LL"
+    },
+    {
+     "family": "Haeussler",
+     "given": "M"
+    },
+    {
+     "family": "Walsh",
+     "given": "B"
+    },
+    {
+     "family": "Jiang",
+     "given": "X"
+    },
+    {
+     "family": "Wang",
+     "given": "S"
+    },
+    {
+     "family": "Perrett",
+     "given": "D"
+    },
+    {
+     "family": "Boughtwood",
+     "given": "T"
+    },
+    {
+     "family": "Matern",
+     "given": "A"
+    },
+    {
+     "family": "Brookes",
+     "given": "AJ"
+    },
+    {
+     "family": "Cupak",
+     "given": "M"
+    },
+    {
+     "family": "Fiume",
+     "given": "M"
+    },
+    {
+     "family": "Pandya",
+     "given": "R"
+    },
+    {
+     "family": "Tulchinsky",
+     "given": "I"
+    },
+    {
+     "family": "Scollen",
+     "given": "S"
+    },
+    {
+     "family": "Törnroos",
+     "given": "J"
+    },
+    {
+     "family": "Das",
+     "given": "S"
+    },
+    {
+     "family": "Evans",
+     "given": "AC"
+    },
+    {
+     "family": "Malin",
+     "given": "BA"
+    },
+    {
+     "family": "Beck",
+     "given": "S"
+    },
+    {
+     "family": "Brenner",
+     "given": "SE"
+    },
+    {
+     "family": "Nyrönen",
+     "given": "T"
+    },
+    {
+     "family": "Blomberg",
+     "given": "N"
+    },
+    {
+     "family": "Firth",
+     "given": "HV"
+    },
+    {
+     "family": "Hurles",
+     "given": "M"
+    },
+    {
+     "family": "Philippakis",
+     "given": "AA"
+    },
+    {
+     "family": "Rätsch",
+     "given": "G"
+    },
+    {
+     "family": "Brudno",
+     "given": "M"
+    },
+    {
+     "family": "Boycott",
+     "given": "KM"
+    },
+    {
+     "family": "Rehm",
+     "given": "HL"
+    },
+    {
+     "family": "Baudis",
+     "given": "M"
+    },
+    {
+     "family": "Sherry",
+     "given": "ST"
+    },
+    {
+     "family": "Kato",
+     "given": "K"
+    },
+    {
+     "family": "Knoppers",
+     "given": "BM"
+    },
+    {
+     "family": "Baker",
+     "given": "D"
+    },
+    {
+     "family": "Flicek",
+     "given": "P"
+    }
+   ],
+   "year": "2018",
+   "title": "Registered access: authorizing data access",
+   "container": "European Journal of Human Genetics",
+   "volume": "26",
+   "first_page": "1721",
+   "last_page": "1731",
+   "doi": "10.1038/s41431-018-0219-y"
+  },
+  {
+   "bib_id": 12,
+   "authors": [
+    {
+     "family": "Federer",
+     "given": "LM"
+    },
+    {
+     "family": "Belter",
+     "given": "CW"
+    },
+    {
+     "family": "Joubert",
+     "given": "DJ"
+    },
+    {
+     "family": "Livinski",
+     "given": "A"
+    },
+    {
+     "family": "Lu",
+     "given": "Y-L"
+    },
+    {
+     "family": "Snyders",
+     "given": "LN"
+    },
+    {
+     "family": "Thompson",
+     "given": "H"
+    }
+   ],
+   "year": "2018",
+   "title": "Data sharing in PLOS ONE: an analysis of data availability statements",
+   "container": "PLOS ONE",
+   "volume": "13",
+   "first_page": "e0194768",
+   "doi": "10.1371/journal.pone.0194768"
+  },
+  {
+   "bib_id": 13,
+   "authors": [
+    {
+     "family": "Fiehn",
+     "given": "O"
+    },
+    {
+     "family": "Robertson",
+     "given": "D"
+    },
+    {
+     "family": "Griffin",
+     "given": "J"
+    },
+    {
+     "family": "Van der Werf",
+     "given": "M"
+    },
+    {
+     "family": "Nikolau",
+     "given": "B"
+    },
+    {
+     "family": "Morrison",
+     "given": "N"
+    },
+    {
+     "family": "Sumner",
+     "given": "LW"
+    },
+    {
+     "family": "Goodacre",
+     "given": "R"
+    },
+    {
+     "family": "Hardy",
+     "given": "NW"
+    },
+    {
+     "family": "Taylor",
+     "given": "C"
+    },
+    {
+     "family": "Fostel",
+     "given": "J"
+    },
+    {
+     "family": "Kristal",
+     "given": "B"
+    },
+    {
+     "family": "Kaddurah-Daouk",
+     "given": "R"
+    },
+    {
+     "family": "Mendes",
+     "given": "P"
+    },
+    {
+     "family": "Van Ommen",
+     "given": "B"
+    },
+    {
+     "family": "Lindon",
+     "given": "JC"
+    },
+    {
+     "family": "Sansone",
+     "given": "S-A"
+    }
+   ],
+   "year": "2007",
+   "title": "The metabolomics standards initiative (MSI)",
+   "container": "Metabolomics",
+   "volume": "3",
+   "first_page": "175",
+   "last_page": "178",
+   "doi": "10.1007/s11306-007-0070-6"
+  },
+  {
+   "bib_id": 14,
+   "authors": [
+    {
+     "family": "Frankevich",
+     "given": "N"
+    },
+    {
+     "family": "Tokareva",
+     "given": "A"
+    },
+    {
+     "family": "Chagovets",
+     "given": "V"
+    },
+    {
+     "family": "Starodubtseva",
+     "given": "N"
+    },
+    {
+     "family": "Dolgushina",
+     "given": "N"
+    },
+    {
+     "family": "Shmakov",
+     "given": "R"
+    },
+    {
+     "family": "Sukhikh",
+     "given": "G"
+    },
+    {
+     "family": "Frankevich",
+     "given": "V"
+    }
+   ],
+   "year": "2023",
+   "title": "COVID-19 infection during pregnancy: disruptions in lipid metabolism and implications for newborn health",
+   "container": "International Journal of Molecular Sciences",
+   "volume": "24",
+   "first_page": "13787",
+   "doi": "10.3390/ijms241813787"
+  },
+  {
+   "bib_id": 15,
+   "authors": [
+    {
+     "family": "Gardinassi",
+     "given": "LG"
+    },
+    {
+     "family": "Do Prado Servian",
+     "given": "C"
+    },
+    {
+     "family": "Da Silva Lima",
+     "given": "G"
+    },
+    {
+     "family": "Dos Anjos",
+     "given": "DCC"
+    },
+    {
+     "family": "Junior",
+     "given": "ARG"
+    },
+    {
+     "family": "Guilarde",
+     "given": "AO"
+    },
+    {
+     "family": "Borges",
+     "given": "MASB"
+    },
+    {
+     "family": "Dos Santos",
+     "given": "GF"
+    },
+    {
+     "family": "Moraes",
+     "given": "BGN"
+    },
+    {
+     "family": "Silva",
+     "given": "JMM"
+    },
+    {
+     "family": "Masson",
+     "given": "LC"
+    },
+    {
+     "family": "De Souza",
+     "given": "FP"
+    },
+    {
+     "family": "Da Silva",
+     "given": "RR"
+    },
+    {
+     "family": "De Araújo",
+     "given": "GL"
+    },
+    {
+     "family": "Rodrigues",
+     "given": "MF"
+    },
+    {
+     "family": "Da Silva",
+     "given": "LC"
+    },
+    {
+     "family": "Meira",
+     "given": "S"
+    },
+    {
+     "family": "Fiaccadori",
+     "given": "FS"
+    },
+    {
+     "family": "Souza",
+     "given": "M"
+    },
+    {
+     "family": "Romão",
+     "given": "PRT"
+    },
+    {
+     "family": "Ferreira",
+     "given": "MS"
+    },
+    {
+     "family": "Coelho",
+     "given": "V"
+    },
+    {
+     "family": "Chaves",
+     "given": "AR"
+    },
+    {
+     "family": "Simas",
+     "given": "RC"
+    },
+    {
+     "family": "Vaz",
+     "given": "BG"
+    },
+    {
+     "family": "Fonseca",
+     "given": "SG"
+    }
+   ],
+   "year": "2023",
+   "title": "Integrated metabolic and inflammatory signatures associated with severity of, fatality of, and recovery from COVID-19",
+   "container": "Microbiology Spectrum",
+   "volume": "11",
+   "first_page": "e0219422",
+   "doi": "10.1128/spectrum.02194-22"
+  },
+  {
+   "bib_id": 16,
+   "authors": [
+    {
+     "family": "Hasan",
+     "given": "MR"
+    },
+    {
+     "family": "Suleiman",
+     "given": "M"
+    },
+    {
+     "family": "Perez-Lopez",
+     "given": "A"
+    }
+   ],
+   "year": "2021",
+   "title": "Metabolomics in the diagnosis and prognosis of COVID-19",
+   "container": "Frontiers in Genetics",
+   "volume": "12",
+   "first_page": "721556",
+   "doi": "10.3389/fgene.2021.721556"
+  },
+  {
+   "bib_id": 17,
+   "authors": [
+    {
+     "family": "He",
+     "given": "F"
+    },
+    {
+     "family": "Zhang",
+     "given": "T"
+    },
+    {
+     "family": "Xue",
+     "given": "K"
+    },
+    {
+     "family": "Fang",
+     "given": "Z"
+    },
+    {
+     "family": "Jiang",
+     "given": "G"
+    },
+    {
+     "family": "Huang",
+     "given": "S"
+    },
+    {
+     "family": "Li",
+     "given": "K"
+    },
+    {
+     "family": "Gu",
+     "given": "Z"
+    },
+    {
+     "family": "Shi",
+     "given": "H"
+    },
+    {
+     "family": "Zhang",
+     "given": "Z"
+    },
+    {
+     "family": "Zhu",
+     "given": "H"
+    },
+    {
+     "family": "Lin",
+     "given": "L"
+    },
+    {
+     "family": "Li",
+     "given": "J"
+    },
+    {
+     "family": "Xiao",
+     "given": "F"
+    },
+    {
+     "family": "Shan",
+     "given": "H"
+    },
+    {
+     "family": "Yan",
+     "given": "R"
+    },
+    {
+     "family": "Li",
+     "given": "X"
+    },
+    {
+     "family": "Yan",
+     "given": "Z"
+    }
+   ],
+   "year": "2021",
+   "title": "Fecal multi-omics analysis reveals diverse molecular alterations of gut ecosystem in COVID-19 patients",
+   "container": "Analytica Chimica Acta",
+   "volume": "1180",
+   "first_page": "338881",
+   "doi": "10.1016/j.aca.2021.338881"
+  },
+  {
+   "bib_id": 18,
+   "authors": [
+    {
+     "family": "Hirakawa",
+     "given": "Y"
+    },
+    {
+     "family": "Yoshioka",
+     "given": "K"
+    },
+    {
+     "family": "Kojima",
+     "given": "K"
+    },
+    {
+     "family": "Yamashita",
+     "given": "Y"
+    },
+    {
+     "family": "Shibahara",
+     "given": "T"
+    },
+    {
+     "family": "Wada",
+     "given": "T"
+    },
+    {
+     "family": "Nangaku",
+     "given": "M"
+    },
+    {
+     "family": "Inagi",
+     "given": "R"
+    }
+   ],
+   "year": "2022",
+   "title": "Potential progression biomarkers of diabetic kidney disease determined using comprehensive machine learning analysis of non-targeted metabolomics",
+   "container": "Scientific Reports",
+   "volume": "12",
+   "first_page": "16287",
+   "doi": "10.1038/s41598-022-20638-1"
+  },
+  {
+   "bib_id": 19,
+   "authors": [
+    {
+     "family": "Idle",
+     "given": "JR"
+    },
+    {
+     "family": "Gonzalez",
+     "given": "FJ"
+    }
+   ],
+   "year": "2007",
+   "title": "Metabolomics",
+   "container": "Cell Metabolism",
+   "volume": "6",
+   "first_page": "348",
+   "last_page": "351",
+   "doi": "10.1016/j.cmet.2007.10.005"
+  },
+  {
+   "bib_id": 20,
+   "authors": [
+    {
+     "family": "Jing",
+     "given": "Y"
+    },
+    {
+     "family": "Wang",
+     "given": "J"
+    },
+    {
+     "family": "Zhang",
+     "given": "H"
+    },
+    {
+     "family": "Yang",
+     "given": "K"
+    },
+    {
+     "family": "Li",
+     "given": "J"
+    },
+    {
+     "family": "Zhao",
+     "given": "T"
+    },
+    {
+     "family": "Liu",
+     "given": "J"
+    },
+    {
+     "family": "Wu",
+     "given": "J"
+    },
+    {
+     "family": "Chen",
+     "given": "Y"
+    }
+   ],
+   "year": "2022",
+   "title": "Alterations of urinary microbial metabolites and immune indexes linked with COVID-19 infection and prognosis",
+   "container": "Frontiers in Immunology",
+   "volume": "13",
+   "first_page": "841739",
+   "doi": "10.3389/fimmu.2022.841739"
+  },
+  {
+   "bib_id": 21,
+   "authors": [
+    {
+     "family": "Juyal",
+     "given": "G"
+    },
+    {
+     "family": "Khan",
+     "given": "F"
+    },
+    {
+     "family": "Siddiqui",
+     "given": "S"
+    },
+    {
+     "family": "Rehman",
+     "given": "A"
+    },
+    {
+     "family": "Madhumalar",
+     "given": "A"
+    },
+    {
+     "family": "Mirsamadi",
+     "given": "N"
+    },
+    {
+     "family": "Jhingan",
+     "given": "GD"
+    },
+    {
+     "family": "Bihari",
+     "given": "C"
+    },
+    {
+     "family": "Joshi",
+     "given": "MC"
+    }
+   ],
+   "year": "2026",
+   "title": "Comparative urinary metabolomics reveals unique and shared pathways in COVID-19 and liver diseases",
+   "container": "Metabolomics",
+   "volume": "22",
+   "first_page": "30",
+   "doi": "10.1007/s11306-026-02394-9"
+  },
+  {
+   "bib_id": 22,
+   "authors": [
+    {
+     "family": "Kell",
+     "given": "DB"
+    },
+    {
+     "family": "Oliver",
+     "given": "SG"
+    }
+   ],
+   "year": "2016",
+   "title": "The metabolome 18 years on: a concept comes of age",
+   "container": "Metabolomics",
+   "volume": "12",
+   "first_page": "1",
+   "last_page": "8"
+  },
+  {
+   "bib_id": 23,
+   "authors": [
+    {
+     "family": "Kimhofer",
+     "given": "T"
+    },
+    {
+     "family": "Lodge",
+     "given": "S"
+    },
+    {
+     "family": "Whiley",
+     "given": "L"
+    },
+    {
+     "family": "Gray",
+     "given": "N"
+    },
+    {
+     "family": "Loo",
+     "given": "RL"
+    },
+    {
+     "family": "Lawler",
+     "given": "NG"
+    },
+    {
+     "family": "Nitschke",
+     "given": "P"
+    },
+    {
+     "family": "Bong",
+     "given": "S-H"
+    },
+    {
+     "family": "Morrison",
+     "given": "DL"
+    },
+    {
+     "family": "Begum",
+     "given": "S"
+    },
+    {
+     "family": "Richards",
+     "given": "T"
+    },
+    {
+     "family": "Yeap",
+     "given": "BB"
+    },
+    {
+     "family": "Smith",
+     "given": "C"
+    },
+    {
+     "family": "Smith",
+     "given": "KGC"
+    },
+    {
+     "family": "Holmes",
+     "given": "E"
+    },
+    {
+     "family": "Nicholson",
+     "given": "JK"
+    }
+   ],
+   "year": "2020",
+   "title": "Integrative modeling of quantitative plasma lipoprotein, metabolic, and amino acid data reveals a multiorgan pathological signature of SARS-CoV-2 infection",
+   "container": "Journal of Proteome Research",
+   "volume": "19",
+   "first_page": "4442",
+   "last_page": "4454",
+   "doi": "10.1021/acs.jproteome.0c00519"
+  },
+  {
+   "bib_id": 24,
+   "authors": [
+    {
+     "family": "Kitchenham",
+     "given": "B"
+    }
+   ],
+   "year": "2004",
+   "title": "Procedures for performing systematic reviews",
+   "volume": "Vol. 33"
+  },
+  {
+   "bib_id": 25,
+   "authors": [
+    {
+     "family": "Klassen",
+     "given": "A"
+    },
+    {
+     "family": "Faccio",
+     "given": "AT"
+    },
+    {
+     "family": "Canuto",
+     "given": "GAB"
+    },
+    {
+     "family": "Da Cruz",
+     "given": "PLR"
+    },
+    {
+     "family": "Ribeiro",
+     "given": "HC"
+    },
+    {
+     "family": "Tavares",
+     "given": "MFM"
+    },
+    {
+     "family": "Sussulini",
+     "given": "A"
+    }
+   ],
+   "year": "2017",
+   "title": "Metabolomics: definitions and significance in systems biology",
+   "container": "Metabolomics: from fundamentals to clinical applications",
+   "first_page": "3",
+   "last_page": "17"
+  },
+  {
+   "bib_id": 26,
+   "authors": [
+    {
+     "family": "Kovarik",
+     "given": "JJ"
+    },
+    {
+     "family": "Bileck",
+     "given": "A"
+    },
+    {
+     "family": "Hagn",
+     "given": "G"
+    },
+    {
+     "family": "Meier-Menches",
+     "given": "SM"
+    },
+    {
+     "family": "Frey",
+     "given": "T"
+    },
+    {
+     "family": "Kaempf",
+     "given": "A"
+    },
+    {
+     "family": "Hollenstein",
+     "given": "M"
+    },
+    {
+     "family": "Shoumariyeh",
+     "given": "T"
+    },
+    {
+     "family": "Skos",
+     "given": "L"
+    },
+    {
+     "family": "Reiter",
+     "given": "B"
+    },
+    {
+     "family": "Gerner",
+     "given": "MC"
+    },
+    {
+     "family": "Spannbauer",
+     "given": "A"
+    },
+    {
+     "family": "Hasimbegovic",
+     "given": "E"
+    },
+    {
+     "family": "Schmidl",
+     "given": "D"
+    },
+    {
+     "family": "Garhöfer",
+     "given": "G"
+    },
+    {
+     "family": "Gyöngyösi",
+     "given": "M"
+    },
+    {
+     "family": "Schmetterer",
+     "given": "KG"
+    },
+    {
+     "family": "Gerner",
+     "given": "C"
+    }
+   ],
+   "year": "2023",
+   "title": "A multi-omics based anti-inflammatory immune signature characterizes long COVID-19 syndrome",
+   "container": "Iscience",
+   "volume": "26"
+  },
+  {
+   "bib_id": 27,
+   "authors": [
+    {
+     "family": "Kumar",
+     "given": "A"
+    },
+    {
+     "family": "Misra",
+     "given": "BB"
+    }
+   ],
+   "year": "2019",
+   "title": "Challenges and opportunities in cancer metabolomics",
+   "container": "Proteomics",
+   "volume": "19",
+   "first_page": "1900042",
+   "doi": "10.1002/pmic.201900042"
+  },
+  {
+   "bib_id": 28,
+   "authors": [
+    {
+     "family": "Kuwabara",
+     "given": "H"
+    },
+    {
+     "family": "Katsumata",
+     "given": "K"
+    },
+    {
+     "family": "Iwabuchi",
+     "given": "A"
+    },
+    {
+     "family": "Udo",
+     "given": "R"
+    },
+    {
+     "family": "Tago",
+     "given": "T"
+    },
+    {
+     "family": "Kasahara",
+     "given": "K"
+    },
+    {
+     "family": "Mazaki",
+     "given": "J"
+    },
+    {
+     "family": "Enomoto",
+     "given": "M"
+    },
+    {
+     "family": "Ishizaki",
+     "given": "T"
+    },
+    {
+     "family": "Soya",
+     "given": "R"
+    },
+    {
+     "family": "Kaneko",
+     "given": "M"
+    },
+    {
+     "family": "Ota",
+     "given": "S"
+    },
+    {
+     "family": "Enomoto",
+     "given": "A"
+    },
+    {
+     "family": "Soga",
+     "given": "T"
+    },
+    {
+     "family": "Tomita",
+     "given": "M"
+    },
+    {
+     "family": "Sunamura",
+     "given": "M"
+    },
+    {
+     "family": "Tsuchida",
+     "given": "A"
+    },
+    {
+     "family": "Sugimoto",
+     "given": "M"
+    },
+    {
+     "family": "Nagakawa",
+     "given": "Y"
+    }
+   ],
+   "year": "2022",
+   "title": "Salivary metabolomics with machine learning for colorectal cancer detection",
+   "container": "Cancer Science",
+   "volume": "113",
+   "first_page": "3234",
+   "last_page": "3243",
+   "doi": "10.1111/cas.15472"
+  },
+  {
+   "bib_id": 29,
+   "authors": [
+    {
+     "family": "Leiherer",
+     "given": "A"
+    },
+    {
+     "family": "Muendlein",
+     "given": "A"
+    },
+    {
+     "family": "Mink",
+     "given": "S"
+    },
+    {
+     "family": "Mader",
+     "given": "A"
+    },
+    {
+     "family": "Saely",
+     "given": "CH"
+    },
+    {
+     "family": "Festa",
+     "given": "A"
+    },
+    {
+     "family": "Fraunberger",
+     "given": "P"
+    },
+    {
+     "family": "Drexel",
+     "given": "H"
+    }
+   ],
+   "year": "2024",
+   "title": "Machine learning approach to metabolomic data predicts type 2 diabetes mellitus incidence",
+   "container": "International Journal of Molecular Sciences",
+   "volume": "25",
+   "first_page": "5331",
+   "doi": "10.3390/ijms25105331"
+  },
+  {
+   "bib_id": 30,
+   "authors": [
+    {
+     "family": "Li",
+     "given": "H"
+    },
+    {
+     "family": "Li",
+     "given": "X"
+    },
+    {
+     "family": "Wu",
+     "given": "Q"
+    },
+    {
+     "family": "Wang",
+     "given": "X"
+    },
+    {
+     "family": "Qin",
+     "given": "Z"
+    },
+    {
+     "family": "Wang",
+     "given": "Y"
+    },
+    {
+     "family": "He",
+     "given": "Y"
+    },
+    {
+     "family": "Wu",
+     "given": "Q"
+    },
+    {
+     "family": "Li",
+     "given": "L"
+    },
+    {
+     "family": "Chen",
+     "given": "H"
+    }
+   ],
+   "year": "2022",
+   "title": "Plasma proteomic and metabolomic characterization of COVID-19 survivors 6 months after discharge",
+   "container": "Cell Death & Disease",
+   "volume": "13",
+   "first_page": "235",
+   "doi": "10.1038/s41419-022-04674-3"
+  },
+  {
+   "bib_id": 31,
+   "authors": [
+    {
+     "family": "Li",
+     "given": "X"
+    },
+    {
+     "family": "Liu",
+     "given": "Y"
+    },
+    {
+     "family": "Xu",
+     "given": "G"
+    },
+    {
+     "family": "Xie",
+     "given": "Y"
+    },
+    {
+     "family": "Wang",
+     "given": "X"
+    },
+    {
+     "family": "Wu",
+     "given": "J"
+    },
+    {
+     "family": "Chen",
+     "given": "H"
+    }
+   ],
+   "year": "2023",
+   "title": "Plasma metabolomic characterization of SARS-CoV-2 Omicron infection",
+   "container": "Cell Death & Disease",
+   "volume": "14",
+   "first_page": "276",
+   "doi": "10.1038/s41419-023-05791-3"
+  },
+  {
+   "bib_id": 32,
+   "authors": [
+    {
+     "family": "Liebal",
+     "given": "UW"
+    },
+    {
+     "family": "Phan",
+     "given": "AN"
+    },
+    {
+     "family": "Sudhakar",
+     "given": "M"
+    },
+    {
+     "family": "Raman",
+     "given": "K"
+    },
+    {
+     "family": "Blank",
+     "given": "LM"
+    }
+   ],
+   "year": "2020",
+   "title": "Machine learning applications for mass spectrometry-based metabolomics",
+   "container": "Metabolites",
+   "volume": "10",
+   "first_page": "243",
+   "doi": "10.3390/metabo10060243"
+  },
+  {
+   "bib_id": 33,
+   "authors": [
+    {
+     "family": "Lin",
+     "given": "D"
+    },
+    {
+     "family": "Crabtree",
+     "given": "J"
+    },
+    {
+     "family": "Dillo",
+     "given": "I"
+    },
+    {
+     "family": "Downs",
+     "given": "RR"
+    },
+    {
+     "family": "Edmunds",
+     "given": "R"
+    },
+    {
+     "family": "Giaretta",
+     "given": "D"
+    },
+    {
+     "family": "De Giusti",
+     "given": "M"
+    },
+    {
+     "family": "L’Hours",
+     "given": "H"
+    },
+    {
+     "family": "Hugo",
+     "given": "W"
+    },
+    {
+     "family": "Jenkyns",
+     "given": "R"
+    },
+    {
+     "family": "Khodiyar",
+     "given": "V"
+    },
+    {
+     "family": "Martone",
+     "given": "ME"
+    },
+    {
+     "family": "Mokrane",
+     "given": "M"
+    },
+    {
+     "family": "Navale",
+     "given": "V"
+    },
+    {
+     "family": "Petters",
+     "given": "J"
+    },
+    {
+     "family": "Sierman",
+     "given": "B"
+    },
+    {
+     "family": "Sokolova",
+     "given": "DV"
+    },
+    {
+     "family": "Stockhause",
+     "given": "M"
+    },
+    {
+     "family": "Westbrook",
+     "given": "J"
+    }
+   ],
+   "year": "2020",
+   "title": "The TRUST principles for digital repositories",
+   "container": "Scientific Data",
+   "volume": "7",
+   "first_page": "144",
+   "doi": "10.1038/s41597-020-0486-7"
+  },
+  {
+   "bib_id": 34,
+   "authors": [
+    {
+     "family": "López-Hernández",
+     "given": "Y"
+    },
+    {
+     "family": "Monárrez-Espino",
+     "given": "J"
+    },
+    {
+     "family": "López",
+     "given": "DAG"
+    },
+    {
+     "family": "Zheng",
+     "given": "J"
+    },
+    {
+     "family": "Borrego",
+     "given": "JC"
+    },
+    {
+     "family": "Torres-Calzada",
+     "given": "C"
+    },
+    {
+     "family": "Elizalde-Díaz",
+     "given": "JP"
+    },
+    {
+     "family": "Mandal",
+     "given": "R"
+    },
+    {
+     "family": "Berjanskii",
+     "given": "M"
+    },
+    {
+     "family": "Martínez-Martínez",
+     "given": "E"
+    },
+    {
+     "family": "López",
+     "given": "JA"
+    },
+    {
+     "family": "Wishart",
+     "given": "DS"
+    }
+   ],
+   "year": "2023",
+   "title": "The plasma metabolome of long COVID patients two years after infection",
+   "container": "Scientific Reports",
+   "volume": "13",
+   "first_page": "12420",
+   "doi": "10.1038/s41598-023-39049-x"
+  },
+  {
+   "bib_id": 35,
+   "authors": [
+    {
+     "family": "López-Hernández",
+     "given": "Y"
+    },
+    {
+     "family": "Monárrez-Espino",
+     "given": "J"
+    },
+    {
+     "family": "Oostdam",
+     "given": "A-SH-v"
+    },
+    {
+     "family": "Delgado",
+     "given": "JEC"
+    },
+    {
+     "family": "Zhang",
+     "given": "L"
+    },
+    {
+     "family": "Zheng",
+     "given": "J"
+    },
+    {
+     "family": "Valdez",
+     "given": "JJO"
+    },
+    {
+     "family": "Mandal",
+     "given": "R"
+    },
+    {
+     "family": "González",
+     "given": "FdLO"
+    },
+    {
+     "family": "Moreno",
+     "given": "JCB"
+    },
+    {
+     "family": "Trejo-Medinilla",
+     "given": "FM"
+    },
+    {
+     "family": "López",
+     "given": "JA"
+    },
+    {
+     "family": "Moreno",
+     "given": "JAE"
+    },
+    {
+     "family": "Wishart",
+     "given": "DS"
+    }
+   ],
+   "year": "2021",
+   "title": "Targeted metabolomics identifies high performing diagnostic and prognostic biomarkers for COVID-19",
+   "container": "Scientific Reports",
+   "volume": "11",
+   "first_page": "14732",
+   "doi": "10.1038/s41598-021-94171-y"
+  },
+  {
+   "bib_id": 36,
+   "authors": [
+    {
+     "family": "López-Hernández",
+     "given": "Y"
+    },
+    {
+     "family": "Oropeza-Valdez",
+     "given": "JJ"
+    },
+    {
+     "family": "García Lopez",
+     "given": "DA"
+    },
+    {
+     "family": "Borrego",
+     "given": "JC"
+    },
+    {
+     "family": "Murgu",
+     "given": "M"
+    },
+    {
+     "family": "Valdez",
+     "given": "J"
+    },
+    {
+     "family": "López",
+     "given": "JA"
+    },
+    {
+     "family": "Monárrez-Espino",
+     "given": "J"
+    }
+   ],
+   "year": "2023",
+   "title": "Untargeted analysis in post-COVID-19 patients reveals dysregulated lipid pathways two years after recovery",
+   "container": "Frontiers in Molecular Biosciences",
+   "volume": "10",
+   "first_page": "1100486",
+   "doi": "10.3389/fmolb.2023.1100486"
+  },
+  {
+   "bib_id": 37,
+   "authors": [
+    {
+     "family": "Marhuenda-Egea",
+     "given": "FC"
+    },
+    {
+     "family": "Narro-Serrano",
+     "given": "J"
+    },
+    {
+     "family": "Shalabi-Benavent",
+     "given": "MJ"
+    },
+    {
+     "family": "Álamo-Marzo",
+     "given": "JM"
+    },
+    {
+     "family": "Amador-Prous",
+     "given": "C"
+    },
+    {
+     "family": "Algado-Rabasa",
+     "given": "JT"
+    },
+    {
+     "family": "Garijo-Saiz",
+     "given": "AM"
+    },
+    {
+     "family": "Marco-Escoto",
+     "given": "M"
+    }
+   ],
+   "year": "2023",
+   "title": "A metabolic readout of the urine metabolome of COVID-19 patients",
+   "container": "Metabolomics",
+   "volume": "19",
+   "first_page": "7",
+   "doi": "10.1007/s11306-023-01971-6"
+  },
+  {
+   "bib_id": 38,
+   "authors": [
+    {
+     "family": "Mittelstrass",
+     "given": "K"
+    },
+    {
+     "family": "Ried",
+     "given": "JS"
+    },
+    {
+     "family": "Yu",
+     "given": "Z"
+    },
+    {
+     "family": "Krumsiek",
+     "given": "J"
+    },
+    {
+     "family": "Gieger",
+     "given": "C"
+    },
+    {
+     "family": "Prehn",
+     "given": "C"
+    },
+    {
+     "family": "Roemisch-Margl",
+     "given": "W"
+    },
+    {
+     "family": "Polonikov",
+     "given": "A"
+    },
+    {
+     "family": "Peters",
+     "given": "A"
+    },
+    {
+     "family": "Theis",
+     "given": "FJ"
+    },
+    {
+     "family": "Meitinger",
+     "given": "T"
+    },
+    {
+     "family": "Kronenberg",
+     "given": "F"
+    },
+    {
+     "family": "Weidinger",
+     "given": "S"
+    },
+    {
+     "family": "Wichmann",
+     "given": "HE"
+    },
+    {
+     "family": "Suhre",
+     "given": "K"
+    },
+    {
+     "family": "Wang-Sattler",
+     "given": "R"
+    },
+    {
+     "family": "Adamski",
+     "given": "J"
+    },
+    {
+     "family": "Illig",
+     "given": "T"
+    }
+   ],
+   "year": "2011",
+   "title": "Discovery of sexual dimorphisms in metabolic and genetic biomarkers",
+   "container": "PLOS Genetics",
+   "volume": "7",
+   "first_page": "e1002215",
+   "doi": "10.1371/journal.pgen.1002215"
+  },
+  {
+   "bib_id": 39,
+   "authors": [
+    {
+     "family": "Moher",
+     "given": "D"
+    },
+    {
+     "family": "Liberati",
+     "given": "A"
+    },
+    {
+     "family": "Tetzlaff",
+     "given": "J"
+    },
+    {
+     "family": "Altman",
+     "given": "DG"
+    }
+   ],
+   "year": "2009",
+   "title": "Preferred reporting items for systematic reviews and meta-analyses: the PRISMA statement",
+   "container": "Bmj",
+   "volume": "339"
+  },
+  {
+   "bib_id": 40,
+   "authors": [
+    {
+     "family": "Overmyer",
+     "given": "KA"
+    },
+    {
+     "family": "Shishkova",
+     "given": "E"
+    },
+    {
+     "family": "Miller",
+     "given": "IJ"
+    },
+    {
+     "family": "Balnis",
+     "given": "J"
+    },
+    {
+     "family": "Bernstein",
+     "given": "MN"
+    },
+    {
+     "family": "Peters-Clarke",
+     "given": "TM"
+    },
+    {
+     "family": "Meyer",
+     "given": "JG"
+    },
+    {
+     "family": "Quan",
+     "given": "Q"
+    },
+    {
+     "family": "Muehlbauer",
+     "given": "LK"
+    },
+    {
+     "family": "Trujillo",
+     "given": "EA"
+    },
+    {
+     "family": "He",
+     "given": "Y"
+    },
+    {
+     "family": "Chopra",
+     "given": "A"
+    },
+    {
+     "family": "Chieng",
+     "given": "HC"
+    },
+    {
+     "family": "Tiwari",
+     "given": "A"
+    },
+    {
+     "family": "Judson",
+     "given": "MA"
+    },
+    {
+     "family": "Paulson",
+     "given": "B"
+    },
+    {
+     "family": "Brademan",
+     "given": "DR"
+    },
+    {
+     "family": "Zhu",
+     "given": "Y"
+    },
+    {
+     "family": "Serrano",
+     "given": "LR"
+    },
+    {
+     "family": "Linke",
+     "given": "V"
+    },
+    {
+     "family": "Drake",
+     "given": "LA"
+    },
+    {
+     "family": "Adam",
+     "given": "AP"
+    },
+    {
+     "family": "Schwartz",
+     "given": "BS"
+    },
+    {
+     "family": "Singer",
+     "given": "HA"
+    },
+    {
+     "family": "Swanson",
+     "given": "S"
+    },
+    {
+     "family": "Mosher",
+     "given": "DF"
+    },
+    {
+     "family": "Stewart",
+     "given": "R"
+    },
+    {
+     "family": "Coon",
+     "given": "JJ"
+    },
+    {
+     "family": "Jaitovich",
+     "given": "A"
+    }
+   ],
+   "year": "2021",
+   "title": "Large-scale multi-omic analysis of COVID-19 severity",
+   "container": "Cell Systems",
+   "volume": "12",
+   "first_page": "23",
+   "last_page": "40",
+   "doi": "10.1016/j.cels.2020.10.003"
+  },
+  {
+   "bib_id": 41,
+   "authors": [
+    {
+     "family": "Ozonoff",
+     "given": "A"
+    },
+    {
+     "family": "Jayavelu",
+     "given": "ND"
+    },
+    {
+     "family": "Liu",
+     "given": "S"
+    },
+    {
+     "family": "Melamed",
+     "given": "E"
+    },
+    {
+     "family": "Milliren",
+     "given": "CE"
+    },
+    {
+     "family": "Qi",
+     "given": "J"
+    },
+    {
+     "family": "Geng",
+     "given": "LN"
+    },
+    {
+     "family": "McComsey",
+     "given": "GA"
+    },
+    {
+     "family": "Cairns",
+     "given": "CB"
+    },
+    {
+     "family": "Baden",
+     "given": "LR"
+    },
+    {
+     "family": "Schaenman",
+     "given": "J"
+    },
+    {
+     "family": "Shaw",
+     "given": "AC"
+    },
+    {
+     "family": "Samaha",
+     "given": "H"
+    },
+    {
+     "family": "Seyfert-Margolis",
+     "given": "V"
+    },
+    {
+     "family": "Krammer",
+     "given": "F"
+    },
+    {
+     "family": "Rosen",
+     "given": "LB"
+    },
+    {
+     "family": "Steen",
+     "given": "H"
+    },
+    {
+     "family": "Syphurs",
+     "given": "C"
+    },
+    {
+     "family": "Dandekar",
+     "given": "R"
+    },
+    {
+     "family": "Shannon",
+     "given": "CP"
+    },
+    {
+     "family": "Sekaly",
+     "given": "RP"
+    },
+    {
+     "family": "Ehrlich",
+     "given": "LIR"
+    },
+    {
+     "family": "Corry",
+     "given": "DB"
+    },
+    {
+     "family": "Kheradmand",
+     "given": "F"
+    },
+    {
+     "family": "Atkinson",
+     "given": "MA"
+    },
+    {
+     "family": "Brakenridge",
+     "given": "SC"
+    },
+    {
+     "family": "Higuita",
+     "given": "NIA"
+    },
+    {
+     "family": "Metcalf",
+     "given": "JP"
+    },
+    {
+     "family": "Hough",
+     "given": "CL"
+    },
+    {
+     "family": "Messer",
+     "given": "WB"
+    },
+    {
+     "family": "Pulendran",
+     "given": "B"
+    },
+    {
+     "family": "Nadeau",
+     "given": "KC"
+    },
+    {
+     "family": "Davis",
+     "given": "MM"
+    },
+    {
+     "family": "Sesma",
+     "given": "AF"
+    },
+    {
+     "family": "Simon",
+     "given": "V"
+    },
+    {
+     "family": "Van Bakel",
+     "given": "H"
+    },
+    {
+     "family": "Kim-Schulze",
+     "given": "S"
+    },
+    {
+     "family": "Hafler",
+     "given": "DA"
+    },
+    {
+     "family": "Levy",
+     "given": "O"
+    },
+    {
+     "family": "Kraft",
+     "given": "M"
+    },
+    {
+     "family": "Bime",
+     "given": "C"
+    },
+    {
+     "family": "Haddad",
+     "given": "EK"
+    },
+    {
+     "family": "Calfee",
+     "given": "CS"
+    },
+    {
+     "family": "Erle",
+     "given": "DJ"
+    },
+    {
+     "family": "Langelier",
+     "given": "CR"
+    },
+    {
+     "family": "Eckalbar",
+     "given": "W"
+    },
+    {
+     "family": "Bosinger",
+     "given": "SE"
+    },
+    {
+     "family": "Peters",
+     "given": "B"
+    },
+    {
+     "family": "Kleinstein",
+     "given": "SH"
+    },
+    {
+     "family": "Reed",
+     "given": "EF"
+    },
+    {
+     "family": "Augustine",
+     "given": "AD"
+    },
+    {
+     "family": "Diray-Arce",
+     "given": "J"
+    },
+    {
+     "family": "Maecker",
+     "given": "HT"
+    },
+    {
+     "family": "Altman",
+     "given": "MC"
+    },
+    {
+     "family": "Montgomery",
+     "given": "RR"
+    },
+    {
+     "family": "Becker",
+     "given": "PM"
+    },
+    {
+     "family": "Rouphael",
+     "given": "N"
+    }
+   ],
+   "year": "2024",
+   "title": "Features of acute COVID-19 associated with post-acute sequelae of SARS-CoV-2 phenotypes: results from the IMPACC study",
+   "container": "Nature Communications",
+   "volume": "15",
+   "first_page": "216",
+   "doi": "10.1038/s41467-023-44090-5"
+  },
+  {
+   "bib_id": 42,
+   "authors": [
+    {
+     "family": "Pang",
+     "given": "Z"
+    },
+    {
+     "family": "Zhou",
+     "given": "G"
+    },
+    {
+     "family": "Chong",
+     "given": "J"
+    },
+    {
+     "family": "Xia",
+     "given": "J"
+    }
+   ],
+   "year": "2021",
+   "title": "Comprehensive meta-analysis of COVID-19 global metabolomics datasets",
+   "container": "Metabolites",
+   "volume": "11",
+   "first_page": "44",
+   "doi": "10.3390/metabo11010044"
+  },
+  {
+   "bib_id": 43,
+   "authors": [
+    {
+     "family": "Regulatory, Ethics Working Group, GAfGHedmc",
+     "given": ""
+    },
+    {
+     "family": "Sugano",
+     "given": "S"
+    }
+   ],
+   "year": "2014",
+   "title": "International code of conduct for genomic and health-related data sharing",
+   "container": "The HUGO Journal",
+   "volume": "8",
+   "first_page": "1"
+  },
+  {
+   "bib_id": 44,
+   "authors": [
+    {
+     "family": "Richard",
+     "given": "VR"
+    },
+    {
+     "family": "Gaither",
+     "given": "C"
+    },
+    {
+     "family": "Popp",
+     "given": "R"
+    },
+    {
+     "family": "Chaplygina",
+     "given": "D"
+    },
+    {
+     "family": "Brzhozovskiy",
+     "given": "A"
+    },
+    {
+     "family": "Kononikhin",
+     "given": "A"
+    },
+    {
+     "family": "Mohammed",
+     "given": "Y"
+    },
+    {
+     "family": "Zahedi",
+     "given": "RP"
+    },
+    {
+     "family": "Nikolaev",
+     "given": "EN"
+    },
+    {
+     "family": "Borchers",
+     "given": "CH"
+    }
+   ],
+   "year": "2022",
+   "title": "Early prediction of COVID-19 patient survival by targeted plasma multi-omics and machine learning",
+   "container": "Molecular & Cellular Proteomics",
+   "volume": "21",
+   "first_page": "100277",
+   "doi": "10.1016/j.mcpro.2022.100277"
+  },
+  {
+   "bib_id": 45,
+   "authors": [
+    {
+     "family": "Robinson",
+     "given": "JI"
+    },
+    {
+     "family": "Marks",
+     "given": "LR"
+    },
+    {
+     "family": "Hinton",
+     "given": "AL"
+    },
+    {
+     "family": "O’Halloran",
+     "given": "JA"
+    },
+    {
+     "family": "Goss",
+     "given": "CW"
+    },
+    {
+     "family": "Mucha",
+     "given": "PJ"
+    },
+    {
+     "family": "Henderson",
+     "given": "JP"
+    }
+   ],
+   "year": "2025",
+   "title": "Development of a metabolome-based respiratory infection prognostic during COVID-19 arrival",
+   "container": "MBio",
+   "volume": "16",
+   "first_page": "e03343",
+   "last_page": "23",
+   "doi": "10.1128/mbio.03343-23"
+  },
+  {
+   "bib_id": 46,
+   "authors": [
+    {
+     "family": "Saito",
+     "given": "S"
+    },
+    {
+     "family": "Shahbaz",
+     "given": "S"
+    },
+    {
+     "family": "Luo",
+     "given": "X"
+    },
+    {
+     "family": "Osman",
+     "given": "M"
+    },
+    {
+     "family": "Redmond",
+     "given": "D"
+    },
+    {
+     "family": "Cohen Tervaert",
+     "given": "JW"
+    },
+    {
+     "family": "Li",
+     "given": "L"
+    },
+    {
+     "family": "Elahi",
+     "given": "S"
+    }
+   ],
+   "year": "2024",
+   "title": "Metabolomic and immune alterations in long COVID patients with chronic fatigue syndrome",
+   "container": "Frontiers in Immunology",
+   "volume": "15",
+   "first_page": "1341843",
+   "doi": "10.3389/fimmu.2024.1341843"
+  },
+  {
+   "bib_id": 47,
+   "authors": [
+    {
+     "family": "Sameh",
+     "given": "M"
+    },
+    {
+     "family": "Khalaf",
+     "given": "HM"
+    },
+    {
+     "family": "Anwar",
+     "given": "AM"
+    },
+    {
+     "family": "Osama",
+     "given": "A"
+    },
+    {
+     "family": "Ahmed",
+     "given": "EA"
+    },
+    {
+     "family": "Mahgoub",
+     "given": "S"
+    },
+    {
+     "family": "Ezzeldin",
+     "given": "S"
+    },
+    {
+     "family": "Tanios",
+     "given": "A"
+    },
+    {
+     "family": "Alfishawy",
+     "given": "M"
+    },
+    {
+     "family": "Said",
+     "given": "AF"
+    },
+    {
+     "family": "Mohamed",
+     "given": "MS"
+    },
+    {
+     "family": "Sayed",
+     "given": "AA"
+    },
+    {
+     "family": "Magdeldin",
+     "given": "S"
+    }
+   ],
+   "year": "2023",
+   "title": "Integrated multiomics analysis to infer COVID-19 biological insights",
+   "container": "Scientific Reports",
+   "volume": "13",
+   "first_page": "1802",
+   "doi": "10.1038/s41598-023-28816-5"
+  },
+  {
+   "bib_id": 48,
+   "authors": [
+    {
+     "family": "Seyfried",
+     "given": "TN"
+    },
+    {
+     "family": "Shelton",
+     "given": "LM"
+    }
+   ],
+   "year": "2010",
+   "title": "Cancer as a metabolic disease",
+   "container": "Nutrition & Metabolism",
+   "volume": "7",
+   "first_page": "1",
+   "last_page": "22"
+  },
+  {
+   "bib_id": 49,
+   "authors": [
+    {
+     "family": "Shen",
+     "given": "B"
+    },
+    {
+     "family": "Yi",
+     "given": "X"
+    },
+    {
+     "family": "Sun",
+     "given": "Y"
+    },
+    {
+     "family": "Bi",
+     "given": "X"
+    },
+    {
+     "family": "Du",
+     "given": "J"
+    },
+    {
+     "family": "Zhang",
+     "given": "C"
+    },
+    {
+     "family": "Quan",
+     "given": "S"
+    },
+    {
+     "family": "Zhang",
+     "given": "F"
+    },
+    {
+     "family": "Sun",
+     "given": "R"
+    },
+    {
+     "family": "Qian",
+     "given": "L"
+    },
+    {
+     "family": "Ge",
+     "given": "W"
+    },
+    {
+     "family": "Liu",
+     "given": "W"
+    },
+    {
+     "family": "Liang",
+     "given": "S"
+    },
+    {
+     "family": "Chen",
+     "given": "H"
+    },
+    {
+     "family": "Zhang",
+     "given": "Y"
+    },
+    {
+     "family": "Li",
+     "given": "J"
+    },
+    {
+     "family": "Xu",
+     "given": "J"
+    },
+    {
+     "family": "He",
+     "given": "Z"
+    },
+    {
+     "family": "Chen",
+     "given": "B"
+    },
+    {
+     "family": "Wang",
+     "given": "J"
+    },
+    {
+     "family": "Yan",
+     "given": "H"
+    },
+    {
+     "family": "Zheng",
+     "given": "Y"
+    },
+    {
+     "family": "Wang",
+     "given": "D"
+    },
+    {
+     "family": "Zhu",
+     "given": "J"
+    },
+    {
+     "family": "Kong",
+     "given": "Z"
+    },
+    {
+     "family": "Kang",
+     "given": "Z"
+    },
+    {
+     "family": "Liang",
+     "given": "X"
+    },
+    {
+     "family": "Ding",
+     "given": "X"
+    },
+    {
+     "family": "Ruan",
+     "given": "G"
+    },
+    {
+     "family": "Xiang",
+     "given": "N"
+    },
+    {
+     "family": "Cai",
+     "given": "X"
+    },
+    {
+     "family": "Gao",
+     "given": "H"
+    },
+    {
+     "family": "Li",
+     "given": "L"
+    },
+    {
+     "family": "Li",
+     "given": "S"
+    },
+    {
+     "family": "Xiao",
+     "given": "Q"
+    },
+    {
+     "family": "Lu",
+     "given": "T"
+    },
+    {
+     "family": "Zhu",
+     "given": "Y"
+    },
+    {
+     "family": "Liu",
+     "given": "H"
+    },
+    {
+     "family": "Chen",
+     "given": "H"
+    },
+    {
+     "family": "Guo",
+     "given": "T"
+    }
+   ],
+   "year": "2020",
+   "title": "Proteomic and metabolomic characterization of COVID-19 patient sera",
+   "container": "Cell",
+   "volume": "182",
+   "first_page": "59",
+   "last_page": "72",
+   "doi": "10.1016/j.cell.2020.05.032"
+  },
+  {
+   "bib_id": 50,
+   "authors": [
+    {
+     "family": "Shuja",
+     "given": "J"
+    },
+    {
+     "family": "Alanazi",
+     "given": "E"
+    },
+    {
+     "family": "Alasmary",
+     "given": "W"
+    },
+    {
+     "family": "Alashaikh",
+     "given": "A"
+    }
+   ],
+   "year": "2021",
+   "title": "COVID-19 open source data sets: a comprehensive survey",
+   "container": "Applied Intelligence",
+   "volume": "51",
+   "first_page": "1296",
+   "last_page": "1325",
+   "doi": "10.1007/s10489-020-01862-6"
+  },
+  {
+   "bib_id": 51,
+   "authors": [
+    {
+     "family": "Su",
+     "given": "Y"
+    },
+    {
+     "family": "Ng",
+     "given": "RH"
+    },
+    {
+     "family": "Li",
+     "given": "S"
+    },
+    {
+     "family": "Xie",
+     "given": "J"
+    },
+    {
+     "family": "Kornilov",
+     "given": "SA"
+    },
+    {
+     "family": "Scherler",
+     "given": "K"
+    },
+    {
+     "family": "Pavlovitch-Bedzyk",
+     "given": "AJ"
+    },
+    {
+     "family": "Dong",
+     "given": "S"
+    },
+    {
+     "family": "Lausted",
+     "given": "C"
+    },
+    {
+     "family": "Lee",
+     "given": "I"
+    },
+    {
+     "family": "Fallen",
+     "given": "S"
+    },
+    {
+     "family": "Dai",
+     "given": "CL"
+    },
+    {
+     "family": "Baloni",
+     "given": "P"
+    },
+    {
+     "family": "Smith",
+     "given": "B"
+    },
+    {
+     "family": "Duvvuri",
+     "given": "VR"
+    },
+    {
+     "family": "Anderson",
+     "given": "KG"
+    },
+    {
+     "family": "Li",
+     "given": "J"
+    },
+    {
+     "family": "Yang",
+     "given": "F"
+    },
+    {
+     "family": "Duncombe",
+     "given": "CJ"
+    },
+    {
+     "family": "McCulloch",
+     "given": "DJ"
+    },
+    {
+     "family": "Rostomily",
+     "given": "C"
+    },
+    {
+     "family": "Troisch",
+     "given": "P"
+    },
+    {
+     "family": "Zhou",
+     "given": "J"
+    },
+    {
+     "family": "Mackay",
+     "given": "S"
+    },
+    {
+     "family": "DeGottardi",
+     "given": "Q"
+    },
+    {
+     "family": "May",
+     "given": "DH"
+    },
+    {
+     "family": "Taniguchi",
+     "given": "R"
+    },
+    {
+     "family": "Gittelman",
+     "given": "RM"
+    },
+    {
+     "family": "Klinger",
+     "given": "M"
+    },
+    {
+     "family": "Snyder",
+     "given": "TM"
+    },
+    {
+     "family": "Roper",
+     "given": "R"
+    },
+    {
+     "family": "Wojciechowska",
+     "given": "G"
+    },
+    {
+     "family": "Murray",
+     "given": "K"
+    },
+    {
+     "family": "Edmark",
+     "given": "R"
+    },
+    {
+     "family": "Evans",
+     "given": "S"
+    },
+    {
+     "family": "Jones",
+     "given": "L"
+    },
+    {
+     "family": "Zhou",
+     "given": "Y"
+    },
+    {
+     "family": "Rowen",
+     "given": "L"
+    },
+    {
+     "family": "Liu",
+     "given": "R"
+    },
+    {
+     "family": "Chour",
+     "given": "W"
+    },
+    {
+     "family": "Algren",
+     "given": "HA"
+    },
+    {
+     "family": "Berrington",
+     "given": "WR"
+    },
+    {
+     "family": "Wallick",
+     "given": "JA"
+    },
+    {
+     "family": "Cochran",
+     "given": "RA"
+    },
+    {
+     "family": "Micikas",
+     "given": "ME"
+    },
+    {
+     "family": "Wrin",
+     "given": "T"
+    },
+    {
+     "family": "Petropoulos",
+     "given": "CJ"
+    },
+    {
+     "family": "Cole",
+     "given": "HR"
+    },
+    {
+     "family": "Fischer",
+     "given": "TD"
+    },
+    {
+     "family": "Wei",
+     "given": "W"
+    },
+    {
+     "family": "Hoon",
+     "given": "DS"
+    },
+    {
+     "family": "Price",
+     "given": "ND"
+    },
+    {
+     "family": "Subramanian",
+     "given": "N"
+    },
+    {
+     "family": "Hill",
+     "given": "JA"
+    },
+    {
+     "family": "Hadlock",
+     "given": "J"
+    },
+    {
+     "family": "Magis",
+     "given": "AT"
+    },
+    {
+     "family": "Ribas",
+     "given": "A"
+    },
+    {
+     "family": "Lanier",
+     "given": "LL"
+    },
+    {
+     "family": "Boyd",
+     "given": "SD"
+    },
+    {
+     "family": "Bluestone",
+     "given": "JA"
+    },
+    {
+     "family": "Chu",
+     "given": "H"
+    },
+    {
+     "family": "Hood",
+     "given": "L"
+    },
+    {
+     "family": "Gottardo",
+     "given": "R"
+    },
+    {
+     "family": "Greenberg",
+     "given": "PD"
+    },
+    {
+     "family": "Davis",
+     "given": "MM"
+    },
+    {
+     "family": "Goldman",
+     "given": "JD"
+    },
+    {
+     "family": "Heath",
+     "given": "JR"
+    }
+   ],
+   "year": "2022",
+   "title": "Multiple early factors anticipate post-acute COVID-19 sequelae",
+   "container": "Cell",
+   "volume": "185",
+   "first_page": "881",
+   "last_page": "895",
+   "doi": "10.1016/j.cell.2022.01.014"
+  },
+  {
+   "bib_id": 52,
+   "authors": [
+    {
+     "family": "Sud",
+     "given": "M"
+    },
+    {
+     "family": "Fahy",
+     "given": "E"
+    },
+    {
+     "family": "Cotter",
+     "given": "D"
+    },
+    {
+     "family": "Azam",
+     "given": "K"
+    },
+    {
+     "family": "Vadivelu",
+     "given": "I"
+    },
+    {
+     "family": "Burant",
+     "given": "C"
+    },
+    {
+     "family": "Edison",
+     "given": "A"
+    },
+    {
+     "family": "Fiehn",
+     "given": "O"
+    },
+    {
+     "family": "Higashi",
+     "given": "R"
+    },
+    {
+     "family": "Nair",
+     "given": "KS"
+    },
+    {
+     "family": "Sumner",
+     "given": "S"
+    },
+    {
+     "family": "Subramaniam",
+     "given": "S"
+    }
+   ],
+   "year": "2016",
+   "container": "Nucleic Acids Research",
+   "volume": "44",
+   "first_page": "D463",
+   "last_page": "D470",
+   "doi": "10.1093/nar/gkv1042"
+  },
+  {
+   "bib_id": 53,
+   "authors": [
+    {
+     "family": "Sumon",
+     "given": "MSI"
+    },
+    {
+     "family": "Hossain",
+     "given": "MSA"
+    },
+    {
+     "family": "Al-Sulaiti",
+     "given": "H"
+    },
+    {
+     "family": "Yassine",
+     "given": "HM"
+    },
+    {
+     "family": "Chowdhury",
+     "given": "ME"
+    }
+   ],
+   "year": "2025",
+   "title": "A comprehensive machine learning approach for COVID-19 target discovery in the small-molecule metabolome",
+   "container": "Metabolites",
+   "volume": "15",
+   "first_page": "44",
+   "doi": "10.3390/metabo15010044"
+  },
+  {
+   "bib_id": 54,
+   "authors": [
+    {
+     "family": "Tahir",
+     "given": "A"
+    },
+    {
+     "family": "Draxler",
+     "given": "A"
+    },
+    {
+     "family": "Stelzer",
+     "given": "T"
+    },
+    {
+     "family": "Blaschke",
+     "given": "A"
+    },
+    {
+     "family": "Laky",
+     "given": "B"
+    },
+    {
+     "family": "Széll",
+     "given": "M"
+    },
+    {
+     "family": "Binar",
+     "given": "J"
+    },
+    {
+     "family": "Bartak",
+     "given": "V"
+    },
+    {
+     "family": "Bragagna",
+     "given": "L"
+    },
+    {
+     "family": "Maqboul",
+     "given": "L"
+    },
+    {
+     "family": "Herzog",
+     "given": "T"
+    },
+    {
+     "family": "Thell",
+     "given": "R"
+    },
+    {
+     "family": "Wagner",
+     "given": "K-H"
+    }
+   ],
+   "year": "2024",
+   "title": "A comprehensive IDA and SWATH-DIA lipidomics and metabolomics dataset: SARS-CoV-2 case control study",
+   "container": "Scientific Data",
+   "volume": "11",
+   "first_page": "998",
+   "doi": "10.1038/s41597-024-03822-y"
+  },
+  {
+   "bib_id": 55,
+   "authors": [
+    {
+     "family": "Taichman",
+     "given": "DB"
+    },
+    {
+     "family": "Sahni",
+     "given": "P"
+    },
+    {
+     "family": "Pinborg",
+     "given": "A"
+    },
+    {
+     "family": "Peiperl",
+     "given": "L"
+    },
+    {
+     "family": "Laine",
+     "given": "C"
+    },
+    {
+     "family": "James",
+     "given": "A"
+    },
+    {
+     "family": "Hong",
+     "given": "S-T"
+    },
+    {
+     "family": "Haileamlak",
+     "given": "A"
+    },
+    {
+     "family": "Gollogly",
+     "given": "L"
+    },
+    {
+     "family": "Godlee",
+     "given": "F"
+    },
+    {
+     "family": "Frizelle",
+     "given": "FA"
+    },
+    {
+     "family": "Florenzano",
+     "given": "F"
+    },
+    {
+     "family": "Drazen",
+     "given": "JM"
+    },
+    {
+     "family": "Bauchner",
+     "given": "H"
+    },
+    {
+     "family": "Baethge",
+     "given": "C"
+    },
+    {
+     "family": "Backus",
+     "given": "J"
+    }
+   ],
+   "year": "2017",
+   "title": "Data sharing statements for clinical trials: a requirement of the International Committee of Medical Journal Editors",
+   "container": "The Lancet",
+   "volume": "389",
+   "first_page": "e12",
+   "last_page": "e14",
+   "doi": "10.1016/S0140-6736(17)31282-5"
+  },
+  {
+   "bib_id": 56,
+   "authors": [
+    {
+     "family": "Thomas",
+     "given": "T"
+    },
+    {
+     "family": "Stefanoni",
+     "given": "D"
+    },
+    {
+     "family": "Reisz",
+     "given": "JA"
+    },
+    {
+     "family": "Nemkov",
+     "given": "T"
+    },
+    {
+     "family": "Bertolone",
+     "given": "L"
+    },
+    {
+     "family": "Francis",
+     "given": "RO"
+    },
+    {
+     "family": "Hudson",
+     "given": "KE"
+    },
+    {
+     "family": "Zimring",
+     "given": "JC"
+    },
+    {
+     "family": "Hansen",
+     "given": "KC"
+    },
+    {
+     "family": "Hod",
+     "given": "EA"
+    },
+    {
+     "family": "Spitalnik",
+     "given": "SL"
+    },
+    {
+     "family": "D’Alessandro",
+     "given": "A"
+    }
+   ],
+   "year": "2020",
+   "title": "COVID-19 infection alters kynurenine and fatty acid metabolism, correlating with IL-6 levels and renal status",
+   "container": "JCI Insight",
+   "volume": "5",
+   "first_page": "e140327",
+   "doi": "10.1172/jci.insight.140327"
+  },
+  {
+   "bib_id": 57,
+   "authors": [
+    {
+     "family": "Vines",
+     "given": "TH"
+    },
+    {
+     "family": "Albert",
+     "given": "AY"
+    },
+    {
+     "family": "Andrew",
+     "given": "RL"
+    },
+    {
+     "family": "Débarre",
+     "given": "F"
+    },
+    {
+     "family": "Bock",
+     "given": "DG"
+    },
+    {
+     "family": "Franklin",
+     "given": "MT"
+    },
+    {
+     "family": "Gilbert",
+     "given": "KJ"
+    },
+    {
+     "family": "Moore",
+     "given": "J-S"
+    },
+    {
+     "family": "Renaut",
+     "given": "S"
+    },
+    {
+     "family": "Rennison",
+     "given": "DJ"
+    }
+   ],
+   "year": "2014",
+   "title": "The availability of research data declines rapidly with article age",
+   "container": "Current Biology",
+   "volume": "24",
+   "first_page": "94",
+   "last_page": "97",
+   "doi": "10.1016/j.cub.2013.11.014"
+  },
+  {
+   "bib_id": 58,
+   "authors": [
+    {
+     "family": "Wang",
+     "given": "L"
+    },
+    {
+     "family": "Zhang",
+     "given": "Y"
+    },
+    {
+     "family": "Wang",
+     "given": "D"
+    },
+    {
+     "family": "Tong",
+     "given": "X"
+    },
+    {
+     "family": "Liu",
+     "given": "T"
+    },
+    {
+     "family": "Zhang",
+     "given": "S"
+    },
+    {
+     "family": "Huang",
+     "given": "J"
+    },
+    {
+     "family": "Zhang",
+     "given": "L"
+    },
+    {
+     "family": "Chen",
+     "given": "L"
+    },
+    {
+     "family": "Fan",
+     "given": "H"
+    },
+    {
+     "family": "Clarke",
+     "given": "M"
+    }
+   ],
+   "year": "2021",
+   "title": "Artificial intelligence for COVID-19: a systematic review",
+   "container": "Frontiers in Medicine",
+   "volume": "8",
+   "first_page": "704256",
+   "doi": "10.3389/fmed.2021.704256"
+  },
+  {
+   "bib_id": 59,
+   "authors": [
+    {
+     "family": "Wei",
+     "given": "R"
+    },
+    {
+     "family": "Wang",
+     "given": "J"
+    },
+    {
+     "family": "Su",
+     "given": "M"
+    },
+    {
+     "family": "Jia",
+     "given": "E"
+    },
+    {
+     "family": "Chen",
+     "given": "S"
+    },
+    {
+     "family": "Chen",
+     "given": "T"
+    },
+    {
+     "family": "Ni",
+     "given": "Y"
+    }
+   ],
+   "year": "2018",
+   "title": "Missing value imputation approach for mass spectrometry-based metabolomics data",
+   "container": "Scientific Reports",
+   "volume": "8",
+   "first_page": "663",
+   "doi": "10.1038/s41598-017-19120-0"
+  },
+  {
+   "bib_id": 60,
+   "authors": [
+    {
+     "family": "Wishart",
+     "given": "DS"
+    }
+   ],
+   "year": "2016",
+   "title": "Emerging applications of metabolomics in drug discovery and precision medicine",
+   "container": "Nature Reviews Drug Discovery",
+   "volume": "15",
+   "first_page": "473",
+   "last_page": "484",
+   "doi": "10.1038/nrd.2016.32"
+  },
+  {
+   "bib_id": 61,
+   "authors": [
+    {
+     "family": "Wu",
+     "given": "D"
+    },
+    {
+     "family": "Shu",
+     "given": "T"
+    },
+    {
+     "family": "Yang",
+     "given": "X"
+    },
+    {
+     "family": "Song",
+     "given": "J-X"
+    },
+    {
+     "family": "Zhang",
+     "given": "M"
+    },
+    {
+     "family": "Yao",
+     "given": "C"
+    },
+    {
+     "family": "Liu",
+     "given": "W"
+    },
+    {
+     "family": "Huang",
+     "given": "M"
+    },
+    {
+     "family": "Yu",
+     "given": "Y"
+    },
+    {
+     "family": "Yang",
+     "given": "Q"
+    },
+    {
+     "family": "Zhu",
+     "given": "T"
+    },
+    {
+     "family": "Xu",
+     "given": "J"
+    },
+    {
+     "family": "Mu",
+     "given": "J"
+    },
+    {
+     "family": "Wang",
+     "given": "Y"
+    },
+    {
+     "family": "Wang",
+     "given": "H"
+    },
+    {
+     "family": "Tang",
+     "given": "T"
+    },
+    {
+     "family": "Ren",
+     "given": "Y"
+    },
+    {
+     "family": "Wu",
+     "given": "Y"
+    },
+    {
+     "family": "Lin",
+     "given": "S-H"
+    },
+    {
+     "family": "Qiu",
+     "given": "Y"
+    },
+    {
+     "family": "Zhang",
+     "given": "D-Y"
+    },
+    {
+     "family": "Shang",
+     "given": "Y"
+    },
+    {
+     "family": "Zhou",
+     "given": "X"
+    }
+   ],
+   "year": "2020",
+   "title": "Plasma metabolomic and lipidomic alterations associated with COVID-19",
+   "container": "National Science Review",
+   "volume": "7",
+   "first_page": "1157",
+   "last_page": "1168",
+   "doi": "10.1093/nsr/nwaa086"
+  },
+  {
+   "bib_id": 62,
+   "authors": [
+    {
+     "family": "Xu",
+     "given": "Y"
+    },
+    {
+     "family": "Cao",
+     "given": "L"
+    },
+    {
+     "family": "Chen",
+     "given": "Y"
+    },
+    {
+     "family": "Zhang",
+     "given": "Z"
+    },
+    {
+     "family": "Liu",
+     "given": "W"
+    },
+    {
+     "family": "Li",
+     "given": "H"
+    },
+    {
+     "family": "Ding",
+     "given": "C"
+    },
+    {
+     "family": "Pu",
+     "given": "J"
+    },
+    {
+     "family": "Qian",
+     "given": "K"
+    },
+    {
+     "family": "Xu",
+     "given": "W"
+    }
+   ],
+   "year": "2024",
+   "title": "Integrating machine learning in metabolomics: a path to enhanced diagnostics and data interpretation",
+   "container": "Small Methods",
+   "volume": "8",
+   "first_page": "2400305",
+   "doi": "10.1002/smtd.202400305"
+  },
+  {
+   "bib_id": 63,
+   "authors": [
+    {
+     "family": "Yang",
+     "given": "Z"
+    },
+    {
+     "family": "Wu",
+     "given": "D"
+    },
+    {
+     "family": "Lu",
+     "given": "S"
+    },
+    {
+     "family": "Qiu",
+     "given": "Y"
+    },
+    {
+     "family": "Hua",
+     "given": "Z"
+    },
+    {
+     "family": "Tan",
+     "given": "F"
+    },
+    {
+     "family": "Zhang",
+     "given": "C"
+    },
+    {
+     "family": "Zhang",
+     "given": "L"
+    },
+    {
+     "family": "Zhang",
+     "given": "D-Y"
+    },
+    {
+     "family": "Zhou",
+     "given": "X"
+    },
+    {
+     "family": "Cai",
+     "given": "Z"
+    },
+    {
+     "family": "Shang",
+     "given": "Y"
+    },
+    {
+     "family": "Lin",
+     "given": "S-H"
+    }
+   ],
+   "year": "2022",
+   "title": "Plasma metabolome and cytokine profile reveal glycylproline modulating antibody fading in convalescent COVID-19 patients",
+   "container": "Proceedings of the National Academy of Sciences of the United States of America",
+   "volume": "119",
+   "first_page": "e2117089119"
+  },
+  {
+   "bib_id": 64,
+   "authors": [
+    {
+     "family": "Yurekten",
+     "given": "O"
+    },
+    {
+     "family": "Payne",
+     "given": "T"
+    },
+    {
+     "family": "Tejera",
+     "given": "N"
+    },
+    {
+     "family": "Amaladoss",
+     "given": "FX"
+    },
+    {
+     "family": "Martin",
+     "given": "C"
+    },
+    {
+     "family": "Williams",
+     "given": "M"
+    },
+    {
+     "family": "O’Donovan",
+     "given": "C"
+    }
+   ],
+   "year": "2024",
+   "title": "MetaboLights: open data repository for metabolomics",
+   "container": "Nucleic Acids Research",
+   "volume": "52",
+   "first_page": "D640",
+   "last_page": "D646",
+   "doi": "10.1093/nar/gkad1045"
+  },
+  {
+   "bib_id": 65,
+   "authors": [
+    {
+     "family": "Zhang",
+     "given": "M"
+    },
+    {
+     "family": "Yang",
+     "given": "H"
+    }
+   ],
+   "year": "2022",
+   "title": "Perspectives from metabolomics in the early diagnosis and prognosis of gestational diabetes mellitus",
+   "container": "Frontiers in Endocrinology",
+   "volume": "13",
+   "first_page": "967191",
+   "doi": "10.3389/fendo.2022.967191"
+  },
+  {
+   "bib_id": 66,
+   "authors": [
+    {
+     "family": "Zheng",
+     "given": "H"
+    },
+    {
+     "family": "Jin",
+     "given": "S"
+    },
+    {
+     "family": "Li",
+     "given": "T"
+    },
+    {
+     "family": "Ying",
+     "given": "W"
+    },
+    {
+     "family": "Ying",
+     "given": "B"
+    },
+    {
+     "family": "Chen",
+     "given": "D"
+    },
+    {
+     "family": "Ning",
+     "given": "J"
+    },
+    {
+     "family": "Zheng",
+     "given": "C"
+    },
+    {
+     "family": "Li",
+     "given": "Y"
+    },
+    {
+     "family": "Li",
+     "given": "C"
+    },
+    {
+     "family": "Chen",
+     "given": "C"
+    },
+    {
+     "family": "Li",
+     "given": "X"
+    },
+    {
+     "family": "Gao",
+     "given": "H"
+    }
+   ],
+   "year": "2021",
+   "title": "Metabolomics reveals sex-specific metabolic shifts and predicts the duration from positive to negative in non-severe COVID-19 patients during recovery process",
+   "container": "Computational and Structural Biotechnology Journal",
+   "volume": "19",
+   "first_page": "1863",
+   "last_page": "1873",
+   "doi": "10.1016/j.csbj.2021.03.039"
+  },
+  {
+   "bib_id": 67,
+   "authors": [
+    {
+     "family": "Zuo",
+     "given": "X"
+    },
+    {
+     "family": "Chen",
+     "given": "Y"
+    },
+    {
+     "family": "Ohno-Machado",
+     "given": "L"
+    },
+    {
+     "family": "Xu",
+     "given": "H"
+    }
+   ],
+   "year": "2021",
+   "title": "How do we share data in COVID-19 research? A systematic review of COVID-19 datasets in PubMed central articles",
+   "container": "Briefings in Bioinformatics",
+   "volume": "22",
+   "first_page": "800",
+   "last_page": "811",
+   "doi": "10.1093/bib/bbaa331"
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-core-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "jats_doi": "10.7717/peerj.21313"
+ }
+}

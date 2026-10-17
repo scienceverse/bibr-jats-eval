@@ -1,0 +1,1208 @@
+{
+ "paper_id": "10.1371_journal.pcbi.1014763",
+ "info": {
+  "title": "Inferring effective neuronal circuits via network flux counting",
+  "doi": "10.1371/journal.pcbi.1014763",
+  "file_name": "10.1371_journal.pcbi.1014763.pdf",
+  "abstract": "Extracting circuit mechanisms from neuronal population activity is challenging due to the heterogeneous neuronal properties and diverse strengths in synaptic connections. Standard inference methods, such as Generalized Linear Models (GLMs), typically regress for parameters on all neuronal activity at once. Such a global fitting approach can face identifiability difficulties—for example, where the statistical estimation of strong, opposing weights becomes ill-conditioned in excitatory-inhibitory balanced networks. Here, we introduce FLux-based Effective Coupling (FLEC), a framework that maps spike trains directly to probability fluxes on network state space. Instead of enforcing a single global fit, FLEC infers connectivity and response heterogeneity by quantifying transition rates for each network configuration independently. We demonstrate that FLEC outperforms GLMs and Granger Causality in strongly coupled networks while matching GLM’s performance in standard regimes. Additionally, when combined with Maximum Caliber to construct a minimal dynamical model, the framework better captures temporal statistics—such as inter-spike intervals—than Maximum Entropy models. Robust to parameter variations and unobserved hidden units, and applied to multi-electrode recordings from the salamander retina, FLEC offers a systematic, counting-based tool for inference in nonlinear neuronal circuits."
+ },
+ "author": [
+  {
+   "author_id": 1,
+   "given": "Kevin S.",
+   "family": "Chen",
+   "affiliation": "Quantitative Biology Institute, Yale University, New Haven, Connecticut, United States of America",
+   "email": "",
+   "orcid": "",
+   "corresponding": true
+  },
+  {
+   "author_id": 2,
+   "given": "Ying-Jen",
+   "family": "Yang",
+   "affiliation": "Laufer Center of Physical and Quantitative Biology, Stony Brook University, Stony Brook, New York, United States of America",
+   "email": "",
+   "orcid": "",
+   "corresponding": true
+  }
+ ],
+ "section": [
+  {
+   "section_id": 1,
+   "section_type": "abstract",
+   "header": "Abstract",
+   "level": 1,
+   "parent_section_id": null,
+   "classification_score": 1.0
+  }
+ ],
+ "text": [
+  {
+   "text_id": 1,
+   "section_id": 1,
+   "paragraph_id": 1,
+   "text": "Extracting circuit mechanisms from neuronal population activity is challenging due to the heterogeneous neuronal properties and diverse strengths in synaptic connections. Standard inference methods, such as Generalized Linear Models (GLMs), typically regress for parameters on all neuronal activity at once. Such a global fitting approach can face identifiability difficulties—for example, where the statistical estimation of strong, opposing weights becomes ill-conditioned in excitatory-inhibitory balanced networks. Here, we introduce FLux-based Effective Coupling (FLEC), a framework that maps spike trains directly to probability fluxes on network state space. Instead of enforcing a single global fit, FLEC infers connectivity and response heterogeneity by quantifying transition rates for each network configuration independently. We demonstrate that FLEC outperforms GLMs and Granger Causality in strongly coupled networks while matching GLM’s performance in standard regimes. Additionally, when combined with Maximum Caliber to construct a minimal dynamical model, the framework better captures temporal statistics—such as inter-spike intervals—than Maximum Entropy models. Robust to parameter variations and unobserved hidden units, and applied to multi-electrode recordings from the salamander retina, FLEC offers a systematic, counting-based tool for inference in nonlinear neuronal circuits.",
+   "page_number": 1
+  }
+ ],
+ "bib": [
+  {
+   "bib_id": 1,
+   "authors": [
+    {
+     "family": "Currier",
+     "given": "TA"
+    },
+    {
+     "family": "Clandinin",
+     "given": "TR"
+    }
+   ],
+   "year": "2025",
+   "title": "Infrequent strong connections constrain connectomic predictions of neuronal function",
+   "container": "Cell",
+   "volume": "188",
+   "doi": "10.1016/j.cell.2025.05.007"
+  },
+  {
+   "bib_id": 2,
+   "authors": [
+    {
+     "family": "Gerhard",
+     "given": "F"
+    },
+    {
+     "family": "Kispersky",
+     "given": "T"
+    },
+    {
+     "family": "Gutierrez",
+     "given": "GJ"
+    },
+    {
+     "family": "Marder",
+     "given": "E"
+    },
+    {
+     "family": "Kramer",
+     "given": "M"
+    },
+    {
+     "family": "Eden",
+     "given": "U"
+    }
+   ],
+   "year": "2013",
+   "title": "Successful reconstruction of a physiological circuit with known connectivity from spiking activity alone",
+   "container": "PLoS Comput Biol",
+   "volume": "9",
+   "doi": "10.1371/journal.pcbi.1003138"
+  },
+  {
+   "bib_id": 3,
+   "authors": [
+    {
+     "family": "Marder",
+     "given": "E"
+    },
+    {
+     "family": "Calabrese",
+     "given": "RL"
+    }
+   ],
+   "year": "1996",
+   "title": "Principles of rhythmic motor pattern generation",
+   "container": "Physiol Rev",
+   "volume": "76",
+   "first_page": "687",
+   "last_page": "717",
+   "doi": "10.1152/physrev.1996.76.3.687"
+  },
+  {
+   "bib_id": 4,
+   "authors": [
+    {
+     "family": "Kandel",
+     "given": "ER"
+    }
+   ],
+   "year": "2001",
+   "title": "The molecular biology of memory storage: a dialogue between genes and synapses",
+   "container": "Science",
+   "volume": "294",
+   "first_page": "1030",
+   "doi": "10.1126/science.1067020"
+  },
+  {
+   "bib_id": 5,
+   "authors": [
+    {
+     "family": "Avila",
+     "given": "B"
+    },
+    {
+     "family": "Augusto",
+     "given": "P"
+    },
+    {
+     "family": "Hashemi",
+     "given": "A"
+    },
+    {
+     "family": "Phillips",
+     "given": "D"
+    },
+    {
+     "family": "Gili",
+     "given": "T"
+    },
+    {
+     "family": "Zimmer",
+     "given": "M"
+    }
+   ],
+   "year": "2025",
+   "title": "Symmetries and synchronization from whole-neural activity in the Caenorhabditis elegans connectome: Integration of functional and structural networks",
+   "container": "Proc Natl Acad Sci U S A",
+   "volume": "122",
+   "doi": "10.1073/pnas.2417850122"
+  },
+  {
+   "bib_id": 6,
+   "authors": [
+    {
+     "family": "Pillow",
+     "given": "JW"
+    },
+    {
+     "family": "Shlens",
+     "given": "J"
+    },
+    {
+     "family": "Paninski",
+     "given": "L"
+    },
+    {
+     "family": "Sher",
+     "given": "A"
+    },
+    {
+     "family": "Litke",
+     "given": "AM"
+    },
+    {
+     "family": "Chichilnisky",
+     "given": "EJ"
+    }
+   ],
+   "year": "2008",
+   "title": "Spatio-temporal correlations and visual signalling in a complete neuronal population",
+   "container": "Nature",
+   "volume": "454",
+   "first_page": "995",
+   "doi": "10.1038/nature07140"
+  },
+  {
+   "bib_id": 7,
+   "authors": [
+    {
+     "family": "Grimes",
+     "given": "WN"
+    },
+    {
+     "family": "Hoon",
+     "given": "M"
+    },
+    {
+     "family": "Briggman",
+     "given": "KL"
+    },
+    {
+     "family": "Wong",
+     "given": "RO"
+    },
+    {
+     "family": "Rieke",
+     "given": "F"
+    }
+   ],
+   "year": "2014",
+   "title": "Cross-synaptic synchrony and transmission of signal and noise across the mouse retina",
+   "container": "Elife",
+   "volume": "3",
+   "doi": "10.7554/eLife.03892"
+  },
+  {
+   "bib_id": 8,
+   "authors": [
+    {
+     "family": "Rieke",
+     "given": "F"
+    },
+    {
+     "family": "Warland",
+     "given": "D"
+    },
+    {
+     "family": "Van Steveninck R d",
+     "given": "R"
+    },
+    {
+     "family": "Bialek",
+     "given": "W"
+    }
+   ],
+   "year": "1999",
+   "title": "Spikes: exploring the neural code"
+  },
+  {
+   "bib_id": 9,
+   "authors": [
+    {
+     "family": "Seth",
+     "given": "AK"
+    },
+    {
+     "family": "Barrett",
+     "given": "AB"
+    },
+    {
+     "family": "Barnett",
+     "given": "L"
+    }
+   ],
+   "year": "2015",
+   "title": "Granger causality analysis in neuroscience and neuroimaging",
+   "container": "J Neurosci",
+   "volume": "35",
+   "first_page": "3293",
+   "doi": "10.1523/JNEUROSCI.4399-14.2015"
+  },
+  {
+   "bib_id": 10,
+   "authors": [
+    {
+     "family": "Truccolo",
+     "given": "W"
+    },
+    {
+     "family": "Eden",
+     "given": "UT"
+    },
+    {
+     "family": "Fellows",
+     "given": "MR"
+    },
+    {
+     "family": "Donoghue",
+     "given": "JP"
+    },
+    {
+     "family": "Brown",
+     "given": "EN"
+    }
+   ],
+   "year": "2005",
+   "title": "A point process framework for relating neural spiking activity to spiking history, neural ensemble, and extrinsic covariate effects",
+   "container": "J Neurophysiol",
+   "volume": "93",
+   "first_page": "1074",
+   "doi": "10.1152/jn.00697.2004"
+  },
+  {
+   "bib_id": 11,
+   "authors": [
+    {
+     "family": "Kobayashi",
+     "given": "R"
+    },
+    {
+     "family": "Kurita",
+     "given": "S"
+    },
+    {
+     "family": "Kurth",
+     "given": "A"
+    },
+    {
+     "family": "Kitano",
+     "given": "K"
+    },
+    {
+     "family": "Mizuseki",
+     "given": "K"
+    },
+    {
+     "family": "Diesmann",
+     "given": "M"
+    }
+   ],
+   "year": "2019",
+   "title": "Reconstructing neuronal circuitry from parallel spike trains",
+   "container": "Nat Commun",
+   "volume": "10",
+   "first_page": "4468",
+   "doi": "10.1038/s41467-019-12225-2"
+  },
+  {
+   "bib_id": 12,
+   "authors": [
+    {
+     "family": "López-Madrona",
+     "given": "VJ"
+    },
+    {
+     "family": "Matias",
+     "given": "FS"
+    },
+    {
+     "family": "Mirasso",
+     "given": "CR"
+    },
+    {
+     "family": "Canals",
+     "given": "S"
+    },
+    {
+     "family": "Pereda",
+     "given": "E"
+    }
+   ],
+   "year": "2019",
+   "title": "Inferring correlations associated to causal interactions in brain signals using autoregressive models",
+   "container": "Sci Rep",
+   "volume": "9",
+   "first_page": "17041",
+   "doi": "10.1038/s41598-019-53453-2"
+  },
+  {
+   "bib_id": 13,
+   "authors": [
+    {
+     "family": "Gerhard",
+     "given": "F"
+    },
+    {
+     "family": "Deger",
+     "given": "M"
+    },
+    {
+     "family": "Truccolo",
+     "given": "W"
+    }
+   ],
+   "year": "2017",
+   "title": "On the stability and dynamics of stochastic spiking neuron models: Nonlinear Hawkes process and point process GLMs",
+   "container": "PLoS Comput Biol",
+   "volume": "13",
+   "doi": "10.1371/journal.pcbi.1005390"
+  },
+  {
+   "bib_id": 14,
+   "authors": [
+    {
+     "family": "Das",
+     "given": "A"
+    },
+    {
+     "family": "Fiete",
+     "given": "IR"
+    }
+   ],
+   "year": "2020",
+   "title": "Systematic errors in connectivity inferred from activity in strongly recurrent networks",
+   "container": "Nat Neurosci",
+   "volume": "23",
+   "first_page": "1286",
+   "doi": "10.1038/s41593-020-0699-2"
+  },
+  {
+   "bib_id": 15,
+   "authors": [
+    {
+     "family": "Lynn",
+     "given": "CW"
+    },
+    {
+     "family": "Holmes",
+     "given": "CM"
+    },
+    {
+     "family": "Bialek",
+     "given": "W"
+    },
+    {
+     "family": "Schwab",
+     "given": "DJ"
+    }
+   ],
+   "year": "2022",
+   "title": "Decomposing the Local Arrow of Time in Interacting Systems",
+   "container": "Phys Rev Lett",
+   "volume": "129",
+   "first_page": "118101",
+   "doi": "10.1103/PhysRevLett.129.118101"
+  },
+  {
+   "bib_id": 16,
+   "authors": [
+    {
+     "family": "Shore",
+     "given": "J"
+    },
+    {
+     "family": "Johnson",
+     "given": "R"
+    }
+   ],
+   "year": "1980",
+   "title": "Axiomatic derivation of the principle of maximum entropy and the principle of minimum cross-entropy",
+   "container": "IEEE Trans Inform Theory",
+   "volume": "26",
+   "first_page": "26",
+   "last_page": "37",
+   "doi": "10.1109/tit.1980.1056144"
+  },
+  {
+   "bib_id": 17,
+   "authors": [
+    {
+     "family": "Pressé",
+     "given": "S"
+    },
+    {
+     "family": "Ghosh",
+     "given": "K"
+    },
+    {
+     "family": "Lee",
+     "given": "J"
+    },
+    {
+     "family": "Dill",
+     "given": "KA"
+    }
+   ],
+   "year": "2013",
+   "title": "Principles of maximum entropy and maximum caliber in statistical physics",
+   "container": "Rev Mod Phys",
+   "volume": "85",
+   "first_page": "1115",
+   "doi": "10.1103/RevModPhys.85.1115"
+  },
+  {
+   "bib_id": 18,
+   "authors": [
+    {
+     "family": "Pressé",
+     "given": "S"
+    },
+    {
+     "family": "Ghosh",
+     "given": "K"
+    },
+    {
+     "family": "Lee",
+     "given": "J"
+    },
+    {
+     "family": "Dill",
+     "given": "KA"
+    }
+   ],
+   "year": "2013",
+   "title": "Nonadditive entropies yield probability distributions with biases not warranted by the data",
+   "container": "Phys Rev Lett",
+   "volume": "111",
+   "first_page": "180604",
+   "doi": "10.1103/PhysRevLett.111.180604"
+  },
+  {
+   "bib_id": 19,
+   "authors": [
+    {
+     "family": "Caticha A. Entropy, Information, and the Updating of Probabilities. Entropy",
+     "given": ""
+    }
+   ],
+   "year": "2021",
+   "first_page": "895"
+  },
+  {
+   "bib_id": 20,
+   "authors": [
+    {
+     "family": "Schneidman",
+     "given": "E"
+    },
+    {
+     "family": "Berry",
+     "given": "MJ"
+    },
+    {
+     "family": "Segev",
+     "given": "R"
+    },
+    {
+     "family": "Bialek",
+     "given": "W"
+    }
+   ],
+   "year": "2006",
+   "title": "Weak pairwise correlations imply strongly correlated network states in a neural population",
+   "container": "Nature",
+   "volume": "440",
+   "first_page": "1007",
+   "doi": "10.1038/nature04701"
+  },
+  {
+   "bib_id": 21,
+   "authors": [
+    {
+     "family": "Roudi",
+     "given": "Y"
+    },
+    {
+     "family": "Aurell",
+     "given": "E"
+    },
+    {
+     "family": "Hertz",
+     "given": "JA"
+    }
+   ],
+   "year": "2009",
+   "title": "Statistical physics of pairwise probability models",
+   "container": "Front Comput Neurosci",
+   "volume": "3",
+   "first_page": "22",
+   "doi": "10.3389/neuro.10.022.2009"
+  },
+  {
+   "bib_id": 22,
+   "authors": [
+    {
+     "family": "Palmer",
+     "given": "SE"
+    },
+    {
+     "family": "Marre",
+     "given": "O"
+    },
+    {
+     "family": "Berry",
+     "given": "MJ"
+    },
+    {
+     "family": "Bialek",
+     "given": "W"
+    }
+   ],
+   "year": "2015",
+   "title": "Predictive information in a sensory population",
+   "container": "Proceedings of the National Academy of Sciences",
+   "volume": "112",
+   "first_page": "6908",
+   "doi": "10.1073/pnas.1506855112"
+  },
+  {
+   "bib_id": 23,
+   "authors": [
+    {
+     "family": "Gollisch",
+     "given": "T"
+    },
+    {
+     "family": "Meister",
+     "given": "M"
+    }
+   ],
+   "year": "2010",
+   "title": "Eye smarter than scientists believed: neural computations in circuits of the retina",
+   "container": "Neuron",
+   "volume": "65",
+   "first_page": "150",
+   "doi": "10.1016/j.neuron.2009.12.009"
+  },
+  {
+   "bib_id": 24,
+   "authors": [
+    {
+     "family": "Masland",
+     "given": "RH"
+    }
+   ],
+   "year": "2001",
+   "title": "The fundamental plan of the retina",
+   "container": "Nat Neurosci",
+   "volume": "4",
+   "first_page": "877",
+   "doi": "10.1038/nn0901-877"
+  },
+  {
+   "bib_id": 25,
+   "authors": [
+    {
+     "family": "Horowitz",
+     "given": "JM"
+    },
+    {
+     "family": "Esposito",
+     "given": "M"
+    }
+   ],
+   "year": "2014",
+   "title": "Thermodynamics with Continuous Information Flow",
+   "container": "Phys Rev X",
+   "volume": "4",
+   "first_page": "031015",
+   "doi": "10.1103/PhysRevX.4.031015"
+  },
+  {
+   "bib_id": 26,
+   "authors": [
+    {
+     "family": "Wolpert",
+     "given": "DH"
+    }
+   ],
+   "year": "2020",
+   "title": "Minimal entropy production rate of interacting systems",
+   "container": "New J Phys",
+   "volume": "22",
+   "first_page": "113013",
+   "doi": "10.1088/1367-2630/abc5c6"
+  },
+  {
+   "bib_id": 27,
+   "authors": [
+    {
+     "family": "Gerstner",
+     "given": "W"
+    },
+    {
+     "family": "Kistler",
+     "given": "WM"
+    },
+    {
+     "family": "Naud",
+     "given": "R"
+    },
+    {
+     "family": "Paninski",
+     "given": "L"
+    }
+   ],
+   "year": "2014",
+   "title": "Neuronal Dynamics: From Single Neurons to Networks and Models of Cognition"
+  },
+  {
+   "bib_id": 28,
+   "authors": [
+    {
+     "family": "Koch",
+     "given": "C"
+    }
+   ],
+   "year": "2004",
+   "title": "Biophysics of computation: information processing in single neurons"
+  },
+  {
+   "bib_id": 29,
+   "authors": [
+    {
+     "family": "Hill",
+     "given": "TL"
+    }
+   ],
+   "year": "1977",
+   "title": "Free Energy Transduction in Biology: The Steady-State Kinetic and Thermodynamic Formalism"
+  },
+  {
+   "bib_id": 30,
+   "authors": [
+    {
+     "family": "Nicolis",
+     "given": "G"
+    },
+    {
+     "family": "Prigogine",
+     "given": "I"
+    }
+   ],
+   "year": "1977",
+   "title": "Self-Organization in Nonequilibrium Systems: From Dissipative Structures to Order through Fluctuations"
+  },
+  {
+   "bib_id": 31,
+   "authors": [
+    {
+     "family": "Gerwinn",
+     "given": "S"
+    },
+    {
+     "family": "Macke",
+     "given": "JH"
+    },
+    {
+     "family": "Bethge",
+     "given": "M"
+    }
+   ],
+   "year": "2010",
+   "title": "Bayesian inference for generalized linear models for spiking neurons",
+   "container": "Front Comput Neurosci",
+   "volume": "4",
+   "first_page": "12",
+   "doi": "10.3389/fncom.2010.00012"
+  },
+  {
+   "bib_id": 32,
+   "authors": [
+    {
+     "family": "Sheikhattar",
+     "given": "A"
+    },
+    {
+     "family": "Miran",
+     "given": "S"
+    },
+    {
+     "family": "Liu",
+     "given": "J"
+    },
+    {
+     "family": "Fritz",
+     "given": "JB"
+    },
+    {
+     "family": "Shamma",
+     "given": "SA"
+    },
+    {
+     "family": "Kanold",
+     "given": "PO"
+    }
+   ],
+   "year": "2018",
+   "title": "Extracting neuronal functional network dynamics via adaptive Granger causality analysis",
+   "container": "Proc Natl Acad Sci U S A",
+   "volume": "115",
+   "doi": "10.1073/pnas.1718154115"
+  },
+  {
+   "bib_id": 33,
+   "authors": [
+    {
+     "family": "Kim",
+     "given": "S"
+    },
+    {
+     "family": "Putrino",
+     "given": "D"
+    },
+    {
+     "family": "Ghosh",
+     "given": "S"
+    },
+    {
+     "family": "Brown",
+     "given": "EN"
+    }
+   ],
+   "year": "2011",
+   "title": "A Granger causality measure for point process models of ensemble neural spiking activity",
+   "container": "PLoS Comput Biol",
+   "volume": "7",
+   "doi": "10.1371/journal.pcbi.1001110"
+  },
+  {
+   "bib_id": 34,
+   "authors": [
+    {
+     "family": "Vasquez",
+     "given": "JC"
+    },
+    {
+     "family": "Marre",
+     "given": "O"
+    },
+    {
+     "family": "Palacios",
+     "given": "AG"
+    },
+    {
+     "family": "Berry MJ",
+     "given": "2nd"
+    },
+    {
+     "family": "Cessac",
+     "given": "B"
+    }
+   ],
+   "year": "2012",
+   "title": "Gibbs distribution analysis of temporal correlations structure in retina ganglion cells",
+   "container": "J Physiol Paris",
+   "volume": "106",
+   "first_page": "120",
+   "doi": "10.1016/j.jphysparis.2011.11.001"
+  },
+  {
+   "bib_id": 35,
+   "authors": [
+    {
+     "family": "Tkačik",
+     "given": "G"
+    },
+    {
+     "family": "Marre",
+     "given": "O"
+    },
+    {
+     "family": "Amodei",
+     "given": "D"
+    },
+    {
+     "family": "Schneidman",
+     "given": "E"
+    },
+    {
+     "family": "Bialek",
+     "given": "W"
+    },
+    {
+     "family": "Berry MJ",
+     "given": "2nd"
+    }
+   ],
+   "year": "2014",
+   "title": "Searching for collective behavior in a large network of sensory neurons",
+   "container": "PLoS Comput Biol",
+   "volume": "10",
+   "doi": "10.1371/journal.pcbi.1003408"
+  },
+  {
+   "bib_id": 36,
+   "authors": [
+    {
+     "family": "de Vries",
+     "given": "SEJ"
+    },
+    {
+     "family": "Baccus",
+     "given": "SA"
+    },
+    {
+     "family": "Meister",
+     "given": "M"
+    }
+   ],
+   "year": "2011",
+   "title": "The projective field of a retinal amacrine cell",
+   "container": "J Neurosci",
+   "volume": "31",
+   "first_page": "8595",
+   "doi": "10.1523/JNEUROSCI.5662-10.2011"
+  },
+  {
+   "bib_id": 37,
+   "authors": [
+    {
+     "family": "Diamond",
+     "given": "JS"
+    }
+   ],
+   "year": "2017",
+   "title": "Inhibitory Interneurons in the Retina: Types, Circuitry, and Function",
+   "container": "Annu Rev Vis Sci",
+   "volume": "3",
+   "first_page": "1",
+   "last_page": "24",
+   "doi": "10.1146/annurev-vision-102016-061345"
+  },
+  {
+   "bib_id": 38,
+   "authors": [
+    {
+     "family": "Trenholm",
+     "given": "S"
+    },
+    {
+     "family": "Awatramani",
+     "given": "GB."
+    },
+    {
+     "family": "Kolb",
+     "given": "H"
+    },
+    {
+     "family": "Fernandez",
+     "given": "E"
+    },
+    {
+     "family": "Jones",
+     "given": "B"
+    },
+    {
+     "family": "Nelson",
+     "given": "R"
+    }
+   ],
+   "year": "2019",
+   "title": "Myriad roles for gap junctions in retinal circuits.",
+   "container": "Webvision: The Organization of the Retina and Visual System"
+  },
+  {
+   "bib_id": 39,
+   "authors": [
+    {
+     "family": "Bloomfield",
+     "given": "SA"
+    },
+    {
+     "family": "Völgyi",
+     "given": "B"
+    }
+   ],
+   "year": "2009",
+   "title": "The diverse functional roles and regulation of neuronal gap junctions in the retina",
+   "container": "Nat Rev Neurosci",
+   "volume": "10",
+   "first_page": "495",
+   "last_page": "506",
+   "doi": "10.1038/nrn2636"
+  },
+  {
+   "bib_id": 40,
+   "authors": [
+    {
+     "family": "Chambers",
+     "given": "B"
+    },
+    {
+     "family": "MacLean",
+     "given": "JN"
+    }
+   ],
+   "year": "2016",
+   "title": "Higher-Order Synaptic Interactions Coordinate Dynamics in Recurrent Networks",
+   "container": "PLoS Comput Biol",
+   "volume": "12",
+   "doi": "10.1371/journal.pcbi.1005078"
+  },
+  {
+   "bib_id": 41,
+   "authors": [
+    {
+     "family": "Lynn",
+     "given": "CW"
+    },
+    {
+     "family": "Yu",
+     "given": "Q"
+    },
+    {
+     "family": "Pang",
+     "given": "R"
+    },
+    {
+     "family": "Bialek",
+     "given": "W"
+    },
+    {
+     "family": "Palmer",
+     "given": "SE"
+    }
+   ],
+   "year": "2025",
+   "title": "Exactly solvable statistical physics models for large neuronal populations",
+   "container": "Phys Rev Res",
+   "volume": "7",
+   "doi": "10.1103/PhysRevResearch.7.L022039"
+  },
+  {
+   "bib_id": 42,
+   "authors": [
+    {
+     "family": "Pitkow",
+     "given": "X"
+    },
+    {
+     "family": "Meister",
+     "given": "M"
+    }
+   ],
+   "year": "2012",
+   "title": "Decorrelation and efficient coding by retinal ganglion cells",
+   "container": "Nature Neuroscience",
+   "volume": "15",
+   "first_page": "628",
+   "doi": "10.1038/nn.3064"
+  },
+  {
+   "bib_id": 43,
+   "authors": [
+    {
+     "family": "Hosoya",
+     "given": "T"
+    },
+    {
+     "family": "Baccus",
+     "given": "SA"
+    },
+    {
+     "family": "Meister",
+     "given": "M"
+    }
+   ],
+   "year": "2005",
+   "title": "Dynamic predictive coding by the retina",
+   "container": "Nature",
+   "volume": "436",
+   "first_page": "71",
+   "doi": "10.1038/nature03689"
+  },
+  {
+   "bib_id": 44,
+   "authors": [
+    {
+     "family": "Ge",
+     "given": "H"
+    },
+    {
+     "family": "Pressé",
+     "given": "S"
+    },
+    {
+     "family": "Ghosh",
+     "given": "K"
+    },
+    {
+     "family": "Dill",
+     "given": "KA"
+    }
+   ],
+   "year": "2012",
+   "title": "Markov processes follow from the principle of maximum caliber",
+   "container": "J Chem Phys",
+   "volume": "136",
+   "first_page": "064108",
+   "doi": "10.1063/1.3681941"
+  },
+  {
+   "bib_id": 45,
+   "authors": [
+    {
+     "family": "Lee",
+     "given": "J"
+    },
+    {
+     "family": "Pressé",
+     "given": "S"
+    }
+   ],
+   "year": "2012",
+   "title": "A derivation of the master equation from path entropy maximization",
+   "container": "J Chem Phys",
+   "volume": "137",
+   "first_page": "074103",
+   "doi": "10.1063/1.4743955"
+  },
+  {
+   "bib_id": 46,
+   "authors": [
+    {
+     "family": "Stimberg",
+     "given": "M"
+    },
+    {
+     "family": "Brette",
+     "given": "R"
+    },
+    {
+     "family": "Goodman",
+     "given": "DF"
+    }
+   ],
+   "year": "2019",
+   "title": "Brian 2, an intuitive and efficient neural simulator",
+   "container": "eLife",
+   "volume": "8",
+   "doi": "10.7554/eLife.47314"
+  },
+  {
+   "bib_id": 47,
+   "authors": [
+    {
+     "family": "Brunel",
+     "given": "N"
+    }
+   ],
+   "year": "2000",
+   "title": "Dynamics of sparsely connected networks of excitatory and inhibitory spiking neurons",
+   "container": "J Comput Neurosci",
+   "volume": "8",
+   "first_page": "183",
+   "last_page": "208",
+   "doi": "10.1023/a:1008925309027"
+  },
+  {
+   "bib_id": 48,
+   "authors": [
+    {
+     "family": "Seabold",
+     "given": "S"
+    },
+    {
+     "family": "Perktold",
+     "given": "J"
+    }
+   ],
+   "year": "2010",
+   "title": "Statsmodels: econometric and statistical modeling with python",
+   "container": "SciPy",
+   "volume": "7",
+   "first_page": "92"
+  },
+  {
+   "bib_id": 49,
+   "authors": [
+    {
+     "family": "Jas",
+     "given": "M"
+    },
+    {
+     "family": "Achakulvisut",
+     "given": "T"
+    },
+    {
+     "family": "Idrizović",
+     "given": "A"
+    },
+    {
+     "family": "Acuna",
+     "given": "D"
+    },
+    {
+     "family": "Antalek",
+     "given": "M"
+    },
+    {
+     "family": "Marques",
+     "given": "V"
+    }
+   ],
+   "year": "2020",
+   "title": "Pyglmnet: Python implementation of elastic-net regularized generalized linear models",
+   "container": "JOSS",
+   "volume": "5",
+   "first_page": "1959",
+   "doi": "10.21105/joss.01959"
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-core-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "jats_doi": "10.1371/journal.pcbi.1014763"
+ }
+}

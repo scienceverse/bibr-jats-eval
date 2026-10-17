@@ -1,0 +1,2971 @@
+{
+ "paper_id": "10.1371_journal.pcbi.1014511",
+ "info": {
+  "title": "Computational insights on the interplay between electrotaxis and mechanotaxis",
+  "doi": "10.1371/journal.pcbi.1014511",
+  "file_name": "10.1371_journal.pcbi.1014511.pdf",
+  "abstract": "Understanding how cells migrate in response to external cues has important implications for biology, medicine, and bioengineering. Chemical, mechanical, and electrical signals are the primary drivers of directed cell migration, and each has been extensively studied over the past decades. Among them, chemical cues were the first to be investigated and remain the most widely studied due to their undeniable role in in vivo guidance. Mechanical signals, particularly substrate stiffness gradients, have gained prominence for their ubiquity across cell types and their potential to direct migration. More recently, growing evidence suggests that electrotaxis offers a highly precise and programmable means to guide cell movement. Despite this, these cues are often studied in isolation, whereas in vivo they typically coexist and interact. Using well-established biophysical models, we investigate how mechanical and electrical signals cooperate and how they can be engineered to compete for control over cell migration. Our model shows that an electric field can override and even reverse mechanotaxis. Still, the specific outcomes strongly depend on the cell type or, in other words, on the model parameters that describe how strongly the sensing molecules activate the signaling network. To address this large variability in controlling cell migration, we propose particular steps toward further exploration. To support such future research, we provide a freely available platform for predicting electro-mechanical interactions in cell migration, based on a given cell’s sensing and signaling characteristics, which could tailor the mechanical and electrical signals that arise naturally during organ development, cancer invasion, or tissue regeneration."
+ },
+ "author": [
+  {
+   "author_id": 1,
+   "given": "Pablo",
+   "family": "Sáez",
+   "affiliation": "Laboratori de Cacùl Numèric (LaCàN), Universitat Politècnica de Catalunya-BarcelonaTech (UPC), Barcelona, Spain; IMTech (Institute of Mathematics), Universitat Politècnica de Catalunya-BarcelonaTech (UPC), Barcelona, Spain",
+   "email": "",
+   "orcid": "",
+   "corresponding": true
+  },
+  {
+   "author_id": 2,
+   "given": "Shardool",
+   "family": "Kulkarni",
+   "affiliation": "Laboratori de Cacùl Numèric (LaCàN), Universitat Politècnica de Catalunya-BarcelonaTech (UPC), Barcelona, Spain",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 3,
+   "given": "Custodio O.",
+   "family": "Nunes",
+   "affiliation": "Mechanisms of Morphogenesis Lab, Cluster of Excellence Physics of Life (PoL), TU Dresden, Dresden, Germany",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 4,
+   "given": "Min",
+   "family": "Zhao",
+   "affiliation": "Department of Ophthalmology & Vision Science, School of Medicine, University of California, Davis, Sacramento, California, United States of America",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 5,
+   "given": "Elias H.",
+   "family": "Barriga",
+   "affiliation": "Mechanisms of Morphogenesis Lab, Cluster of Excellence Physics of Life (PoL), TU Dresden, Dresden, Germany",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  }
+ ],
+ "section": [
+  {
+   "section_id": 1,
+   "section_type": "abstract",
+   "header": "Abstract",
+   "level": 1,
+   "parent_section_id": null,
+   "classification_score": 1.0
+  }
+ ],
+ "text": [
+  {
+   "text_id": 1,
+   "section_id": 1,
+   "paragraph_id": 1,
+   "text": "Understanding how cells migrate in response to external cues has important implications for biology, medicine, and bioengineering. Chemical, mechanical, and electrical signals are the primary drivers of directed cell migration, and each has been extensively studied over the past decades. Among them, chemical cues were the first to be investigated and remain the most widely studied due to their undeniable role in in vivo guidance. Mechanical signals, particularly substrate stiffness gradients, have gained prominence for their ubiquity across cell types and their potential to direct migration. More recently, growing evidence suggests that electrotaxis offers a highly precise and programmable means to guide cell movement. Despite this, these cues are often studied in isolation, whereas in vivo they typically coexist and interact. Using well-established biophysical models, we investigate how mechanical and electrical signals cooperate and how they can be engineered to compete for control over cell migration. Our model shows that an electric field can override and even reverse mechanotaxis. Still, the specific outcomes strongly depend on the cell type or, in other words, on the model parameters that describe how strongly the sensing molecules activate the signaling network. To address this large variability in controlling cell migration, we propose particular steps toward further exploration. To support such future research, we provide a freely available platform for predicting electro-mechanical interactions in cell migration, based on a given cell’s sensing and signaling characteristics, which could tailor the mechanical and electrical signals that arise naturally during organ development, cancer invasion, or tissue regeneration.",
+   "page_number": 1
+  }
+ ],
+ "bib": [
+  {
+   "bib_id": 1,
+   "authors": [
+    {
+     "family": "Friedl",
+     "given": "P"
+    },
+    {
+     "family": "Gilmour",
+     "given": "D"
+    }
+   ],
+   "year": "2009",
+   "title": "Collective cell migration in morphogenesis, regeneration and cancer",
+   "container": "Nat Rev Mol Cell Biol",
+   "volume": "10",
+   "first_page": "445",
+   "doi": "10.1038/nrm2720"
+  },
+  {
+   "bib_id": 2,
+   "authors": [
+    {
+     "family": "Mayor",
+     "given": "R"
+    },
+    {
+     "family": "Etienne-Manneville",
+     "given": "S"
+    }
+   ],
+   "year": "2016",
+   "title": "The front and rear of collective cell migration",
+   "container": "Nat Rev Mol Cell Biol",
+   "volume": "17",
+   "first_page": "97",
+   "last_page": "109",
+   "doi": "10.1038/nrm.2015.14"
+  },
+  {
+   "bib_id": 3,
+   "authors": [
+    {
+     "family": "van Helvert",
+     "given": "S"
+    },
+    {
+     "family": "Storm",
+     "given": "C"
+    },
+    {
+     "family": "Friedl",
+     "given": "P"
+    }
+   ],
+   "year": "2018",
+   "title": "Mechanoreciprocity in cell migration",
+   "container": "Nat Cell Biol",
+   "volume": "20",
+   "first_page": "8",
+   "last_page": "20",
+   "doi": "10.1038/s41556-017-0012-0"
+  },
+  {
+   "bib_id": 4,
+   "authors": [
+    {
+     "family": "SenGupta",
+     "given": "S"
+    },
+    {
+     "family": "Parent",
+     "given": "CA"
+    },
+    {
+     "family": "Bear",
+     "given": "JE"
+    }
+   ],
+   "year": "2021",
+   "title": "The principles of directed cell migration",
+   "container": "Nat Rev Mol Cell Biol",
+   "volume": "22",
+   "first_page": "529",
+   "doi": "10.1038/s41580-021-00366-6"
+  },
+  {
+   "bib_id": 5,
+   "authors": [
+    {
+     "family": "Yang",
+     "given": "Q"
+    },
+    {
+     "family": "Jiang",
+     "given": "N"
+    },
+    {
+     "family": "Xu",
+     "given": "H"
+    },
+    {
+     "family": "Zhang",
+     "given": "Y"
+    },
+    {
+     "family": "Xiong",
+     "given": "C"
+    },
+    {
+     "family": "Huang",
+     "given": "J"
+    }
+   ],
+   "year": "2021",
+   "title": "Integration of electrotaxis and durotaxis in cancer cells: Subtle nonlinear responses to electromechanical coupling cues",
+   "container": "Biosens Bioelectron",
+   "volume": "186",
+   "first_page": "113289",
+   "doi": "10.1016/j.bios.2021.113289"
+  },
+  {
+   "bib_id": 6,
+   "authors": [
+    {
+     "family": "Butcher",
+     "given": "DT"
+    },
+    {
+     "family": "Alliston",
+     "given": "T"
+    },
+    {
+     "family": "Weaver",
+     "given": "VM"
+    }
+   ],
+   "year": "2009",
+   "title": "A tense situation: forcing tumour progression",
+   "container": "Nat Rev Cancer",
+   "volume": "9",
+   "first_page": "108",
+   "doi": "10.1038/nrc2544"
+  },
+  {
+   "bib_id": 7,
+   "authors": [
+    {
+     "family": "Levin",
+     "given": "M"
+    }
+   ],
+   "year": "2009",
+   "title": "Bioelectric mechanisms in regeneration: Unique aspects and future perspectives",
+   "container": "Semin Cell Dev Biol",
+   "volume": "20",
+   "first_page": "543",
+   "doi": "10.1016/j.semcdb.2009.04.013"
+  },
+  {
+   "bib_id": 8,
+   "authors": [
+    {
+     "family": "Langer",
+     "given": "R"
+    },
+    {
+     "family": "Tirrell",
+     "given": "DA"
+    }
+   ],
+   "year": "2004",
+   "title": "Designing materials for biology and medicine",
+   "container": "Nature",
+   "volume": "428",
+   "first_page": "487",
+   "doi": "10.1038/nature02388"
+  },
+  {
+   "bib_id": 9,
+   "authors": [
+    {
+     "family": "Wegst",
+     "given": "UGK"
+    },
+    {
+     "family": "Bai",
+     "given": "H"
+    },
+    {
+     "family": "Saiz",
+     "given": "E"
+    },
+    {
+     "family": "Tomsia",
+     "given": "AP"
+    },
+    {
+     "family": "Ritchie",
+     "given": "RO"
+    }
+   ],
+   "year": "2015",
+   "title": "Bioinspired structural materials",
+   "container": "Nat Mater",
+   "volume": "14",
+   "first_page": "23",
+   "last_page": "36",
+   "doi": "10.1038/nmat4089"
+  },
+  {
+   "bib_id": 10,
+   "authors": [
+    {
+     "family": "Van Haastert",
+     "given": "PJM"
+    },
+    {
+     "family": "Devreotes",
+     "given": "PN"
+    }
+   ],
+   "year": "2004",
+   "title": "Chemotaxis: signalling the way forward",
+   "container": "Nat Rev Mol Cell Biol",
+   "volume": "5",
+   "first_page": "626",
+   "doi": "10.1038/nrm1435"
+  },
+  {
+   "bib_id": 11,
+   "authors": [
+    {
+     "family": "Ridley",
+     "given": "AJ"
+    },
+    {
+     "family": "Schwartz",
+     "given": "MA"
+    },
+    {
+     "family": "Burridge",
+     "given": "K"
+    },
+    {
+     "family": "Firtel",
+     "given": "RA"
+    },
+    {
+     "family": "Ginsberg",
+     "given": "MH"
+    },
+    {
+     "family": "Borisy",
+     "given": "G"
+    }
+   ],
+   "year": "2003",
+   "title": "Cell migration: integrating signals from front to back",
+   "container": "Science",
+   "volume": "302",
+   "first_page": "1704",
+   "doi": "10.1126/science.1092053"
+  },
+  {
+   "bib_id": 12,
+   "authors": [
+    {
+     "family": "Devreotes",
+     "given": "P"
+    },
+    {
+     "family": "Horwitz",
+     "given": "AR"
+    }
+   ],
+   "year": "2015",
+   "title": "Signaling networks that regulate cell migration",
+   "container": "Cold Spring Harb Perspect Biol",
+   "volume": "7",
+   "doi": "10.1101/cshperspect.a005959"
+  },
+  {
+   "bib_id": 13,
+   "authors": [
+    {
+     "family": "Kimura",
+     "given": "K"
+    },
+    {
+     "family": "Ito",
+     "given": "M"
+    },
+    {
+     "family": "Amano",
+     "given": "M"
+    },
+    {
+     "family": "Chihara",
+     "given": "K"
+    },
+    {
+     "family": "Fukata",
+     "given": "Y"
+    },
+    {
+     "family": "Nakafuku",
+     "given": "M"
+    }
+   ],
+   "year": "1996",
+   "title": "Regulation of myosin phosphatase by Rho and Rho-associated kinase (Rho-kinase)",
+   "container": "Science",
+   "volume": "273",
+   "first_page": "245",
+   "doi": "10.1126/science.273.5272.245"
+  },
+  {
+   "bib_id": 14,
+   "authors": [
+    {
+     "family": "Bishop",
+     "given": "AL"
+    },
+    {
+     "family": "Hall",
+     "given": "A"
+    }
+   ],
+   "year": "2000",
+   "title": "Rho GTPases and their effector proteins",
+   "container": "Biochem J",
+   "volume": "348",
+   "first_page": "241"
+  },
+  {
+   "bib_id": 15,
+   "authors": [
+    {
+     "family": "Ridley",
+     "given": "AJ"
+    }
+   ],
+   "year": "2001",
+   "title": "Rho GTPases and cell migration",
+   "container": "J Cell Sci",
+   "volume": "114",
+   "first_page": "2713",
+   "doi": "10.1242/jcs.114.15.2713"
+  },
+  {
+   "bib_id": 16,
+   "authors": [
+    {
+     "family": "Gardiner",
+     "given": "EM"
+    },
+    {
+     "family": "Pestonjamasp",
+     "given": "KN"
+    },
+    {
+     "family": "Bohl",
+     "given": "BP"
+    },
+    {
+     "family": "Chamberlain",
+     "given": "C"
+    },
+    {
+     "family": "Hahn",
+     "given": "KM"
+    },
+    {
+     "family": "Bokoch",
+     "given": "GM"
+    }
+   ],
+   "year": "2002",
+   "title": "Spatial and temporal analysis of Rac activation during live neutrophil chemotaxis",
+   "container": "Curr Biol",
+   "volume": "12",
+   "first_page": "2029",
+   "doi": "10.1016/s0960-9822(02)01334-9"
+  },
+  {
+   "bib_id": 17,
+   "authors": [
+    {
+     "family": "Herzmark",
+     "given": "P"
+    },
+    {
+     "family": "Campbell",
+     "given": "K"
+    },
+    {
+     "family": "Wang",
+     "given": "F"
+    },
+    {
+     "family": "Wong",
+     "given": "K"
+    },
+    {
+     "family": "El-Samad",
+     "given": "H"
+    },
+    {
+     "family": "Groisman",
+     "given": "A"
+    }
+   ],
+   "year": "2007",
+   "title": "Bound attractant at the leading vs. the trailing edge determines chemotactic prowess",
+   "container": "Proc Natl Acad Sci U S A",
+   "volume": "104",
+   "first_page": "13349",
+   "doi": "10.1073/pnas.0705889104"
+  },
+  {
+   "bib_id": 18,
+   "authors": [
+    {
+     "family": "Weiner",
+     "given": "OD"
+    },
+    {
+     "family": "Servant",
+     "given": "G"
+    },
+    {
+     "family": "Welch",
+     "given": "MD"
+    },
+    {
+     "family": "Mitchison",
+     "given": "TJ"
+    },
+    {
+     "family": "Sedat",
+     "given": "JW"
+    },
+    {
+     "family": "Bourne",
+     "given": "HR"
+    }
+   ],
+   "year": "1999",
+   "title": "Spatial control of actin polymerization during neutrophil chemotaxis",
+   "container": "Nat Cell Biol",
+   "volume": "1",
+   "first_page": "75",
+   "last_page": "81",
+   "doi": "10.1038/10042"
+  },
+  {
+   "bib_id": 19,
+   "authors": [
+    {
+     "family": "Kraynov",
+     "given": "VS"
+    },
+    {
+     "family": "Chamberlain",
+     "given": "C"
+    },
+    {
+     "family": "Bokoch",
+     "given": "GM"
+    },
+    {
+     "family": "Schwartz",
+     "given": "MA"
+    },
+    {
+     "family": "Slabaugh",
+     "given": "S"
+    },
+    {
+     "family": "Hahn",
+     "given": "KM"
+    }
+   ],
+   "year": "2000",
+   "title": "Localized Rac activation dynamics visualized in living cells",
+   "container": "Science",
+   "volume": "290",
+   "first_page": "333",
+   "doi": "10.1126/science.290.5490.333"
+  },
+  {
+   "bib_id": 20,
+   "authors": [
+    {
+     "family": "Itoh",
+     "given": "RE"
+    },
+    {
+     "family": "Kurokawa",
+     "given": "K"
+    },
+    {
+     "family": "Ohba",
+     "given": "Y"
+    },
+    {
+     "family": "Yoshizaki",
+     "given": "H"
+    },
+    {
+     "family": "Mochizuki",
+     "given": "N"
+    },
+    {
+     "family": "Matsuda",
+     "given": "M"
+    }
+   ],
+   "year": "2002",
+   "title": "Activation of rac and cdc42 video imaged by fluorescent resonance energy transfer-based single-molecule probes in the membrane of living cells",
+   "container": "Mol Cell Biol",
+   "volume": "22",
+   "first_page": "6582",
+   "doi": "10.1128/MCB.22.18.6582-6591.2002"
+  },
+  {
+   "bib_id": 21,
+   "authors": [
+    {
+     "family": "Nalbant",
+     "given": "P"
+    },
+    {
+     "family": "Hodgson",
+     "given": "L"
+    },
+    {
+     "family": "Kraynov",
+     "given": "V"
+    },
+    {
+     "family": "Toutchkine",
+     "given": "A"
+    },
+    {
+     "family": "Hahn",
+     "given": "KM"
+    }
+   ],
+   "year": "2004",
+   "title": "Activation of endogenous Cdc42 visualized in living cells",
+   "container": "Science",
+   "volume": "305",
+   "first_page": "1615",
+   "doi": "10.1126/science.1100367"
+  },
+  {
+   "bib_id": 22,
+   "authors": [
+    {
+     "family": "Pollard",
+     "given": "TD"
+    },
+    {
+     "family": "Cooper",
+     "given": "JA"
+    }
+   ],
+   "year": "2009",
+   "title": "Actin, a central player in cell shape and movement",
+   "container": "Science",
+   "volume": "326",
+   "first_page": "1208",
+   "doi": "10.1126/science.1175862"
+  },
+  {
+   "bib_id": 23,
+   "authors": [
+    {
+     "family": "Raftopoulou",
+     "given": "M"
+    },
+    {
+     "family": "Hall",
+     "given": "A"
+    }
+   ],
+   "year": "2004",
+   "title": "Cell migration: Rho GTPases lead the way",
+   "container": "Dev Biol",
+   "volume": "265",
+   "first_page": "23",
+   "last_page": "32",
+   "doi": "10.1016/j.ydbio.2003.06.003"
+  },
+  {
+   "bib_id": 24,
+   "authors": [
+    {
+     "family": "Zondag",
+     "given": "GCM"
+    },
+    {
+     "family": "Evers",
+     "given": "EE"
+    },
+    {
+     "family": "Ten Klooster",
+     "given": "JP"
+    },
+    {
+     "family": "Janssen",
+     "given": "L"
+    },
+    {
+     "family": "Van Der Kammen",
+     "given": "RA"
+    },
+    {
+     "family": "Collard",
+     "given": "JG"
+    }
+   ],
+   "year": "2000",
+   "title": "Oncogenic Ras Downregulates Rac Activity, Which Leads to Increased Rho Activity and Epithelial-Mesenchymal Transition. The",
+   "container": "Journal of Cell Biology",
+   "volume": "149",
+   "first_page": "775",
+   "doi": "10.1083/jcb.149.4.775"
+  },
+  {
+   "bib_id": 25,
+   "authors": [
+    {
+     "family": "Carter",
+     "given": "SB"
+    }
+   ],
+   "year": "1967",
+   "title": "Topotaxis",
+   "container": "Nature",
+   "volume": "213",
+   "first_page": "256",
+   "doi": "10.1038/213256a0"
+  },
+  {
+   "bib_id": 26,
+   "authors": [
+    {
+     "family": "Sunyer",
+     "given": "R"
+    },
+    {
+     "family": "Trepat",
+     "given": "X"
+    }
+   ],
+   "year": "2020",
+   "title": "Durotaxis",
+   "container": "Curr Biol",
+   "volume": "30",
+   "doi": "10.1016/j.cub.2020.03.051"
+  },
+  {
+   "bib_id": 27,
+   "authors": [
+    {
+     "family": "Shellard",
+     "given": "A"
+    },
+    {
+     "family": "Mayor",
+     "given": "R"
+    }
+   ],
+   "year": "2021",
+   "title": "Durotaxis: The hard path from in vitro to in vivo",
+   "container": "Dev Cell",
+   "volume": "56",
+   "first_page": "227",
+   "doi": "10.1016/j.devcel.2020.11.019"
+  },
+  {
+   "bib_id": 28,
+   "authors": [
+    {
+     "family": "Shellard",
+     "given": "A"
+    },
+    {
+     "family": "Weißenbruch",
+     "given": "K"
+    },
+    {
+     "family": "Hampshire",
+     "given": "PAE"
+    },
+    {
+     "family": "Stillman",
+     "given": "NR"
+    },
+    {
+     "family": "Dix",
+     "given": "CL"
+    },
+    {
+     "family": "Thorogate",
+     "given": "R"
+    }
+   ],
+   "year": "2025",
+   "title": "Frictiotaxis underlies focal adhesion-independent durotaxis",
+   "container": "Nat Commun",
+   "volume": "16",
+   "first_page": "3811",
+   "doi": "10.1038/s41467-025-58912-1"
+  },
+  {
+   "bib_id": 29,
+   "authors": [
+    {
+     "family": "Sáez",
+     "given": "P"
+    },
+    {
+     "family": "Venturini",
+     "given": "C"
+    }
+   ],
+   "year": "2023",
+   "title": "Positive, negative and controlled durotaxis",
+   "container": "Soft Matter",
+   "volume": "19",
+   "first_page": "2993",
+   "last_page": "3001",
+   "doi": "10.1039/d2sm01326f"
+  },
+  {
+   "bib_id": 30,
+   "authors": [
+    {
+     "family": "Novikova",
+     "given": "EA"
+    },
+    {
+     "family": "Raab",
+     "given": "M"
+    },
+    {
+     "family": "Discher",
+     "given": "DE"
+    },
+    {
+     "family": "Storm",
+     "given": "C"
+    }
+   ],
+   "year": "2017",
+   "title": "Persistence-Driven Durotaxis: Generic, Directed Motility in Rigidity Gradients",
+   "container": "Phys Rev Lett",
+   "volume": "118",
+   "first_page": "078103",
+   "doi": "10.1103/PhysRevLett.118.078103"
+  },
+  {
+   "bib_id": 31,
+   "authors": [
+    {
+     "family": "Oliveri",
+     "given": "H"
+    },
+    {
+     "family": "Franze",
+     "given": "K"
+    },
+    {
+     "family": "Goriely",
+     "given": "A"
+    }
+   ],
+   "year": "2021",
+   "title": "Theory for Durotactic Axon Guidance",
+   "container": "Phys Rev Lett",
+   "volume": "126",
+   "first_page": "118101",
+   "doi": "10.1103/PhysRevLett.126.118101"
+  },
+  {
+   "bib_id": 32,
+   "authors": [
+    {
+     "family": "Isomursu",
+     "given": "A"
+    },
+    {
+     "family": "Park",
+     "given": "K-Y"
+    },
+    {
+     "family": "Hou",
+     "given": "J"
+    },
+    {
+     "family": "Cheng",
+     "given": "B"
+    },
+    {
+     "family": "Mathieu",
+     "given": "M"
+    },
+    {
+     "family": "Shamsan",
+     "given": "GA"
+    }
+   ],
+   "year": "2022",
+   "title": "Directed cell migration towards softer environments",
+   "container": "Nat Mater",
+   "volume": "21",
+   "first_page": "1081",
+   "doi": "10.1038/s41563-022-01294-2"
+  },
+  {
+   "bib_id": 33,
+   "authors": [
+    {
+     "family": "Shi",
+     "given": "W"
+    },
+    {
+     "family": "Mogilner",
+     "given": "A"
+    }
+   ],
+   "year": "2026",
+   "title": "Modern Modeling of Single-Cell Migration: From Membrane Tension and Galvanotaxis to Machine Learning. Cold Spring Harb Perspect Biol",
+   "volume": "18",
+   "doi": "10.1101/cshperspect.a041745"
+  },
+  {
+   "bib_id": 34,
+   "authors": [
+    {
+     "family": "Hotary",
+     "given": "KB"
+    },
+    {
+     "family": "Robinson",
+     "given": "KR"
+    }
+   ],
+   "year": "1994",
+   "title": "Endogenous electrical currents and voltage gradients in Xenopus embryos and the consequences of their disruption",
+   "container": "Dev Biol",
+   "volume": "166",
+   "first_page": "789",
+   "last_page": "800",
+   "doi": "10.1006/dbio.1994.1357"
+  },
+  {
+   "bib_id": 35,
+   "authors": [
+    {
+     "family": "Zhao",
+     "given": "M"
+    }
+   ],
+   "year": "2009",
+   "title": "Electrical fields in wound healing-An overriding signal that directs cell migration",
+   "container": "Semin Cell Dev Biol",
+   "volume": "20",
+   "first_page": "674",
+   "doi": "10.1016/j.semcdb.2008.12.009"
+  },
+  {
+   "bib_id": 36,
+   "authors": [
+    {
+     "family": "Zhao",
+     "given": "M"
+    },
+    {
+     "family": "Pu",
+     "given": "J"
+    },
+    {
+     "family": "Forrester",
+     "given": "JV"
+    },
+    {
+     "family": "McCaig",
+     "given": "CD"
+    }
+   ],
+   "year": "2002",
+   "title": "Membrane lipids, EGF receptors, and intracellular signals colocalize and are polarized in epithelial cells moving directionally in a physiological electric field",
+   "container": "FASEB J",
+   "volume": "16",
+   "first_page": "857",
+   "doi": "10.1096/fj.01-0811fje"
+  },
+  {
+   "bib_id": 37,
+   "authors": [
+    {
+     "family": "Pu",
+     "given": "J"
+    },
+    {
+     "family": "McCaig",
+     "given": "CD"
+    },
+    {
+     "family": "Cao",
+     "given": "L"
+    },
+    {
+     "family": "Zhao",
+     "given": "Z"
+    },
+    {
+     "family": "Segall",
+     "given": "JE"
+    },
+    {
+     "family": "Zhao",
+     "given": "M"
+    }
+   ],
+   "year": "2007",
+   "title": "EGF receptor signalling is essential for electric-field-directed migration of breast cancer cells",
+   "container": "J Cell Sci",
+   "volume": "120",
+   "first_page": "3395",
+   "doi": "10.1242/jcs.002774"
+  },
+  {
+   "bib_id": 38,
+   "authors": [
+    {
+     "family": "Zhao",
+     "given": "M"
+    },
+    {
+     "family": "Song",
+     "given": "B"
+    },
+    {
+     "family": "Pu",
+     "given": "J"
+    },
+    {
+     "family": "Wada",
+     "given": "T"
+    },
+    {
+     "family": "Reid",
+     "given": "B"
+    },
+    {
+     "family": "Tai",
+     "given": "G"
+    }
+   ],
+   "year": "2006",
+   "title": "Electrical signals control wound healing through phosphatidylinositol-3-OH kinase-gamma and PTEN",
+   "container": "Nature",
+   "volume": "442",
+   "first_page": "457",
+   "doi": "10.1038/nature04925"
+  },
+  {
+   "bib_id": 39,
+   "authors": [
+    {
+     "family": "Sun",
+     "given": "Y-H"
+    },
+    {
+     "family": "Sun",
+     "given": "Y"
+    },
+    {
+     "family": "Zhu",
+     "given": "K"
+    },
+    {
+     "family": "Reid",
+     "given": "B"
+    },
+    {
+     "family": "Gao",
+     "given": "X"
+    },
+    {
+     "family": "Draper",
+     "given": "BW"
+    }
+   ],
+   "year": "2018",
+   "title": "Electric fields accelerate cell polarization and bypass myosin action in motility initiation",
+   "container": "J Cell Physiol",
+   "volume": "233",
+   "first_page": "2378",
+   "doi": "10.1002/jcp.26109"
+  },
+  {
+   "bib_id": 40,
+   "authors": [
+    {
+     "family": "Cohen",
+     "given": "DJ"
+    },
+    {
+     "family": "Nelson",
+     "given": "WJ"
+    },
+    {
+     "family": "Maharbiz",
+     "given": "MM"
+    }
+   ],
+   "year": "2014",
+   "title": "Galvanotactic control of collective cell migration in epithelial monolayers",
+   "container": "Nat Mater",
+   "volume": "13",
+   "first_page": "409",
+   "doi": "10.1038/nmat3891"
+  },
+  {
+   "bib_id": 41,
+   "authors": [
+    {
+     "family": "Zhang",
+     "given": "Y"
+    },
+    {
+     "family": "Xu",
+     "given": "G"
+    },
+    {
+     "family": "Wu",
+     "given": "J"
+    },
+    {
+     "family": "Lee",
+     "given": "RM"
+    },
+    {
+     "family": "Zhu",
+     "given": "Z"
+    },
+    {
+     "family": "Sun",
+     "given": "Y"
+    }
+   ],
+   "year": "2022",
+   "title": "Regulation of RhoA GTP hydrolysis by the gtpase-activating proteins p190, p50RhoGAP, bcr, and 3BP-1",
+   "container": "Biochemistry",
+   "volume": "25",
+   "first_page": "5249",
+   "doi": "10.1016/j.isci.2022.105136"
+  },
+  {
+   "bib_id": 42,
+   "authors": [
+    {
+     "family": "Chan",
+     "given": "CE"
+    },
+    {
+     "family": "Odde",
+     "given": "DJ"
+    }
+   ],
+   "year": "2008",
+   "title": "Traction dynamics of filopodia on compliant substrates",
+   "container": "Science",
+   "volume": "322",
+   "first_page": "1687",
+   "doi": "10.1126/science.1163595"
+  },
+  {
+   "bib_id": 43,
+   "authors": [
+    {
+     "family": "Venturini",
+     "given": "C"
+    },
+    {
+     "family": "Sáez",
+     "given": "P"
+    }
+   ],
+   "year": "2023",
+   "title": "A multi-scale clutch model for adhesion complex mechanics",
+   "container": "PLoS Comput Biol",
+   "volume": "19",
+   "doi": "10.1371/journal.pcbi.1011250"
+  },
+  {
+   "bib_id": 44,
+   "authors": [
+    {
+     "family": "Kong",
+     "given": "F"
+    },
+    {
+     "family": "García",
+     "given": "AJ"
+    },
+    {
+     "family": "Mould",
+     "given": "AP"
+    },
+    {
+     "family": "Humphries",
+     "given": "MJ"
+    },
+    {
+     "family": "Zhu",
+     "given": "C"
+    }
+   ],
+   "year": "2009",
+   "title": "Demonstration of catch bonds between an integrin and its ligand",
+   "container": "J Cell Biol",
+   "volume": "185",
+   "first_page": "1275",
+   "doi": "10.1083/jcb.200810002"
+  },
+  {
+   "bib_id": 45,
+   "authors": [
+    {
+     "family": "Elosegui-Artola",
+     "given": "A"
+    },
+    {
+     "family": "Oria",
+     "given": "R"
+    },
+    {
+     "family": "Chen",
+     "given": "Y"
+    },
+    {
+     "family": "Kosmalska",
+     "given": "A"
+    },
+    {
+     "family": "Pérez-González",
+     "given": "C"
+    },
+    {
+     "family": "Castro",
+     "given": "N"
+    }
+   ],
+   "year": "2016",
+   "title": "Mechanical regulation of a molecular clutch defines force transmission and transduction in response to matrix rigidity",
+   "container": "Nat Cell Biol",
+   "volume": "18",
+   "first_page": "540",
+   "doi": "10.1038/ncb3336"
+  },
+  {
+   "bib_id": 46,
+   "authors": [
+    {
+     "family": "Rubinstein",
+     "given": "B"
+    },
+    {
+     "family": "Fournier",
+     "given": "MF"
+    },
+    {
+     "family": "Jacobson",
+     "given": "K"
+    },
+    {
+     "family": "Verkhovsky",
+     "given": "AB"
+    },
+    {
+     "family": "Mogilner",
+     "given": "A"
+    }
+   ],
+   "year": "2009",
+   "title": "Actin-myosin viscoelastic flow in the keratocyte lamellipod",
+   "container": "Biophys J",
+   "volume": "97",
+   "first_page": "1853",
+   "doi": "10.1016/j.bpj.2009.07.020"
+  },
+  {
+   "bib_id": 47,
+   "authors": [
+    {
+     "family": "McLaughlin",
+     "given": "S"
+    },
+    {
+     "family": "Poo",
+     "given": "MM"
+    }
+   ],
+   "year": "1981",
+   "title": "The role of electro-osmosis in the electric-field-induced movement of charged macromolecules on the surfaces of cells",
+   "container": "Biophys J",
+   "volume": "34",
+   "first_page": "85",
+   "last_page": "93",
+   "doi": "10.1016/S0006-3495(81)84838-2"
+  },
+  {
+   "bib_id": 48,
+   "authors": [
+    {
+     "family": "Allen",
+     "given": "GM"
+    },
+    {
+     "family": "Mogilner",
+     "given": "A"
+    },
+    {
+     "family": "Theriot",
+     "given": "JA"
+    }
+   ],
+   "year": "2013",
+   "title": "Electrophoresis of cellular membrane components creates the directional cue guiding keratocyte galvanotaxis",
+   "container": "Curr Biol",
+   "volume": "23",
+   "first_page": "560",
+   "doi": "10.1016/j.cub.2013.02.047"
+  },
+  {
+   "bib_id": 49,
+   "authors": [
+    {
+     "family": "Sarkar",
+     "given": "A"
+    },
+    {
+     "family": "Kobylkevich",
+     "given": "BM"
+    },
+    {
+     "family": "Graham",
+     "given": "DM"
+    },
+    {
+     "family": "Messerli",
+     "given": "MA"
+    }
+   ],
+   "year": "2019",
+   "title": "Electromigration of cell surface macromolecules in DC electric fields during cell polarization and galvanotaxis",
+   "container": "J Theor Biol",
+   "volume": "478",
+   "first_page": "58",
+   "last_page": "73",
+   "doi": "10.1016/j.jtbi.2019.06.015"
+  },
+  {
+   "bib_id": 50,
+   "authors": [
+    {
+     "family": "Kulkarni",
+     "given": "S"
+    },
+    {
+     "family": "Tebar",
+     "given": "F"
+    },
+    {
+     "family": "Rentero",
+     "given": "C"
+    },
+    {
+     "family": "Zhao",
+     "given": "M"
+    },
+    {
+     "family": "Sáez",
+     "given": "P"
+    }
+   ],
+   "year": "2025",
+   "title": "Competing signaling pathways controls electrotaxis",
+   "container": "iScience",
+   "volume": "28",
+   "first_page": "112329",
+   "doi": "10.1016/j.isci.2025.112329"
+  },
+  {
+   "bib_id": 51,
+   "authors": [
+    {
+     "family": "Dawes",
+     "given": "AT"
+    },
+    {
+     "family": "Edelstein-Keshet",
+     "given": "L"
+    }
+   ],
+   "year": "2007",
+   "title": "Phosphoinositides and Rho proteins spatially regulate actin polymerization to initiate and maintain directed movement in a one-dimensional model of a motile cell",
+   "container": "Biophys J",
+   "volume": "92",
+   "first_page": "744",
+   "doi": "10.1529/biophysj.106.090514"
+  },
+  {
+   "bib_id": 52,
+   "authors": [
+    {
+     "family": "Marée",
+     "given": "AFM"
+    },
+    {
+     "family": "Grieneisen",
+     "given": "VA"
+    },
+    {
+     "family": "Edelstein-Keshet",
+     "given": "L"
+    }
+   ],
+   "year": "2012",
+   "title": "How cells integrate complex stimuli: the effect of feedback from phosphoinositides and cell shape on cell polarization and motility",
+   "container": "PLoS Comput Biol",
+   "volume": "8",
+   "doi": "10.1371/journal.pcbi.1002402"
+  },
+  {
+   "bib_id": 53,
+   "authors": [
+    {
+     "family": "Holmes",
+     "given": "WR"
+    },
+    {
+     "family": "Edelstein-Keshet",
+     "given": "L"
+    }
+   ],
+   "year": "2016",
+   "title": "Analysis of a minimal Rho-GTPase circuit regulating cell shape",
+   "container": "Phys Biol",
+   "volume": "13",
+   "first_page": "046001",
+   "doi": "10.1088/1478-3975/13/4/046001"
+  },
+  {
+   "bib_id": 54,
+   "authors": [
+    {
+     "family": "Levchenko",
+     "given": "A"
+    },
+    {
+     "family": "Iglesias",
+     "given": "PA"
+    }
+   ],
+   "year": "2002",
+   "title": "Models of eukaryotic gradient sensing: application to chemotaxis of amoebae and neutrophils",
+   "container": "Biophys J",
+   "volume": "82",
+   "first_page": "50",
+   "last_page": "63",
+   "doi": "10.1016/S0006-3495(02)75373-3"
+  },
+  {
+   "bib_id": 55,
+   "authors": [
+    {
+     "family": "Devreotes",
+     "given": "PN"
+    },
+    {
+     "family": "Bhattacharya",
+     "given": "S"
+    },
+    {
+     "family": "Edwards",
+     "given": "M"
+    },
+    {
+     "family": "Iglesias",
+     "given": "PA"
+    },
+    {
+     "family": "Lampert",
+     "given": "T"
+    },
+    {
+     "family": "Miao",
+     "given": "Y"
+    }
+   ],
+   "year": "2017",
+   "title": "Excitable Signal Transduction Networks in Directed Cell Migration",
+   "container": "Annu Rev Cell Dev Biol",
+   "volume": "33",
+   "first_page": "103",
+   "doi": "10.1146/annurev-cellbio-100616-060739"
+  },
+  {
+   "bib_id": 56,
+   "authors": [
+    {
+     "family": "Jilkine",
+     "given": "A"
+    },
+    {
+     "family": "Edelstein-Keshet",
+     "given": "L"
+    }
+   ],
+   "year": "2011",
+   "title": "A comparison of mathematical models for polarization of single eukaryotic cells in response to guided cues",
+   "container": "PLoS Comput Biol",
+   "volume": "7",
+   "doi": "10.1371/journal.pcbi.1001121"
+  },
+  {
+   "bib_id": 57,
+   "authors": [
+    {
+     "family": "Prost",
+     "given": "J"
+    },
+    {
+     "family": "Jülicher",
+     "given": "F"
+    },
+    {
+     "family": "Joanny",
+     "given": "J-F"
+    }
+   ],
+   "year": "2015",
+   "title": "Active gel physics",
+   "container": "Nature Phys",
+   "volume": "11",
+   "first_page": "111",
+   "doi": "10.1038/nphys3224"
+  },
+  {
+   "bib_id": 58,
+   "authors": [
+    {
+     "family": "Betorz",
+     "given": "J"
+    },
+    {
+     "family": "Bokil",
+     "given": "GR"
+    },
+    {
+     "family": "Deshpande",
+     "given": "SM"
+    },
+    {
+     "family": "Kulkarni",
+     "given": "S"
+    },
+    {
+     "family": "Araya",
+     "given": "DR"
+    },
+    {
+     "family": "Venturini",
+     "given": "C"
+    }
+   ],
+   "year": "2023",
+   "title": "A computational model for early cell spreading, migration, and competing taxis",
+   "container": "Journal of the Mechanics and Physics of Solids",
+   "volume": "179",
+   "first_page": "105390",
+   "doi": "10.1016/j.jmps.2023.105390"
+  },
+  {
+   "bib_id": 59,
+   "authors": [
+    {
+     "family": "Mogilner",
+     "given": "A"
+    },
+    {
+     "family": "Oster",
+     "given": "G"
+    }
+   ],
+   "year": "2003",
+   "title": "Force generation by actin polymerization II: the elastic ratchet and tethered filaments",
+   "container": "Biophys J",
+   "volume": "84",
+   "first_page": "1591",
+   "doi": "10.1016/S0006-3495(03)74969-8"
+  },
+  {
+   "bib_id": 60,
+   "authors": [
+    {
+     "family": "Donea",
+     "given": "J"
+    },
+    {
+     "family": "Huerta",
+     "given": "A"
+    }
+   ],
+   "year": "2003",
+   "title": "Finite element methods for flow problems",
+   "doi": "10.1002/0470013826"
+  },
+  {
+   "bib_id": 61,
+   "authors": [
+    {
+     "family": "Wolfenson",
+     "given": "H"
+    },
+    {
+     "family": "Iskratsch",
+     "given": "T"
+    },
+    {
+     "family": "Sheetz",
+     "given": "MP"
+    }
+   ],
+   "year": "2014",
+   "title": "Early events in cell spreading as a model for quantitative analysis of biomechanical events",
+   "container": "Biophys J",
+   "volume": "107",
+   "first_page": "2508",
+   "doi": "10.1016/j.bpj.2014.10.041"
+  },
+  {
+   "bib_id": 62,
+   "authors": [
+    {
+     "family": "Fouchard",
+     "given": "J"
+    },
+    {
+     "family": "Bimbard",
+     "given": "C"
+    },
+    {
+     "family": "Bufi",
+     "given": "N"
+    },
+    {
+     "family": "Durand-Smet",
+     "given": "P"
+    },
+    {
+     "family": "Proag",
+     "given": "A"
+    },
+    {
+     "family": "Richert",
+     "given": "A"
+    }
+   ],
+   "year": "2014",
+   "title": "Three-dimensional cell body shape dictates the onset of traction force generation and growth of focal adhesions",
+   "container": "Proc Natl Acad Sci U S A",
+   "volume": "111",
+   "first_page": "13075",
+   "doi": "10.1073/pnas.1411785111"
+  },
+  {
+   "bib_id": 63,
+   "authors": [
+    {
+     "family": "Ibata",
+     "given": "N"
+    },
+    {
+     "family": "Terentjev",
+     "given": "EM"
+    }
+   ],
+   "year": "2020",
+   "title": "Development of Nascent Focal Adhesions in Spreading Cells",
+   "container": "Biophys J",
+   "volume": "119",
+   "first_page": "2063",
+   "doi": "10.1016/j.bpj.2020.09.037"
+  },
+  {
+   "bib_id": 64,
+   "authors": [
+    {
+     "family": "Kechagia",
+     "given": "Z"
+    },
+    {
+     "family": "Sáez",
+     "given": "P"
+    },
+    {
+     "family": "Gómez-González",
+     "given": "M"
+    },
+    {
+     "family": "Canales",
+     "given": "B"
+    },
+    {
+     "family": "Viswanadha",
+     "given": "S"
+    },
+    {
+     "family": "Zamarbide",
+     "given": "M"
+    }
+   ],
+   "year": "2023",
+   "title": "The laminin-keratin link shields the nucleus from mechanical deformation and signalling",
+   "container": "Nat Mater",
+   "volume": "22",
+   "first_page": "1409",
+   "doi": "10.1038/s41563-023-01657-3"
+  },
+  {
+   "bib_id": 65,
+   "authors": [
+    {
+     "family": "Elosegui-Artola",
+     "given": "A"
+    }
+   ],
+   "year": "2021",
+   "title": "The extracellular matrix viscoelasticity as a regulator of cell and tissue dynamics",
+   "container": "Curr Opin Cell Biol",
+   "volume": "72",
+   "first_page": "10",
+   "doi": "10.1016/j.ceb.2021.04.002"
+  },
+  {
+   "bib_id": 66,
+   "authors": [
+    {
+     "family": "Huerta-López",
+     "given": "C"
+    },
+    {
+     "family": "Clemente-Manteca",
+     "given": "A"
+    },
+    {
+     "family": "Velázquez-Carreras",
+     "given": "D"
+    },
+    {
+     "family": "Espinosa",
+     "given": "FM"
+    },
+    {
+     "family": "Sanchez",
+     "given": "JG"
+    },
+    {
+     "family": "Martínez-Del-Pozo",
+     "given": "Á"
+    }
+   ],
+   "year": "2024",
+   "title": "Cell response to extracellular matrix viscous energy dissipation outweighs high-rigidity sensing",
+   "container": "Sci Adv",
+   "volume": "10",
+   "doi": "10.1126/sciadv.adf9758"
+  },
+  {
+   "bib_id": 67,
+   "authors": [
+    {
+     "family": "Gong",
+     "given": "Z"
+    },
+    {
+     "family": "Szczesny",
+     "given": "SE"
+    },
+    {
+     "family": "Caliari",
+     "given": "SR"
+    },
+    {
+     "family": "Charrier",
+     "given": "EE"
+    },
+    {
+     "family": "Chaudhuri",
+     "given": "O"
+    },
+    {
+     "family": "Cao",
+     "given": "X"
+    }
+   ],
+   "year": "2018",
+   "title": "Matching material and cellular timescales maximizes cell spreading on viscoelastic substrates",
+   "container": "Proc Natl Acad Sci U S A",
+   "volume": "115",
+   "doi": "10.1073/pnas.1716620115"
+  },
+  {
+   "bib_id": 68,
+   "authors": [
+    {
+     "family": "Oria",
+     "given": "R"
+    },
+    {
+     "family": "Wiegand",
+     "given": "T"
+    },
+    {
+     "family": "Escribano",
+     "given": "J"
+    },
+    {
+     "family": "Elosegui-Artola",
+     "given": "A"
+    },
+    {
+     "family": "Uriarte",
+     "given": "JJ"
+    },
+    {
+     "family": "Moreno-Pulido",
+     "given": "C"
+    }
+   ],
+   "year": "2017",
+   "title": "Force loading explains spatial sensing of ligands by cells",
+   "container": "Nature",
+   "volume": "552",
+   "first_page": "219",
+   "doi": "10.1038/nature24662"
+  },
+  {
+   "bib_id": 69,
+   "authors": [
+    {
+     "family": "Hadden",
+     "given": "WJ"
+    },
+    {
+     "family": "Young",
+     "given": "JL"
+    },
+    {
+     "family": "Holle",
+     "given": "AW"
+    },
+    {
+     "family": "McFetridge",
+     "given": "ML"
+    },
+    {
+     "family": "Kim",
+     "given": "DY"
+    },
+    {
+     "family": "Wijesinghe",
+     "given": "P"
+    }
+   ],
+   "year": "2017",
+   "title": "Stem cell migration and mechanotransduction on linear stiffness gradient hydrogels",
+   "container": "Proc Natl Acad Sci U S A",
+   "volume": "114",
+   "first_page": "5647",
+   "doi": "10.1073/pnas.1618239114"
+  },
+  {
+   "bib_id": 70,
+   "authors": [
+    {
+     "family": "Sunyer",
+     "given": "R"
+    },
+    {
+     "family": "Conte",
+     "given": "V"
+    },
+    {
+     "family": "Escribano",
+     "given": "J"
+    },
+    {
+     "family": "Elosegui-Artola",
+     "given": "A"
+    },
+    {
+     "family": "Labernadie",
+     "given": "A"
+    },
+    {
+     "family": "Valon",
+     "given": "L"
+    }
+   ],
+   "year": "2016",
+   "title": "Collective cell durotaxis emerges from long-range intercellular force transmission",
+   "container": "Science",
+   "volume": "353",
+   "first_page": "1157",
+   "doi": "10.1126/science.aaf7119"
+  },
+  {
+   "bib_id": 71,
+   "authors": [
+    {
+     "family": "Shaw",
+     "given": "LM"
+    },
+    {
+     "family": "Rabinovitz",
+     "given": "I"
+    },
+    {
+     "family": "Wang",
+     "given": "HH"
+    },
+    {
+     "family": "Toker",
+     "given": "A"
+    },
+    {
+     "family": "Mercurio",
+     "given": "AM"
+    }
+   ],
+   "year": "1997",
+   "title": "Activation of phosphoinositide 3-OH kinase by the alpha6beta4 integrin promotes carcinoma invasion",
+   "container": "Cell",
+   "volume": "91",
+   "first_page": "949",
+   "doi": "10.1016/s0092-8674(00)80486-9"
+  },
+  {
+   "bib_id": 72,
+   "authors": [
+    {
+     "family": "Riquelme",
+     "given": "MA"
+    },
+    {
+     "family": "Gu",
+     "given": "S"
+    },
+    {
+     "family": "Hua",
+     "given": "R"
+    },
+    {
+     "family": "Jiang",
+     "given": "JX"
+    }
+   ],
+   "year": "2021",
+   "title": "Mechanotransduction via the coordinated actions of integrins, PI3K signaling and Connexin hemichannels",
+   "container": "Bone Res",
+   "volume": "9",
+   "doi": "10.1038/s41413-020-00126-w"
+  },
+  {
+   "bib_id": 73,
+   "authors": [
+    {
+     "family": "Guidetti",
+     "given": "GF"
+    },
+    {
+     "family": "Canobbio",
+     "given": "I"
+    },
+    {
+     "family": "Torti",
+     "given": "M"
+    }
+   ],
+   "year": "2015",
+   "title": "PI3K/Akt in platelet integrin signaling and implications in thrombosis",
+   "container": "Adv Biol Regul",
+   "volume": "59",
+   "first_page": "36",
+   "last_page": "52",
+   "doi": "10.1016/j.jbior.2015.06.001"
+  },
+  {
+   "bib_id": 74,
+   "authors": [
+    {
+     "family": "Matsuoka",
+     "given": "T"
+    },
+    {
+     "family": "Yashiro",
+     "given": "M"
+    },
+    {
+     "family": "Nishioka",
+     "given": "N"
+    },
+    {
+     "family": "Hirakawa",
+     "given": "K"
+    },
+    {
+     "family": "Olden",
+     "given": "K"
+    },
+    {
+     "family": "Roberts",
+     "given": "JD"
+    }
+   ],
+   "year": "2012",
+   "title": "PI3K/Akt signalling is required for the attachment and spreading, and growth in vivo of metastatic scirrhous gastric carcinoma",
+   "container": "Br J Cancer",
+   "volume": "106",
+   "first_page": "1535",
+   "doi": "10.1038/bjc.2012.107"
+  },
+  {
+   "bib_id": 75,
+   "authors": [
+    {
+     "family": "Ren",
+     "given": "XD"
+    },
+    {
+     "family": "Kiosses",
+     "given": "WB"
+    },
+    {
+     "family": "Schwartz",
+     "given": "MA"
+    }
+   ],
+   "year": "1999",
+   "title": "Regulation of the small GTP-binding protein Rho by cell adhesion and the cytoskeleton",
+   "container": "EMBO J",
+   "volume": "18",
+   "first_page": "578",
+   "doi": "10.1093/emboj/18.3.578"
+  },
+  {
+   "bib_id": 76,
+   "authors": [
+    {
+     "family": "Barry",
+     "given": "ST"
+    },
+    {
+     "family": "Flinn",
+     "given": "HM"
+    },
+    {
+     "family": "Humphries",
+     "given": "MJ"
+    },
+    {
+     "family": "Critchley",
+     "given": "DR"
+    },
+    {
+     "family": "Ridley",
+     "given": "AJ"
+    }
+   ],
+   "year": "1997",
+   "title": "Requirement for Rho in integrin signalling",
+   "container": "Cell Adhes Commun",
+   "volume": "4",
+   "first_page": "387",
+   "doi": "10.3109/15419069709004456"
+  },
+  {
+   "bib_id": 77,
+   "authors": [
+    {
+     "family": "del Pozo",
+     "given": "MA"
+    },
+    {
+     "family": "Price",
+     "given": "LS"
+    },
+    {
+     "family": "Alderson",
+     "given": "NB"
+    },
+    {
+     "family": "Ren",
+     "given": "XD"
+    },
+    {
+     "family": "Schwartz",
+     "given": "MA"
+    }
+   ],
+   "year": "2000",
+   "title": "Adhesion to the extracellular matrix regulates the coupling of the small GTPase Rac to its effector PAK",
+   "container": "EMBO J",
+   "volume": "19",
+   "first_page": "2008",
+   "doi": "10.1093/emboj/19.9.2008"
+  },
+  {
+   "bib_id": 78,
+   "authors": [
+    {
+     "family": "Price",
+     "given": "LS"
+    },
+    {
+     "family": "Leng",
+     "given": "J"
+    },
+    {
+     "family": "Schwartz",
+     "given": "MA"
+    },
+    {
+     "family": "Bokoch",
+     "given": "GM"
+    }
+   ],
+   "year": "1998",
+   "title": "Activation of Rac and Cdc42 by integrins mediates cell spreading",
+   "container": "Mol Biol Cell",
+   "volume": "9",
+   "first_page": "1863",
+   "doi": "10.1091/mbc.9.7.1863"
+  },
+  {
+   "bib_id": 79,
+   "authors": [
+    {
+     "family": "Russell",
+     "given": "AJ"
+    },
+    {
+     "family": "Fincher",
+     "given": "EF"
+    },
+    {
+     "family": "Millman",
+     "given": "L"
+    },
+    {
+     "family": "Smith",
+     "given": "R"
+    },
+    {
+     "family": "Vela",
+     "given": "V"
+    },
+    {
+     "family": "Waterman",
+     "given": "EA"
+    }
+   ],
+   "year": "2003",
+   "title": "Alpha 6 beta 4 integrin regulates keratinocyte chemotaxis through differential GTPase activation and antagonism of alpha 3 beta 1 integrin",
+   "container": "J Cell Sci",
+   "volume": "116",
+   "first_page": "3543",
+   "doi": "10.1242/jcs.00663"
+  },
+  {
+   "bib_id": 80,
+   "authors": [
+    {
+     "family": "Price",
+     "given": "LS"
+    },
+    {
+     "family": "Leng",
+     "given": "J"
+    },
+    {
+     "family": "Schwartz",
+     "given": "MA"
+    },
+    {
+     "family": "Bokoch",
+     "given": "GM"
+    }
+   ],
+   "year": "1998",
+   "title": "Activation of Rac and Cdc42 by integrins mediates cell spreading",
+   "container": "Mol Biol Cell",
+   "volume": "9",
+   "first_page": "1863",
+   "doi": "10.1091/mbc.9.7.1863"
+  },
+  {
+   "bib_id": 81,
+   "authors": [
+    {
+     "family": "Fang",
+     "given": "KS"
+    },
+    {
+     "family": "Ionides",
+     "given": "E"
+    },
+    {
+     "family": "Oster",
+     "given": "G"
+    },
+    {
+     "family": "Nuccitelli",
+     "given": "R"
+    },
+    {
+     "family": "Isseroff",
+     "given": "RR"
+    }
+   ],
+   "year": "1999",
+   "title": "Epidermal growth factor receptor relocalization and kinase activity are necessary for directional migration of keratinocytes in DC electric fields",
+   "container": "J Cell Sci",
+   "first_page": "1967",
+   "doi": "10.1242/jcs.112.12.1967"
+  },
+  {
+   "bib_id": 82,
+   "authors": [
+    {
+     "family": "Zhao",
+     "given": "M"
+    },
+    {
+     "family": "Dick",
+     "given": "A"
+    },
+    {
+     "family": "Forrester",
+     "given": "JV"
+    },
+    {
+     "family": "McCaig",
+     "given": "CD"
+    }
+   ],
+   "year": "1999",
+   "title": "Electric field-directed cell motility involves up-regulated expression and asymmetric redistribution of the epidermal growth factor receptors and is enhanced by fibronectin and laminin",
+   "container": "Mol Biol Cell",
+   "volume": "10",
+   "first_page": "1259",
+   "doi": "10.1091/mbc.10.4.1259"
+  },
+  {
+   "bib_id": 83,
+   "authors": [
+    {
+     "family": "Zhao",
+     "given": "M"
+    },
+    {
+     "family": "Bai",
+     "given": "H"
+    },
+    {
+     "family": "Wang",
+     "given": "E"
+    },
+    {
+     "family": "Forrester",
+     "given": "JV"
+    },
+    {
+     "family": "McCaig",
+     "given": "CD"
+    }
+   ],
+   "year": "2004",
+   "title": "Electrical stimulation directly induces pre-angiogenic responses in vascular endothelial cells by signaling through VEGF receptors",
+   "container": "J Cell Sci",
+   "volume": "117",
+   "first_page": "397",
+   "last_page": "405",
+   "doi": "10.1242/jcs.00868"
+  },
+  {
+   "bib_id": 84,
+   "authors": [
+    {
+     "family": "Meng",
+     "given": "X"
+    },
+    {
+     "family": "Arocena",
+     "given": "M"
+    },
+    {
+     "family": "Penninger",
+     "given": "J"
+    },
+    {
+     "family": "Gage",
+     "given": "FH"
+    },
+    {
+     "family": "Zhao",
+     "given": "M"
+    },
+    {
+     "family": "Song",
+     "given": "B"
+    }
+   ],
+   "year": "2011",
+   "title": "PI3K mediated electrotaxis of embryonic and adult neural progenitor cells in the presence of growth factors",
+   "container": "Exp Neurol",
+   "volume": "227",
+   "first_page": "210",
+   "doi": "10.1016/j.expneurol.2010.11.002"
+  },
+  {
+   "bib_id": 85,
+   "authors": [
+    {
+     "family": "Zhao",
+     "given": "Z"
+    },
+    {
+     "family": "Watt",
+     "given": "C"
+    },
+    {
+     "family": "Karystinou",
+     "given": "A"
+    },
+    {
+     "family": "Roelofs",
+     "given": "AJ"
+    },
+    {
+     "family": "McCaig",
+     "given": "CD"
+    },
+    {
+     "family": "Gibson",
+     "given": "IR"
+    }
+   ],
+   "year": "2011",
+   "title": "Directed migration of human bone marrow mesenchymal stem cells in a physiological direct current electric field",
+   "container": "Eur Cell Mater",
+   "volume": "22",
+   "first_page": "344",
+   "doi": "10.22203/ecm.v022a26"
+  },
+  {
+   "bib_id": 86,
+   "authors": [
+    {
+     "family": "Itoh",
+     "given": "RE"
+    },
+    {
+     "family": "Kiyokawa",
+     "given": "E"
+    },
+    {
+     "family": "Aoki",
+     "given": "K"
+    },
+    {
+     "family": "Nishioka",
+     "given": "T"
+    },
+    {
+     "family": "Akiyama",
+     "given": "T"
+    },
+    {
+     "family": "Matsuda",
+     "given": "M"
+    }
+   ],
+   "year": "2008",
+   "title": "Phosphorylation and activation of the Rac1 and Cdc42 GEF Asef in A431 cells stimulated by EGF",
+   "container": "J Cell Sci",
+   "volume": "121",
+   "first_page": "2635",
+   "doi": "10.1242/jcs.028647"
+  },
+  {
+   "bib_id": 87,
+   "authors": [
+    {
+     "family": "Garcia-Mata",
+     "given": "R"
+    },
+    {
+     "family": "Boulter",
+     "given": "E"
+    },
+    {
+     "family": "Burridge",
+     "given": "K"
+    }
+   ],
+   "year": "2011",
+   "title": "The “invisible hand”: regulation of RHO GTPases by RHOGDIs",
+   "container": "Nat Rev Mol Cell Biol",
+   "volume": "12",
+   "first_page": "493",
+   "last_page": "504",
+   "doi": "10.1038/nrm3153"
+  },
+  {
+   "bib_id": 88,
+   "authors": [
+    {
+     "family": "Das",
+     "given": "S"
+    },
+    {
+     "family": "Yin",
+     "given": "T"
+    },
+    {
+     "family": "Yang",
+     "given": "Q"
+    },
+    {
+     "family": "Zhang",
+     "given": "J"
+    },
+    {
+     "family": "Wu",
+     "given": "YI"
+    },
+    {
+     "family": "Yu",
+     "given": "J"
+    }
+   ],
+   "year": "2015",
+   "title": "Single-molecule tracking of small GTPase Rac1 uncovers spatial regulation of membrane translocation and mechanism for polarized signaling",
+   "container": "Proc Natl Acad Sci U S A",
+   "volume": "112",
+   "doi": "10.1073/pnas.1409667112"
+  },
+  {
+   "bib_id": 89,
+   "authors": [
+    {
+     "family": "Marei",
+     "given": "H"
+    },
+    {
+     "family": "Carpy",
+     "given": "A"
+    },
+    {
+     "family": "Woroniuk",
+     "given": "A"
+    },
+    {
+     "family": "Vennin",
+     "given": "C"
+    },
+    {
+     "family": "White",
+     "given": "G"
+    },
+    {
+     "family": "Timpson",
+     "given": "P"
+    }
+   ],
+   "year": "2016",
+   "title": "Differential Rac1 signalling by guanine nucleotide exchange factors implicates FLII in regulating Rac1-driven cell migration",
+   "container": "Nat Commun",
+   "volume": "7",
+   "first_page": "10664",
+   "doi": "10.1038/ncomms10664"
+  },
+  {
+   "bib_id": 90,
+   "authors": [
+    {
+     "family": "Clark",
+     "given": "EA"
+    },
+    {
+     "family": "King",
+     "given": "WG"
+    },
+    {
+     "family": "Brugge",
+     "given": "JS"
+    },
+    {
+     "family": "Symons",
+     "given": "M"
+    },
+    {
+     "family": "Hynes",
+     "given": "RO"
+    }
+   ],
+   "year": "1998",
+   "title": "Integrin-mediated signals regulated by members of the rho family of GTPases",
+   "container": "J Cell Biol",
+   "volume": "142",
+   "first_page": "573",
+   "doi": "10.1083/jcb.142.2.573"
+  },
+  {
+   "bib_id": 91,
+   "authors": [
+    {
+     "family": "Schwartz",
+     "given": "MA"
+    },
+    {
+     "family": "Shattil",
+     "given": "SJ"
+    }
+   ],
+   "year": "2000",
+   "title": "Signaling networks linking integrins and rho family GTPases",
+   "container": "Trends Biochem Sci",
+   "volume": "25",
+   "first_page": "388",
+   "doi": "10.1016/s0968-0004(00)01605-4"
+  },
+  {
+   "bib_id": 92,
+   "authors": [
+    {
+     "family": "Espina",
+     "given": "JA"
+    },
+    {
+     "family": "Marchant",
+     "given": "CL"
+    },
+    {
+     "family": "Barriga",
+     "given": "EH"
+    }
+   ],
+   "year": "2022",
+   "title": "Durotaxis: the mechanical control of directed cell migration",
+   "container": "FEBS J",
+   "volume": "289",
+   "first_page": "2736",
+   "doi": "10.1111/febs.15862"
+  },
+  {
+   "bib_id": 93,
+   "authors": [
+    {
+     "family": "Oudin",
+     "given": "MJ"
+    },
+    {
+     "family": "Weaver",
+     "given": "VM"
+    }
+   ],
+   "year": "2016",
+   "title": "Physical and Chemical Gradients in the Tumor Microenvironment Regulate Tumor Cell Invasion, Migration, and Metastasis",
+   "container": "Cold Spring Harb Symp Quant Biol",
+   "volume": "81",
+   "first_page": "189",
+   "last_page": "205",
+   "doi": "10.1101/sqb.2016.81.030817"
+  },
+  {
+   "bib_id": 94,
+   "authors": [
+    {
+     "family": "Zhu",
+     "given": "K"
+    },
+    {
+     "family": "Takada",
+     "given": "Y"
+    },
+    {
+     "family": "Nakajima",
+     "given": "K"
+    },
+    {
+     "family": "Sun",
+     "given": "Y"
+    },
+    {
+     "family": "Jiang",
+     "given": "J"
+    },
+    {
+     "family": "Zhang",
+     "given": "Y"
+    }
+   ],
+   "year": "2019",
+   "title": "Expression of integrins to control migration direction of electrotaxis",
+   "container": "FASEB J",
+   "volume": "33",
+   "first_page": "9131",
+   "doi": "10.1096/fj.201802657R"
+  },
+  {
+   "bib_id": 95,
+   "authors": [
+    {
+     "family": "Yu",
+     "given": "J"
+    },
+    {
+     "family": "Shin",
+     "given": "J"
+    },
+    {
+     "family": "Yu",
+     "given": "J"
+    },
+    {
+     "family": "Kim",
+     "given": "J"
+    },
+    {
+     "family": "Yu",
+     "given": "D"
+    },
+    {
+     "family": "Heo",
+     "given": "WD"
+    }
+   ],
+   "year": "2024",
+   "title": "Programmable RNA base editing with photoactivatable CRISPR-Cas13",
+   "container": "Nat Commun",
+   "volume": "15",
+   "first_page": "673",
+   "doi": "10.1038/s41467-024-44867-2"
+  },
+  {
+   "bib_id": 96,
+   "authors": [
+    {
+     "family": "Shah",
+     "given": "A"
+    },
+    {
+     "family": "Chen",
+     "given": "D"
+    },
+    {
+     "family": "Boda",
+     "given": "AR"
+    },
+    {
+     "family": "Foster",
+     "given": "LJ"
+    },
+    {
+     "family": "Davis",
+     "given": "MJ"
+    },
+    {
+     "family": "Hill",
+     "given": "MM"
+    }
+   ],
+   "year": "2015",
+   "title": "RaftProt: mammalian lipid raft proteome database",
+   "container": "Nucleic Acids Res",
+   "volume": "43",
+   "doi": "10.1093/nar/gku1131"
+  },
+  {
+   "bib_id": 97,
+   "authors": [
+    {
+     "family": "Nunes",
+     "given": "CO"
+    },
+    {
+     "family": "Barriga",
+     "given": "EH"
+    }
+   ],
+   "year": "2025",
+   "title": "Bioelectricity in Morphogenesis",
+   "container": "Annu Rev Cell Dev Biol",
+   "volume": "41",
+   "first_page": "187",
+   "last_page": "208",
+   "doi": "10.1146/annurev-cellbio-101323-032747"
+  },
+  {
+   "bib_id": 98,
+   "authors": [
+    {
+     "family": "Ferreira",
+     "given": "F"
+    },
+    {
+     "family": "Moreira",
+     "given": "S"
+    },
+    {
+     "family": "Zhao",
+     "given": "M"
+    },
+    {
+     "family": "Barriga",
+     "given": "EH"
+    }
+   ],
+   "year": "2025",
+   "title": "Stretch-induced endogenous electric fields drive directed collective cell migration in vivo",
+   "container": "Nat Mater",
+   "volume": "24",
+   "first_page": "462",
+   "doi": "10.1038/s41563-024-02060-2"
+  },
+  {
+   "bib_id": 99,
+   "authors": [
+    {
+     "family": "Belliveau",
+     "given": "NM"
+    },
+    {
+     "family": "Footer",
+     "given": "MJ"
+    },
+    {
+     "family": "Platenkamp",
+     "given": "A"
+    },
+    {
+     "family": "Rodriguez",
+     "given": "C"
+    },
+    {
+     "family": "Kim",
+     "given": "H"
+    },
+    {
+     "family": "Prinz",
+     "given": "CK"
+    }
+   ],
+   "year": "2025",
+   "title": "Galvanin (TMEM154) is an electric-field sensor for directed cell migration",
+   "container": "bioRxiv",
+   "doi": "10.1101/2024.09.23.614580"
+  },
+  {
+   "bib_id": 100,
+   "authors": [
+    {
+     "family": "Koh",
+     "given": "DS"
+    },
+    {
+     "family": "Stratiievska",
+     "given": "A"
+    },
+    {
+     "family": "Jana",
+     "given": "S"
+    },
+    {
+     "family": "Otto",
+     "given": "SC"
+    },
+    {
+     "family": "Swanson",
+     "given": "TM"
+    },
+    {
+     "family": "Nhim",
+     "given": "A"
+    }
+   ],
+   "year": "2023",
+   "doi": "10.7554/eLife.91012.1"
+  },
+  {
+   "bib_id": 101,
+   "authors": [
+    {
+     "family": "Wang",
+     "given": "Y"
+    },
+    {
+     "family": "Senoo",
+     "given": "H"
+    },
+    {
+     "family": "Sesaki",
+     "given": "H"
+    },
+    {
+     "family": "Iijima",
+     "given": "M"
+    }
+   ],
+   "year": "2013",
+   "title": "Rho GTPases orient directional sensing in chemotaxis",
+   "container": "Proc Natl Acad Sci U S A",
+   "volume": "110",
+   "doi": "10.1073/pnas.1312540110"
+  },
+  {
+   "bib_id": 102,
+   "authors": [
+    {
+     "family": "Graziano",
+     "given": "BR"
+    },
+    {
+     "family": "Gong",
+     "given": "D"
+    },
+    {
+     "family": "Anderson",
+     "given": "KE"
+    },
+    {
+     "family": "Pipathsouk",
+     "given": "A"
+    },
+    {
+     "family": "Goldberg",
+     "given": "AR"
+    },
+    {
+     "family": "Weiner",
+     "given": "OD"
+    }
+   ],
+   "year": "2017",
+   "title": "A module for Rac temporal signal integration revealed with optogenetics",
+   "container": "J Cell Biol",
+   "volume": "216",
+   "first_page": "2515",
+   "doi": "10.1083/jcb.201604113"
+  },
+  {
+   "bib_id": 103,
+   "authors": [
+    {
+     "family": "de Beco",
+     "given": "S"
+    },
+    {
+     "family": "Vaidžiulytė",
+     "given": "K"
+    },
+    {
+     "family": "Manzi",
+     "given": "J"
+    },
+    {
+     "family": "Dalier",
+     "given": "F"
+    },
+    {
+     "family": "di Federico",
+     "given": "F"
+    },
+    {
+     "family": "Cornilleau",
+     "given": "G"
+    }
+   ],
+   "year": "2018",
+   "title": "Optogenetic dissection of Rac1 and Cdc42 gradient shaping",
+   "container": "Nat Commun",
+   "volume": "9",
+   "first_page": "4816",
+   "doi": "10.1038/s41467-018-07286-8"
+  },
+  {
+   "bib_id": 104,
+   "authors": [
+    {
+     "family": "Spiering",
+     "given": "D"
+    },
+    {
+     "family": "Hodgson",
+     "given": "L"
+    }
+   ],
+   "year": "2011",
+   "title": "Dynamics of the Rho-family small GTPases in actin regulation and motility",
+   "container": "Cell Adh Migr",
+   "volume": "5",
+   "first_page": "170",
+   "doi": "10.4161/cam.5.2.14403"
+  },
+  {
+   "bib_id": 105,
+   "authors": [
+    {
+     "family": "Pertz",
+     "given": "O"
+    }
+   ],
+   "year": "2010",
+   "title": "Spatio-temporal Rho GTPase signaling - where are we now?",
+   "container": "J Cell Sci",
+   "volume": "123",
+   "first_page": "1841",
+   "doi": "10.1242/jcs.064345"
+  },
+  {
+   "bib_id": 106,
+   "authors": [
+    {
+     "family": "Rappel",
+     "given": "W-J"
+    },
+    {
+     "family": "Levine",
+     "given": "H"
+    }
+   ],
+   "year": "2008",
+   "title": "Receptor noise limitations on chemotactic sensing",
+   "container": "Proc Natl Acad Sci U S A",
+   "volume": "105",
+   "first_page": "19270",
+   "doi": "10.1073/pnas.0804702105"
+  },
+  {
+   "bib_id": 107,
+   "authors": [
+    {
+     "family": "Shi",
+     "given": "W"
+    },
+    {
+     "family": "Gupta",
+     "given": "S"
+    },
+    {
+     "family": "Copos",
+     "given": "C"
+    },
+    {
+     "family": "Mogilner",
+     "given": "A"
+    }
+   ],
+   "year": "2025",
+   "title": "Collective mechanics of small migrating cell groups",
+   "container": "Semin Cell Dev Biol",
+   "volume": "166",
+   "first_page": "1",
+   "last_page": "12",
+   "doi": "10.1016/j.semcdb.2024.12.001"
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-core-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "jats_doi": "10.1371/journal.pcbi.1014511"
+ }
+}

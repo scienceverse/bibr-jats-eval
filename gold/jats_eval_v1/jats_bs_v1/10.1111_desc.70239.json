@@ -1,0 +1,1409 @@
+{
+ "paper_id": "10.1111_desc.70239",
+ "info": {
+  "title": "Performance and Biases of the LENA and ACLEW Algorithms in Analyzing Language Environments in Down, Fragile X, Angelman Syndromes, and Populations at Elevated Likelihood for Autism",
+  "doi": "10.1111/desc.70239",
+  "file_name": "10.1111_desc.70239.pdf",
+  "keywords": [
+   "automatic analysis",
+   "validation study",
+   "Down syndrome",
+   "fragile X syndrome",
+   "Angelman syndrome",
+   "elevated likelihood for autism"
+  ],
+  "abstract": "Wearable recorders are used in research and clinical practice to collect and measure children's vocalizations and the language environment in which they occur. Recordings generate vast amounts of audio, making manual analysis impractical and requiring automated processing. Two automated algorithms have emerged: the proprietary LENA (Language ENvironment Analysis) and the open‐source ACLEW (Analyzing Child Language Experiences around the World) systems; yet, systematic performance comparisons remain scarce. Here, we validate and compare the performance of these two algorithms across key measures: audio segmentation into speaker categories, conversational turn count (CTC), adult word count (AWC), and child vocalization count (CVC). This analysis is based on 25 h of manually annotated audio recordings from 50 age‐matched U.S. children with diverse neurodevelopmental profiles: children with Down syndrome, Fragile X syndrome, and Angelman syndrome, children at elevated likelihood of autism, and low‐risk controls. We hypothesized that the algorithms might be less accurate for children with neurodevelopmental conditions, since these children often show different patterns of volubility and vocal maturity compared to the typically developing children used to train the algorithms. Thus, we assessed the performance of algorithms across diagnostic groups, a crucial validation step for both cross‐population research and the evaluation of language interventions. Results reveal that while algorithms achieve similar performance across groups, they show different patterns: LENA makes fewer segmentation mistakes but misses many segments (identification error rate = 81.3%, percent correct = 45.3%), while ACLEW shows the opposite pattern (identification error rate = 129.4%, percent correct = 69.4%). Both LENA and ACLEW achieve reasonable levels of accuracy in their automatic counts (Pearson's r ranging from 0.78 to 0.92) and maintain stable performance across diagnostic groups. We conclude with recommendations for the validation and potential use of these algorithms in research and clinical practice. Summary: Our comparison of the LENA and ACLEW algorithms in analyzing children's language environment and vocal production across five neurodevelopmental profiles reveals similar performance but distinct error patterns.LENA makes fewer errors but misses speech (81.3% error rate, 45.3% correct); ACLEW makes more errors but captures more speech (129.4% error rate, 69.4% correct).Both algorithms maintain consistent performance across diagnostic groups, supporting their reliability for research with these 2‐year‐old populations with diverse neurodevelopmental profiles.Variations in algorithm performance are primarily driven by the total speaking time of surrounding speakers (other children and adults), rather than the diagnostic group."
+ },
+ "author": [
+  {
+   "author_id": 1,
+   "given": "Marvin",
+   "family": "Lavechin",
+   "affiliation": "Department of Brain & Cognitive Sciences Massachusetts Institute of Technology Cambridge Massachusetts USA",
+   "email": "",
+   "orcid": "",
+   "corresponding": true
+  },
+  {
+   "author_id": 2,
+   "given": "Lisa R.",
+   "family": "Hamrick",
+   "affiliation": "Department of Psychology University of South Carolina Columbia South Carolina USA",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 3,
+   "given": "Bridgette",
+   "family": "Kelleher",
+   "affiliation": "Department of Psychological Sciences Purdue University West Lafayette Indiana USA",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 4,
+   "given": "Amanda",
+   "family": "Seidl",
+   "affiliation": "Department of Communication Sciences & Disorders University of Delaware Newark Delaware USA",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  }
+ ],
+ "section": [
+  {
+   "section_id": 1,
+   "section_type": "abstract",
+   "header": "ABSTRACT",
+   "level": 1,
+   "parent_section_id": null,
+   "classification_score": 1.0
+  }
+ ],
+ "text": [
+  {
+   "text_id": 1,
+   "section_id": 1,
+   "paragraph_id": 1,
+   "text": "Wearable recorders are used in research and clinical practice to collect and measure children's vocalizations and the language environment in which they occur. Recordings generate vast amounts of audio, making manual analysis impractical and requiring automated processing. Two automated algorithms have emerged: the proprietary LENA (Language ENvironment Analysis) and the open‐source ACLEW (Analyzing Child Language Experiences around the World) systems; yet, systematic performance comparisons remain scarce. Here, we validate and compare the performance of these two algorithms across key measures: audio segmentation into speaker categories, conversational turn count (CTC), adult word count (AWC), and child vocalization count (CVC). This analysis is based on 25 h of manually annotated audio recordings from 50 age‐matched U.S. children with diverse neurodevelopmental profiles: children with Down syndrome, Fragile X syndrome, and Angelman syndrome, children at elevated likelihood of autism, and low‐risk controls. We hypothesized that the algorithms might be less accurate for children with neurodevelopmental conditions, since these children often show different patterns of volubility and vocal maturity compared to the typically developing children used to train the algorithms. Thus, we assessed the performance of algorithms across diagnostic groups, a crucial validation step for both cross‐population research and the evaluation of language interventions. Results reveal that while algorithms achieve similar performance across groups, they show different patterns: LENA makes fewer segmentation mistakes but misses many segments (identification error rate = 81.3%, percent correct = 45.3%), while ACLEW shows the opposite pattern (identification error rate = 129.4%, percent correct = 69.4%). Both LENA and ACLEW achieve reasonable levels of accuracy in their automatic counts (Pearson's r ranging from 0.78 to 0.92) and maintain stable performance across diagnostic groups. We conclude with recommendations for the validation and potential use of these algorithms in research and clinical practice. Summary: Our comparison of the LENA and ACLEW algorithms in analyzing children's language environment and vocal production across five neurodevelopmental profiles reveals similar performance but distinct error patterns.LENA makes fewer errors but misses speech (81.3% error rate, 45.3% correct); ACLEW makes more errors but captures more speech (129.4% error rate, 69.4% correct).Both algorithms maintain consistent performance across diagnostic groups, supporting their reliability for research with these 2‐year‐old populations with diverse neurodevelopmental profiles.Variations in algorithm performance are primarily driven by the total speaking time of surrounding speakers (other children and adults), rather than the diagnostic group.",
+   "page_number": 1
+  }
+ ],
+ "bib": [
+  {
+   "bib_id": 1,
+   "authors": [
+    {
+     "family": "Al Futaisi",
+     "given": "N."
+    },
+    {
+     "family": "Zhang",
+     "given": "Z."
+    },
+    {
+     "family": "Cristia",
+     "given": "A."
+    },
+    {
+     "family": "Warlaumont",
+     "given": "A."
+    },
+    {
+     "family": "Schuller",
+     "given": "B."
+    }
+   ],
+   "year": "2019",
+   "title": "VCMNet: Weakly Supervised Learning for Automatic Infant Vocalisation Maturity Analysis",
+   "first_page": "205",
+   "last_page": "209",
+   "doi": "10.1145/3340555.3353751"
+  },
+  {
+   "bib_id": 2,
+   "authors": [
+    {
+     "family": "Belardi",
+     "given": "K."
+    },
+    {
+     "family": "Watson",
+     "given": "L. R."
+    },
+    {
+     "family": "Faldowski",
+     "given": "R. A."
+    }
+   ],
+   "year": "2017",
+   "title": "A Retrospective Video Analysis of Canonical Babbling and Volubility in Infants With Fragile X Syndrome at 9–12 Months of Age",
+   "container": "Journal of Autism and Developmental Disorders",
+   "volume": "47",
+   "first_page": "1193",
+   "last_page": "1206",
+   "doi": "10.1007/s10803-017-3033-4"
+  },
+  {
+   "bib_id": 3,
+   "authors": [
+    {
+     "family": "Berger",
+     "given": "J."
+    },
+    {
+     "family": "Cunningham",
+     "given": "C. C."
+    }
+   ],
+   "year": "1983",
+   "title": "Development of Early Vocal Behaviors and Interactions in Down's Syndrome and Nonhandicapped Infant–Mother Pairs",
+   "container": "Developmental Psychology",
+   "volume": "19",
+   "first_page": "322",
+   "last_page": "331",
+   "doi": "10.1037/0012-1649.19.3.322"
+  },
+  {
+   "bib_id": 4,
+   "authors": [
+    {
+     "family": "Bredin",
+     "given": "H."
+    }
+   ],
+   "year": "2017",
+   "title": "pyannote.metrics: A Toolkit for Reproducible Evaluation, Diagnostic, and Error Analysis of Speaker Diarization Systems",
+   "first_page": "3587",
+   "last_page": "3591",
+   "doi": "10.21437/Interspeech.2017-411"
+  },
+  {
+   "bib_id": 5,
+   "authors": [
+    {
+     "family": "Bredin‐Oja",
+     "given": "S. L."
+    },
+    {
+     "family": "Fielding",
+     "given": "H."
+    },
+    {
+     "family": "Fleming",
+     "given": "K. K."
+    },
+    {
+     "family": "Warren",
+     "given": "S. F."
+    }
+   ],
+   "year": "2018",
+   "title": "Clinician vs. Machine: Estimating Vocalizations Rates in Young Children With Developmental Disorders",
+   "container": "American Journal of Speech‐Language Pathology",
+   "volume": "27",
+   "first_page": "1066",
+   "last_page": "1072",
+   "doi": "10.1044/2018_AJSLP-17-0016"
+  },
+  {
+   "bib_id": 6,
+   "authors": [
+    {
+     "family": "Bruyneel",
+     "given": "E."
+    },
+    {
+     "family": "Demurie",
+     "given": "E."
+    },
+    {
+     "family": "Boterberg",
+     "given": "S."
+    },
+    {
+     "family": "Warreyn",
+     "given": "P."
+    },
+    {
+     "family": "Roeyers",
+     "given": "H."
+    }
+   ],
+   "year": "2021",
+   "title": "Validation of the Language ENvironment Analysis (LENA) System for Dutch",
+   "container": "Journal of Child Language",
+   "volume": "48",
+   "first_page": "765",
+   "last_page": "791",
+   "doi": "10.1017/S0305000920000525"
+  },
+  {
+   "bib_id": 7,
+   "authors": [
+    {
+     "family": "Bull",
+     "given": "M. J."
+    }
+   ],
+   "year": "2020",
+   "title": "Down Syndrome",
+   "container": "New England Journal of Medicine",
+   "volume": "382",
+   "first_page": "2344",
+   "last_page": "2352",
+   "doi": "10.1056/NEJMra1706537"
+  },
+  {
+   "bib_id": 8,
+   "authors": [
+    {
+     "family": "Busch",
+     "given": "T."
+    },
+    {
+     "family": "Sangen",
+     "given": "A."
+    },
+    {
+     "family": "Vanpoucke",
+     "given": "F."
+    },
+    {
+     "family": "Van Wieringen",
+     "given": "A."
+    }
+   ],
+   "year": "2018",
+   "title": "Correlation and Agreement Between Language ENvironment Analysis (LENATM) and Manual Transcription for Dutch Natural Language Recordings",
+   "container": "Behavior Research Methods",
+   "volume": "50",
+   "first_page": "1921",
+   "last_page": "1932",
+   "doi": "10.3758/s13428-017-0960-0"
+  },
+  {
+   "bib_id": 9,
+   "authors": [
+    {
+     "family": "Canault",
+     "given": "M."
+    },
+    {
+     "family": "Le Normand",
+     "given": "M.‐T."
+    },
+    {
+     "family": "Foudil",
+     "given": "S."
+    },
+    {
+     "family": "Loundon",
+     "given": "N."
+    },
+    {
+     "family": "Thai‐Van",
+     "given": "H."
+    }
+   ],
+   "year": "2016",
+   "title": "Reliability of the Language ENvironment Analysis System (LENATM) in European French",
+   "container": "Behavior Research Methods",
+   "volume": "48",
+   "first_page": "1109",
+   "last_page": "1124",
+   "doi": "10.3758/s13428-015-0634-8"
+  },
+  {
+   "bib_id": 10,
+   "authors": [
+    {
+     "family": "Casillas",
+     "given": "M."
+    },
+    {
+     "family": "Bergelson",
+     "given": "E."
+    },
+    {
+     "family": "Warlaumont",
+     "given": "A. S."
+    }
+   ],
+   "year": "2017",
+   "title": "A New Workflow for Semi‐Automatized Annotations: Tests With Long‐Form Naturalistic Recordings of Childrens Language Environments",
+   "first_page": "2098",
+   "last_page": "2102",
+   "doi": "10.21437/Interspeech.2017-1418"
+  },
+  {
+   "bib_id": 11,
+   "authors": [
+    {
+     "family": "Casillas",
+     "given": "M."
+    },
+    {
+     "family": "Cristia",
+     "given": "A."
+    }
+   ],
+   "year": "2019",
+   "title": "A Step‐by‐step Guide to Collecting and Analyzing Long‐format Speech Environment (LFSE) Recordings",
+   "container": "Collabra: Psychology",
+   "volume": "5",
+   "first_page": "24"
+  },
+  {
+   "bib_id": 12,
+   "authors": [
+    {
+     "family": "Charlot",
+     "given": "T."
+    },
+    {
+     "family": "Kunze",
+     "given": "T."
+    },
+    {
+     "family": "Poli",
+     "given": "M."
+    },
+    {
+     "family": "Cristia",
+     "given": "A."
+    },
+    {
+     "family": "Dupoux",
+     "given": "E."
+    },
+    {
+     "family": "Lavechin",
+     "given": "M."
+    }
+   ],
+   "year": "2025",
+   "title": "BabyHuBERT: Multilingual Self‐Supervised Learning for Segmenting Speakers in Child‐Centered Long‐Form Recordings (Version 1)",
+   "doi": "10.48550/ARXIV.2509.15001"
+  },
+  {
+   "bib_id": 13,
+   "authors": [
+    {
+     "family": "Cristia",
+     "given": "A."
+    },
+    {
+     "family": "Bulgarelli",
+     "given": "F."
+    },
+    {
+     "family": "Bergelson",
+     "given": "E."
+    }
+   ],
+   "year": "2020",
+   "title": "Accuracy of the Language Environment Analysis System Segmentation and Metrics: A Systematic Review",
+   "container": "Journal of Speech, Language, and Hearing Research",
+   "volume": "63",
+   "first_page": "1093",
+   "last_page": "1105",
+   "doi": "10.1044/2020_JSLHR-19-00017"
+  },
+  {
+   "bib_id": 14,
+   "authors": [
+    {
+     "family": "Cristia",
+     "given": "A."
+    },
+    {
+     "family": "Lavechin",
+     "given": "M."
+    },
+    {
+     "family": "Scaff",
+     "given": "C."
+    }
+   ],
+   "year": "2021",
+   "title": "A Thorough Evaluation of the Language Environment Analysis (LENA) System",
+   "container": "Behavior Research Methods",
+   "volume": "53",
+   "first_page": "467",
+   "last_page": "486",
+   "doi": "10.3758/s13428-020-01393-5"
+  },
+  {
+   "bib_id": 15,
+   "authors": [
+    {
+     "family": "Cychosz",
+     "given": "M."
+    },
+    {
+     "family": "Romeo",
+     "given": "R."
+    },
+    {
+     "family": "Soderstrom",
+     "given": "M."
+    }
+   ],
+   "year": "2020",
+   "title": "Longform Recordings of Everyday Life: Ethics for Best Practices",
+   "container": "Behavior research methods",
+   "volume": "52",
+   "first_page": "1951",
+   "last_page": "1969"
+  },
+  {
+   "bib_id": 16,
+   "title": "Angelman Syndrome"
+  },
+  {
+   "bib_id": 17,
+   "authors": [
+    {
+     "family": "DiGuiseppi",
+     "given": "C."
+    },
+    {
+     "family": "Hepburn",
+     "given": "S."
+    },
+    {
+     "family": "Davis",
+     "given": "J. M."
+    }
+   ],
+   "year": "2010",
+   "title": "Screening for Autism Spectrum Disorders in Children With Down Syndrome: Population Prevalence and Screening Test Characteristics",
+   "container": "Journal of Developmental & Behavioral Pediatrics",
+   "volume": "31",
+   "first_page": "181",
+   "last_page": "191",
+   "doi": "10.1097/dbp.0b013e3181d5aa6d"
+  },
+  {
+   "bib_id": 18,
+   "authors": [
+    {
+     "family": "Fitch",
+     "given": "W. T."
+    },
+    {
+     "family": "Giedd",
+     "given": "J."
+    }
+   ],
+   "year": "1999",
+   "title": "Morphology and Development of the human Vocal Tract: a Study Using Magnetic Resonance Imaging",
+   "container": "The Journal of the Acoustical Society of America",
+   "volume": "106",
+   "first_page": "1511",
+   "last_page": "1522",
+   "doi": "10.1121/1.427148"
+  },
+  {
+   "bib_id": 19,
+   "authors": [
+    {
+     "family": "Fusaroli",
+     "given": "R."
+    },
+    {
+     "family": "Grossman",
+     "given": "R."
+    },
+    {
+     "family": "Bilenberg",
+     "given": "N."
+    },
+    {
+     "family": "Cantio",
+     "given": "C."
+    },
+    {
+     "family": "Jepsen",
+     "given": "J. R. M."
+    },
+    {
+     "family": "Weed",
+     "given": "E."
+    }
+   ],
+   "year": "2022",
+   "title": "Toward a Cumulative Science of Vocal Markers of Autism: A Cross‐Linguistic Meta‐Analysis‐Based Investigation of Acoustic Markers in American and Danish Autistic Children",
+   "container": "Autism Research",
+   "volume": "15",
+   "first_page": "653",
+   "last_page": "664",
+   "doi": "10.1002/aur.2661"
+  },
+  {
+   "bib_id": 20,
+   "authors": [
+    {
+     "family": "Ganek",
+     "given": "H."
+    },
+    {
+     "family": "Eriks‐Brophy",
+     "given": "A."
+    }
+   ],
+   "year": "2018",
+   "title": "A Concise Protocol for the Validation of Language ENvironment Analysis (LENA) Conversational Turn Counts in Vietnamese",
+   "container": "Communication Disorders Quarterly",
+   "volume": "39",
+   "first_page": "371",
+   "last_page": "380",
+   "doi": "10.1177/1525740117705094"
+  },
+  {
+   "bib_id": 21,
+   "authors": [
+    {
+     "family": "Ganek",
+     "given": "H."
+    },
+    {
+     "family": "Eriks‐Brophy",
+     "given": "A."
+    }
+   ],
+   "year": "2018",
+   "title": "Language ENvironment Analysis (LENA) System Investigation of Day Long Recordings in Children: A Literature Review",
+   "container": "Journal of Communication Disorders",
+   "volume": "72",
+   "first_page": "77",
+   "last_page": "85",
+   "doi": "10.1016/j.jcomdis.2017.12.005"
+  },
+  {
+   "bib_id": 22,
+   "authors": [
+    {
+     "family": "Gautheron",
+     "given": "L."
+    },
+    {
+     "family": "Kidd",
+     "given": "E."
+    },
+    {
+     "family": "Malko",
+     "given": "A."
+    },
+    {
+     "family": "Lavechin",
+     "given": "M."
+    },
+    {
+     "family": "Cristia",
+     "given": "A."
+    }
+   ],
+   "year": "2025",
+   "title": "Classification Errors Distort Findings in Automated Speech Processing: Examples and Solutions From Child‐Development Research (Version 1)",
+   "doi": "10.48550/ARXIV.2508.15637"
+  },
+  {
+   "bib_id": 23,
+   "authors": [
+    {
+     "family": "Gautheron",
+     "given": "L."
+    },
+    {
+     "family": "Rochat",
+     "given": "N."
+    },
+    {
+     "family": "Cristia",
+     "given": "A."
+    }
+   ],
+   "year": "2023",
+   "title": "Managing, Storing, and Sharing Long‐Form Recordings and Their Annotations",
+   "container": "Language Resources and Evaluation",
+   "volume": "57",
+   "first_page": "343",
+   "last_page": "375",
+   "doi": "10.1007/s10579-022-09579-3"
+  },
+  {
+   "bib_id": 24,
+   "authors": [
+    {
+     "family": "Gilkerson",
+     "given": "J."
+    },
+    {
+     "family": "Coulter",
+     "given": "K. K."
+    },
+    {
+     "family": "Richards",
+     "given": "J. A."
+    }
+   ],
+   "year": "2008",
+   "title": "Transcriptional Analyses of the LENA Natural Language Corpus"
+  },
+  {
+   "bib_id": 25,
+   "authors": [
+    {
+     "family": "Gilkerson",
+     "given": "J."
+    },
+    {
+     "family": "Richards",
+     "given": "J. A."
+    }
+   ],
+   "year": "2008",
+   "title": "A Guide to Understanding the Design and Purpose of the LENA® System"
+  },
+  {
+   "bib_id": 26,
+   "authors": [
+    {
+     "family": "Gilkerson",
+     "given": "J."
+    },
+    {
+     "family": "Richards",
+     "given": "J. A."
+    }
+   ],
+   "year": "2008",
+   "title": "The LENA Natural Language Study"
+  },
+  {
+   "bib_id": 27,
+   "authors": [
+    {
+     "family": "Grieco",
+     "given": "J. C."
+    },
+    {
+     "family": "Bahr",
+     "given": "R. H."
+    },
+    {
+     "family": "Schoenberg",
+     "given": "M. R."
+    },
+    {
+     "family": "Conover",
+     "given": "L."
+    },
+    {
+     "family": "Mackie",
+     "given": "L. N."
+    },
+    {
+     "family": "Weeber",
+     "given": "E. J."
+    }
+   ],
+   "year": "2018",
+   "title": "Quantitative Measurement of Communication Ability in Children With Angelman Syndrome",
+   "container": "Journal of Applied Research in Intellectual Disabilities",
+   "volume": "31",
+   "first_page": "e49",
+   "last_page": "e58",
+   "doi": "10.1111/jar.12305"
+  },
+  {
+   "bib_id": 28,
+   "authors": [
+    {
+     "family": "Hamrick",
+     "given": "L."
+    },
+    {
+     "family": "Seidl",
+     "given": "A."
+    },
+    {
+     "family": "Kelleher",
+     "given": "B."
+    }
+   ],
+   "year": "2023",
+   "title": "Semi‐Automatic Assessment of Vocalization Quality for Children With and Without Angelman Syndrome",
+   "container": "American Journal on Intellectual and Developmental Disabilities",
+   "volume": "128",
+   "first_page": "425",
+   "last_page": "448",
+   "doi": "10.1352/1944-7558-128.6.425"
+  },
+  {
+   "bib_id": 29,
+   "authors": [
+    {
+     "family": "Islam",
+     "given": "B."
+    },
+    {
+     "family": "McElwain",
+     "given": "N. L."
+    },
+    {
+     "family": "Li",
+     "given": "J."
+    }
+   ],
+   "year": "2024",
+   "title": "Preliminary Technical Validation of LittleBeatsTM: A Multimodal Sensing Platform to Capture Cardiac Physiology, Motion, and Vocalizations",
+   "container": "Sensors",
+   "volume": "24",
+   "first_page": "901",
+   "doi": "10.3390/s24030901"
+  },
+  {
+   "bib_id": 30,
+   "authors": [
+    {
+     "family": "Jones",
+     "given": "R. M."
+    },
+    {
+     "family": "Plesa Skwerer",
+     "given": "D."
+    },
+    {
+     "family": "Pawar",
+     "given": "R."
+    }
+   ],
+   "year": "2019",
+   "title": "How Effective Is LENA in Detecting Speech Vocalizations and Language Produced by Children and Adolescents With ASD in Different Contexts?",
+   "container": "Autism Research",
+   "volume": "12",
+   "first_page": "628",
+   "last_page": "635",
+   "doi": "10.1002/aur.2071"
+  },
+  {
+   "bib_id": 31,
+   "authors": [
+    {
+     "family": "Kaufmann",
+     "given": "W. E."
+    },
+    {
+     "family": "Kidd",
+     "given": "S. A."
+    },
+    {
+     "family": "Andrews",
+     "given": "H. F."
+    }
+   ],
+   "year": "2017",
+   "title": "Autism Spectrum Disorder in Fragile X Syndrome: Cooccurring Conditions and Current Treatment",
+   "container": "Pediatrics",
+   "volume": "139",
+   "first_page": "S194",
+   "last_page": "S206",
+   "doi": "10.1542/peds.2016-1159f"
+  },
+  {
+   "bib_id": 32,
+   "authors": [
+    {
+     "family": "Kelleher",
+     "given": "B. L."
+    },
+    {
+     "family": "Halligan",
+     "given": "T."
+    },
+    {
+     "family": "Witthuhn",
+     "given": "N."
+    },
+    {
+     "family": "Neo",
+     "given": "W. S."
+    },
+    {
+     "family": "Hamrick",
+     "given": "L."
+    },
+    {
+     "family": "Abbeduto",
+     "given": "L."
+    }
+   ],
+   "year": "2020",
+   "title": "Bringing the Laboratory Home: PANDABox Telehealth‐Based Assessment of Neurodevelopmental Risk in Children",
+   "container": "Frontiers in Psychology",
+   "volume": "11",
+   "first_page": "1634",
+   "doi": "10.3389/fpsyg.2020.01634"
+  },
+  {
+   "bib_id": 33,
+   "authors": [
+    {
+     "family": "Kuhn",
+     "given": "H."
+    }
+   ],
+   "year": "1955",
+   "title": "The Hungarian Method for the Assignment Problem",
+   "container": "Naval Research Logistics Quarterly",
+   "volume": "2",
+   "first_page": "83",
+   "last_page": "97"
+  },
+  {
+   "bib_id": 34,
+   "authors": [
+    {
+     "family": "Kunze",
+     "given": "T."
+    },
+    {
+     "family": "Marianne",
+     "given": "M."
+    },
+    {
+     "family": "Hadrien",
+     "given": "T."
+    }
+   ],
+   "year": "2025",
+   "title": "Challenges in Automated Processing of Speech From Child Wearables: The Case of Voice Type Classifier"
+  },
+  {
+   "bib_id": 35,
+   "authors": [
+    {
+     "family": "Lamere",
+     "given": "P."
+    },
+    {
+     "family": "Kwok",
+     "given": "P."
+    },
+    {
+     "family": "Gouvea",
+     "given": "E."
+    }
+   ],
+   "year": "2003",
+   "title": "The CMU SPHINX‐4 Speech Recognition System",
+   "container": "In the International Conference on Acoustics, Speech and Signal Processing (ICASSP)",
+   "volume": "1",
+   "first_page": "2",
+   "last_page": "5"
+  },
+  {
+   "bib_id": 36,
+   "authors": [
+    {
+     "family": "Lavechin",
+     "given": "M."
+    },
+    {
+     "family": "Bousbib",
+     "given": "R."
+    },
+    {
+     "family": "Bredin",
+     "given": "H."
+    },
+    {
+     "family": "Dupoux",
+     "given": "E."
+    },
+    {
+     "family": "Cristia",
+     "given": "A."
+    }
+   ],
+   "year": "2020",
+   "title": "An Open‐Source Voice Type Classifier for Child‐Centered Daylong Recordings",
+   "first_page": "3072",
+   "last_page": "3076",
+   "doi": "10.21437/Interspeech.2020-1690"
+  },
+  {
+   "bib_id": 37,
+   "year": "2025",
+   "title": "LENA SP Pricing Document"
+  },
+  {
+   "bib_id": 38,
+   "authors": [
+    {
+     "family": "Li",
+     "given": "X."
+    },
+    {
+     "family": "Dalmia",
+     "given": "S."
+    },
+    {
+     "family": "Li",
+     "given": "J."
+    }
+   ],
+   "year": "2020",
+   "title": "Universal Phone Recognition With a Multilingual Allophone System.” In ICASSP",
+   "doi": "10.17023/7N3B-4H35"
+  },
+  {
+   "bib_id": 39,
+   "authors": [
+    {
+     "family": "Lohmander",
+     "given": "A."
+    },
+    {
+     "family": "Holm",
+     "given": "K."
+    },
+    {
+     "family": "Eriksson",
+     "given": "S."
+    },
+    {
+     "family": "Lieberman",
+     "given": "M."
+    }
+   ],
+   "year": "2017",
+   "title": "Observation Method Identifies That a Lack of Canonical Babbling Can Indicate Future Speech and Language Problems",
+   "container": "Acta Paediatrica",
+   "volume": "106",
+   "first_page": "935",
+   "last_page": "943",
+   "doi": "10.1111/apa.13816"
+  },
+  {
+   "bib_id": 40,
+   "authors": [
+    {
+     "family": "Long",
+     "given": "B."
+    },
+    {
+     "family": "Goodin",
+     "given": "S."
+    },
+    {
+     "family": "Kachergis",
+     "given": "G."
+    }
+   ],
+   "year": "2023",
+   "title": "The BabyView Camera: Designing a New Head‐Mounted Camera to Capture Children's Early Social and Visual Environments",
+   "container": "Behavior Research Methods",
+   "volume": "56",
+   "first_page": "3523",
+   "last_page": "3534",
+   "doi": "10.3758/s13428-023-02206-1"
+  },
+  {
+   "bib_id": 41,
+   "authors": [
+    {
+     "family": "Long",
+     "given": "B."
+    },
+    {
+     "family": "Xiang",
+     "given": "V."
+    },
+    {
+     "family": "Stojanov",
+     "given": "S."
+    }
+   ],
+   "year": "2024",
+   "title": "The BabyView Dataset: High‐Resolution Egocentric Videos of Infants' and Young Children's Everyday Experiences (Version 1)",
+   "doi": "10.48550/ARXIV.2406.10447"
+  },
+  {
+   "bib_id": 42,
+   "authors": [
+    {
+     "family": "Lynch",
+     "given": "M. P."
+    },
+    {
+     "family": "Oller",
+     "given": "D. K."
+    },
+    {
+     "family": "Steffens",
+     "given": "M. L."
+    },
+    {
+     "family": "Levine",
+     "given": "S. L."
+    },
+    {
+     "family": "Basinger",
+     "given": "D. L."
+    },
+    {
+     "family": "Umbel",
+     "given": "V."
+    }
+   ],
+   "year": "1995",
+   "title": "Onset of Speech‐Like Vocalizations in Infants With Down Syndrome",
+   "container": "American journal of mental retardation: AJMR",
+   "volume": "100",
+   "first_page": "68",
+   "last_page": "86"
+  },
+  {
+   "bib_id": 43,
+   "authors": [
+    {
+     "family": "Marschik",
+     "given": "P. B."
+    },
+    {
+     "family": "Bartl‐Pokorny",
+     "given": "K. D."
+    },
+    {
+     "family": "Sigafoos",
+     "given": "J."
+    }
+   ],
+   "year": "2014",
+   "title": "Development of Socio‐Communicative Skills in 9‐ to 12‐Month‐Old Individuals With Fragile X Syndrome",
+   "container": "Research in Developmental Disabilities",
+   "volume": "35",
+   "first_page": "597",
+   "last_page": "602",
+   "doi": "10.1016/j.ridd.2014.01.004"
+  },
+  {
+   "bib_id": 44,
+   "authors": [
+    {
+     "family": "McDonald",
+     "given": "M."
+    },
+    {
+     "family": "Kwon",
+     "given": "T."
+    },
+    {
+     "family": "Kim",
+     "given": "H."
+    },
+    {
+     "family": "Lee",
+     "given": "Y."
+    },
+    {
+     "family": "Ko",
+     "given": "E.‐S."
+    }
+   ],
+   "year": "2021",
+   "title": "Evaluating the Language ENvironment Analysis System for Korean",
+   "container": "Journal of Speech, Language, and Hearing Research",
+   "volume": "64",
+   "first_page": "792",
+   "last_page": "808",
+   "doi": "10.1044/2020_JSLHR-20-00489"
+  },
+  {
+   "bib_id": 45,
+   "authors": [
+    {
+     "family": "Oetting",
+     "given": "J. B."
+    },
+    {
+     "family": "Hartfield",
+     "given": "L. R."
+    },
+    {
+     "family": "Pruitt",
+     "given": "S. L."
+    }
+   ],
+   "year": "2009",
+   "title": "Exploring LENA as a Tool for Researchers and Clinicians",
+   "container": "ASHA Leader",
+   "volume": "14",
+   "first_page": "20",
+   "last_page": "22",
+   "doi": "10.1044/leader.FTR3.14062009.20"
+  },
+  {
+   "bib_id": 46,
+   "authors": [
+    {
+     "family": "Oller",
+     "given": "D. K."
+    },
+    {
+     "family": "Niyogi",
+     "given": "P."
+    },
+    {
+     "family": "Gray",
+     "given": "S."
+    }
+   ],
+   "year": "2010",
+   "title": "Automated Vocal Analysis of Naturalistic Recordings From Children With Autism, Language Delay, and Typical Development",
+   "container": "Proceedings of the National Academy of Sciences",
+   "volume": "107",
+   "first_page": "13354",
+   "last_page": "13359",
+   "doi": "10.1073/pnas.1003882107"
+  },
+  {
+   "bib_id": 47,
+   "authors": [
+    {
+     "family": "Putnam",
+     "given": "O. C."
+    },
+    {
+     "family": "Markfeld",
+     "given": "J. E."
+    },
+    {
+     "family": "Wright",
+     "given": "S. T."
+    }
+   ],
+   "year": "2024",
+   "title": "The Use of Language ENvironment Analysis in Autism Research: A Systematic Review",
+   "container": "Autism",
+   "volume": "29",
+   "first_page": "1095",
+   "last_page": "1117",
+   "doi": "10.1177/13623613241290072"
+  },
+  {
+   "bib_id": 48,
+   "authors": [
+    {
+     "family": "Rankine",
+     "given": "J."
+    },
+    {
+     "family": "Li",
+     "given": "E."
+    },
+    {
+     "family": "Lurie",
+     "given": "S."
+    }
+   ],
+   "year": "2017",
+   "title": "Language ENvironment Analysis (LENA) in Phelan‐McDermid Syndrome: Validity and Suggestions for Use in Minimally Verbal Children With Autism Spectrum Disorder",
+   "container": "Journal of Autism and Developmental Disorders",
+   "volume": "47",
+   "first_page": "1605",
+   "last_page": "1617",
+   "doi": "10.1007/s10803-017-3082-8"
+  },
+  {
+   "bib_id": 49,
+   "authors": [
+    {
+     "family": "Räsänen",
+     "given": "O."
+    },
+    {
+     "family": "Seshadri",
+     "given": "S."
+    },
+    {
+     "family": "Lavechin",
+     "given": "M."
+    },
+    {
+     "family": "Cristia",
+     "given": "A."
+    },
+    {
+     "family": "Casillas",
+     "given": "M."
+    }
+   ],
+   "year": "2021",
+   "title": "ALICE: An Open‐Source Tool for Automatic Measurement of Phoneme, Syllable, and Word Counts From Child‐Centered Daylong Recordings",
+   "container": "Behavior Research Methods",
+   "volume": "53",
+   "first_page": "818",
+   "last_page": "835",
+   "doi": "10.3758/s13428-020-01460-x"
+  },
+  {
+   "bib_id": 50,
+   "authors": [
+    {
+     "family": "Scaff",
+     "given": "C."
+    },
+    {
+     "family": "Casillas",
+     "given": "M."
+    },
+    {
+     "family": "Stieglitz",
+     "given": "J."
+    },
+    {
+     "family": "Cristia",
+     "given": "A."
+    }
+   ],
+   "year": "2024",
+   "title": "Characterization of Children's Verbal Input in a Forager‐Farmer Population Using Long‐Form Audio Recordings and Diverse Input Definitions",
+   "container": "Infancy",
+   "volume": "29",
+   "first_page": "196",
+   "last_page": "215",
+   "doi": "10.1111/infa.12568"
+  },
+  {
+   "bib_id": 51,
+   "authors": [
+    {
+     "family": "Seidl",
+     "given": "A."
+    },
+    {
+     "family": "Cristia",
+     "given": "A."
+    },
+    {
+     "family": "Soderstrom",
+     "given": "M."
+    }
+   ],
+   "year": "2018",
+   "title": "Infant–Mother Acoustic–Prosodic Alignment and Developmental Risk",
+   "container": "Journal of Speech, Language, and Hearing Research",
+   "volume": "61",
+   "first_page": "1369",
+   "last_page": "1380",
+   "doi": "10.1044/2018_JSLHR-S-17-0287"
+  },
+  {
+   "bib_id": 52,
+   "authors": [
+    {
+     "family": "Seshadri",
+     "given": "S."
+    },
+    {
+     "family": "Rasanen",
+     "given": "O."
+    }
+   ],
+   "year": "2019",
+   "title": "SylNet: An Adaptable End‐to‐End Syllable Count Estimator for Speech",
+   "container": "IEEE Signal Processing Letters",
+   "volume": "26",
+   "first_page": "1359",
+   "last_page": "1363",
+   "doi": "10.1109/LSP.2019.2929415"
+  },
+  {
+   "bib_id": 53,
+   "authors": [
+    {
+     "family": "Soderstrom",
+     "given": "M."
+    },
+    {
+     "family": "Casillas",
+     "given": "M."
+    },
+    {
+     "family": "Bergelson",
+     "given": "E."
+    }
+   ],
+   "year": "2021",
+   "title": "Developing a Cross‐Cultural Annotation System and MetaCorpus for Studying Infants' Real World Language Experience",
+   "container": "Collabra: Psychology",
+   "volume": "7",
+   "first_page": "23445",
+   "doi": "10.1525/collabra.23445"
+  },
+  {
+   "bib_id": 54,
+   "authors": [
+    {
+     "family": "Soderstrom",
+     "given": "M."
+    },
+    {
+     "family": "Wittebolle",
+     "given": "K."
+    }
+   ],
+   "year": "2013",
+   "title": "When Do Caregivers Talk? The Influences of Activity and Time of Day on Caregiver Speech and Child Vocalizations in Two Childcare Environments",
+   "container": "PLoS ONE",
+   "volume": "8",
+   "first_page": "e80646",
+   "doi": "10.1371/journal.pone.0080646"
+  },
+  {
+   "bib_id": 55,
+   "authors": [
+    {
+     "family": "Sun",
+     "given": "A."
+    },
+    {
+     "family": "Londono",
+     "given": "J. J."
+    },
+    {
+     "family": "Elbaum",
+     "given": "B."
+    }
+   ],
+   "year": "2024",
+   "title": "Who Said What? An Automated Approach to Analyzing Speech in Preschool Classrooms",
+   "first_page": "1",
+   "last_page": "8",
+   "doi": "10.1109/ICDL61372.2024.10644508"
+  },
+  {
+   "bib_id": 56,
+   "authors": [
+    {
+     "family": "Xu",
+     "given": "D."
+    },
+    {
+     "family": "Yapanel",
+     "given": "U."
+    },
+    {
+     "family": "Gray",
+     "given": "S."
+    },
+    {
+     "family": "Gilkerson",
+     "given": "J."
+    },
+    {
+     "family": "Richards",
+     "given": "J."
+    },
+    {
+     "family": "Hansen",
+     "given": "J."
+    }
+   ],
+   "year": "2008",
+   "title": "Signal Processing for Young Child Speech Language Development"
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-core-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "jats_doi": "10.1111/desc.70239"
+ }
+}

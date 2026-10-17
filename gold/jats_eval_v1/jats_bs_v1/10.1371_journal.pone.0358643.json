@@ -1,0 +1,766 @@
+{
+ "paper_id": "10.1371_journal.pone.0358643",
+ "info": {
+  "title": "An integrated explainable AI framework with counterfactual optimization for decision support",
+  "doi": "10.1371/journal.pone.0358643",
+  "file_name": "10.1371_journal.pone.0358643.pdf",
+  "abstract": "Artificial intelligence is increasingly used to support managerial decision-making in domains such as human resource management and customer relationship management; however, the lack of transparency in complex predictive models limits their practical adoption. This paper proposes a counterfactual-guided explainable artificial intelligence framework that integrates deep learning, feature attribution, and counterfactual reasoning to deliver accurate, interpretable, and actionable managerial insights. The proposed model is evaluated on an employee attrition dataset and a customer churn dataset, as well as in a combined multi-domain setting. Experimental results show that the framework achieves classification accuracies of up to 91.4% for employee attrition prediction and 87.3% for customer churn prediction, with corresponding ROC–AUC scores reaching 0.869 and 0.891, respectively. The model also demonstrates improved probability calibration, reducing the Brier score to 0.128 on the attrition dataset and 0.109 on the churn dataset. Furthermore, explainability analysis yields higher SHAP fidelity scores exceeding 0.90, while the counterfactual module generates valid and plausible recommendations with lower action costs compared to baseline approaches. These results indicate that the proposed framework effectively bridges predictive performance, interpretability, and actionability, making it suitable for real-world managerial decision-support systems. The framework is formulated as a constraint-aware optimization problem that integrates predictive modeling, explanation fidelity, and cost-sensitive counterfactual generation into a unified objective, enabling actionable and feasible decision support."
+ },
+ "author": [
+  {
+   "author_id": 1,
+   "given": "Nusrat",
+   "family": "Jahan",
+   "affiliation": "Department of Business Administration and Management, Washington University of Science and Technology, Alexandria, Virginia, United States of America",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 2,
+   "given": "Jannatul",
+   "family": "Maua",
+   "affiliation": "Department of CSE, Bangladesh University of Business and Technology, Dhaka, Bangladesh",
+   "email": "",
+   "orcid": "",
+   "corresponding": true
+  },
+  {
+   "author_id": 3,
+   "given": "Uland",
+   "family": "Rozario",
+   "affiliation": "Department of CSE, Bangladesh University of Business and Technology, Dhaka, Bangladesh",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 4,
+   "given": "Hashibul Ahsan",
+   "family": "Shoaib",
+   "affiliation": "Information Technology, St. Francis College, Brooklyn, New York, United States",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  }
+ ],
+ "section": [
+  {
+   "section_id": 1,
+   "section_type": "abstract",
+   "header": "Abstract",
+   "level": 1,
+   "parent_section_id": null,
+   "classification_score": 1.0
+  }
+ ],
+ "text": [
+  {
+   "text_id": 1,
+   "section_id": 1,
+   "paragraph_id": 1,
+   "text": "Artificial intelligence is increasingly used to support managerial decision-making in domains such as human resource management and customer relationship management; however, the lack of transparency in complex predictive models limits their practical adoption. This paper proposes a counterfactual-guided explainable artificial intelligence framework that integrates deep learning, feature attribution, and counterfactual reasoning to deliver accurate, interpretable, and actionable managerial insights. The proposed model is evaluated on an employee attrition dataset and a customer churn dataset, as well as in a combined multi-domain setting. Experimental results show that the framework achieves classification accuracies of up to 91.4% for employee attrition prediction and 87.3% for customer churn prediction, with corresponding ROC–AUC scores reaching 0.869 and 0.891, respectively. The model also demonstrates improved probability calibration, reducing the Brier score to 0.128 on the attrition dataset and 0.109 on the churn dataset. Furthermore, explainability analysis yields higher SHAP fidelity scores exceeding 0.90, while the counterfactual module generates valid and plausible recommendations with lower action costs compared to baseline approaches. These results indicate that the proposed framework effectively bridges predictive performance, interpretability, and actionability, making it suitable for real-world managerial decision-support systems. The framework is formulated as a constraint-aware optimization problem that integrates predictive modeling, explanation fidelity, and cost-sensitive counterfactual generation into a unified objective, enabling actionable and feasible decision support.",
+   "page_number": 1
+  }
+ ],
+ "bib": [
+  {
+   "bib_id": 1,
+   "authors": [
+    {
+     "family": "Lu",
+     "given": "J"
+    },
+    {
+     "family": "Liu",
+     "given": "A"
+    },
+    {
+     "family": "Song",
+     "given": "Y"
+    },
+    {
+     "family": "Zhang",
+     "given": "G"
+    }
+   ],
+   "year": "2020",
+   "title": "Data-driven decision support under concept drift in streamed big data",
+   "container": "Complex Intell Syst",
+   "volume": "6",
+   "first_page": "157",
+   "doi": "10.1007/s40747-019-00124-4"
+  },
+  {
+   "bib_id": 2,
+   "authors": [
+    {
+     "family": "Gao",
+     "given": "H"
+    },
+    {
+     "family": "Kou",
+     "given": "G"
+    },
+    {
+     "family": "Liang",
+     "given": "H"
+    },
+    {
+     "family": "Zhang",
+     "given": "H"
+    },
+    {
+     "family": "Chao",
+     "given": "X"
+    },
+    {
+     "family": "Li",
+     "given": "C-C"
+    }
+   ],
+   "year": "2024",
+   "title": "Machine learning in business and finance: a literature review and research opportunities",
+   "container": "Financ Innov",
+   "volume": "10",
+   "doi": "10.1186/s40854-024-00629-z"
+  },
+  {
+   "bib_id": 3,
+   "authors": [
+    {
+     "family": "Deveci",
+     "given": "M"
+    },
+    {
+     "family": "Delen",
+     "given": "D"
+    },
+    {
+     "family": "Ding",
+     "given": "W"
+    }
+   ],
+   "year": "2024",
+   "title": "AI-based decision support systems for sustainable business management under circular economy",
+   "container": "Ann Oper Res",
+   "volume": "342",
+   "first_page": "1",
+   "last_page": "3",
+   "doi": "10.1007/s10479-024-06347-0"
+  },
+  {
+   "bib_id": 4,
+   "authors": [
+    {
+     "family": "Keding",
+     "given": "C"
+    },
+    {
+     "family": "Meissner",
+     "given": "P"
+    }
+   ],
+   "year": "2021",
+   "title": "Managerial overreliance on AI-augmented decision-making processes: How the use of AI-based advisory systems shapes choice behavior in R&D investment decisions",
+   "container": "Technol Forecast Soc Change",
+   "volume": "171",
+   "first_page": "120970",
+   "doi": "10.1016/j.techfore.2021.120970"
+  },
+  {
+   "bib_id": 5,
+   "authors": [
+    {
+     "family": "Choi",
+     "given": "S"
+    },
+    {
+     "family": "Kang",
+     "given": "H"
+    },
+    {
+     "family": "Kim",
+     "given": "N"
+    },
+    {
+     "family": "Kim",
+     "given": "J"
+    }
+   ],
+   "year": "2025",
+   "title": "How does artificial intelligence improve human decision‐making? Evidence from the AI ‐powered Go program",
+   "container": "Strateg Manag J",
+   "volume": "46",
+   "first_page": "1523",
+   "doi": "10.1002/smj.3694"
+  },
+  {
+   "bib_id": 6,
+   "authors": [
+    {
+     "family": "Yang",
+     "given": "W"
+    },
+    {
+     "family": "Wei",
+     "given": "Y"
+    },
+    {
+     "family": "Wei",
+     "given": "H"
+    },
+    {
+     "family": "Chen",
+     "given": "Y"
+    },
+    {
+     "family": "Huang",
+     "given": "G"
+    },
+    {
+     "family": "Li",
+     "given": "X"
+    }
+   ],
+   "year": "2023",
+   "title": "Survey on Explainable AI: From Approaches, Limitations and Applications Aspects",
+   "container": "Hum-Cent Intell Syst",
+   "volume": "3",
+   "first_page": "161",
+   "doi": "10.1007/s44230-023-00038-y"
+  },
+  {
+   "bib_id": 7,
+   "authors": [
+    {
+     "family": "Barredo Arrieta",
+     "given": "A"
+    },
+    {
+     "family": "Díaz-Rodríguez",
+     "given": "N"
+    },
+    {
+     "family": "Del Ser",
+     "given": "J"
+    },
+    {
+     "family": "Bennetot",
+     "given": "A"
+    },
+    {
+     "family": "Tabik",
+     "given": "S"
+    },
+    {
+     "family": "Barbado",
+     "given": "A"
+    }
+   ],
+   "year": "2020",
+   "title": "Explainable Artificial Intelligence (XAI): Concepts, taxonomies, opportunities and challenges toward responsible AI",
+   "container": "Inform Fus",
+   "volume": "58",
+   "first_page": "82",
+   "last_page": "115",
+   "doi": "10.1016/j.inffus.2019.12.012"
+  },
+  {
+   "bib_id": 8,
+   "authors": [
+    {
+     "family": "Li",
+     "given": "B"
+    },
+    {
+     "family": "Qi",
+     "given": "P"
+    },
+    {
+     "family": "Liu",
+     "given": "B"
+    },
+    {
+     "family": "Di",
+     "given": "S"
+    },
+    {
+     "family": "Liu",
+     "given": "J"
+    },
+    {
+     "family": "Pei",
+     "given": "J"
+    }
+   ],
+   "year": "2023",
+   "title": "Trustworthy AI: From Principles to Practices",
+   "container": "ACM Comput Surv",
+   "volume": "55",
+   "first_page": "1",
+   "last_page": "46",
+   "doi": "10.1145/3555803"
+  },
+  {
+   "bib_id": 9,
+   "authors": [
+    {
+     "family": "Leichtmann",
+     "given": "B"
+    },
+    {
+     "family": "Humer",
+     "given": "C"
+    },
+    {
+     "family": "Hinterreiter",
+     "given": "A"
+    },
+    {
+     "family": "Streit",
+     "given": "M"
+    },
+    {
+     "family": "Mara",
+     "given": "M"
+    }
+   ],
+   "year": "2023",
+   "title": "Effects of Explainable Artificial Intelligence on trust and human behavior in a high-risk decision task",
+   "container": "Comput Hum Behav",
+   "volume": "139",
+   "first_page": "107539",
+   "doi": "10.1016/j.chb.2022.107539"
+  },
+  {
+   "bib_id": 10,
+   "authors": [
+    {
+     "family": "Kaur",
+     "given": "D"
+    },
+    {
+     "family": "Uslu",
+     "given": "S"
+    },
+    {
+     "family": "Rittichier",
+     "given": "KJ"
+    },
+    {
+     "family": "Durresi",
+     "given": "A"
+    }
+   ],
+   "year": "2022",
+   "title": "Trustworthy Artificial Intelligence: A Review",
+   "container": "ACM Comput Surv",
+   "volume": "55",
+   "first_page": "1",
+   "last_page": "38",
+   "doi": "10.1145/3491209"
+  },
+  {
+   "bib_id": 11,
+   "authors": [
+    {
+     "family": "Sauer",
+     "given": "CR"
+    },
+    {
+     "family": "Burggräf",
+     "given": "P"
+    },
+    {
+     "family": "Steinberg",
+     "given": "F"
+    }
+   ],
+   "year": "2025",
+   "title": "Bridging human expertise and machine learning in production management: a case study on ML-based decision support systems to prevent missing parts at assembly",
+   "container": "Prod Eng",
+   "volume": "19",
+   "first_page": "211",
+   "doi": "10.1007/s11740-024-01306-x"
+  },
+  {
+   "bib_id": 12,
+   "authors": [
+    {
+     "family": "Akasheh",
+     "given": "MA"
+    },
+    {
+     "family": "Malik",
+     "given": "EF"
+    },
+    {
+     "family": "Hujran",
+     "given": "O"
+    },
+    {
+     "family": "Zaki",
+     "given": "N"
+    }
+   ],
+   "year": "2024",
+   "title": "A decade of research on machine learning techniques for predicting employee turnover: A systematic literature review",
+   "container": "Exp Syst Appl",
+   "volume": "238",
+   "first_page": "121794",
+   "doi": "10.1016/j.eswa.2023.121794"
+  },
+  {
+   "bib_id": 13,
+   "authors": [
+    {
+     "family": "Suh",
+     "given": "Y"
+    }
+   ],
+   "year": "2023",
+   "title": "Machine learning based customer churn prediction in home appliance rental business",
+   "container": "J Big Data",
+   "volume": "10",
+   "first_page": "41",
+   "doi": "10.1186/s40537-023-00721-8"
+  },
+  {
+   "bib_id": 14,
+   "authors": [
+    {
+     "family": "Kraus",
+     "given": "M"
+    },
+    {
+     "family": "Feuerriegel",
+     "given": "S"
+    },
+    {
+     "family": "Oztekin",
+     "given": "A"
+    }
+   ],
+   "year": "2020",
+   "title": "Deep learning in business analytics and operations research: Models, applications and managerial implications",
+   "container": "Eur J Oper Res",
+   "volume": "281",
+   "first_page": "628",
+   "doi": "10.1016/j.ejor.2019.09.018"
+  },
+  {
+   "bib_id": 15,
+   "authors": [
+    {
+     "family": "Thangeda",
+     "given": "R"
+    },
+    {
+     "family": "Kumar",
+     "given": "N"
+    },
+    {
+     "family": "Majhi",
+     "given": "R"
+    }
+   ],
+   "year": "2024",
+   "title": "A neural network-based predictive decision model for customer retention in the telecommunication sector",
+   "container": "Technol Forecast Soc Change",
+   "volume": "202",
+   "first_page": "123250",
+   "doi": "10.1016/j.techfore.2024.123250"
+  },
+  {
+   "bib_id": 16,
+   "authors": [
+    {
+     "family": "Coussement",
+     "given": "K"
+    },
+    {
+     "family": "Abedin",
+     "given": "MZ"
+    },
+    {
+     "family": "Kraus",
+     "given": "M"
+    },
+    {
+     "family": "Maldonado",
+     "given": "S"
+    },
+    {
+     "family": "Topuz",
+     "given": "K"
+    }
+   ],
+   "year": "2024",
+   "title": "Explainable AI for enhanced decision-making",
+   "container": "Decis Support Syst",
+   "volume": "184",
+   "first_page": "114276",
+   "doi": "10.1016/j.dss.2024.114276"
+  },
+  {
+   "bib_id": 17,
+   "authors": [
+    {
+     "family": "Lyu",
+     "given": "Q"
+    },
+    {
+     "family": "Wu",
+     "given": "S"
+    }
+   ],
+   "year": "2025",
+   "title": "Explainable Artificial Intelligence for Business and Economics: Methods, Applications and Challenges",
+   "container": "Exp Syst",
+   "volume": "42"
+  },
+  {
+   "bib_id": 18,
+   "authors": [
+    {
+     "family": "Sahakyan",
+     "given": "M"
+    },
+    {
+     "family": "Aung",
+     "given": "Z"
+    },
+    {
+     "family": "Rahwan",
+     "given": "T"
+    }
+   ],
+   "year": "2021",
+   "title": "Explainable Artificial Intelligence for Tabular Data: A Survey",
+   "container": "IEEE Access",
+   "volume": "9",
+   "first_page": "135392",
+   "doi": "10.1109/access.2021.3116481"
+  },
+  {
+   "bib_id": 19,
+   "authors": [
+    {
+     "family": "Retzlaff",
+     "given": "CO"
+    },
+    {
+     "family": "Angerschmid",
+     "given": "A"
+    },
+    {
+     "family": "Saranti",
+     "given": "A"
+    },
+    {
+     "family": "Schneeberger",
+     "given": "D"
+    },
+    {
+     "family": "Röttger",
+     "given": "R"
+    },
+    {
+     "family": "Müller",
+     "given": "H"
+    }
+   ],
+   "year": "2024",
+   "title": "Post-hoc vs ante-hoc explanations: xAI design guidelines for data scientists",
+   "container": "Cogn Syst Res",
+   "volume": "86",
+   "first_page": "101243",
+   "doi": "10.1016/j.cogsys.2024.101243"
+  },
+  {
+   "bib_id": 20,
+   "authors": [
+    {
+     "family": "Manafi Varkiani",
+     "given": "S"
+    },
+    {
+     "family": "Pattarin",
+     "given": "F"
+    },
+    {
+     "family": "Fabbri",
+     "given": "T"
+    },
+    {
+     "family": "Fantoni",
+     "given": "G"
+    }
+   ],
+   "year": "2025",
+   "title": "Predicting employee attrition and explaining its determinants",
+   "container": "Exp Syst Appl",
+   "volume": "272",
+   "first_page": "126575",
+   "doi": "10.1016/j.eswa.2025.126575"
+  },
+  {
+   "bib_id": 21,
+   "authors": [
+    {
+     "family": "Poudel",
+     "given": "SS"
+    },
+    {
+     "family": "Pokharel",
+     "given": "S"
+    },
+    {
+     "family": "Timilsina",
+     "given": "M"
+    }
+   ],
+   "year": "2024",
+   "title": "Explaining customer churn prediction in telecom industry using tabular machine learning models",
+   "container": "Mach Learn Appl",
+   "volume": "17",
+   "first_page": "100567",
+   "doi": "10.1016/j.mlwa.2024.100567"
+  },
+  {
+   "bib_id": 22,
+   "authors": [
+    {
+     "family": "Bussmann",
+     "given": "N"
+    },
+    {
+     "family": "Giudici",
+     "given": "P"
+    },
+    {
+     "family": "Marinelli",
+     "given": "D"
+    },
+    {
+     "family": "Papenbrock",
+     "given": "J"
+    }
+   ],
+   "year": "2020",
+   "title": "Explainable Machine Learning in Credit Risk Management",
+   "container": "Comput Econ",
+   "volume": "57",
+   "first_page": "203",
+   "doi": "10.1007/s10614-020-10042-0"
+  },
+  {
+   "bib_id": 23,
+   "authors": [
+    {
+     "family": "Stepin",
+     "given": "I"
+    },
+    {
+     "family": "Alonso",
+     "given": "JM"
+    },
+    {
+     "family": "Catala",
+     "given": "A"
+    },
+    {
+     "family": "Pereira-Farina",
+     "given": "M"
+    }
+   ],
+   "year": "2021",
+   "title": "A Survey of Contrastive and Counterfactual Explanation Generation Methods for Explainable Artificial Intelligence",
+   "container": "IEEE Access",
+   "volume": "9",
+   "first_page": "11974",
+   "doi": "10.1109/access.2021.3051315"
+  },
+  {
+   "bib_id": 24,
+   "authors": [
+    {
+     "family": "Guidotti",
+     "given": "R"
+    }
+   ],
+   "year": "2024",
+   "title": "Counterfactual explanations and how to find them: literature review and benchmarking",
+   "container": "Data Min Knowl Disc",
+   "volume": "38",
+   "first_page": "2770",
+   "doi": "10.1007/s10618-022-00831-6"
+  },
+  {
+   "bib_id": 25,
+   "authors": [
+    {
+     "family": "Wang",
+     "given": "D"
+    },
+    {
+     "family": "Chen",
+     "given": "Z"
+    },
+    {
+     "family": "Florescu",
+     "given": "I"
+    },
+    {
+     "family": "Wen",
+     "given": "B"
+    }
+   ],
+   "year": "2023",
+   "title": "A sparsity algorithm for finding optimal counterfactual explanations: Application to corporate credit rating",
+   "container": "Res Int Bus Finance",
+   "volume": "64",
+   "first_page": "101869",
+   "doi": "10.1016/j.ribaf.2022.101869"
+  },
+  {
+   "bib_id": 26,
+   "authors": [
+    {
+     "family": "Tonati",
+     "given": "S"
+    },
+    {
+     "family": "Vece",
+     "given": "MD"
+    },
+    {
+     "family": "Giannotti",
+     "given": "F"
+    },
+    {
+     "family": "Pellungrini",
+     "given": "R"
+    }
+   ],
+   "year": "2025",
+   "title": "Counterfactual ensembles for interpretable churn prediction: from real-world to privacy-preserving synthetic data",
+   "container": "Mach Learn",
+   "volume": "114",
+   "first_page": "230",
+   "doi": "10.1007/s10994-025-06880-4"
+  },
+  {
+   "bib_id": 27
+  },
+  {
+   "bib_id": 28
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-core-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "jats_doi": "10.1371/journal.pone.0358643"
+ }
+}

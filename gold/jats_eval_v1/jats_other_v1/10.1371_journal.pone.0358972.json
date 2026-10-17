@@ -1,0 +1,1243 @@
+{
+ "paper_id": "10.1371_journal.pone.0358972",
+ "info": {
+  "title": "Statistical patterns in the Ethereum blockchain: Analysis of EOAs and smart contracts in ERC20 token network",
+  "doi": "10.1371/journal.pone.0358972",
+  "file_name": "10.1371_journal.pone.0358972.pdf",
+  "abstract": "Scaling laws offer a powerful lens to understand complex transactional behaviors in decentralized systems. This study reveals distinctive statistical signatures in the transactional dynamics of ERC20 tokens on the Ethereum blockchain by examining over 81 million token transfers across two independent time windows: July 2017 to March 2018 and December 2019 to February 2020. Transactions are categorized into four types: EOA–EOA, EOA–SC, SC-EOA, and SC-SC based on whether the interacting addresses are Externally Owned Accounts (EOAs) or Smart Contracts (SCs), and analyzed across four equal periods (each of 3 months). To characterize and identify specific statistical patterns, we investigate the presence of two canonical scaling laws: power-law distributions and temporal Taylor’s law(TL). EOA-driven transactions exhibit consistent statistical behavior, including a near-linear relationship between trade volume and unique partners with stable power-law exponents (γ≈2.3), and adherence to TL with scaling coefficients (β≈2.3). In contrast, interactions involving SCs, especially SC-SC, exhibit sublinear scaling, unstable power-law exponents, and significantly fluctuating Taylor coefficients (variation in β to be Δβ=0.51). Moreover, SC-driven activity displays heavier-tailed distributions (γ<2), indicating bursty and protocol-level activity. The gas fee analysis further supports the difference between EOA and SC, with EOA-SC transactions incurring much higher gas fees, consistent with the greater computational complexity of smart contract execution and reinforcing the structural differences between EOA-driven activity and SC involvement. These findings reveal the characteristic differences between EOA-driven and SC–driven transaction behaviors in blockchain ecosystems. By uncovering scaling behaviors through the integration of complex systems theory and blockchain data analytics, this work provides a principled framework for understanding the underlying mechanisms of decentralized financial systems."
+ },
+ "author": [
+  {
+   "author_id": 1,
+   "given": "Kundan",
+   "family": "Mukhia",
+   "affiliation": "Department of Physics, National Institute of Technology, Ravangla, Sikkim, India",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 2,
+   "given": "S. R.",
+   "family": "Luwang",
+   "affiliation": "Department of Physics, National Institute of Technology, Ravangla, Sikkim, India",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 3,
+   "given": "Md.",
+   "family": "Nurujjaman",
+   "affiliation": "Department of Physics, National Institute of Technology, Ravangla, Sikkim, India",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 4,
+   "given": "Tanujit",
+   "family": "Chakraborty",
+   "affiliation": "SAFIR, Sorbonne University, Abu Dhabi, United Arab Emirates; Sorbonne Center for Artificial Intelligence, Sorbonne University, Paris, France",
+   "email": "",
+   "orcid": "",
+   "corresponding": true
+  },
+  {
+   "author_id": 5,
+   "given": "Suman",
+   "family": "Saha",
+   "affiliation": "School of Electronics Engineering, Vellore Institute of Technology, Chennai, Tamil Nadu, India",
+   "email": "",
+   "orcid": "",
+   "corresponding": true
+  },
+  {
+   "author_id": 6,
+   "given": "Chittaranjan",
+   "family": "Hens",
+   "affiliation": "Centre for Computational Natural Sciences and Bioinformatics, International Institute of Information Technology, Hyderabad, India",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  }
+ ],
+ "section": [
+  {
+   "section_id": 1,
+   "section_type": "abstract",
+   "header": "Abstract",
+   "level": 1,
+   "parent_section_id": null,
+   "classification_score": 1.0
+  }
+ ],
+ "text": [
+  {
+   "text_id": 1,
+   "section_id": 1,
+   "paragraph_id": 1,
+   "text": "Scaling laws offer a powerful lens to understand complex transactional behaviors in decentralized systems. This study reveals distinctive statistical signatures in the transactional dynamics of ERC20 tokens on the Ethereum blockchain by examining over 81 million token transfers across two independent time windows: July 2017 to March 2018 and December 2019 to February 2020. Transactions are categorized into four types: EOA–EOA, EOA–SC, SC-EOA, and SC-SC based on whether the interacting addresses are Externally Owned Accounts (EOAs) or Smart Contracts (SCs), and analyzed across four equal periods (each of 3 months). To characterize and identify specific statistical patterns, we investigate the presence of two canonical scaling laws: power-law distributions and temporal Taylor’s law(TL). EOA-driven transactions exhibit consistent statistical behavior, including a near-linear relationship between trade volume and unique partners with stable power-law exponents (γ≈2.3), and adherence to TL with scaling coefficients (β≈2.3). In contrast, interactions involving SCs, especially SC-SC, exhibit sublinear scaling, unstable power-law exponents, and significantly fluctuating Taylor coefficients (variation in β to be Δβ=0.51). Moreover, SC-driven activity displays heavier-tailed distributions (γ<2), indicating bursty and protocol-level activity. The gas fee analysis further supports the difference between EOA and SC, with EOA-SC transactions incurring much higher gas fees, consistent with the greater computational complexity of smart contract execution and reinforcing the structural differences between EOA-driven activity and SC involvement. These findings reveal the characteristic differences between EOA-driven and SC–driven transaction behaviors in blockchain ecosystems. By uncovering scaling behaviors through the integration of complex systems theory and blockchain data analytics, this work provides a principled framework for understanding the underlying mechanisms of decentralized financial systems.",
+   "page_number": 1
+  }
+ ],
+ "bib": [
+  {
+   "bib_id": 1
+  },
+  {
+   "bib_id": 2,
+   "authors": [
+    {
+     "family": "Ji",
+     "given": "Q"
+    },
+    {
+     "family": "Bouri",
+     "given": "E"
+    },
+    {
+     "family": "Lau",
+     "given": "CKM"
+    },
+    {
+     "family": "Roubaud",
+     "given": "D"
+    }
+   ],
+   "year": "2019",
+   "title": "Dynamic connectedness and integration in cryptocurrency markets",
+   "container": "International Review of Financial Analysis",
+   "volume": "63",
+   "first_page": "257",
+   "doi": "10.1016/j.irfa.2018.12.002"
+  },
+  {
+   "bib_id": 3,
+   "authors": [
+    {
+     "family": "Caporale",
+     "given": "GM"
+    },
+    {
+     "family": "Gil-Alana",
+     "given": "L"
+    },
+    {
+     "family": "Plastun",
+     "given": "A"
+    }
+   ],
+   "year": "2018",
+   "title": "Persistence in the cryptocurrency market",
+   "container": "Research in International Business and Finance",
+   "volume": "46",
+   "first_page": "141",
+   "doi": "10.1016/j.ribaf.2018.01.002"
+  },
+  {
+   "bib_id": 4,
+   "authors": [
+    {
+     "family": "Aste",
+     "given": "T"
+    }
+   ],
+   "year": "2019",
+   "title": "Cryptocurrency market structure: Connecting emotions and economics",
+   "container": "Digit Finance",
+   "volume": "1",
+   "first_page": "5",
+   "last_page": "21",
+   "doi": "10.1007/s42521-019-00008-9"
+  },
+  {
+   "bib_id": 5,
+   "authors": [
+    {
+     "family": "Mukhia",
+     "given": "K"
+    },
+    {
+     "family": "Rai",
+     "given": "A"
+    },
+    {
+     "family": "Luwang",
+     "given": "SR"
+    },
+    {
+     "family": "Nurujjaman",
+     "given": "M"
+    },
+    {
+     "family": "Majhi",
+     "given": "S"
+    },
+    {
+     "family": "Hens",
+     "given": "C"
+    }
+   ],
+   "year": "2024",
+   "title": "Complex network analysis of cryptocurrency market during crashes",
+   "container": "Physica A: Statistical Mechanics and its Applications",
+   "volume": "653",
+   "first_page": "130095",
+   "doi": "10.1016/j.physa.2024.130095"
+  },
+  {
+   "bib_id": 6
+  },
+  {
+   "bib_id": 7,
+   "authors": [
+    {
+     "family": "Gupta",
+     "given": "H"
+    },
+    {
+     "family": "Chaudhary",
+     "given": "R"
+    }
+   ],
+   "year": "2022",
+   "title": "An empirical study of volatility in cryptocurrency market",
+   "container": "JRFM",
+   "volume": "15",
+   "first_page": "513",
+   "doi": "10.3390/jrfm15110513"
+  },
+  {
+   "bib_id": 8,
+   "doi": "10.1145/3442381.3449824"
+  },
+  {
+   "bib_id": 9,
+   "authors": [
+    {
+     "family": "Zheng",
+     "given": "Z"
+    },
+    {
+     "family": "Xie",
+     "given": "S"
+    },
+    {
+     "family": "Dai",
+     "given": "HN"
+    },
+    {
+     "family": "Chen",
+     "given": "X"
+    },
+    {
+     "family": "Wang",
+     "given": "H"
+    }
+   ],
+   "year": "2018",
+   "title": "Blockchain challenges and opportunities: A survey",
+   "container": "IJWGS",
+   "volume": "14",
+   "first_page": "352",
+   "doi": "10.1504/ijwgs.2018.095647"
+  },
+  {
+   "bib_id": 10
+  },
+  {
+   "bib_id": 11,
+   "year": "2025"
+  },
+  {
+   "bib_id": 12,
+   "doi": "10.1145/3366423.3380215"
+  },
+  {
+   "bib_id": 13,
+   "doi": "10.1007/978-3-030-32101-7_8"
+  },
+  {
+   "bib_id": 14
+  },
+  {
+   "bib_id": 15,
+   "authors": [
+    {
+     "family": "Szabo",
+     "given": "N"
+    }
+   ],
+   "year": "1997",
+   "title": "The idea of smart contracts",
+   "container": "Nick Szabo’s papers and concise tutorials",
+   "volume": "6",
+   "first_page": "199"
+  },
+  {
+   "bib_id": 16,
+   "authors": [
+    {
+     "family": "Kõlvart",
+     "given": "M"
+    },
+    {
+     "family": "Poola",
+     "given": "M"
+    },
+    {
+     "family": "Rull",
+     "given": "A"
+    }
+   ],
+   "year": "2016",
+   "title": "Smart Contracts",
+   "container": "The Future of Law and eTechnologies",
+   "first_page": "133",
+   "doi": "10.1007/978-3-319-26896-5_7"
+  },
+  {
+   "bib_id": 17,
+   "authors": [
+    {
+     "family": "Pradeep",
+     "given": "M"
+    },
+    {
+     "family": "Dyapa",
+     "given": "UKR"
+    },
+    {
+     "family": "Jalan",
+     "given": "S"
+    },
+    {
+     "family": "Pradhan",
+     "given": "P"
+    }
+   ],
+   "year": "2024",
+   "title": "Impact of Black Swan Events on Ethereum blockchain ERC20 token transaction networks",
+   "container": "Physica A: Statistical Mechanics and its Applications",
+   "volume": "654",
+   "first_page": "130129",
+   "doi": "10.1016/j.physa.2024.130129"
+  },
+  {
+   "bib_id": 18,
+   "authors": [
+    {
+     "family": "Marzo",
+     "given": "GD"
+    },
+    {
+     "family": "Pandolfelli",
+     "given": "F"
+    },
+    {
+     "family": "Servedio",
+     "given": "VDP"
+    }
+   ],
+   "year": "2022",
+   "title": "Modeling innovation in the cryptocurrency ecosystem",
+   "container": "Sci Rep",
+   "volume": "12",
+   "first_page": "12942",
+   "doi": "10.1038/s41598-022-16924-7"
+  },
+  {
+   "bib_id": 19,
+   "authors": [
+    {
+     "family": "Somin",
+     "given": "S"
+    },
+    {
+     "family": "Gordon",
+     "given": "G"
+    },
+    {
+     "family": "Altshuler",
+     "given": "Y"
+    }
+   ],
+   "year": "2018",
+   "title": "Network Analysis of ERC20 Tokens Trading on Ethereum Blockchain",
+   "container": "Springer Proceedings in Complexity",
+   "first_page": "439",
+   "doi": "10.1007/978-3-319-96661-8_45"
+  },
+  {
+   "bib_id": 20,
+   "authors": [
+    {
+     "family": "Wu",
+     "given": "K"
+    },
+    {
+     "family": "Wheatley",
+     "given": "S"
+    },
+    {
+     "family": "Sornette",
+     "given": "D"
+    }
+   ],
+   "year": "2018",
+   "title": "Classification of cryptocurrency coins and tokens by the dynamics of their market capitalizations",
+   "container": "R Soc Open Sci",
+   "volume": "5",
+   "first_page": "180381",
+   "doi": "10.1098/rsos.180381"
+  },
+  {
+   "bib_id": 21,
+   "authors": [
+    {
+     "family": "Chakraborty",
+     "given": "T"
+    },
+    {
+     "family": "Chattopadhyay",
+     "given": "S"
+    },
+    {
+     "family": "Das",
+     "given": "S"
+    },
+    {
+     "family": "Kumar",
+     "given": "U"
+    },
+    {
+     "family": "Senthilnath",
+     "given": "J"
+    }
+   ],
+   "year": "2022",
+   "title": "Searching for heavy-tailed probability distributions for modeling real-world complex networks",
+   "container": "IEEE Access",
+   "volume": "10",
+   "first_page": "115092",
+   "doi": "10.1109/access.2022.3218631"
+  },
+  {
+   "bib_id": 22,
+   "authors": [
+    {
+     "family": "Chakraborty",
+     "given": "T"
+    },
+    {
+     "family": "Chattopadhyay",
+     "given": "S"
+    },
+    {
+     "family": "Das",
+     "given": "S"
+    },
+    {
+     "family": "Naik",
+     "given": "SM"
+    },
+    {
+     "family": "Hens",
+     "given": "C"
+    }
+   ],
+   "year": "2025",
+   "title": "A compounded Burr probability distribution for fitting heavy-tailed data with applications to biological networks",
+   "container": "Chaos",
+   "volume": "35",
+   "first_page": "061103",
+   "doi": "10.1063/5.0270403"
+  },
+  {
+   "bib_id": 23,
+   "authors": [
+    {
+     "family": "Taylor",
+     "given": "LR"
+    }
+   ],
+   "year": "1961",
+   "title": "Aggregation, variance and the mean",
+   "container": "Nature",
+   "volume": "189",
+   "first_page": "732",
+   "doi": "10.1038/189732a0"
+  },
+  {
+   "bib_id": 24,
+   "authors": [
+    {
+     "family": "Eisler",
+     "given": "Z"
+    },
+    {
+     "family": "Bartos",
+     "given": "I"
+    },
+    {
+     "family": "Kertész",
+     "given": "J"
+    }
+   ],
+   "year": "2008",
+   "title": "Fluctuation scaling in complex systems: Taylor’s law and beyond1",
+   "container": "Advances in Physics",
+   "volume": "57",
+   "first_page": "89",
+   "last_page": "142",
+   "doi": "10.1080/00018730801893043"
+  },
+  {
+   "bib_id": 25,
+   "authors": [
+    {
+     "family": "Cai",
+     "given": "Q"
+    },
+    {
+     "family": "Xu",
+     "given": "H-C"
+    },
+    {
+     "family": "Zhou",
+     "given": "W-X"
+    }
+   ],
+   "year": "2016",
+   "title": "Taylor’s law of temporal fluctuation scaling in stock illiquidity",
+   "container": "Fluct Noise Lett",
+   "volume": "15",
+   "first_page": "1650029",
+   "doi": "10.1142/s0219477516500292"
+  },
+  {
+   "bib_id": 26,
+   "authors": [
+    {
+     "family": "Zheng",
+     "given": "P"
+    },
+    {
+     "family": "Zheng",
+     "given": "Z"
+    },
+    {
+     "family": "Wu",
+     "given": "J"
+    },
+    {
+     "family": "Dai",
+     "given": "H-N"
+    }
+   ],
+   "year": "2020",
+   "title": "XBlock-ETH: Extracting and Exploring Blockchain Data From Ethereum",
+   "container": "IEEE Open J Comput Soc",
+   "volume": "1",
+   "first_page": "95",
+   "last_page": "106",
+   "doi": "10.1109/ojcs.2020.2990458"
+  },
+  {
+   "bib_id": 27
+  },
+  {
+   "bib_id": 28
+  },
+  {
+   "bib_id": 29
+  },
+  {
+   "bib_id": 30,
+   "authors": [
+    {
+     "family": "Bettencourt",
+     "given": "LMA"
+    },
+    {
+     "family": "Lobo",
+     "given": "J"
+    },
+    {
+     "family": "Helbing",
+     "given": "D"
+    },
+    {
+     "family": "Kühnert",
+     "given": "C"
+    },
+    {
+     "family": "West",
+     "given": "GB"
+    }
+   ],
+   "year": "2007",
+   "title": "Growth, innovation, scaling, and the pace of life in cities",
+   "container": "Proc Natl Acad Sci U S A",
+   "volume": "104",
+   "first_page": "7301",
+   "doi": "10.1073/pnas.0610172104"
+  },
+  {
+   "bib_id": 31,
+   "authors": [
+    {
+     "family": "Bettencourt",
+     "given": "LMA"
+    }
+   ],
+   "year": "2013",
+   "title": "The origins of scaling in cities",
+   "container": "Science",
+   "volume": "340",
+   "first_page": "1438",
+   "doi": "10.1126/science.1235823"
+  },
+  {
+   "bib_id": 32,
+   "authors": [
+    {
+     "family": "Schläpfer",
+     "given": "M"
+    },
+    {
+     "family": "Bettencourt",
+     "given": "LMA"
+    },
+    {
+     "family": "Grauwin",
+     "given": "S"
+    },
+    {
+     "family": "Raschke",
+     "given": "M"
+    },
+    {
+     "family": "Claxton",
+     "given": "R"
+    },
+    {
+     "family": "Smoreda",
+     "given": "Z"
+    }
+   ],
+   "year": "2014",
+   "title": "The scaling of human interactions with city size",
+   "container": "J R Soc Interface",
+   "volume": "11",
+   "first_page": "20130789",
+   "doi": "10.1098/rsif.2013.0789"
+  },
+  {
+   "bib_id": 33,
+   "authors": [
+    {
+     "family": "Hens",
+     "given": "C"
+    },
+    {
+     "family": "Harush",
+     "given": "U"
+    },
+    {
+     "family": "Haber",
+     "given": "S"
+    },
+    {
+     "family": "Cohen",
+     "given": "R"
+    },
+    {
+     "family": "Barzel",
+     "given": "B"
+    }
+   ],
+   "year": "2019",
+   "title": "Spatiotemporal signal propagation in complex networks",
+   "container": "Nat Phys",
+   "volume": "15",
+   "first_page": "403",
+   "doi": "10.1038/s41567-018-0409-0"
+  },
+  {
+   "bib_id": 34,
+   "authors": [
+    {
+     "family": "Clauset",
+     "given": "A"
+    },
+    {
+     "family": "Shalizi",
+     "given": "CR"
+    },
+    {
+     "family": "Newman",
+     "given": "MEJ"
+    }
+   ],
+   "year": "2009",
+   "title": "Power-Law Distributions in Empirical Data",
+   "container": "SIAM Rev",
+   "volume": "51",
+   "first_page": "661",
+   "last_page": "703",
+   "doi": "10.1137/070710111"
+  },
+  {
+   "bib_id": 35,
+   "authors": [
+    {
+     "family": "Mitzenmacher",
+     "given": "M"
+    }
+   ],
+   "year": "2004",
+   "title": "A brief history of generative models for power law and lognormal distributions",
+   "container": "Internet Mathematics",
+   "volume": "1",
+   "first_page": "226",
+   "doi": "10.1080/15427951.2004.10129088"
+  },
+  {
+   "bib_id": 36,
+   "authors": [
+    {
+     "family": "Barabasi",
+     "given": "A"
+    },
+    {
+     "family": "Albert",
+     "given": "R"
+    }
+   ],
+   "year": "1999",
+   "title": "Emergence of scaling in random networks",
+   "container": "Science",
+   "volume": "286",
+   "first_page": "509",
+   "doi": "10.1126/science.286.5439.509"
+  },
+  {
+   "bib_id": 37,
+   "authors": [
+    {
+     "family": "Newman",
+     "given": "M"
+    }
+   ],
+   "year": "2005",
+   "title": "Power laws, Pareto distributions and Zipf’s law",
+   "container": "Contemporary Physics",
+   "volume": "46",
+   "first_page": "323",
+   "doi": "10.1080/00107510500052444"
+  },
+  {
+   "bib_id": 38,
+   "authors": [
+    {
+     "family": "Lima-Mendez",
+     "given": "G"
+    },
+    {
+     "family": "van Helden",
+     "given": "J"
+    }
+   ],
+   "year": "2009",
+   "title": "The powerful law of the power law and other myths in network biology",
+   "container": "Mol Biosyst",
+   "volume": "5",
+   "first_page": "1482",
+   "doi": "10.1039/b908681a"
+  },
+  {
+   "bib_id": 39,
+   "authors": [
+    {
+     "family": "Saha",
+     "given": "S"
+    },
+    {
+     "family": "Mishra",
+     "given": "A"
+    },
+    {
+     "family": "Dana",
+     "given": "SK"
+    },
+    {
+     "family": "Hens",
+     "given": "C"
+    },
+    {
+     "family": "Bairagi",
+     "given": "N"
+    }
+   ],
+   "year": "2020",
+   "title": "Infection spreading and recovery in a square lattice",
+   "container": "Phys Rev E",
+   "volume": "102",
+   "first_page": "052307",
+   "doi": "10.1103/PhysRevE.102.052307"
+  },
+  {
+   "bib_id": 40,
+   "authors": [
+    {
+     "family": "Barndorff-Nielsen",
+     "given": "OE"
+    },
+    {
+     "family": "Cox",
+     "given": "DR"
+    }
+   ],
+   "year": "1996",
+   "title": "Prediction and Asymptotics",
+   "container": "Bernoulli",
+   "volume": "2",
+   "first_page": "319",
+   "doi": "10.2307/3318417"
+  },
+  {
+   "bib_id": 41,
+   "authors": [
+    {
+     "family": "Wasserman",
+     "given": "L"
+    }
+   ],
+   "year": "2013",
+   "title": "All of statistics: a concise course in statistical inference"
+  },
+  {
+   "bib_id": 42,
+   "authors": [
+    {
+     "family": "Goldstein",
+     "given": "ML"
+    },
+    {
+     "family": "Morris",
+     "given": "SA"
+    },
+    {
+     "family": "Yen",
+     "given": "GG"
+    }
+   ],
+   "year": "2004",
+   "title": "Problems with fitting to the power-law distribution",
+   "container": "Eur Phys J B",
+   "volume": "41",
+   "first_page": "255",
+   "doi": "10.1140/epjb/e2004-00316-5"
+  },
+  {
+   "bib_id": 43,
+   "authors": [
+    {
+     "family": "Berger",
+     "given": "VW"
+    },
+    {
+     "family": "Zhou",
+     "given": "Y"
+    }
+   ],
+   "year": "2014"
+  },
+  {
+   "bib_id": 44,
+   "authors": [
+    {
+     "family": "Clauset",
+     "given": "A"
+    },
+    {
+     "family": "Young",
+     "given": "M"
+    },
+    {
+     "family": "Gleditsch",
+     "given": "KS"
+    }
+   ],
+   "year": "2007",
+   "title": "On the frequency of severe terrorist events",
+   "container": "Journal of Conflict Resolution",
+   "volume": "51",
+   "first_page": "58",
+   "last_page": "87",
+   "doi": "10.1177/0022002706296157"
+  },
+  {
+   "bib_id": 45,
+   "authors": [
+    {
+     "family": "Massey",
+     "given": "FJ"
+    }
+   ],
+   "year": "1951",
+   "title": "The Kolmogorov-Smirnov Test for Goodness of Fit",
+   "container": "Journal of the American Statistical Association",
+   "volume": "46",
+   "first_page": "68",
+   "last_page": "78",
+   "doi": "10.1080/01621459.1951.10500769"
+  },
+  {
+   "bib_id": 46,
+   "authors": [
+    {
+     "family": "Edwards",
+     "given": "AM"
+    }
+   ],
+   "year": "2008",
+   "title": "Using likelihood to test for Lévy flight search patterns and for general power-law distributions in nature",
+   "container": "J Anim Ecol",
+   "volume": "77",
+   "first_page": "1212",
+   "doi": "10.1111/j.1365-2656.2008.01428.x"
+  },
+  {
+   "bib_id": 47,
+   "authors": [
+    {
+     "family": "Klaus",
+     "given": "A"
+    },
+    {
+     "family": "Yu",
+     "given": "S"
+    },
+    {
+     "family": "Plenz",
+     "given": "D"
+    }
+   ],
+   "year": "2011",
+   "title": "Statistical analyses support power law distributions found in neuronal avalanches",
+   "container": "PLoS One",
+   "volume": "6",
+   "doi": "10.1371/journal.pone.0019779"
+  },
+  {
+   "bib_id": 48,
+   "authors": [
+    {
+     "family": "Sephton",
+     "given": "PS"
+    }
+   ],
+   "year": "1995",
+   "title": "Response surface estimates of the KPSS stationarity test",
+   "container": "Economics Letters",
+   "volume": "47",
+   "first_page": "255",
+   "doi": "10.1016/0165-1765(94)00561-f"
+  },
+  {
+   "bib_id": 49,
+   "authors": [
+    {
+     "family": "Hobijn",
+     "given": "B"
+    },
+    {
+     "family": "Franses",
+     "given": "PH"
+    },
+    {
+     "family": "Ooms",
+     "given": "M"
+    }
+   ],
+   "year": "2004",
+   "title": "Generalizations of the KPSS‐test for stationarity",
+   "container": "Statistica Neerlandica",
+   "volume": "58",
+   "first_page": "483",
+   "last_page": "502",
+   "doi": "10.1111/j.1467-9574.2004.00272.x"
+  },
+  {
+   "bib_id": 50,
+   "authors": [
+    {
+     "family": "Cheung",
+     "given": "Y-W"
+    },
+    {
+     "family": "Lai",
+     "given": "KS"
+    }
+   ],
+   "year": "1995",
+   "title": "Lag order and critical values of the augmented dickey-fuller test",
+   "container": "Journal of Business & Economic Statistics",
+   "volume": "13",
+   "first_page": "277",
+   "doi": "10.2307/1392187"
+  },
+  {
+   "bib_id": 51,
+   "authors": [
+    {
+     "family": "Dickey",
+     "given": "DA"
+    },
+    {
+     "family": "Fuller",
+     "given": "WA"
+    }
+   ],
+   "year": "1979",
+   "title": "Distribution of the estimators for autoregressive time series with a unit root",
+   "container": "Journal of the American Statistical Association",
+   "volume": "74",
+   "first_page": "427",
+   "doi": "10.2307/2286348"
+  },
+  {
+   "bib_id": 52,
+   "authors": [
+    {
+     "family": "PhillipS",
+     "given": "PCB"
+    },
+    {
+     "family": "Perron",
+     "given": "P"
+    }
+   ],
+   "year": "1988",
+   "title": "Testing for a unit root in time series regression",
+   "container": "Biometrika",
+   "volume": "75",
+   "first_page": "335",
+   "doi": "10.1093/biomet/75.2.335"
+  },
+  {
+   "bib_id": 53,
+   "authors": [
+    {
+     "family": "Zivot",
+     "given": "E"
+    },
+    {
+     "family": "Andrews",
+     "given": "DWK"
+    }
+   ],
+   "year": "1992",
+   "title": "Further evidence on the great crash, the oil-price shock, and the unit-root hypothesis",
+   "container": "Journal of Business & Economic Statistics",
+   "volume": "10",
+   "first_page": "251",
+   "doi": "10.1080/07350015.1992.10509904"
+  },
+  {
+   "bib_id": 54,
+   "authors": [
+    {
+     "family": "Kwiatkowski",
+     "given": "D"
+    },
+    {
+     "family": "Phillips",
+     "given": "PC"
+    },
+    {
+     "family": "Schmidt",
+     "given": "P"
+    },
+    {
+     "family": "Shin",
+     "given": "Y"
+    }
+   ],
+   "year": "1992",
+   "title": "Testing the null hypothesis of stationarity against the alternative of a unit root: how sure are we that economic time series have a unit root?",
+   "container": "Journal of Econometrics",
+   "volume": "54",
+   "first_page": "159"
+  },
+  {
+   "bib_id": 55,
+   "authors": [
+    {
+     "family": "Shin",
+     "given": "Y"
+    },
+    {
+     "family": "Schmidt",
+     "given": "P"
+    }
+   ],
+   "year": "1992",
+   "title": "The KPSS stationarity test as a unit root test",
+   "container": "Economics Letters",
+   "volume": "38",
+   "first_page": "387",
+   "doi": "10.1016/0165-1765(92)90023-r"
+  },
+  {
+   "bib_id": 56,
+   "authors": [
+    {
+     "family": "Lee",
+     "given": "HS"
+    },
+    {
+     "family": "Amsler",
+     "given": "C"
+    }
+   ],
+   "year": "1997",
+   "title": "Consistency of the KPSS unit root test against fractionally integrated alternative",
+   "container": "Economics Letters",
+   "volume": "55",
+   "first_page": "151",
+   "doi": "10.1016/s0165-1765(97)00066-9"
+  },
+  {
+   "bib_id": 57,
+   "authors": [
+    {
+     "family": "Gimeno",
+     "given": "R"
+    },
+    {
+     "family": "Manchado",
+     "given": "B"
+    }
+   ],
+   "year": "1999",
+   "title": "Stationarity tests for financial time series",
+   "container": "Physica A: Statistical Mechanics and its Applications",
+   "volume": "269",
+   "first_page": "72",
+   "doi": "10.1016/s0378-4371(99)00081-3"
+  },
+  {
+   "bib_id": 58,
+   "authors": [
+    {
+     "family": "Kolokotrones",
+     "given": "T"
+    },
+    {
+     "family": "Stock",
+     "given": "JH"
+    },
+    {
+     "family": "Walker",
+     "given": "CD"
+    }
+   ],
+   "year": "2024",
+   "title": "Is Newey–West optimal among first-order kernels?",
+   "container": "Journal of Econometrics",
+   "volume": "240",
+   "first_page": "105399",
+   "doi": "10.1016/j.jeconom.2022.12.013"
+  },
+  {
+   "bib_id": 59,
+   "authors": [
+    {
+     "family": "Cohen",
+     "given": "JE"
+    },
+    {
+     "family": "Xu",
+     "given": "M"
+    }
+   ],
+   "year": "2015",
+   "title": "Random sampling of skewed distributions implies Taylor’s power law of fluctuation scaling",
+   "container": "Proc Natl Acad Sci U S A",
+   "volume": "112",
+   "first_page": "7749",
+   "doi": "10.1073/pnas.1503824112"
+  },
+  {
+   "bib_id": 60,
+   "authors": [
+    {
+     "family": "Cohen",
+     "given": "JE"
+    },
+    {
+     "family": "Courgeau",
+     "given": "D"
+    }
+   ],
+   "year": "2017",
+   "title": "Modeling distances between humans using Taylor’s law and geometric probability",
+   "container": "Mathematical Population Studies",
+   "volume": "24",
+   "first_page": "197",
+   "last_page": "218",
+   "doi": "10.1080/08898480.2017.1289049"
+  },
+  {
+   "bib_id": 61,
+   "authors": [
+    {
+     "family": "Cohen",
+     "given": "JE"
+    },
+    {
+     "family": "Davis",
+     "given": "RA"
+    },
+    {
+     "family": "Samorodnitsky",
+     "given": "G"
+    }
+   ],
+   "year": "2020",
+   "title": "Heavy-tailed distributions, correlations, kurtosis and Taylor’s Law of fluctuation scaling",
+   "container": "Proc Math Phys Eng Sci",
+   "volume": "476",
+   "first_page": "20200610",
+   "doi": "10.1098/rspa.2020.0610"
+  },
+  {
+   "bib_id": 62,
+   "authors": [
+    {
+     "family": "Fronczak",
+     "given": "A"
+    },
+    {
+     "family": "Fronczak",
+     "given": "P"
+    }
+   ],
+   "year": "2010",
+   "title": "Origins of Taylor’s power law for fluctuation scaling in complex systems",
+   "container": "Phys Rev E Stat Nonlin Soft Matter Phys",
+   "volume": "81",
+   "first_page": "066112",
+   "doi": "10.1103/PhysRevE.81.066112"
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-core-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "jats_doi": "10.1371/journal.pone.0358972"
+ }
+}

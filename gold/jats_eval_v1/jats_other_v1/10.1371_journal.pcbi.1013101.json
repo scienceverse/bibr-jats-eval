@@ -1,0 +1,2266 @@
+{
+ "paper_id": "10.1371_journal.pcbi.1013101",
+ "info": {
+  "title": "A physiology-based mathematical model of the renin-angiotensin system, bone remodeling, and calcium homeostasis: Effects of estrogen and renin-angiotensin system inhibitors",
+  "doi": "10.1371/journal.pcbi.1013101",
+  "file_name": "10.1371_journal.pcbi.1013101.pdf",
+  "abstract": "During menopause, estrogen levels decline significantly, leading to substantial physiological changes due to estrogen’s regulatory role in various systems. In particular, estrogen helps prevent excessive bone resorption by its impact on bone remodeling. When estrogen levels decrease, bone resorption increases, often resulting in weakened bones and osteoporosis in post-menopausal women. Experimental studies have also shown that estrogen regulates the renin-angiotensin system (RAS), a hormone system involved in many physiological processes, including blood pressure regulation. Additionally, the RAS has an interconnected relationship with calcium regulatory and bone remodeling systems. Given these dynamic interplays, we developed a physiology-based mathematical model that simulates the interactions of estrogen, key RAS components, calcium regulation, and bone remodeling to investigate how perturbations in one system affect the others. This represents the first known model to include the direct impacts of estrogen on the RAS and to couple the RAS with calcium homeostasis and bone remodelling systems in humans. Through model simulations and sensitivity analysis, we investigated how declining estrogen levels affect the RAS and bone mineral density. Furthermore, we quantified how RAS inhibitors, specifically angiotensin-converting enzyme inhibitors (ACEi) and angiotensin receptor blockers (ARB), may increase bone density during post-menopausal estrogen decline. Our simulation results suggest that ARB treatment may be more effective at improving bone mineral density during postmenopausal estrogen decline, and that this trend remains consistent regardless of the age of RAS inhibitor initiation."
+ },
+ "author": [
+  {
+   "author_id": 1,
+   "given": "Melissa M.",
+   "family": "Stadt",
+   "affiliation": "Department of Applied Mathematics, University of Waterloo, Waterloo, Ontario, Canada",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 2,
+   "given": "Victoria A.",
+   "family": "Ralph",
+   "affiliation": "Department of Applied Mathematics, University of Waterloo, Waterloo, Ontario, Canada",
+   "email": "",
+   "orcid": "",
+   "corresponding": true
+  },
+  {
+   "author_id": 3,
+   "given": "Anita T.",
+   "family": "Layton",
+   "affiliation": "Department of Applied Mathematics, University of Waterloo, Waterloo, Ontario, Canada; Cheriton School of Computer Science, Department of Biology, School of Pharmacology, University of Waterloo, Waterloo, Ontario, Canada",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  }
+ ],
+ "section": [
+  {
+   "section_id": 1,
+   "section_type": "abstract",
+   "header": "Abstract",
+   "level": 1,
+   "parent_section_id": null,
+   "classification_score": 1.0
+  }
+ ],
+ "text": [
+  {
+   "text_id": 1,
+   "section_id": 1,
+   "paragraph_id": 1,
+   "text": "During menopause, estrogen levels decline significantly, leading to substantial physiological changes due to estrogen’s regulatory role in various systems. In particular, estrogen helps prevent excessive bone resorption by its impact on bone remodeling. When estrogen levels decrease, bone resorption increases, often resulting in weakened bones and osteoporosis in post-menopausal women. Experimental studies have also shown that estrogen regulates the renin-angiotensin system (RAS), a hormone system involved in many physiological processes, including blood pressure regulation. Additionally, the RAS has an interconnected relationship with calcium regulatory and bone remodeling systems. Given these dynamic interplays, we developed a physiology-based mathematical model that simulates the interactions of estrogen, key RAS components, calcium regulation, and bone remodeling to investigate how perturbations in one system affect the others. This represents the first known model to include the direct impacts of estrogen on the RAS and to couple the RAS with calcium homeostasis and bone remodelling systems in humans. Through model simulations and sensitivity analysis, we investigated how declining estrogen levels affect the RAS and bone mineral density. Furthermore, we quantified how RAS inhibitors, specifically angiotensin-converting enzyme inhibitors (ACEi) and angiotensin receptor blockers (ARB), may increase bone density during post-menopausal estrogen decline. Our simulation results suggest that ARB treatment may be more effective at improving bone mineral density during postmenopausal estrogen decline, and that this trend remains consistent regardless of the age of RAS inhibitor initiation.",
+   "page_number": 1
+  }
+ ],
+ "bib": [
+  {
+   "bib_id": 1,
+   "authors": [
+    {
+     "family": "Allen",
+     "given": "MR"
+    },
+    {
+     "family": "Burr",
+     "given": "DB"
+    }
+   ],
+   "year": "2014",
+   "title": "Bone Modeling and Remodeling",
+   "container": "Basic and Applied Bone Biology",
+   "first_page": "75",
+   "last_page": "90",
+   "doi": "10.1016/b978-0-12-416015-6.00004-6"
+  },
+  {
+   "bib_id": 2,
+   "authors": [
+    {
+     "family": "Cook",
+     "given": "CV"
+    },
+    {
+     "family": "Lighty",
+     "given": "AM"
+    },
+    {
+     "family": "Smith",
+     "given": "BJ"
+    },
+    {
+     "family": "Ford Versypt",
+     "given": "AN"
+    }
+   ],
+   "year": "2024",
+   "title": "A review of mathematical modeling of bone remodeling from a systems biology perspective",
+   "container": "Front Syst Biol",
+   "volume": "4",
+   "first_page": "1368555",
+   "doi": "10.3389/fsysb.2024.1368555"
+  },
+  {
+   "bib_id": 3,
+   "authors": [
+    {
+     "family": "Melton",
+     "given": "LJI"
+    },
+    {
+     "family": "Chrischilles",
+     "given": "EA"
+    },
+    {
+     "family": "Cooper",
+     "given": "C"
+    },
+    {
+     "family": "Lane",
+     "given": "AW"
+    },
+    {
+     "family": "Riggs",
+     "given": "BL"
+    }
+   ],
+   "year": "1992",
+   "title": "Perspective: How Many Women Have Osteoporosis?",
+   "container": "Journal of Bone and Mineral Research",
+   "volume": "7",
+   "first_page": "1005",
+   "doi": "10.1002/jbmr.5650070902"
+  },
+  {
+   "bib_id": 4,
+   "authors": [
+    {
+     "family": "Holloway-Kew",
+     "given": "KL"
+    },
+    {
+     "family": "Betson",
+     "given": "AG"
+    },
+    {
+     "family": "Anderson",
+     "given": "KB"
+    },
+    {
+     "family": "Gaston",
+     "given": "J"
+    },
+    {
+     "family": "Kotowicz",
+     "given": "MA"
+    },
+    {
+     "family": "Liao",
+     "given": "W-H"
+    }
+   ],
+   "year": "2021",
+   "title": "Association between bone measures and use of angiotensin-converting enzyme inhibitors or angiotensin II receptor blockers",
+   "container": "Arch Osteoporos",
+   "volume": "16",
+   "first_page": "137",
+   "doi": "10.1007/s11657-021-01004-6"
+  },
+  {
+   "bib_id": 5,
+   "authors": [
+    {
+     "family": "Renkema",
+     "given": "KY"
+    },
+    {
+     "family": "Alexander",
+     "given": "RT"
+    },
+    {
+     "family": "Bindels",
+     "given": "RJ"
+    },
+    {
+     "family": "Hoenderop",
+     "given": "JG"
+    }
+   ],
+   "year": "2008",
+   "title": "Calcium and phosphate homeostasis: concerted interplay of new regulators",
+   "container": "Ann Med",
+   "volume": "40",
+   "first_page": "82",
+   "last_page": "91",
+   "doi": "10.1080/07853890701689645"
+  },
+  {
+   "bib_id": 6,
+   "authors": [
+    {
+     "family": "Vaidya",
+     "given": "A"
+    },
+    {
+     "family": "Brown",
+     "given": "JM"
+    },
+    {
+     "family": "Williams",
+     "given": "JS"
+    }
+   ],
+   "year": "2015",
+   "title": "The renin-angiotensin-aldosterone system and calcium-regulatory hormones",
+   "container": "J Hum Hypertens",
+   "volume": "29",
+   "first_page": "515",
+   "doi": "10.1038/jhh.2014.125"
+  },
+  {
+   "bib_id": 7,
+   "authors": [
+    {
+     "family": "Shimizu",
+     "given": "H"
+    },
+    {
+     "family": "Nakagami",
+     "given": "H"
+    },
+    {
+     "family": "Osako",
+     "given": "MK"
+    },
+    {
+     "family": "Hanayama",
+     "given": "R"
+    },
+    {
+     "family": "Kunugiza",
+     "given": "Y"
+    },
+    {
+     "family": "Kizawa",
+     "given": "T"
+    }
+   ],
+   "year": "2008",
+   "title": "Angiotensin II accelerates osteoporosis by activating osteoclasts",
+   "container": "FASEB J",
+   "volume": "22",
+   "first_page": "2465",
+   "doi": "10.1096/fj.07-098954"
+  },
+  {
+   "bib_id": 8,
+   "authors": [
+    {
+     "family": "Gersh",
+     "given": "FL"
+    },
+    {
+     "family": "O’Keefe",
+     "given": "JH"
+    },
+    {
+     "family": "Lavie",
+     "given": "CJ"
+    },
+    {
+     "family": "Henry",
+     "given": "BM"
+    }
+   ],
+   "year": "2021",
+   "title": "The Renin-Angiotensin-Aldosterone System in Postmenopausal Women: The Promise of Hormone Therapy",
+   "container": "Mayo Clin Proc",
+   "volume": "96",
+   "first_page": "3130",
+   "doi": "10.1016/j.mayocp.2021.08.009"
+  },
+  {
+   "bib_id": 9,
+   "authors": [
+    {
+     "family": "Ibrahim",
+     "given": "MM"
+    }
+   ],
+   "year": "2006",
+   "title": "RAS inhibition in hypertension",
+   "container": "J Hum Hypertens",
+   "volume": "20",
+   "first_page": "101",
+   "doi": "10.1038/sj.jhh.1001960"
+  },
+  {
+   "bib_id": 10,
+   "authors": [
+    {
+     "family": "Kim",
+     "given": "KM"
+    },
+    {
+     "family": "Hwang",
+     "given": "EJ"
+    },
+    {
+     "family": "Lee",
+     "given": "S"
+    },
+    {
+     "family": "Yoon",
+     "given": "J-H"
+    }
+   ],
+   "year": "2024",
+   "title": "The impact of Renin-Angiotensin System Inhibitors on bone fracture risk: a nationwide nested case-control study",
+   "container": "BMC Musculoskelet Disord",
+   "volume": "25",
+   "first_page": "3",
+   "doi": "10.1186/s12891-023-07102-5"
+  },
+  {
+   "bib_id": 11,
+   "authors": [
+    {
+     "family": "Saavedra",
+     "given": "JM"
+    }
+   ],
+   "year": "2021",
+   "title": "Angiotensin Receptor Blockers Are Not Just for Hypertension Anymore",
+   "container": "Physiology (Bethesda)",
+   "volume": "36",
+   "first_page": "160",
+   "doi": "10.1152/physiol.00036.2020"
+  },
+  {
+   "bib_id": 12,
+   "authors": [
+    {
+     "family": "Wu",
+     "given": "J"
+    },
+    {
+     "family": "Wang",
+     "given": "M"
+    },
+    {
+     "family": "Guo",
+     "given": "M"
+    },
+    {
+     "family": "Du",
+     "given": "X-Y"
+    },
+    {
+     "family": "Tan",
+     "given": "X-Z"
+    },
+    {
+     "family": "Teng",
+     "given": "F-Y"
+    }
+   ],
+   "year": "2022",
+   "title": "Angiotensin Receptor Blocker is Associated with a Lower Fracture Risk: An Updated Systematic Review and Meta-Analysis",
+   "container": "Int J Clin Pract",
+   "volume": "2022",
+   "first_page": "7581110",
+   "doi": "10.1155/2022/7581110"
+  },
+  {
+   "bib_id": 13,
+   "authors": [
+    {
+     "family": "Peterson",
+     "given": "MC"
+    },
+    {
+     "family": "Riggs",
+     "given": "MM"
+    }
+   ],
+   "year": "2010",
+   "title": "A physiologically based mathematical model of integrated calcium homeostasis and bone remodeling",
+   "container": "Bone",
+   "volume": "46",
+   "first_page": "49",
+   "last_page": "63",
+   "doi": "10.1016/j.bone.2009.08.053"
+  },
+  {
+   "bib_id": 14,
+   "authors": [
+    {
+     "family": "Riggs",
+     "given": "MM"
+    },
+    {
+     "family": "Bennetts",
+     "given": "M"
+    },
+    {
+     "family": "van der Graaf",
+     "given": "PH"
+    },
+    {
+     "family": "Martin",
+     "given": "SW"
+    }
+   ],
+   "year": "2012",
+   "title": "Integrated pharmacometrics and systems pharmacology model-based analyses to guide GnRH receptor modulator development for management of endometriosis",
+   "container": "CPT Pharmacometrics Syst Pharmacol",
+   "volume": "1",
+   "doi": "10.1038/psp.2012.10"
+  },
+  {
+   "bib_id": 15,
+   "authors": [
+    {
+     "family": "Riggs",
+     "given": "MM"
+    },
+    {
+     "family": "Peterson",
+     "given": "MC"
+    },
+    {
+     "family": "Gastonguay",
+     "given": "MR"
+    }
+   ],
+   "year": "2012",
+   "title": "Multiscale physiology-based modeling of mineral bone disorder in patients with impaired kidney function",
+   "container": "J Clin Pharmacol",
+   "volume": "52",
+   "doi": "10.1177/0091270011412967"
+  },
+  {
+   "bib_id": 16,
+   "authors": [
+    {
+     "family": "Gaweda",
+     "given": "AE"
+    },
+    {
+     "family": "McBride",
+     "given": "DE"
+    },
+    {
+     "family": "Lederer",
+     "given": "ED"
+    },
+    {
+     "family": "Brier",
+     "given": "ME"
+    }
+   ],
+   "year": "2021",
+   "title": "Development of a quantitative systems pharmacology model of chronic kidney disease: metabolic bone disorder",
+   "container": "Am J Physiol Renal Physiol",
+   "volume": "320",
+   "doi": "10.1152/ajprenal.00159.2020"
+  },
+  {
+   "bib_id": 17,
+   "authors": [
+    {
+     "family": "Lo",
+     "given": "A"
+    },
+    {
+     "family": "Beh",
+     "given": "J"
+    },
+    {
+     "family": "De Leon",
+     "given": "H"
+    },
+    {
+     "family": "Hallow",
+     "given": "MK"
+    },
+    {
+     "family": "Ramakrishna",
+     "given": "R"
+    },
+    {
+     "family": "Rodrigo",
+     "given": "M"
+    }
+   ],
+   "year": "2010",
+   "title": "Using a Systems Biology Approach to Explore Hypotheses Underlying Clinical Diversity of the Renin Angiotensin System and the Response to Antihypertensive Therapies",
+   "container": "AAPS Advances in the Pharmaceutical Sciences Series",
+   "first_page": "457",
+   "doi": "10.1007/978-1-4419-7415-0_20"
+  },
+  {
+   "bib_id": 18,
+   "authors": [
+    {
+     "family": "Hallow",
+     "given": "KM"
+    },
+    {
+     "family": "Lo",
+     "given": "A"
+    },
+    {
+     "family": "Beh",
+     "given": "J"
+    },
+    {
+     "family": "Rodrigo",
+     "given": "M"
+    },
+    {
+     "family": "Ermakov",
+     "given": "S"
+    },
+    {
+     "family": "Friedman",
+     "given": "S"
+    }
+   ],
+   "year": "2014",
+   "title": "A model-based approach to investigating the pathophysiological mechanisms of hypertension and response to antihypertensive therapies: extending the Guyton model",
+   "container": "Am J Physiol Regul Integr Comp Physiol",
+   "volume": "306",
+   "doi": "10.1152/ajpregu.00039.2013"
+  },
+  {
+   "bib_id": 19,
+   "authors": [
+    {
+     "family": "Leete",
+     "given": "J"
+    },
+    {
+     "family": "Layton",
+     "given": "AT"
+    }
+   ],
+   "year": "2019",
+   "title": "Sex-specific long-term blood pressure regulation: Modeling and analysis",
+   "container": "Comput Biol Med",
+   "volume": "104",
+   "first_page": "139",
+   "doi": "10.1016/j.compbiomed.2018.11.002"
+  },
+  {
+   "bib_id": 20,
+   "authors": [
+    {
+     "family": "Jörg",
+     "given": "DJ"
+    },
+    {
+     "family": "Fuertinger",
+     "given": "DH"
+    },
+    {
+     "family": "Cherif",
+     "given": "A"
+    },
+    {
+     "family": "Bushinsky",
+     "given": "DA"
+    },
+    {
+     "family": "Mermelstein",
+     "given": "A"
+    },
+    {
+     "family": "Raimann",
+     "given": "JG"
+    }
+   ],
+   "year": "2022",
+   "title": "Modeling osteoporosis to design and optimize pharmacological therapies comprising multiple drug types",
+   "container": "eLife",
+   "volume": "11",
+   "doi": "10.7554/eLife.76228"
+  },
+  {
+   "bib_id": 21,
+   "authors": [
+    {
+     "family": "Sowers",
+     "given": "MR"
+    },
+    {
+     "family": "Zheng",
+     "given": "H"
+    },
+    {
+     "family": "McConnell",
+     "given": "D"
+    },
+    {
+     "family": "Nan",
+     "given": "B"
+    },
+    {
+     "family": "Harlow",
+     "given": "SD"
+    },
+    {
+     "family": "Randolph",
+     "given": "JF"
+    }
+   ],
+   "year": "2008",
+   "title": "Estradiol rates of change in relation to the final menstrual period in a population-based cohort of women",
+   "container": "J Clin Endocrinol Metab",
+   "volume": "93",
+   "first_page": "3847",
+   "doi": "10.1210/jc.2008-1056"
+  },
+  {
+   "bib_id": 22,
+   "authors": [
+    {
+     "family": "Prior",
+     "given": "JC"
+    }
+   ],
+   "year": "2020",
+   "title": "Women’s reproductive system as balanced estradiol and progesterone actions—A revolutionary, paradigm-shifting concept in women’s health",
+   "container": "Drug Discovery Today: Disease Models",
+   "volume": "32",
+   "first_page": "31",
+   "last_page": "40",
+   "doi": "10.1016/j.ddmod.2020.11.005"
+  },
+  {
+   "bib_id": 23,
+   "authors": [
+    {
+     "family": "Fischer",
+     "given": "M"
+    },
+    {
+     "family": "Baessler",
+     "given": "A"
+    },
+    {
+     "family": "Schunkert",
+     "given": "H"
+    }
+   ],
+   "year": "2002",
+   "title": "Renin angiotensin system and gender differences in the cardiovascular system",
+   "container": "Cardiovasc Res",
+   "volume": "53",
+   "first_page": "672",
+   "doi": "10.1016/s0008-6363(01)00479-5"
+  },
+  {
+   "bib_id": 24,
+   "authors": [
+    {
+     "family": "Schunkert",
+     "given": "H"
+    },
+    {
+     "family": "Danser",
+     "given": "AH"
+    },
+    {
+     "family": "Hense",
+     "given": "HW"
+    },
+    {
+     "family": "Derkx",
+     "given": "FH"
+    },
+    {
+     "family": "Kürzinger",
+     "given": "S"
+    },
+    {
+     "family": "Riegger",
+     "given": "GA"
+    }
+   ],
+   "year": "1997",
+   "title": "Effects of estrogen replacement therapy on the renin-angiotensin system in postmenopausal women",
+   "container": "Circulation",
+   "volume": "95",
+   "first_page": "39",
+   "last_page": "45",
+   "doi": "10.1161/01.cir.95.1.39"
+  },
+  {
+   "bib_id": 25,
+   "authors": [
+    {
+     "family": "Gordon",
+     "given": "MS"
+    },
+    {
+     "family": "Chin",
+     "given": "WW"
+    },
+    {
+     "family": "Shupnik",
+     "given": "MA"
+    }
+   ],
+   "year": "1992",
+   "title": "Regulation of angiotensinogen gene expression by estrogen",
+   "container": "J Hypertens",
+   "volume": "10",
+   "first_page": "361",
+   "doi": "10.1097/00004872-199204000-00007"
+  },
+  {
+   "bib_id": 26,
+   "authors": [
+    {
+     "family": "Gallagher",
+     "given": "PE"
+    },
+    {
+     "family": "Li",
+     "given": "P"
+    },
+    {
+     "family": "Lenhart",
+     "given": "JR"
+    },
+    {
+     "family": "Chappell",
+     "given": "MC"
+    },
+    {
+     "family": "Brosnihan",
+     "given": "KB"
+    }
+   ],
+   "year": "1999",
+   "title": "Estrogen regulation of angiotensin-converting enzyme mRNA",
+   "container": "Hypertension",
+   "volume": "33",
+   "first_page": "323",
+   "doi": "10.1161/01.hyp.33.1.323"
+  },
+  {
+   "bib_id": 27,
+   "authors": [
+    {
+     "family": "Brosnihan",
+     "given": "KB"
+    },
+    {
+     "family": "Li",
+     "given": "P"
+    },
+    {
+     "family": "Ganten",
+     "given": "D"
+    },
+    {
+     "family": "Ferrario",
+     "given": "CM"
+    }
+   ],
+   "year": "1997",
+   "title": "Estrogen Protects Transgenic Hypertensive Rats by Shifting the Vasoconstrictor-Vasodilator Balance of RAS",
+   "container": "American Journal of Physiology-Regulatory, Integrative and Comparative Physiology",
+   "volume": "273",
+   "doi": "10.1152/ajpregu.1997.273.6.R1908"
+  },
+  {
+   "bib_id": 28,
+   "authors": [
+    {
+     "family": "Brosnihan",
+     "given": "KB"
+    },
+    {
+     "family": "Weddle",
+     "given": "D"
+    },
+    {
+     "family": "Anthony",
+     "given": "MS"
+    },
+    {
+     "family": "Heise",
+     "given": "C"
+    },
+    {
+     "family": "Li",
+     "given": "P"
+    },
+    {
+     "family": "Ferrario",
+     "given": "CM"
+    }
+   ],
+   "year": "1997",
+   "title": "Effects of chronic hormone replacement on the renin-angiotensin system in cynomolgus monkeys",
+   "container": "J Hypertens",
+   "volume": "15",
+   "first_page": "719",
+   "doi": "10.1097/00004872-199715070-00003"
+  },
+  {
+   "bib_id": 29,
+   "authors": [
+    {
+     "family": "Hussien",
+     "given": "NI"
+    },
+    {
+     "family": "El-Kerdasy",
+     "given": "HI"
+    },
+    {
+     "family": "Sorour",
+     "given": "SM"
+    },
+    {
+     "family": "Shoman",
+     "given": "AA"
+    }
+   ],
+   "year": "2022",
+   "title": "Chronic oestrogen deficiency induced by ovariectomy may cause lung fibrosis through activation of the renin-angiotensin system in rats",
+   "container": "Arch Physiol Biochem",
+   "volume": "128",
+   "first_page": "290",
+   "doi": "10.1080/13813455.2019.1676262"
+  },
+  {
+   "bib_id": 30,
+   "authors": [
+    {
+     "family": "Lorenz",
+     "given": "JN"
+    }
+   ],
+   "year": "2010",
+   "title": "Chymase: the other ACE?",
+   "container": "American Journal of Physiology-Renal Physiology",
+   "volume": "298",
+   "doi": "10.1152/ajprenal.00641.2009"
+  },
+  {
+   "bib_id": 31,
+   "authors": [
+    {
+     "family": "Brar",
+     "given": "GS"
+    },
+    {
+     "family": "Barrow",
+     "given": "BM"
+    },
+    {
+     "family": "Watson",
+     "given": "M"
+    },
+    {
+     "family": "Griesbach",
+     "given": "R"
+    },
+    {
+     "family": "Choung",
+     "given": "E"
+    },
+    {
+     "family": "Welch",
+     "given": "A"
+    }
+   ],
+   "year": "2017",
+   "title": "Neprilysin Is Required for Angiotensin-(1-7)’s Ability to Enhance Insulin Secretion via Its Proteolytic Activity to Generate Angiotensin-(1-2)",
+   "container": "Diabetes",
+   "volume": "66",
+   "first_page": "2201",
+   "doi": "10.2337/db16-1318"
+  },
+  {
+   "bib_id": 32,
+   "authors": [
+    {
+     "family": "Wright",
+     "given": "JW"
+    },
+    {
+     "family": "Krebs",
+     "given": "LT"
+    },
+    {
+     "family": "Stobb",
+     "given": "JW"
+    },
+    {
+     "family": "Harding",
+     "given": "JW"
+    }
+   ],
+   "year": "1995",
+   "title": "The angiotensin IV system: functional implications",
+   "container": "Front Neuroendocrinol",
+   "volume": "16",
+   "first_page": "23",
+   "last_page": "52",
+   "doi": "10.1006/frne.1995.1002"
+  },
+  {
+   "bib_id": 33,
+   "authors": [
+    {
+     "family": "Duggan",
+     "given": "J"
+    },
+    {
+     "family": "Kilfeather",
+     "given": "S"
+    },
+    {
+     "family": "O’Brien",
+     "given": "E"
+    },
+    {
+     "family": "O’Malley",
+     "given": "K"
+    },
+    {
+     "family": "Nussberger",
+     "given": "J"
+    }
+   ],
+   "year": "1992",
+   "title": "Effects of aging and hypertension on plasma angiotensin II and platelet angiotensin II receptor density",
+   "container": "Am J Hypertens",
+   "volume": "5",
+   "first_page": "687",
+   "doi": "10.1093/ajh/5.10.687"
+  },
+  {
+   "bib_id": 34,
+   "authors": [
+    {
+     "family": "Xu",
+     "given": "X"
+    },
+    {
+     "family": "Xiao",
+     "given": "JC"
+    },
+    {
+     "family": "Luo",
+     "given": "LF"
+    },
+    {
+     "family": "Wang",
+     "given": "S"
+    },
+    {
+     "family": "Zhang",
+     "given": "JP"
+    },
+    {
+     "family": "Huang",
+     "given": "JJ"
+    }
+   ],
+   "year": "2008",
+   "title": "Effects of ovariectomy and 17β-estradiol treatment on the renin–angiotensin system, blood pressure, and endothelial ultrastructure",
+   "container": "International Journal of Cardiology",
+   "volume": "130",
+   "first_page": "196",
+   "last_page": "204",
+   "doi": "10.1016/j.ijcard.2007.08.041"
+  },
+  {
+   "bib_id": 35,
+   "authors": [
+    {
+     "family": "Sullivan",
+     "given": "JC"
+    },
+    {
+     "family": "Semprun-Prieto",
+     "given": "L"
+    },
+    {
+     "family": "Boesen",
+     "given": "EI"
+    },
+    {
+     "family": "Pollock",
+     "given": "DM"
+    },
+    {
+     "family": "Pollock",
+     "given": "JS"
+    }
+   ],
+   "year": "2007",
+   "title": "Sex and sex hormones influence the development of albuminuria and renal macrophage infiltration in spontaneously hypertensive rats",
+   "container": "Am J Physiol Regul Integr Comp Physiol",
+   "volume": "293",
+   "doi": "10.1152/ajpregu.00429.2007"
+  },
+  {
+   "bib_id": 36,
+   "authors": [
+    {
+     "family": "Ichikawa",
+     "given": "J"
+    },
+    {
+     "family": "Sumino",
+     "given": "H"
+    },
+    {
+     "family": "Ichikawa",
+     "given": "S"
+    },
+    {
+     "family": "Ozaki",
+     "given": "M"
+    }
+   ],
+   "year": "2006",
+   "title": "Different effects of transdermal and oral hormone replacement therapy on the renin-angiotensin system, plasma bradykinin level, and blood pressure of normotensive postmenopausal women",
+   "container": "Am J Hypertens",
+   "volume": "19",
+   "first_page": "744",
+   "doi": "10.1016/j.amjhyper.2005.10.006"
+  },
+  {
+   "bib_id": 37,
+   "authors": [
+    {
+     "family": "Sampson",
+     "given": "AK"
+    },
+    {
+     "family": "Hilliard",
+     "given": "LM"
+    },
+    {
+     "family": "Moritz",
+     "given": "KM"
+    },
+    {
+     "family": "Thomas",
+     "given": "MC"
+    },
+    {
+     "family": "Tikellis",
+     "given": "C"
+    },
+    {
+     "family": "Widdop",
+     "given": "RE"
+    }
+   ],
+   "year": "2012",
+   "title": "The arterial depressor response to chronic low-dose angiotensin II infusion in female rats is estrogen dependent",
+   "container": "Am J Physiol Regul Integr Comp Physiol",
+   "volume": "302",
+   "doi": "10.1152/ajpregu.00256.2011"
+  },
+  {
+   "bib_id": 38,
+   "authors": [
+    {
+     "family": "Nickenig",
+     "given": "G"
+    },
+    {
+     "family": "Bäumer",
+     "given": "AT"
+    },
+    {
+     "family": "Grohè",
+     "given": "C"
+    },
+    {
+     "family": "Kahlert",
+     "given": "S"
+    },
+    {
+     "family": "Strehlow",
+     "given": "K"
+    },
+    {
+     "family": "Rosenkranz",
+     "given": "S"
+    }
+   ],
+   "year": "1998",
+   "title": "Estrogen modulates AT1 receptor gene expression in vitro and in vivo",
+   "container": "Circulation",
+   "volume": "97",
+   "first_page": "2197",
+   "doi": "10.1161/01.CIR.97.22.2197"
+  },
+  {
+   "bib_id": 39,
+   "authors": [
+    {
+     "family": "Bonate",
+     "given": "PL"
+    }
+   ],
+   "year": "2011",
+   "title": "Pharmacokinetic-Pharmacodynamic Modeling and Simulation",
+   "doi": "10.1007/978-1-4419-9485-1"
+  },
+  {
+   "bib_id": 40,
+   "authors": [
+    {
+     "family": "Grant",
+     "given": "FD"
+    },
+    {
+     "family": "Mandel",
+     "given": "SJ"
+    },
+    {
+     "family": "Brown",
+     "given": "EM"
+    },
+    {
+     "family": "Williams",
+     "given": "GH"
+    },
+    {
+     "family": "Seely",
+     "given": "EW"
+    }
+   ],
+   "year": "1992",
+   "title": "Interrelationships between the renin-angiotensin-aldosterone and calcium homeostatic systems",
+   "container": "J Clin Endocrinol Metab",
+   "volume": "75",
+   "first_page": "988",
+   "doi": "10.1210/jcem.75.4.1400892"
+  },
+  {
+   "bib_id": 41,
+   "authors": [
+    {
+     "family": "Ortiz-Capisano",
+     "given": "MC"
+    },
+    {
+     "family": "Reddy",
+     "given": "M"
+    },
+    {
+     "family": "Mendez",
+     "given": "M"
+    },
+    {
+     "family": "Garvin",
+     "given": "JL"
+    },
+    {
+     "family": "Beierwaltes",
+     "given": "WH"
+    }
+   ],
+   "year": "2013",
+   "title": "Juxtaglomerular cell CaSR stimulation decreases renin release via activation of the PLC/IP(3) pathway and the ryanodine receptor",
+   "container": "Am J Physiol Renal Physiol",
+   "volume": "304",
+   "doi": "10.1152/ajprenal.00451.2012"
+  },
+  {
+   "bib_id": 42,
+   "authors": [
+    {
+     "family": "Ortiz-Capisano",
+     "given": "MC"
+    },
+    {
+     "family": "Ortiz",
+     "given": "PA"
+    },
+    {
+     "family": "Garvin",
+     "given": "JL"
+    },
+    {
+     "family": "Harding",
+     "given": "P"
+    },
+    {
+     "family": "Beierwaltes",
+     "given": "WH"
+    }
+   ],
+   "year": "2007",
+   "title": "Expression and function of the calcium-sensing receptor in juxtaglomerular cells",
+   "container": "Hypertension",
+   "volume": "50",
+   "first_page": "737",
+   "doi": "10.1161/HYPERTENSIONAHA.107.095158"
+  },
+  {
+   "bib_id": 43,
+   "authors": [
+    {
+     "family": "Tomaschitz",
+     "given": "A"
+    },
+    {
+     "family": "Pilz",
+     "given": "S"
+    },
+    {
+     "family": "Ritz",
+     "given": "E"
+    },
+    {
+     "family": "Grammer",
+     "given": "T"
+    },
+    {
+     "family": "Drechsler",
+     "given": "C"
+    },
+    {
+     "family": "Boehm",
+     "given": "BO"
+    }
+   ],
+   "year": "2010",
+   "title": "Independent association between 1,25-dihydroxyvitamin D, 25-hydroxyvitamin D and the renin–angiotensin system: The Ludwigshafen risk and cardiovascular health (LURIC) study",
+   "container": "Clinica Chimica Acta",
+   "volume": "411",
+   "first_page": "1354",
+   "doi": "10.1016/j.cca.2010.05.037"
+  },
+  {
+   "bib_id": 44,
+   "authors": [
+    {
+     "family": "Ducy",
+     "given": "P"
+    }
+   ],
+   "year": "2023",
+   "title": "A central regulation of PTH secretion and function",
+   "container": "Neuron",
+   "volume": "111",
+   "first_page": "1847",
+   "doi": "10.1016/j.neuron.2023.05.018"
+  },
+  {
+   "bib_id": 45,
+   "authors": [
+    {
+     "family": "Hannan",
+     "given": "FM"
+    },
+    {
+     "family": "Kallay",
+     "given": "E"
+    },
+    {
+     "family": "Chang",
+     "given": "W"
+    },
+    {
+     "family": "Brandi",
+     "given": "ML"
+    },
+    {
+     "family": "Thakker",
+     "given": "RV"
+    }
+   ],
+   "year": "2018",
+   "title": "The calcium-sensing receptor in physiology and in calcitropic and noncalcitropic diseases",
+   "container": "Nat Rev Endocrinol",
+   "volume": "15",
+   "first_page": "33",
+   "last_page": "51",
+   "doi": "10.1038/s41574-018-0115-0"
+  },
+  {
+   "bib_id": 46,
+   "authors": [
+    {
+     "family": "Qian",
+     "given": "G"
+    },
+    {
+     "family": "Mahdi",
+     "given": "A"
+    }
+   ],
+   "year": "2020",
+   "title": "Sensitivity analysis methods in the biomedical sciences",
+   "container": "Math Biosci",
+   "volume": "323",
+   "first_page": "108306",
+   "doi": "10.1016/j.mbs.2020.108306"
+  },
+  {
+   "bib_id": 47,
+   "authors": [
+    {
+     "family": "Saltelli",
+     "given": "A"
+    },
+    {
+     "family": "Ratto",
+     "given": "M"
+    },
+    {
+     "family": "Andres",
+     "given": "T"
+    },
+    {
+     "family": "Campolongo",
+     "given": "F"
+    },
+    {
+     "family": "Cariboni",
+     "given": "J"
+    },
+    {
+     "family": "Gatelli",
+     "given": "D"
+    }
+   ],
+   "year": "2008",
+   "title": "Global Sensitivity Analysis: The Primer"
+  },
+  {
+   "bib_id": 48,
+   "authors": [
+    {
+     "family": "Renardy",
+     "given": "M"
+    },
+    {
+     "family": "Hult",
+     "given": "C"
+    },
+    {
+     "family": "Evans",
+     "given": "S"
+    },
+    {
+     "family": "Linderman",
+     "given": "JJ"
+    },
+    {
+     "family": "Kirschner",
+     "given": "DE"
+    }
+   ],
+   "year": "2019",
+   "title": "Global Sensitivity Analysis of Biological Multiscale Models",
+   "container": "Current Opinion in Biomedical Engineering",
+   "first_page": "109",
+   "doi": "10.1016/j.cobme.2019.09.012"
+  },
+  {
+   "bib_id": 49,
+   "authors": [
+    {
+     "family": "Sobol",
+     "given": "IM"
+    }
+   ],
+   "year": "2001",
+   "title": "Global sensitivity indices for nonlinear mathematical models and their Monte Carlo estimates",
+   "container": "Mathematics and Computers in Simulation",
+   "volume": "55",
+   "first_page": "271",
+   "doi": "10.1016/S0378-4754(00)00270-6"
+  },
+  {
+   "bib_id": 50,
+   "authors": [
+    {
+     "family": "Lavi-Moshayoff",
+     "given": "V"
+    },
+    {
+     "family": "Wasserman",
+     "given": "G"
+    },
+    {
+     "family": "Meir",
+     "given": "T"
+    },
+    {
+     "family": "Silver",
+     "given": "J"
+    },
+    {
+     "family": "Naveh-Many",
+     "given": "T"
+    }
+   ],
+   "year": "2010",
+   "title": "PTH increases FGF23 gene expression and mediates the high-FGF23 levels of experimental kidney failure: a bone parathyroid feedback loop",
+   "container": "Am J Physiol Renal Physiol",
+   "volume": "299",
+   "doi": "10.1152/ajprenal.00360.2010"
+  },
+  {
+   "bib_id": 51,
+   "authors": [
+    {
+     "family": "De Borst",
+     "given": "MH"
+    },
+    {
+     "family": "Vervloet",
+     "given": "MG"
+    },
+    {
+     "family": "Ter Wee",
+     "given": "PM"
+    },
+    {
+     "family": "Navis",
+     "given": "G"
+    }
+   ],
+   "year": "2011",
+   "title": "Cross talk between the renin-angiotensin-aldosterone system and vitamin D-FGF-23-klotho in chronic kidney disease",
+   "container": "Journal of the American Society of Nephrology",
+   "volume": "22",
+   "first_page": "1603",
+   "doi": "10.1681/ASN.2010121251"
+  },
+  {
+   "bib_id": 52,
+   "authors": [
+    {
+     "family": "Atchison",
+     "given": "DK"
+    },
+    {
+     "family": "Harding",
+     "given": "P"
+    },
+    {
+     "family": "Cecilia Ortiz-Capisano",
+     "given": "M"
+    },
+    {
+     "family": "Peterson",
+     "given": "EL"
+    },
+    {
+     "family": "Beierwaltes",
+     "given": "WH"
+    }
+   ],
+   "year": "2012",
+   "title": "Parathyroid hormone stimulates juxtaglomerular cell cAMP accumulation without stimulating renin release",
+   "container": "Am J Physiol Renal Physiol",
+   "volume": "303",
+   "doi": "10.1152/ajprenal.00269.2012"
+  },
+  {
+   "bib_id": 53,
+   "authors": [
+    {
+     "family": "Looker",
+     "given": "AC"
+    },
+    {
+     "family": "Wahner",
+     "given": "HW"
+    },
+    {
+     "family": "Dunn",
+     "given": "WL"
+    },
+    {
+     "family": "Calvo",
+     "given": "MS"
+    },
+    {
+     "family": "Harris",
+     "given": "TB"
+    },
+    {
+     "family": "Heyse",
+     "given": "SP"
+    }
+   ],
+   "year": "1998",
+   "title": "Updated data on proximal femur bone mineral levels of US adults",
+   "container": "Osteoporosis International",
+   "volume": "8",
+   "first_page": "468",
+   "doi": "10.1007/s001980050093"
+  },
+  {
+   "bib_id": 54,
+   "authors": [
+    {
+     "family": "Solomon",
+     "given": "DH"
+    },
+    {
+     "family": "Mogun",
+     "given": "H"
+    },
+    {
+     "family": "Garneau",
+     "given": "K"
+    },
+    {
+     "family": "Fischer",
+     "given": "MA"
+    }
+   ],
+   "year": "2011",
+   "title": "Risk of fractures in older adults using antihypertensive medications",
+   "container": "J Bone Miner Res",
+   "volume": "26",
+   "first_page": "1561",
+   "doi": "10.1002/jbmr.356"
+  },
+  {
+   "bib_id": 55,
+   "authors": [
+    {
+     "family": "McClung",
+     "given": "MR"
+    }
+   ],
+   "year": "2005",
+   "title": "The relationship between bone mineral density and fracture risk",
+   "container": "Curr Osteoporos Rep",
+   "volume": "3",
+   "first_page": "57",
+   "last_page": "63",
+   "doi": "10.1007/s11914-005-0005-y"
+  },
+  {
+   "bib_id": 56,
+   "authors": [
+    {
+     "family": "Flores",
+     "given": "VA"
+    },
+    {
+     "family": "Pal",
+     "given": "L"
+    },
+    {
+     "family": "Manson",
+     "given": "JE"
+    }
+   ],
+   "year": "2021",
+   "title": "Hormone Therapy in Menopause: Concepts, Controversies, and Approach to Treatment",
+   "container": "Endocrine Reviews",
+   "volume": "42",
+   "first_page": "720",
+   "doi": "10.1210/endrev/bnab011"
+  },
+  {
+   "bib_id": 57,
+   "authors": [
+    {
+     "family": "Vigneswaran",
+     "given": "K"
+    },
+    {
+     "family": "Hamoda",
+     "given": "H"
+    }
+   ],
+   "year": "2022",
+   "title": "Hormone Replacement Therapy – Current Recommendations",
+   "container": "Best Pract Res Clin Obstet Gynaecol",
+   "volume": "81",
+   "first_page": "8",
+   "last_page": "21",
+   "doi": "10.1016/j.bpobgyn.2021.12.001"
+  },
+  {
+   "bib_id": 58,
+   "authors": [
+    {
+     "family": "Foessl",
+     "given": "I"
+    },
+    {
+     "family": "Dimai",
+     "given": "HP"
+    },
+    {
+     "family": "Obermayer-Pietsch",
+     "given": "B"
+    }
+   ],
+   "year": "2023",
+   "title": "Long-term and sequential treatment for osteoporosis",
+   "container": "Nat Rev Endocrinol",
+   "volume": "19",
+   "first_page": "520",
+   "doi": "10.1038/s41574-023-00866-9"
+  },
+  {
+   "bib_id": 59,
+   "authors": [
+    {
+     "family": "Stadt",
+     "given": "M"
+    },
+    {
+     "family": "Layton",
+     "given": "AT"
+    }
+   ],
+   "year": "2025",
+   "title": "Modulation of blood pressure by dietary potassium and sodium: sex differences and modeling analysis",
+   "container": "Am J Physiol Renal Physiol",
+   "volume": "328",
+   "doi": "10.1152/ajprenal.00222.2024"
+  },
+  {
+   "bib_id": 60,
+   "authors": [
+    {
+     "family": "Francis",
+     "given": "A"
+    },
+    {
+     "family": "Harhay",
+     "given": "MN"
+    },
+    {
+     "family": "Ong",
+     "given": "ACM"
+    },
+    {
+     "family": "Tummalapalli",
+     "given": "SL"
+    },
+    {
+     "family": "Ortiz",
+     "given": "A"
+    },
+    {
+     "family": "Fogo",
+     "given": "AB"
+    }
+   ],
+   "year": "2024",
+   "title": "Chronic Kidney Disease and the Global Public Health Agenda: An International Consensus",
+   "container": "Nature Reviews Nephrology",
+   "volume": "20",
+   "first_page": "473",
+   "doi": "10.1038/s41581-024-00820-6"
+  },
+  {
+   "bib_id": 61,
+   "authors": [
+    {
+     "family": "Gaweda",
+     "given": "AE"
+    },
+    {
+     "family": "Lederer",
+     "given": "ED"
+    },
+    {
+     "family": "Brier",
+     "given": "ME"
+    }
+   ],
+   "year": "2022",
+   "title": "Artificial intelligence-guided precision treatment of chronic kidney disease-mineral bone disorder",
+   "container": "CPT Pharmacometrics Syst Pharmacol",
+   "volume": "11",
+   "first_page": "1305",
+   "doi": "10.1002/psp4.12843"
+  },
+  {
+   "bib_id": 62,
+   "authors": [
+    {
+     "family": "Gebru",
+     "given": "Y"
+    },
+    {
+     "family": "Diao",
+     "given": "TY"
+    },
+    {
+     "family": "Pan",
+     "given": "H"
+    },
+    {
+     "family": "Mukwaya",
+     "given": "E"
+    },
+    {
+     "family": "Zhang",
+     "given": "Y"
+    }
+   ],
+   "year": "2013",
+   "title": "Potential of RAS Inhibition to Improve Metabolic Bone Disorders",
+   "container": "BioMed Research International",
+   "volume": "2013",
+   "first_page": "932691",
+   "doi": "10.1155/2013/932691"
+  },
+  {
+   "bib_id": 63,
+   "authors": [
+    {
+     "family": "Laffer",
+     "given": "CL"
+    },
+    {
+     "family": "Elijovich",
+     "given": "F"
+    },
+    {
+     "family": "Sahinoz",
+     "given": "M"
+    },
+    {
+     "family": "Pitzer",
+     "given": "A"
+    },
+    {
+     "family": "Kirabo",
+     "given": "A"
+    }
+   ],
+   "year": "2020",
+   "title": "New Insights Into the Renin-Angiotensin System in Chronic Kidney Disease",
+   "container": "Circ Res",
+   "volume": "127",
+   "first_page": "607",
+   "doi": "10.1161/CIRCRESAHA.120.317624"
+  },
+  {
+   "bib_id": 64,
+   "authors": [
+    {
+     "family": "Chapuy",
+     "given": "MC"
+    },
+    {
+     "family": "Durr",
+     "given": "F"
+    },
+    {
+     "family": "Chapuy",
+     "given": "P"
+    }
+   ],
+   "year": "1983",
+   "title": "Age-related changes in parathyroid hormone and 25 hydroxycholecalciferol levels",
+   "container": "J Gerontol",
+   "volume": "38",
+   "first_page": "19",
+   "last_page": "22",
+   "doi": "10.1093/geronj/38.1.19"
+  },
+  {
+   "bib_id": 65,
+   "authors": [
+    {
+     "family": "Bhattarai",
+     "given": "HK"
+    },
+    {
+     "family": "Shrestha",
+     "given": "S"
+    },
+    {
+     "family": "Rokka",
+     "given": "K"
+    },
+    {
+     "family": "Shakya",
+     "given": "R"
+    }
+   ],
+   "year": "2020",
+   "title": "Vitamin D, calcium, parathyroid hormone, and sex steroids in bone health and effects of aging",
+   "container": "Journal of Osteoporosis",
+   "volume": "2020",
+   "doi": "10.1155/2020/9324505"
+  },
+  {
+   "bib_id": 66,
+   "authors": [
+    {
+     "family": "Yoon",
+     "given": "HE"
+    },
+    {
+     "family": "Choi",
+     "given": "BS"
+    }
+   ],
+   "year": "2014",
+   "title": "The renin-angiotensin system and aging in the kidney",
+   "container": "Korean J Intern Med",
+   "volume": "29",
+   "first_page": "291",
+   "doi": "10.3904/kjim.2014.29.3.291"
+  },
+  {
+   "bib_id": 67,
+   "authors": [
+    {
+     "family": "Hilliard",
+     "given": "LM"
+    },
+    {
+     "family": "Sampson",
+     "given": "AK"
+    },
+    {
+     "family": "Brown",
+     "given": "RD"
+    },
+    {
+     "family": "Denton",
+     "given": "KM"
+    }
+   ],
+   "year": "2013",
+   "title": "The “his and hers” of the renin-angiotensin system",
+   "container": "Curr Hypertens Rep",
+   "volume": "15",
+   "first_page": "71",
+   "doi": "10.1007/s11906-012-0319-y"
+  },
+  {
+   "bib_id": 68,
+   "authors": [
+    {
+     "family": "Khalil",
+     "given": "R"
+    },
+    {
+     "family": "Kim",
+     "given": "NR"
+    },
+    {
+     "family": "Jardi",
+     "given": "F"
+    },
+    {
+     "family": "Vanderschueren",
+     "given": "D"
+    },
+    {
+     "family": "Claessens",
+     "given": "F"
+    },
+    {
+     "family": "Decallonne",
+     "given": "B"
+    }
+   ],
+   "year": "2018",
+   "title": "Sex Steroids and the Kidney: Role in Renal Calcium and Phosphate Handling",
+   "container": "Molecular and Cellular Endocrinology",
+   "volume": "465",
+   "first_page": "61",
+   "last_page": "72",
+   "doi": "10.1016/j.mce.2017.11.011"
+  },
+  {
+   "bib_id": 69,
+   "authors": [
+    {
+     "family": "Hakimi",
+     "given": "S"
+    },
+    {
+     "family": "Dutta",
+     "given": "P"
+    },
+    {
+     "family": "Layton",
+     "given": "AT"
+    }
+   ],
+   "year": "2023",
+   "title": "Coupling of renal sodium and calcium transport: a modeling analysis of transporter inhibition and sex differences",
+   "container": "Am J Physiol Renal Physiol",
+   "volume": "325",
+   "doi": "10.1152/ajprenal.00145.2023"
+  },
+  {
+   "bib_id": 70,
+   "authors": [
+    {
+     "family": "Rianon",
+     "given": "N"
+    },
+    {
+     "family": "Ambrose",
+     "given": "CG"
+    },
+    {
+     "family": "Pervin",
+     "given": "H"
+    },
+    {
+     "family": "Garcia",
+     "given": "M"
+    },
+    {
+     "family": "Mama",
+     "given": "SK"
+    },
+    {
+     "family": "Schwartz",
+     "given": "AV"
+    }
+   ],
+   "year": "2017",
+   "title": "Long-term use of angiotensin-converting enzyme inhibitors protects against bone loss in African-American elderly men",
+   "container": "Arch Osteoporos",
+   "volume": "12",
+   "first_page": "94",
+   "doi": "10.1007/s11657-017-0387-3"
+  },
+  {
+   "bib_id": 71,
+   "authors": [
+    {
+     "family": "Layton",
+     "given": "AT"
+    }
+   ],
+   "year": "2024",
+   "title": "We are all different: Modeling key individual differences in physiological systems",
+   "container": "Math Biosci",
+   "volume": "378",
+   "first_page": "109338",
+   "doi": "10.1016/j.mbs.2024.109338"
+  },
+  {
+   "bib_id": 72,
+   "authors": [
+    {
+     "family": "Lumbers",
+     "given": "ER"
+    }
+   ],
+   "year": "1999",
+   "title": "Angiotensin and aldosterone",
+   "container": "Regul Pept",
+   "volume": "80",
+   "first_page": "91",
+   "last_page": "100",
+   "doi": "10.1016/s0167-0115(99)00026-9"
+  },
+  {
+   "bib_id": 73,
+   "authors": [
+    {
+     "family": "Leclerc",
+     "given": "M"
+    },
+    {
+     "family": "Brunette",
+     "given": "MG"
+    },
+    {
+     "family": "Couchourel",
+     "given": "D"
+    }
+   ],
+   "year": "2004",
+   "title": "Aldosterone enhances renal calcium reabsorption by two types of channels",
+   "container": "Kidney Int",
+   "volume": "66",
+   "first_page": "242",
+   "doi": "10.1111/j.1523-1755.2004.00725.x"
+  },
+  {
+   "bib_id": 74,
+   "authors": [
+    {
+     "family": "Song",
+     "given": "S"
+    },
+    {
+     "family": "Cai",
+     "given": "X"
+    },
+    {
+     "family": "Hu",
+     "given": "J"
+    },
+    {
+     "family": "Zhu",
+     "given": "Q"
+    },
+    {
+     "family": "Shen",
+     "given": "D"
+    },
+    {
+     "family": "Ma",
+     "given": "H"
+    }
+   ],
+   "year": "2024",
+   "title": "Effectiveness of Spironolactone in Reducing Osteoporosis and Future Fracture Risk in Middle-Aged and Elderly Hypertensive Patients",
+   "container": "Drug Des Devel Ther",
+   "volume": "18",
+   "first_page": "2215",
+   "doi": "10.2147/DDDT.S466904"
+  },
+  {
+   "bib_id": 75,
+   "authors": [
+    {
+     "family": "Sernia",
+     "given": "C"
+    },
+    {
+     "family": "Huang",
+     "given": "H"
+    },
+    {
+     "family": "Nguyuen",
+     "given": "K"
+    },
+    {
+     "family": "Li",
+     "given": "Y-H"
+    },
+    {
+     "family": "Hsu",
+     "given": "S"
+    },
+    {
+     "family": "Chen",
+     "given": "M"
+    }
+   ],
+   "year": "2007",
+   "title": "Bone Homeostasis: An Emerging Role for the Renin-Angiotensin System",
+   "container": "Frontiers in Research of the Renin-Angiotensin System on Human Disease",
+   "first_page": "179",
+   "doi": "10.1007/978-1-4020-6372-5_9"
+  },
+  {
+   "bib_id": 76,
+   "authors": [
+    {
+     "family": "Smith",
+     "given": "D"
+    },
+    {
+     "family": "Layton",
+     "given": "A"
+    }
+   ],
+   "year": "2023",
+   "title": "The intrarenal renin-angiotensin system in hypertension: insights from mathematical modelling",
+   "container": "J Math Biol",
+   "volume": "86",
+   "first_page": "58",
+   "doi": "10.1007/s00285-023-01891-y"
+  },
+  {
+   "bib_id": 77,
+   "authors": [
+    {
+     "family": "Sirikul",
+     "given": "W"
+    },
+    {
+     "family": "Siri-Angkul",
+     "given": "N"
+    },
+    {
+     "family": "Chattipakorn",
+     "given": "N"
+    },
+    {
+     "family": "Chattipakorn",
+     "given": "SC"
+    }
+   ],
+   "year": "2022",
+   "title": "Fibroblast Growth Factor 23 and Osteoporosis: Evidence from Bench to Bedside",
+   "container": "Int J Mol Sci",
+   "volume": "23",
+   "first_page": "2500",
+   "doi": "10.3390/ijms23052500"
+  },
+  {
+   "bib_id": 78,
+   "authors": [
+    {
+     "family": "Sims",
+     "given": "ST"
+    },
+    {
+     "family": "Heather",
+     "given": "AK"
+    }
+   ],
+   "year": "2018",
+   "title": "Myths and Methodologies: Reducing scientific design ambiguity in studies comparing sexes and/or menstrual cycle phases",
+   "container": "Exp Physiol",
+   "volume": "103",
+   "first_page": "1309",
+   "doi": "10.1113/EP086797"
+  },
+  {
+   "bib_id": 79,
+   "authors": [
+    {
+     "family": "Abo",
+     "given": "S"
+    },
+    {
+     "family": "Smith",
+     "given": "D"
+    },
+    {
+     "family": "Stadt",
+     "given": "M"
+    },
+    {
+     "family": "Layton",
+     "given": "A"
+    }
+   ],
+   "year": "2022",
+   "title": "Modelling female physiology from head to Toe: Impact of sex hormones, menstrual cycle, and pregnancy",
+   "container": "J Theor Biol",
+   "volume": "540",
+   "first_page": "111074",
+   "doi": "10.1016/j.jtbi.2022.111074"
+  },
+  {
+   "bib_id": 80,
+   "authors": [
+    {
+     "family": "Napso",
+     "given": "T"
+    },
+    {
+     "family": "Yong",
+     "given": "HEJ"
+    },
+    {
+     "family": "Lopez-Tello",
+     "given": "J"
+    },
+    {
+     "family": "Sferruzzi-Perri",
+     "given": "AN"
+    }
+   ],
+   "year": "2018",
+   "title": "The Role of Placental Hormones in Mediating Maternal Adaptations to Support Pregnancy and Lactation",
+   "container": "Front Physiol",
+   "volume": "9",
+   "first_page": "1091",
+   "doi": "10.3389/fphys.2018.01091"
+  },
+  {
+   "bib_id": 81,
+   "authors": [
+    {
+     "family": "Kovacs",
+     "given": "CS"
+    }
+   ],
+   "year": "2016",
+   "title": "Maternal mineral and bone metabolism during pregnancy, lactation, and post-weaning recovery",
+   "container": "Physiological Reviews",
+   "volume": "96",
+   "first_page": "449",
+   "last_page": "547",
+   "doi": "10.1152/physrev.00027.2015"
+  },
+  {
+   "bib_id": 82,
+   "authors": [
+    {
+     "family": "Stadt",
+     "given": "MM"
+    },
+    {
+     "family": "Layton",
+     "given": "AT"
+    }
+   ],
+   "year": "2023",
+   "title": "Mathematical modeling of calcium homeostasis in female rats: An analysis of sex differences and maternal adaptations",
+   "container": "J Theor Biol",
+   "volume": "572",
+   "first_page": "111583",
+   "doi": "10.1016/j.jtbi.2023.111583"
+  },
+  {
+   "bib_id": 83,
+   "authors": [
+    {
+     "family": "Sowers",
+     "given": "M"
+    },
+    {
+     "family": "Crawford",
+     "given": "S"
+    },
+    {
+     "family": "Sternfeld",
+     "given": "B"
+    },
+    {
+     "family": "Morganstein",
+     "given": "D"
+    },
+    {
+     "family": "Gold",
+     "given": "E"
+    },
+    {
+     "family": "Greendale",
+     "given": "G"
+    }
+   ],
+   "year": "2000",
+   "title": "SWAN: A Multicenter, Multiethnic, Community-Based Cohort Study of Women and the Menopausal Transition",
+   "container": "Sybil L Crawford"
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-core-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "jats_doi": "10.1371/journal.pcbi.1013101"
+ }
+}

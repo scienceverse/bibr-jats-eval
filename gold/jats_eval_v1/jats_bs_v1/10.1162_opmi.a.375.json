@@ -1,0 +1,751 @@
+{
+ "paper_id": "10.1162_opmi.a.375",
+ "info": {
+  "title": "POPKI: Modeling Surprise in a Physically-Grounded Joint Inference of Observation, Preference, and Knowledge",
+  "doi": "10.1162/OPMI.a.375",
+  "file_name": "10.1162_opmi.a.375.pdf",
+  "keywords": [
+   "intuitive psychology",
+   "perceptual access",
+   "knowledge",
+   "Bayesian inverse planning",
+   "violation of expectation"
+  ],
+  "abstract": "People naturally take into account others’ limited perceptual access when attributing mental states such as preferences and knowledge. This ability is central to intuitive psychology, and even infants recognize when others have only partial observability. Understanding how mental state attributions adapt under limited perceptual access is thus crucial for advancing models of intuitive psychology. Here, we introduce POPKI (Physically-grounded Observation, Preference, and Knowledge Inference), a Bayesian inverse-planning framework designed to model graded surprise based on agents’ inferred preferences and knowledge in visually constrained 3D environments. Building on and expanding the AGENT dataset, we develop new scenarios that test how partial observability shapes judgments of surprise. Despite the tremendous progress of state-of-the-art vision-language models (VLMs), our experiments show that they fail to capture the nuances of perceptual access when judging surprise. POPKI, in contrast, offers a principled approach to modeling human-like uncertainty under partial observability and closely replicates human surprise patterns. It provides a foundation for advancing psychological reasoning models and enhancing human-AI interaction."
+ },
+ "author": [
+  {
+   "author_id": 1,
+   "given": "Harry",
+   "family": "Chen",
+   "affiliation": "Department of Brain & Cognitive Sciences, Massachusetts Institute of Technology, Cambridge, MA, USA",
+   "email": "",
+   "orcid": "",
+   "corresponding": true
+  },
+  {
+   "author_id": 2,
+   "given": "Karen",
+   "family": "Chung",
+   "affiliation": "Department of Electrical Engineering & Computer Science, Massachusetts Institute of Technology, Cambridge, MA, USA",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 3,
+   "given": "Abhishek",
+   "family": "Bhandwaldar",
+   "affiliation": "MIT-IBM Watson AI Lab, Massachusetts Institute of Technology, Cambridge, MA, USA",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 4,
+   "given": "Joshua B.",
+   "family": "Tenenbaum",
+   "affiliation": "Department of Brain & Cognitive Sciences, Massachusetts Institute of Technology, Cambridge, MA, USA",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 5,
+   "given": "Tomer D.",
+   "family": "Ullman",
+   "affiliation": "Department of Psychology, Harvard University, Cambridge, MA, USA",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 6,
+   "given": "Tianmin",
+   "family": "Shu",
+   "affiliation": "Department of Computer Science & Department of Cognitive Science, Johns Hopkins University, Baltimore, MD, USA",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  }
+ ],
+ "section": [
+  {
+   "section_id": 1,
+   "section_type": "abstract",
+   "header": "Abstract",
+   "level": 1,
+   "parent_section_id": null,
+   "classification_score": 1.0
+  }
+ ],
+ "text": [
+  {
+   "text_id": 1,
+   "section_id": 1,
+   "paragraph_id": 1,
+   "text": "People naturally take into account others’ limited perceptual access when attributing mental states such as preferences and knowledge. This ability is central to intuitive psychology, and even infants recognize when others have only partial observability. Understanding how mental state attributions adapt under limited perceptual access is thus crucial for advancing models of intuitive psychology. Here, we introduce POPKI (Physically-grounded Observation, Preference, and Knowledge Inference), a Bayesian inverse-planning framework designed to model graded surprise based on agents’ inferred preferences and knowledge in visually constrained 3D environments. Building on and expanding the AGENT dataset, we develop new scenarios that test how partial observability shapes judgments of surprise. Despite the tremendous progress of state-of-the-art vision-language models (VLMs), our experiments show that they fail to capture the nuances of perceptual access when judging surprise. POPKI, in contrast, offers a principled approach to modeling human-like uncertainty under partial observability and closely replicates human surprise patterns. It provides a foundation for advancing psychological reasoning models and enhancing human-AI interaction.",
+   "page_number": 1
+  }
+ ],
+ "bib": [
+  {
+   "bib_id": 1,
+   "authors": [
+    {
+     "family": "Baker",
+     "given": "C. L."
+    },
+    {
+     "family": "Jara-Ettinger",
+     "given": "J."
+    },
+    {
+     "family": "Saxe",
+     "given": "R."
+    },
+    {
+     "family": "Tenenbaum",
+     "given": "J. B."
+    }
+   ],
+   "year": "2017",
+   "title": "Rational quantitative attribution of beliefs, desires and percepts in human mentalizing",
+   "container": "Nature Human Behaviour",
+   "volume": "1",
+   "first_page": "0064",
+   "doi": "10.1038/s41562-017-0064"
+  },
+  {
+   "bib_id": 2,
+   "authors": [
+    {
+     "family": "Chen",
+     "given": "Z."
+    },
+    {
+     "family": "Wu",
+     "given": "J."
+    },
+    {
+     "family": "Zhou",
+     "given": "J."
+    },
+    {
+     "family": "Wen",
+     "given": "B."
+    },
+    {
+     "family": "Bi",
+     "given": "G."
+    },
+    {
+     "family": "Jiang",
+     "given": "G."
+    },
+    {
+     "family": "Cao",
+     "given": "Y."
+    },
+    {
+     "family": "Hu",
+     "given": "M."
+    },
+    {
+     "family": "Lai",
+     "given": "Y."
+    },
+    {
+     "family": "Xiong",
+     "given": "Z."
+    },
+    {
+     "family": "Huang",
+     "given": "M."
+    }
+   ],
+   "year": "2024",
+   "title": "ToMBench: Benchmarking theory of mind in large language models",
+   "container": "arXiv",
+   "doi": "10.48550/arXiv.2402.15052"
+  },
+  {
+   "bib_id": 3,
+   "authors": [
+    {
+     "family": "Comanici",
+     "given": "G."
+    },
+    {
+     "family": "Bieber",
+     "given": "E."
+    },
+    {
+     "family": "Schaekermann",
+     "given": "M."
+    },
+    {
+     "family": "Pasupat",
+     "given": "I."
+    },
+    {
+     "family": "Sachdeva",
+     "given": "N."
+    },
+    {
+     "family": "Dhillon",
+     "given": "I."
+    },
+    {
+     "family": "Blistein",
+     "given": "M."
+    },
+    {
+     "family": "Ram",
+     "given": "O."
+    },
+    {
+     "family": "Zhang",
+     "given": "D."
+    },
+    {
+     "family": "Rosen",
+     "given": "E."
+    },
+    {
+     "family": "Marris",
+     "given": "L."
+    },
+    {
+     "family": "Petulla",
+     "given": "S."
+    },
+    {
+     "family": "Gaffney",
+     "given": "C."
+    },
+    {
+     "family": "Aharoni",
+     "given": "A."
+    },
+    {
+     "family": "Lintz",
+     "given": "N."
+    },
+    {
+     "family": "Pais",
+     "given": "T. C."
+    },
+    {
+     "family": "Jacobsson",
+     "given": "H."
+    },
+    {
+     "family": "Szpektor",
+     "given": "I."
+    },
+    {
+     "family": "Jiang",
+     "given": "N.-J."
+    },
+    {
+     "family": "Helmholz",
+     "given": "W."
+    }
+   ],
+   "year": "2025",
+   "title": "Gemini 2.5: Pushing the frontier with advanced reasoning, multimodality, long context, and next generation agentic capabilities",
+   "container": "arXiv",
+   "doi": "10.48550/arXiv.2507.06261"
+  },
+  {
+   "bib_id": 4,
+   "authors": [
+    {
+     "family": "Coumans",
+     "given": "E."
+    },
+    {
+     "family": "Bai",
+     "given": "Y."
+    }
+   ],
+   "year": "2016",
+   "title": "Pybullet, a Python module for physics simulation for games, robotics and machine learning"
+  },
+  {
+   "bib_id": 5,
+   "authors": [
+    {
+     "family": "Csibra",
+     "given": "G."
+    },
+    {
+     "family": "Bíró",
+     "given": "Z."
+    },
+    {
+     "family": "Koós",
+     "given": "O."
+    },
+    {
+     "family": "Gergely",
+     "given": "G."
+    }
+   ],
+   "year": "2003",
+   "title": "One-year-old infants use teleological representations of actions productively",
+   "container": "Cognitive Science",
+   "volume": "27",
+   "first_page": "111",
+   "last_page": "133",
+   "doi": "10.1207/s15516709cog2701_4"
+  },
+  {
+   "bib_id": 6,
+   "authors": [
+    {
+     "family": "Cusumano-Towner",
+     "given": "M. F."
+    },
+    {
+     "family": "Saad",
+     "given": "F. A."
+    },
+    {
+     "family": "Lew",
+     "given": "A. K."
+    },
+    {
+     "family": "Mansinghka",
+     "given": "V. K."
+    }
+   ],
+   "year": "2019",
+   "title": "Gen: A general-purpose probabilistic programming system with programmable inference",
+   "first_page": "221",
+   "last_page": "236",
+   "doi": "10.1145/3314221.3314642"
+  },
+  {
+   "bib_id": 7,
+   "authors": [
+    {
+     "family": "Dennett",
+     "given": "D. C."
+    }
+   ],
+   "year": "1987",
+   "title": "The intentional stance"
+  },
+  {
+   "bib_id": 8,
+   "authors": [
+    {
+     "family": "Gao",
+     "given": "Q."
+    },
+    {
+     "family": "Li",
+     "given": "Y."
+    },
+    {
+     "family": "Lyu",
+     "given": "H."
+    },
+    {
+     "family": "Sun",
+     "given": "H."
+    },
+    {
+     "family": "Luo",
+     "given": "D."
+    },
+    {
+     "family": "Deng",
+     "given": "H."
+    }
+   ],
+   "year": "2025",
+   "title": "Vision language models see what you want but not what you see",
+   "container": "arXiv",
+   "doi": "10.48550/arXiv.2410.00324"
+  },
+  {
+   "bib_id": 9,
+   "authors": [
+    {
+     "family": "Karaman",
+     "given": "S."
+    },
+    {
+     "family": "Walter",
+     "given": "M. R."
+    },
+    {
+     "family": "Perez",
+     "given": "A."
+    },
+    {
+     "family": "Frazzoli",
+     "given": "E."
+    },
+    {
+     "family": "Teller",
+     "given": "S."
+    }
+   ],
+   "year": "2011",
+   "title": "Anytime motion planning using the RRT*",
+   "container": "2011 IEEE International Conference on Robotics and Automation",
+   "first_page": "1478",
+   "last_page": "1483",
+   "doi": "10.1109/ICRA.2011.5980479"
+  },
+  {
+   "bib_id": 10,
+   "authors": [
+    {
+     "family": "Kingma",
+     "given": "D. P."
+    },
+    {
+     "family": "Ba",
+     "given": "J."
+    }
+   ],
+   "year": "2017",
+   "title": "Adam: A method for stochastic optimization",
+   "container": "arXiv",
+   "doi": "10.48550/arXiv.1412.6980"
+  },
+  {
+   "bib_id": 11,
+   "authors": [
+    {
+     "family": "Lee",
+     "given": "P. Y."
+    },
+    {
+     "family": "Je",
+     "given": "J."
+    },
+    {
+     "family": "Park",
+     "given": "C."
+    },
+    {
+     "family": "Uy",
+     "given": "M. A."
+    },
+    {
+     "family": "Guibas",
+     "given": "L."
+    },
+    {
+     "family": "Sung",
+     "given": "M."
+    }
+   ],
+   "year": "2025",
+   "title": "Perspective-aware reasoning in vision-language models via mental imagery simulation",
+   "container": "arXiv",
+   "doi": "10.48550/arXiv.2504.17207"
+  },
+  {
+   "bib_id": 12,
+   "authors": [
+    {
+     "family": "Liu",
+     "given": "S."
+    },
+    {
+     "family": "Karakose-Akbiyik",
+     "given": "S."
+    },
+    {
+     "family": "Outa",
+     "given": "J."
+    },
+    {
+     "family": "Kim",
+     "given": "M. J."
+    }
+   ],
+   "year": "2026",
+   "title": "How physical information is used to make sense of the psychological world",
+   "container": "Nature Reviews Psychology",
+   "volume": "5",
+   "first_page": "59",
+   "last_page": "73",
+   "doi": "10.1038/s44159-025-00514-1"
+  },
+  {
+   "bib_id": 13,
+   "authors": [
+    {
+     "family": "Luo",
+     "given": "Y."
+    },
+    {
+     "family": "Baillargeon",
+     "given": "R."
+    }
+   ],
+   "year": "2007",
+   "title": "Do 12.5-month-old infants consider what objects others can see when interpreting their actions?",
+   "container": "Cognition",
+   "volume": "105",
+   "first_page": "489",
+   "last_page": "512",
+   "doi": "10.1016/j.cognition.2006.10.007"
+  },
+  {
+   "bib_id": 14,
+   "authors": [
+    {
+     "family": "Achiam",
+     "given": "J."
+    },
+    {
+     "family": "Adler",
+     "given": "S."
+    },
+    {
+     "family": "Agarwal",
+     "given": "S."
+    },
+    {
+     "family": "Ahmad",
+     "given": "L."
+    },
+    {
+     "family": "Akkaya",
+     "given": "I."
+    },
+    {
+     "family": "Aleman",
+     "given": "F. L."
+    },
+    {
+     "family": "Almeida",
+     "given": "D."
+    },
+    {
+     "family": "Altenschmidt",
+     "given": "J."
+    },
+    {
+     "family": "Altman",
+     "given": "S."
+    },
+    {
+     "family": "Anadkat",
+     "given": "S."
+    },
+    {
+     "family": "Avila",
+     "given": "R."
+    },
+    {
+     "family": "Babuschkin",
+     "given": "I."
+    },
+    {
+     "family": "Balahi",
+     "given": "S."
+    },
+    {
+     "family": "Balcom",
+     "given": "V."
+    },
+    {
+     "family": "Baltescu",
+     "given": "P."
+    },
+    {
+     "family": "Bao",
+     "given": "H."
+    },
+    {
+     "family": "Bavarian",
+     "given": "M."
+    },
+    {
+     "family": "Belgum",
+     "given": "J."
+    },
+    {
+     "family": "Zoph",
+     "given": "B."
+    }
+   ],
+   "year": "2024",
+   "title": "GPT-4 technical report",
+   "container": "arXiv",
+   "doi": "10.48550/arXiv.2303.08774"
+  },
+  {
+   "bib_id": 15,
+   "authors": [
+    {
+     "family": "Premack",
+     "given": "D."
+    },
+    {
+     "family": "Woodruff",
+     "given": "G."
+    }
+   ],
+   "year": "1978",
+   "title": "Does the chimpanzee have a theory of mind?",
+   "container": "Behavioral and Brain Sciences",
+   "volume": "1",
+   "first_page": "515",
+   "last_page": "526",
+   "doi": "10.1017/S0140525X00076512"
+  },
+  {
+   "bib_id": 16,
+   "authors": [
+    {
+     "family": "Rabinowitz",
+     "given": "N."
+    },
+    {
+     "family": "Perbet",
+     "given": "F."
+    },
+    {
+     "family": "Song",
+     "given": "F."
+    },
+    {
+     "family": "Zhang",
+     "given": "C."
+    },
+    {
+     "family": "Eslami",
+     "given": "S. A."
+    },
+    {
+     "family": "Botvinick",
+     "given": "M."
+    }
+   ],
+   "year": "2018",
+   "title": "Machine theory of mind",
+   "container": "Proceedings of the 35th International Conference on Machine Learning",
+   "volume": "Vol. 80",
+   "first_page": "4218",
+   "last_page": "4227"
+  },
+  {
+   "bib_id": 17,
+   "authors": [
+    {
+     "family": "Shu",
+     "given": "T."
+    },
+    {
+     "family": "Bhandwaldar",
+     "given": "A."
+    },
+    {
+     "family": "Gan",
+     "given": "C."
+    },
+    {
+     "family": "Smith",
+     "given": "K. A."
+    },
+    {
+     "family": "Liu",
+     "given": "S."
+    },
+    {
+     "family": "Gutfreund",
+     "given": "D."
+    },
+    {
+     "family": "Spelke",
+     "given": "E."
+    },
+    {
+     "family": "Tenenbaum",
+     "given": "J. B."
+    },
+    {
+     "family": "Ullman",
+     "given": "T. D."
+    }
+   ],
+   "year": "2021",
+   "title": "AGENT: A benchmark for core psychological reasoning",
+   "container": "Proceedings of the 38th International Conference on Machine Learning",
+   "volume": "Vol. 139"
+  },
+  {
+   "bib_id": 18,
+   "authors": [
+    {
+     "family": "Tomasello",
+     "given": "M."
+    }
+   ],
+   "year": "1999",
+   "title": "The cultural origins of human cognition",
+   "doi": "10.4159/9780674044371"
+  },
+  {
+   "bib_id": 19,
+   "authors": [
+    {
+     "family": "Wang",
+     "given": "M."
+    },
+    {
+     "family": "Li",
+     "given": "Y."
+    },
+    {
+     "family": "Wang",
+     "given": "B."
+    },
+    {
+     "family": "Zhao",
+     "given": "T."
+    },
+    {
+     "family": "Ji",
+     "given": "R."
+    },
+    {
+     "family": "Gao",
+     "given": "Q."
+    },
+    {
+     "family": "Liu",
+     "given": "E."
+    },
+    {
+     "family": "Deng",
+     "given": "H."
+    },
+    {
+     "family": "Luo",
+     "given": "D."
+    }
+   ],
+   "year": "2026",
+   "title": "Egocentric bias in vision-language models",
+   "container": "arXiv",
+   "doi": "10.48550/arXiv.2602.15892"
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-core-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "jats_doi": "10.1162/OPMI.a.375"
+ }
+}

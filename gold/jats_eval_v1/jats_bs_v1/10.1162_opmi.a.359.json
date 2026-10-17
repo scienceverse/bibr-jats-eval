@@ -1,0 +1,735 @@
+{
+ "paper_id": "10.1162_opmi.a.359",
+ "info": {
+  "title": "Confidence Is Detection-Like in High-Dimensional Spaces",
+  "doi": "10.1162/OPMI.a.359",
+  "file_name": "10.1162_opmi.a.359.pdf",
+  "keywords": [
+   "metacognition",
+   "confidence",
+   "inference",
+   "positive evidence bias",
+   "signal detection theory"
+  ],
+  "abstract": "Confidence estimates are often “detection-like”—driven by positive evidence in favour of a decision. This empirical observation has been interpreted as showing that human metacognition is limited by biases or heuristics. Here, we show that Bayesian confidence estimates also exhibit heightened sensitivity to decision-congruent evidence in higher-dimensional signal detection theoretic spaces, leading to detection-like confidence criteria. This effect is due to a nonlinearity induced by normalisation of confidence by a large number of unchosen alternatives. Our analysis suggests that detection-like confidence is rational when participants consider a greater number of hypotheses than assumed by the experimenter. Further, we show that a similar dimensionality-driven mechanism can give rise to and modulate the strength of the positive evidence biases in convolutional neural networks, linking our signal detection theoretic analysis to confidence behaviour in artificial systems."
+ },
+ "author": [
+  {
+   "author_id": 1,
+   "given": "Wiktoria",
+   "family": "Kozyra",
+   "affiliation": "Department of Experimental Psychology, University of Oxford, Oxford, UK",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 2,
+   "given": "Kevin",
+   "family": "O’Neill",
+   "affiliation": "Department of Experimental Psychology, University College London, London, UK; Institute of Cognitive Neuroscience, University College London, London, UK",
+   "email": "",
+   "orcid": "",
+   "corresponding": true
+  },
+  {
+   "author_id": 3,
+   "given": "Stephen M.",
+   "family": "Fleming",
+   "affiliation": "Department of Experimental Psychology, University College London, London, UK; Institute of Cognitive Neuroscience, University College London, London, UK; Max Planck UCL Centre for Computational Psychiatry and Ageing Research, University College London, London, UK",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  }
+ ],
+ "section": [
+  {
+   "section_id": 1,
+   "section_type": "abstract",
+   "header": "Abstract",
+   "level": 1,
+   "parent_section_id": null,
+   "classification_score": 1.0
+  }
+ ],
+ "text": [
+  {
+   "text_id": 1,
+   "section_id": 1,
+   "paragraph_id": 1,
+   "text": "Confidence estimates are often “detection-like”—driven by positive evidence in favour of a decision. This empirical observation has been interpreted as showing that human metacognition is limited by biases or heuristics. Here, we show that Bayesian confidence estimates also exhibit heightened sensitivity to decision-congruent evidence in higher-dimensional signal detection theoretic spaces, leading to detection-like confidence criteria. This effect is due to a nonlinearity induced by normalisation of confidence by a large number of unchosen alternatives. Our analysis suggests that detection-like confidence is rational when participants consider a greater number of hypotheses than assumed by the experimenter. Further, we show that a similar dimensionality-driven mechanism can give rise to and modulate the strength of the positive evidence biases in convolutional neural networks, linking our signal detection theoretic analysis to confidence behaviour in artificial systems.",
+   "page_number": 1
+  }
+ ],
+ "bib": [
+  {
+   "bib_id": 1,
+   "authors": [
+    {
+     "family": "Azzopardi",
+     "given": "P."
+    },
+    {
+     "family": "Cowey",
+     "given": "A."
+    }
+   ],
+   "year": "1997",
+   "title": "Is blindsight like normal, near-threshold vision?",
+   "container": "Proceedings of the National Academy of Sciences",
+   "volume": "94",
+   "first_page": "14190",
+   "last_page": "14194",
+   "doi": "10.1073/pnas.94.25.14190"
+  },
+  {
+   "bib_id": 2,
+   "authors": [
+    {
+     "family": "Fleming",
+     "given": "S. M."
+    },
+    {
+     "family": "Lau",
+     "given": "H. C."
+    }
+   ],
+   "year": "2014",
+   "title": "How to measure metacognition",
+   "container": "Frontiers in Human Neuroscience",
+   "volume": "8",
+   "first_page": "443",
+   "doi": "10.3389/fnhum.2014.00443"
+  },
+  {
+   "bib_id": 3,
+   "authors": [
+    {
+     "family": "Hautus",
+     "given": "M. J."
+    },
+    {
+     "family": "Macmillan",
+     "given": "N. A."
+    },
+    {
+     "family": "Creelman",
+     "given": "C. D."
+    }
+   ],
+   "year": "2021",
+   "title": "Detection theory: A user’s guide",
+   "doi": "10.4324/9781003203636"
+  },
+  {
+   "bib_id": 4,
+   "authors": [
+    {
+     "family": "Khalvati",
+     "given": "K."
+    },
+    {
+     "family": "Kiani",
+     "given": "R."
+    },
+    {
+     "family": "Rao",
+     "given": "R. P. N."
+    }
+   ],
+   "year": "2021",
+   "title": "Bayesian inference with incomplete knowledge explains perceptual confidence and its deviations from accuracy",
+   "container": "Nature Communications",
+   "volume": "12",
+   "first_page": "5704",
+   "doi": "10.1038/s41467-021-25419-4"
+  },
+  {
+   "bib_id": 5,
+   "authors": [
+    {
+     "family": "Koizumi",
+     "given": "A."
+    },
+    {
+     "family": "Maniscalco",
+     "given": "B."
+    },
+    {
+     "family": "Lau",
+     "given": "H. C."
+    }
+   ],
+   "year": "2015",
+   "title": "Does perceptual confidence facilitate cognitive control?",
+   "container": "Attention, Perception, & Psychophysics",
+   "volume": "77",
+   "first_page": "1295",
+   "last_page": "1306",
+   "doi": "10.3758/s13414-015-0843-3"
+  },
+  {
+   "bib_id": 6,
+   "authors": [
+    {
+     "family": "Koriat",
+     "given": "A."
+    },
+    {
+     "family": "Lichtenstein",
+     "given": "S."
+    },
+    {
+     "family": "Fischhoff",
+     "given": "B."
+    }
+   ],
+   "year": "1980",
+   "title": "Reasons for confidence",
+   "container": "Journal of Experimental Psychology: Human Learning and Memory",
+   "volume": "6",
+   "first_page": "107",
+   "last_page": "118",
+   "doi": "10.1037/0278-7393.6.2.107"
+  },
+  {
+   "bib_id": 7,
+   "authors": [
+    {
+     "family": "Li",
+     "given": "H.-H."
+    },
+    {
+     "family": "Ma",
+     "given": "W. J."
+    }
+   ],
+   "year": "2020",
+   "title": "Confidence reports in decision-making with multiple alternatives violate the Bayesian confidence hypothesis",
+   "container": "Nature Communications",
+   "volume": "11",
+   "first_page": "2004",
+   "doi": "10.1038/s41467-020-15581-6"
+  },
+  {
+   "bib_id": 8,
+   "authors": [
+    {
+     "family": "Maniscalco",
+     "given": "B."
+    },
+    {
+     "family": "Odegaard",
+     "given": "B."
+    },
+    {
+     "family": "Grimaldi",
+     "given": "P."
+    },
+    {
+     "family": "Cho",
+     "given": "S. H."
+    },
+    {
+     "family": "Basso",
+     "given": "M. A."
+    },
+    {
+     "family": "Lau",
+     "given": "H."
+    },
+    {
+     "family": "Peters",
+     "given": "M. A. K."
+    }
+   ],
+   "year": "2021",
+   "title": "Tuned inhibition in perceptual decision-making circuits can explain seemingly suboptimal confidence behavior",
+   "container": "PLoS Computational Biology",
+   "volume": "17",
+   "first_page": "e1008779",
+   "doi": "10.1371/journal.pcbi.1008779"
+  },
+  {
+   "bib_id": 9,
+   "authors": [
+    {
+     "family": "Maniscalco",
+     "given": "B."
+    },
+    {
+     "family": "Peters",
+     "given": "M. A. K."
+    },
+    {
+     "family": "Lau",
+     "given": "H. C."
+    }
+   ],
+   "year": "2016",
+   "title": "Heuristic use of perceptual evidence leads to dissociation between performance and metacognitive sensitivity",
+   "container": "Attention, Perception, & Psychophysics",
+   "volume": "78",
+   "first_page": "923",
+   "last_page": "937",
+   "doi": "10.3758/s13414-016-1059-x"
+  },
+  {
+   "bib_id": 10,
+   "authors": [
+    {
+     "family": "Mazor",
+     "given": "M."
+    },
+    {
+     "family": "Maimon-Mor",
+     "given": "R. O."
+    },
+    {
+     "family": "Charles",
+     "given": "L."
+    },
+    {
+     "family": "Fleming",
+     "given": "S. M."
+    }
+   ],
+   "year": "2023",
+   "title": "Paradoxical evidence weighting in confidence judgments for detection and discrimination",
+   "container": "Attention, Perception, & Psychophysics",
+   "volume": "85",
+   "first_page": "2356",
+   "last_page": "2385",
+   "doi": "10.3758/s13414-023-02710-8"
+  },
+  {
+   "bib_id": 11,
+   "authors": [
+    {
+     "family": "Miyoshi",
+     "given": "K."
+    },
+    {
+     "family": "Lau",
+     "given": "H."
+    }
+   ],
+   "year": "2020",
+   "title": "A decision-congruent heuristic gives superior metacognitive sensitivity under realistic variance assumptions",
+   "container": "Psychological Review",
+   "volume": "127",
+   "first_page": "655",
+   "last_page": "671",
+   "doi": "10.1037/rev0000184"
+  },
+  {
+   "bib_id": 12,
+   "authors": [
+    {
+     "family": "Molano-Mazón",
+     "given": "M."
+    },
+    {
+     "family": "Shao",
+     "given": "Y."
+    },
+    {
+     "family": "Duque",
+     "given": "D."
+    },
+    {
+     "family": "Yang",
+     "given": "G. R."
+    },
+    {
+     "family": "Ostojic",
+     "given": "S."
+    },
+    {
+     "family": "de la Rocha",
+     "given": "J."
+    }
+   ],
+   "year": "2023",
+   "title": "Recurrent networks endowed with structural priors explain suboptimal animal behavior",
+   "container": "Current Biology",
+   "volume": "33",
+   "first_page": "622",
+   "last_page": "638",
+   "doi": "10.1016/j.cub.2022.12.044"
+  },
+  {
+   "bib_id": 13,
+   "authors": [
+    {
+     "family": "Moore",
+     "given": "D. A."
+    }
+   ],
+   "year": "2023",
+   "title": "Overprecision is a property of thinking systems",
+   "container": "Psychological Review",
+   "volume": "130",
+   "first_page": "1339",
+   "last_page": "1350",
+   "doi": "10.1037/rev0000370"
+  },
+  {
+   "bib_id": 14,
+   "authors": [
+    {
+     "family": "Odegaard",
+     "given": "B."
+    },
+    {
+     "family": "Grimaldi",
+     "given": "P."
+    },
+    {
+     "family": "Cho",
+     "given": "S. H."
+    },
+    {
+     "family": "Peters",
+     "given": "M. A. K."
+    },
+    {
+     "family": "Lau",
+     "given": "H."
+    },
+    {
+     "family": "Basso",
+     "given": "M. A."
+    }
+   ],
+   "year": "2018",
+   "title": "Superior colliculus neuronal ensemble activity signals optimal rather than subjective confidence",
+   "container": "Proceedings of the National Academy of Sciences",
+   "volume": "115",
+   "first_page": "E1588",
+   "last_page": "E1597",
+   "doi": "10.1073/pnas.1711628115"
+  },
+  {
+   "bib_id": 15,
+   "authors": [
+    {
+     "family": "Peters",
+     "given": "M. A. K."
+    },
+    {
+     "family": "Kentridge",
+     "given": "R. W."
+    },
+    {
+     "family": "Phillips",
+     "given": "I."
+    },
+    {
+     "family": "Block",
+     "given": "N."
+    }
+   ],
+   "year": "2017",
+   "title": "Does unconscious perception really exist? Continuing the ASSC20 debate",
+   "container": "Neuroscience of Consciousness",
+   "volume": "2017",
+   "first_page": "nix015",
+   "doi": "10.1093/nc/nix015"
+  },
+  {
+   "bib_id": 16,
+   "authors": [
+    {
+     "family": "Peters",
+     "given": "M. A. K."
+    },
+    {
+     "family": "Lau",
+     "given": "H."
+    }
+   ],
+   "year": "2015",
+   "title": "Human observers have optimal introspective access to perceptual processes even for visually masked stimuli",
+   "container": "eLife",
+   "volume": "4",
+   "first_page": "e09651",
+   "doi": "10.7554/eLife.09651"
+  },
+  {
+   "bib_id": 17,
+   "authors": [
+    {
+     "family": "Peters",
+     "given": "M. A. K."
+    },
+    {
+     "family": "Thesen",
+     "given": "T."
+    },
+    {
+     "family": "Ko",
+     "given": "Y. D."
+    },
+    {
+     "family": "Maniscalco",
+     "given": "B."
+    },
+    {
+     "family": "Carlson",
+     "given": "C."
+    },
+    {
+     "family": "Davidson",
+     "given": "M."
+    },
+    {
+     "family": "Doyle",
+     "given": "W."
+    },
+    {
+     "family": "Kuzniecky",
+     "given": "R."
+    },
+    {
+     "family": "Devinsky",
+     "given": "O."
+    },
+    {
+     "family": "Halgren",
+     "given": "E."
+    },
+    {
+     "family": "Lau",
+     "given": "H. C."
+    }
+   ],
+   "year": "2017",
+   "title": "Perceptual confidence neglects decision-incongruent evidence in the brain",
+   "container": "Nature Human Behaviour",
+   "volume": "1",
+   "first_page": "0139",
+   "doi": "10.1038/s41562-017-0139"
+  },
+  {
+   "bib_id": 18,
+   "authors": [
+    {
+     "family": "Phillips",
+     "given": "I."
+    }
+   ],
+   "year": "2021",
+   "title": "Blindsight is qualitatively degraded conscious vision",
+   "container": "Psychological Review",
+   "volume": "128",
+   "first_page": "558",
+   "last_page": "584",
+   "doi": "10.1037/rev0000254"
+  },
+  {
+   "bib_id": 19,
+   "authors": [
+    {
+     "family": "Rausch",
+     "given": "M."
+    },
+    {
+     "family": "Hellmann",
+     "given": "S."
+    },
+    {
+     "family": "Zehetleitner",
+     "given": "M."
+    }
+   ],
+   "year": "2018",
+   "title": "Confidence in masked orientation judgments is informed by both evidence and visibility",
+   "container": "Attention, Perception, & Psychophysics",
+   "volume": "80",
+   "first_page": "134",
+   "last_page": "154",
+   "doi": "10.3758/s13414-017-1431-5"
+  },
+  {
+   "bib_id": 20,
+   "authors": [
+    {
+     "family": "Rollwage",
+     "given": "M."
+    },
+    {
+     "family": "Loosen",
+     "given": "A."
+    },
+    {
+     "family": "Hauser",
+     "given": "T. U."
+    },
+    {
+     "family": "Moran",
+     "given": "R."
+    },
+    {
+     "family": "Dolan",
+     "given": "R. J."
+    },
+    {
+     "family": "Fleming",
+     "given": "S. M."
+    }
+   ],
+   "year": "2020",
+   "title": "Confidence drives a neural confirmation bias",
+   "container": "Nature Communications",
+   "volume": "11",
+   "first_page": "2634",
+   "doi": "10.1038/s41467-020-16278-6"
+  },
+  {
+   "bib_id": 21,
+   "authors": [
+    {
+     "family": "Samaha",
+     "given": "J."
+    },
+    {
+     "family": "Switzky",
+     "given": "M."
+    },
+    {
+     "family": "Postle",
+     "given": "B. R."
+    }
+   ],
+   "year": "2019",
+   "title": "Confidence boosts serial dependence in orientation estimation",
+   "container": "Journal of Vision",
+   "volume": "19",
+   "first_page": "25",
+   "doi": "10.1167/19.4.25"
+  },
+  {
+   "bib_id": 22,
+   "authors": [
+    {
+     "family": "Sepulveda",
+     "given": "P."
+    },
+    {
+     "family": "Usher",
+     "given": "M."
+    },
+    {
+     "family": "Davies",
+     "given": "N."
+    },
+    {
+     "family": "Benson",
+     "given": "A. A."
+    },
+    {
+     "family": "Ortoleva",
+     "given": "P."
+    },
+    {
+     "family": "De Martino",
+     "given": "B."
+    }
+   ],
+   "year": "2020",
+   "title": "Visual attention modulates the integration of goal-relevant evidence and not value",
+   "container": "eLife",
+   "volume": "9",
+   "first_page": "e60705",
+   "doi": "10.7554/eLife.60705"
+  },
+  {
+   "bib_id": 23,
+   "authors": [
+    {
+     "family": "Webb",
+     "given": "T. W."
+    },
+    {
+     "family": "Miyoshi",
+     "given": "K."
+    },
+    {
+     "family": "So",
+     "given": "T. Y."
+    },
+    {
+     "family": "Rajananda",
+     "given": "S."
+    },
+    {
+     "family": "Lau",
+     "given": "H."
+    }
+   ],
+   "year": "2023",
+   "title": "Natural statistics support a rational account of confidence biases",
+   "container": "Nature Communications",
+   "volume": "14",
+   "first_page": "3992",
+   "doi": "10.1038/s41467-023-39737-2"
+  },
+  {
+   "bib_id": 24,
+   "authors": [
+    {
+     "family": "Weiskrantz",
+     "given": "L."
+    },
+    {
+     "family": "Warrington",
+     "given": "E. K."
+    },
+    {
+     "family": "Sanders",
+     "given": "M. D."
+    },
+    {
+     "family": "Marshall",
+     "given": "J."
+    }
+   ],
+   "year": "1974",
+   "title": "Visual capacity in the hemianopic field following a restricted occipital ablation",
+   "container": "Brain",
+   "volume": "97",
+   "first_page": "709",
+   "last_page": "728",
+   "doi": "10.1093/brain/97.1.709"
+  },
+  {
+   "bib_id": 25,
+   "authors": [
+    {
+     "family": "Zylberberg",
+     "given": "A."
+    },
+    {
+     "family": "Barttfeld",
+     "given": "P."
+    },
+    {
+     "family": "Sigman",
+     "given": "M."
+    }
+   ],
+   "year": "2012",
+   "title": "The construction of confidence in a perceptual decision",
+   "container": "Frontiers in Integrative Neuroscience",
+   "volume": "6",
+   "first_page": "79",
+   "doi": "10.3389/fnint.2012.00079"
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-core-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "jats_doi": "10.1162/OPMI.a.359"
+ }
+}

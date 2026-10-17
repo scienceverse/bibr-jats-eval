@@ -1,0 +1,958 @@
+{
+ "paper_id": "10.1371_journal.pone.0353773",
+ "info": {
+  "title": "Video summarization based on multi-scale feature fusion",
+  "doi": "10.1371/journal.pone.0353773",
+  "file_name": "10.1371_journal.pone.0353773.pdf",
+  "abstract": "Video summarization aims to identify the important segments of a video and form a concise representation, enabling users to quickly grasp the core information. Existing graph-based video summarization methods suffer from insufficient modeling of multi-scale feature interactions and difficulties in balancing local and global features. To address this issue, this paper proposes a multi-scale feature fusion video summarization model based on the Message Passing Neural Network (MPNN) framework. First, the model extracts features of representative frames from video shots, and constructs a graph structure where shot features serve as nodes and inter-shot semantic similarity as edges. Second, it decouples the multi-scale features in the graph via the MPNN, and utilizes the Graph Attention Network (GAT) and Graph Neural Network (GNN) to extract local correlation features and global features, respectively. Finally, it fuses the original shot features, local features and global features as the final features to calculate shot importance and generate the video summary. On SumMe (F1 = 50.0) and TVSum (F1 = 61.8) datasets, MSF-MPNN achieves competitive performance against mainstream RNN/GNN-based methods. MSF-MPNN provides a practical solution for efficient video content extraction, with potential in video surveillance and short-video platforms."
+ },
+ "author": [
+  {
+   "author_id": 1,
+   "given": "Jing",
+   "family": "Bao",
+   "affiliation": "School of Cyberspace Security, Gansu University of Political Science and Law, Lanzhou, Gansu, China",
+   "email": "",
+   "orcid": "",
+   "corresponding": true
+  },
+  {
+   "author_id": 2,
+   "given": "Shipeng",
+   "family": "Xu",
+   "affiliation": "School of Cyberspace Security, Gansu University of Political Science and Law, Lanzhou, Gansu, China",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 3,
+   "given": "Jing",
+   "family": "Zhang",
+   "affiliation": "School of Cyberspace Security, Gansu University of Political Science and Law, Lanzhou, Gansu, China",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  }
+ ],
+ "section": [
+  {
+   "section_id": 1,
+   "section_type": "abstract",
+   "header": "Abstract",
+   "level": 1,
+   "parent_section_id": null,
+   "classification_score": 1.0
+  }
+ ],
+ "text": [
+  {
+   "text_id": 1,
+   "section_id": 1,
+   "paragraph_id": 1,
+   "text": "Video summarization aims to identify the important segments of a video and form a concise representation, enabling users to quickly grasp the core information. Existing graph-based video summarization methods suffer from insufficient modeling of multi-scale feature interactions and difficulties in balancing local and global features. To address this issue, this paper proposes a multi-scale feature fusion video summarization model based on the Message Passing Neural Network (MPNN) framework. First, the model extracts features of representative frames from video shots, and constructs a graph structure where shot features serve as nodes and inter-shot semantic similarity as edges. Second, it decouples the multi-scale features in the graph via the MPNN, and utilizes the Graph Attention Network (GAT) and Graph Neural Network (GNN) to extract local correlation features and global features, respectively. Finally, it fuses the original shot features, local features and global features as the final features to calculate shot importance and generate the video summary. On SumMe (F1 = 50.0) and TVSum (F1 = 61.8) datasets, MSF-MPNN achieves competitive performance against mainstream RNN/GNN-based methods. MSF-MPNN provides a practical solution for efficient video content extraction, with potential in video surveillance and short-video platforms.",
+   "page_number": 1
+  }
+ ],
+ "bib": [
+  {
+   "bib_id": 1,
+   "doi": "10.1145/3343031.3350938"
+  },
+  {
+   "bib_id": 2,
+   "doi": "10.1109/icassp49357.2023.10096265"
+  },
+  {
+   "bib_id": 3,
+   "authors": [
+    {
+     "family": "Saini",
+     "given": "P"
+    },
+    {
+     "family": "Kumar",
+     "given": "K"
+    },
+    {
+     "family": "Kashid",
+     "given": "S"
+    },
+    {
+     "family": "Saini",
+     "given": "A"
+    },
+    {
+     "family": "Negi",
+     "given": "A"
+    }
+   ],
+   "year": "2023",
+   "title": "Video summarization using deep learning techniques: a detailed analysis and investigation",
+   "container": "Artif Intell Rev",
+   "first_page": "1",
+   "last_page": "39",
+   "doi": "10.1007/s10462-023-10444-0"
+  },
+  {
+   "bib_id": 4,
+   "authors": [
+    {
+     "family": "Salehin",
+     "given": "MM"
+    },
+    {
+     "family": "Paul",
+     "given": "M"
+    },
+    {
+     "family": "Kabir",
+     "given": "MA"
+    }
+   ],
+   "year": "2017",
+   "title": "Video summarization using line segments, angles and conic parts",
+   "container": "PLoS One",
+   "volume": "12",
+   "doi": "10.1371/journal.pone.0181636"
+  },
+  {
+   "bib_id": 5,
+   "authors": [
+    {
+     "family": "Meena",
+     "given": "P"
+    },
+    {
+     "family": "Kumar",
+     "given": "H"
+    },
+    {
+     "family": "Yadav",
+     "given": "SK"
+    }
+   ],
+   "year": "2023",
+   "title": "A review on video summarization techniques",
+   "container": "Eng Appl Artif Intell",
+   "volume": "118",
+   "first_page": "105667",
+   "doi": "10.1016/j.engappai.2022.105667"
+  },
+  {
+   "bib_id": 6,
+   "authors": [
+    {
+     "family": "Peronikolis",
+     "given": "M"
+    },
+    {
+     "family": "Panagiotakis",
+     "given": "C"
+    }
+   ],
+   "year": "2024",
+   "title": "Personalized video summarization: a comprehensive survey of methods and datasets",
+   "container": "Appl Sci",
+   "volume": "14",
+   "doi": "10.3390/app14114400"
+  },
+  {
+   "bib_id": 7,
+   "authors": [
+    {
+     "family": "Rajan",
+     "given": "M"
+    },
+    {
+     "family": "Parameswaran",
+     "given": "L"
+    }
+   ],
+   "year": "2025",
+   "title": "Key frame extraction algorithm for surveillance videos using an evolutionary approach",
+   "container": "Sci Rep",
+   "volume": "15",
+   "doi": "10.1038/s41598-024-84324-0"
+  },
+  {
+   "bib_id": 8,
+   "doi": "10.1109/cvpr.2018.00773"
+  },
+  {
+   "bib_id": 9,
+   "doi": "10.1145/3123266.3123328"
+  },
+  {
+   "bib_id": 10,
+   "authors": [
+    {
+     "family": "Zhong",
+     "given": "R"
+    },
+    {
+     "family": "Wang",
+     "given": "R"
+    },
+    {
+     "family": "Zou",
+     "given": "Y"
+    },
+    {
+     "family": "Hong",
+     "given": "Z"
+    },
+    {
+     "family": "Hu",
+     "given": "M"
+    }
+   ],
+   "year": "2021",
+   "title": "Graph Attention Networks Adjusted Bi-LSTM for Video Summarization",
+   "container": "IEEE Signal Process Lett",
+   "volume": "28",
+   "first_page": "663",
+   "doi": "10.1109/lsp.2021.3066349"
+  },
+  {
+   "bib_id": 11,
+   "doi": "10.1109/CVPR.2017.318"
+  },
+  {
+   "bib_id": 12,
+   "authors": [
+    {
+     "family": "Zhou",
+     "given": "J"
+    },
+    {
+     "family": "Cui",
+     "given": "G"
+    },
+    {
+     "family": "Hu",
+     "given": "S"
+    },
+    {
+     "family": "Zhang",
+     "given": "Z"
+    },
+    {
+     "family": "Yang",
+     "given": "C"
+    },
+    {
+     "family": "Liu",
+     "given": "Z"
+    }
+   ],
+   "year": "2020",
+   "title": "Graph neural networks: A review of methods and applications",
+   "container": "AI Open",
+   "volume": "1",
+   "first_page": "57",
+   "last_page": "81",
+   "doi": "10.1016/j.aiopen.2021.01.001"
+  },
+  {
+   "bib_id": 13,
+   "authors": [
+    {
+     "family": "Zhao",
+     "given": "B"
+    },
+    {
+     "family": "Li",
+     "given": "H"
+    },
+    {
+     "family": "Lu",
+     "given": "X"
+    },
+    {
+     "family": "Li",
+     "given": "X"
+    }
+   ],
+   "year": "2022",
+   "title": "Reconstructive Sequence-Graph Network for Video Summarization",
+   "container": "IEEE Trans Pattern Anal Mach Intell",
+   "volume": "44",
+   "first_page": "2793",
+   "doi": "10.1109/TPAMI.2021.3072117"
+  },
+  {
+   "bib_id": 14,
+   "authors": [
+    {
+     "family": "Zhu",
+     "given": "W"
+    },
+    {
+     "family": "Han",
+     "given": "Y"
+    },
+    {
+     "family": "Lu",
+     "given": "J"
+    },
+    {
+     "family": "Zhou",
+     "given": "J"
+    }
+   ],
+   "year": "2022",
+   "title": "Relational Reasoning Over Spatial-Temporal Graphs for Video Summarization",
+   "container": "IEEE Trans Image Process",
+   "volume": "31",
+   "first_page": "3017",
+   "doi": "10.1109/TIP.2022.3163855"
+  },
+  {
+   "bib_id": 15,
+   "authors": [
+    {
+     "family": "Zhou",
+     "given": "Y"
+    },
+    {
+     "family": "Huo",
+     "given": "H"
+    },
+    {
+     "family": "Hou",
+     "given": "Z"
+    },
+    {
+     "family": "Bu",
+     "given": "F"
+    }
+   ],
+   "year": "2023",
+   "title": "A deep graph convolutional neural network architecture for graph classification",
+   "container": "PLoS One",
+   "volume": "18",
+   "doi": "10.1371/journal.pone.0279604"
+  },
+  {
+   "bib_id": 16,
+   "doi": "10.48550/arXiv.1704.01212"
+  },
+  {
+   "bib_id": 17,
+   "authors": [
+    {
+     "family": "Han",
+     "given": "J"
+    },
+    {
+     "family": "Cen",
+     "given": "J"
+    },
+    {
+     "family": "Wu",
+     "given": "L"
+    },
+    {
+     "family": "Li",
+     "given": "Z"
+    },
+    {
+     "family": "Kong",
+     "given": "X"
+    },
+    {
+     "family": "Jiao",
+     "given": "R"
+    }
+   ],
+   "year": "2025",
+   "title": "A survey of geometric graph neural networks: data structures, models and applications",
+   "container": "Front Comput Sci (Berl)",
+   "volume": "19",
+   "doi": "10.1007/s11704-025-41426-w"
+  },
+  {
+   "bib_id": 18,
+   "authors": [
+    {
+     "family": "Sun",
+     "given": "X"
+    },
+    {
+     "family": "Komaki",
+     "given": "F"
+    }
+   ],
+   "year": "2025",
+   "title": "BHGNN-RT: Capturing bidirectionality and network heterogeneity in graphs",
+   "container": "PLoS One",
+   "volume": "20",
+   "doi": "10.1371/journal.pone.0326756"
+  },
+  {
+   "bib_id": 19,
+   "authors": [
+    {
+     "family": "Zhang",
+     "given": "K"
+    },
+    {
+     "family": "Chao",
+     "given": "W-L"
+    },
+    {
+     "family": "Sha",
+     "given": "F"
+    },
+    {
+     "family": "Grauman",
+     "given": "K"
+    }
+   ],
+   "year": "2016",
+   "title": "Video Summarization with Long Short-Term Memory",
+   "container": "Lecture Notes in Computer Science",
+   "first_page": "766",
+   "doi": "10.1007/978-3-319-46478-7_47"
+  },
+  {
+   "bib_id": 20,
+   "doi": "10.48550/arXiv.1609.02907"
+  },
+  {
+   "bib_id": 21,
+   "doi": "10.48550/arXiv.1710.10903"
+  },
+  {
+   "bib_id": 22,
+   "authors": [
+    {
+     "family": "Kipf",
+     "given": "TN"
+    },
+    {
+     "family": "Welling",
+     "given": "M"
+    }
+   ],
+   "year": "2016",
+   "title": "Variational Graph Auto-Encoders",
+   "doi": "10.48550/arXiv.1611.07308"
+  },
+  {
+   "bib_id": 23,
+   "authors": [
+    {
+     "family": "Park",
+     "given": "J"
+    },
+    {
+     "family": "Lee",
+     "given": "J"
+    },
+    {
+     "family": "Kim",
+     "given": "I-J"
+    },
+    {
+     "family": "Sohn",
+     "given": "K"
+    }
+   ],
+   "year": "2020",
+   "title": "SumGraph: Video Summarization via Recursive Graph Modeling",
+   "container": "Lecture Notes in Computer Science",
+   "first_page": "647",
+   "doi": "10.1007/978-3-030-58595-2_39"
+  },
+  {
+   "bib_id": 24,
+   "authors": [
+    {
+     "family": "Zhang",
+     "given": "J"
+    },
+    {
+     "family": "Wu",
+     "given": "G"
+    },
+    {
+     "family": "Song",
+     "given": "S"
+    }
+   ],
+   "year": "2023",
+   "title": "Video Summarization Generation Based on Graph Structure Reconstruction",
+   "container": "Electronics",
+   "volume": "12",
+   "first_page": "4757",
+   "doi": "10.3390/electronics12234757"
+  },
+  {
+   "bib_id": 25,
+   "authors": [
+    {
+     "family": "Zhang",
+     "given": "J"
+    },
+    {
+     "family": "Wu",
+     "given": "G"
+    },
+    {
+     "family": "Bi",
+     "given": "X"
+    },
+    {
+     "family": "Cui",
+     "given": "Y"
+    }
+   ],
+   "year": "2024",
+   "title": "Video Summarization Generation Network Based on Dynamic Graph Contrastive Learning and Feature Fusion",
+   "container": "Electronics",
+   "volume": "13",
+   "first_page": "2039",
+   "doi": "10.3390/electronics13112039"
+  },
+  {
+   "bib_id": 26,
+   "authors": [
+    {
+     "family": "Min",
+     "given": "X"
+    },
+    {
+     "family": "Zhai",
+     "given": "G"
+    },
+    {
+     "family": "Zhou",
+     "given": "J"
+    },
+    {
+     "family": "Zhang",
+     "given": "XP"
+    },
+    {
+     "family": "Yang",
+     "given": "X"
+    },
+    {
+     "family": "Guan",
+     "given": "X"
+    }
+   ],
+   "year": "2020",
+   "title": "A multimodal saliency model for videos with high audio-visual correspondence",
+   "container": "IEEE Transactions on Image Processing",
+   "volume": "29",
+   "first_page": "3805",
+   "doi": "10.1109/TIP.2020.2966082"
+  },
+  {
+   "bib_id": 27,
+   "authors": [
+    {
+     "family": "Min",
+     "given": "X"
+    },
+    {
+     "family": "Zhai",
+     "given": "G"
+    },
+    {
+     "family": "Zhou",
+     "given": "J"
+    },
+    {
+     "family": "Farias",
+     "given": "MCQ"
+    },
+    {
+     "family": "Bovik",
+     "given": "AC"
+    }
+   ],
+   "year": "2020",
+   "title": "Study of Subjective and Objective Quality Assessment of Audio-Visual Signals",
+   "container": "IEEE Trans Image Process",
+   "doi": "10.1109/TIP.2020.2988148"
+  },
+  {
+   "bib_id": 28,
+   "authors": [
+    {
+     "family": "Min",
+     "given": "X"
+    },
+    {
+     "family": "Gao",
+     "given": "Y"
+    },
+    {
+     "family": "Cao",
+     "given": "Y"
+    },
+    {
+     "family": "Zhai",
+     "given": "G"
+    },
+    {
+     "family": "Zhang",
+     "given": "W"
+    },
+    {
+     "family": "Sun",
+     "given": "H"
+    }
+   ],
+   "year": "2025",
+   "title": "Exploring Rich Subjective Quality Information for Image Quality Assessment in the Wild",
+   "container": "IEEE Trans Circuits Syst Video Technol",
+   "volume": "35",
+   "first_page": "7778",
+   "doi": "10.1109/tcsvt.2025.3544659"
+  },
+  {
+   "bib_id": 29,
+   "authors": [
+    {
+     "family": "Wang",
+     "given": "J"
+    },
+    {
+     "family": "Duan",
+     "given": "H"
+    },
+    {
+     "family": "Zhai",
+     "given": "G"
+    },
+    {
+     "family": "Min",
+     "given": "X"
+    }
+   ],
+   "year": "2026",
+   "title": "Quality Assessment for AI Generated Images With Instruction Tuning",
+   "container": "IEEE Trans Multimedia",
+   "first_page": "1",
+   "last_page": "16",
+   "doi": "10.1109/tmm.2026.3651009"
+  },
+  {
+   "bib_id": 30,
+   "doi": "10.52202/068431-0732"
+  },
+  {
+   "bib_id": 31,
+   "doi": "10.48550/arXiv.2103.00020"
+  },
+  {
+   "bib_id": 32,
+   "authors": [
+    {
+     "family": "Zhang",
+     "given": "J"
+    },
+    {
+     "family": "Wu",
+     "given": "G"
+    },
+    {
+     "family": "Song",
+     "given": "S"
+    }
+   ],
+   "year": "2024",
+   "title": "Adaptive Graph Convolutional Adjacency Matrix Network for Video Summarization",
+   "container": "Comput Mater Contin",
+   "volume": "80",
+   "first_page": "2465",
+   "doi": "10.32604/cmc.2024.051781"
+  },
+  {
+   "bib_id": 33,
+   "doi": "10.48550/arXiv.1509.09292"
+  },
+  {
+   "bib_id": 34,
+   "authors": [
+    {
+     "family": "Wang",
+     "given": "X"
+    },
+    {
+     "family": "Yu",
+     "given": "J"
+    },
+    {
+     "family": "Sun",
+     "given": "Z"
+    },
+    {
+     "family": "Sun",
+     "given": "J"
+    },
+    {
+     "family": "Su",
+     "given": "Y"
+    }
+   ],
+   "year": "2023",
+   "title": "Multi-scale graph neural network for global stereo matching",
+   "container": "Signal Processing: Image Communication",
+   "volume": "118",
+   "first_page": "117026",
+   "doi": "10.1016/j.image.2023.117026"
+  },
+  {
+   "bib_id": 35,
+   "doi": "10.48550/arXiv.1511.05493"
+  },
+  {
+   "bib_id": 36,
+   "doi": "10.1109/cvpr.2016.90"
+  },
+  {
+   "bib_id": 37,
+   "authors": [
+    {
+     "family": "Potapov",
+     "given": "D"
+    },
+    {
+     "family": "Douze",
+     "given": "M"
+    },
+    {
+     "family": "Harchaoui",
+     "given": "Z"
+    },
+    {
+     "family": "Schmid",
+     "given": "C"
+    }
+   ],
+   "year": "2014",
+   "title": "Category-Specific Video Summarization",
+   "container": "Lecture Notes in Computer Science",
+   "first_page": "540",
+   "doi": "10.1007/978-3-319-10599-4_35"
+  },
+  {
+   "bib_id": 38,
+   "doi": "10.1109/cvpr.2015.7298594"
+  },
+  {
+   "bib_id": 39,
+   "doi": "10.1109/cvpr52688.2022.01430"
+  },
+  {
+   "bib_id": 40,
+   "authors": [
+    {
+     "family": "Yasir",
+     "given": "MA"
+    },
+    {
+     "family": "Yossra Hussain",
+     "given": "Ali"
+    }
+   ],
+   "year": "2022",
+   "title": "Dynamic Background Subtraction in Video Surveillance Using Color-Histogram and Fuzzy C-Means Algorithm with Cosine Similarity",
+   "container": "Int J Onl Eng",
+   "volume": "18",
+   "first_page": "74",
+   "last_page": "85",
+   "doi": "10.3991/ijoe.v18i09.30775"
+  },
+  {
+   "bib_id": 41,
+   "authors": [
+    {
+     "family": "Geng",
+     "given": "X"
+    },
+    {
+     "family": "Chen",
+     "given": "C"
+    },
+    {
+     "family": "Yu",
+     "given": "P"
+    },
+    {
+     "family": "Liu",
+     "given": "B"
+    },
+    {
+     "family": "Hu",
+     "given": "W"
+    },
+    {
+     "family": "Liang",
+     "given": "Q"
+    }
+   ],
+   "year": "2025",
+   "title": "OM-VST: A video action recognition model based on optimized downsampling module combined with multi-scale feature fusion",
+   "container": "PLoS One",
+   "volume": "20",
+   "doi": "10.1371/journal.pone.0318884"
+  },
+  {
+   "bib_id": 42,
+   "authors": [
+    {
+     "family": "Gygli",
+     "given": "M"
+    },
+    {
+     "family": "Grabner",
+     "given": "H"
+    },
+    {
+     "family": "Riemenschneider",
+     "given": "H"
+    },
+    {
+     "family": "Van Gool",
+     "given": "L"
+    }
+   ],
+   "year": "2014",
+   "title": "Creating Summaries from User Videos",
+   "container": "Lecture Notes in Computer Science",
+   "first_page": "505",
+   "doi": "10.1007/978-3-319-10584-0_33"
+  },
+  {
+   "bib_id": 43,
+   "doi": "10.1109/cvpr.2015.7299154"
+  },
+  {
+   "bib_id": 44,
+   "authors": [
+    {
+     "family": "Jung",
+     "given": "Y"
+    },
+    {
+     "family": "Cho",
+     "given": "D"
+    },
+    {
+     "family": "Kim",
+     "given": "D"
+    },
+    {
+     "family": "Woo",
+     "given": "S"
+    },
+    {
+     "family": "Kweon",
+     "given": "IS"
+    }
+   ],
+   "year": "2019",
+   "title": "Discriminative Feature Learning for Unsupervised Video Summarization",
+   "container": "AAAI",
+   "volume": "33",
+   "first_page": "8537",
+   "doi": "10.1609/aaai.v33i01.33018537"
+  },
+  {
+   "bib_id": 45,
+   "authors": [
+    {
+     "family": "Rochan",
+     "given": "M"
+    },
+    {
+     "family": "Ye",
+     "given": "L"
+    },
+    {
+     "family": "Wang",
+     "given": "Y"
+    }
+   ],
+   "year": "2018",
+   "title": "Video Summarization Using Fully Convolutional Sequence Networks",
+   "container": "Lecture Notes in Computer Science",
+   "first_page": "358",
+   "doi": "10.1007/978-3-030-01258-8_22"
+  },
+  {
+   "bib_id": 46,
+   "authors": [
+    {
+     "family": "Li",
+     "given": "P"
+    },
+    {
+     "family": "Tang",
+     "given": "C"
+    },
+    {
+     "family": "Xu",
+     "given": "X"
+    }
+   ],
+   "year": "2021",
+   "title": "Video summarization with a graph convolutional attention network",
+   "container": "Front Inform Tech El",
+   "volume": "22",
+   "first_page": "902",
+   "doi": "10.1631/FITEE.2000429"
+  },
+  {
+   "bib_id": 47,
+   "doi": "10.1109/cvprw63382.2024.00259"
+  },
+  {
+   "bib_id": 48,
+   "authors": [
+    {
+     "family": "Li",
+     "given": "W"
+    },
+    {
+     "family": "Han",
+     "given": "W"
+    },
+    {
+     "family": "Man",
+     "given": "H"
+    },
+    {
+     "family": "Zuo",
+     "given": "W"
+    },
+    {
+     "family": "Fan",
+     "given": "X"
+    },
+    {
+     "family": "Tian",
+     "given": "Y"
+    }
+   ],
+   "year": "2026",
+   "title": "Language-Guided Graph Representation Learning for Video Summarization",
+   "container": "IEEE Transactions on Pattern Analysis and Machine Intelligence",
+   "volume": "48",
+   "first_page": "3216",
+   "doi": "10.1109/TPAMI.2025.3633657"
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-core-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "jats_doi": "10.1371/journal.pone.0353773"
+ }
+}

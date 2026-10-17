@@ -1,0 +1,964 @@
+{
+ "paper_id": "10.1371_journal.pone.0358196",
+ "info": {
+  "title": "Examining the relationship between temperature and firearm violence: A comparison of metrics",
+  "doi": "10.1371/journal.pone.0358196",
+  "file_name": "10.1371_journal.pone.0358196.pdf",
+  "abstract": "Objective: To examine and compare the predictive capacities of four temperature metrics on firearm violence: daily maximum temperature, daily apparent maximum temperature, daily deviation from normal temperature, and consecutive days of high heat. Method: We analyzed daily firearm violence incidents in Syracuse, New York from 2010–2022 using Generalized Linear Autoregressive Moving Average models. Daily maximum temperature, and daily deviation from normal temperature were directly obtained from the National Centers for Environmental Information. Daily apparent maximum temperature was created by combining daily maximum temperature with humidity data derived from windchill and heat index calculations. Consecutive days of high heat was calculated using daily maximum temperature and counting the number of successive days above 90 degrees Fahrenheit (32.2 degrees Celsius). We examined both univariate models for each temperature metric and multivariate models containing multiple temperature variables simultaneously. Results: Over the 12-year period, Syracuse averaged nearly two firearm violence incidents per day. In univariate analyses, all temperature metrics demonstrated statistically significant relationships with daily firearm violence, with incidence rate ratios between 1.01 and 1.02 per degree Fahrenheit increase (1.02 and 1.04 per degree Celsius increase). However, multivariate analyses revealed more complex patterns. When daily maximum temperature was included with other metrics, it remained the only significant predictor, with each standard deviation increase associated with a 25% increase in daily incidents. When daily apparent maximum temperature replaced daily maximum temperature, daily deviation from normal temperature became the sole significant predictor, with each standard deviation increase associated with a 12% increase in incidents. Conclusions: Findings suggest different temperature dimensions might be related to firearm violence through distinct pathways. Absolute temperature effects and relative temperature deviations represent separate constructs that independently contribute to weather-gun violence relationships. This complexity supports the need for comprehensive monitoring systems that track both extreme temperatures and departures from seasonal norms to identify periods of elevated risk."
+ },
+ "author": [
+  {
+   "author_id": 1,
+   "given": "Hao",
+   "family": "Zhang",
+   "affiliation": "Department of Public Health, Syracuse University, Syracuse New York, United States of America",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 2,
+   "given": "Bryce",
+   "family": "Hruska",
+   "affiliation": "Department of Public Health, Syracuse University, Syracuse New York, United States of America",
+   "email": "",
+   "orcid": "",
+   "corresponding": true
+  }
+ ],
+ "section": [
+  {
+   "section_id": 1,
+   "section_type": "abstract",
+   "header": "Abstract",
+   "level": 1,
+   "parent_section_id": null,
+   "classification_score": 1.0
+  }
+ ],
+ "text": [
+  {
+   "text_id": 1,
+   "section_id": 1,
+   "paragraph_id": 1,
+   "text": "Objective: To examine and compare the predictive capacities of four temperature metrics on firearm violence: daily maximum temperature, daily apparent maximum temperature, daily deviation from normal temperature, and consecutive days of high heat. Method: We analyzed daily firearm violence incidents in Syracuse, New York from 2010–2022 using Generalized Linear Autoregressive Moving Average models. Daily maximum temperature, and daily deviation from normal temperature were directly obtained from the National Centers for Environmental Information. Daily apparent maximum temperature was created by combining daily maximum temperature with humidity data derived from windchill and heat index calculations. Consecutive days of high heat was calculated using daily maximum temperature and counting the number of successive days above 90 degrees Fahrenheit (32.2 degrees Celsius). We examined both univariate models for each temperature metric and multivariate models containing multiple temperature variables simultaneously. Results: Over the 12-year period, Syracuse averaged nearly two firearm violence incidents per day. In univariate analyses, all temperature metrics demonstrated statistically significant relationships with daily firearm violence, with incidence rate ratios between 1.01 and 1.02 per degree Fahrenheit increase (1.02 and 1.04 per degree Celsius increase). However, multivariate analyses revealed more complex patterns. When daily maximum temperature was included with other metrics, it remained the only significant predictor, with each standard deviation increase associated with a 25% increase in daily incidents. When daily apparent maximum temperature replaced daily maximum temperature, daily deviation from normal temperature became the sole significant predictor, with each standard deviation increase associated with a 12% increase in incidents. Conclusions: Findings suggest different temperature dimensions might be related to firearm violence through distinct pathways. Absolute temperature effects and relative temperature deviations represent separate constructs that independently contribute to weather-gun violence relationships. This complexity supports the need for comprehensive monitoring systems that track both extreme temperatures and departures from seasonal norms to identify periods of elevated risk.",
+   "page_number": 1
+  }
+ ],
+ "bib": [
+  {
+   "bib_id": 1,
+   "authors": [
+    {
+     "family": "Centers for Disease Control and Prevention, National Center for Health Statistics",
+     "given": ""
+    }
+   ],
+   "year": "2021"
+  },
+  {
+   "bib_id": 2,
+   "authors": [
+    {
+     "family": "Centers for Disease Control and Prevention",
+     "given": ""
+    }
+   ],
+   "year": "2025"
+  },
+  {
+   "bib_id": 3,
+   "authors": [
+    {
+     "family": "Brittanica",
+     "given": ""
+    }
+   ],
+   "year": "2025"
+  },
+  {
+   "bib_id": 4,
+   "authors": [
+    {
+     "family": "Branas",
+     "given": "CC"
+    },
+    {
+     "family": "Rubin",
+     "given": "D"
+    },
+    {
+     "family": "Guo",
+     "given": "W"
+    }
+   ],
+   "year": "2013",
+   "title": "Vacant Properties and Violence in Neighborhoods",
+   "container": "ISRN Public Health",
+   "volume": "2012",
+   "first_page": "246142",
+   "doi": "10.5402/2012/246142"
+  },
+  {
+   "bib_id": 5,
+   "authors": [
+    {
+     "family": "Muggy",
+     "given": "L"
+    },
+    {
+     "family": "Griswold",
+     "given": "M"
+    },
+    {
+     "family": "Nekoul",
+     "given": "FE"
+    },
+    {
+     "family": "McKenna",
+     "given": "S"
+    },
+    {
+     "family": "Smart",
+     "given": "R"
+    },
+    {
+     "family": "Hunt",
+     "given": "P"
+    }
+   ],
+   "year": "2022",
+   "title": "Accounting for socio-economic context in quantifying the attractive and repellent influence of built environment on firearms violence in multiple cities",
+   "container": "J Quant Criminol",
+   "volume": "40",
+   "first_page": "1",
+   "last_page": "32",
+   "doi": "10.1007/s10940-022-09560-x"
+  },
+  {
+   "bib_id": 6,
+   "authors": [
+    {
+     "family": "Pear",
+     "given": "VA"
+    },
+    {
+     "family": "Wintemute",
+     "given": "GJ"
+    },
+    {
+     "family": "Jewell",
+     "given": "NP"
+    },
+    {
+     "family": "Cerdá",
+     "given": "M"
+    },
+    {
+     "family": "Ahern",
+     "given": "J"
+    }
+   ],
+   "year": "2023",
+   "title": "Community-level risk factors for firearm assault and homicide: The role of local firearm dealers and alcohol outlets",
+   "container": "Epidemiology",
+   "volume": "34",
+   "first_page": "798",
+   "last_page": "806",
+   "doi": "10.1097/EDE.0000000000001670"
+  },
+  {
+   "bib_id": 7,
+   "authors": [
+    {
+     "family": "Anderson",
+     "given": "CA"
+    },
+    {
+     "family": "Anderson",
+     "given": "KB."
+    },
+    {
+     "family": "Geen",
+     "given": "RG"
+    },
+    {
+     "family": "Donnerstein",
+     "given": "E"
+    }
+   ],
+   "year": "1998",
+   "title": "Temperature and aggression: Paradox, controversy, and a (fairly) clear picture.",
+   "container": "Human aggression",
+   "first_page": "247",
+   "doi": "10.1016/B978-012278805-5/50011-0"
+  },
+  {
+   "bib_id": 8,
+   "authors": [
+    {
+     "family": "Choi",
+     "given": "HM"
+    },
+    {
+     "family": "Heo",
+     "given": "S"
+    },
+    {
+     "family": "Foo",
+     "given": "D"
+    },
+    {
+     "family": "Song",
+     "given": "Y"
+    },
+    {
+     "family": "Stewart",
+     "given": "R"
+    },
+    {
+     "family": "Son",
+     "given": "J"
+    }
+   ],
+   "year": "2024",
+   "title": "Temperature, crime, and violence: a systematic review and meta-analysis",
+   "container": "Environ Health Perspect",
+   "volume": "132",
+   "first_page": "106001",
+   "doi": "10.1289/EHP14300"
+  },
+  {
+   "bib_id": 9,
+   "authors": [
+    {
+     "family": "Tiihonen",
+     "given": "J"
+    },
+    {
+     "family": "Halonen",
+     "given": "P"
+    },
+    {
+     "family": "Tiihonen",
+     "given": "L"
+    },
+    {
+     "family": "Kautiainen",
+     "given": "H"
+    },
+    {
+     "family": "Storvik",
+     "given": "M"
+    },
+    {
+     "family": "Callaway",
+     "given": "J"
+    }
+   ],
+   "year": "2017",
+   "title": "The Association of Ambient Temperature and Violent Crime",
+   "container": "Sci Rep",
+   "volume": "7",
+   "first_page": "6543",
+   "doi": "10.1038/s41598-017-06720-z"
+  },
+  {
+   "bib_id": 10,
+   "authors": [
+    {
+     "family": "Kieltyka",
+     "given": "J"
+    },
+    {
+     "family": "Kucybala",
+     "given": "K"
+    },
+    {
+     "family": "Crandall",
+     "given": "M"
+    }
+   ],
+   "year": "2016",
+   "title": "Ecologic factors relating to firearm injuries and gun violence in Chicago",
+   "container": "J Forensic Leg Med",
+   "volume": "37",
+   "first_page": "87",
+   "last_page": "90",
+   "doi": "10.1016/j.jflm.2015.11.003"
+  },
+  {
+   "bib_id": 11,
+   "authors": [
+    {
+     "family": "Michel",
+     "given": "SJ"
+    },
+    {
+     "family": "Wang",
+     "given": "H"
+    },
+    {
+     "family": "Selvarajah",
+     "given": "S"
+    },
+    {
+     "family": "Canner",
+     "given": "JK"
+    },
+    {
+     "family": "Murrill",
+     "given": "M"
+    },
+    {
+     "family": "Chi",
+     "given": "A"
+    }
+   ],
+   "year": "2016",
+   "title": "Investigating the relationship between weather and violence in Baltimore, Maryland, USA",
+   "container": "Injury",
+   "volume": "47",
+   "first_page": "272",
+   "doi": "10.1016/j.injury.2015.07.006"
+  },
+  {
+   "bib_id": 12,
+   "authors": [
+    {
+     "family": "Reeping",
+     "given": "PM"
+    },
+    {
+     "family": "Hemenway",
+     "given": "D"
+    }
+   ],
+   "year": "2020",
+   "title": "The association between weather and the number of daily shootings in Chicago (2012-2016)",
+   "container": "Inj Epidemiol",
+   "volume": "7",
+   "first_page": "31",
+   "doi": "10.1186/s40621-020-00260-3"
+  },
+  {
+   "bib_id": 13,
+   "authors": [
+    {
+     "family": "Lyons",
+     "given": "VH"
+    },
+    {
+     "family": "Gause",
+     "given": "EL"
+    },
+    {
+     "family": "Spangler",
+     "given": "KR"
+    },
+    {
+     "family": "Wellenius",
+     "given": "GA"
+    },
+    {
+     "family": "Jay",
+     "given": "J"
+    }
+   ],
+   "year": "2022",
+   "title": "Analysis of Daily Ambient Temperature and Firearm Violence in 100 US Cities",
+   "container": "JAMA Netw Open",
+   "volume": "5",
+   "doi": "10.1001/jamanetworkopen.2022.47207"
+  },
+  {
+   "bib_id": 14,
+   "authors": [
+    {
+     "family": "Bushover",
+     "given": "B"
+    },
+    {
+     "family": "Mehranbod",
+     "given": "CA"
+    },
+    {
+     "family": "Roberts",
+     "given": "LE"
+    },
+    {
+     "family": "Gobaud",
+     "given": "AN"
+    },
+    {
+     "family": "Fish",
+     "given": "C"
+    },
+    {
+     "family": "Gao",
+     "given": "X"
+    }
+   ],
+   "year": "2024",
+   "title": "Temperature and firearm violence in four US cities: testing competing hypotheses",
+   "container": "Inj Prev",
+   "doi": "10.1136/ip-2024-045248"
+  },
+  {
+   "bib_id": 15,
+   "authors": [
+    {
+     "family": "Heo",
+     "given": "S"
+    },
+    {
+     "family": "Choi",
+     "given": "HM"
+    },
+    {
+     "family": "D Berman",
+     "given": "J"
+    },
+    {
+     "family": "Bell",
+     "given": "ML"
+    }
+   ],
+   "year": "2025",
+   "title": "Temperature, violent crime, climate change, and vulnerability factors in 44 United States cities",
+   "container": "Environ Int",
+   "volume": "195",
+   "first_page": "109246",
+   "doi": "10.1016/j.envint.2024.109246"
+  },
+  {
+   "bib_id": 16,
+   "authors": [
+    {
+     "family": "Steadman",
+     "given": "RG"
+    }
+   ],
+   "year": "1979",
+   "title": "The assessment of sultriness. Part I: A temperature-humidity index based on human physiology and clothing science",
+   "container": "J Appl Meteor",
+   "volume": "18",
+   "first_page": "861",
+   "doi": "10.1175/1520-0450(1979)018<0861:TAOSPI>2.0.CO;2"
+  },
+  {
+   "bib_id": 17,
+   "authors": [
+    {
+     "family": "Steadman",
+     "given": "RG"
+    }
+   ],
+   "year": "1984",
+   "title": "A universal scale of apparent temperature",
+   "container": "J Climate Appl Meteor",
+   "volume": "23",
+   "first_page": "1674",
+   "doi": "10.1175/1520-0450(1984)023<1674:ausoat>2.0.co;2"
+  },
+  {
+   "bib_id": 18,
+   "authors": [
+    {
+     "family": "Barnett",
+     "given": "AG"
+    },
+    {
+     "family": "Tong",
+     "given": "S"
+    },
+    {
+     "family": "Clements",
+     "given": "ACA"
+    }
+   ],
+   "year": "2010",
+   "title": "What measure of temperature is the best predictor of mortality?",
+   "container": "Environ Res",
+   "volume": "110",
+   "first_page": "604",
+   "doi": "10.1016/j.envres.2010.05.006"
+  },
+  {
+   "bib_id": 19,
+   "authors": [
+    {
+     "family": "Vandenbroucke",
+     "given": "JP"
+    },
+    {
+     "family": "von Elm",
+     "given": "E"
+    },
+    {
+     "family": "Altman",
+     "given": "DG"
+    },
+    {
+     "family": "Gøtzsche",
+     "given": "PC"
+    },
+    {
+     "family": "Mulrow",
+     "given": "CD"
+    },
+    {
+     "family": "Pocock",
+     "given": "SJ"
+    }
+   ],
+   "year": "2007",
+   "title": "Strengthening the reporting of observational studies in epidemiology (STROBE): Explanation and elaboration",
+   "container": "Epidemiology",
+   "volume": "18",
+   "first_page": "805",
+   "doi": "10.1097/EDE.0b013e3181577511"
+  },
+  {
+   "bib_id": 20,
+   "authors": [
+    {
+     "family": "Larsen",
+     "given": "DA"
+    },
+    {
+     "family": "Lane",
+     "given": "S"
+    },
+    {
+     "family": "Jennings-Bey",
+     "given": "T"
+    },
+    {
+     "family": "Haygood-El",
+     "given": "A"
+    },
+    {
+     "family": "Brundage",
+     "given": "K"
+    },
+    {
+     "family": "Rubinstein",
+     "given": "RA"
+    }
+   ],
+   "year": "2017",
+   "title": "Spatio-temporal patterns of gun violence in Syracuse, New York 2009-2015",
+   "container": "PLOS ONE",
+   "volume": "12",
+   "doi": "10.1371/journal.pone.0173001"
+  },
+  {
+   "bib_id": 21,
+   "authors": [
+    {
+     "family": "Leonardi",
+     "given": "L"
+    }
+   ],
+   "year": "2022"
+  },
+  {
+   "bib_id": 22,
+   "authors": [
+    {
+     "family": "Wight",
+     "given": "C"
+    }
+   ],
+   "year": "2021"
+  },
+  {
+   "bib_id": 23,
+   "authors": [
+    {
+     "family": "Zhang",
+     "given": "H"
+    },
+    {
+     "family": "Hruska",
+     "given": "B"
+    }
+   ],
+   "year": "2025",
+   "doi": "10.3886/E237846V1"
+  },
+  {
+   "bib_id": 24
+  },
+  {
+   "bib_id": 25,
+   "authors": [
+    {
+     "family": "National Weather Service",
+     "given": ""
+    }
+   ]
+  },
+  {
+   "bib_id": 26,
+   "authors": [
+    {
+     "family": "Rothfusz",
+     "given": "L"
+    }
+   ],
+   "year": "1990"
+  },
+  {
+   "bib_id": 27,
+   "authors": [
+    {
+     "family": "National Weather Service",
+     "given": "N"
+    }
+   ]
+  },
+  {
+   "bib_id": 28,
+   "authors": [
+    {
+     "family": "Dunsmuir",
+     "given": "WTM"
+    },
+    {
+     "family": "Scott",
+     "given": "DJ"
+    }
+   ],
+   "year": "2015",
+   "title": "TheglarmaPackage for observation-driven time series regression of Counts",
+   "container": "J Stat Soft",
+   "volume": "67",
+   "doi": "10.18637/jss.v067.i07"
+  },
+  {
+   "bib_id": 29,
+   "authors": [
+    {
+     "family": "R Core Team",
+     "given": ""
+    }
+   ],
+   "year": "2024",
+   "title": "A language and environment for statistical computing"
+  },
+  {
+   "bib_id": 30,
+   "authors": [
+    {
+     "family": "Walker",
+     "given": "K"
+    }
+   ],
+   "year": "2020"
+  },
+  {
+   "bib_id": 31,
+   "authors": [
+    {
+     "family": "Dormann",
+     "given": "CF"
+    },
+    {
+     "family": "Elith",
+     "given": "J"
+    },
+    {
+     "family": "Bacher",
+     "given": "S"
+    },
+    {
+     "family": "Buchmann",
+     "given": "C"
+    },
+    {
+     "family": "Carl",
+     "given": "G"
+    },
+    {
+     "family": "Carré",
+     "given": "G"
+    }
+   ],
+   "year": "2012",
+   "title": "Collinearity: A review of methods to deal with it and a simulation study evaluating their performance",
+   "container": "Ecography",
+   "volume": "36",
+   "first_page": "27",
+   "last_page": "46",
+   "doi": "10.1111/j.1600-0587.2012.07348.x"
+  },
+  {
+   "bib_id": 32,
+   "authors": [
+    {
+     "family": "Kim",
+     "given": "DY"
+    }
+   ],
+   "year": "2023",
+   "title": "COVID-19 and gun violence: Keeping unknown shocks and volatility in perspective",
+   "container": "Criminal Justice Review",
+   "volume": "48",
+   "first_page": "145",
+   "doi": "10.1177/07340168221088571"
+  },
+  {
+   "bib_id": 33,
+   "authors": [
+    {
+     "family": "Sun",
+     "given": "S"
+    },
+    {
+     "family": "Cao",
+     "given": "W"
+    },
+    {
+     "family": "Ge",
+     "given": "Y"
+    },
+    {
+     "family": "Siegel",
+     "given": "M"
+    },
+    {
+     "family": "Wellenius",
+     "given": "GA"
+    }
+   ],
+   "year": "2022",
+   "title": "Analysis of firearm violence during the COVID-19 pandemic in the US",
+   "container": "JAMA Netw Open",
+   "volume": "5",
+   "doi": "10.1001/jamanetworkopen.2022.9393"
+  },
+  {
+   "bib_id": 34,
+   "authors": [
+    {
+     "family": "Box",
+     "given": "GEP"
+    },
+    {
+     "family": "Jenkins",
+     "given": "GM"
+    },
+    {
+     "family": "Reinsel",
+     "given": "GC"
+    },
+    {
+     "family": "Ljung",
+     "given": "GM"
+    }
+   ],
+   "year": "2016",
+   "title": "Time series analysis: forecasting and control"
+  },
+  {
+   "bib_id": 35,
+   "authors": [
+    {
+     "family": "Hosmer",
+     "given": "DW"
+    },
+    {
+     "family": "Lemeshow",
+     "given": "S"
+    },
+    {
+     "family": "Sturdivant",
+     "given": "RX"
+    }
+   ],
+   "year": "2013",
+   "title": "Applied logistic regression",
+   "doi": "10.1002/9781118548387"
+  },
+  {
+   "bib_id": 36,
+   "authors": [
+    {
+     "family": "Schafer",
+     "given": "JL"
+    }
+   ],
+   "year": "1999",
+   "title": "Multiple imputation: A primer",
+   "container": "Stat Methods Med Res",
+   "volume": "8",
+   "first_page": "3",
+   "last_page": "15",
+   "doi": "10.1177/096228029900800102"
+  },
+  {
+   "bib_id": 37,
+   "authors": [
+    {
+     "family": "Dettori",
+     "given": "JR"
+    },
+    {
+     "family": "Norvell",
+     "given": "DC"
+    },
+    {
+     "family": "Chapman",
+     "given": "JR"
+    }
+   ],
+   "year": "2018",
+   "title": "The sin of missing data: Is all forgiven by way of imputation?",
+   "container": "Global Spine Journal",
+   "volume": "8",
+   "first_page": "892",
+   "doi": "10.1177/2192568218811922"
+  },
+  {
+   "bib_id": 38,
+   "authors": [
+    {
+     "family": "Narayanan",
+     "given": "A"
+    },
+    {
+     "family": "Rezaali",
+     "given": "M"
+    },
+    {
+     "family": "Bunting",
+     "given": "EL"
+    },
+    {
+     "family": "Keellings",
+     "given": "D"
+    }
+   ],
+   "year": "2025",
+   "title": "It’s getting hot in here: Spatial impact of humidity on heat wave severity in the U.S",
+   "container": "Science of The Total Environment",
+   "volume": "963",
+   "first_page": "178397",
+   "doi": "10.1016/j.scitotenv.2025.178397"
+  },
+  {
+   "bib_id": 39,
+   "authors": [
+    {
+     "family": "Russo",
+     "given": "S"
+    },
+    {
+     "family": "Sillmann",
+     "given": "J"
+    },
+    {
+     "family": "Sterl",
+     "given": "A"
+    }
+   ],
+   "year": "2017",
+   "title": "Humid heat waves at different warming levels",
+   "container": "Sci Rep",
+   "volume": "7",
+   "first_page": "7477",
+   "doi": "10.1038/s41598-017-07536-7"
+  },
+  {
+   "bib_id": 40,
+   "authors": [
+    {
+     "family": "Fay",
+     "given": "AJ"
+    },
+    {
+     "family": "Maner",
+     "given": "JK"
+    }
+   ],
+   "year": "2014",
+   "title": "When does heat promote hostility? Person by situation interactions shape the psychological effects of haptic sensations",
+   "container": "J Experimental Social Psychol",
+   "volume": "50",
+   "first_page": "210",
+   "doi": "10.1016/j.jesp.2013.10.006"
+  },
+  {
+   "bib_id": 41,
+   "authors": [
+    {
+     "family": "McCarthy",
+     "given": "RJ"
+    }
+   ],
+   "year": "2014",
+   "title": "Close replication attempts of the heat priming-hostile perception effect",
+   "container": "J Experimental Social Psychol",
+   "volume": "54",
+   "first_page": "165",
+   "doi": "10.1016/j.jesp.2014.04.014"
+  },
+  {
+   "bib_id": 42,
+   "authors": [
+    {
+     "family": "Berman",
+     "given": "JD"
+    },
+    {
+     "family": "Bayham",
+     "given": "J"
+    },
+    {
+     "family": "Burkhardt",
+     "given": "J"
+    }
+   ],
+   "year": "2020",
+   "title": "Hot under the collar: A 14-year association between temperature and violent behavior across 436 U.S. counties",
+   "container": "Environ Res",
+   "volume": "191",
+   "first_page": "110181",
+   "doi": "10.1016/j.envres.2020.110181"
+  },
+  {
+   "bib_id": 43,
+   "authors": [
+    {
+     "family": "Stevens",
+     "given": "HR"
+    },
+    {
+     "family": "Beggs",
+     "given": "PJ"
+    },
+    {
+     "family": "Graham",
+     "given": "PL"
+    },
+    {
+     "family": "Chang",
+     "given": "H-C"
+    }
+   ],
+   "year": "2019",
+   "title": "Hot and bothered? Associations between temperature and crime in Australia",
+   "container": "Int J Biometeorol",
+   "volume": "63",
+   "first_page": "747",
+   "doi": "10.1007/s00484-019-01689-y"
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-core-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "jats_doi": "10.1371/journal.pone.0358196"
+ }
+}

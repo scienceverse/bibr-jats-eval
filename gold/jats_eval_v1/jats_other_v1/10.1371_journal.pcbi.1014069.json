@@ -1,0 +1,1687 @@
+{
+ "paper_id": "10.1371_journal.pcbi.1014069",
+ "info": {
+  "title": "Stochastic modeling of long-legged ant A. gracilipes locomotion in laboratory experiments",
+  "doi": "10.1371/journal.pcbi.1014069",
+  "file_name": "10.1371_journal.pcbi.1014069.pdf",
+  "abstract": "Stochastic modeling of movement behavior provides a valuable way to understand how complex motion can be generated from relatively simple building blocks. Ants demonstrate sophisticated social behavior ranging from foraging to nest relocation; while emphasis is often placed on the communication methods used to synchronize individuals, the movement paradigms of those individuals are of tantamount importance. Here, we apply a stochastic modeling approach to better understand the movement of isolated long-legged ants (A. gracilipes), informed by extensive laboratory tracking experiments. We find that a combination of active Brownian and run-and-tumble models reproduces the trajectory statistics observed in experiments, both qualitatively and quantitatively. We identify reproducible probability distributions for the turn angles, run times, and waiting times across specimens, and find good agreement between analytical predictions and quantities empirically measured from the trajectories. Having such a model allows for a better understanding and predictions of movement ecology from both simulations and analytics, and even can give insight into the underlying generative mechanisms of motion and the ants’ sensory systems."
+ },
+ "author": [
+  {
+   "author_id": 1,
+   "given": "Jack",
+   "family": "Featherstone",
+   "affiliation": "Nonlinear and Non-equilibrium Physics Unit, Okinawa Institute of Science and Technology, Onna, Okinawa, Japan",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 2,
+   "given": "Anouk",
+   "family": "Béraud",
+   "affiliation": "Nonlinear and Non-equilibrium Physics Unit, Okinawa Institute of Science and Technology, Onna, Okinawa, Japan",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 3,
+   "given": "Meta",
+   "family": "Virant-Doberlet",
+   "affiliation": "National Institute of Biology, Ljubljana, Slovenia",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 4,
+   "given": "Antonio",
+   "family": "Celani",
+   "affiliation": "Abdus Salam International Centre for Theoretical Physics, Trieste, Italy; Department of Oncology, University of Turin, Turin, Italy",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 5,
+   "given": "Mahesh M.",
+   "family": "Bandi",
+   "affiliation": "Nonlinear and Non-equilibrium Physics Unit, Okinawa Institute of Science and Technology, Onna, Okinawa, Japan",
+   "email": "",
+   "orcid": "",
+   "corresponding": true
+  }
+ ],
+ "section": [
+  {
+   "section_id": 1,
+   "section_type": "abstract",
+   "header": "Abstract",
+   "level": 1,
+   "parent_section_id": null,
+   "classification_score": 1.0
+  }
+ ],
+ "text": [
+  {
+   "text_id": 1,
+   "section_id": 1,
+   "paragraph_id": 1,
+   "text": "Stochastic modeling of movement behavior provides a valuable way to understand how complex motion can be generated from relatively simple building blocks. Ants demonstrate sophisticated social behavior ranging from foraging to nest relocation; while emphasis is often placed on the communication methods used to synchronize individuals, the movement paradigms of those individuals are of tantamount importance. Here, we apply a stochastic modeling approach to better understand the movement of isolated long-legged ants (A. gracilipes), informed by extensive laboratory tracking experiments. We find that a combination of active Brownian and run-and-tumble models reproduces the trajectory statistics observed in experiments, both qualitatively and quantitatively. We identify reproducible probability distributions for the turn angles, run times, and waiting times across specimens, and find good agreement between analytical predictions and quantities empirically measured from the trajectories. Having such a model allows for a better understanding and predictions of movement ecology from both simulations and analytics, and even can give insight into the underlying generative mechanisms of motion and the ants’ sensory systems.",
+   "page_number": 1
+  }
+ ],
+ "bib": [
+  {
+   "bib_id": 1,
+   "authors": [
+    {
+     "family": "Pontzer",
+     "given": "H"
+    }
+   ],
+   "year": "2007",
+   "title": "Effective limb length and the scaling of locomotor cost in terrestrial animals",
+   "container": "J Exp Biol",
+   "volume": "210",
+   "first_page": "1752",
+   "doi": "10.1242/jeb.002246"
+  },
+  {
+   "bib_id": 2,
+   "authors": [
+    {
+     "family": "Watari",
+     "given": "N"
+    },
+    {
+     "family": "Larson",
+     "given": "RG"
+    }
+   ],
+   "year": "2010",
+   "title": "The hydrodynamics of a run-and-tumble bacterium propelled by polymorphic helical flagella",
+   "container": "Biophys J",
+   "volume": "98",
+   "first_page": "12",
+   "doi": "10.1016/j.bpj.2009.09.044"
+  },
+  {
+   "bib_id": 3,
+   "authors": [
+    {
+     "family": "Pratt",
+     "given": "SC"
+    },
+    {
+     "family": "Brooks",
+     "given": "SE"
+    },
+    {
+     "family": "Franks",
+     "given": "NR"
+    }
+   ],
+   "year": "2001",
+   "title": "The use of edges in visual navigation by the AntLeptothorax albipennis",
+   "container": "Ethology",
+   "volume": "107",
+   "first_page": "1125",
+   "doi": "10.1046/j.1439-0310.2001.00749.x"
+  },
+  {
+   "bib_id": 4,
+   "authors": [
+    {
+     "family": "Wallin",
+     "given": "H"
+    },
+    {
+     "family": "Ekbom",
+     "given": "B"
+    }
+   ],
+   "year": "1994",
+   "title": "Influence of hunger level and prey densities on movement patterns in three species of pterostichus beetles (Coleoptera: Carabidae)",
+   "container": "Environ Entomol",
+   "volume": "23",
+   "first_page": "1171",
+   "doi": "10.1093/ee/23.5.1171"
+  },
+  {
+   "bib_id": 5,
+   "authors": [
+    {
+     "family": "Hu",
+     "given": "DL"
+    },
+    {
+     "family": "Phonekeo",
+     "given": "S"
+    },
+    {
+     "family": "Altshuler",
+     "given": "E"
+    },
+    {
+     "family": "Brochard-Wyart",
+     "given": "F"
+    }
+   ],
+   "year": "2016",
+   "title": "Entangled active matter: from cells to ants",
+   "container": "The European Phy J Special Topics",
+   "first_page": "629",
+   "doi": "10.1140/epjst/e2015-50264-4"
+  },
+  {
+   "bib_id": 6,
+   "authors": [
+    {
+     "family": "Tan",
+     "given": "M"
+    },
+    {
+     "family": "Zhang",
+     "given": "S"
+    },
+    {
+     "family": "Stevens",
+     "given": "M"
+    },
+    {
+     "family": "Li",
+     "given": "D"
+    },
+    {
+     "family": "Tan",
+     "given": "EJ"
+    }
+   ],
+   "year": "2024",
+   "title": "Antipredator defences in motion: animals reduce predation risks by concealing or misleading motion signals",
+   "container": "Biol Rev Camb Philos Soc",
+   "volume": "99",
+   "first_page": "778",
+   "doi": "10.1111/brv.13044"
+  },
+  {
+   "bib_id": 7,
+   "authors": [
+    {
+     "family": "Johnson",
+     "given": "AR"
+    },
+    {
+     "family": "Wiens",
+     "given": "JA"
+    },
+    {
+     "family": "Milne",
+     "given": "BT"
+    },
+    {
+     "family": "Crist",
+     "given": "TO"
+    }
+   ],
+   "year": "1992",
+   "title": "Animal movements and population dynamics in heterogeneous landscapes",
+   "container": "Landscape Ecology",
+   "first_page": "63",
+   "last_page": "75",
+   "doi": "10.1007/BF02573958"
+  },
+  {
+   "bib_id": 8,
+   "authors": [
+    {
+     "family": "Méndez",
+     "given": "V"
+    },
+    {
+     "family": "Bartumeus",
+     "given": "F"
+    },
+    {
+     "family": "Campos",
+     "given": "D"
+    }
+   ],
+   "year": "2014",
+   "title": "Stochastic Foundations in Movement Ecology: Anomalous Diffusion, Front Propagation and Random Searches",
+   "doi": "10.1007/978-3-642-39010-4"
+  },
+  {
+   "bib_id": 9,
+   "authors": [
+    {
+     "family": "Traniello",
+     "given": "JFA"
+    }
+   ],
+   "year": "1989",
+   "title": "Foraging strategies of ants",
+   "container": "Ann Rev Entomol",
+   "volume": "34",
+   "first_page": "191",
+   "last_page": "210",
+   "doi": "10.1146/annurev.en.34.010189.001203"
+  },
+  {
+   "bib_id": 10,
+   "authors": [
+    {
+     "family": "Lizon à l’Allemand",
+     "given": "S"
+    },
+    {
+     "family": "Witte",
+     "given": "V"
+    }
+   ],
+   "year": "2010",
+   "title": "A sophisticated, modular communication contributes to ecological dominance in the invasive ant Anoplolepis gracilipes",
+   "container": "Biol Invasions",
+   "volume": "12",
+   "first_page": "3551",
+   "doi": "10.1007/s10530-010-9750-7"
+  },
+  {
+   "bib_id": 11,
+   "authors": [
+    {
+     "family": "Feinerman",
+     "given": "O"
+    },
+    {
+     "family": "Pinkoviezky",
+     "given": "I"
+    },
+    {
+     "family": "Gelblum",
+     "given": "A"
+    },
+    {
+     "family": "Fonio",
+     "given": "E"
+    },
+    {
+     "family": "Gov",
+     "given": "NS"
+    }
+   ],
+   "year": "2018",
+   "title": "The physics of cooperative transport in groups of ants",
+   "container": "Nature Physics",
+   "volume": "14",
+   "first_page": "683",
+   "doi": "10.1038/s41567-018-0107-y"
+  },
+  {
+   "bib_id": 12,
+   "authors": [
+    {
+     "family": "Abbott",
+     "given": "KL"
+    }
+   ],
+   "year": "2005",
+   "title": "Supercolonies of the invasive yellow crazy ant, Anoplolepis gracilipes, on an oceanic island: Forager activity patterns, density and biomass",
+   "container": "Insectes Soc",
+   "volume": "52",
+   "first_page": "266",
+   "doi": "10.1007/s00040-005-0800-6"
+  },
+  {
+   "bib_id": 13,
+   "authors": [
+    {
+     "family": "Win",
+     "given": "AT"
+    },
+    {
+     "family": "Machida",
+     "given": "Y"
+    },
+    {
+     "family": "Miyamoto",
+     "given": "Y"
+    },
+    {
+     "family": "Dobata",
+     "given": "S"
+    },
+    {
+     "family": "Tsuji",
+     "given": "K"
+    }
+   ],
+   "year": "2018",
+   "title": "Seasonal and temporal variations in colony-level foraging activity of a queenless ant, Diacamma sp., in Japan",
+   "container": "J Ethol",
+   "volume": "36",
+   "first_page": "277",
+   "doi": "10.1007/s10164-018-0558-8"
+  },
+  {
+   "bib_id": 14,
+   "authors": [
+    {
+     "family": "Dussutour",
+     "given": "A"
+    },
+    {
+     "family": "Beekman",
+     "given": "M"
+    },
+    {
+     "family": "Nicolis",
+     "given": "SC"
+    },
+    {
+     "family": "Meyer",
+     "given": "B"
+    }
+   ],
+   "year": "2009",
+   "title": "Noise improves collective decision-making by ants in dynamic environments",
+   "container": "Proc Biol Sci",
+   "volume": "276",
+   "first_page": "4353",
+   "doi": "10.1098/rspb.2009.1235"
+  },
+  {
+   "bib_id": 15,
+   "authors": [
+    {
+     "family": "Chapman",
+     "given": "BB"
+    },
+    {
+     "family": "Thain",
+     "given": "H"
+    },
+    {
+     "family": "Coughlin",
+     "given": "J"
+    },
+    {
+     "family": "Hughes",
+     "given": "WOH"
+    }
+   ],
+   "year": "2011",
+   "title": "Behavioural syndromes at multiple scales in Myrmica ants",
+   "container": "Animal Behaviour",
+   "volume": "82",
+   "first_page": "391",
+   "doi": "10.1016/j.anbehav.2011.05.019"
+  },
+  {
+   "bib_id": 16,
+   "authors": [
+    {
+     "family": "Chong",
+     "given": "KF"
+    },
+    {
+     "family": "Lee",
+     "given": "CY"
+    }
+   ],
+   "year": "2009",
+   "container": "Influences of Temperature, Relative Humidity and Light Intensity on the Foraging Activity of Field Populations of the Longlegged Ant, Anoplolepis Gracilipes (Hymenoptera: Formicidae). Sociobiology",
+   "volume": "54",
+   "first_page": "531"
+  },
+  {
+   "bib_id": 17,
+   "authors": [
+    {
+     "family": "Rajesh",
+     "given": "TP"
+    },
+    {
+     "family": "Ballullaya",
+     "given": "UP"
+    },
+    {
+     "family": "Unni",
+     "given": "AP"
+    },
+    {
+     "family": "Parvathy",
+     "given": "S"
+    },
+    {
+     "family": "Sinu",
+     "given": "PA"
+    }
+   ],
+   "year": "2020",
+   "title": "Interactive effects of urbanization and year on invasive and native ant diversity of sacred groves of South India",
+   "container": "Urban Ecosyst",
+   "volume": "23",
+   "first_page": "1335",
+   "doi": "10.1007/s11252-020-01007-0"
+  },
+  {
+   "bib_id": 18,
+   "authors": [
+    {
+     "family": "Bazazi",
+     "given": "S"
+    },
+    {
+     "family": "Bartumeus",
+     "given": "F"
+    },
+    {
+     "family": "Hale",
+     "given": "JJ"
+    },
+    {
+     "family": "Couzin",
+     "given": "ID"
+    }
+   ],
+   "year": "2012",
+   "title": "Intermittent motion in desert locusts: behavioural complexity in simple environments",
+   "container": "PLoS Comput Biol",
+   "volume": "8",
+   "doi": "10.1371/journal.pcbi.1002498"
+  },
+  {
+   "bib_id": 19,
+   "authors": [
+    {
+     "family": "Collett",
+     "given": "TS"
+    },
+    {
+     "family": "Zeil",
+     "given": "J"
+    }
+   ],
+   "year": "1997",
+   "title": "The selection and use of landmarks by insects.",
+   "container": "Orientation and communication in arthropods",
+   "first_page": "41",
+   "last_page": "65",
+   "doi": "10.1007/978-3-0348-8878-3_2"
+  },
+  {
+   "bib_id": 20,
+   "authors": [
+    {
+     "family": "Sanmartín-Villar",
+     "given": "I"
+    },
+    {
+     "family": "Jeanson",
+     "given": "R"
+    }
+   ],
+   "year": "2022",
+   "title": "Early social context does not influence behavioral variation at adulthood in ants",
+   "container": "Curr Zool",
+   "first_page": "335",
+   "doi": "10.1093/cz/zoab063"
+  },
+  {
+   "bib_id": 21,
+   "authors": [
+    {
+     "family": "Detrain",
+     "given": "C"
+    },
+    {
+     "family": "Pereira",
+     "given": "H"
+    },
+    {
+     "family": "Fourcassié",
+     "given": "V"
+    }
+   ],
+   "year": "2019",
+   "title": "Differential responses to chemical cues correlate with task performance in ant foragers",
+   "container": "Behav Ecol Sociobiol",
+   "volume": "73",
+   "doi": "10.1007/s00265-019-2717-5"
+  },
+  {
+   "bib_id": 22,
+   "authors": [
+    {
+     "family": "Clement",
+     "given": "L"
+    },
+    {
+     "family": "Schwarz",
+     "given": "S"
+    },
+    {
+     "family": "Wystrach",
+     "given": "A"
+    }
+   ],
+   "year": "2023",
+   "title": "An intrinsic oscillator underlies visual navigation in ants",
+   "container": "Curr Biol",
+   "volume": "33",
+   "doi": "10.1016/j.cub.2022.11.059"
+  },
+  {
+   "bib_id": 23,
+   "authors": [
+    {
+     "family": "Collett",
+     "given": "T"
+    },
+    {
+     "family": "Graham",
+     "given": "P"
+    },
+    {
+     "family": "Heinze",
+     "given": "S"
+    }
+   ],
+   "year": "2025",
+   "title": "The neuroethology of ant navigation",
+   "container": "Curr Biol",
+   "volume": "35",
+   "doi": "10.1016/j.cub.2024.12.034"
+  },
+  {
+   "bib_id": 24,
+   "authors": [
+    {
+     "family": "Kramer",
+     "given": "DL"
+    },
+    {
+     "family": "McLaughlin",
+     "given": "RL"
+    }
+   ],
+   "year": "2001",
+   "title": "The behavioral ecology of intermittent locomotion",
+   "container": "American Zoologist",
+   "volume": "41",
+   "first_page": "137"
+  },
+  {
+   "bib_id": 25,
+   "authors": [
+    {
+     "family": "Mazzucato",
+     "given": "L"
+    }
+   ],
+   "year": "2022",
+   "title": "Neural Mechanisms Underlying the Temporal Organization of Naturalistic Animal Behavior",
+   "container": "eLife",
+   "volume": "11",
+   "doi": "10.7554/eLife.76577"
+  },
+  {
+   "bib_id": 26
+  },
+  {
+   "bib_id": 27,
+   "authors": [
+    {
+     "family": "Viswanathan",
+     "given": "GM"
+    },
+    {
+     "family": "Buldyrev",
+     "given": "SV"
+    },
+    {
+     "family": "Havlin",
+     "given": "S"
+    },
+    {
+     "family": "da Luz",
+     "given": "MG"
+    },
+    {
+     "family": "Raposo",
+     "given": "EP"
+    },
+    {
+     "family": "Stanley",
+     "given": "HE"
+    }
+   ],
+   "year": "1999",
+   "title": "Optimizing the success of random searches",
+   "container": "Nature",
+   "volume": "401",
+   "first_page": "911",
+   "doi": "10.1038/44831"
+  },
+  {
+   "bib_id": 28,
+   "authors": [
+    {
+     "family": "Sims",
+     "given": "DW"
+    },
+    {
+     "family": "Southall",
+     "given": "EJ"
+    },
+    {
+     "family": "Humphries",
+     "given": "NE"
+    },
+    {
+     "family": "Hays",
+     "given": "GC"
+    },
+    {
+     "family": "Bradshaw",
+     "given": "CJA"
+    },
+    {
+     "family": "Pitchford",
+     "given": "JW"
+    }
+   ],
+   "year": "2008",
+   "title": "Scaling laws of marine predator search behaviour. nature",
+   "volume": "451",
+   "first_page": "1098",
+   "doi": "10.1038/nature06518"
+  },
+  {
+   "bib_id": 29,
+   "authors": [
+    {
+     "family": "Pierce-Shimomura",
+     "given": "JT"
+    },
+    {
+     "family": "Morse",
+     "given": "TM"
+    },
+    {
+     "family": "Lockery",
+     "given": "SR"
+    }
+   ],
+   "year": "1999",
+   "title": "The fundamental role of pirouettes in Caenorhabditis elegans chemotaxis",
+   "container": "J Neurosci",
+   "volume": "19",
+   "first_page": "9557",
+   "doi": "10.1523/JNEUROSCI.19-21-09557.1999"
+  },
+  {
+   "bib_id": 30,
+   "authors": [
+    {
+     "family": "Celani",
+     "given": "A"
+    },
+    {
+     "family": "Vergassola",
+     "given": "M"
+    }
+   ],
+   "year": "2010",
+   "title": "Bacterial strategies for chemotaxis response",
+   "container": "Proc Natl Acad Sci U S A",
+   "volume": "107",
+   "first_page": "1391",
+   "doi": "10.1073/pnas.0909673107"
+  },
+  {
+   "bib_id": 31,
+   "authors": [
+    {
+     "family": "Celani",
+     "given": "A"
+    },
+    {
+     "family": "Villermaux",
+     "given": "E"
+    },
+    {
+     "family": "Vergassola",
+     "given": "M"
+    }
+   ],
+   "year": "2014",
+   "title": "Odor landscapes in turbulent environments",
+   "container": "Physical Review X",
+   "doi": "10.1103/PhysRevX.4.041015"
+  },
+  {
+   "bib_id": 32,
+   "authors": [
+    {
+     "family": "Kirkegaard",
+     "given": "JB"
+    },
+    {
+     "family": "Goldstein",
+     "given": "RE"
+    }
+   ],
+   "year": "2018",
+   "title": "The role of tumbling frequency and persistence in optimal run-and-tumble chemotaxis",
+   "container": "IMA Journal of Applied Mathematics",
+   "volume": "83",
+   "first_page": "700",
+   "doi": "10.1093/imamat/hxy013"
+  },
+  {
+   "bib_id": 33,
+   "authors": [
+    {
+     "family": "Chouinard-Thuly",
+     "given": "L"
+    },
+    {
+     "family": "Gierszewski",
+     "given": "S"
+    },
+    {
+     "family": "Rosenthal",
+     "given": "GG"
+    },
+    {
+     "family": "Reader",
+     "given": "SM"
+    },
+    {
+     "family": "Rieucau",
+     "given": "G"
+    },
+    {
+     "family": "Woo",
+     "given": "KL"
+    }
+   ],
+   "year": "2017",
+   "title": "Technical and conceptual considerations for using animated stimuli in studies of animal behavior",
+   "container": "Curr Zool",
+   "volume": "63",
+   "first_page": "5",
+   "last_page": "19",
+   "doi": "10.1093/cz/zow104"
+  },
+  {
+   "bib_id": 34,
+   "authors": [
+    {
+     "family": "Tu",
+     "given": "X"
+    }
+   ],
+   "year": "1999",
+   "title": "Artificial animals for computer animation: biomechanics, locomotion, perception, and behavior"
+  },
+  {
+   "bib_id": 35,
+   "authors": [
+    {
+     "family": "Mohamad",
+     "given": "MM"
+    },
+    {
+     "family": "Dunnigan",
+     "given": "MW"
+    },
+    {
+     "family": "Taylor",
+     "given": "NK"
+    }
+   ],
+   "year": "2005",
+   "title": "Ant Colony Robot Motion Planning. In:",
+   "container": "EUROCON 2005 - The international conference on computer as a tool",
+   "first_page": "213",
+   "doi": "10.1109/EURCON.2005.1629898"
+  },
+  {
+   "bib_id": 36,
+   "authors": [
+    {
+     "family": "Carrasco",
+     "given": "LR"
+    },
+    {
+     "family": "Mumford",
+     "given": "JD"
+    },
+    {
+     "family": "MacLeod",
+     "given": "A"
+    },
+    {
+     "family": "Harwood",
+     "given": "T"
+    },
+    {
+     "family": "Grabenweger",
+     "given": "G"
+    },
+    {
+     "family": "Leach",
+     "given": "AW"
+    }
+   ],
+   "year": "2010",
+   "title": "Unveiling human-assisted dispersal mechanisms in invasive alien insects: Integration of spatial stochastic simulation and phenology models",
+   "container": "Ecological Modelling",
+   "volume": "221",
+   "first_page": "2068",
+   "doi": "10.1016/j.ecolmodel.2010.05.012"
+  },
+  {
+   "bib_id": 37,
+   "authors": [
+    {
+     "family": "Sakiyama",
+     "given": "T"
+    },
+    {
+     "family": "Gunji",
+     "given": "YP"
+    }
+   ],
+   "year": "2016",
+   "title": "Lévy-like movements in Japanese carpenter ants: Experimental and theoretical approaches",
+   "container": "Ecological Complexity",
+   "volume": "26",
+   "first_page": "21",
+   "doi": "10.1016/j.ecocom.2016.02.003"
+  },
+  {
+   "bib_id": 38,
+   "authors": [
+    {
+     "family": "Jeanson",
+     "given": "R"
+    },
+    {
+     "family": "Blanco",
+     "given": "S"
+    },
+    {
+     "family": "Fournier",
+     "given": "R"
+    },
+    {
+     "family": "Deneubourg",
+     "given": "JL"
+    },
+    {
+     "family": "Fourcassié",
+     "given": "V"
+    },
+    {
+     "family": "Theraulaz",
+     "given": "G"
+    }
+   ],
+   "year": "2003",
+   "title": "A model of animal movements in a bounded space",
+   "container": "J Theor Biol",
+   "volume": "225",
+   "first_page": "443",
+   "doi": "10.1016/s0022-5193(03)00277-7"
+  },
+  {
+   "bib_id": 39,
+   "authors": [
+    {
+     "family": "Lee",
+     "given": "CY"
+    },
+    {
+     "family": "Yang",
+     "given": "CCS"
+    }
+   ],
+   "year": "2022",
+   "title": "Biology, ecology, and management of the invasive longlegged ant, anoplolepis Gracilipes. Annual Review of Entomology",
+   "first_page": "43",
+   "last_page": "63",
+   "doi": "10.1146/annurev-ento-033121-102332"
+  },
+  {
+   "bib_id": 40,
+   "authors": [
+    {
+     "family": "Featherstone",
+     "given": "J"
+    },
+    {
+     "family": "Béraud",
+     "given": "A"
+    },
+    {
+     "family": "Virant",
+     "given": "D"
+    },
+    {
+     "family": "Celani",
+     "given": "A"
+    },
+    {
+     "family": "Bandi",
+     "given": "M"
+    }
+   ],
+   "year": "2026",
+   "title": "Laboratory tracking experiments of long-legged ants (A. Gracilipes",
+   "container": "). Zenodo",
+   "doi": "10.5281/zenodo.18728550"
+  },
+  {
+   "bib_id": 41,
+   "authors": [
+    {
+     "family": "Haines",
+     "given": "IH"
+    },
+    {
+     "family": "Haines",
+     "given": "JB"
+    },
+    {
+     "family": "Cherrett",
+     "given": "JM"
+    }
+   ],
+   "year": "1994",
+   "title": "The impact and control of the crazy ant, anoplolepis longipes (Jerd.), in the Seychelles. In: Exotic Ants"
+  },
+  {
+   "bib_id": 42,
+   "authors": [
+    {
+     "family": "Pereira",
+     "given": "TD"
+    },
+    {
+     "family": "Tabris",
+     "given": "N"
+    },
+    {
+     "family": "Matsliah",
+     "given": "A"
+    },
+    {
+     "family": "Turner",
+     "given": "DM"
+    },
+    {
+     "family": "Li",
+     "given": "J"
+    },
+    {
+     "family": "Ravindranath",
+     "given": "S"
+    }
+   ],
+   "year": "2022",
+   "title": "SLEAP: a deep learning system for multi-animal pose tracking",
+   "container": "Nat Methods",
+   "volume": "19",
+   "first_page": "486",
+   "doi": "10.1038/s41592-022-01426-1"
+  },
+  {
+   "bib_id": 43,
+   "authors": [
+    {
+     "family": "Ronneberger",
+     "given": "O"
+    },
+    {
+     "family": "Fischer",
+     "given": "P"
+    },
+    {
+     "family": "Brox",
+     "given": "T"
+    }
+   ],
+   "year": "2015",
+   "doi": "10.48550/arXiv.1505.04597"
+  },
+  {
+   "bib_id": 44,
+   "authors": [
+    {
+     "family": "Fodor",
+     "given": "É"
+    },
+    {
+     "family": "Cristina",
+     "given": "M"
+    }
+   ],
+   "year": "2018",
+   "title": "The statistical physics of active matter: from self-catalytic colloids to living cells",
+   "container": "Physica A: statistical mechanics and its applications",
+   "first_page": "106",
+   "doi": "10.1016/j.physa.2017.12.137"
+  },
+  {
+   "bib_id": 45,
+   "authors": [
+    {
+     "family": "Fu",
+     "given": "J"
+    },
+    {
+     "family": "Perthame",
+     "given": "B"
+    },
+    {
+     "family": "Tang",
+     "given": "M"
+    }
+   ],
+   "year": "2021",
+   "title": "Fokker–plank system for movement of micro-organism population in confined environment",
+   "container": "J Stat Phys",
+   "volume": "184",
+   "doi": "10.1007/s10955-021-02760-y"
+  },
+  {
+   "bib_id": 46,
+   "authors": [
+    {
+     "family": "Zamora",
+     "given": "DJ"
+    },
+    {
+     "family": "Artuso",
+     "given": "R"
+    }
+   ],
+   "year": "2024",
+   "title": "Exploring run-and-tumble movement in confined settings through simulation.",
+   "container": "J Chem Physics",
+   "doi": "10.1063/5.0221781"
+  },
+  {
+   "bib_id": 47,
+   "authors": [
+    {
+     "family": "Gupta",
+     "given": "S"
+    },
+    {
+     "family": "Jayannavar",
+     "given": "AM"
+    }
+   ],
+   "year": "2022",
+   "title": "Stochastic resetting: a (Very) brief review",
+   "container": "Front Phys",
+   "volume": "10",
+   "doi": "10.3389/fphy.2022.789097"
+  },
+  {
+   "bib_id": 48,
+   "authors": [
+    {
+     "family": "Bartumeus",
+     "given": "F"
+    },
+    {
+     "family": "da Luz",
+     "given": "MGE"
+    },
+    {
+     "family": "Viswanathan",
+     "given": "GM"
+    },
+    {
+     "family": "Catalan",
+     "given": "J"
+    }
+   ],
+   "year": "2005",
+   "title": "Animal search strategies: a quantitative random-walk analysis",
+   "container": "Ecology",
+   "volume": "86",
+   "first_page": "3078",
+   "doi": "10.1890/04-1806"
+  },
+  {
+   "bib_id": 49,
+   "authors": [
+    {
+     "family": "Reynolds",
+     "given": "AM"
+    },
+    {
+     "family": "Smith",
+     "given": "AD"
+    },
+    {
+     "family": "Menzel",
+     "given": "R"
+    },
+    {
+     "family": "Greggers",
+     "given": "U"
+    },
+    {
+     "family": "Reynolds",
+     "given": "DR"
+    },
+    {
+     "family": "Riley",
+     "given": "JR"
+    }
+   ],
+   "year": "2007",
+   "title": "Displaced honey bees perform optimal scale-free search flights",
+   "container": "Ecology",
+   "volume": "88",
+   "first_page": "1955",
+   "doi": "10.1890/06-1916.1"
+  },
+  {
+   "bib_id": 50,
+   "authors": [
+    {
+     "family": "Kawai",
+     "given": "R"
+    },
+    {
+     "family": "Petrovskii",
+     "given": "S"
+    }
+   ],
+   "year": "2012",
+   "title": "Multi-scale properties of random walk models of animal movement: lessons from statistical inference",
+   "container": "Proc R Soc A",
+   "volume": "468",
+   "first_page": "1428",
+   "doi": "10.1098/rspa.2011.0665"
+  },
+  {
+   "bib_id": 51,
+   "authors": [
+    {
+     "family": "Edelhoff",
+     "given": "H"
+    },
+    {
+     "family": "Signer",
+     "given": "J"
+    },
+    {
+     "family": "Balkenhol",
+     "given": "N"
+    }
+   ],
+   "year": "2016",
+   "title": "Path segmentation for beginners: an overview of current methods for detecting changes in animal movement patterns",
+   "container": "Mov Ecol",
+   "volume": "4",
+   "first_page": "21",
+   "doi": "10.1186/s40462-016-0086-5"
+  },
+  {
+   "bib_id": 52,
+   "authors": [
+    {
+     "family": "Junot",
+     "given": "G"
+    },
+    {
+     "family": "Darnige",
+     "given": "T"
+    },
+    {
+     "family": "Lindner",
+     "given": "A"
+    },
+    {
+     "family": "Martinez",
+     "given": "VA"
+    },
+    {
+     "family": "Arlt",
+     "given": "J"
+    },
+    {
+     "family": "Dawson",
+     "given": "A"
+    }
+   ],
+   "year": "2022",
+   "title": "Run-to-tumble variability controls the surface residence times of E. Coli Bacteria",
+   "container": "Phys Rev Letters",
+   "first_page": "248101",
+   "doi": "10.1103/PhysRevLett.128.248101"
+  },
+  {
+   "bib_id": 53,
+   "authors": [
+    {
+     "family": "Pyke",
+     "given": "GH"
+    }
+   ],
+   "year": "2014",
+   "title": "Understanding movements of organisms: it’s time to abandon the Lévy foraging hypothesis",
+   "container": "Methods Ecol Evol",
+   "volume": "6",
+   "first_page": "1",
+   "last_page": "16",
+   "doi": "10.1111/2041-210x.12298"
+  },
+  {
+   "bib_id": 54,
+   "authors": [
+    {
+     "family": "Buhl",
+     "given": "C"
+    },
+    {
+     "family": "Sumpter",
+     "given": "DJT"
+    },
+    {
+     "family": "Couzin",
+     "given": "ID"
+    },
+    {
+     "family": "Hale",
+     "given": "JJ"
+    },
+    {
+     "family": "Despland",
+     "given": "E"
+    },
+    {
+     "family": "Miller",
+     "given": "ER"
+    }
+   ],
+   "year": "2006",
+   "title": "From disorder to order in marching locusts",
+   "container": "Science",
+   "volume": "312",
+   "first_page": "1402",
+   "doi": "10.1126/science.1125142"
+  },
+  {
+   "bib_id": 55,
+   "authors": [
+    {
+     "family": "Alstott",
+     "given": "J"
+    },
+    {
+     "family": "Bullmore",
+     "given": "E"
+    },
+    {
+     "family": "Plenz",
+     "given": "D"
+    }
+   ],
+   "year": "2014",
+   "title": "Powerlaw: a Python package for analysis of heavy-tailed distributions",
+   "container": "PLoS One",
+   "volume": "9",
+   "doi": "10.1371/journal.pone.0085777"
+  },
+  {
+   "bib_id": 56,
+   "authors": [
+    {
+     "family": "Virtanen",
+     "given": "P"
+    },
+    {
+     "family": "Gommers",
+     "given": "R"
+    },
+    {
+     "family": "Oliphant",
+     "given": "TE"
+    },
+    {
+     "family": "Haberland",
+     "given": "M"
+    },
+    {
+     "family": "Reddy",
+     "given": "T"
+    },
+    {
+     "family": "Cournapeau",
+     "given": "D"
+    }
+   ],
+   "year": "2020",
+   "title": "SciPy 1.0: fundamental algorithms for scientific computing in Python",
+   "container": "Nat Methods",
+   "volume": "17",
+   "first_page": "261",
+   "doi": "10.1038/s41592-019-0686-2"
+  },
+  {
+   "bib_id": 57,
+   "authors": [
+    {
+     "family": "Bénichou",
+     "given": "O"
+    },
+    {
+     "family": "Loverdo",
+     "given": "C"
+    },
+    {
+     "family": "Moreau",
+     "given": "M"
+    },
+    {
+     "family": "Voituriez",
+     "given": "R"
+    }
+   ],
+   "year": "2006",
+   "title": "Two-dimensional intermittent search processes: an alternative to Lévy flight strategies",
+   "container": "Phys Rev E Stat Nonlin Soft Matter Phys",
+   "volume": "74",
+   "first_page": "020102",
+   "doi": "10.1103/PhysRevE.74.020102"
+  },
+  {
+   "bib_id": 58,
+   "authors": [
+    {
+     "family": "Bénichou",
+     "given": "O"
+    },
+    {
+     "family": "Loverdo",
+     "given": "C"
+    },
+    {
+     "family": "Moreau",
+     "given": "M"
+    },
+    {
+     "family": "Voituriez",
+     "given": "R"
+    }
+   ],
+   "year": "2013",
+   "title": "Intermittent Search Strategies",
+   "container": "Reviews of Modern Physics",
+   "first_page": "81",
+   "last_page": "129",
+   "doi": "10.1103/RevModPhys.83.81"
+  },
+  {
+   "bib_id": 59,
+   "authors": [
+    {
+     "family": "Burd",
+     "given": "M"
+    },
+    {
+     "family": "Aranwela",
+     "given": "N"
+    }
+   ],
+   "year": "2003",
+   "title": "Head-on encounter rates and walking speed of foragers in leaf-cutting ant traffic",
+   "container": "Insectes Sociaux",
+   "volume": "50",
+   "first_page": "3",
+   "last_page": "8",
+   "doi": "10.1007/s000400300001"
+  },
+  {
+   "bib_id": 60,
+   "authors": [
+    {
+     "family": "Edwards",
+     "given": "AM"
+    },
+    {
+     "family": "Phillips",
+     "given": "RA"
+    },
+    {
+     "family": "Watkins",
+     "given": "NW"
+    },
+    {
+     "family": "Freeman",
+     "given": "MP"
+    },
+    {
+     "family": "Murphy",
+     "given": "EJ"
+    },
+    {
+     "family": "Afanasyev",
+     "given": "V"
+    }
+   ],
+   "year": "2007",
+   "title": "Revisiting Lévy flight search patterns of wandering albatrosses, bumblebees and deer",
+   "container": "Nature",
+   "volume": "449",
+   "first_page": "1044",
+   "doi": "10.1038/nature06199"
+  },
+  {
+   "bib_id": 61,
+   "authors": [
+    {
+     "family": "Sims",
+     "given": "DW"
+    },
+    {
+     "family": "Righton",
+     "given": "D"
+    },
+    {
+     "family": "Pitchford",
+     "given": "JW"
+    }
+   ],
+   "year": "2007",
+   "title": "Minimizing errors in identifying Lévy flight behaviour of organisms",
+   "container": "J Anim Ecol",
+   "volume": "76",
+   "first_page": "222",
+   "doi": "10.1111/j.1365-2656.2006.01208.x"
+  },
+  {
+   "bib_id": 62,
+   "authors": [
+    {
+     "family": "Sidortsov",
+     "given": "M"
+    },
+    {
+     "family": "Morgenstern",
+     "given": "Y"
+    },
+    {
+     "family": "Be’er",
+     "given": "A"
+    }
+   ],
+   "year": "2017",
+   "title": "Role of tumbling in bacterial swarming",
+   "container": "Phys Rev E",
+   "volume": "96",
+   "first_page": "022407",
+   "doi": "10.1103/PhysRevE.96.022407"
+  },
+  {
+   "bib_id": 63,
+   "authors": [
+    {
+     "family": "Polin",
+     "given": "M"
+    },
+    {
+     "family": "Tuval",
+     "given": "I"
+    },
+    {
+     "family": "Drescher",
+     "given": "K"
+    },
+    {
+     "family": "Gollub",
+     "given": "JP"
+    },
+    {
+     "family": "Goldstein",
+     "given": "RE"
+    }
+   ],
+   "year": "2009",
+   "title": "Chlamydomonas swims with two “gears” in a eukaryotic version of run-and-tumble locomotion",
+   "container": "Science",
+   "volume": "325",
+   "first_page": "487",
+   "doi": "10.1126/science.1172667"
+  },
+  {
+   "bib_id": 64,
+   "authors": [
+    {
+     "family": "Demir",
+     "given": "M"
+    },
+    {
+     "family": "Kadakia",
+     "given": "N"
+    },
+    {
+     "family": "Anderson",
+     "given": "HD"
+    },
+    {
+     "family": "Clark",
+     "given": "DA"
+    },
+    {
+     "family": "Emonet",
+     "given": "T"
+    }
+   ],
+   "year": "2020",
+   "doi": "10.7554/eLife.57524"
+  },
+  {
+   "bib_id": 65,
+   "authors": [
+    {
+     "family": "Betancourt",
+     "given": "JM"
+    },
+    {
+     "family": "Leighton",
+     "given": "MP"
+    },
+    {
+     "family": "Emonet",
+     "given": "T"
+    },
+    {
+     "family": "Machta",
+     "given": "BB"
+    },
+    {
+     "family": "Abbott",
+     "given": "MC"
+    }
+   ],
+   "year": "2026",
+   "doi": "10.48550/ARXIV.2602.23324"
+  },
+  {
+   "bib_id": 66,
+   "authors": [
+    {
+     "family": "Bartumeus",
+     "given": "F"
+    },
+    {
+     "family": "Levin",
+     "given": "SA"
+    }
+   ],
+   "year": "2008",
+   "title": "Fractal reorientation clocks: linking animal behavior to statistical patterns of search. Proceedings of the National Academy of Sciences",
+   "volume": "105",
+   "first_page": "19072",
+   "doi": "10.1073/pnas.0801926105"
+  },
+  {
+   "bib_id": 67,
+   "authors": [
+    {
+     "family": "Fu",
+     "given": "J"
+    },
+    {
+     "family": "Liang",
+     "given": "J"
+    },
+    {
+     "family": "Perthame",
+     "given": "B"
+    }
+   ],
+   "year": "2024",
+   "doi": "10.48550/arXiv.2401.03161"
+  },
+  {
+   "bib_id": 68,
+   "authors": [
+    {
+     "family": "Klotz",
+     "given": "JH"
+    },
+    {
+     "family": "Reid",
+     "given": "BL"
+    }
+   ],
+   "year": "1993",
+   "title": "Nocturnal orientation in the black carpenter antCamponotus pennsylvanicus (DeGeer) (Hymenoptera: Formicidae)",
+   "container": "Ins Soc",
+   "volume": "40",
+   "first_page": "95",
+   "last_page": "106",
+   "doi": "10.1007/bf01338835"
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-core-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "jats_doi": "10.1371/journal.pcbi.1014069"
+ }
+}

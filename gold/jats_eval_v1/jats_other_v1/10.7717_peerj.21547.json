@@ -1,0 +1,2207 @@
+{
+ "paper_id": "10.7717_peerj.21547",
+ "info": {
+  "title": "Differential acoustic habitat use in delphinids along the Florida Atlantic coast",
+  "doi": "10.7717/peerj.21547",
+  "file_name": "10.7717_peerj.21547.pdf",
+  "keywords": [
+   "Habitat partitioning",
+   "Dolphin vocalization",
+   "Generalized additive models",
+   "Habitat modeling",
+   "Soniferous fish"
+  ],
+  "abstract": "Acoustic signaling is fundamental to dolphin ecology, with echolocation primarily supporting foraging, navigation, and predator avoidance, and whistles facilitating social communication. Here we investigate potential acoustic habitat differentiation in oceanic dolphins (delphinids) along the Florida Atlantic coast by identifying distinct environmental conditions associated with each signal type and investigating their relationships with soniferous fish presence. Delphinid acoustic signals were recorded during a two-month deployment of a wave glider equipped with a Remora-ST acoustic recorder. Additionally, environmental variables including sound pressure level (SPL), anthropogenic noise, soniferous fish presence, location, temperature, current speed and direction, depth, distance to the coast, salinity, and chlorophyll-a concentration were recorded. Generalized additive models (GAMs) were used to identify key predictors of whistle and echolocation occurrence, and best fit models were then used to generate predictive maps of suitable habitat for each signal type and for soniferous fish. Our results revealed unique environmental predictors of delphinid presence, depending on acoustic signal type (echolocation vs whistles) and distinctly different areas of high detection, which was further reflected in predicted habitat suitability. Furthermore, the presence of soniferous fish is shown to influence acoustic vocalization type and detection, offering an initial look into potential predator-prey interactions shaping delphinid vocalization behavior. This research offers valuable insight for management, particularly in identifying key foraging grounds and social hotspots and further validates the capabilities of passive acoustic monitoring via wave gliders for ecological insights of cetaceans."
+ },
+ "author": [
+  {
+   "author_id": 1,
+   "given": "Jessica",
+   "family": "Carvalho",
+   "affiliation": "Harbor Branch Oceanographic Institute, Florida Atlantic University, Fort Pierce, FL, United States of America",
+   "email": "",
+   "orcid": "",
+   "corresponding": true
+  },
+  {
+   "author_id": 2,
+   "given": "Greg",
+   "family": "O’Corry-Crowe",
+   "affiliation": "Harbor Branch Oceanographic Institute, Florida Atlantic University, Fort Pierce, FL, United States of America",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 3,
+   "given": "Laurent M.",
+   "family": "Chérubin",
+   "affiliation": "Harbor Branch Oceanographic Institute, Florida Atlantic University, Fort Pierce, FL, United States of America",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  }
+ ],
+ "section": [
+  {
+   "section_id": 1,
+   "section_type": "abstract",
+   "header": "Abstract",
+   "level": 1,
+   "parent_section_id": null,
+   "classification_score": 1.0
+  }
+ ],
+ "text": [
+  {
+   "text_id": 1,
+   "section_id": 1,
+   "paragraph_id": 1,
+   "text": "Acoustic signaling is fundamental to dolphin ecology, with echolocation primarily supporting foraging, navigation, and predator avoidance, and whistles facilitating social communication. Here we investigate potential acoustic habitat differentiation in oceanic dolphins (delphinids) along the Florida Atlantic coast by identifying distinct environmental conditions associated with each signal type and investigating their relationships with soniferous fish presence. Delphinid acoustic signals were recorded during a two-month deployment of a wave glider equipped with a Remora-ST acoustic recorder. Additionally, environmental variables including sound pressure level (SPL), anthropogenic noise, soniferous fish presence, location, temperature, current speed and direction, depth, distance to the coast, salinity, and chlorophyll-a concentration were recorded. Generalized additive models (GAMs) were used to identify key predictors of whistle and echolocation occurrence, and best fit models were then used to generate predictive maps of suitable habitat for each signal type and for soniferous fish. Our results revealed unique environmental predictors of delphinid presence, depending on acoustic signal type (echolocation vs whistles) and distinctly different areas of high detection, which was further reflected in predicted habitat suitability. Furthermore, the presence of soniferous fish is shown to influence acoustic vocalization type and detection, offering an initial look into potential predator-prey interactions shaping delphinid vocalization behavior. This research offers valuable insight for management, particularly in identifying key foraging grounds and social hotspots and further validates the capabilities of passive acoustic monitoring via wave gliders for ecological insights of cetaceans.",
+   "page_number": 1
+  }
+ ],
+ "bib": [
+  {
+   "bib_id": 1,
+   "authors": [
+    {
+     "family": "Aniceto",
+     "given": "AS"
+    },
+    {
+     "family": "Pedersen",
+     "given": "G"
+    },
+    {
+     "family": "Primicerio",
+     "given": "R"
+    },
+    {
+     "family": "Biuw",
+     "given": "M"
+    },
+    {
+     "family": "Lindstrøm",
+     "given": "U"
+    },
+    {
+     "family": "Camus",
+     "given": "L"
+    }
+   ],
+   "year": "2020",
+   "title": "Arctic marine data collection using oceanic gliders: providing ecological context to cetacean vocalizations",
+   "container": "Frontiers in Marine Science",
+   "volume": "7",
+   "first_page": "585754",
+   "doi": "10.3389/fmars.2020.585754"
+  },
+  {
+   "bib_id": 2,
+   "authors": [
+    {
+     "family": "Ansmann",
+     "given": "IC"
+    },
+    {
+     "family": "Lanyon",
+     "given": "JM"
+    },
+    {
+     "family": "Seddon",
+     "given": "JM"
+    },
+    {
+     "family": "Parra",
+     "given": "GJ"
+    }
+   ],
+   "year": "2015",
+   "title": "Habitat and resource partitioning among Indo-Pacific bottlenose dolphins in Moreton Bay, Australia",
+   "container": "Marine Mammal Science",
+   "volume": "31",
+   "first_page": "211",
+   "last_page": "230",
+   "doi": "10.1111/mms.12153"
+  },
+  {
+   "bib_id": 3,
+   "authors": [
+    {
+     "family": "Au",
+     "given": "WWL"
+    }
+   ],
+   "year": "2018",
+   "title": "Echolocation",
+   "container": "Encyclopedia of marine mammals (Third Edition)",
+   "first_page": "289",
+   "last_page": "299"
+  },
+  {
+   "bib_id": 4,
+   "authors": [
+    {
+     "family": "Au",
+     "given": "WWL"
+    },
+    {
+     "family": "Nachtigall",
+     "given": "PE"
+    }
+   ],
+   "year": "1997",
+   "title": "Acoustics of echolocating dolphins and small whales",
+   "container": "Marine and Freshwater Behaviour and Physiology",
+   "volume": "29",
+   "first_page": "127",
+   "last_page": "162",
+   "doi": "10.1080/10236249709379004"
+  },
+  {
+   "bib_id": 5,
+   "authors": [
+    {
+     "family": "Barros",
+     "given": "NB"
+    }
+   ],
+   "year": "1993",
+   "title": "Feeding ecology and foraging strategies of bottlenose dolphins on the central east coast of Florida",
+   "container": "Ph.D. thesis"
+  },
+  {
+   "bib_id": 6,
+   "authors": [
+    {
+     "family": "Barros",
+     "given": "NB"
+    },
+    {
+     "family": "Wells",
+     "given": "RS"
+    }
+   ],
+   "year": "1998",
+   "title": "Prey and feeding patterns of Resident Bottlenose Dolphins (Tursiops truncatus) in Sarasota Bay, Florida",
+   "container": "Journal of Mammalogy",
+   "volume": "79",
+   "first_page": "1045",
+   "last_page": "1059",
+   "doi": "10.2307/1383114"
+  },
+  {
+   "bib_id": 7,
+   "authors": [
+    {
+     "family": "Baumgartner",
+     "given": "MF"
+    },
+    {
+     "family": "Fratantoni",
+     "given": "DM"
+    },
+    {
+     "family": "Hurst",
+     "given": "TP"
+    },
+    {
+     "family": "Brown",
+     "given": "MW"
+    },
+    {
+     "family": "Cole",
+     "given": "TV"
+    },
+    {
+     "family": "Van Parijs",
+     "given": "SM"
+    },
+    {
+     "family": "Johnson",
+     "given": "M"
+    }
+   ],
+   "year": "2013",
+   "title": "Real-time reporting of baleen whale passive acoustic detections from ocean gliders",
+   "container": "The Journal of the Acoustical Society of America",
+   "volume": "134",
+   "first_page": "1814",
+   "last_page": "1823",
+   "doi": "10.1121/1.4816406"
+  },
+  {
+   "bib_id": 8,
+   "authors": [
+    {
+     "family": "Bearzi",
+     "given": "M"
+    }
+   ],
+   "year": "2009",
+   "title": "Habitat partitioning by three species of Dolphins in Santa Monica Bay, California",
+   "container": "Bulletin, Southern California Academy of Sciences",
+   "volume": "104",
+   "first_page": "113",
+   "last_page": "124",
+   "doi": "10.3160/0038-3872(2005)104[113:HPBTSO]2.0.CO;2"
+  },
+  {
+   "bib_id": 9,
+   "authors": [
+    {
+     "family": "Bittencourt",
+     "given": "L"
+    },
+    {
+     "family": "Lailson-Brito",
+     "given": "J"
+    },
+    {
+     "family": "Soares-Filho",
+     "given": "W"
+    },
+    {
+     "family": "Barreira",
+     "given": "LM"
+    },
+    {
+     "family": "Lima",
+     "given": "IMSd"
+    },
+    {
+     "family": "Azevedo",
+     "given": "AdF"
+    },
+    {
+     "family": "Pai",
+     "given": "S"
+    },
+    {
+     "family": "Guerra",
+     "given": "LAA"
+    }
+   ],
+   "year": "2017",
+   "title": "Mapping delphinid occurrence using a passive acoustic monitoring system towed by an unmanned surface vehicle on the Southeast Coast of Brazil",
+   "first_page": "1",
+   "last_page": "4"
+  },
+  {
+   "bib_id": 10,
+   "authors": [
+    {
+     "family": "Bittencourt",
+     "given": "L"
+    },
+    {
+     "family": "Lima",
+     "given": "MS"
+    },
+    {
+     "family": "Andrade",
+     "given": "LG"
+    },
+    {
+     "family": "Carvalho",
+     "given": "RR"
+    },
+    {
+     "family": "Bisi",
+     "given": "TL"
+    },
+    {
+     "family": "Lailson-Brito",
+     "given": "IJ"
+    },
+    {
+     "family": "Azevedo",
+     "given": "AF"
+    }
+   ],
+   "year": "2017",
+   "title": "Underwater noise in an impacted environment can affect Guiana dolphin communication",
+   "container": "Marine Pollution Bulletin",
+   "volume": "114",
+   "first_page": "1130",
+   "last_page": "1134",
+   "doi": "10.1016/j.marpolbul.2016.10.037"
+  },
+  {
+   "bib_id": 11,
+   "authors": [
+    {
+     "family": "Bittencourt",
+     "given": "L"
+    },
+    {
+     "family": "Soares-Filho",
+     "given": "W"
+    },
+    {
+     "family": "De Lima",
+     "given": "IMS"
+    },
+    {
+     "family": "Pai",
+     "given": "S"
+    },
+    {
+     "family": "Lailson-Brito",
+     "given": "J"
+    },
+    {
+     "family": "Barreira",
+     "given": "LM"
+    },
+    {
+     "family": "Azevedo",
+     "given": "AF"
+    },
+    {
+     "family": "Guerra",
+     "given": "LAA"
+    }
+   ],
+   "year": "2018",
+   "title": "Mapping cetacean sounds using a passive acoustic monitoring system towed by an autonomous wave glider in the Southwestern Atlantic ocean",
+   "container": "Deep Sea Research Part I: Oceanographic Research Papers",
+   "volume": "142",
+   "first_page": "58",
+   "last_page": "68",
+   "doi": "10.1016/j.dsr.2018.10.006"
+  },
+  {
+   "bib_id": 12,
+   "authors": [
+    {
+     "family": "Branstetter",
+     "given": "BK"
+    },
+    {
+     "family": "Mercado III",
+     "given": "E"
+    }
+   ],
+   "year": "2006",
+   "title": "Sound localization by cetaceans",
+   "container": "International Journal of Comparative Psychology",
+   "volume": "19",
+   "first_page": "26",
+   "last_page": "61",
+   "doi": "10.46867/ijcp.2006.19.01.05"
+  },
+  {
+   "bib_id": 13,
+   "authors": [
+    {
+     "family": "Buckstaff",
+     "given": "KC"
+    }
+   ],
+   "year": "2004",
+   "title": "Effects of watercraft noise on the acoustic behavior of bottlenose dolphins, Tursiops truncatus, in Sarasota bay, Florida",
+   "container": "Marine Mammal Science",
+   "volume": "20",
+   "first_page": "709",
+   "last_page": "725",
+   "doi": "10.1111/j.1748-7692.2004.tb01189.x"
+  },
+  {
+   "bib_id": 14,
+   "authors": [
+    {
+     "family": "Carvalho",
+     "given": "J"
+    },
+    {
+     "family": "Chérubin",
+     "given": "LM"
+    },
+    {
+     "family": "O’Corry-Crowe",
+     "given": "G"
+    }
+   ],
+   "year": "2025",
+   "title": "Autonomous wave gliders as a tool to characterize delphinid habitats along the Florida Atlantic coast",
+   "container": "PeerJ",
+   "volume": "13",
+   "first_page": "e19204",
+   "doi": "10.7717/peerj.19204"
+  },
+  {
+   "bib_id": 15,
+   "authors": [
+    {
+     "family": "Cauchy",
+     "given": "P"
+    },
+    {
+     "family": "Heywood",
+     "given": "KJ"
+    },
+    {
+     "family": "Merchant",
+     "given": "ND"
+    },
+    {
+     "family": "Risch",
+     "given": "D"
+    },
+    {
+     "family": "Queste",
+     "given": "BY"
+    },
+    {
+     "family": "Testor",
+     "given": "P"
+    }
+   ],
+   "year": "2023",
+   "title": "Gliders for passive acoustic monitoring of the oceanic environment",
+   "container": "Frontiers in Remote Sensing",
+   "volume": "4",
+   "first_page": "1106533",
+   "doi": "10.3389/frsen.2023.1106533"
+  },
+  {
+   "bib_id": 16,
+   "authors": [
+    {
+     "family": "Chavez-Rosales",
+     "given": "S"
+    },
+    {
+     "family": "Palka",
+     "given": "DL"
+    },
+    {
+     "family": "Garrison",
+     "given": "LP"
+    },
+    {
+     "family": "Josephson",
+     "given": "EA"
+    }
+   ],
+   "year": "2019",
+   "title": "Environmental predictors of habitat suitability and occurrence of cetaceans in the western North Atlantic Ocean",
+   "container": "Scientific Reports",
+   "volume": "9",
+   "first_page": "5833",
+   "doi": "10.1038/s41598-019-42288-6"
+  },
+  {
+   "bib_id": 17,
+   "authors": [
+    {
+     "family": "Chérubin",
+     "given": "LM"
+    },
+    {
+     "family": "Dalgleish",
+     "given": "F"
+    },
+    {
+     "family": "Ibrahim",
+     "given": "AK"
+    },
+    {
+     "family": "Schärer-Umpierre",
+     "given": "M"
+    },
+    {
+     "family": "Nemeth",
+     "given": "RS"
+    },
+    {
+     "family": "Matthews",
+     "given": "A"
+    },
+    {
+     "family": "Appeldoorn",
+     "given": "R"
+    }
+   ],
+   "year": "2020",
+   "title": "Fish spawning aggregations dynamics as inferred from a novel, persistent presence robotic approach",
+   "container": "Frontiers in Marine Science",
+   "volume": "6",
+   "first_page": "779",
+   "doi": "10.3389/fmars.2019.00779"
+  },
+  {
+   "bib_id": 18,
+   "authors": [
+    {
+     "family": "Datta",
+     "given": "S"
+    },
+    {
+     "family": "Sturtivant",
+     "given": "C"
+    }
+   ],
+   "year": "2002",
+   "title": "Dolphin whistle classification for determining group identities",
+   "container": "Signal Processing",
+   "volume": "82",
+   "first_page": "251",
+   "last_page": "258",
+   "doi": "10.1016/S0165-1684(01)00184-0"
+  },
+  {
+   "bib_id": 19,
+   "authors": [
+    {
+     "family": "Durden",
+     "given": "WN"
+    },
+    {
+     "family": "O’Corry-Crowe",
+     "given": "G"
+    },
+    {
+     "family": "Shippee",
+     "given": "S"
+    },
+    {
+     "family": "Jablonski",
+     "given": "T"
+    },
+    {
+     "family": "Rodgers",
+     "given": "S"
+    },
+    {
+     "family": "Mazzoil",
+     "given": "M"
+    },
+    {
+     "family": "Howells",
+     "given": "E"
+    },
+    {
+     "family": "Hartel",
+     "given": "E"
+    },
+    {
+     "family": "Potgieter",
+     "given": "B"
+    },
+    {
+     "family": "Londono",
+     "given": "C"
+    },
+    {
+     "family": "Moreland",
+     "given": "L"
+    },
+    {
+     "family": "Townsend",
+     "given": "F"
+    },
+    {
+     "family": "McCulloch",
+     "given": "S"
+    },
+    {
+     "family": "Bossart",
+     "given": "G"
+    }
+   ],
+   "year": "2019",
+   "title": "Small-scale movement patterns, activity budgets, and association patterns of radio-tagged Indian River Lagoon bottlenose dolphins (Tursiops truncatus)",
+   "container": "Aquatic Mammals",
+   "volume": "45",
+   "first_page": "66",
+   "last_page": "87",
+   "doi": "10.1578/AM.45.1.2019.66"
+  },
+  {
+   "bib_id": 20,
+   "authors": [
+    {
+     "family": "Erbe",
+     "given": "C"
+    },
+    {
+     "family": "Marley",
+     "given": "SA"
+    },
+    {
+     "family": "Schoeman",
+     "given": "RP"
+    },
+    {
+     "family": "Smith",
+     "given": "JN"
+    },
+    {
+     "family": "Trigg",
+     "given": "LE"
+    },
+    {
+     "family": "Embling",
+     "given": "CB"
+    }
+   ],
+   "year": "2019",
+   "title": "The effects of ship noise on marine mammals—a review",
+   "container": "Frontiers in Marine Science",
+   "volume": "6",
+   "first_page": "606",
+   "doi": "10.3389/fmars.2019.00606"
+  },
+  {
+   "bib_id": 21,
+   "authors": [
+    {
+     "family": "Erbe",
+     "given": "C"
+    },
+    {
+     "family": "Reichmuth",
+     "given": "C"
+    },
+    {
+     "family": "Cunningham",
+     "given": "K"
+    },
+    {
+     "family": "Lucke",
+     "given": "K"
+    },
+    {
+     "family": "Dooling",
+     "given": "R"
+    }
+   ],
+   "year": "2016",
+   "title": "Communication masking in marine mammals: a review and research strategy",
+   "container": "Marine Pollution Bulletin",
+   "volume": "103",
+   "first_page": "15",
+   "last_page": "38",
+   "doi": "10.1016/j.marpolbul.2015.12.007"
+  },
+  {
+   "bib_id": 22,
+   "authors": [
+    {
+     "family": "Fouda",
+     "given": "L"
+    },
+    {
+     "family": "Wingfield",
+     "given": "JE"
+    },
+    {
+     "family": "Fandel",
+     "given": "AD"
+    },
+    {
+     "family": "Garrod",
+     "given": "A"
+    },
+    {
+     "family": "Hodge",
+     "given": "KB"
+    },
+    {
+     "family": "Rice",
+     "given": "AN"
+    },
+    {
+     "family": "Bailey",
+     "given": "H"
+    }
+   ],
+   "year": "2018",
+   "title": "Dolphins simplify their vocal calls in response to increased ambient noise",
+   "container": "Biology Letters",
+   "volume": "14",
+   "first_page": "20180484",
+   "doi": "10.1098/rsbl.2018.0484"
+  },
+  {
+   "bib_id": 23,
+   "authors": [
+    {
+     "family": "Gannon",
+     "given": "D"
+    },
+    {
+     "family": "Waples",
+     "given": "D"
+    }
+   ],
+   "year": "2006",
+   "title": "Diets of coastal bottlenose dolphins from the U.S. Mid-Atlantic coast differ by habitat",
+   "container": "Marine Mammal Science",
+   "volume": "20",
+   "first_page": "527",
+   "last_page": "545",
+   "doi": "10.1111/j.1748-7692.2004.tb01177.x"
+  },
+  {
+   "bib_id": 24,
+   "authors": [
+    {
+     "family": "GEBCO",
+     "given": ""
+    }
+   ],
+   "year": "2023",
+   "title": "Gridded Bathymetry Data. International Hydrographic Organization (IHO) and the Intergovernmental Oceanographic Commission (IOC) of UNESCO"
+  },
+  {
+   "bib_id": 25,
+   "authors": [
+    {
+     "family": "Giménez",
+     "given": "J"
+    },
+    {
+     "family": "Cañadas",
+     "given": "A"
+    },
+    {
+     "family": "Ramírez",
+     "given": "F"
+    },
+    {
+     "family": "Afán",
+     "given": "I"
+    },
+    {
+     "family": "García-Tiscar",
+     "given": "S"
+    },
+    {
+     "family": "Fernández-Maldonado",
+     "given": "C"
+    },
+    {
+     "family": "Castillo",
+     "given": "JJ"
+    },
+    {
+     "family": "De Stephanis",
+     "given": "R"
+    }
+   ],
+   "year": "2017",
+   "title": "Intra- and interspecific niche partitioning in striped and common dolphins inhabiting the southwestern Mediterranean Sea",
+   "container": "Marine Ecology Progress Series",
+   "volume": "567",
+   "first_page": "199",
+   "last_page": "210",
+   "doi": "10.3354/meps12046"
+  },
+  {
+   "bib_id": 26,
+   "authors": [
+    {
+     "family": "Gross",
+     "given": "A"
+    },
+    {
+     "family": "Kiszka",
+     "given": "J"
+    },
+    {
+     "family": "Van Canneyt",
+     "given": "O"
+    },
+    {
+     "family": "Richard",
+     "given": "P"
+    },
+    {
+     "family": "Ridoux",
+     "given": "V"
+    }
+   ],
+   "year": "2009",
+   "title": "A preliminary study of habitat and resource partitioning among co-occurring tropical dolphins around Mayotte, southwest Indian Ocean",
+   "container": "Estuarine, Coastal and Shelf Science",
+   "volume": "84",
+   "first_page": "367",
+   "last_page": "374",
+   "doi": "10.1016/j.ecss.2009.05.017"
+  },
+  {
+   "bib_id": 27,
+   "authors": [
+    {
+     "family": "Hamilton",
+     "given": "EL"
+    }
+   ],
+   "year": "1976",
+   "title": "Sound attenuation as a function of depth in the sea floor",
+   "container": "The Journal of the Acoustical Society of America",
+   "volume": "59",
+   "first_page": "528",
+   "last_page": "535",
+   "doi": "10.1121/1.380910"
+  },
+  {
+   "bib_id": 28,
+   "authors": [
+    {
+     "family": "Harley",
+     "given": "H"
+    },
+    {
+     "family": "Putman",
+     "given": "E"
+    },
+    {
+     "family": "Roitblat",
+     "given": "H"
+    }
+   ],
+   "year": "2003",
+   "title": "Bottlenose dolphins perceive object features through echolocation",
+   "container": "Nature",
+   "volume": "424",
+   "first_page": "667",
+   "last_page": "669",
+   "doi": "10.1038/nature01846"
+  },
+  {
+   "bib_id": 29,
+   "authors": [
+    {
+     "family": "Hartel",
+     "given": "EF"
+    },
+    {
+     "family": "Noke Durden",
+     "given": "W"
+    },
+    {
+     "family": "O’Corry-Crowe",
+     "given": "G"
+    }
+   ],
+   "year": "2020",
+   "title": "Testing satellite telemetry within narrow ecosystems: nocturnal movements and habitat use of bottlenose dolphins within a convoluted estuarine system",
+   "container": "Animal Biotelemetry",
+   "volume": "8",
+   "first_page": "13",
+   "doi": "10.1186/s40317-020-00200-4"
+  },
+  {
+   "bib_id": 30,
+   "authors": [
+    {
+     "family": "Hayes",
+     "given": "SA"
+    },
+    {
+     "family": "Josephson",
+     "given": "E"
+    },
+    {
+     "family": "Maze-Foley",
+     "given": "K"
+    },
+    {
+     "family": "Rosel",
+     "given": "PE"
+    },
+    {
+     "family": "Turek",
+     "given": "J"
+    }
+   ],
+   "year": "2021",
+   "title": "U.S. Atlantic and Gulf of Mexico Marine Mammal Stock assessments 2020",
+   "container": "NOAA Technical Memorandum NMFS-NE-271"
+  },
+  {
+   "bib_id": 31,
+   "authors": [
+    {
+     "family": "Heiler",
+     "given": "J"
+    },
+    {
+     "family": "Elwen",
+     "given": "SH"
+    },
+    {
+     "family": "Kriesell",
+     "given": "HJ"
+    },
+    {
+     "family": "Gridley",
+     "given": "T"
+    }
+   ],
+   "year": "2016",
+   "title": "Changes in bottlenose dolphin whistle parameters related to vessel presence, surface behaviour and group composition",
+   "container": "Animal Behaviour",
+   "volume": "117",
+   "first_page": "167",
+   "last_page": "177",
+   "doi": "10.1016/j.anbehav.2016.04.014"
+  },
+  {
+   "bib_id": 32,
+   "authors": [
+    {
+     "family": "Herzing",
+     "given": "DL"
+    }
+   ],
+   "year": "2014",
+   "title": "Clicks, whistles and pulses: passive and active signal use in dolphin communication",
+   "container": "Acta Astronautica",
+   "volume": "105",
+   "first_page": "534",
+   "last_page": "537",
+   "doi": "10.1016/j.actaastro.2014.07.003"
+  },
+  {
+   "bib_id": 33,
+   "authors": [
+    {
+     "family": "Janik",
+     "given": "VM"
+    }
+   ],
+   "year": "2014",
+   "title": "Cetacean vocal learning and communication",
+   "container": "Current Opinion in Neurobiology",
+   "volume": "28",
+   "first_page": "60",
+   "last_page": "65",
+   "doi": "10.1016/j.conb.2014.06.010"
+  },
+  {
+   "bib_id": 34,
+   "authors": [
+    {
+     "family": "Janik",
+     "given": "VM"
+    },
+    {
+     "family": "Sayigh",
+     "given": "LS"
+    }
+   ],
+   "year": "2013",
+   "title": "Communication in bottlenose dolphins: 50 years of signature whistle research",
+   "container": "Journal of Comparative Physiology A",
+   "volume": "199",
+   "first_page": "479",
+   "last_page": "489",
+   "doi": "10.1007/s00359-013-0817-7"
+  },
+  {
+   "bib_id": 35,
+   "authors": [
+    {
+     "family": "Jensen",
+     "given": "FH"
+    },
+    {
+     "family": "Beedholm",
+     "given": "K"
+    },
+    {
+     "family": "Wahlberg",
+     "given": "M"
+    },
+    {
+     "family": "Bejder",
+     "given": "L"
+    },
+    {
+     "family": "Madsen",
+     "given": "PT"
+    }
+   ],
+   "year": "2012",
+   "title": "Estimated communication range and energetic cost of bottlenose dolphin whistles in a tropical habitat",
+   "container": "The Journal of the Acoustical Society of America",
+   "volume": "131",
+   "first_page": "582",
+   "last_page": "592",
+   "doi": "10.1121/1.3662067"
+  },
+  {
+   "bib_id": 36,
+   "authors": [
+    {
+     "family": "Jensen",
+     "given": "FH"
+    },
+    {
+     "family": "Bejder",
+     "given": "L"
+    },
+    {
+     "family": "Wahlberg",
+     "given": "M"
+    },
+    {
+     "family": "Soto",
+     "given": "NA"
+    },
+    {
+     "family": "Johnson",
+     "given": "M"
+    },
+    {
+     "family": "Madsen",
+     "given": "PT"
+    }
+   ],
+   "year": "2009",
+   "title": "Vessel noise effects on delphinid communication",
+   "container": "Marine Ecology Progress Series",
+   "volume": "395",
+   "first_page": "161",
+   "last_page": "175",
+   "doi": "10.3354/meps08204"
+  },
+  {
+   "bib_id": 37,
+   "authors": [
+    {
+     "family": "Jones",
+     "given": "B"
+    },
+    {
+     "family": "Zapetis",
+     "given": "M"
+    },
+    {
+     "family": "Samuelson",
+     "given": "MM"
+    },
+    {
+     "family": "Ridgway",
+     "given": "SH"
+    }
+   ],
+   "year": "2020",
+   "title": "Sounds produced by bottlenose dolphins (Tursiops): a review of the defining characteristics and acoustic criteria of the dolphin vocal repertoire",
+   "container": "Bioacoustics",
+   "volume": "29",
+   "first_page": "399",
+   "last_page": "440",
+   "doi": "10.1080/09524622.2019.1613265"
+  },
+  {
+   "bib_id": 38,
+   "authors": [
+    {
+     "family": "Klinck",
+     "given": "H"
+    },
+    {
+     "family": "Fregosi",
+     "given": "S"
+    },
+    {
+     "family": "Matsumoto",
+     "given": "H"
+    },
+    {
+     "family": "Turpin",
+     "given": "A"
+    },
+    {
+     "family": "Mellinger",
+     "given": "DK"
+    },
+    {
+     "family": "Erofeev",
+     "given": "A"
+    },
+    {
+     "family": "Barth",
+     "given": "JA"
+    },
+    {
+     "family": "Shearman",
+     "given": "RK"
+    },
+    {
+     "family": "Jafarmadar",
+     "given": "K"
+    },
+    {
+     "family": "Stelzer",
+     "given": "R"
+    }
+   ],
+   "year": "2016",
+   "title": "Mobile autonomous platforms for passive-acoustic monitoring of high-frequency cetaceans",
+   "container": "Robotic Sailing 2015",
+   "first_page": "29",
+   "last_page": "37"
+  },
+  {
+   "bib_id": 39,
+   "authors": [
+    {
+     "family": "Kuperman",
+     "given": "WA"
+    }
+   ],
+   "year": "1998",
+   "title": "Propagation of sound in the ocean",
+   "container": "Handbook of acoustics",
+   "first_page": "391",
+   "last_page": "408"
+  },
+  {
+   "bib_id": 40,
+   "authors": [
+    {
+     "family": "La Manna",
+     "given": "G"
+    },
+    {
+     "family": "Manghi",
+     "given": "M"
+    },
+    {
+     "family": "Pavan",
+     "given": "G"
+    },
+    {
+     "family": "Lo Mascolo",
+     "given": "F"
+    },
+    {
+     "family": "Sarà",
+     "given": "G"
+    }
+   ],
+   "year": "2013",
+   "title": "Behavioural strategy of common bottlenose dolphins (Tursiops truncatus) in response to different kinds of boats in the waters of Lampedusa Island (Italy)",
+   "container": "Aquatic Conservation: Marine and Freshwater Ecosystems",
+   "volume": "23",
+   "first_page": "745",
+   "last_page": "757",
+   "doi": "10.1002/aqc.2355"
+  },
+  {
+   "bib_id": 41,
+   "authors": [
+    {
+     "family": "La Manna",
+     "given": "G"
+    },
+    {
+     "family": "Ronchetti",
+     "given": "F"
+    },
+    {
+     "family": "Perretti",
+     "given": "F"
+    },
+    {
+     "family": "Ceccherelli",
+     "given": "G"
+    }
+   ],
+   "year": "2023",
+   "title": "Determinants of group size in the common bottlenose dolphins: the role of water temperature and noise",
+   "container": "Behavioral Ecology and Sociobiology",
+   "volume": "77",
+   "first_page": "45",
+   "doi": "10.1007/s00265-023-03322-w"
+  },
+  {
+   "bib_id": 42,
+   "authors": [
+    {
+     "family": "Ladich",
+     "given": "F"
+    }
+   ],
+   "year": "2022",
+   "title": "Shut up or shout loudly: predation threat and sound production in fishes",
+   "container": "Fish and Fisheries",
+   "volume": "23",
+   "first_page": "227",
+   "last_page": "238",
+   "doi": "10.1111/faf.12612"
+  },
+  {
+   "bib_id": 43,
+   "authors": [
+    {
+     "family": "Luís",
+     "given": "AR"
+    },
+    {
+     "family": "May-Collado",
+     "given": "LJ"
+    },
+    {
+     "family": "Rako-Gospić",
+     "given": "N"
+    },
+    {
+     "family": "Gridley",
+     "given": "T"
+    },
+    {
+     "family": "Papale",
+     "given": "E"
+    },
+    {
+     "family": "Azevedo",
+     "given": "A"
+    },
+    {
+     "family": "Silva",
+     "given": "MA"
+    },
+    {
+     "family": "Buscaino",
+     "given": "G"
+    },
+    {
+     "family": "Herzing",
+     "given": "D"
+    },
+    {
+     "family": "dos Santos",
+     "given": "ME"
+    }
+   ],
+   "year": "2021",
+   "title": "Vocal universals and geographic variations in the acoustic repertoire of the common bottlenose dolphin",
+   "container": "Scientific Reports",
+   "volume": "11",
+   "first_page": "11847",
+   "doi": "10.1038/s41598-021-90710-9"
+  },
+  {
+   "bib_id": 44,
+   "authors": [
+    {
+     "family": "Malinka",
+     "given": "CE"
+    },
+    {
+     "family": "Gillespie",
+     "given": "DM"
+    },
+    {
+     "family": "Macaulay",
+     "given": "JD"
+    },
+    {
+     "family": "Joy",
+     "given": "R"
+    },
+    {
+     "family": "Sparling",
+     "given": "CE"
+    }
+   ],
+   "year": "2018",
+   "title": "First in situ passive acoustic monitoring for marine mammals during operation of a tidal turbine in Ramsey Sound, Wales",
+   "container": "Marine Ecology Progress Series",
+   "volume": "590",
+   "first_page": "247",
+   "last_page": "266",
+   "doi": "10.3354/meps12467"
+  },
+  {
+   "bib_id": 45,
+   "authors": [
+    {
+     "family": "Marcondes",
+     "given": "DS"
+    },
+    {
+     "family": "Domit",
+     "given": "C"
+    },
+    {
+     "family": "Cantor",
+     "given": "M"
+    }
+   ],
+   "year": "2025",
+   "title": "Guiana Dolphin (Sotalia guianensis) acoustic behavior differs under different noise conditions",
+   "container": "Journal of Mammalogy",
+   "volume": "106",
+   "first_page": "1008",
+   "last_page": "1018",
+   "doi": "10.1093/jmammal/gyaf029"
+  },
+  {
+   "bib_id": 46,
+   "authors": [
+    {
+     "family": "Martin",
+     "given": "MJ"
+    },
+    {
+     "family": "Elwen",
+     "given": "SH"
+    },
+    {
+     "family": "Kassanjee",
+     "given": "R"
+    },
+    {
+     "family": "Gridley",
+     "given": "T"
+    }
+   ],
+   "year": "2019",
+   "title": "To buzz or burst-pulse? The functional role of Heaviside’s dolphin, Cephalorhynchus heavisidii, rapidly pulsed signals",
+   "container": "Animal Behaviour",
+   "volume": "150",
+   "first_page": "273",
+   "last_page": "284",
+   "doi": "10.1016/j.anbehav.2019.01.007"
+  },
+  {
+   "bib_id": 47,
+   "authors": [
+    {
+     "family": "Martin",
+     "given": "MJ"
+    },
+    {
+     "family": "Halliday",
+     "given": "WD"
+    },
+    {
+     "family": "Storrie",
+     "given": "L"
+    },
+    {
+     "family": "Citta",
+     "given": "JJ"
+    },
+    {
+     "family": "Dawson",
+     "given": "J"
+    },
+    {
+     "family": "Hussey",
+     "given": "NE"
+    },
+    {
+     "family": "Juanes",
+     "given": "F"
+    },
+    {
+     "family": "Loseto",
+     "given": "LL"
+    },
+    {
+     "family": "MacPhee",
+     "given": "SA"
+    },
+    {
+     "family": "Moore",
+     "given": "L"
+    },
+    {
+     "family": "Nicoll",
+     "given": "A"
+    },
+    {
+     "family": "O’Corry-Crowe",
+     "given": "G"
+    },
+    {
+     "family": "Insley",
+     "given": "SJ"
+    }
+   ],
+   "year": "2023",
+   "title": "Exposure and behavioral responses of tagged beluga whales (Delphinapterus leucas) to ships in the Pacific Arctic",
+   "container": "Marine Mammal Science",
+   "volume": "39",
+   "first_page": "387",
+   "last_page": "421",
+   "doi": "10.1111/mms.12978"
+  },
+  {
+   "bib_id": 48,
+   "authors": [
+    {
+     "family": "Mazzoil",
+     "given": "M"
+    },
+    {
+     "family": "Gibson",
+     "given": "Q"
+    },
+    {
+     "family": "Durden",
+     "given": "WN"
+    },
+    {
+     "family": "Borkowski",
+     "given": "R"
+    },
+    {
+     "family": "Biedenbach",
+     "given": "G"
+    },
+    {
+     "family": "McKenna",
+     "given": "Z"
+    },
+    {
+     "family": "Gordon",
+     "given": "N"
+    },
+    {
+     "family": "Brightwell",
+     "given": "K"
+    },
+    {
+     "family": "Denny",
+     "given": "M"
+    },
+    {
+     "family": "Howells",
+     "given": "E"
+    },
+    {
+     "family": "Jakush",
+     "given": "J"
+    },
+    {
+     "family": "Moreland",
+     "given": "L"
+    },
+    {
+     "family": "Perna",
+     "given": "A"
+    },
+    {
+     "family": "Pinto",
+     "given": "G"
+    },
+    {
+     "family": "Caldwell",
+     "given": "M"
+    }
+   ],
+   "year": "2020",
+   "title": "Spatiotemporal movements of common bottlenose dolphins (Tursiops truncatus truncatus) in Northeast Florida, USA",
+   "container": "Aquatic Mammals",
+   "volume": "46",
+   "first_page": "285",
+   "last_page": "300",
+   "doi": "10.1578/AM.46.3.2020.285"
+  },
+  {
+   "bib_id": 49,
+   "authors": [
+    {
+     "family": "Mazzoil",
+     "given": "M"
+    },
+    {
+     "family": "Murdoch",
+     "given": "ME"
+    },
+    {
+     "family": "Reif",
+     "given": "JS"
+    },
+    {
+     "family": "Bechdel",
+     "given": "SE"
+    },
+    {
+     "family": "Howells",
+     "given": "E"
+    },
+    {
+     "family": "De Sieyes",
+     "given": "M"
+    },
+    {
+     "family": "Lawrence",
+     "given": "C"
+    },
+    {
+     "family": "Bossart",
+     "given": "GD"
+    },
+    {
+     "family": "McCulloch",
+     "given": "SD"
+    }
+   ],
+   "year": "2011",
+   "title": "Site fidelity and movement of bottlenose dolphins (Tursiops truncatus) on Florida’s east coast: Atlantic Ocean and Indian River Lagoon Estuary"
+  },
+  {
+   "bib_id": 50,
+   "authors": [
+    {
+     "family": "Mellinger",
+     "given": "DK"
+    },
+    {
+     "family": "Stafford",
+     "given": "KM"
+    },
+    {
+     "family": "Moore",
+     "given": "SE"
+    },
+    {
+     "family": "Dziak",
+     "given": "RP"
+    },
+    {
+     "family": "Matsumoto",
+     "given": "H"
+    }
+   ],
+   "year": "2007",
+   "title": "An overview of fixed passive acoustic observation methods for cetaceans",
+   "container": "Oceanography",
+   "volume": "20",
+   "first_page": "36",
+   "last_page": "45",
+   "doi": "10.5670/oceanog.2007.03"
+  },
+  {
+   "bib_id": 51,
+   "authors": [
+    {
+     "family": "Merchant",
+     "given": "ND"
+    },
+    {
+     "family": "Fristrup",
+     "given": "KM"
+    },
+    {
+     "family": "Johnson",
+     "given": "MP"
+    },
+    {
+     "family": "Tyack",
+     "given": "PL"
+    },
+    {
+     "family": "Witt",
+     "given": "MJ"
+    },
+    {
+     "family": "Blondel",
+     "given": "P"
+    },
+    {
+     "family": "Parks",
+     "given": "SE"
+    }
+   ],
+   "year": "2015",
+   "title": "Measuring acoustic habitats",
+   "container": "Methods in Ecology and Evolution",
+   "volume": "6",
+   "first_page": "257",
+   "last_page": "265",
+   "doi": "10.1111/2041-210X.12330"
+  },
+  {
+   "bib_id": 52,
+   "authors": [
+    {
+     "family": "Miksis-Olds",
+     "given": "JL"
+    },
+    {
+     "family": "Vernon",
+     "given": "JA"
+    },
+    {
+     "family": "Heaney",
+     "given": "KD"
+    }
+   ],
+   "year": "2015",
+   "title": "The impact of ocean sound dynamics on estimates of signal detection range",
+   "container": "Aquatic Mammals",
+   "volume": "41",
+   "first_page": "444",
+   "last_page": "454",
+   "doi": "10.1578/AM.41.4.2015.444"
+  },
+  {
+   "bib_id": 53,
+   "authors": [
+    {
+     "family": "Miller",
+     "given": "DL"
+    },
+    {
+     "family": "Burt",
+     "given": "ML"
+    },
+    {
+     "family": "Rexstad",
+     "given": "EA"
+    },
+    {
+     "family": "Thomas",
+     "given": "L"
+    },
+    {
+     "family": "Gimenez",
+     "given": "O"
+    }
+   ],
+   "year": "2013",
+   "title": "Spatial models for distance sampling data: recent developments and future directions",
+   "container": "Methods in Ecology and Evolution",
+   "volume": "4",
+   "first_page": "1001",
+   "last_page": "1010",
+   "doi": "10.1111/2041-210X.12105"
+  },
+  {
+   "bib_id": 54,
+   "authors": [
+    {
+     "family": "Morales-Rincon",
+     "given": "N"
+    },
+    {
+     "family": "Morteo",
+     "given": "E"
+    },
+    {
+     "family": "Castelblanco-Martínez",
+     "given": "N"
+    },
+    {
+     "family": "Pérez-España",
+     "given": "H"
+    },
+    {
+     "family": "Bello-Pineda",
+     "given": "J"
+    },
+    {
+     "family": "Delfín-Alfonso",
+     "given": "CA"
+    },
+    {
+     "family": "Bazúa-Durán",
+     "given": "C"
+    }
+   ],
+   "year": "2025",
+   "title": "Acoustic and behavioural strategies of dolphins in relation to fishing vessel traffic in the southern gulf of Mexico",
+   "container": "Aquatic Conservation: Marine and Freshwater Ecosystems",
+   "volume": "35",
+   "first_page": "e70103",
+   "doi": "10.1002/aqc.70103"
+  },
+  {
+   "bib_id": 55,
+   "authors": [
+    {
+     "family": "Mustun",
+     "given": "F"
+    },
+    {
+     "family": "Semenzin",
+     "given": "C"
+    },
+    {
+     "family": "Rance",
+     "given": "D"
+    },
+    {
+     "family": "Marachlian",
+     "given": "E"
+    },
+    {
+     "family": "Guillerm",
+     "given": "Z-L"
+    },
+    {
+     "family": "Mancini",
+     "given": "A"
+    },
+    {
+     "family": "Bouaziz",
+     "given": "I"
+    },
+    {
+     "family": "Fleck",
+     "given": "E"
+    },
+    {
+     "family": "Shashar",
+     "given": "N"
+    },
+    {
+     "family": "De Polavieja",
+     "given": "GG"
+    },
+    {
+     "family": "Sumbre",
+     "given": "G"
+    }
+   ],
+   "year": "2024",
+   "title": "Whistle variability and social acoustic interactions in bottlenose dolphins",
+   "container": "bioRxiv",
+   "doi": "10.1101/2024.10.15.618471"
+  },
+  {
+   "bib_id": 56,
+   "authors": [
+    {
+     "family": "Nowacek",
+     "given": "DP"
+    },
+    {
+     "family": "Thorne",
+     "given": "LH"
+    },
+    {
+     "family": "Johnston",
+     "given": "DW"
+    },
+    {
+     "family": "Tyack",
+     "given": "PL"
+    }
+   ],
+   "year": "2007",
+   "title": "Responses of cetaceans to anthropogenic noise",
+   "container": "Mammal Review",
+   "volume": "37",
+   "first_page": "81",
+   "last_page": "115",
+   "doi": "10.1111/j.1365-2907.2007.00104.x"
+  },
+  {
+   "bib_id": 57,
+   "authors": [
+    {
+     "family": "Nowacek",
+     "given": "SM"
+    },
+    {
+     "family": "Wells",
+     "given": "RS"
+    },
+    {
+     "family": "Solow",
+     "given": "AR"
+    }
+   ],
+   "year": "2001",
+   "title": "Short-term effects of boat traffic on bottlenose dolphins, Tursiops truncatus, in Sarasota bay, Florida",
+   "container": "Marine Mammal Science",
+   "volume": "17",
+   "first_page": "673",
+   "last_page": "688",
+   "doi": "10.1111/j.1748-7692.2001.tb01292.x"
+  },
+  {
+   "bib_id": 58,
+   "authors": [
+    {
+     "family": "Parra",
+     "given": "GJ"
+    },
+    {
+     "family": "Wojtkowiak",
+     "given": "Z"
+    },
+    {
+     "family": "Peters",
+     "given": "KJ"
+    },
+    {
+     "family": "Cagnazzi",
+     "given": "D"
+    }
+   ],
+   "year": "2022",
+   "title": "Isotopic niche overlap between sympatric Australian snubfin and humpback dolphins",
+   "container": "Ecology and Evolution",
+   "volume": "12",
+   "first_page": "e8937",
+   "doi": "10.1002/ece3.8937"
+  },
+  {
+   "bib_id": 59,
+   "authors": [
+    {
+     "family": "Petrella",
+     "given": "V"
+    },
+    {
+     "family": "Martinez",
+     "given": "E"
+    },
+    {
+     "family": "Anderson",
+     "given": "MG"
+    },
+    {
+     "family": "Stockin",
+     "given": "KA"
+    }
+   ],
+   "year": "2012",
+   "title": "Whistle characteristics of common dolphins (Delphinus sp.) in the Hauraki Gulf, New Zealand",
+   "container": "Marine Mammal Science",
+   "volume": "28",
+   "first_page": "479",
+   "last_page": "496",
+   "doi": "10.1111/j.1748-7692.2011.00499.x"
+  },
+  {
+   "bib_id": 60,
+   "authors": [
+    {
+     "family": "Quick",
+     "given": "NJ"
+    },
+    {
+     "family": "Janik",
+     "given": "VM"
+    }
+   ],
+   "year": "2012",
+   "title": "Bottlenose dolphins exchange signature whistles when meeting at sea",
+   "container": "Proceedings of the Royal Society B: Biological Sciences",
+   "volume": "279",
+   "first_page": "2539",
+   "last_page": "2545",
+   "doi": "10.1098/rspb.2011.2537"
+  },
+  {
+   "bib_id": 61,
+   "authors": [
+    {
+     "family": "Quintana-Rizzo",
+     "given": "E"
+    },
+    {
+     "family": "Mann",
+     "given": "DA"
+    },
+    {
+     "family": "Wells",
+     "given": "RS"
+    }
+   ],
+   "year": "2006",
+   "title": "Estimated communication range of social sounds used by bottlenose dolphins (Tursiops truncatus)",
+   "container": "Journal of the Acoustical Society of America",
+   "volume": "120",
+   "first_page": "1671",
+   "last_page": "1683",
+   "doi": "10.1121/1.2226559"
+  },
+  {
+   "bib_id": 62,
+   "authors": [
+    {
+     "family": "Remage-Healey",
+     "given": "L"
+    },
+    {
+     "family": "Nowacek",
+     "given": "DP"
+    },
+    {
+     "family": "Bass",
+     "given": "AH"
+    }
+   ],
+   "year": "2006",
+   "title": "Dolphin foraging sounds suppress calling and elevate stress hormone levels in a prey species, the Gulf toadfish",
+   "container": "Journal of Experimental Biology",
+   "volume": "209",
+   "first_page": "4444",
+   "last_page": "4451",
+   "doi": "10.1242/jeb.02525"
+  },
+  {
+   "bib_id": 63,
+   "authors": [
+    {
+     "family": "Ridgway",
+     "given": "S"
+    },
+    {
+     "family": "Samuelson Dibble",
+     "given": "D"
+    },
+    {
+     "family": "Van Alstyne",
+     "given": "K"
+    },
+    {
+     "family": "Price",
+     "given": "D"
+    }
+   ],
+   "year": "2015",
+   "title": "On doing two things at once: dolphin brain and nose coordinate sonar clicks, buzzes and emotional squeals with social sounds during fish capture",
+   "container": "Journal of Experimental Biology",
+   "volume": "218",
+   "first_page": "3987",
+   "last_page": "3995",
+   "doi": "10.1242/jeb.130559"
+  },
+  {
+   "bib_id": 64,
+   "authors": [
+    {
+     "family": "Sahri",
+     "given": "A"
+    },
+    {
+     "family": "Herwata Putra",
+     "given": "MI"
+    },
+    {
+     "family": "Kusuma Mustika",
+     "given": "PL"
+    },
+    {
+     "family": "Kreb",
+     "given": "D"
+    },
+    {
+     "family": "Murk",
+     "given": "AJ"
+    }
+   ],
+   "year": "2021",
+   "title": "Cetacean habitat modelling to inform conservation management, marine spatial planning, and as a basis for anthropogenic threat mitigation in Indonesia",
+   "container": "Ocean & Coastal Management",
+   "volume": "205",
+   "first_page": "105555",
+   "doi": "10.1016/j.ocecoaman.2021.105555"
+  },
+  {
+   "bib_id": 65,
+   "authors": [
+    {
+     "family": "Sayigh",
+     "given": "LS"
+    },
+    {
+     "family": "Janik",
+     "given": "VM"
+    },
+    {
+     "family": "Jensen",
+     "given": "FH"
+    },
+    {
+     "family": "Scott",
+     "given": "MD"
+    },
+    {
+     "family": "Tyack",
+     "given": "PL"
+    },
+    {
+     "family": "Wells",
+     "given": "RS"
+    }
+   ],
+   "year": "2022",
+   "title": "The Sarasota Dolphin whistle database: a unique long-term resource for understanding dolphin communication",
+   "container": "Frontiers in Marine Science",
+   "volume": "9",
+   "first_page": "923046",
+   "doi": "10.3389/fmars.2022.923046"
+  },
+  {
+   "bib_id": 66,
+   "authors": [
+    {
+     "family": "Scott",
+     "given": "BE"
+    },
+    {
+     "family": "Sharples",
+     "given": "J"
+    },
+    {
+     "family": "Ross",
+     "given": "ON"
+    },
+    {
+     "family": "Wang",
+     "given": "J"
+    },
+    {
+     "family": "Pierce",
+     "given": "GJ"
+    },
+    {
+     "family": "Camphuysen",
+     "given": "CJ"
+    }
+   ],
+   "year": "2010",
+   "title": "Sub-surface hotspots in shallow seas: fine scale limited locations of marine top-predator foraging habitat indicated by tidal mixing and sub-surface chlorophyll",
+   "container": "Marine Ecology Progress Series",
+   "volume": "408",
+   "first_page": "207",
+   "last_page": "226",
+   "doi": "10.3354/meps08552"
+  },
+  {
+   "bib_id": 67,
+   "authors": [
+    {
+     "family": "Tardin",
+     "given": "RH"
+    },
+    {
+     "family": "Chun",
+     "given": "Y"
+    },
+    {
+     "family": "Jenkins",
+     "given": "CN"
+    },
+    {
+     "family": "Maciel",
+     "given": "IS"
+    },
+    {
+     "family": "Simão",
+     "given": "SM"
+    },
+    {
+     "family": "Alves",
+     "given": "MAS"
+    }
+   ],
+   "year": "2019",
+   "title": "Environment and anthropogenic activities influence cetacean habitat use in southeastern Brazil",
+   "container": "Marine Ecology Progress Series",
+   "volume": "616",
+   "first_page": "197",
+   "last_page": "210",
+   "doi": "10.3354/meps12937"
+  },
+  {
+   "bib_id": 68,
+   "authors": [
+    {
+     "family": "Teixeira",
+     "given": "CR"
+    },
+    {
+     "family": "Botta",
+     "given": "S"
+    },
+    {
+     "family": "Daura-Jorge",
+     "given": "FG"
+    },
+    {
+     "family": "Pereira",
+     "given": "LB"
+    },
+    {
+     "family": "Newsome",
+     "given": "SD"
+    },
+    {
+     "family": "Simões Lopes",
+     "given": "PC"
+    }
+   ],
+   "year": "2021",
+   "title": "Niche overlap and diet composition of three sympatric coastal dolphin species in the southwest Atlantic Ocean",
+   "container": "Marine Mammal Science",
+   "volume": "37",
+   "first_page": "111",
+   "last_page": "126",
+   "doi": "10.1111/mms.12726"
+  },
+  {
+   "bib_id": 69,
+   "authors": [
+    {
+     "family": "Tyack",
+     "given": "PL"
+    }
+   ],
+   "year": "1997",
+   "title": "Development and social functions of signature whistles in bottlenose dolphins Tursiops truncatus",
+   "container": "Bioacoustics",
+   "volume": "8",
+   "first_page": "21",
+   "last_page": "46",
+   "doi": "10.1080/09524622.1997.9753352"
+  },
+  {
+   "bib_id": 70,
+   "authors": [
+    {
+     "family": "Tyack",
+     "given": "PL"
+    }
+   ],
+   "year": "2000",
+   "title": "Dolphins whistle a signature tune",
+   "container": "Science",
+   "volume": "289",
+   "first_page": "1310",
+   "last_page": "1311",
+   "doi": "10.1126/science.289.5483.1310"
+  },
+  {
+   "bib_id": 71,
+   "authors": [
+    {
+     "family": "Weilgart",
+     "given": "LS"
+    }
+   ],
+   "year": "2007",
+   "title": "The impacts of anthropogenic ocean noise on cetaceans and implications for management",
+   "container": "Canadian Journal of Zoology",
+   "volume": "85",
+   "first_page": "1091",
+   "last_page": "1116",
+   "doi": "10.1139/Z07-101"
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-core-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "jats_doi": "10.7717/peerj.21547"
+ }
+}

@@ -1,0 +1,2462 @@
+{
+ "paper_id": "10.1162_opmi.a.384",
+ "info": {
+  "title": "Modeling Memory Effects in a Head-Final Language With Category Locality",
+  "doi": "10.1162/OPMI.a.384",
+  "file_name": "10.1162_opmi.a.384.pdf",
+  "keywords": [
+   "psycholinguistics",
+   "sentence comprehension",
+   "memory",
+   "Japanese",
+   "Combinatory Categorial Grammar"
+  ],
+  "abstract": "Memory limitations have been assumed to be a major factor shaping human sentence comprehension, but characterizing memory-demanding structures in a broad-coverage and cross-linguistic manner has remained a challenge. A recent study suggested that such a general characterization can be obtained by assuming efficient compression of the syntactic information from the input guided by a logic-based grammar. Specifically, it was shown that the memory cost of syntactic integration measured in terms of Combinatory Categorial Grammar (CCG) accounts for variance in reading times for naturalistic texts in English, unlike the more traditional dependency-based integration cost. The crucial test for the new theory is yet to be done, however, since the predictions of CCG- and dependency-based integration cost most drastically diverge in head-final languages. This study conducts this crucial test using a naturalistic reading time dataset in Japanese. Our results favor CCG over dependency grammar: CCG-based integration cost predicted reading time variance of held-out data, while the dependency-based version failed to show such a predictive power. Our results, combined with previous ones, suggest that the logic-based grammar captures some cross-linguistic, potentially universal aspect of human sentence comprehension."
+ },
+ "author": [
+  {
+   "author_id": 1,
+   "given": "Shinnosuke",
+   "family": "Isono",
+   "affiliation": "National Institute for Japanese Language and Linguistics (NINJAL), Tokyo, Japan",
+   "email": "",
+   "orcid": "",
+   "corresponding": true
+  },
+  {
+   "author_id": 2,
+   "given": "Kohei",
+   "family": "Kajikawa",
+   "affiliation": "National Institute for Japanese Language and Linguistics (NINJAL), Tokyo, Japan; Georgetown University, Washington, DC, USA",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 3,
+   "given": "Yohei",
+   "family": "Oseki",
+   "affiliation": "University of Tokyo, Tokyo, Japan",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 4,
+   "given": "Masayuki",
+   "family": "Asahara",
+   "affiliation": "National Institute for Japanese Language and Linguistics (NINJAL), Tokyo, Japan",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  }
+ ],
+ "section": [
+  {
+   "section_id": 1,
+   "section_type": "abstract",
+   "header": "Abstract",
+   "level": 1,
+   "parent_section_id": null,
+   "classification_score": 1.0
+  }
+ ],
+ "text": [
+  {
+   "text_id": 1,
+   "section_id": 1,
+   "paragraph_id": 1,
+   "text": "Memory limitations have been assumed to be a major factor shaping human sentence comprehension, but characterizing memory-demanding structures in a broad-coverage and cross-linguistic manner has remained a challenge. A recent study suggested that such a general characterization can be obtained by assuming efficient compression of the syntactic information from the input guided by a logic-based grammar. Specifically, it was shown that the memory cost of syntactic integration measured in terms of Combinatory Categorial Grammar (CCG) accounts for variance in reading times for naturalistic texts in English, unlike the more traditional dependency-based integration cost. The crucial test for the new theory is yet to be done, however, since the predictions of CCG- and dependency-based integration cost most drastically diverge in head-final languages. This study conducts this crucial test using a naturalistic reading time dataset in Japanese. Our results favor CCG over dependency grammar: CCG-based integration cost predicted reading time variance of held-out data, while the dependency-based version failed to show such a predictive power. Our results, combined with previous ones, suggest that the logic-based grammar captures some cross-linguistic, potentially universal aspect of human sentence comprehension.",
+   "page_number": 1
+  }
+ ],
+ "bib": [
+  {
+   "bib_id": 1,
+   "authors": [
+    {
+     "family": "Abney",
+     "given": "S. P."
+    },
+    {
+     "family": "Johnson",
+     "given": "M."
+    }
+   ],
+   "year": "1991",
+   "title": "Memory requirements and local ambiguities of parsing strategies",
+   "container": "Journal of Psycholinguistic Research",
+   "volume": "20",
+   "first_page": "233",
+   "last_page": "250",
+   "doi": "10.1007/BF01067217"
+  },
+  {
+   "bib_id": 2,
+   "authors": [
+    {
+     "family": "Ades",
+     "given": "A. E."
+    },
+    {
+     "family": "Steedman",
+     "given": "M. J."
+    }
+   ],
+   "year": "1982",
+   "title": "On the order of words",
+   "container": "Linguistics and Philosophy",
+   "volume": "4",
+   "first_page": "517",
+   "last_page": "558",
+   "doi": "10.1007/BF00360804"
+  },
+  {
+   "bib_id": 3,
+   "authors": [
+    {
+     "family": "Adger",
+     "given": "D."
+    }
+   ],
+   "year": "2003",
+   "title": "Core syntax: A minimalist approach",
+   "doi": "10.1093/oso/9780199243709.001.0001"
+  },
+  {
+   "bib_id": 4,
+   "authors": [
+    {
+     "family": "Ajdukiewicz",
+     "given": "K."
+    }
+   ],
+   "year": "1967",
+   "title": "Syntactic connexion (H. Weber, Trans.)",
+   "container": "Polish logic: 1920–1939",
+   "first_page": "207",
+   "last_page": "231"
+  },
+  {
+   "bib_id": 5,
+   "authors": [
+    {
+     "family": "Anderson",
+     "given": "J. R."
+    },
+    {
+     "family": "Bothell",
+     "given": "D."
+    },
+    {
+     "family": "Byrne",
+     "given": "M. D."
+    },
+    {
+     "family": "Douglass",
+     "given": "S."
+    },
+    {
+     "family": "Lebiere",
+     "given": "C."
+    },
+    {
+     "family": "Qin",
+     "given": "Y."
+    }
+   ],
+   "year": "2004",
+   "title": "An integrated theory of the mind",
+   "container": "Psychological Review",
+   "volume": "111",
+   "first_page": "1036",
+   "last_page": "1060",
+   "doi": "10.1037/0033-295X.111.4.1036"
+  },
+  {
+   "bib_id": 6,
+   "authors": [
+    {
+     "family": "Aoshima",
+     "given": "S."
+    },
+    {
+     "family": "Phillips",
+     "given": "C."
+    },
+    {
+     "family": "Weinberg",
+     "given": "A."
+    }
+   ],
+   "year": "2004",
+   "title": "Processing filler-gap dependencies in a head-final language",
+   "container": "Journal of Memory and Language",
+   "volume": "51",
+   "first_page": "23",
+   "last_page": "54",
+   "doi": "10.1016/j.jml.2004.03.001"
+  },
+  {
+   "bib_id": 7,
+   "authors": [
+    {
+     "family": "Asahara",
+     "given": "M."
+    }
+   ],
+   "year": "2022",
+   "title": "Reading time and vocabulary rating in the Japanese language: Large-scale Japanese reading time data collection using crowdsourcing",
+   "container": "Proceedings of the Thirteenth Language Resources and Evaluation Conference",
+   "first_page": "5178",
+   "last_page": "5187"
+  },
+  {
+   "bib_id": 8,
+   "authors": [
+    {
+     "family": "Asahara",
+     "given": "M."
+    },
+    {
+     "family": "Kanayama",
+     "given": "H."
+    },
+    {
+     "family": "Tanaka",
+     "given": "T."
+    },
+    {
+     "family": "Miyao",
+     "given": "Y."
+    },
+    {
+     "family": "Uematsu",
+     "given": "S."
+    },
+    {
+     "family": "Mori",
+     "given": "S."
+    },
+    {
+     "family": "Matsumoto",
+     "given": "Y."
+    },
+    {
+     "family": "Omura",
+     "given": "M."
+    },
+    {
+     "family": "Murawaki",
+     "given": "Y."
+    }
+   ],
+   "year": "2018",
+   "title": "Universal Dependencies version 2 for Japanese",
+   "container": "Proceedings of the 11th International Conference on Language Resources and Evaluation (LREC 2018)"
+  },
+  {
+   "bib_id": 9,
+   "authors": [
+    {
+     "family": "Asahara",
+     "given": "M."
+    },
+    {
+     "family": "Maekawa",
+     "given": "K."
+    },
+    {
+     "family": "Imada",
+     "given": "M."
+    },
+    {
+     "family": "Kato",
+     "given": "S."
+    },
+    {
+     "family": "Konishi",
+     "given": "H."
+    }
+   ],
+   "year": "2014",
+   "title": "Archiving and analysing techniques of the ultra-large-scale web-based corpus project of NINJAL, Japan",
+   "container": "Alexandria",
+   "volume": "25",
+   "first_page": "129",
+   "last_page": "148",
+   "doi": "10.7227/ALX.0024"
+  },
+  {
+   "bib_id": 10,
+   "authors": [
+    {
+     "family": "Asahara",
+     "given": "M."
+    },
+    {
+     "family": "Ono",
+     "given": "H."
+    },
+    {
+     "family": "Miyamoto",
+     "given": "E. T."
+    }
+   ],
+   "year": "2019",
+   "title": "BCCWJ-EyeTrack",
+   "container": "Gengo Kenkyu",
+   "volume": "156",
+   "first_page": "67",
+   "last_page": "96",
+   "doi": "10.11435/gengo.156.0_67"
+  },
+  {
+   "bib_id": 11,
+   "authors": [
+    {
+     "family": "Baayen",
+     "given": "R. H."
+    },
+    {
+     "family": "Davidson",
+     "given": "D. J."
+    },
+    {
+     "family": "Bates",
+     "given": "D. M."
+    }
+   ],
+   "year": "2008",
+   "title": "Mixed-effects modeling with crossed random effects for subjects and items",
+   "container": "Journal of Memory and Language",
+   "volume": "59",
+   "first_page": "390",
+   "last_page": "412",
+   "doi": "10.1016/j.jml.2007.12.005"
+  },
+  {
+   "bib_id": 12,
+   "authors": [
+    {
+     "family": "Bar-Hillel",
+     "given": "Y."
+    }
+   ],
+   "year": "1953",
+   "title": "A quasi-arithmetical notation for syntactic description",
+   "container": "Language",
+   "volume": "29",
+   "first_page": "47",
+   "last_page": "58",
+   "doi": "10.2307/410452"
+  },
+  {
+   "bib_id": 13,
+   "authors": [
+    {
+     "family": "Bartek",
+     "given": "B."
+    },
+    {
+     "family": "Lewis",
+     "given": "R. L."
+    },
+    {
+     "family": "Vasishth",
+     "given": "S."
+    },
+    {
+     "family": "Smith",
+     "given": "M. R."
+    }
+   ],
+   "year": "2011",
+   "title": "In search of on-line locality effects in sentence comprehension",
+   "container": "Journal of Experimental Psychology: Learning, Memory, and Cognition",
+   "volume": "37",
+   "first_page": "1178",
+   "last_page": "1198",
+   "doi": "10.1037/a0024194"
+  },
+  {
+   "bib_id": 14,
+   "authors": [
+    {
+     "family": "Bekki",
+     "given": "D."
+    }
+   ],
+   "year": "2010",
+   "title": "Nihongo bunpoo no keisiki riron"
+  },
+  {
+   "bib_id": 15,
+   "authors": [
+    {
+     "family": "Bresnan",
+     "given": "J."
+    },
+    {
+     "family": "Kaplan",
+     "given": "R."
+    }
+   ],
+   "year": "1982",
+   "title": "Introduction: Grammars as mental representations of language",
+   "container": "The mental representation of grammatical relations",
+   "first_page": "i",
+   "last_page": "lii"
+  },
+  {
+   "bib_id": 16,
+   "authors": [
+    {
+     "family": "Chaves",
+     "given": "R."
+    },
+    {
+     "family": "Putnam",
+     "given": "M. T."
+    }
+   ],
+   "year": "2020",
+   "title": "Unbounded dependency constructions: Theoretical and experimental perspectives",
+   "doi": "10.1093/oso/9780198784999"
+  },
+  {
+   "bib_id": 17,
+   "authors": [
+    {
+     "family": "Chen",
+     "given": "E."
+    },
+    {
+     "family": "Gibson",
+     "given": "E."
+    },
+    {
+     "family": "Wolf",
+     "given": "F."
+    }
+   ],
+   "year": "2005",
+   "title": "Online syntactic storage costs in sentence comprehension",
+   "container": "Journal of Memory and Language",
+   "volume": "52",
+   "first_page": "144",
+   "last_page": "169",
+   "doi": "10.1016/j.jml.2004.10.001"
+  },
+  {
+   "bib_id": 18,
+   "authors": [
+    {
+     "family": "Chomsky",
+     "given": "N."
+    }
+   ],
+   "year": "1965",
+   "title": "Aspects of the theory of syntax"
+  },
+  {
+   "bib_id": 19,
+   "authors": [
+    {
+     "family": "Chomsky",
+     "given": "N."
+    }
+   ],
+   "year": "1995",
+   "title": "The minimalist program"
+  },
+  {
+   "bib_id": 20,
+   "authors": [
+    {
+     "family": "Curry",
+     "given": "H. B."
+    },
+    {
+     "family": "Feys",
+     "given": "R."
+    }
+   ],
+   "year": "1958",
+   "title": "Combinatory logic",
+   "volume": "Vol. 1"
+  },
+  {
+   "bib_id": 21,
+   "authors": [
+    {
+     "family": "de Groote",
+     "given": "P."
+    }
+   ],
+   "year": "2001",
+   "title": "Towards abstract categorial grammars",
+   "container": "Proceedings of the 39th Annual Meeting of the Association for Computational Linguistics",
+   "first_page": "148",
+   "last_page": "155"
+  },
+  {
+   "bib_id": 22,
+   "year": "2021",
+   "title": "Universal dependencies",
+   "container": "Computational Linguistics",
+   "volume": "47"
+  },
+  {
+   "bib_id": 23,
+   "authors": [
+    {
+     "family": "Demberg",
+     "given": "V."
+    }
+   ],
+   "year": "2012",
+   "title": "Incremental derivations in CCG",
+   "container": "Proceedings of the 11th International Workshop on Tree Adjoining Grammars and Related Formalisms (TAG+11)",
+   "first_page": "198",
+   "last_page": "206"
+  },
+  {
+   "bib_id": 24,
+   "authors": [
+    {
+     "family": "Demberg",
+     "given": "V."
+    },
+    {
+     "family": "Keller",
+     "given": "F."
+    }
+   ],
+   "year": "2008",
+   "title": "Data from eye-tracking corpora as evidence for theories of syntactic processing complexity",
+   "container": "Cognition",
+   "volume": "109",
+   "first_page": "193",
+   "last_page": "210",
+   "doi": "10.1016/j.cognition.2008.07.008"
+  },
+  {
+   "bib_id": 25,
+   "authors": [
+    {
+     "family": "Demberg",
+     "given": "V."
+    },
+    {
+     "family": "Keller",
+     "given": "F."
+    },
+    {
+     "family": "Koller",
+     "given": "A."
+    }
+   ],
+   "year": "2013",
+   "title": "Incremental, predictive parsing with psycholinguistically motivated Tree-Adjoining Grammar",
+   "container": "Computational Linguistics",
+   "volume": "39",
+   "first_page": "1025",
+   "last_page": "1066",
+   "doi": "10.1162/COLI_a_00160"
+  },
+  {
+   "bib_id": 26,
+   "authors": [
+    {
+     "family": "Dotlačil",
+     "given": "J."
+    }
+   ],
+   "year": "2021",
+   "title": "Parsing as a cue-based retrieval model",
+   "container": "Cognitive Science",
+   "volume": "45",
+   "first_page": "e13020",
+   "doi": "10.1111/cogs.13020"
+  },
+  {
+   "bib_id": 27,
+   "authors": [
+    {
+     "family": "Eisner",
+     "given": "J."
+    }
+   ],
+   "year": "1996",
+   "title": "Efficient normal-form parsing for combinatory categorial grammar",
+   "container": "Proceedings of the 34th Annual Meeting of the Association for Computational Linguistics",
+   "first_page": "79",
+   "last_page": "86",
+   "doi": "10.3115/981863.981874"
+  },
+  {
+   "bib_id": 28,
+   "authors": [
+    {
+     "family": "Ferreira",
+     "given": "F."
+    },
+    {
+     "family": "Bailey",
+     "given": "K. G. D"
+    },
+    {
+     "family": "Ferraro",
+     "given": "V."
+    }
+   ],
+   "year": "2002",
+   "title": "Good-enough representations in language comprehension",
+   "container": "Current Directions in Psychological Science",
+   "volume": "11",
+   "first_page": "11",
+   "last_page": "15",
+   "doi": "10.1111/1467-8721.00158"
+  },
+  {
+   "bib_id": 29,
+   "authors": [
+    {
+     "family": "Futrell",
+     "given": "R."
+    },
+    {
+     "family": "Gibson",
+     "given": "E."
+    },
+    {
+     "family": "Levy",
+     "given": "R. P."
+    }
+   ],
+   "year": "2020",
+   "title": "Lossy-context surprisal: An information-theoretic model of memory effects in sentence processing",
+   "container": "Cognitive Science",
+   "volume": "44",
+   "first_page": "e12814",
+   "doi": "10.1111/cogs.12814"
+  },
+  {
+   "bib_id": 30,
+   "authors": [
+    {
+     "family": "Futrell",
+     "given": "R."
+    },
+    {
+     "family": "Gibson",
+     "given": "E."
+    },
+    {
+     "family": "Tily",
+     "given": "H. J."
+    },
+    {
+     "family": "Blank",
+     "given": "I."
+    },
+    {
+     "family": "Vishnevetsky",
+     "given": "A."
+    },
+    {
+     "family": "Piantadosi",
+     "given": "S. T."
+    },
+    {
+     "family": "Fedorenko",
+     "given": "E."
+    }
+   ],
+   "year": "2021",
+   "title": "The natural stories corpus: A reading-time corpus of English texts containing rare syntactic constructions",
+   "container": "Language Resources and Evaluation",
+   "volume": "55",
+   "first_page": "63",
+   "last_page": "77",
+   "doi": "10.1007/s10579-020-09503-7"
+  },
+  {
+   "bib_id": 31,
+   "authors": [
+    {
+     "family": "Futrell",
+     "given": "R."
+    },
+    {
+     "family": "Levy",
+     "given": "R."
+    },
+    {
+     "family": "Gibson",
+     "given": "E."
+    }
+   ],
+   "year": "2020",
+   "title": "Dependency locality as an explanatory principle for word order",
+   "container": "Language",
+   "volume": "96",
+   "first_page": "371",
+   "last_page": "412",
+   "doi": "10.1353/lan.2020.0024"
+  },
+  {
+   "bib_id": 32,
+   "authors": [
+    {
+     "family": "Gibson",
+     "given": "E."
+    }
+   ],
+   "year": "1998",
+   "title": "Linguistic complexity: Locality of syntactic dependencies",
+   "container": "Cognition",
+   "volume": "68",
+   "first_page": "1",
+   "last_page": "76",
+   "doi": "10.1016/S0010-0277(98)00034-1"
+  },
+  {
+   "bib_id": 33,
+   "authors": [
+    {
+     "family": "Gibson",
+     "given": "E."
+    }
+   ],
+   "year": "2000",
+   "title": "The dependency locality theory: A distance-based theory of linguistic complexity",
+   "container": "Image, language, brain",
+   "first_page": "95",
+   "last_page": "126"
+  },
+  {
+   "bib_id": 34,
+   "authors": [
+    {
+     "family": "Grodner",
+     "given": "D."
+    },
+    {
+     "family": "Gibson",
+     "given": "E."
+    }
+   ],
+   "year": "2005",
+   "title": "Consequences of the serial nature of linguistic input for sentenial complexity",
+   "container": "Cognitive Science",
+   "volume": "29",
+   "first_page": "261",
+   "last_page": "290",
+   "doi": "10.1207/s15516709cog0000_7"
+  },
+  {
+   "bib_id": 35,
+   "authors": [
+    {
+     "family": "Hahn",
+     "given": "M."
+    },
+    {
+     "family": "Futrell",
+     "given": "R."
+    },
+    {
+     "family": "Levy",
+     "given": "R."
+    },
+    {
+     "family": "Gibson",
+     "given": "E."
+    }
+   ],
+   "year": "2022",
+   "title": "A resource-rational model of human processing of recursive linguistic structure",
+   "container": "Proceedings of the National Academy of Sciences",
+   "volume": "119",
+   "first_page": "e2122602119",
+   "doi": "10.1073/pnas.2122602119"
+  },
+  {
+   "bib_id": 36,
+   "authors": [
+    {
+     "family": "Hale",
+     "given": "J."
+    }
+   ],
+   "year": "2001",
+   "title": "A probabilistic Earley parser as a psycholinguistic model",
+   "container": "Proceedings of the Second Meeting of the North American Chapter of the Association for Computational Linguistics on Language Technologies",
+   "first_page": "1",
+   "last_page": "8",
+   "doi": "10.3115/1073336.1073357"
+  },
+  {
+   "bib_id": 37,
+   "authors": [
+    {
+     "family": "Hashimoto",
+     "given": "S."
+    }
+   ],
+   "year": "1934",
+   "title": "Kokugohoo yoosetu"
+  },
+  {
+   "bib_id": 38,
+   "authors": [
+    {
+     "family": "Hoyt",
+     "given": "F."
+    },
+    {
+     "family": "Baldridge",
+     "given": "J."
+    }
+   ],
+   "year": "2008",
+   "title": "A logical basis for the D combinator and normal form in CCG",
+   "container": "Proceedings of the 46th Annual Meeting of the Association for Computational Linguistics: Human Language Technologies",
+   "first_page": "326",
+   "last_page": "334"
+  },
+  {
+   "bib_id": 39,
+   "authors": [
+    {
+     "family": "Hunter",
+     "given": "T."
+    }
+   ],
+   "year": "2019",
+   "title": "Left-corner parsing of Minimalist Grammars",
+   "container": "Minimalist parsing",
+   "doi": "10.1093/oso/9780198795087.003.0006"
+  },
+  {
+   "bib_id": 40,
+   "authors": [
+    {
+     "family": "Isono",
+     "given": "S."
+    }
+   ],
+   "year": "2024",
+   "title": "Category Locality Theory: A unified account of locality effects in sentence comprehension",
+   "container": "Cognition",
+   "volume": "247",
+   "first_page": "105766",
+   "doi": "10.1016/j.cognition.2024.105766"
+  },
+  {
+   "bib_id": 41,
+   "authors": [
+    {
+     "family": "Isono",
+     "given": "S."
+    },
+    {
+     "family": "Hirose",
+     "given": "Y."
+    }
+   ],
+   "year": "2023",
+   "title": "Pre-verb reactivation of arguments in sentence processing",
+   "container": "Glossa Psycholinguistics",
+   "volume": "2",
+   "doi": "10.5070/G6011180"
+  },
+  {
+   "bib_id": 42,
+   "authors": [
+    {
+     "family": "Isono",
+     "given": "S."
+    },
+    {
+     "family": "Kajikawa",
+     "given": "K."
+    }
+   ],
+   "year": "2026",
+   "title": "Syntactically-guided information maintenance in sentence comprehension",
+   "container": "Proceedings of the 30th Conference on Computational Natural Language Learning",
+   "first_page": "57",
+   "last_page": "69",
+   "doi": "10.18653/v1/2026.conll-main.5"
+  },
+  {
+   "bib_id": 43,
+   "authors": [
+    {
+     "family": "Just",
+     "given": "M. A."
+    },
+    {
+     "family": "Carpenter",
+     "given": "P."
+    }
+   ],
+   "year": "1992",
+   "title": "A capacity theory of comprehension: Individual differences in working memory",
+   "container": "Psychological Review",
+   "volume": "99",
+   "first_page": "122",
+   "last_page": "149",
+   "doi": "10.1037/0033-295x.99.1.122"
+  },
+  {
+   "bib_id": 44,
+   "authors": [
+    {
+     "family": "Just",
+     "given": "M. A."
+    },
+    {
+     "family": "Carpenter",
+     "given": "P. A."
+    },
+    {
+     "family": "Woolley",
+     "given": "J. D."
+    }
+   ],
+   "year": "1982",
+   "title": "Paradigms and processes in reading comprehension",
+   "container": "Journal of Experimental Psychology: General",
+   "volume": "111",
+   "first_page": "228",
+   "last_page": "238",
+   "doi": "10.1037/0096-3445.111.2.228"
+  },
+  {
+   "bib_id": 45,
+   "authors": [
+    {
+     "family": "Kajikawa",
+     "given": "K."
+    },
+    {
+     "family": "Yoshida",
+     "given": "R."
+    },
+    {
+     "family": "Oseki",
+     "given": "Y."
+    }
+   ],
+   "year": "2024",
+   "title": "Dissociating syntactic operations via composition count",
+   "container": "CogSci 2024"
+  },
+  {
+   "bib_id": 46,
+   "authors": [
+    {
+     "family": "Kamide",
+     "given": "Y."
+    },
+    {
+     "family": "Altmann",
+     "given": "G. T. M"
+    },
+    {
+     "family": "Haywood",
+     "given": "S. L."
+    }
+   ],
+   "year": "2003",
+   "title": "The time-course of prediction in incremental sentence processing: Evidence from anticipatory eye movements",
+   "container": "Journal of Memory and Language",
+   "volume": "49",
+   "first_page": "133",
+   "last_page": "156",
+   "doi": "10.1016/S0749-596X(03)00023-8"
+  },
+  {
+   "bib_id": 47,
+   "authors": [
+    {
+     "family": "Kamide",
+     "given": "Y."
+    },
+    {
+     "family": "Mitchell",
+     "given": "D."
+    }
+   ],
+   "year": "1999",
+   "title": "Incremental pre-head attachment in Japanese parsing",
+   "container": "Language and Cognitive Processes",
+   "volume": "14",
+   "first_page": "631",
+   "last_page": "662",
+   "doi": "10.1080/016909699386211"
+  },
+  {
+   "bib_id": 48,
+   "authors": [
+    {
+     "family": "Kimball",
+     "given": "J."
+    }
+   ],
+   "year": "1973",
+   "title": "Seven principles of surface structure parsing in natural language",
+   "container": "Cognition",
+   "volume": "2",
+   "first_page": "15",
+   "last_page": "47",
+   "doi": "10.1016/0010-0277(72)90028-5"
+  },
+  {
+   "bib_id": 49,
+   "authors": [
+    {
+     "family": "King",
+     "given": "J."
+    },
+    {
+     "family": "Just",
+     "given": "M. A."
+    }
+   ],
+   "year": "1991",
+   "title": "Individual differences in syntactic processing: The role of working memory",
+   "container": "Journal of Memory and Language",
+   "volume": "30",
+   "first_page": "580",
+   "last_page": "602",
+   "doi": "10.1016/0749-596X(91)90027-H"
+  },
+  {
+   "bib_id": 50,
+   "authors": [
+    {
+     "family": "Konieczny",
+     "given": "L."
+    }
+   ],
+   "year": "2000",
+   "title": "Locality and parsing complexity",
+   "container": "Journal of Psycholinguistic Research",
+   "volume": "29",
+   "first_page": "627",
+   "last_page": "645",
+   "doi": "10.1023/A:1026528912821"
+  },
+  {
+   "bib_id": 51,
+   "authors": [
+    {
+     "family": "Konieczny",
+     "given": "L."
+    },
+    {
+     "family": "Döring",
+     "given": "P."
+    }
+   ],
+   "year": "2003",
+   "title": "Anticipation of clause-final heads: Evidence from eye-tracking and SRNs",
+   "container": "Proceedings of the 4th International Conference on Cognitive Science",
+   "first_page": "330",
+   "last_page": "335"
+  },
+  {
+   "bib_id": 52,
+   "authors": [
+    {
+     "family": "Kubota",
+     "given": "Y."
+    },
+    {
+     "family": "Levine",
+     "given": "R. D."
+    }
+   ],
+   "year": "2020",
+   "title": "Type-logical syntax",
+   "doi": "10.7551/mitpress/11866.001.0001"
+  },
+  {
+   "bib_id": 53,
+   "authors": [
+    {
+     "family": "Kudo",
+     "given": "T."
+    },
+    {
+     "family": "Richardson",
+     "given": "J."
+    }
+   ],
+   "year": "2018",
+   "title": "SentencePiece: A simple and language independent subword tokenizer and detokenizer for neural text processing",
+   "container": "Proceedings of the 2018 Conference on Empirical Methods in Natural Language Processing: System Demonstrations",
+   "first_page": "66",
+   "last_page": "71",
+   "doi": "10.18653/v1/D18-2012"
+  },
+  {
+   "bib_id": 54,
+   "authors": [
+    {
+     "family": "Kuribayashi",
+     "given": "T."
+    },
+    {
+     "family": "Oseki",
+     "given": "Y."
+    },
+    {
+     "family": "Brassard",
+     "given": "A."
+    },
+    {
+     "family": "Inui",
+     "given": "K."
+    }
+   ],
+   "year": "2022",
+   "title": "Context limitations make neural language models more human-like",
+   "container": "Proceedings of the 2022 Conference on Empirical Methods in Natural Language Processing",
+   "first_page": "10421",
+   "last_page": "10436",
+   "doi": "10.18653/v1/2022.emnlp-main.712"
+  },
+  {
+   "bib_id": 55,
+   "authors": [
+    {
+     "family": "Lambek",
+     "given": "J."
+    }
+   ],
+   "year": "1958",
+   "title": "The mathematics of sentence structure",
+   "container": "American Mathematical Monthly",
+   "volume": "65",
+   "first_page": "154",
+   "last_page": "170",
+   "doi": "10.1080/00029890.1958.11989160"
+  },
+  {
+   "bib_id": 56,
+   "authors": [
+    {
+     "family": "Lambek",
+     "given": "J."
+    }
+   ],
+   "year": "1961",
+   "title": "Structure of language and its mathematical aspects",
+   "container": "Proceedings of Symposia in Applied Mathematics",
+   "volume": "12",
+   "first_page": "166",
+   "last_page": "178",
+   "doi": "10.1090/psapm/012/9972"
+  },
+  {
+   "bib_id": 57,
+   "authors": [
+    {
+     "family": "Levy",
+     "given": "R."
+    }
+   ],
+   "year": "2008",
+   "title": "Expectation-based syntactic comprehension",
+   "container": "Cognition",
+   "volume": "106",
+   "first_page": "1126",
+   "last_page": "1177",
+   "doi": "10.1016/j.cognition.2007.05.006"
+  },
+  {
+   "bib_id": 58,
+   "authors": [
+    {
+     "family": "Levy",
+     "given": "R. P."
+    },
+    {
+     "family": "Keller",
+     "given": "F."
+    }
+   ],
+   "year": "2013",
+   "title": "Expectation and locality effects in German verb-final structures",
+   "container": "Journal of Memory and Language",
+   "volume": "68",
+   "first_page": "199",
+   "last_page": "222",
+   "doi": "10.1016/j.jml.2012.02.005"
+  },
+  {
+   "bib_id": 59,
+   "authors": [
+    {
+     "family": "Lewis",
+     "given": "R. L."
+    }
+   ],
+   "year": "1996",
+   "title": "Interference in short-term memory: The magical number two (or three) in sentence processing",
+   "container": "Journal of Psycholinguistic Research",
+   "volume": "25",
+   "first_page": "93",
+   "last_page": "115",
+   "doi": "10.1007/BF01708421"
+  },
+  {
+   "bib_id": 60,
+   "authors": [
+    {
+     "family": "Lewis",
+     "given": "R. L."
+    },
+    {
+     "family": "Vasishth",
+     "given": "S."
+    }
+   ],
+   "year": "2005",
+   "title": "An activation-based model of sentence processing as skilled memory retrieval",
+   "container": "Cognitive Science",
+   "volume": "29",
+   "first_page": "375",
+   "last_page": "419",
+   "doi": "10.1207/s15516709cog0000_25"
+  },
+  {
+   "bib_id": 61,
+   "authors": [
+    {
+     "family": "Maekawa",
+     "given": "K."
+    },
+    {
+     "family": "Yamazaki",
+     "given": "M."
+    },
+    {
+     "family": "Ogiso",
+     "given": "T."
+    },
+    {
+     "family": "Maruyama",
+     "given": "T."
+    },
+    {
+     "family": "Ogura",
+     "given": "H."
+    },
+    {
+     "family": "Kashino",
+     "given": "W."
+    },
+    {
+     "family": "Koiso",
+     "given": "H."
+    },
+    {
+     "family": "Yamaguchi",
+     "given": "M."
+    },
+    {
+     "family": "Tanaka",
+     "given": "M."
+    },
+    {
+     "family": "Den",
+     "given": "Y."
+    }
+   ],
+   "year": "2014",
+   "title": "Balanced corpus of contemporary written Japanese",
+   "container": "Language Resources and Evaluation",
+   "volume": "48",
+   "first_page": "345",
+   "last_page": "371",
+   "doi": "10.1007/s10579-013-9261-0"
+  },
+  {
+   "bib_id": 62,
+   "authors": [
+    {
+     "family": "McElree",
+     "given": "B."
+    }
+   ],
+   "year": "2000",
+   "title": "Sentence comprehension is mediated by content-addressable memory structures",
+   "container": "Journal of Psycholinguistic Research",
+   "volume": "29",
+   "first_page": "111",
+   "last_page": "123",
+   "doi": "10.1023/A:1005184709695"
+  },
+  {
+   "bib_id": 63,
+   "authors": [
+    {
+     "family": "Miller",
+     "given": "G. A."
+    },
+    {
+     "family": "Chomsky",
+     "given": "N."
+    }
+   ],
+   "year": "1963",
+   "title": "Finitary models of language users",
+   "container": "Handbook of mathematical psychology",
+   "volume": "Vol. 2",
+   "first_page": "419",
+   "last_page": "491"
+  },
+  {
+   "bib_id": 64,
+   "authors": [
+    {
+     "family": "Mitchell",
+     "given": "D. C."
+    }
+   ],
+   "year": "1984",
+   "title": "An evaluation of subject-paced reading tasks and other methods for investigating immediate processes in reading",
+   "container": "New methods in reading comprehension research",
+   "first_page": "69",
+   "last_page": "89"
+  },
+  {
+   "bib_id": 65,
+   "authors": [
+    {
+     "family": "Miyamoto",
+     "given": "E. T."
+    }
+   ],
+   "year": "2002",
+   "title": "Case markers as clause boundary inducers in Japanese",
+   "container": "Journal of Psycholinguistic Research",
+   "volume": "31",
+   "first_page": "307",
+   "last_page": "347",
+   "doi": "10.1023/A:1019540324040"
+  },
+  {
+   "bib_id": 66,
+   "authors": [
+    {
+     "family": "Momma",
+     "given": "S."
+    },
+    {
+     "family": "Phillips",
+     "given": "C."
+    }
+   ],
+   "year": "2018",
+   "title": "The relationship between parsing and generation",
+   "container": "Annual Review of Linguistics",
+   "volume": "4",
+   "first_page": "233",
+   "last_page": "254",
+   "doi": "10.1146/annurev-linguistics-011817-045719"
+  },
+  {
+   "bib_id": 67,
+   "authors": [
+    {
+     "family": "Moortgat",
+     "given": "M."
+    }
+   ],
+   "year": "1997",
+   "title": "Categorial type logics",
+   "container": "Handbook of logic and language",
+   "first_page": "93",
+   "last_page": "177",
+   "doi": "10.1016/B978-044481714-3/50005-9"
+  },
+  {
+   "bib_id": 68,
+   "authors": [
+    {
+     "family": "Morrill",
+     "given": "G."
+    }
+   ],
+   "year": "1994",
+   "title": "Type logical grammar"
+  },
+  {
+   "bib_id": 69,
+   "authors": [
+    {
+     "family": "Morrill",
+     "given": "G."
+    },
+    {
+     "family": "Valentín",
+     "given": "O."
+    },
+    {
+     "family": "Fadda",
+     "given": "M."
+    }
+   ],
+   "year": "2011",
+   "title": "The displacement calculus",
+   "container": "Journal of Logic, Language, and Information",
+   "volume": "20",
+   "first_page": "1",
+   "last_page": "48",
+   "doi": "10.1007/s10849-010-9129-2"
+  },
+  {
+   "bib_id": 70,
+   "authors": [
+    {
+     "family": "Muskens",
+     "given": "R."
+    }
+   ],
+   "year": "2003",
+   "title": "Language, lambdas, and logic",
+   "container": "Resource sensitivity, binding, and anaphora (studies in linguistics and philosophy 80)",
+   "first_page": "23",
+   "last_page": "54",
+   "doi": "10.1007/978-94-010-0037-6_2"
+  },
+  {
+   "bib_id": 71,
+   "authors": [
+    {
+     "family": "Nakano",
+     "given": "Y."
+    },
+    {
+     "family": "Felser",
+     "given": "C."
+    },
+    {
+     "family": "Clahsen",
+     "given": "H."
+    }
+   ],
+   "year": "2002",
+   "title": "Antecedent priming at trace positions in Japanese long-distance scrambling",
+   "container": "Journal of Psycholinguistic Research",
+   "volume": "31",
+   "first_page": "531",
+   "last_page": "571",
+   "doi": "10.1023/A:1021260920232"
+  },
+  {
+   "bib_id": 72,
+   "authors": [
+    {
+     "family": "Nakatani",
+     "given": "K."
+    }
+   ],
+   "year": "2021",
+   "title": "Locality effects in the processing of negative-sensitive adverbials in Japanese",
+   "container": "The joy and enjoyment of linguistic research: A festschrift for Takane Ito",
+   "first_page": "462",
+   "last_page": "472"
+  },
+  {
+   "bib_id": 73,
+   "authors": [
+    {
+     "family": "Nakatani",
+     "given": "K."
+    }
+   ],
+   "year": "2023",
+   "title": "Locality-based retrieval effects are dependent on dependency type: A case study of a negative polarity dependency in Japanese",
+   "container": "Issues in Japanese psycholinguistics from comparative perspectives",
+   "first_page": "31",
+   "last_page": "54",
+   "doi": "10.1515/9783110778939-003"
+  },
+  {
+   "bib_id": 74,
+   "authors": [
+    {
+     "family": "Nakatani",
+     "given": "K."
+    },
+    {
+     "family": "Gibson",
+     "given": "E."
+    }
+   ],
+   "year": "2008",
+   "title": "Distinguishing theories of syntactic expectation cost in sentence comprehension: Evidence from Japanese",
+   "container": "Linguistics",
+   "volume": "46",
+   "first_page": "63",
+   "last_page": "87",
+   "doi": "10.1515/LING.2008.003"
+  },
+  {
+   "bib_id": 75,
+   "authors": [
+    {
+     "family": "Nakatani",
+     "given": "K."
+    },
+    {
+     "family": "Gibson",
+     "given": "E."
+    }
+   ],
+   "year": "2010",
+   "title": "An on-line study of Japanese nesting complexity",
+   "container": "Cognitive Science",
+   "volume": "34",
+   "first_page": "94",
+   "last_page": "112",
+   "doi": "10.1111/j.1551-6709.2009.01067.x"
+  },
+  {
+   "bib_id": 76,
+   "authors": [
+    {
+     "family": "Nicenboim",
+     "given": "B."
+    },
+    {
+     "family": "Logačev",
+     "given": "P."
+    },
+    {
+     "family": "Gattei",
+     "given": "C."
+    },
+    {
+     "family": "Vasishth",
+     "given": "S."
+    }
+   ],
+   "year": "2016",
+   "title": "When high-capacity readers slow down and low-capacity readers speed up: Working memory and locality effects",
+   "container": "Frontiers in Psychology",
+   "volume": "7",
+   "first_page": "280",
+   "doi": "10.3389/fpsyg.2016.00280"
+  },
+  {
+   "bib_id": 77,
+   "authors": [
+    {
+     "family": "Nivre",
+     "given": "J."
+    },
+    {
+     "family": "de Marneffe",
+     "given": "M.-C."
+    },
+    {
+     "family": "Ginter",
+     "given": "F."
+    },
+    {
+     "family": "Hajič",
+     "given": "J."
+    },
+    {
+     "family": "Manning",
+     "given": "C. D."
+    },
+    {
+     "family": "Pyysalo",
+     "given": "S."
+    },
+    {
+     "family": "Schuster",
+     "given": "S."
+    },
+    {
+     "family": "Tyers",
+     "given": "F."
+    },
+    {
+     "family": "Zeman",
+     "given": "D."
+    }
+   ],
+   "year": "2020",
+   "title": "Universal Dependencies v2: An evergrowing multilingual treebank collection",
+   "container": "Proceedings of the Twelfth Language Resources and Evaluation Conference",
+   "first_page": "4034",
+   "last_page": "4043"
+  },
+  {
+   "bib_id": 78,
+   "authors": [
+    {
+     "family": "Oberauer",
+     "given": "K."
+    },
+    {
+     "family": "Lewandowsky",
+     "given": "S."
+    },
+    {
+     "family": "Farrell",
+     "given": "S."
+    },
+    {
+     "family": "Jarrold",
+     "given": "C."
+    },
+    {
+     "family": "Greaves",
+     "given": "M."
+    }
+   ],
+   "year": "2012",
+   "title": "Modeling working memory: An interference model of complex span",
+   "container": "Psychonomic Bulletin & Review",
+   "volume": "19",
+   "first_page": "779",
+   "last_page": "819",
+   "doi": "10.3758/s13423-012-0272-4"
+  },
+  {
+   "bib_id": 79,
+   "authors": [
+    {
+     "family": "Oh",
+     "given": "B.-D."
+    },
+    {
+     "family": "Schuler",
+     "given": "W."
+    }
+   ],
+   "year": "2023",
+   "title": "Why does surprisal from larger transformer-based language models provide a poorer fit to human reading times?",
+   "container": "Transactions of the Association for Computational Linguistics",
+   "volume": "11",
+   "first_page": "336",
+   "last_page": "350",
+   "doi": "10.1162/tacl_a_00548"
+  },
+  {
+   "bib_id": 80,
+   "authors": [
+    {
+     "family": "Omaki",
+     "given": "A."
+    },
+    {
+     "family": "White",
+     "given": "I. D."
+    },
+    {
+     "family": "Goro",
+     "given": "T."
+    },
+    {
+     "family": "Lidz",
+     "given": "J."
+    },
+    {
+     "family": "Phillips",
+     "given": "C."
+    }
+   ],
+   "year": "2014",
+   "title": "No fear of commitment: Children’s incremental interpretation in English and Japanese Wh-questions",
+   "container": "Language Learning and Development",
+   "volume": "10",
+   "first_page": "206",
+   "last_page": "233",
+   "doi": "10.1080/15475441.2013.844048"
+  },
+  {
+   "bib_id": 81,
+   "authors": [
+    {
+     "family": "Omura",
+     "given": "M."
+    },
+    {
+     "family": "Wakasa",
+     "given": "A."
+    },
+    {
+     "family": "Asahara",
+     "given": "M."
+    }
+   ],
+   "year": "2021",
+   "title": "Word delimitation issues in UD Japanese",
+   "container": "Proceedings of the Fifth Workshop on Universal Dependencies (UDW, SyntaxFest 2021)",
+   "first_page": "142",
+   "last_page": "150"
+  },
+  {
+   "bib_id": 82,
+   "authors": [
+    {
+     "family": "Ono",
+     "given": "H."
+    },
+    {
+     "family": "Nakatani",
+     "given": "K."
+    }
+   ],
+   "year": "2014",
+   "title": "Integration costs in the processing of Japanese wh-interrogative sentences",
+   "container": "Studies in Language Sciences",
+   "volume": "13",
+   "first_page": "13",
+   "last_page": "31"
+  },
+  {
+   "bib_id": 83,
+   "authors": [
+    {
+     "family": "Ozaki",
+     "given": "S."
+    },
+    {
+     "family": "Santo",
+     "given": "A. D."
+    },
+    {
+     "family": "Linzen",
+     "given": "T."
+    },
+    {
+     "family": "Dillon",
+     "given": "B."
+    }
+   ],
+   "year": "2024",
+   "title": "CCG parsing effort and surprisal jointly predict RT but underpredict garden-path effects",
+   "container": "Proceedings of the Society for Computation in Linguistics (SCiL) 2024",
+   "first_page": "362",
+   "last_page": "364"
+  },
+  {
+   "bib_id": 84,
+   "authors": [
+    {
+     "family": "Phillips",
+     "given": "C."
+    }
+   ],
+   "year": "1996",
+   "title": "Order and structure"
+  },
+  {
+   "bib_id": 85,
+   "authors": [
+    {
+     "family": "Phillips",
+     "given": "C."
+    }
+   ],
+   "year": "2012",
+   "title": "Parser-grammar relations: We don’t understand everything twice",
+   "container": "Language down the garden path: The cognitive and biological basis for linguistic structure",
+   "first_page": "294",
+   "last_page": "315",
+   "doi": "10.1093/acprof:oso/9780199677139.003.0017"
+  },
+  {
+   "bib_id": 86,
+   "authors": [
+    {
+     "family": "Pritchett",
+     "given": "B. L."
+    }
+   ],
+   "year": "1992",
+   "title": "Grammatical competence and parsing performance"
+  },
+  {
+   "bib_id": 87,
+   "authors": [
+    {
+     "family": "Radford",
+     "given": "A."
+    },
+    {
+     "family": "Wu",
+     "given": "J."
+    },
+    {
+     "family": "Child",
+     "given": "R."
+    },
+    {
+     "family": "Luan",
+     "given": "D."
+    },
+    {
+     "family": "Amodei",
+     "given": "D."
+    },
+    {
+     "family": "Sutskever",
+     "given": "I."
+    }
+   ],
+   "year": "2019",
+   "title": "Language models are unsupervised multitask learners",
+   "container": "OpenAI Technical Report"
+  },
+  {
+   "bib_id": 88,
+   "authors": [
+    {
+     "family": "Rasmussen",
+     "given": "N. E."
+    },
+    {
+     "family": "Schuler",
+     "given": "W."
+    }
+   ],
+   "year": "2018",
+   "title": "Left-corner parsing with distributed associative memory produces surprisal and locality effects",
+   "container": "Cognitive Science",
+   "volume": "42",
+   "first_page": "1009",
+   "last_page": "1042",
+   "doi": "10.1111/cogs.12511"
+  },
+  {
+   "bib_id": 89,
+   "authors": [
+    {
+     "family": "Resnik",
+     "given": "P."
+    }
+   ],
+   "year": "1992",
+   "title": "Left-corner parsing and psychological plausibility",
+   "container": "Proceedings of the 14th Conference on Computational Linguistics (COLING 92)",
+   "first_page": "191",
+   "last_page": "197",
+   "doi": "10.3115/992066.992098"
+  },
+  {
+   "bib_id": 90,
+   "authors": [
+    {
+     "family": "Ricker",
+     "given": "T."
+    },
+    {
+     "family": "Vergauwe",
+     "given": "E."
+    },
+    {
+     "family": "Cowan",
+     "given": "N."
+    }
+   ],
+   "year": "2016",
+   "title": "Decay theory of immediate memory: From Brown (1958) to today (2014)",
+   "container": "Quarterly Journal of Experimental Psychology",
+   "volume": "69",
+   "first_page": "1969",
+   "last_page": "1995",
+   "doi": "10.1080/17470218.2014.914546"
+  },
+  {
+   "bib_id": 91,
+   "authors": [
+    {
+     "family": "Ristic",
+     "given": "B."
+    },
+    {
+     "family": "Mancini",
+     "given": "S."
+    },
+    {
+     "family": "Molinaro",
+     "given": "N."
+    },
+    {
+     "family": "Staub",
+     "given": "A."
+    }
+   ],
+   "year": "2022",
+   "title": "Maintenance cost in the processing of subject–verb dependencies",
+   "container": "Journal of Experimental Psychology: Learning, Memory, and Cognition",
+   "volume": "48",
+   "first_page": "829",
+   "last_page": "838",
+   "doi": "10.1037/xlm0000863"
+  },
+  {
+   "bib_id": 92,
+   "authors": [
+    {
+     "family": "Roland",
+     "given": "D."
+    },
+    {
+     "family": "Mauner",
+     "given": "G."
+    },
+    {
+     "family": "Hirose",
+     "given": "Y."
+    }
+   ],
+   "year": "2021",
+   "title": "The processing of pronominal relative clauses: Evidence from eye movements",
+   "container": "Journal of Memory and Language",
+   "volume": "119",
+   "first_page": "104244",
+   "doi": "10.1016/j.jml.2021.104244"
+  },
+  {
+   "bib_id": 93,
+   "authors": [
+    {
+     "family": "Safavi",
+     "given": "M. S."
+    },
+    {
+     "family": "Husain",
+     "given": "S."
+    },
+    {
+     "family": "Vasishth",
+     "given": "S."
+    }
+   ],
+   "year": "2016",
+   "title": "Dependency resolution difficulty increases with distance in Persian separable complex predicates: Evidence for expectation and memory-based accounts",
+   "container": "Frontiers in Psychology",
+   "volume": "7",
+   "first_page": "403",
+   "doi": "10.3389/fpsyg.2016.00403"
+  },
+  {
+   "bib_id": 94,
+   "authors": [
+    {
+     "family": "Sag",
+     "given": "I. A."
+    },
+    {
+     "family": "Wasow",
+     "given": "T."
+    }
+   ],
+   "year": "2011",
+   "title": "Performance-compatible competence grammar",
+   "container": "Non-transformational syntax: Formal and explicit models of grammar",
+   "first_page": "359",
+   "last_page": "377",
+   "doi": "10.1002/9781444395037.ch10"
+  },
+  {
+   "bib_id": 95,
+   "authors": [
+    {
+     "family": "Sawada",
+     "given": "K."
+    },
+    {
+     "family": "Zhao",
+     "given": "T."
+    },
+    {
+     "family": "Shing",
+     "given": "M."
+    },
+    {
+     "family": "Mitsui",
+     "given": "K."
+    },
+    {
+     "family": "Kaga",
+     "given": "A."
+    },
+    {
+     "family": "Hono",
+     "given": "Y."
+    },
+    {
+     "family": "Wakatsuki",
+     "given": "T."
+    },
+    {
+     "family": "Mitsuda",
+     "given": "K."
+    }
+   ],
+   "year": "2024",
+   "container": "Proceedings of the 2024 Joint International Conference on Computational Linguistics, Language Resources and Evaluation (LREC-COLING 2024)"
+  },
+  {
+   "bib_id": 96,
+   "authors": [
+    {
+     "family": "Shain",
+     "given": "C."
+    },
+    {
+     "family": "Blank",
+     "given": "I. A."
+    },
+    {
+     "family": "Fedorenko",
+     "given": "E."
+    },
+    {
+     "family": "Gibson",
+     "given": "E."
+    },
+    {
+     "family": "Schuler",
+     "given": "W."
+    }
+   ],
+   "year": "2022",
+   "title": "Robust effects of working memory demand during naturalistic language comprehension in language-selective cortex",
+   "container": "Journal of Neuroscience",
+   "volume": "42",
+   "first_page": "7412",
+   "last_page": "7430",
+   "doi": "10.1523/JNEUROSCI.1894-21.2022"
+  },
+  {
+   "bib_id": 97,
+   "authors": [
+    {
+     "family": "Shain",
+     "given": "C."
+    },
+    {
+     "family": "Meister",
+     "given": "C."
+    },
+    {
+     "family": "Pimentel",
+     "given": "T."
+    },
+    {
+     "family": "Cotterell",
+     "given": "R."
+    },
+    {
+     "family": "Levy",
+     "given": "R."
+    }
+   ],
+   "year": "2024",
+   "title": "Large-scale evidence for logarithmic effects of word predictability on reading time",
+   "container": "Proceedings of the National Academy of Sciences",
+   "volume": "121",
+   "first_page": "e2307876121",
+   "doi": "10.1073/pnas.2307876121"
+  },
+  {
+   "bib_id": 98,
+   "authors": [
+    {
+     "family": "Shain",
+     "given": "C."
+    },
+    {
+     "family": "van Schijndel",
+     "given": "M."
+    },
+    {
+     "family": "Futrell",
+     "given": "R."
+    },
+    {
+     "family": "Gibson",
+     "given": "E."
+    },
+    {
+     "family": "Schuler",
+     "given": "W."
+    }
+   ],
+   "year": "2016",
+   "title": "Memory access during incremental sentence processing causes reading time latency",
+   "container": "Proceedings of the Workshop on Computational Linguistics for Linguistic Complexity",
+   "first_page": "49",
+   "last_page": "58"
+  },
+  {
+   "bib_id": 99,
+   "authors": [
+    {
+     "family": "Stabler",
+     "given": "E. P."
+    }
+   ],
+   "year": "1994",
+   "title": "The finite connectivity of linguistic structures",
+   "container": "Perspectives on sentence processing",
+   "first_page": "303",
+   "last_page": "336"
+  },
+  {
+   "bib_id": 100,
+   "authors": [
+    {
+     "family": "Stabler",
+     "given": "E. P."
+    }
+   ],
+   "year": "2012",
+   "title": "Computational perspectives on Minimalism",
+   "container": "The Oxford handbook of linguistic minimalism",
+   "first_page": "617",
+   "last_page": "642",
+   "doi": "10.1093/oxfordhb/9780199549368.013.0027"
+  },
+  {
+   "bib_id": 101,
+   "authors": [
+    {
+     "family": "Stanojević",
+     "given": "M."
+    },
+    {
+     "family": "Brennan",
+     "given": "J. R."
+    },
+    {
+     "family": "Dunagan",
+     "given": "D."
+    },
+    {
+     "family": "Steedman",
+     "given": "M."
+    },
+    {
+     "family": "Hale",
+     "given": "J. T."
+    }
+   ],
+   "year": "2023",
+   "title": "Modeling structure-building in the brain with CCG parsing and large language models",
+   "container": "Cognitive Science",
+   "volume": "47",
+   "first_page": "e13312",
+   "doi": "10.1111/cogs.13312"
+  },
+  {
+   "bib_id": 102,
+   "authors": [
+    {
+     "family": "Stanojević",
+     "given": "M."
+    },
+    {
+     "family": "Stabler",
+     "given": "E. P."
+    }
+   ],
+   "year": "2018",
+   "title": "A sound and complete left-corner parsing for Minimalist Grammars",
+   "container": "Proceedings of the Eighth Workshop on Cognitive Aspects of Computational Language Learning and Processing",
+   "first_page": "65",
+   "last_page": "74",
+   "doi": "10.18653/v1/W18-2809"
+  },
+  {
+   "bib_id": 103,
+   "authors": [
+    {
+     "family": "Staub",
+     "given": "A."
+    }
+   ],
+   "year": "2010",
+   "title": "Eye movements and processing difficulty in object relative clauses",
+   "container": "Cognition",
+   "volume": "116",
+   "first_page": "71",
+   "last_page": "86",
+   "doi": "10.1016/j.cognition.2010.04.002"
+  },
+  {
+   "bib_id": 104,
+   "authors": [
+    {
+     "family": "Steedman",
+     "given": "M."
+    }
+   ],
+   "year": "1996",
+   "title": "Surface structure and interpretation"
+  },
+  {
+   "bib_id": 105,
+   "authors": [
+    {
+     "family": "Steedman",
+     "given": "M."
+    }
+   ],
+   "year": "2000",
+   "title": "The syntactic process",
+   "doi": "10.7551/mitpress/6591.001.0001"
+  },
+  {
+   "bib_id": 106,
+   "authors": [
+    {
+     "family": "Steedman",
+     "given": "M."
+    }
+   ],
+   "year": "2019",
+   "title": "Combinatory categorial grammar",
+   "container": "Current approaches to syntax: A comparative handbook",
+   "first_page": "389",
+   "last_page": "420",
+   "doi": "10.1515/9783110540253-014"
+  },
+  {
+   "bib_id": 107,
+   "authors": [
+    {
+     "family": "Steedman",
+     "given": "M."
+    }
+   ],
+   "year": "2026",
+   "title": "On internal merge",
+   "container": "Linguitic Inquiry",
+   "volume": "57",
+   "first_page": "113",
+   "last_page": "171",
+   "doi": "10.1162/ling_a_00521"
+  },
+  {
+   "bib_id": 108,
+   "authors": [
+    {
+     "family": "Steedman",
+     "given": "M."
+    },
+    {
+     "family": "Baldridge",
+     "given": "J."
+    }
+   ],
+   "year": "2011",
+   "title": "Combinatory categorial grammar",
+   "container": "Non-transformational syntax: Formal and explicit models of grammar",
+   "first_page": "181",
+   "last_page": "224",
+   "doi": "10.1002/9781444395037.ch5"
+  },
+  {
+   "bib_id": 109,
+   "authors": [
+    {
+     "family": "Tanenhaus",
+     "given": "M. K."
+    },
+    {
+     "family": "Spivey-Knowlton",
+     "given": "M. J."
+    },
+    {
+     "family": "Eberhard",
+     "given": "K. M."
+    },
+    {
+     "family": "Sedivy",
+     "given": "J. C."
+    }
+   ],
+   "year": "1995",
+   "title": "Integration of visual and linguistic information in spoken language comprehension",
+   "container": "Science",
+   "volume": "268",
+   "first_page": "1632",
+   "last_page": "1634",
+   "doi": "10.1126/science.7777863"
+  },
+  {
+   "bib_id": 110,
+   "authors": [
+    {
+     "family": "Temperley",
+     "given": "D."
+    },
+    {
+     "family": "Gildea",
+     "given": "D."
+    }
+   ],
+   "year": "2018",
+   "title": "Minimizing syntactic dependency lengths: Typological/cognitive universal?",
+   "container": "Annual Review of Linguistics",
+   "volume": "4",
+   "first_page": "67",
+   "last_page": "80",
+   "doi": "10.1146/annurev-linguistics-011817-045617"
+  },
+  {
+   "bib_id": 111,
+   "authors": [
+    {
+     "family": "Van Dyke",
+     "given": "J. A."
+    },
+    {
+     "family": "McElree",
+     "given": "B."
+    }
+   ],
+   "year": "2011",
+   "title": "Cue-dependent interference in comprehension",
+   "container": "Journal of Memory and Language",
+   "volume": "65",
+   "first_page": "247",
+   "last_page": "263",
+   "doi": "10.1016/j.jml.2011.05.002"
+  },
+  {
+   "bib_id": 112,
+   "authors": [
+    {
+     "family": "van Schijndel",
+     "given": "M."
+    },
+    {
+     "family": "Exley",
+     "given": "A."
+    },
+    {
+     "family": "Schuler",
+     "given": "W."
+    }
+   ],
+   "year": "2013",
+   "title": "A model of language processing as hierarchic sequential prediction",
+   "container": "Topics in Cognitive Science",
+   "volume": "5",
+   "first_page": "522",
+   "last_page": "540",
+   "doi": "10.1111/tops.12034"
+  },
+  {
+   "bib_id": 113,
+   "authors": [
+    {
+     "family": "Vasishth",
+     "given": "S."
+    },
+    {
+     "family": "Lewis",
+     "given": "R. L."
+    }
+   ],
+   "year": "2006",
+   "title": "Argument-head distance and processing complexity: Explaining both locality and antilocality effects",
+   "container": "Language",
+   "volume": "82",
+   "first_page": "767",
+   "last_page": "794",
+   "doi": "10.1353/lan.2006.0236"
+  },
+  {
+   "bib_id": 114,
+   "authors": [
+    {
+     "family": "Wanner",
+     "given": "E."
+    },
+    {
+     "family": "Maratsos",
+     "given": "W."
+    }
+   ],
+   "year": "1978",
+   "title": "An ATN approach to comprehension",
+   "container": "Linguistic theory and psychological reality",
+   "first_page": "119",
+   "last_page": "161"
+  },
+  {
+   "bib_id": 115,
+   "authors": [
+    {
+     "family": "Wilcox",
+     "given": "E. G."
+    },
+    {
+     "family": "Pimentel",
+     "given": "T."
+    },
+    {
+     "family": "Meister",
+     "given": "C."
+    },
+    {
+     "family": "Cotterell",
+     "given": "R."
+    },
+    {
+     "family": "Levy",
+     "given": "R. P."
+    }
+   ],
+   "year": "2023",
+   "title": "Testing the predictions of surprisal theory in 11 languages",
+   "container": "Transactions of the Association for Computational Linguistics",
+   "volume": "11",
+   "first_page": "1451",
+   "last_page": "1470",
+   "doi": "10.1162/tacl_a_00612"
+  },
+  {
+   "bib_id": 116,
+   "authors": [
+    {
+     "family": "Yngve",
+     "given": "V. H."
+    }
+   ],
+   "year": "1960",
+   "title": "A model and an hypothesis for language structure",
+   "container": "Proceedings of the American Philosophical Society",
+   "volume": "104",
+   "first_page": "444",
+   "last_page": "466"
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-core-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "jats_doi": "10.1162/OPMI.a.384"
+ }
+}

@@ -1,0 +1,872 @@
+{
+ "paper_id": "10.1371_journal.pone.0354875",
+ "info": {
+  "title": "LEXF-ATT-XLM: A hybrid lexicon-enhanced attention model for hate speech detection in low-resource language Roman Urdu",
+  "doi": "10.1371/journal.pone.0354875",
+  "file_name": "10.1371_journal.pone.0354875.pdf",
+  "abstract": "Hate speech detection in low-resource and informally written languages remains a significant challenge due to the lack of annotated corpora, orthographic variability, and complex code-mixing. Roman Urdu a non-standardized variant of Urdu written in the Latin script exemplifies these linguistic hurdles. In this paper, we propose LEXF-ATT-XLM, a novel hybrid deep learning architecture that synergizes contextual language modeling with explicit domain knowledge. Our model leverages XLM-RoBERTa for deep contextual embeddings, passed through a two-layer Bidirectional Gated Recurrent Unit (BiGRU) and a multi-head attention mechanism to capture both sequential and salient linguistic patterns. Crucially, the pooled representations are fused via a learnable gating layer (Linear + tanh) before final classification. Furthermore, we integrate a domain specific Roman Urdu hate lexicon as an auxiliary regression supervision signal within a multi task learning framework to guide the model’s focus. Evaluated on the RU-HSD-30K dataset using 3-fold stratified cross-validation, the proposed model achieves an average accuracy of 88.83% and a weighted F1 score of 88.83%, with fold wise weighted F1-scores of 88.58%, 89.19%, and 88.71%. Extensive ablation studies confirm that the lexicon-guided auxiliary supervision significantly enhances the model’s ability to handle lexical variations, negations, and informal spelling. These findings demonstrate the robust effectiveness of our approach in addressing the unique linguistic challenges of Roman Urdu hate speech detection."
+ },
+ "author": [
+  {
+   "author_id": 1,
+   "given": "Jaweria Jalil",
+   "family": "Awan",
+   "affiliation": "Department of Computer Sciences, Government College Women University Sialkot, Sialkot, Pakistan",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 2,
+   "given": "Muhammad",
+   "family": "Hamid",
+   "affiliation": "Department of Computer Sciences, Government College Women University Sialkot, Sialkot, Pakistan",
+   "email": "",
+   "orcid": "",
+   "corresponding": true
+  },
+  {
+   "author_id": 3,
+   "given": "Tagrid Abdullah N.",
+   "family": "Alshalali",
+   "affiliation": "Department of Information Systems, College of Computer and Information Sciences, Princess Nourah bint Abdulrahman University, Riyadh, Saudi Arabia",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  }
+ ],
+ "section": [
+  {
+   "section_id": 1,
+   "section_type": "abstract",
+   "header": "Abstract",
+   "level": 1,
+   "parent_section_id": null,
+   "classification_score": 1.0
+  }
+ ],
+ "text": [
+  {
+   "text_id": 1,
+   "section_id": 1,
+   "paragraph_id": 1,
+   "text": "Hate speech detection in low-resource and informally written languages remains a significant challenge due to the lack of annotated corpora, orthographic variability, and complex code-mixing. Roman Urdu a non-standardized variant of Urdu written in the Latin script exemplifies these linguistic hurdles. In this paper, we propose LEXF-ATT-XLM, a novel hybrid deep learning architecture that synergizes contextual language modeling with explicit domain knowledge. Our model leverages XLM-RoBERTa for deep contextual embeddings, passed through a two-layer Bidirectional Gated Recurrent Unit (BiGRU) and a multi-head attention mechanism to capture both sequential and salient linguistic patterns. Crucially, the pooled representations are fused via a learnable gating layer (Linear + tanh) before final classification. Furthermore, we integrate a domain specific Roman Urdu hate lexicon as an auxiliary regression supervision signal within a multi task learning framework to guide the model’s focus. Evaluated on the RU-HSD-30K dataset using 3-fold stratified cross-validation, the proposed model achieves an average accuracy of 88.83% and a weighted F1 score of 88.83%, with fold wise weighted F1-scores of 88.58%, 89.19%, and 88.71%. Extensive ablation studies confirm that the lexicon-guided auxiliary supervision significantly enhances the model’s ability to handle lexical variations, negations, and informal spelling. These findings demonstrate the robust effectiveness of our approach in addressing the unique linguistic challenges of Roman Urdu hate speech detection.",
+   "page_number": 1
+  }
+ ],
+ "bib": [
+  {
+   "bib_id": 1,
+   "authors": [
+    {
+     "family": "Azam",
+     "given": "U"
+    },
+    {
+     "family": "Rizwan",
+     "given": "H"
+    },
+    {
+     "family": "Karim",
+     "given": "A"
+    }
+   ],
+   "year": "2022",
+   "title": "Exploring Data Augmentation Strategies for Hate Speech Detection in Roman Urdu.",
+   "container": "Proceedings of the Language Resources and Evaluation Conference",
+   "first_page": "4523",
+   "doi": "10.63317/528wesmg3iex"
+  },
+  {
+   "bib_id": 2,
+   "authors": [
+    {
+     "family": "Bilal",
+     "given": "M"
+    },
+    {
+     "family": "Khan",
+     "given": "A"
+    },
+    {
+     "family": "Jan",
+     "given": "S"
+    },
+    {
+     "family": "Musa",
+     "given": "S"
+    }
+   ],
+   "year": "2022",
+   "title": "Context-aware deep learning model for detection of Roman Urdu hate speech on social media platform",
+   "container": "IEEE Access",
+   "volume": "10",
+   "first_page": "121133",
+   "doi": "10.1109/access.2022.3216375"
+  },
+  {
+   "bib_id": 3,
+   "authors": [
+    {
+     "family": "Atif",
+     "given": "A"
+    },
+    {
+     "family": "Zafar",
+     "given": "A"
+    },
+    {
+     "family": "Wasim",
+     "given": "M"
+    },
+    {
+     "family": "Waheed",
+     "given": "T"
+    },
+    {
+     "family": "Ali",
+     "given": "A"
+    },
+    {
+     "family": "Ali",
+     "given": "H"
+    }
+   ],
+   "year": "2024",
+   "title": "Cyberbullying detection and abuser profile identification on social media for Roman Urdu",
+   "container": "IEEE Access",
+   "volume": "12",
+   "first_page": "123339",
+   "doi": "10.1109/access.2024.3445288"
+  },
+  {
+   "bib_id": 4,
+   "authors": [
+    {
+     "family": "Bilal",
+     "given": "M"
+    },
+    {
+     "family": "Khan",
+     "given": "A"
+    },
+    {
+     "family": "Jan",
+     "given": "S"
+    },
+    {
+     "family": "Musa",
+     "given": "S"
+    },
+    {
+     "family": "Ali",
+     "given": "S"
+    }
+   ],
+   "year": "2023",
+   "title": "Roman Urdu hate speech detection using transformer-based model for cyber security applications",
+   "container": "Sensors (Basel)",
+   "volume": "23",
+   "first_page": "3909",
+   "doi": "10.3390/s23083909"
+  },
+  {
+   "bib_id": 5,
+   "authors": [
+    {
+     "family": "Mehmood",
+     "given": "F"
+    },
+    {
+     "family": "Ghafoor",
+     "given": "H"
+    },
+    {
+     "family": "Asim",
+     "given": "MN"
+    },
+    {
+     "family": "Ghani",
+     "given": "MU"
+    },
+    {
+     "family": "Mahmood",
+     "given": "W"
+    },
+    {
+     "family": "Dengel",
+     "given": "A"
+    }
+   ],
+   "year": "2023",
+   "title": "Passion-Net: a robust precise and explainable predictor for hate speech detection in Roman Urdu text",
+   "container": "Neural Comput Applic",
+   "volume": "36",
+   "first_page": "3077",
+   "doi": "10.1007/s00521-023-09169-6"
+  },
+  {
+   "bib_id": 6,
+   "authors": [
+    {
+     "family": "Malik",
+     "given": "MSI"
+    },
+    {
+     "family": "Cheema",
+     "given": "U"
+    },
+    {
+     "family": "Ignatov",
+     "given": "DI"
+    }
+   ],
+   "year": "2023",
+   "title": "Contextual Embeddings based on Fine-tuned Urdu-BERT for Urdu threatening content and target identification",
+   "container": "J King Saud Univ - Comput Inform Sci",
+   "volume": "35",
+   "first_page": "101606",
+   "doi": "10.1016/j.jksuci.2023.101606"
+  },
+  {
+   "bib_id": 7,
+   "authors": [
+    {
+     "family": "Aziz",
+     "given": "S"
+    },
+    {
+     "family": "Sarfraz",
+     "given": "M"
+    },
+    {
+     "family": "Usman",
+     "given": "M"
+    },
+    {
+     "family": "Aftab",
+     "given": "M"
+    },
+    {
+     "family": "Rauf",
+     "given": "H"
+    }
+   ],
+   "year": "2023",
+   "title": "Geo-spatial mapping of hate speech prediction in Roman Urdu",
+   "container": "Mathematics",
+   "volume": "11",
+   "first_page": "969",
+   "doi": "10.3390/math11040969"
+  },
+  {
+   "bib_id": 8,
+   "authors": [
+    {
+     "family": "Ashiq",
+     "given": "W"
+    },
+    {
+     "family": "Kanwal",
+     "given": "S"
+    },
+    {
+     "family": "Rafique",
+     "given": "A"
+    },
+    {
+     "family": "Waqas",
+     "given": "M"
+    },
+    {
+     "family": "Khurshaid",
+     "given": "T"
+    },
+    {
+     "family": "Montero",
+     "given": "EC"
+    }
+   ],
+   "year": "2024",
+   "title": "Roman urdu hate speech detection using hybrid machine learning models and hyperparameter optimization",
+   "container": "Sci Rep",
+   "volume": "14",
+   "first_page": "28590",
+   "doi": "10.1038/s41598-024-79106-7"
+  },
+  {
+   "bib_id": 9,
+   "authors": [
+    {
+     "family": "Ullah",
+     "given": "R"
+    },
+    {
+     "family": "Khan",
+     "given": "WU"
+    },
+    {
+     "family": "Marwat",
+     "given": "SNK"
+    },
+    {
+     "family": "Ullah",
+     "given": "J"
+    },
+    {
+     "family": "Irshad",
+     "given": "F"
+    }
+   ],
+   "year": "2024",
+   "title": "Hate Speech Detection of Roman Urdu Using Transformer Models.",
+   "container": "2024 19th International Conference on Emerging Technologies (ICET). IEEE",
+   "first_page": "1",
+   "last_page": "6",
+   "doi": "10.1109/icet63392.2024.10935087"
+  },
+  {
+   "bib_id": 10,
+   "authors": [
+    {
+     "family": "Arshad",
+     "given": "MU"
+    },
+    {
+     "family": "Ali",
+     "given": "R"
+    },
+    {
+     "family": "Beg",
+     "given": "MO"
+    },
+    {
+     "family": "Shahzad",
+     "given": "W"
+    }
+   ],
+   "year": "2023",
+   "title": "UHated: hate speech detection in Urdu language using transfer learning",
+   "container": "Lang Resourc Eval",
+   "volume": "57",
+   "first_page": "713",
+   "doi": "10.1007/s10579-023-09642-7"
+  },
+  {
+   "bib_id": 11,
+   "authors": [
+    {
+     "family": "Gutha",
+     "given": "AR"
+    },
+    {
+     "family": "Nidamanuri",
+     "given": "SA"
+    },
+    {
+     "family": "Alekar",
+     "given": "A"
+    },
+    {
+     "family": "Reddy",
+     "given": "D"
+    }
+   ],
+   "year": "2023",
+   "title": "Multilingual hate speech and offensive language detection of low resource languages.",
+   "container": "FIRE (Working Notes)",
+   "first_page": "445"
+  },
+  {
+   "bib_id": 12,
+   "authors": [
+    {
+     "family": "Hashmi",
+     "given": "E"
+    },
+    {
+     "family": "Yildirim Yayilgan",
+     "given": "S"
+    },
+    {
+     "family": "Hameed",
+     "given": "IA"
+    },
+    {
+     "family": "Mudassar Yamin",
+     "given": "M"
+    },
+    {
+     "family": "Ullah",
+     "given": "M"
+    },
+    {
+     "family": "Abomhara",
+     "given": "M"
+    }
+   ],
+   "year": "2024",
+   "title": "Enhancing multilingual hate speech detection: from language-specific insights to cross-linguistic integration",
+   "container": "IEEE Access",
+   "volume": "12",
+   "first_page": "121507",
+   "doi": "10.1109/access.2024.3452987"
+  },
+  {
+   "bib_id": 13,
+   "authors": [
+    {
+     "family": "Sohail",
+     "given": "T"
+    },
+    {
+     "family": "Aiman",
+     "given": "A"
+    },
+    {
+     "family": "Hashmi",
+     "given": "E"
+    },
+    {
+     "family": "Imran",
+     "given": "AS"
+    },
+    {
+     "family": "Daudpota",
+     "given": "SM"
+    },
+    {
+     "family": "Yayilgan",
+     "given": "SY"
+    }
+   ],
+   "year": "2024",
+   "title": "Hate Speech Detection in Code-Mixed Datasets Using Pretrained Embeddings and Transformers.",
+   "container": "2024 International Conference on Frontiers of Information Technology (FIT). IEEE",
+   "first_page": "1",
+   "last_page": "6",
+   "doi": "10.1109/fit63703.2024.10838452"
+  },
+  {
+   "bib_id": 14,
+   "authors": [
+    {
+     "family": "Hussain",
+     "given": "N"
+    },
+    {
+     "family": "Qasim",
+     "given": "A"
+    },
+    {
+     "family": "Mehak",
+     "given": "G"
+    },
+    {
+     "family": "Kolesnikova",
+     "given": "O"
+    },
+    {
+     "family": "Gelbukh",
+     "given": "A"
+    },
+    {
+     "family": "Sidorov",
+     "given": "G"
+    }
+   ],
+   "year": "2025",
+   "title": "Hybrid machine learning and deep learning approaches for insult detection in Roman Urdu Text",
+   "container": "AI",
+   "volume": "6",
+   "first_page": "33",
+   "doi": "10.3390/ai6020033"
+  },
+  {
+   "bib_id": 15,
+   "authors": [
+    {
+     "family": "Saeed",
+     "given": "HS"
+    },
+    {
+     "family": "Khalil",
+     "given": "T"
+    },
+    {
+     "family": "Kamiran",
+     "given": "F"
+    }
+   ],
+   "year": "2025",
+   "title": "Urdu Toxic Comment Classification with PURUTT Corpus Development",
+   "container": "IEEE Access"
+  },
+  {
+   "bib_id": 16,
+   "authors": [
+    {
+     "family": "Hussain",
+     "given": "N"
+    },
+    {
+     "family": "Qasim",
+     "given": "A"
+    },
+    {
+     "family": "Mehak",
+     "given": "G"
+    },
+    {
+     "family": "Kolesnikova",
+     "given": "O"
+    },
+    {
+     "family": "Gelbukh",
+     "given": "A"
+    },
+    {
+     "family": "Sidorov",
+     "given": "G"
+    }
+   ],
+   "year": "2025",
+   "title": "ORUD-Detect: a comprehensive approach to offensive language detection in Roman Urdu using hybrid machine learning–deep learning models with embedding techniques",
+   "container": "Information",
+   "volume": "16",
+   "first_page": "139"
+  },
+  {
+   "bib_id": 17,
+   "authors": [
+    {
+     "family": "Mehmood",
+     "given": "F"
+    },
+    {
+     "family": "Ghafoor",
+     "given": "H"
+    },
+    {
+     "family": "Asim",
+     "given": "MN"
+    },
+    {
+     "family": "Ghani",
+     "given": "MU"
+    },
+    {
+     "family": "Mahmood",
+     "given": "W"
+    },
+    {
+     "family": "Dengel",
+     "given": "A"
+    }
+   ],
+   "year": "2023",
+   "title": "Passion-Net: a robust precise and explainable predictor for hate speech detection in Roman Urdu text",
+   "container": "Neural Comput Applic",
+   "volume": "36",
+   "first_page": "3077",
+   "doi": "10.1007/s00521-023-09169-6"
+  },
+  {
+   "bib_id": 18,
+   "authors": [
+    {
+     "family": "Siddiqui",
+     "given": "JA"
+    },
+    {
+     "family": "Yuhaniz",
+     "given": "SS"
+    },
+    {
+     "family": "Mujtaba",
+     "given": "G"
+    },
+    {
+     "family": "Soomro",
+     "given": "SA"
+    },
+    {
+     "family": "Mahar",
+     "given": "ZA"
+    }
+   ],
+   "year": "2024",
+   "title": "Fine-grained multilingual hate speech detection using explainable AI and transformers",
+   "container": "IEEE Access"
+  },
+  {
+   "bib_id": 19,
+   "authors": [
+    {
+     "family": "Hussain",
+     "given": "N"
+    },
+    {
+     "family": "Qasim",
+     "given": "A"
+    },
+    {
+     "family": "Mehak",
+     "given": "G"
+    },
+    {
+     "family": "Zain",
+     "given": "M"
+    },
+    {
+     "family": "Hafeez",
+     "given": "M"
+    },
+    {
+     "family": "Sidorov",
+     "given": "G"
+    }
+   ],
+   "year": "2025",
+   "title": "Fine-tuning large language models with QLoRA for offensive language detection in Roman Urdu-English code-mixed text",
+   "container": "arXiv preprint"
+  },
+  {
+   "bib_id": 20,
+   "authors": [
+    {
+     "family": "Nawaz",
+     "given": "A"
+    },
+    {
+     "family": "Ahmed",
+     "given": "M"
+    },
+    {
+     "family": "Khan",
+     "given": "HU"
+    },
+    {
+     "family": "Daud",
+     "given": "A"
+    },
+    {
+     "family": "Alshemaimri",
+     "given": "B"
+    },
+    {
+     "family": "Iqbal",
+     "given": "T"
+    }
+   ],
+   "year": "2025",
+   "title": "Resolving passage ambiguity in machine reading comprehension using lightweight transformer architectures",
+   "container": "Sci Rep",
+   "volume": "15",
+   "first_page": "42406",
+   "doi": "10.1038/s41598-025-26671-0"
+  },
+  {
+   "bib_id": 21,
+   "authors": [
+    {
+     "family": "Siddiqui",
+     "given": "JA"
+    },
+    {
+     "family": "Yuhaniz",
+     "given": "SS"
+    },
+    {
+     "family": "Mujtaba",
+     "given": "G"
+    },
+    {
+     "family": "Soomro",
+     "given": "SA"
+    },
+    {
+     "family": "Mahar",
+     "given": "ZA"
+    }
+   ],
+   "year": "2024",
+   "title": "Fine-grained multilingual hate speech detection using explainable AI and transformers",
+   "container": "IEEE Access"
+  },
+  {
+   "bib_id": 22,
+   "authors": [
+    {
+     "family": "Saddozai",
+     "given": "FK"
+    },
+    {
+     "family": "Badri",
+     "given": "SK"
+    },
+    {
+     "family": "Alghazzawi",
+     "given": "D"
+    },
+    {
+     "family": "Khattak",
+     "given": "A"
+    },
+    {
+     "family": "Asghar",
+     "given": "MZ"
+    }
+   ],
+   "year": "2025",
+   "title": "Multimodal hate speech detection: a novel deep learning framework for multilingual text and images",
+   "container": "PeerJ Comput Sci",
+   "volume": "11",
+   "doi": "10.7717/peerj-cs.2801"
+  },
+  {
+   "bib_id": 23,
+   "authors": [
+    {
+     "family": "Srivastava",
+     "given": "AK"
+    },
+    {
+     "family": "Srivastava",
+     "given": "M"
+    },
+    {
+     "family": "Das",
+     "given": "S"
+    },
+    {
+     "family": "Jain",
+     "given": "V"
+    },
+    {
+     "family": "Chandra",
+     "given": "TB"
+    }
+   ],
+   "year": "2025",
+   "title": "Leveraging deep learning for comprehensive multilingual hate speech detection",
+   "container": "Procedia Comput Sci",
+   "volume": "252",
+   "first_page": "832",
+   "doi": "10.1016/j.procs.2025.01.044"
+  },
+  {
+   "bib_id": 24,
+   "authors": [
+    {
+     "family": "Nazir",
+     "given": "MK"
+    },
+    {
+     "family": "Faisal",
+     "given": "CM"
+    },
+    {
+     "family": "Habib",
+     "given": "MA"
+    },
+    {
+     "family": "Ahmad",
+     "given": "H"
+    }
+   ],
+   "year": "2025",
+   "title": "Leveraging multilingual transformer for multiclass sentiment analysis in code-mixed data of low-resource languages",
+   "container": "IEEE Access"
+  },
+  {
+   "bib_id": 25,
+   "authors": [
+    {
+     "family": "Din",
+     "given": "SU"
+    },
+    {
+     "family": "Shah",
+     "given": "K"
+    },
+    {
+     "family": "Ali Khan",
+     "given": "F"
+    },
+    {
+     "family": "Munir",
+     "given": "A"
+    },
+    {
+     "family": "Oualid",
+     "given": "A"
+    },
+    {
+     "family": "Ghazal",
+     "given": "TM"
+    }
+   ],
+   "year": "2025",
+   "title": "An automatic approach for the identification of offensive language in Perso-Arabic Urdu language: dataset creation and evaluation",
+   "container": "IEEE Access"
+  },
+  {
+   "bib_id": 26,
+   "authors": [
+    {
+     "family": "Alvi",
+     "given": "M"
+    },
+    {
+     "family": "Alvi",
+     "given": "MB"
+    },
+    {
+     "family": "Fatima",
+     "given": "N"
+    }
+   ],
+   "year": "2025",
+   "title": "A framework for sarcasm detection incorporating Roman Sindhi and Roman Urdu scripts in multilingual dataset analysis",
+   "container": "J Comput Biomedi Inform",
+   "volume": "8"
+  },
+  {
+   "bib_id": 27,
+   "authors": [
+    {
+     "family": "Akhter",
+     "given": "MP"
+    },
+    {
+     "family": "Jiangbin",
+     "given": "Z"
+    },
+    {
+     "family": "Naqvi",
+     "given": "IR"
+    },
+    {
+     "family": "AbdelMajeed",
+     "given": "M"
+    },
+    {
+     "family": "Zia",
+     "given": "T"
+    }
+   ],
+   "year": "2021",
+   "title": "Abusive language detection from social media comments using conventional machine learning and deep learning approaches",
+   "container": "Multimedia Syst",
+   "volume": "28",
+   "first_page": "1925",
+   "doi": "10.1007/s00530-021-00784-8"
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-core-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "jats_doi": "10.1371/journal.pone.0354875"
+ }
+}

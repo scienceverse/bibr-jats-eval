@@ -1,0 +1,2465 @@
+{
+ "paper_id": "10.1017_s0033291726105340",
+ "info": {
+  "title": "The recoverability, reliability, and generalizability of reward processing parameters and relation to mental health symptoms",
+  "doi": "10.1017/S0033291726105340",
+  "file_name": "10.1017_s0033291726105340.pdf",
+  "keywords": [
+   "computational modeling",
+   "computational psychiatry",
+   "depression",
+   "measurement",
+   "reliability",
+   "reward"
+  ],
+  "abstract": "Background: Theory-driven computational psychiatry attempts to use cognitive models of computation to understand how mental health problems might relate to cognitive processes such as learning and decision-making. However, the potential applications and relevance of this approach are contingent on several (often implicit) assumptions, including that computational parameters 1) are recoverable, 2) are reliable over time, 3) reflect conceptually similar processes across different tasks, and 4) relate to symptoms. Methods: To illustrate and test these assumptions for a selection of commonly used cognitive tasks, we recruited a large online sample of participants (n = 548), who completed seven mental health questionnaires and five tasks. A subset of n = 115 re-completed the tasks 14 days later. For each task, five models were fit, and the winning model was selected through Bayesian model comparison. Results: The parameters of the winning models showed excellent recovery and good-to-excellent test-retest reliability. Parameters that were theoretically similar to each other were, however, generally not related, with relationships only found within the class of ‘inverse temperature’-like parameters. Finally, only parameters from two of the five tasks (four-armed bandit and cognitive effort) related to symptoms, and these relationships were weak. Conclusions: It seems that at least some of the implicit assumptions made when advocating for the use of computational models in psychiatry are not met for these popular tasks and computational models. Computational psychiatry researchers should carefully assess the assumptions and psychometric properties of their tasks and models as part of their early-phase development to ensure robustness of the field going forward."
+ },
+ "author": [
+  {
+   "author_id": 1,
+   "given": "Alexandra C.",
+   "family": "Pike",
+   "affiliation": "University of York, UK",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 2,
+   "given": "Rowan",
+   "family": "Board",
+   "affiliation": "University College London, UK",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 3,
+   "given": "Eoin",
+   "family": "Travers",
+   "affiliation": "University College London, UK",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 4,
+   "given": "Megan",
+   "family": "Croal",
+   "affiliation": "University College London, UK",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 5,
+   "given": "Yeuk Ching",
+   "family": "Lam",
+   "affiliation": "University College London, UK",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 6,
+   "given": "Vincent",
+   "family": "Valton",
+   "affiliation": "University College London, UK",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 7,
+   "given": "Oliver J.",
+   "family": "Robinson",
+   "affiliation": "University College London, UK",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 8,
+   "given": "Jonathan P.",
+   "family": "Roiser",
+   "affiliation": "University of York, UK; University College London, UK",
+   "email": "",
+   "orcid": "",
+   "corresponding": true
+  }
+ ],
+ "section": [
+  {
+   "section_id": 1,
+   "section_type": "abstract",
+   "header": "Abstract",
+   "level": 1,
+   "parent_section_id": null,
+   "classification_score": 1.0
+  }
+ ],
+ "text": [
+  {
+   "text_id": 1,
+   "section_id": 1,
+   "paragraph_id": 1,
+   "text": "Background: Theory-driven computational psychiatry attempts to use cognitive models of computation to understand how mental health problems might relate to cognitive processes such as learning and decision-making. However, the potential applications and relevance of this approach are contingent on several (often implicit) assumptions, including that computational parameters 1) are recoverable, 2) are reliable over time, 3) reflect conceptually similar processes across different tasks, and 4) relate to symptoms. Methods: To illustrate and test these assumptions for a selection of commonly used cognitive tasks, we recruited a large online sample of participants (n = 548), who completed seven mental health questionnaires and five tasks. A subset of n = 115 re-completed the tasks 14 days later. For each task, five models were fit, and the winning model was selected through Bayesian model comparison. Results: The parameters of the winning models showed excellent recovery and good-to-excellent test-retest reliability. Parameters that were theoretically similar to each other were, however, generally not related, with relationships only found within the class of ‘inverse temperature’-like parameters. Finally, only parameters from two of the five tasks (four-armed bandit and cognitive effort) related to symptoms, and these relationships were weak. Conclusions: It seems that at least some of the implicit assumptions made when advocating for the use of computational models in psychiatry are not met for these popular tasks and computational models. Computational psychiatry researchers should carefully assess the assumptions and psychometric properties of their tasks and models as part of their early-phase development to ensure robustness of the field going forward.",
+   "page_number": 1
+  }
+ ],
+ "bib": [
+  {
+   "bib_id": 1,
+   "authors": [
+    {
+     "family": "Adams",
+     "given": "R. A."
+    },
+    {
+     "family": "Huys",
+     "given": "Q. J. M."
+    },
+    {
+     "family": "Roiser",
+     "given": "J. P."
+    }
+   ],
+   "year": "2016",
+   "title": "Computational psychiatry: Towards a mathematically informed understanding of mental illness",
+   "container": "Journal of Neurology, Neurosurgery & Psychiatry",
+   "volume": "87",
+   "first_page": "53",
+   "last_page": "63",
+   "doi": "10.1136/jnnp-2015-310737"
+  },
+  {
+   "bib_id": 2,
+   "authors": [
+    {
+     "family": "Addicott",
+     "given": "M. A."
+    },
+    {
+     "family": "Pearson",
+     "given": "J. M."
+    },
+    {
+     "family": "Sweitzer",
+     "given": "M. M."
+    },
+    {
+     "family": "Barack",
+     "given": "D. L."
+    },
+    {
+     "family": "Platt",
+     "given": "M. L."
+    }
+   ],
+   "year": "2017",
+   "title": "A primer on foraging and the explore/exploit trade-off for psychiatry research",
+   "container": "Neuropsychopharmacology",
+   "volume": "42",
+   "first_page": "1931",
+   "last_page": "1939",
+   "doi": "10.1038/npp.2017.108"
+  },
+  {
+   "bib_id": 3,
+   "authors": [
+    {
+     "family": "Adler",
+     "given": "D. A."
+    },
+    {
+     "family": "Stamatis",
+     "given": "C. A."
+    },
+    {
+     "family": "Meyerhoff",
+     "given": "J."
+    },
+    {
+     "family": "Mohr",
+     "given": "D. C."
+    },
+    {
+     "family": "Wang",
+     "given": "F."
+    },
+    {
+     "family": "Aranovich",
+     "given": "G. J."
+    },
+    {
+     "family": "Sen",
+     "given": "S."
+    },
+    {
+     "family": "Choudhury",
+     "given": "T."
+    }
+   ],
+   "year": "2024",
+   "title": "Measuring algorithmic bias to analyze the reliability of AI tools that predict depression risk using smartphone sensed-behavioral data",
+   "container": "Npj Mental Health Research",
+   "volume": "3",
+   "first_page": "17",
+   "doi": "10.1038/s44184-024-00057-y"
+  },
+  {
+   "bib_id": 4,
+   "authors": [
+    {
+     "family": "Blair",
+     "given": "R. J. R."
+    },
+    {
+     "family": "Mathur",
+     "given": "A."
+    },
+    {
+     "family": "Haines",
+     "given": "N."
+    },
+    {
+     "family": "Bajaj",
+     "given": "S."
+    }
+   ],
+   "year": "2022",
+   "title": "Future directions for cognitive neuroscience in psychiatry: Recommendations for biomarker design based on recent test re-test reliability work",
+   "container": "Current Opinion in Behavioral Sciences",
+   "volume": "44",
+   "first_page": "101102",
+   "doi": "10.1016/j.cobeha.2022.101102"
+  },
+  {
+   "bib_id": 5,
+   "authors": [
+    {
+     "family": "Bonnelle",
+     "given": "V."
+    },
+    {
+     "family": "Veromann",
+     "given": "K.-R."
+    },
+    {
+     "family": "Burnett Heyes",
+     "given": "S."
+    },
+    {
+     "family": "Lo Sterzo",
+     "given": "E."
+    },
+    {
+     "family": "Manohar",
+     "given": "S."
+    },
+    {
+     "family": "Husain",
+     "given": "M."
+    }
+   ],
+   "year": "2015",
+   "title": "Characterization of reward and effort mechanisms in apathy",
+   "container": "Journal of Physiology-Paris",
+   "volume": "109",
+   "first_page": "16",
+   "last_page": "26",
+   "doi": "10.1016/j.jphysparis.2014.04.002"
+  },
+  {
+   "bib_id": 6,
+   "authors": [
+    {
+     "family": "Brown",
+     "given": "V. M."
+    },
+    {
+     "family": "Chen",
+     "given": "J."
+    },
+    {
+     "family": "Gillan",
+     "given": "C. M."
+    },
+    {
+     "family": "Price",
+     "given": "R. B."
+    }
+   ],
+   "year": "2020",
+   "title": "Improving the reliability of computational analyses: Model-based planning and its relationship with compulsivity",
+   "container": "Biological Psychiatry: Cognitive Neuroscience and Neuroimaging",
+   "volume": "5",
+   "first_page": "601",
+   "last_page": "609",
+   "doi": "10.1016/j.bpsc.2019.12.019"
+  },
+  {
+   "bib_id": 7,
+   "authors": [
+    {
+     "family": "Browning",
+     "given": "M."
+    },
+    {
+     "family": "Carter",
+     "given": "C. S."
+    },
+    {
+     "family": "Chatham",
+     "given": "C."
+    },
+    {
+     "family": "Den Ouden",
+     "given": "H."
+    },
+    {
+     "family": "Gillan",
+     "given": "C. M."
+    },
+    {
+     "family": "Baker",
+     "given": "J. T."
+    },
+    {
+     "family": "Chekroud",
+     "given": "A. M."
+    },
+    {
+     "family": "Cools",
+     "given": "R."
+    },
+    {
+     "family": "Dayan",
+     "given": "P."
+    },
+    {
+     "family": "Gold",
+     "given": "J."
+    },
+    {
+     "family": "Goldstein",
+     "given": "R. Z."
+    },
+    {
+     "family": "Hartley",
+     "given": "C. A."
+    },
+    {
+     "family": "Kepecs",
+     "given": "A."
+    },
+    {
+     "family": "Lawson",
+     "given": "R. P."
+    },
+    {
+     "family": "Miranda",
+     "given": "J. M."
+    },
+    {
+     "family": "Phillips",
+     "given": "M. L."
+    },
+    {
+     "family": "Pizzagalli",
+     "given": "D. A."
+    },
+    {
+     "family": "Powers",
+     "given": "A."
+    },
+    {
+     "family": "Rindskop",
+     "given": "D"
+    },
+    {
+     "family": "Paulus",
+     "given": "M."
+    }
+   ],
+   "year": "2020",
+   "title": "Realizing the clinical potential of computational psychiatry: Report from the Banbury Center meeting, February 2019",
+   "container": "Biological Psychiatry",
+   "first_page": "S0006322320300032",
+   "doi": "10.1016/j.biopsych.2019.12.026"
+  },
+  {
+   "bib_id": 8,
+   "authors": [
+    {
+     "family": "Charpentier",
+     "given": "C. J."
+    },
+    {
+     "family": "Aylward",
+     "given": "J."
+    },
+    {
+     "family": "Roiser",
+     "given": "J. P."
+    },
+    {
+     "family": "Robinson",
+     "given": "O. J."
+    }
+   ],
+   "year": "2017",
+   "title": "Enhanced risk aversion, but not loss aversion, in unmedicated pathological anxiety",
+   "container": "Biological Psychiatry",
+   "volume": "81",
+   "first_page": "1014",
+   "last_page": "1022",
+   "doi": "10.1016/j.biopsych.2016.12.010"
+  },
+  {
+   "bib_id": 9,
+   "authors": [
+    {
+     "family": "Cicchetti",
+     "given": "D. V."
+    }
+   ],
+   "year": "1994",
+   "title": "Guidelines, criteria, and rules of thumb for evaluating normed and standardized assessment instruments in psychology",
+   "container": "Psychological Assessment",
+   "volume": "6",
+   "first_page": "284",
+   "last_page": "290",
+   "doi": "10.1037/1040-3590.6.4.284"
+  },
+  {
+   "bib_id": 10,
+   "authors": [
+    {
+     "family": "Conway",
+     "given": "C. C."
+    },
+    {
+     "family": "Krueger",
+     "given": "R. F."
+    },
+    {
+     "family": "HiTOP Consortium Executive Board",
+     "given": ""
+    },
+    {
+     "family": "Cicero",
+     "given": "D. C."
+    },
+    {
+     "family": "DeYoung",
+     "given": "C. G."
+    },
+    {
+     "family": "Eaton",
+     "given": "N. R."
+    },
+    {
+     "family": "Forbes",
+     "given": "M. K."
+    },
+    {
+     "family": "Hallquist",
+     "given": "M. N."
+    },
+    {
+     "family": "Kotov",
+     "given": "R."
+    },
+    {
+     "family": "Latzman",
+     "given": "R. D."
+    },
+    {
+     "family": "Ruggero",
+     "given": "C. J."
+    },
+    {
+     "family": "Simms",
+     "given": "L. J."
+    },
+    {
+     "family": "Waldman",
+     "given": "I. D."
+    },
+    {
+     "family": "Waszczuk",
+     "given": "M. A."
+    },
+    {
+     "family": "Watson",
+     "given": "D."
+    },
+    {
+     "family": "Widiger",
+     "given": "T. A."
+    },
+    {
+     "family": "Wright",
+     "given": "A. G. C."
+    }
+   ],
+   "year": "2021",
+   "title": "Rethinking the diagnosis of mental disorders: Data-driven psychological dimensions, not categories, as a framework for mental-health research, treatment, and training",
+   "container": "Current Directions in Psychological Science",
+   "volume": "30",
+   "first_page": "151",
+   "last_page": "158",
+   "doi": "10.1177/0963721421990353"
+  },
+  {
+   "bib_id": 11,
+   "authors": [
+    {
+     "family": "Costello",
+     "given": "H."
+    },
+    {
+     "family": "Yamamori",
+     "given": "Y."
+    },
+    {
+     "family": "Reeves",
+     "given": "S."
+    },
+    {
+     "family": "Schrag",
+     "given": "A.-E."
+    },
+    {
+     "family": "Howard",
+     "given": "R."
+    },
+    {
+     "family": "Roiser",
+     "given": "J. P."
+    }
+   ],
+   "year": "2023",
+   "title": "Longitudinal decline in striatal dopamine transporter binding in Parkinson’s disease: Associations with apathy and anhedonia",
+   "container": "Journal of Neurology, Neurosurgery & Psychiatry",
+   "volume": "94",
+   "first_page": "863",
+   "last_page": "870",
+   "doi": "10.1136/jnnp-2022-330790"
+  },
+  {
+   "bib_id": 12,
+   "authors": [
+    {
+     "family": "Curtis",
+     "given": "D."
+    },
+    {
+     "family": "Derks",
+     "given": "E. M."
+    }
+   ],
+   "year": "2018",
+   "title": "Letter to the editor: Schizophrenia does not represent the extreme of a normally distributed trait",
+   "container": "Psychological Medicine",
+   "volume": "48",
+   "first_page": "521",
+   "last_page": "522",
+   "doi": "10.1017/S0033291717002422"
+  },
+  {
+   "bib_id": 13,
+   "authors": [
+    {
+     "family": "DeYoung",
+     "given": "C. G."
+    },
+    {
+     "family": "Hilger",
+     "given": "K."
+    },
+    {
+     "family": "Hanson",
+     "given": "J. L."
+    },
+    {
+     "family": "Abend",
+     "given": "R."
+    },
+    {
+     "family": "Allen",
+     "given": "T. A."
+    },
+    {
+     "family": "Beaty",
+     "given": "R. E."
+    },
+    {
+     "family": "Blain",
+     "given": "S. D."
+    },
+    {
+     "family": "Chavez",
+     "given": "R. S."
+    },
+    {
+     "family": "Engel",
+     "given": "S. A."
+    },
+    {
+     "family": "Feilong",
+     "given": "M."
+    },
+    {
+     "family": "Fornito",
+     "given": "A."
+    },
+    {
+     "family": "Genç",
+     "given": "E."
+    },
+    {
+     "family": "Goghari",
+     "given": "V."
+    },
+    {
+     "family": "Grazioplene",
+     "given": "R. G."
+    },
+    {
+     "family": "Homan",
+     "given": "P."
+    },
+    {
+     "family": "Joyner",
+     "given": "K."
+    },
+    {
+     "family": "Kaczkurkin",
+     "given": "A. N."
+    },
+    {
+     "family": "Latzman",
+     "given": "R. D."
+    },
+    {
+     "family": "Martin",
+     "given": "E. A."
+    },
+    {
+     "family": "Wacker",
+     "given": "J."
+    }
+   ],
+   "year": "2025",
+   "title": "Beyond increasing sample sizes: Optimizing effect sizes in neuroimaging research on individual differences",
+   "container": "Journal of Cognitive Neuroscience",
+   "volume": "37",
+   "first_page": "1023",
+   "last_page": "1034",
+   "doi": "10.1162/jocn_a_02297"
+  },
+  {
+   "bib_id": 14,
+   "authors": [
+    {
+     "family": "Dillon",
+     "given": "D. G."
+    },
+    {
+     "family": "Belleau",
+     "given": "E. L."
+    },
+    {
+     "family": "Origlio",
+     "given": "J."
+    },
+    {
+     "family": "McKee",
+     "given": "M."
+    },
+    {
+     "family": "Jahan",
+     "given": "A."
+    },
+    {
+     "family": "Meyer",
+     "given": "A."
+    },
+    {
+     "family": "Souther",
+     "given": "M. K."
+    },
+    {
+     "family": "Brunner",
+     "given": "D."
+    },
+    {
+     "family": "Kuhn",
+     "given": "M."
+    },
+    {
+     "family": "Ang",
+     "given": "Y. S."
+    },
+    {
+     "family": "Cusin",
+     "given": "C."
+    },
+    {
+     "family": "Fava",
+     "given": "M."
+    },
+    {
+     "family": "Pizzagalli",
+     "given": "D. A."
+    }
+   ],
+   "year": "2024",
+   "title": "Using drift diffusion and RL models to disentangle effects of depression on decision-making vs. learning in the probabilistic reward task",
+   "container": "Learning in the Probabilistic Reward Task",
+   "volume": "8",
+   "first_page": "46",
+   "last_page": "69",
+   "doi": "10.5334/cpsy.108"
+  },
+  {
+   "bib_id": 15,
+   "authors": [
+    {
+     "family": "Eckstein",
+     "given": "M. K."
+    },
+    {
+     "family": "Master",
+     "given": "S. L."
+    },
+    {
+     "family": "Xia",
+     "given": "L."
+    },
+    {
+     "family": "Dahl",
+     "given": "R. E."
+    },
+    {
+     "family": "Wilbrecht",
+     "given": "L."
+    },
+    {
+     "family": "Collins",
+     "given": "A. G."
+    }
+   ],
+   "year": "2022",
+   "title": "The interpretation of computational model parameters depends on the context",
+   "container": "eLife",
+   "volume": "11",
+   "first_page": "e75474",
+   "doi": "10.7554/eLife.75474"
+  },
+  {
+   "bib_id": 16,
+   "authors": [
+    {
+     "family": "Eckstein",
+     "given": "M. K."
+    },
+    {
+     "family": "Wilbrecht",
+     "given": "L."
+    },
+    {
+     "family": "Collins",
+     "given": "A. G."
+    }
+   ],
+   "year": "2021",
+   "title": "What do reinforcement learning models measure? Interpreting model parameters in cognition and neuroscience",
+   "container": "Current Opinion in Behavioral Sciences",
+   "volume": "41",
+   "first_page": "128",
+   "last_page": "137",
+   "doi": "10.1016/j.cobeha.2021.06.004"
+  },
+  {
+   "bib_id": 17,
+   "authors": [
+    {
+     "family": "Elliott",
+     "given": "M. L."
+    },
+    {
+     "family": "Knodt",
+     "given": "A. R."
+    },
+    {
+     "family": "Ireland",
+     "given": "D."
+    },
+    {
+     "family": "Morris",
+     "given": "M. L."
+    },
+    {
+     "family": "Poulton",
+     "given": "R."
+    },
+    {
+     "family": "Ramrakha",
+     "given": "S."
+    },
+    {
+     "family": "Sison",
+     "given": "M. L."
+    },
+    {
+     "family": "Moffitt",
+     "given": "T. E."
+    },
+    {
+     "family": "Caspi",
+     "given": "A."
+    },
+    {
+     "family": "Hariri",
+     "given": "A. R."
+    }
+   ],
+   "year": "2020",
+   "title": "What is the test-retest reliability of common task-functional MRI measures? New empirical evidence and a meta-analysis",
+   "container": "Psychological Science",
+   "volume": "31",
+   "first_page": "792",
+   "last_page": "806",
+   "doi": "10.1177/0956797620916786"
+  },
+  {
+   "bib_id": 18,
+   "authors": [
+    {
+     "family": "Fan",
+     "given": "H."
+    },
+    {
+     "family": "Gershman",
+     "given": "S. J."
+    },
+    {
+     "family": "Phelps",
+     "given": "E. A."
+    }
+   ],
+   "year": "2023",
+   "title": "Trait somatic anxiety is associated with reduced directed exploration and underestimation of uncertainty",
+   "container": "Nature Human Behaviour",
+   "volume": "7",
+   "first_page": "102",
+   "last_page": "113",
+   "doi": "10.1038/s41562-022-01455-y"
+  },
+  {
+   "bib_id": 19,
+   "authors": [
+    {
+     "family": "Fleming",
+     "given": "H."
+    },
+    {
+     "family": "Robinson",
+     "given": "O. J."
+    },
+    {
+     "family": "Roiser",
+     "given": "J. P."
+    }
+   ],
+   "year": "2023",
+   "title": "Measuring cognitive effort without difficulty",
+   "container": "Cognitive, Affective, & Behavioral Neuroscience",
+   "volume": "23",
+   "first_page": "290",
+   "last_page": "305",
+   "doi": "10.3758/s13415-023-01065-9"
+  },
+  {
+   "bib_id": 20,
+   "authors": [
+    {
+     "family": "Foa",
+     "given": "E. B."
+    },
+    {
+     "family": "Huppert",
+     "given": "J. D."
+    },
+    {
+     "family": "Leiberg",
+     "given": "S."
+    },
+    {
+     "family": "Langner",
+     "given": "R."
+    },
+    {
+     "family": "Kichic",
+     "given": "R."
+    },
+    {
+     "family": "Hajcak",
+     "given": "G."
+    },
+    {
+     "family": "Salkovskis",
+     "given": "P. M."
+    }
+   ],
+   "year": "2002",
+   "title": "The obsessive-compulsive inventory: Development and validation of a short version",
+   "container": "Psychological Assessment",
+   "volume": "14",
+   "first_page": "485",
+   "last_page": "496",
+   "doi": "10.1037/1040-3590.14.4.485"
+  },
+  {
+   "bib_id": 21,
+   "authors": [
+    {
+     "family": "Friston",
+     "given": "K. J."
+    },
+    {
+     "family": "Stephan",
+     "given": "K. E."
+    },
+    {
+     "family": "Montague",
+     "given": "R."
+    },
+    {
+     "family": "Dolan",
+     "given": "R. J."
+    }
+   ],
+   "year": "2014",
+   "title": "Computational psychiatry: The brain as a phantastic organ",
+   "container": "The Lancet Psychiatry",
+   "volume": "1",
+   "first_page": "148",
+   "last_page": "158",
+   "doi": "10.1016/S2215-0366(14)70275-5"
+  },
+  {
+   "bib_id": 22,
+   "authors": [
+    {
+     "family": "Gard",
+     "given": "D. E."
+    },
+    {
+     "family": "Gard",
+     "given": "M. G."
+    },
+    {
+     "family": "Kring",
+     "given": "A. M."
+    },
+    {
+     "family": "John",
+     "given": "O. P."
+    }
+   ],
+   "year": "2006",
+   "title": "Anticipatory and consummatory components of the experience of pleasure: A scale development study",
+   "container": "Journal of Research in Personality",
+   "volume": "40",
+   "first_page": "1086",
+   "last_page": "1102",
+   "doi": "10.1016/j.jrp.2005.11.001"
+  },
+  {
+   "bib_id": 23,
+   "authors": [
+    {
+     "family": "Gell",
+     "given": "M."
+    },
+    {
+     "family": "Eickhoff",
+     "given": "S. B."
+    },
+    {
+     "family": "Omidvarnia",
+     "given": "A."
+    },
+    {
+     "family": "Küppers",
+     "given": "V."
+    },
+    {
+     "family": "Patil",
+     "given": "K. R."
+    },
+    {
+     "family": "Satterthwaite",
+     "given": "T. D."
+    },
+    {
+     "family": "Langner",
+     "given": "R."
+    }
+   ],
+   "year": "2023",
+   "title": "The burden of reliability: How measurement noise limits brain-behaviour predictions",
+   "container": "bioRxiv",
+   "first_page": "2023.02.09.527898",
+   "doi": "10.1101/2023.02.09.527898"
+  },
+  {
+   "bib_id": 24,
+   "authors": [
+    {
+     "family": "Gershman",
+     "given": "S. J."
+    }
+   ],
+   "year": "2018",
+   "title": "Deconstructing the human algorithms for exploration",
+   "container": "Cognition",
+   "volume": "173",
+   "first_page": "34",
+   "last_page": "42",
+   "doi": "10.1016/j.cognition.2017.12.014"
+  },
+  {
+   "bib_id": 25,
+   "authors": [
+    {
+     "family": "Gershman",
+     "given": "S. J."
+    },
+    {
+     "family": "Tzovaras",
+     "given": "B. G."
+    }
+   ],
+   "year": "2018",
+   "title": "Dopaminergic genes are associated with both directed and random exploration",
+   "container": "Neuropsychologia",
+   "volume": "120",
+   "first_page": "97",
+   "last_page": "104",
+   "doi": "10.1016/j.neuropsychologia.2018.10.009"
+  },
+  {
+   "bib_id": 26,
+   "authors": [
+    {
+     "family": "Gillan",
+     "given": "C. M."
+    },
+    {
+     "family": "Kosinski",
+     "given": "M."
+    },
+    {
+     "family": "Whelan",
+     "given": "R."
+    },
+    {
+     "family": "Phelps",
+     "given": "E. A."
+    },
+    {
+     "family": "Daw",
+     "given": "N. D."
+    }
+   ],
+   "year": "2016",
+   "title": "Characterizing a psychiatric symptom dimension related to deficits in goal-directed control",
+   "container": "eLife",
+   "volume": "5",
+   "first_page": "e11305",
+   "doi": "10.7554/eLife.11305"
+  },
+  {
+   "bib_id": 27,
+   "authors": [
+    {
+     "family": "Giorgetta",
+     "given": "C."
+    },
+    {
+     "family": "Grecucci",
+     "given": "A."
+    },
+    {
+     "family": "Zuanon",
+     "given": "S."
+    },
+    {
+     "family": "Perini",
+     "given": "L."
+    },
+    {
+     "family": "Balestrieri",
+     "given": "M."
+    },
+    {
+     "family": "Bonini",
+     "given": "N."
+    },
+    {
+     "family": "Sanfey",
+     "given": "A. G."
+    },
+    {
+     "family": "Brambilla",
+     "given": "P."
+    }
+   ],
+   "year": "2012",
+   "title": "Reduced risk-taking behavior as a trait feature of anxiety",
+   "container": "Emotion",
+   "volume": "12",
+   "first_page": "1373",
+   "last_page": "1383",
+   "doi": "10.1037/a0029119"
+  },
+  {
+   "bib_id": 28,
+   "authors": [
+    {
+     "family": "Gonzalez",
+     "given": "O."
+    },
+    {
+     "family": "Georgeson",
+     "given": "A. R."
+    },
+    {
+     "family": "Pelham",
+     "given": "W. E."
+    }
+   ],
+   "year": "2024",
+   "title": "Estimating classification consistency of machine learning models for screening measures",
+   "container": "Psychological Assessment",
+   "volume": "36",
+   "first_page": "395",
+   "last_page": "406",
+   "doi": "10.1037/pas0001313"
+  },
+  {
+   "bib_id": 29,
+   "authors": [
+    {
+     "family": "Haines",
+     "given": "N."
+    },
+    {
+     "family": "Kvam",
+     "given": "P. D."
+    },
+    {
+     "family": "Irving",
+     "given": "L."
+    },
+    {
+     "family": "Smith",
+     "given": "C. T."
+    },
+    {
+     "family": "Beauchaine",
+     "given": "T. P."
+    },
+    {
+     "family": "Pitt",
+     "given": "M. A."
+    },
+    {
+     "family": "Ahn",
+     "given": "W. Y."
+    },
+    {
+     "family": "Turner",
+     "given": "B. M."
+    }
+   ],
+   "year": "2025",
+   "title": "A tutorial on using generative models to advance psychological science: Lessons from the reliability paradox",
+   "container": "Psychological Methods",
+   "doi": "10.1037/met0000674"
+  },
+  {
+   "bib_id": 30,
+   "authors": [
+    {
+     "family": "Hajcak",
+     "given": "G."
+    },
+    {
+     "family": "Meyer",
+     "given": "A."
+    },
+    {
+     "family": "Kotov",
+     "given": "R."
+    }
+   ],
+   "year": "2017",
+   "title": "Psychometrics and the neuroscience of individual differences: Internal consistency limits between-subjects effects",
+   "container": "Journal of Abnormal Psychology",
+   "volume": "126",
+   "first_page": "823",
+   "last_page": "834",
+   "doi": "10.1037/abn0000274"
+  },
+  {
+   "bib_id": 31,
+   "authors": [
+    {
+     "family": "Halahakoon",
+     "given": "D. C."
+    },
+    {
+     "family": "Lewis",
+     "given": "G."
+    },
+    {
+     "family": "Roiser",
+     "given": "J. P."
+    }
+   ],
+   "year": "2019",
+   "title": "Cognitive impairment and depression-cause, consequence, or coincidence?",
+   "container": "JAMA Psychiatry",
+   "volume": "76",
+   "first_page": "239",
+   "last_page": "240",
+   "doi": "10.1001/jamapsychiatry.2018.3631"
+  },
+  {
+   "bib_id": 32,
+   "authors": [
+    {
+     "family": "Haslam",
+     "given": "N."
+    },
+    {
+     "family": "McGrath",
+     "given": "M. J."
+    },
+    {
+     "family": "Viechtbauer",
+     "given": "W."
+    },
+    {
+     "family": "Kuppens",
+     "given": "P."
+    }
+   ],
+   "year": "2020",
+   "title": "Dimensions over categories: A meta-analysis of taxometric research",
+   "container": "Psychological Medicine",
+   "volume": "50",
+   "first_page": "1418",
+   "last_page": "1432",
+   "doi": "10.1017/S003329172000183X"
+  },
+  {
+   "bib_id": 33,
+   "authors": [
+    {
+     "family": "Husain",
+     "given": "M."
+    },
+    {
+     "family": "Roiser",
+     "given": "J. P."
+    }
+   ],
+   "year": "2018",
+   "title": "Neuroscience of apathy and anhedonia: A transdiagnostic approach",
+   "container": "Nature Reviews Neuroscience",
+   "volume": "19",
+   "first_page": "470",
+   "last_page": "484",
+   "doi": "10.1038/s41583-018-0029-9"
+  },
+  {
+   "bib_id": 34,
+   "authors": [
+    {
+     "family": "Huys",
+     "given": "Q. J. M."
+    },
+    {
+     "family": "Cools",
+     "given": "R."
+    },
+    {
+     "family": "Gölzer",
+     "given": "M."
+    },
+    {
+     "family": "Friedel",
+     "given": "E."
+    },
+    {
+     "family": "Heinz",
+     "given": "A."
+    },
+    {
+     "family": "Dolan",
+     "given": "R. J."
+    },
+    {
+     "family": "Dayan",
+     "given": "P."
+    }
+   ],
+   "year": "2011",
+   "title": "Disentangling the roles of approach, activation and valence in instrumental and Pavlovian responding",
+   "container": "PLoS Computational Biology",
+   "volume": "7",
+   "first_page": "e1002028",
+   "doi": "10.1371/journal.pcbi.1002028"
+  },
+  {
+   "bib_id": 35,
+   "authors": [
+    {
+     "family": "Huys",
+     "given": "Q. J. M."
+    },
+    {
+     "family": "Maia",
+     "given": "T. V."
+    },
+    {
+     "family": "Frank",
+     "given": "M. J."
+    }
+   ],
+   "year": "2016",
+   "title": "Computational psychiatry as a bridge from neuroscience to clinical applications",
+   "container": "Nature Neuroscience",
+   "volume": "19",
+   "first_page": "404",
+   "last_page": "413",
+   "doi": "10.1038/nn.4238"
+  },
+  {
+   "bib_id": 36,
+   "authors": [
+    {
+     "family": "Kahneman",
+     "given": "D."
+    },
+    {
+     "family": "Tversky",
+     "given": "A."
+    }
+   ],
+   "year": "1979",
+   "title": "Prospect theory: An analysis of decision under risk",
+   "container": "Econometrica",
+   "volume": "47",
+   "first_page": "263",
+   "last_page": "291",
+   "doi": "10.2307/1914185"
+  },
+  {
+   "bib_id": 37,
+   "authors": [
+    {
+     "family": "Karvelis",
+     "given": "P."
+    },
+    {
+     "family": "Paulus",
+     "given": "M. P."
+    },
+    {
+     "family": "Diaconescu",
+     "given": "A. O."
+    }
+   ],
+   "year": "2023",
+   "title": "Individual differences in computational psychiatry: A review of current challenges",
+   "container": "Neuroscience and Biobehavioral Reviews",
+   "volume": "148",
+   "first_page": "105137",
+   "doi": "10.1016/j.neubiorev.2023.105137"
+  },
+  {
+   "bib_id": 38,
+   "authors": [
+    {
+     "family": "Katahira",
+     "given": "K."
+    },
+    {
+     "family": "Oba",
+     "given": "T."
+    },
+    {
+     "family": "Toyama",
+     "given": "A."
+    }
+   ],
+   "year": "2024",
+   "title": "Does the reliability of computational models truly improve with hierarchical modeling? Some recommendations and considerations for the assessment of model parameter reliability",
+   "container": "Psychonomic Bulletin & Review",
+   "volume": "31",
+   "first_page": "2465",
+   "last_page": "2486",
+   "doi": "10.3758/s13423-024-02490-8"
+  },
+  {
+   "bib_id": 39,
+   "authors": [
+    {
+     "family": "Kishida",
+     "given": "K. T."
+    },
+    {
+     "family": "King-Casas",
+     "given": "B."
+    },
+    {
+     "family": "Montague",
+     "given": "P. R."
+    }
+   ],
+   "year": "2010",
+   "title": "Neuroeconomic approaches to mental disorders",
+   "container": "Neuron",
+   "volume": "67",
+   "first_page": "543",
+   "last_page": "554",
+   "doi": "10.1016/j.neuron.2010.07.021"
+  },
+  {
+   "bib_id": 40,
+   "authors": [
+    {
+     "family": "Krupp",
+     "given": "L. B."
+    },
+    {
+     "family": "LaRocca",
+     "given": "N. G."
+    },
+    {
+     "family": "Muir-Nash",
+     "given": "J."
+    },
+    {
+     "family": "Steinberg",
+     "given": "A. D."
+    }
+   ],
+   "year": "1989",
+   "title": "The fatigue severity scale: Application to patients with multiple sclerosis and systemic lupus erythematosus",
+   "container": "Archives of Neurology",
+   "volume": "46",
+   "first_page": "1121",
+   "last_page": "1123",
+   "doi": "10.1001/archneur.1989.00520460115022"
+  },
+  {
+   "bib_id": 41,
+   "authors": [
+    {
+     "family": "Lloyd",
+     "given": "A."
+    },
+    {
+     "family": "Roiser",
+     "given": "J. P."
+    },
+    {
+     "family": "Skeen",
+     "given": "S."
+    },
+    {
+     "family": "Freeman",
+     "given": "Z."
+    },
+    {
+     "family": "Badalova",
+     "given": "A."
+    },
+    {
+     "family": "Agunbiade",
+     "given": "A."
+    },
+    {
+     "family": "Busakhwe",
+     "given": "C."
+    },
+    {
+     "family": "DeFlorio",
+     "given": "C."
+    },
+    {
+     "family": "Marcu",
+     "given": "A."
+    },
+    {
+     "family": "Pirie",
+     "given": "H."
+    },
+    {
+     "family": "Saleh",
+     "given": "R."
+    },
+    {
+     "family": "Snyder",
+     "given": "T."
+    },
+    {
+     "family": "Fearon",
+     "given": "P."
+    },
+    {
+     "family": "Viding",
+     "given": "E."
+    }
+   ],
+   "year": "2024",
+   "title": "Reviewing explore/exploit decision-making as a transdiagnostic target for psychosis, depression, and anxiety",
+   "container": "Cognitive, Affective, & Behavioral Neuroscience",
+   "volume": "24",
+   "first_page": "793",
+   "last_page": "815",
+   "doi": "10.3758/s13415-024-01186-9"
+  },
+  {
+   "bib_id": 42,
+   "authors": [
+    {
+     "family": "Maia",
+     "given": "T. V."
+    },
+    {
+     "family": "Frank",
+     "given": "M. J."
+    }
+   ],
+   "year": "2011",
+   "title": "From reinforcement learning models to psychiatric and neurological disorders",
+   "container": "Nature Neuroscience",
+   "volume": "14",
+   "first_page": "154",
+   "last_page": "162",
+   "doi": "10.1038/nn.2723"
+  },
+  {
+   "bib_id": 43,
+   "authors": [
+    {
+     "family": "Maner",
+     "given": "J. K."
+    },
+    {
+     "family": "Richey",
+     "given": "J. A."
+    },
+    {
+     "family": "Cromer",
+     "given": "K."
+    },
+    {
+     "family": "Mallott",
+     "given": "M."
+    },
+    {
+     "family": "Lejuez",
+     "given": "C. W."
+    },
+    {
+     "family": "Joiner",
+     "given": "T. E."
+    },
+    {
+     "family": "Schmidt",
+     "given": "N. B."
+    }
+   ],
+   "year": "2007",
+   "title": "Dispositional anxiety and risk-avoidant decision-making",
+   "container": "Personality and Individual Differences",
+   "volume": "42",
+   "first_page": "665",
+   "last_page": "675",
+   "doi": "10.1016/j.paid.2006.08.016"
+  },
+  {
+   "bib_id": 44,
+   "authors": [
+    {
+     "family": "Marin",
+     "given": "M.-F."
+    },
+    {
+     "family": "Zsido",
+     "given": "R. G."
+    },
+    {
+     "family": "Song",
+     "given": "H."
+    },
+    {
+     "family": "Lasko",
+     "given": "N. B."
+    },
+    {
+     "family": "Killgore",
+     "given": "W. D. S."
+    },
+    {
+     "family": "Rauch",
+     "given": "S. L."
+    },
+    {
+     "family": "Simon",
+     "given": "N. M."
+    },
+    {
+     "family": "Milad",
+     "given": "M. R."
+    }
+   ],
+   "year": "2017",
+   "title": "Skin conductance responses and neural activations during fear conditioning and extinction recall across anxiety disorders",
+   "container": "JAMA Psychiatry",
+   "volume": "74",
+   "first_page": "622",
+   "last_page": "631",
+   "doi": "10.1001/jamapsychiatry.2017.0329"
+  },
+  {
+   "bib_id": 45,
+   "authors": [
+    {
+     "family": "Mkrtchian",
+     "given": "A."
+    },
+    {
+     "family": "Valton",
+     "given": "V."
+    },
+    {
+     "family": "Roiser",
+     "given": "J. P."
+    }
+   ],
+   "year": "2023",
+   "title": "Reliability of decision-making and reinforcement learning computational parameters",
+   "container": "Computational Psychiatry",
+   "volume": "7",
+   "first_page": "30",
+   "last_page": "46",
+   "doi": "10.5334/cpsy.86"
+  },
+  {
+   "bib_id": 46,
+   "title": "Computational psychiatry",
+   "volume": "16"
+  },
+  {
+   "bib_id": 47,
+   "authors": [
+    {
+     "family": "Moutoussis",
+     "given": "M."
+    },
+    {
+     "family": "Hopkins",
+     "given": "A. K."
+    },
+    {
+     "family": "Dolan",
+     "given": "R. J."
+    }
+   ],
+   "year": "2018",
+   "title": "Hypotheses about the relationship of cognition with psychopathology should be tested by embedding them into empirical priors",
+   "container": "Frontiers in Psychology",
+   "volume": "9",
+   "first_page": "2504",
+   "doi": "10.3389/fpsyg.2018.02504"
+  },
+  {
+   "bib_id": 48,
+   "authors": [
+    {
+     "family": "Palan",
+     "given": "S."
+    },
+    {
+     "family": "Schitter",
+     "given": "C."
+    }
+   ],
+   "year": "2018",
+   "title": "Prolific.ac—A subject pool for online experiments",
+   "container": "Journal of Behavioral and Experimental Finance",
+   "volume": "17",
+   "first_page": "22",
+   "last_page": "27",
+   "doi": "10.1016/j.jbef.2017.12.004"
+  },
+  {
+   "bib_id": 49,
+   "authors": [
+    {
+     "family": "Palminteri",
+     "given": "S."
+    },
+    {
+     "family": "Wyart",
+     "given": "V."
+    },
+    {
+     "family": "Koechlin",
+     "given": "E."
+    }
+   ],
+   "year": "2017",
+   "title": "The importance of falsification in computational cognitive Modeling",
+   "container": "Trends in Cognitive Sciences",
+   "volume": "21",
+   "first_page": "425",
+   "last_page": "433",
+   "doi": "10.1016/j.tics.2017.03.011"
+  },
+  {
+   "bib_id": 50,
+   "authors": [
+    {
+     "family": "Paulus",
+     "given": "M. P."
+    },
+    {
+     "family": "Huys",
+     "given": "Q. J. M."
+    },
+    {
+     "family": "Maia",
+     "given": "T. V."
+    }
+   ],
+   "year": "2016",
+   "title": "A roadmap for the development of applied computational psychiatry",
+   "container": "Biological Psychiatry: Cognitive Neuroscience and Neuroimaging",
+   "volume": "1",
+   "first_page": "386",
+   "last_page": "392",
+   "doi": "10.1016/j.bpsc.2016.05.001"
+  },
+  {
+   "bib_id": 51,
+   "authors": [
+    {
+     "family": "Pike",
+     "given": "A. C."
+    },
+    {
+     "family": "Robinson",
+     "given": "O. J."
+    }
+   ],
+   "year": "2022",
+   "title": "Reinforcement learning in patients with mood and anxiety disorders vs control individuals: A systematic review and meta-analysis",
+   "container": "JAMA Psychiatry",
+   "doi": "10.1001/jamapsychiatry.2022.0051"
+  },
+  {
+   "bib_id": 52,
+   "authors": [
+    {
+     "family": "Pike",
+     "given": "A. C."
+    },
+    {
+     "family": "Tan",
+     "given": "K. H. T."
+    },
+    {
+     "family": "Tromblee",
+     "given": "H."
+    },
+    {
+     "family": "Wing",
+     "given": "M."
+    },
+    {
+     "family": "Robinson",
+     "given": "O. J."
+    }
+   ],
+   "year": "2024",
+   "title": "Test-retest reliability of two computationally-characterised affective bias tasks",
+   "container": "Computational Psychiatry (Cambridge, Mass)",
+   "volume": "8",
+   "first_page": "217",
+   "last_page": "232",
+   "doi": "10.5334/cpsy.92"
+  },
+  {
+   "bib_id": 53,
+   "authors": [
+    {
+     "family": "Pizzagalli",
+     "given": "D. A."
+    },
+    {
+     "family": "Iosifescu",
+     "given": "D."
+    },
+    {
+     "family": "Hallett",
+     "given": "L. A."
+    },
+    {
+     "family": "Ratner",
+     "given": "K. G."
+    },
+    {
+     "family": "Fava",
+     "given": "M."
+    }
+   ],
+   "year": "2008",
+   "title": "Reduced hedonic capacity in major depressive disorder: Evidence from a probabilistic reward task",
+   "container": "Journal of Psychiatric Research",
+   "volume": "43",
+   "first_page": "76",
+   "last_page": "87",
+   "doi": "10.1016/j.jpsychires.2008.03.001"
+  },
+  {
+   "bib_id": 54,
+   "authors": [
+    {
+     "family": "Rock",
+     "given": "P. L."
+    },
+    {
+     "family": "Roiser",
+     "given": "J. P."
+    },
+    {
+     "family": "Riedel",
+     "given": "W. J."
+    },
+    {
+     "family": "Blackwell",
+     "given": "A. D."
+    }
+   ],
+   "year": "2014",
+   "title": "Cognitive impairment in depression: A systematic review and meta-analysis",
+   "container": "Psychological Medicine",
+   "volume": "44",
+   "first_page": "2029",
+   "last_page": "2040",
+   "doi": "10.1017/S0033291713002535"
+  },
+  {
+   "bib_id": 55,
+   "authors": [
+    {
+     "family": "Rosso",
+     "given": "M."
+    },
+    {
+     "family": "Wirz",
+     "given": "R."
+    },
+    {
+     "family": "Loretan",
+     "given": "A. V."
+    },
+    {
+     "family": "Sutter",
+     "given": "N. A."
+    },
+    {
+     "family": "Pereira da Cunha",
+     "given": "C. T."
+    },
+    {
+     "family": "Jaric",
+     "given": "I."
+    },
+    {
+     "family": "Würbel",
+     "given": "H."
+    },
+    {
+     "family": "Voelkl",
+     "given": "B."
+    }
+   ],
+   "year": "2022",
+   "title": "Reliability of common mouse behavioural tests of anxiety: A systematic review and meta-analysis on the effects of anxiolytics",
+   "container": "Neuroscience & Biobehavioral Reviews",
+   "volume": "143",
+   "first_page": "104928",
+   "doi": "10.1016/j.neubiorev.2022.104928"
+  },
+  {
+   "bib_id": 56,
+   "authors": [
+    {
+     "family": "Satti",
+     "given": "M. H."
+    },
+    {
+     "family": "Wille",
+     "given": "K."
+    },
+    {
+     "family": "Nassar",
+     "given": "M. R."
+    },
+    {
+     "family": "Cichy",
+     "given": "R. M."
+    },
+    {
+     "family": "Schuck",
+     "given": "N. W."
+    },
+    {
+     "family": "Dayan",
+     "given": "P."
+    },
+    {
+     "family": "Bruckner",
+     "given": "R."
+    }
+   ],
+   "year": "2024"
+  },
+  {
+   "bib_id": 57,
+   "authors": [
+    {
+     "family": "Schaaf",
+     "given": "J. V."
+    },
+    {
+     "family": "Weidinger",
+     "given": "L."
+    },
+    {
+     "family": "Molleman",
+     "given": "L."
+    },
+    {
+     "family": "van den Bos",
+     "given": "W."
+    }
+   ],
+   "year": "2024",
+   "title": "Test–retest reliability of reinforcement learning parameters",
+   "container": "Behavior Research Methods",
+   "volume": "56",
+   "first_page": "4582",
+   "last_page": "4599",
+   "doi": "10.3758/s13428-023-02203-4"
+  },
+  {
+   "bib_id": 58,
+   "authors": [
+    {
+     "family": "Schurr",
+     "given": "R."
+    },
+    {
+     "family": "Reznik",
+     "given": "D."
+    },
+    {
+     "family": "Hillman",
+     "given": "H."
+    },
+    {
+     "family": "Bhui",
+     "given": "R."
+    },
+    {
+     "family": "Gershman",
+     "given": "S. J."
+    }
+   ],
+   "year": "2024",
+   "title": "Dynamic computational phenotyping of human cognition",
+   "container": "Nature Human Behaviour",
+   "volume": "8",
+   "first_page": "917",
+   "last_page": "931",
+   "doi": "10.1038/s41562-024-01814-x"
+  },
+  {
+   "bib_id": 59,
+   "authors": [
+    {
+     "family": "Spielberger",
+     "given": "C. D."
+    },
+    {
+     "family": "Gorsuch",
+     "given": "R. L."
+    },
+    {
+     "family": "Lushene",
+     "given": "R."
+    },
+    {
+     "family": "Vagg",
+     "given": "P. R."
+    },
+    {
+     "family": "Jacobs",
+     "given": "G. A."
+    }
+   ],
+   "year": "1983",
+   "title": "Manual for the state-trait anxiety inventory"
+  },
+  {
+   "bib_id": 60,
+   "authors": [
+    {
+     "family": "Suddell",
+     "given": "S."
+    },
+    {
+     "family": "Zhang",
+     "given": "L."
+    },
+    {
+     "family": "Lee",
+     "given": "C. T."
+    },
+    {
+     "family": "Senta",
+     "given": "J."
+    },
+    {
+     "family": "O’Keane",
+     "given": "V."
+    },
+    {
+     "family": "Ward",
+     "given": "T."
+    },
+    {
+     "family": "Stephan",
+     "given": "K. E."
+    },
+    {
+     "family": "Fox",
+     "given": "C. A."
+    },
+    {
+     "family": "Hanlon",
+     "given": "A."
+    },
+    {
+     "family": "Lynch",
+     "given": "K."
+    },
+    {
+     "family": "Harty",
+     "given": "S."
+    },
+    {
+     "family": "Gillan",
+     "given": "C."
+    },
+    {
+     "family": "Richards",
+     "given": "D."
+    }
+   ],
+   "year": "2024",
+   "doi": "10.31234/osf.io/hm46n"
+  },
+  {
+   "bib_id": 61,
+   "authors": [
+    {
+     "family": "Toyama",
+     "given": "A."
+    },
+    {
+     "family": "Katahira",
+     "given": "K."
+    },
+    {
+     "family": "Kunisato",
+     "given": "Y."
+    }
+   ],
+   "year": "2023",
+   "title": "Examinations of Biases by model misspecification and parameter reliability of reinforcement learning models",
+   "container": "Computational Brain & Behavior",
+   "volume": "6",
+   "first_page": "651",
+   "last_page": "670",
+   "doi": "10.1007/s42113-023-00175-4"
+  },
+  {
+   "bib_id": 62,
+   "authors": [
+    {
+     "family": "Treadway",
+     "given": "M. T."
+    },
+    {
+     "family": "Buckholtz",
+     "given": "J. W."
+    },
+    {
+     "family": "Schwartzman",
+     "given": "A. N."
+    },
+    {
+     "family": "Lambert",
+     "given": "W. E."
+    },
+    {
+     "family": "Zald",
+     "given": "D. H."
+    }
+   ],
+   "year": "2009",
+   "title": "Worth the ‘EEfRT’? The effort expenditure for rewards task as an objective measure of motivation and anhedonia",
+   "container": "PLoS One",
+   "volume": "4",
+   "first_page": "e6598",
+   "doi": "10.1371/journal.pone.0006598"
+  },
+  {
+   "bib_id": 63,
+   "authors": [
+    {
+     "family": "Valton",
+     "given": "V."
+    },
+    {
+     "family": "Mkrtchian",
+     "given": "A."
+    },
+    {
+     "family": "Moses-Payne",
+     "given": "M."
+    },
+    {
+     "family": "Gray",
+     "given": "A."
+    },
+    {
+     "family": "Kieslich",
+     "given": "K."
+    },
+    {
+     "family": "VanUrk",
+     "given": "S."
+    },
+    {
+     "family": "Samborska",
+     "given": "V."
+    },
+    {
+     "family": "Halahakoon",
+     "given": "D. C."
+    },
+    {
+     "family": "Manohar",
+     "given": "S. G."
+    },
+    {
+     "family": "Dayan",
+     "given": "P."
+    },
+    {
+     "family": "Husain",
+     "given": "M."
+    },
+    {
+     "family": "Roiser",
+     "given": "J. P."
+    }
+   ],
+   "year": "2025",
+   "title": "A computational approach to understanding effort-based decision-making in depression",
+   "container": "bioRxiv: The Preprint Server for Biology",
+   "doi": "10.1101/2024.06.17.599286"
+  },
+  {
+   "bib_id": 64,
+   "authors": [
+    {
+     "family": "Vehtari",
+     "given": "A."
+    },
+    {
+     "family": "Gelman",
+     "given": "A."
+    },
+    {
+     "family": "Simpson",
+     "given": "D."
+    },
+    {
+     "family": "Carpenter",
+     "given": "B."
+    },
+    {
+     "family": "Bürkner",
+     "given": "P.-C."
+    }
+   ],
+   "year": "2021",
+   "title": "Rank-normalization, folding, and localization: An improved Rˆ for assessing convergence of MCMC (with discussion)",
+   "container": "Bayesian Analysis",
+   "volume": "16",
+   "doi": "10.1214/20-BA1221"
+  },
+  {
+   "bib_id": 65,
+   "authors": [
+    {
+     "family": "Völter",
+     "given": "C. J."
+    },
+    {
+     "family": "Tinklenberg",
+     "given": "B."
+    },
+    {
+     "family": "Call",
+     "given": "J."
+    },
+    {
+     "family": "Seed",
+     "given": "A. M."
+    }
+   ],
+   "year": "2018",
+   "title": "Comparative psychometrics: Establishing what differs is central to understanding what evolves",
+   "container": "Philosophical Transactions of the Royal Society B: Biological Sciences",
+   "volume": "373",
+   "first_page": "20170283",
+   "doi": "10.1098/rstb.2017.0283"
+  },
+  {
+   "bib_id": 66,
+   "authors": [
+    {
+     "family": "Vrizzi",
+     "given": "S."
+    },
+    {
+     "family": "Najar",
+     "given": "A."
+    },
+    {
+     "family": "Lemogne",
+     "given": "C."
+    },
+    {
+     "family": "Palminteri",
+     "given": "S."
+    },
+    {
+     "family": "Lebreton",
+     "given": "M."
+    }
+   ],
+   "year": "2025",
+   "title": "Behavioral, computational and self-reported measures of reward and punishment sensitivity as predictors of mental health characteristics",
+   "container": "Nature Mental Health",
+   "volume": "3",
+   "first_page": "654",
+   "last_page": "666",
+   "doi": "10.1038/s44220-025-00427-1"
+  },
+  {
+   "bib_id": 67,
+   "authors": [
+    {
+     "family": "Westbrook",
+     "given": "A."
+    },
+    {
+     "family": "Braver",
+     "given": "T. S."
+    }
+   ],
+   "year": "2015",
+   "title": "Cognitive effort: A neuroeconomic approach",
+   "container": "Cogn Affect Behav Neurosci",
+   "volume": "15",
+   "first_page": "395",
+   "last_page": "415",
+   "doi": "10.3758/s13415-015-0334-y"
+  },
+  {
+   "bib_id": 68,
+   "authors": [
+    {
+     "family": "Wilson",
+     "given": "R. C."
+    },
+    {
+     "family": "Collins",
+     "given": "A. G."
+    }
+   ],
+   "year": "2019",
+   "title": "Ten simple rules for the computational modeling of behavioral data",
+   "container": "eLife",
+   "volume": "8",
+   "first_page": "e49547",
+   "doi": "10.7554/eLife.49547"
+  },
+  {
+   "bib_id": 69,
+   "authors": [
+    {
+     "family": "Wise",
+     "given": "T."
+    },
+    {
+     "family": "Robinson",
+     "given": "O. J."
+    },
+    {
+     "family": "Gillan",
+     "given": "C. M."
+    }
+   ],
+   "year": "2023",
+   "title": "Identifying transdiagnostic mechanisms in mental health using computational factor modeling",
+   "container": "Biological Psychiatry",
+   "volume": "93",
+   "first_page": "690",
+   "last_page": "703",
+   "doi": "10.1016/j.biopsych.2022.09.034"
+  },
+  {
+   "bib_id": 70,
+   "authors": [
+    {
+     "family": "Zorowitz",
+     "given": "S."
+    },
+    {
+     "family": "Karni",
+     "given": "G."
+    },
+    {
+     "family": "Paredes",
+     "given": "N."
+    },
+    {
+     "family": "Daw",
+     "given": "N."
+    },
+    {
+     "family": "Niv",
+     "given": "Y."
+    }
+   ],
+   "year": "2023",
+   "title": "Improving the reliability of the Pavlovian go/no-go task for computational psychiatry research",
+   "container": "PsyArXiv",
+   "doi": "10.31234/osf.io/eb697"
+  },
+  {
+   "bib_id": 71,
+   "authors": [
+    {
+     "family": "Zorowitz",
+     "given": "S."
+    },
+    {
+     "family": "Niv",
+     "given": "Y."
+    }
+   ],
+   "year": "2022",
+   "title": "Improving the reliability of cognitive task measures: A narrative review",
+   "container": "PsyArXiv",
+   "doi": "10.31234/osf.io/phzrb"
+  },
+  {
+   "bib_id": 72,
+   "authors": [
+    {
+     "family": "Zorowitz",
+     "given": "S."
+    },
+    {
+     "family": "Solis",
+     "given": "J."
+    },
+    {
+     "family": "Niv",
+     "given": "Y."
+    },
+    {
+     "family": "Bennett",
+     "given": "D."
+    }
+   ],
+   "year": "2023",
+   "title": "Inattentive responding can induce spurious associations between task behaviour and symptom measures",
+   "container": "Nature Human Behaviour",
+   "volume": "7",
+   "first_page": "1667",
+   "last_page": "1681",
+   "doi": "10.1038/s41562-023-01640-7"
+  },
+  {
+   "bib_id": 73,
+   "authors": [
+    {
+     "family": "Zung",
+     "given": "W. W. K."
+    },
+    {
+     "family": "Sartorius",
+     "given": "N."
+    },
+    {
+     "family": "Ban",
+     "given": "T. A."
+    }
+   ],
+   "year": "1986",
+   "title": "Zung self-rating depression scale and depression status inventory",
+   "container": "Assessment of depression",
+   "first_page": "221",
+   "last_page": "231",
+   "doi": "10.1007/978-3-642-70486-4_21"
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-core-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "jats_doi": "10.1017/S0033291726105340"
+ }
+}

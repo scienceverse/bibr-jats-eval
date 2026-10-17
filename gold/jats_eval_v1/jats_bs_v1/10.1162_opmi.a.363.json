@@ -1,0 +1,1651 @@
+{
+ "paper_id": "10.1162_opmi.a.363",
+ "info": {
+  "title": "Experience Alone Can Generate Human Face Specialization: Evidence From Deep Learning Models",
+  "doi": "10.1162/OPMI.a.363",
+  "file_name": "10.1162_opmi.a.363.pdf",
+  "keywords": [
+   "developmental",
+   "inversion",
+   "other race",
+   "neural networks"
+  ],
+  "abstract": "The specialization of human face recognition for upright own-race faces is well-established. While experience is thought to play a key role in face specialization, establishing its direct causal contribution in humans is difficult, as natural experience cannot be systematically controlled. Recent advances in deep learning algorithms offer a solution: these algorithms were shown to generate human-like face specialization effects, including the face inversion and other-race effects. Critically, deep neural networks allow precise manipulation of their training experience, allowing us to test its sole contribution to human-like face expertise in artificial systems. In the present study, we systematically manipulated the amount of face experience provided to deep neural networks and examined its effect on the face inversion, the other-race and other-age effects. Mirroring human development, the magnitude of the other-group and face inversion effects increased with greater own-group upright face experience. These effects were primarily driven by a steep improvement in recognition of upright, own-group faces, with much shallower gains for other-group or inverted faces. These findings demonstrate that increased exposure to upright own-group faces selectively improves performance for this category, establishing that experience alone is sufficient to produce human-like face specialization effects in artificial systems."
+ },
+ "author": [
+  {
+   "author_id": 1,
+   "given": "Nitzan",
+   "family": "Guy",
+   "affiliation": "School of Psychological Sciences, Tel Aviv University, Tel Aviv, Israel",
+   "email": "",
+   "orcid": "",
+   "corresponding": true
+  },
+  {
+   "author_id": 2,
+   "given": "Mandy",
+   "family": "Rosemblaum",
+   "affiliation": "Sagol School of Brain Sciences, Tel Aviv University, Tel Aviv, Israel",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 3,
+   "given": "Galit",
+   "family": "Yovel",
+   "affiliation": "School of Psychological Sciences, Tel Aviv University, Tel Aviv, Israel; Sagol School of Brain Sciences, Tel Aviv University, Tel Aviv, Israel",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  }
+ ],
+ "section": [
+  {
+   "section_id": 1,
+   "section_type": "abstract",
+   "header": "Abstract",
+   "level": 1,
+   "parent_section_id": null,
+   "classification_score": 1.0
+  }
+ ],
+ "text": [
+  {
+   "text_id": 1,
+   "section_id": 1,
+   "paragraph_id": 1,
+   "text": "The specialization of human face recognition for upright own-race faces is well-established. While experience is thought to play a key role in face specialization, establishing its direct causal contribution in humans is difficult, as natural experience cannot be systematically controlled. Recent advances in deep learning algorithms offer a solution: these algorithms were shown to generate human-like face specialization effects, including the face inversion and other-race effects. Critically, deep neural networks allow precise manipulation of their training experience, allowing us to test its sole contribution to human-like face expertise in artificial systems. In the present study, we systematically manipulated the amount of face experience provided to deep neural networks and examined its effect on the face inversion, the other-race and other-age effects. Mirroring human development, the magnitude of the other-group and face inversion effects increased with greater own-group upright face experience. These effects were primarily driven by a steep improvement in recognition of upright, own-group faces, with much shallower gains for other-group or inverted faces. These findings demonstrate that increased exposure to upright own-group faces selectively improves performance for this category, establishing that experience alone is sufficient to produce human-like face specialization effects in artificial systems.",
+   "page_number": 1
+  }
+ ],
+ "bib": [
+  {
+   "bib_id": 1,
+   "authors": [
+    {
+     "family": "Abudarham",
+     "given": "N."
+    },
+    {
+     "family": "Grosbard",
+     "given": "I."
+    },
+    {
+     "family": "Yovel",
+     "given": "G."
+    }
+   ],
+   "year": "2021",
+   "title": "Face recognition depends on specialized mechanisms tuned to view-invariant facial features: Insights from deep neural networks optimized for face or object recognition",
+   "container": "Cognitive Science",
+   "volume": "45",
+   "first_page": "e13031",
+   "doi": "10.1111/cogs.13031"
+  },
+  {
+   "bib_id": 2,
+   "authors": [
+    {
+     "family": "Abudarham",
+     "given": "N."
+    },
+    {
+     "family": "Yovel",
+     "given": "G."
+    }
+   ],
+   "year": "2025",
+   "title": "A developmentally inspired computational model of face recognition that learns continuously through generative memory replay",
+   "container": "bioRxiv",
+   "doi": "10.1101/2025.11.25.690208"
+  },
+  {
+   "bib_id": 3,
+   "authors": [
+    {
+     "family": "Akbari",
+     "given": "E."
+    },
+    {
+     "family": "Dobs",
+     "given": "K."
+    }
+   ],
+   "year": "2025",
+   "title": "Diverse visual experience promotes integrated representations and mitigates bias in deep neural networks for face perception",
+   "container": "bioRxiv",
+   "doi": "10.64898/2025.12.19.695398"
+  },
+  {
+   "bib_id": 4,
+   "authors": [
+    {
+     "family": "Anzures",
+     "given": "G."
+    },
+    {
+     "family": "Quinn",
+     "given": "P. C."
+    },
+    {
+     "family": "Pascalis",
+     "given": "O."
+    },
+    {
+     "family": "Slater",
+     "given": "A. M."
+    },
+    {
+     "family": "Tanaka",
+     "given": "J. W."
+    },
+    {
+     "family": "Lee",
+     "given": "K."
+    }
+   ],
+   "year": "2013",
+   "title": "Developmental origins of the other-race effect",
+   "container": "Current Directions in Psychological Science",
+   "volume": "22",
+   "first_page": "173",
+   "last_page": "178",
+   "doi": "10.1177/0963721412474459"
+  },
+  {
+   "bib_id": 5,
+   "authors": [
+    {
+     "family": "Balaban",
+     "given": "S."
+    }
+   ],
+   "year": "2015",
+   "title": "Deep learning and face recognition: The state of the art",
+   "container": "Biometric and Surveillance Technology for Human and Activity Identification XII",
+   "volume": "9457",
+   "first_page": "68",
+   "last_page": "75",
+   "doi": "10.1117/12.2181526"
+  },
+  {
+   "bib_id": 6,
+   "authors": [
+    {
+     "family": "Bernstein",
+     "given": "M. J."
+    },
+    {
+     "family": "Young",
+     "given": "S. G."
+    },
+    {
+     "family": "Hugenberg",
+     "given": "K."
+    }
+   ],
+   "year": "2007",
+   "title": "The cross-category effect: Mere social categorization is sufficient to elicit an own-group bias in face recognition",
+   "container": "Psychological Science",
+   "volume": "18",
+   "first_page": "706",
+   "last_page": "712",
+   "doi": "10.1111/j.1467-9280.2007.01964.x"
+  },
+  {
+   "bib_id": 7,
+   "authors": [
+    {
+     "family": "Blauch",
+     "given": "N. M."
+    },
+    {
+     "family": "Behrmann",
+     "given": "M."
+    },
+    {
+     "family": "Plaut",
+     "given": "D. C."
+    }
+   ],
+   "year": "2021",
+   "title": "Computational insights into human perceptual expertise for familiar and unfamiliar face recognition",
+   "container": "Cognition",
+   "volume": "208",
+   "first_page": "104341",
+   "doi": "10.1016/j.cognition.2020.104341"
+  },
+  {
+   "bib_id": 8,
+   "authors": [
+    {
+     "family": "Campbell",
+     "given": "A."
+    },
+    {
+     "family": "Tanaka",
+     "given": "J. W."
+    }
+   ],
+   "year": "2018",
+   "title": "Inversion impairs expert budgerigar identity recognition: A face-like effect for a nonface object of expertise",
+   "container": "Perception",
+   "volume": "47",
+   "first_page": "647",
+   "last_page": "659",
+   "doi": "10.1177/0301006618771806"
+  },
+  {
+   "bib_id": 9,
+   "authors": [
+    {
+     "family": "Cao",
+     "given": "Q."
+    },
+    {
+     "family": "Shen",
+     "given": "L."
+    },
+    {
+     "family": "Xie",
+     "given": "W."
+    },
+    {
+     "family": "Parkhi",
+     "given": "O. M."
+    },
+    {
+     "family": "Zisserman",
+     "given": "A."
+    }
+   ],
+   "year": "2018",
+   "title": "VGGFace2: A dataset for recognising faces across pose and age",
+   "container": "2018 13th IEEE International Conference on Automatic Face & Gesture Recognition (FG 2018)",
+   "first_page": "67",
+   "last_page": "74",
+   "doi": "10.1109/FG.2018.00020"
+  },
+  {
+   "bib_id": 10,
+   "authors": [
+    {
+     "family": "Cassia",
+     "given": "V. M."
+    },
+    {
+     "family": "Kuefner",
+     "given": "D."
+    },
+    {
+     "family": "Picozzi",
+     "given": "M."
+    },
+    {
+     "family": "Vescovo",
+     "given": "E."
+    }
+   ],
+   "year": "2009",
+   "title": "Early experience predicts later plasticity for face processing: Evidence for the reactivation of dormant effects",
+   "container": "Psychological Science",
+   "volume": "20",
+   "first_page": "853",
+   "last_page": "859",
+   "doi": "10.1111/j.1467-9280.2009.02376.x"
+  },
+  {
+   "bib_id": 11,
+   "authors": [
+    {
+     "family": "Chance",
+     "given": "J. E."
+    },
+    {
+     "family": "Turner",
+     "given": "A. L."
+    },
+    {
+     "family": "Goldstein",
+     "given": "A. G."
+    }
+   ],
+   "year": "1982",
+   "title": "Development of differential recognition for own- and other-race faces",
+   "container": "Journal of Psychology",
+   "volume": "112",
+   "first_page": "29",
+   "last_page": "37",
+   "doi": "10.1080/00223980.1982.9923531"
+  },
+  {
+   "bib_id": 12,
+   "authors": [
+    {
+     "family": "de Heering",
+     "given": "A."
+    },
+    {
+     "family": "de Liedekerke",
+     "given": "C."
+    },
+    {
+     "family": "Deboni",
+     "given": "M."
+    },
+    {
+     "family": "Rossion",
+     "given": "B."
+    }
+   ],
+   "year": "2010",
+   "title": "The role of experience during childhood in shaping the other-race effect",
+   "container": "Developmental Science",
+   "volume": "13",
+   "first_page": "181",
+   "last_page": "187",
+   "doi": "10.1111/j.1467-7687.2009.00876.x"
+  },
+  {
+   "bib_id": 13,
+   "authors": [
+    {
+     "family": "de Heering",
+     "given": "A."
+    },
+    {
+     "family": "Rossion",
+     "given": "B."
+    },
+    {
+     "family": "Maurer",
+     "given": "D."
+    }
+   ],
+   "year": "2012",
+   "title": "Developmental changes in face recognition during childhood: Evidence from upright and inverted faces",
+   "container": "Cognitive Development",
+   "volume": "27",
+   "first_page": "17",
+   "last_page": "27",
+   "doi": "10.1016/j.cogdev.2011.07.001"
+  },
+  {
+   "bib_id": 14,
+   "authors": [
+    {
+     "family": "Dobs",
+     "given": "K."
+    },
+    {
+     "family": "Martinez",
+     "given": "J."
+    },
+    {
+     "family": "Kell",
+     "given": "A. J. E."
+    },
+    {
+     "family": "Kanwisher",
+     "given": "N."
+    }
+   ],
+   "year": "2022",
+   "title": "Brain-like functional specialization emerges spontaneously in deep neural networks",
+   "container": "Science Advances",
+   "volume": "8",
+   "first_page": "eabl8913",
+   "doi": "10.1126/sciadv.abl8913"
+  },
+  {
+   "bib_id": 15,
+   "authors": [
+    {
+     "family": "Dobs",
+     "given": "K."
+    },
+    {
+     "family": "Yuan",
+     "given": "J."
+    },
+    {
+     "family": "Martinez",
+     "given": "J."
+    },
+    {
+     "family": "Kanwisher",
+     "given": "N."
+    }
+   ],
+   "year": "2023",
+   "title": "Behavioral signatures of face perception emerge in deep neural networks optimized for face recognition",
+   "container": "Proceedings of the National Academy of Sciences of the United States of America",
+   "volume": "120",
+   "first_page": "e2220642120",
+   "doi": "10.1073/pnas.2220642120"
+  },
+  {
+   "bib_id": 16,
+   "authors": [
+    {
+     "family": "Duchaine",
+     "given": "B."
+    },
+    {
+     "family": "Rezlescu",
+     "given": "C."
+    },
+    {
+     "family": "Garrido",
+     "given": "L."
+    },
+    {
+     "family": "Zhang",
+     "given": "Y."
+    },
+    {
+     "family": "Braga",
+     "given": "M. V."
+    },
+    {
+     "family": "Susilo",
+     "given": "T."
+    }
+   ],
+   "year": "2023",
+   "title": "The development of upright face perception depends on evolved orientation-specific mechanisms and experience",
+   "container": "iScience",
+   "volume": "26",
+   "first_page": "107763",
+   "doi": "10.1016/j.isci.2023.107763"
+  },
+  {
+   "bib_id": 17,
+   "authors": [
+    {
+     "family": "Farah",
+     "given": "M. J."
+    },
+    {
+     "family": "Tanaka",
+     "given": "J. W."
+    },
+    {
+     "family": "Drain",
+     "given": "H. M."
+    }
+   ],
+   "year": "1995",
+   "title": "What causes the face inversion effect?",
+   "container": "Journal of Experimental Psychology: Human Perception and Performance",
+   "volume": "21",
+   "first_page": "628",
+   "last_page": "634",
+   "doi": "10.1037/0096-1523.21.3.628"
+  },
+  {
+   "bib_id": 18,
+   "authors": [
+    {
+     "family": "Germine",
+     "given": "L. T."
+    },
+    {
+     "family": "Duchaine",
+     "given": "B."
+    },
+    {
+     "family": "Nakayama",
+     "given": "K."
+    }
+   ],
+   "year": "2011",
+   "title": "Where cognitive development and aging meet: Face learning ability peaks after age 30",
+   "container": "Cognition",
+   "volume": "118",
+   "first_page": "201",
+   "last_page": "210",
+   "doi": "10.1016/j.cognition.2010.11.002"
+  },
+  {
+   "bib_id": 19,
+   "authors": [
+    {
+     "family": "Goodman",
+     "given": "G. S."
+    },
+    {
+     "family": "Sayfan",
+     "given": "L."
+    },
+    {
+     "family": "Lee",
+     "given": "J. S."
+    },
+    {
+     "family": "Sandhei",
+     "given": "M."
+    },
+    {
+     "family": "Walle-Olsen",
+     "given": "A."
+    },
+    {
+     "family": "Magnussen",
+     "given": "S."
+    },
+    {
+     "family": "Pezdek",
+     "given": "K."
+    },
+    {
+     "family": "Arredondo",
+     "given": "P."
+    }
+   ],
+   "year": "2007",
+   "title": "The development of memory for own-and other-race faces",
+   "container": "Journal of Experimental Child Psychology",
+   "volume": "98",
+   "first_page": "233",
+   "last_page": "242",
+   "doi": "10.1016/j.jecp.2007.08.004"
+  },
+  {
+   "bib_id": 20,
+   "authors": [
+    {
+     "family": "Gordon",
+     "given": "I."
+    },
+    {
+     "family": "Tanaka",
+     "given": "J. W."
+    }
+   ],
+   "year": "2011",
+   "title": "The role of name labels in the formation of face representations in event-related potentials",
+   "container": "British Journal of Psychology",
+   "volume": "102",
+   "first_page": "884",
+   "last_page": "898",
+   "doi": "10.1111/j.2044-8295.2011.02064.x"
+  },
+  {
+   "bib_id": 21,
+   "authors": [
+    {
+     "family": "Harrison",
+     "given": "V."
+    },
+    {
+     "family": "Hole",
+     "given": "G. J."
+    }
+   ],
+   "year": "2009",
+   "title": "Evidence for a contact-based explanation of the own-age bias in face recognition",
+   "container": "Psychonomic Bulletin & Review",
+   "volume": "16",
+   "first_page": "264",
+   "last_page": "269",
+   "doi": "10.3758/pbr.16.2.264"
+  },
+  {
+   "bib_id": 22,
+   "authors": [
+    {
+     "family": "Huang",
+     "given": "G. B."
+    },
+    {
+     "family": "Mattar",
+     "given": "M."
+    },
+    {
+     "family": "Berg",
+     "given": "T."
+    },
+    {
+     "family": "Learned-Miller",
+     "given": "E."
+    }
+   ],
+   "year": "2008",
+   "title": "Labeled faces in the wild: A database for studying face recognition in unconstrained environments"
+  },
+  {
+   "bib_id": 23,
+   "authors": [
+    {
+     "family": "Hugenberg",
+     "given": "K."
+    },
+    {
+     "family": "Corneille",
+     "given": "O."
+    }
+   ],
+   "year": "2009",
+   "title": "Holistic processing is tuned for in-group faces",
+   "container": "Cognitive Science",
+   "volume": "33",
+   "first_page": "1173",
+   "last_page": "1181",
+   "doi": "10.1111/j.1551-6709.2009.01048.x"
+  },
+  {
+   "bib_id": 24,
+   "authors": [
+    {
+     "family": "Hugenberg",
+     "given": "K."
+    },
+    {
+     "family": "Young",
+     "given": "S. G."
+    },
+    {
+     "family": "Bernstein",
+     "given": "M. J."
+    },
+    {
+     "family": "Sacco",
+     "given": "D. F."
+    }
+   ],
+   "year": "2010",
+   "title": "The categorization-individuation model: An integrative account of the other-race recognition deficit",
+   "container": "Psychological Review",
+   "volume": "117",
+   "first_page": "1168",
+   "last_page": "1187",
+   "doi": "10.1037/a0020463"
+  },
+  {
+   "bib_id": 25,
+   "authors": [
+    {
+     "family": "Jayaraman",
+     "given": "S."
+    },
+    {
+     "family": "Fausey",
+     "given": "C. M."
+    },
+    {
+     "family": "Smith",
+     "given": "L. B."
+    }
+   ],
+   "year": "2015",
+   "title": "The faces in infant-perspective scenes change over the first year of life",
+   "container": "PLoS One",
+   "volume": "10",
+   "first_page": "e0123780",
+   "doi": "10.1371/journal.pone.0123780"
+  },
+  {
+   "bib_id": 26,
+   "authors": [
+    {
+     "family": "Jayaraman",
+     "given": "S."
+    },
+    {
+     "family": "Fausey",
+     "given": "C. M."
+    },
+    {
+     "family": "Smith",
+     "given": "L. B."
+    }
+   ],
+   "year": "2017",
+   "title": "Why are faces denser in the visual experiences of younger than older infants?",
+   "container": "Developmental Psychology",
+   "volume": "53",
+   "first_page": "38",
+   "last_page": "49",
+   "doi": "10.1037/dev0000230"
+  },
+  {
+   "bib_id": 27,
+   "authors": [
+    {
+     "family": "Johnson",
+     "given": "M. H."
+    }
+   ],
+   "year": "2005",
+   "title": "Subcortical face processing",
+   "container": "Nature Reviews Neuroscience",
+   "volume": "6",
+   "first_page": "766",
+   "last_page": "774",
+   "doi": "10.1038/nrn1766"
+  },
+  {
+   "bib_id": 28,
+   "authors": [
+    {
+     "family": "Kuefner",
+     "given": "D."
+    },
+    {
+     "family": "Macchi Cassia",
+     "given": "V."
+    },
+    {
+     "family": "Picozzi",
+     "given": "M."
+    },
+    {
+     "family": "Bricolo",
+     "given": "E."
+    }
+   ],
+   "year": "2008",
+   "title": "Do all kids look alike? Evidence for an other-age effect in adults",
+   "container": "Journal of Experimental Psychology: Human Perception and Performance",
+   "volume": "34",
+   "first_page": "811",
+   "last_page": "817",
+   "doi": "10.1037/0096-1523.34.4.811"
+  },
+  {
+   "bib_id": 29,
+   "authors": [
+    {
+     "family": "Levin",
+     "given": "D. T."
+    }
+   ],
+   "year": "1996",
+   "title": "Classifying faces by race: The structure of face categories",
+   "container": "Journal of Experimental Psychology: Learning, Memory, and Cognition",
+   "volume": "22",
+   "first_page": "1364",
+   "last_page": "1382",
+   "doi": "10.1037/0278-7393.22.6.1364"
+  },
+  {
+   "bib_id": 30,
+   "authors": [
+    {
+     "family": "Lewis",
+     "given": "M. B."
+    },
+    {
+     "family": "Hills",
+     "given": "P. J."
+    }
+   ],
+   "year": "2018",
+   "title": "Perceived race affects configural processing but not holistic processing in the composite-face task",
+   "container": "Frontiers in Psychology",
+   "volume": "9",
+   "first_page": "1456",
+   "doi": "10.3389/fpsyg.2018.01456"
+  },
+  {
+   "bib_id": 31,
+   "authors": [
+    {
+     "family": "Lillicrap",
+     "given": "T. P."
+    },
+    {
+     "family": "Santoro",
+     "given": "A."
+    },
+    {
+     "family": "Marris",
+     "given": "L."
+    },
+    {
+     "family": "Akerman",
+     "given": "C. J."
+    },
+    {
+     "family": "Hinton",
+     "given": "G."
+    }
+   ],
+   "year": "2020",
+   "title": "Backpropagation and the brain",
+   "container": "Nature Reviews Neuroscience",
+   "volume": "21",
+   "first_page": "335",
+   "last_page": "346",
+   "doi": "10.1038/s41583-020-0277-3"
+  },
+  {
+   "bib_id": 32,
+   "authors": [
+    {
+     "family": "McKone",
+     "given": "E."
+    },
+    {
+     "family": "Wan",
+     "given": "L."
+    },
+    {
+     "family": "Pidcock",
+     "given": "M."
+    },
+    {
+     "family": "Crookes",
+     "given": "K."
+    },
+    {
+     "family": "Reynolds",
+     "given": "K."
+    },
+    {
+     "family": "Dawel",
+     "given": "A."
+    },
+    {
+     "family": "Kidd",
+     "given": "E."
+    },
+    {
+     "family": "Fiorentini",
+     "given": "C."
+    }
+   ],
+   "year": "2019",
+   "title": "A critical period for faces: Other-race face recognition is improved by childhood but not adult social contact",
+   "container": "Scientific Reports",
+   "volume": "9",
+   "first_page": "12820",
+   "doi": "10.1038/s41598-019-49202-0"
+  },
+  {
+   "bib_id": 33,
+   "authors": [
+    {
+     "family": "Megreya",
+     "given": "A. M."
+    },
+    {
+     "family": "Bindemann",
+     "given": "M."
+    }
+   ],
+   "year": "2015",
+   "title": "Developmental improvement and age-related decline in unfamiliar face matching",
+   "container": "Perception",
+   "volume": "44",
+   "first_page": "5",
+   "last_page": "22",
+   "doi": "10.1068/p7825"
+  },
+  {
+   "bib_id": 34,
+   "authors": [
+    {
+     "family": "Meinhardt-Injac",
+     "given": "B."
+    },
+    {
+     "family": "Persike",
+     "given": "M."
+    },
+    {
+     "family": "Meinhardt",
+     "given": "G."
+    }
+   ],
+   "year": "2014",
+   "title": "Holistic face perception in young and older adults: Effects of feedback and attentional demand",
+   "container": "Frontiers in Aging Neuroscience",
+   "volume": "6",
+   "first_page": "291",
+   "doi": "10.3389/fnagi.2014.00291"
+  },
+  {
+   "bib_id": 35,
+   "authors": [
+    {
+     "family": "Meissner",
+     "given": "C. A."
+    },
+    {
+     "family": "Brigham",
+     "given": "J. C."
+    }
+   ],
+   "year": "2001",
+   "title": "Thirty years of investigating the own-race bias in memory for faces: A meta-analytic review",
+   "container": "Psychology, Public Policy, and Law",
+   "volume": "7",
+   "first_page": "3",
+   "last_page": "35",
+   "doi": "10.1037/1076-8971.7.1.3"
+  },
+  {
+   "bib_id": 36,
+   "authors": [
+    {
+     "family": "Michel",
+     "given": "C."
+    },
+    {
+     "family": "Caldara",
+     "given": "R."
+    },
+    {
+     "family": "Rossion",
+     "given": "B."
+    }
+   ],
+   "year": "2006",
+   "title": "Same-race faces are perceived more holistically than other-race faces",
+   "container": "Visual Cognition",
+   "volume": "14",
+   "first_page": "55",
+   "last_page": "73",
+   "doi": "10.1080/13506280500158761"
+  },
+  {
+   "bib_id": 37,
+   "authors": [
+    {
+     "family": "Michel",
+     "given": "C."
+    },
+    {
+     "family": "Rossion",
+     "given": "B."
+    },
+    {
+     "family": "Han",
+     "given": "J."
+    },
+    {
+     "family": "Chung",
+     "given": "C.-S."
+    },
+    {
+     "family": "Caldara",
+     "given": "R."
+    }
+   ],
+   "year": "2006",
+   "title": "Holistic processing is finely tuned for faces of one’s own race",
+   "container": "Psychological Science",
+   "volume": "17",
+   "first_page": "608",
+   "last_page": "615",
+   "doi": "10.1111/j.1467-9280.2006.01752.x"
+  },
+  {
+   "bib_id": 38,
+   "authors": [
+    {
+     "family": "Mondloch",
+     "given": "C. J."
+    },
+    {
+     "family": "Geldart",
+     "given": "S."
+    },
+    {
+     "family": "Maurer",
+     "given": "D."
+    },
+    {
+     "family": "Le Grand",
+     "given": "R."
+    }
+   ],
+   "year": "2003",
+   "title": "Developmental changes in face processing skills",
+   "container": "Journal of Experimental Child Psychology",
+   "volume": "86",
+   "first_page": "67",
+   "last_page": "84",
+   "doi": "10.1016/s0022-0965(03)00102-4"
+  },
+  {
+   "bib_id": 39,
+   "authors": [
+    {
+     "family": "Mondloch",
+     "given": "C. J."
+    },
+    {
+     "family": "Le Grand",
+     "given": "R."
+    },
+    {
+     "family": "Maurer",
+     "given": "D."
+    }
+   ],
+   "year": "2002",
+   "title": "Configural face processing develops more slowly than featural face processing",
+   "container": "Perception",
+   "volume": "31",
+   "first_page": "553",
+   "last_page": "566",
+   "doi": "10.1068/p3339"
+  },
+  {
+   "bib_id": 40,
+   "authors": [
+    {
+     "family": "Mondloch",
+     "given": "C. J."
+    },
+    {
+     "family": "Pathman",
+     "given": "T."
+    },
+    {
+     "family": "Maurer",
+     "given": "D."
+    },
+    {
+     "family": "Le Grand",
+     "given": "R."
+    },
+    {
+     "family": "de Schonen",
+     "given": "S."
+    }
+   ],
+   "year": "2007",
+   "title": "The composite face effect in six-year-old children: Evidence of adult-like holistic face processing",
+   "container": "Visual Cognition",
+   "volume": "15",
+   "first_page": "564",
+   "last_page": "577",
+   "doi": "10.1080/13506280600859383"
+  },
+  {
+   "bib_id": 41,
+   "authors": [
+    {
+     "family": "Pascalis",
+     "given": "O."
+    },
+    {
+     "family": "Kelly",
+     "given": "D. J."
+    }
+   ],
+   "year": "2009",
+   "title": "The origins of face processing in humans: Phylogeny and ontogeny",
+   "container": "Perspectives on Psychological Science",
+   "volume": "4",
+   "first_page": "200",
+   "last_page": "209",
+   "doi": "10.1111/j.1745-6924.2009.01119.x"
+  },
+  {
+   "bib_id": 42,
+   "authors": [
+    {
+     "family": "Rhodes",
+     "given": "G."
+    },
+    {
+     "family": "Hayward",
+     "given": "W. G."
+    },
+    {
+     "family": "Winkler",
+     "given": "C."
+    }
+   ],
+   "year": "2006",
+   "title": "Expert face coding: Configural and component coding of own-race and other-race faces",
+   "container": "Psychonomic Bulletin & Review",
+   "volume": "13",
+   "first_page": "499",
+   "last_page": "505",
+   "doi": "10.3758/BF03193876"
+  },
+  {
+   "bib_id": 43,
+   "authors": [
+    {
+     "family": "Rhodes",
+     "given": "G."
+    },
+    {
+     "family": "Lie",
+     "given": "H. C."
+    },
+    {
+     "family": "Ewing",
+     "given": "L."
+    },
+    {
+     "family": "Evangelista",
+     "given": "E."
+    },
+    {
+     "family": "Tanaka",
+     "given": "J. W."
+    }
+   ],
+   "year": "2010",
+   "title": "Does perceived race affect discrimination and recognition of ambiguous-race faces? A test of the sociocognitive hypothesis",
+   "container": "Journal of Experimental Psychology: Learning, Memory, and Cognition",
+   "volume": "36",
+   "first_page": "217",
+   "last_page": "223",
+   "doi": "10.1037/a0017680"
+  },
+  {
+   "bib_id": 44,
+   "authors": [
+    {
+     "family": "Rhodes",
+     "given": "M. G."
+    },
+    {
+     "family": "Anastasi",
+     "given": "J. S."
+    }
+   ],
+   "year": "2012",
+   "title": "The own-age bias in face recognition: A meta-analytic and theoretical review",
+   "container": "Psychological Bulletin",
+   "volume": "138",
+   "first_page": "146",
+   "last_page": "174",
+   "doi": "10.1037/a0025750"
+  },
+  {
+   "bib_id": 45,
+   "authors": [
+    {
+     "family": "Rosemblaum",
+     "given": "M."
+    },
+    {
+     "family": "Guy",
+     "given": "N."
+    },
+    {
+     "family": "Grosbard",
+     "given": "I."
+    },
+    {
+     "family": "Kliger",
+     "given": "L."
+    },
+    {
+     "family": "Abudarham",
+     "given": "N."
+    },
+    {
+     "family": "Yovel",
+     "given": "G."
+    }
+   ],
+   "year": "2025",
+   "title": "Concurrent emergence of view invariance, sensitivity to critical features, and identity face classification through visual experience: Insights from deep learning algorithms",
+   "container": "Journal of Vision",
+   "volume": "25",
+   "first_page": "2",
+   "doi": "10.1167/jov.25.8.2"
+  },
+  {
+   "bib_id": 46,
+   "authors": [
+    {
+     "family": "Rossion",
+     "given": "B."
+    },
+    {
+     "family": "Michel",
+     "given": "C."
+    }
+   ],
+   "year": "2011",
+   "title": "An experience-based holistic account of the other-race face effect",
+   "container": "Oxford handbook of face perception",
+   "first_page": "215",
+   "last_page": "244",
+   "doi": "10.1093/oxfordhb/9780199559053.013.0012"
+  },
+  {
+   "bib_id": 47,
+   "authors": [
+    {
+     "family": "Sangrigoli",
+     "given": "S."
+    },
+    {
+     "family": "Pallier",
+     "given": "C."
+    },
+    {
+     "family": "Argenti",
+     "given": "A.-M."
+    },
+    {
+     "family": "Ventureyra",
+     "given": "V. A. G."
+    },
+    {
+     "family": "de Schonen",
+     "given": "S."
+    }
+   ],
+   "year": "2005",
+   "title": "Reversibility of the other-race effect in face recognition during childhood",
+   "container": "Psychological Science",
+   "volume": "16",
+   "first_page": "440",
+   "last_page": "444",
+   "doi": "10.1111/j.0956-7976.2005.01554.x"
+  },
+  {
+   "bib_id": 48,
+   "authors": [
+    {
+     "family": "Schwartz",
+     "given": "L."
+    },
+    {
+     "family": "Yovel",
+     "given": "G."
+    }
+   ],
+   "year": "2016",
+   "title": "The roles of perceptual and conceptual information in face recognition",
+   "container": "Journal of Experimental Psychology: General",
+   "volume": "145",
+   "first_page": "1493",
+   "last_page": "1511",
+   "doi": "10.1037/xge0000220"
+  },
+  {
+   "bib_id": 49,
+   "authors": [
+    {
+     "family": "Siddiqui",
+     "given": "S."
+    },
+    {
+     "family": "Vatsa",
+     "given": "M."
+    },
+    {
+     "family": "Singh",
+     "given": "R."
+    }
+   ],
+   "year": "2018",
+   "title": "Face recognition for newborns, toddlers, and pre-school children: A deep learning approach",
+   "container": "2018 24th International Conference on Pattern Recognition (ICPR)",
+   "first_page": "3156",
+   "last_page": "3161",
+   "doi": "10.1109/ICPR.2018.8545742"
+  },
+  {
+   "bib_id": 50,
+   "authors": [
+    {
+     "family": "Simonyan",
+     "given": "K."
+    },
+    {
+     "family": "Zisserman",
+     "given": "A."
+    }
+   ],
+   "year": "2014",
+   "title": "Very deep convolutional networks for large-scale image recognition",
+   "container": "arXiv",
+   "doi": "10.48550/arXiv.1409.1556"
+  },
+  {
+   "bib_id": 51,
+   "authors": [
+    {
+     "family": "Smith",
+     "given": "L. B."
+    },
+    {
+     "family": "Yu",
+     "given": "C."
+    },
+    {
+     "family": "Yoshida",
+     "given": "H."
+    },
+    {
+     "family": "Fausey",
+     "given": "C. M."
+    }
+   ],
+   "year": "2015",
+   "title": "Contributions of head-mounted cameras to studying the visual environments of infants and young children",
+   "container": "Journal of Cognition and Development",
+   "volume": "16",
+   "first_page": "407",
+   "last_page": "419",
+   "doi": "10.1080/15248372.2014.933430"
+  },
+  {
+   "bib_id": 52,
+   "authors": [
+    {
+     "family": "Taigman",
+     "given": "Y."
+    },
+    {
+     "family": "Yang",
+     "given": "M."
+    },
+    {
+     "family": "Ranzato",
+     "given": "M."
+    },
+    {
+     "family": "Wolf",
+     "given": "L."
+    }
+   ],
+   "year": "2014",
+   "title": "DeepFace: Closing the gap to human-level performance in face verification",
+   "container": "2014 IEEE Conference on Computer Vision and Pattern Recognition",
+   "first_page": "1701",
+   "last_page": "1708",
+   "doi": "10.1109/CVPR.2014.220"
+  },
+  {
+   "bib_id": 53,
+   "authors": [
+    {
+     "family": "Tian",
+     "given": "F."
+    },
+    {
+     "family": "Xie",
+     "given": "H."
+    },
+    {
+     "family": "Song",
+     "given": "Y."
+    },
+    {
+     "family": "Hu",
+     "given": "S."
+    },
+    {
+     "family": "Liu",
+     "given": "J."
+    }
+   ],
+   "year": "2022",
+   "title": "The face inversion effect in deep convolutional neural networks",
+   "container": "Frontiers in Computational Neuroscience",
+   "volume": "16",
+   "first_page": "854218",
+   "doi": "10.3389/fncom.2022.854218"
+  },
+  {
+   "bib_id": 54,
+   "authors": [
+    {
+     "family": "Tian",
+     "given": "J."
+    },
+    {
+     "family": "Xie",
+     "given": "H."
+    },
+    {
+     "family": "Hu",
+     "given": "S."
+    },
+    {
+     "family": "Liu",
+     "given": "J."
+    }
+   ],
+   "year": "2021",
+   "title": "Multidimensional face representation in a deep convolutional neural network reveals the mechanism underlying AI racism",
+   "container": "Frontiers in Computational Neuroscience",
+   "volume": "15",
+   "first_page": "620281",
+   "doi": "10.3389/fncom.2021.620281"
+  },
+  {
+   "bib_id": 55,
+   "authors": [
+    {
+     "family": "Valentine",
+     "given": "T."
+    }
+   ],
+   "year": "1988",
+   "title": "Upside-down faces: A review of the effect of inversion upon face recognition",
+   "container": "British Journal of Psychology",
+   "volume": "79",
+   "first_page": "471",
+   "last_page": "491",
+   "doi": "10.1111/j.2044-8295.1988.tb02747.x"
+  },
+  {
+   "bib_id": 56,
+   "authors": [
+    {
+     "family": "van Dyck",
+     "given": "L. E."
+    },
+    {
+     "family": "Gruber",
+     "given": "W. R."
+    }
+   ],
+   "year": "2023",
+   "title": "Modeling biological face recognition with deep convolutional neural networks",
+   "container": "Journal of Cognitive Neuroscience",
+   "volume": "35",
+   "first_page": "1521",
+   "last_page": "1537",
+   "doi": "10.1162/jocn_a_02040"
+  },
+  {
+   "bib_id": 57,
+   "authors": [
+    {
+     "family": "Viola Macchi",
+     "given": "C."
+    },
+    {
+     "family": "Turati",
+     "given": "C."
+    },
+    {
+     "family": "Simion",
+     "given": "F."
+    }
+   ],
+   "year": "2004",
+   "title": "Can a nonspecific bias toward top-heavy patterns explain newborns’ face preference?",
+   "container": "Psychological Science",
+   "volume": "15",
+   "first_page": "379",
+   "last_page": "383",
+   "doi": "10.1111/j.0956-7976.2004.00688.x"
+  },
+  {
+   "bib_id": 58,
+   "authors": [
+    {
+     "family": "Vong",
+     "given": "W. K."
+    },
+    {
+     "family": "Wang",
+     "given": "W."
+    },
+    {
+     "family": "Orhan",
+     "given": "A. E."
+    },
+    {
+     "family": "Lake",
+     "given": "B. M."
+    }
+   ],
+   "year": "2024",
+   "title": "Grounded language acquisition through the eyes and ears of a single child",
+   "container": "Science",
+   "volume": "383",
+   "first_page": "504",
+   "last_page": "511",
+   "doi": "10.1126/science.adi1374"
+  },
+  {
+   "bib_id": 59,
+   "authors": [
+    {
+     "family": "White",
+     "given": "D."
+    },
+    {
+     "family": "Phillips",
+     "given": "P. J."
+    }
+   ],
+   "year": "2024",
+   "title": "The state of modeling face processing in humans with deep learning",
+   "container": "PsyArXiv",
+   "doi": "10.31234/osf.io/hfjmq"
+  },
+  {
+   "bib_id": 60,
+   "authors": [
+    {
+     "family": "Xiang",
+     "given": "J."
+    },
+    {
+     "family": "Zhu",
+     "given": "G."
+    }
+   ],
+   "year": "2017",
+   "title": "Joint face detection and facial expression recognition with MTCNN",
+   "container": "2017 4th International Conference on Information Science and Control Engineering (ICISCE)",
+   "first_page": "424",
+   "last_page": "427",
+   "doi": "10.1109/ICISCE.2017.95"
+  },
+  {
+   "bib_id": 61,
+   "authors": [
+    {
+     "family": "Yin",
+     "given": "R. K."
+    }
+   ],
+   "year": "1969",
+   "title": "Looking at upside-down faces",
+   "container": "Journal of Experimental Psychology",
+   "volume": "81",
+   "first_page": "141",
+   "last_page": "145",
+   "doi": "10.1037/h0027474"
+  },
+  {
+   "bib_id": 62,
+   "authors": [
+    {
+     "family": "Young",
+     "given": "S. G."
+    },
+    {
+     "family": "Hugenberg",
+     "given": "K."
+    }
+   ],
+   "year": "2012",
+   "title": "Individuation motivation and face experience can operate jointly to produce the own-race bias",
+   "container": "Social Psychological and Personality Science",
+   "volume": "3",
+   "first_page": "80",
+   "last_page": "87",
+   "doi": "10.1177/1948550611409759"
+  },
+  {
+   "bib_id": 63,
+   "authors": [
+    {
+     "family": "Yovel",
+     "given": "G."
+    },
+    {
+     "family": "Grosbard",
+     "given": "I."
+    },
+    {
+     "family": "Abudarham",
+     "given": "N."
+    }
+   ],
+   "year": "2023",
+   "title": "Deep learning models challenge the prevailing assumption that face-like effects for objects of expertise support domain-general mechanisms",
+   "container": "Proceedings of the Royal Society B: Biological Sciences",
+   "volume": "290",
+   "first_page": "20230093",
+   "doi": "10.1098/rspb.2023.0093"
+  },
+  {
+   "bib_id": 64,
+   "authors": [
+    {
+     "family": "Yovel",
+     "given": "G."
+    },
+    {
+     "family": "Halsband",
+     "given": "K."
+    },
+    {
+     "family": "Pelleg",
+     "given": "M."
+    },
+    {
+     "family": "Farkash",
+     "given": "N."
+    },
+    {
+     "family": "Gal",
+     "given": "B."
+    },
+    {
+     "family": "Goshen-Gottstein",
+     "given": "Y."
+    }
+   ],
+   "year": "2012",
+   "title": "Can massive but passive exposure to faces contribute to face recognition abilities?",
+   "container": "Journal of Experimental Psychology: Human Perception and Performance",
+   "volume": "38",
+   "first_page": "285",
+   "last_page": "289",
+   "doi": "10.1037/a0027077"
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-core-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "jats_doi": "10.1162/OPMI.a.363"
+ }
+}

@@ -1,0 +1,1405 @@
+{
+ "paper_id": "10.1002_ece3.74267",
+ "info": {
+  "title": "Deep Learning‐Based Monitoring of European Hamster Activity",
+  "doi": "10.1002/ece3.74267",
+  "file_name": "10.1002_ece3.74267.pdf",
+  "keywords": [
+   "activity",
+   "AI",
+   "camera trap",
+   "Cricetus cricetus",
+   "deep learning",
+   "European hamster"
+  ],
+  "abstract": "In order to ensure the effective conservation of the critically endangered European hamster ( Cricetus cricetus ), there is a necessity for the implementation of targeted conservation measures and reliable monitoring methods. This study explores the potential of employing Deep Learning (DL) to assist with camera trap monitoring for the purpose of tracking hamster activity. To this end, an object detection model (YOLO) was trained to efficiently analyze large volumes of video data from summer 2023 with high reliability. The model achieved a weighted average F1‐score of 0.93 and an accuracy of 0.93 for the detection of European hamsters, effectively differentiating them from other species. A comparison between DL‐based and human evaluations confirmed that DL can reliably depict hamster activity patterns. The findings of this study suggest that European hamsters exhibit peak activity levels at dusk, with the highest peak in activity occurring around sunset. In contrast, activity levels were lowest around midday. Autocorrelation analysis revealed a biphasic activity pattern, with a secondary peak occurring approximately before sunrise. This study underscores the potential of employing DL for long‐term conservation efforts and its applicability in assessing the success of reintroduction programs."
+ },
+ "author": [
+  {
+   "author_id": 1,
+   "given": "Marie",
+   "family": "Wittekind",
+   "affiliation": "Bioscience Education and Zoo Biology Goethe University Frankfurt Frankfurt am Main Germany",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 2,
+   "given": "Paul W.",
+   "family": "Dierkes",
+   "affiliation": "Bioscience Education and Zoo Biology Goethe University Frankfurt Frankfurt am Main Germany",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 3,
+   "given": "Sebastian",
+   "family": "Schneider",
+   "affiliation": "Bioscience Education and Zoo Biology Goethe University Frankfurt Frankfurt am Main Germany",
+   "email": "",
+   "orcid": "",
+   "corresponding": true
+  }
+ ],
+ "section": [
+  {
+   "section_id": 1,
+   "section_type": "abstract",
+   "header": "ABSTRACT",
+   "level": 1,
+   "parent_section_id": null,
+   "classification_score": 1.0
+  }
+ ],
+ "text": [
+  {
+   "text_id": 1,
+   "section_id": 1,
+   "paragraph_id": 1,
+   "text": "In order to ensure the effective conservation of the critically endangered European hamster ( Cricetus cricetus ), there is a necessity for the implementation of targeted conservation measures and reliable monitoring methods. This study explores the potential of employing Deep Learning (DL) to assist with camera trap monitoring for the purpose of tracking hamster activity. To this end, an object detection model (YOLO) was trained to efficiently analyze large volumes of video data from summer 2023 with high reliability. The model achieved a weighted average F1‐score of 0.93 and an accuracy of 0.93 for the detection of European hamsters, effectively differentiating them from other species. A comparison between DL‐based and human evaluations confirmed that DL can reliably depict hamster activity patterns. The findings of this study suggest that European hamsters exhibit peak activity levels at dusk, with the highest peak in activity occurring around sunset. In contrast, activity levels were lowest around midday. Autocorrelation analysis revealed a biphasic activity pattern, with a secondary peak occurring approximately before sunrise. This study underscores the potential of employing DL for long‐term conservation efforts and its applicability in assessing the success of reintroduction programs.",
+   "page_number": 1
+  }
+ ],
+ "bib": [
+  {
+   "bib_id": 1,
+   "authors": [
+    {
+     "family": "Albert",
+     "given": "M."
+    },
+    {
+     "family": "Kourkgy",
+     "given": "C."
+    },
+    {
+     "family": "Reiners",
+     "given": "T."
+    },
+    {
+     "family": "Eidenschenck",
+     "given": "J."
+    }
+   ],
+   "year": "2014",
+   "title": "“Detection of Common Hamsters ( Cricetus cricetus ) Surface Activity Using Wildlife Camera Traps.”"
+  },
+  {
+   "bib_id": 2,
+   "authors": [
+    {
+     "family": "Albuquerque",
+     "given": "R. W."
+    },
+    {
+     "family": "Vieira",
+     "given": "D. L. M."
+    },
+    {
+     "family": "Ferreira",
+     "given": "M. E."
+    }
+   ],
+   "year": "2022",
+   "title": "Mapping Key Indicators of Forest Restoration in the Amazon Using a Low‐Cost Drone and Artificial Intelligence",
+   "container": "Remote Sensing",
+   "volume": "14",
+   "first_page": "830",
+   "doi": "10.3390/rs14040830"
+  },
+  {
+   "bib_id": 3,
+   "authors": [
+    {
+     "family": "Bevan",
+     "given": "P. A."
+    },
+    {
+     "family": "Pantazis",
+     "given": "O."
+    },
+    {
+     "family": "Pringle",
+     "given": "H. A. I."
+    }
+   ],
+   "year": "2026",
+   "title": "Deep Learning‐Based Ecological Analysis of Camera Trap Images Is Impacted by Training Data Quality and Quantity",
+   "container": "Remote Sensing in Ecology and Conservation",
+   "volume": "12",
+   "first_page": "494",
+   "last_page": "508",
+   "doi": "10.1002/rse2.70052"
+  },
+  {
+   "bib_id": 4,
+   "authors": [
+    {
+     "family": "Butchart",
+     "given": "S. H. M."
+    },
+    {
+     "family": "Walpole",
+     "given": "M."
+    },
+    {
+     "family": "Collen",
+     "given": "B."
+    }
+   ],
+   "year": "2010",
+   "title": "Global Biodiversity: Indicators of Recent Declines",
+   "container": "Science",
+   "volume": "328",
+   "first_page": "1164",
+   "last_page": "1168",
+   "doi": "10.1126/science.1187512"
+  },
+  {
+   "bib_id": 5,
+   "authors": [
+    {
+     "family": "Casas",
+     "given": "G. G."
+    },
+    {
+     "family": "Baselly‐Villanueva",
+     "given": "J. R."
+    },
+    {
+     "family": "Limeira",
+     "given": "M. M. C."
+    },
+    {
+     "family": "Torres",
+     "given": "C. M. M. E."
+    },
+    {
+     "family": "Leite",
+     "given": "H. G."
+    }
+   ],
+   "year": "2023",
+   "title": "Classifying the Risk of Forest Loss in the Peruvian Amazon Rainforest: An Alternative Approach for Sustainable Forest Management Using Artificial Intelligence",
+   "container": "Trees, Forests and People",
+   "volume": "14",
+   "first_page": "100440",
+   "doi": "10.1016/j.tfp.2023.100440"
+  },
+  {
+   "bib_id": 6,
+   "authors": [
+    {
+     "family": "Crees",
+     "given": "J. J."
+    },
+    {
+     "family": "Collins",
+     "given": "A. C."
+    },
+    {
+     "family": "Stephenson",
+     "given": "P. J."
+    }
+   ],
+   "year": "2016",
+   "title": "A Comparative Approach to Assess Drivers of Success in Mammalian Conservation Recovery Programs",
+   "container": "Conservation Biology",
+   "volume": "30",
+   "first_page": "694",
+   "last_page": "705",
+   "doi": "10.1111/cobi.12652"
+  },
+  {
+   "bib_id": 7,
+   "authors": [
+    {
+     "family": "Dertien",
+     "given": "J. S."
+    },
+    {
+     "family": "Negi",
+     "given": "H."
+    },
+    {
+     "family": "Dinerstein",
+     "given": "E."
+    }
+   ],
+   "year": "2023",
+   "title": "Mitigating Human‐Wildlife Conflict and Monitoring Endangered Tigers Using a Real‐Time Camera‐Based Alert System",
+   "container": "Bioscience",
+   "volume": "73",
+   "first_page": "748",
+   "last_page": "757",
+   "doi": "10.1093/biosci/biad076"
+  },
+  {
+   "bib_id": 8,
+   "authors": [
+    {
+     "family": "Descamps",
+     "given": "S."
+    },
+    {
+     "family": "De Vocht",
+     "given": "A."
+    }
+   ],
+   "year": "2025",
+   "title": "Extinction Lurks for a Flagship Species in Agricultural Habitat: Three Years of Supplementation of the Common Hamster in Belgium",
+   "container": "Endangered Species Research",
+   "volume": "57",
+   "first_page": "119",
+   "last_page": "141",
+   "doi": "10.3354/esr01409"
+  },
+  {
+   "bib_id": 9,
+   "authors": [
+    {
+     "family": "Egna",
+     "given": "N."
+    },
+    {
+     "family": "O'Connor",
+     "given": "D."
+    },
+    {
+     "family": "Stacy‐Dawes",
+     "given": "J."
+    }
+   ],
+   "year": "2020",
+   "title": "Camera Settings and Biome Influence the Accuracy of Citizen Science Approaches to Camera Trap Image Classification",
+   "container": "Ecology and Evolution",
+   "volume": "10",
+   "first_page": "11954",
+   "last_page": "11965",
+   "doi": "10.1002/ece3.6722"
+  },
+  {
+   "bib_id": 10,
+   "authors": [
+    {
+     "family": "Fennell",
+     "given": "M."
+    },
+    {
+     "family": "Beirne",
+     "given": "C."
+    },
+    {
+     "family": "Burton",
+     "given": "A. C."
+    }
+   ],
+   "year": "2022",
+   "title": "Use of Object Detection in Camera Trap Image Identification: Assessing a Method to Rapidly and Accurately Classify Human and Animal Detections for Research and Application in Recreation Ecology",
+   "container": "Global Ecology and Conservation",
+   "volume": "35",
+   "first_page": "e02104",
+   "doi": "10.1016/j.gecco.2022.e02104"
+  },
+  {
+   "bib_id": 11,
+   "authors": [
+    {
+     "family": "Fergus",
+     "given": "P."
+    },
+    {
+     "family": "Chalmers",
+     "given": "C."
+    },
+    {
+     "family": "Longmore",
+     "given": "S."
+    },
+    {
+     "family": "Wich",
+     "given": "S."
+    }
+   ],
+   "year": "2024",
+   "title": "Harnessing Artificial Intelligence for Wildlife Conservation",
+   "container": "Conservation",
+   "volume": "4",
+   "first_page": "685",
+   "last_page": "702",
+   "doi": "10.3390/conservation4040041"
+  },
+  {
+   "bib_id": 12,
+   "authors": [
+    {
+     "family": "Fergus",
+     "given": "P."
+    },
+    {
+     "family": "Chalmers",
+     "given": "C."
+    },
+    {
+     "family": "Matthews",
+     "given": "N."
+    }
+   ],
+   "year": "2024",
+   "title": "Towards Context‐Rich Automated Biodiversity Assessments: Deriving AI‐Powered Insights From Camera Trap Data",
+   "container": "Sensors",
+   "volume": "24",
+   "first_page": "8122",
+   "doi": "10.3390/s24248122"
+  },
+  {
+   "bib_id": 13,
+   "authors": [
+    {
+     "family": "Fleitz",
+     "given": "J."
+    },
+    {
+     "family": "Hebrard",
+     "given": "A."
+    },
+    {
+     "family": "Kourkgy",
+     "given": "C."
+    }
+   ],
+   "year": "2024",
+   "title": "Can Subadult Captive‐Bred Common Hamsters ( Cricetus cricetus ) Reproduce in the Wild? New Perspectives for Restocking Programs",
+   "container": "Mammalian Biology",
+   "volume": "104",
+   "first_page": "669",
+   "last_page": "680",
+   "doi": "10.1007/s42991-024-00442-2"
+  },
+  {
+   "bib_id": 14,
+   "authors": [
+    {
+     "family": "Gomez Villa",
+     "given": "A."
+    },
+    {
+     "family": "Salazar",
+     "given": "A."
+    },
+    {
+     "family": "Vargas",
+     "given": "F."
+    }
+   ],
+   "year": "2017",
+   "title": "Towards Automatic Wild Animal Monitoring: Identification of Animal Species in Camera‐Trap Images Using Very Deep Convolutional Neural Networks",
+   "container": "Ecological Informatics",
+   "volume": "41",
+   "first_page": "24",
+   "last_page": "32",
+   "doi": "10.1016/j.ecoinf.2017.07.004"
+  },
+  {
+   "bib_id": 15,
+   "authors": [
+    {
+     "family": "Green",
+     "given": "S. E."
+    },
+    {
+     "family": "Rees",
+     "given": "J. P."
+    },
+    {
+     "family": "Stephens",
+     "given": "P. A."
+    },
+    {
+     "family": "Hill",
+     "given": "R. A."
+    },
+    {
+     "family": "Giordano",
+     "given": "A. J."
+    }
+   ],
+   "year": "2020",
+   "title": "Innovations in Camera Trapping Technology and Approaches: The Integration of Citizen Science and Artificial Intelligence",
+   "container": "Animals",
+   "volume": "10",
+   "first_page": "132",
+   "doi": "10.3390/ani10010132"
+  },
+  {
+   "bib_id": 16,
+   "authors": [
+    {
+     "family": "Hędrzak",
+     "given": "M."
+    },
+    {
+     "family": "Cywicka",
+     "given": "D."
+    },
+    {
+     "family": "Kaim",
+     "given": "I."
+    }
+   ],
+   "year": "2018",
+   "title": "Comparison of Localities of European Hamster ( Cricetus cricetus ) in the Areas of High and Low Level of Human Activity",
+   "container": "Urban Ecosystems",
+   "volume": "21",
+   "first_page": "323",
+   "last_page": "338"
+  },
+  {
+   "bib_id": 17,
+   "authors": [
+    {
+     "family": "Hitchcock",
+     "given": "K."
+    },
+    {
+     "family": "Tollington",
+     "given": "S."
+    },
+    {
+     "family": "Yarnell",
+     "given": "R. W."
+    },
+    {
+     "family": "Williams",
+     "given": "L. J."
+    },
+    {
+     "family": "Hamill",
+     "given": "K."
+    },
+    {
+     "family": "Fergus",
+     "given": "P."
+    }
+   ],
+   "year": "2026",
+   "title": "Optimizing the Accuracy and Efficiency of Camera Trap Image Analysis: Evaluating AI Model Performance and a Semi‐Automated Workflow",
+   "container": "Remote Sensing",
+   "volume": "18",
+   "first_page": "502",
+   "doi": "10.3390/rs18030502"
+  },
+  {
+   "bib_id": 18,
+   "authors": [
+    {
+     "family": "IUCN",
+     "given": ""
+    }
+   ],
+   "year": "2019",
+   "title": "“IUCN Red List of Threatened Species: Cricetus cricetus .”"
+  },
+  {
+   "bib_id": 19,
+   "authors": [
+    {
+     "family": "Kaim",
+     "given": "I."
+    },
+    {
+     "family": "Hędrzak",
+     "given": "M."
+    },
+    {
+     "family": "Ziewacz",
+     "given": "Ł."
+    }
+   ],
+   "year": "2013",
+   "title": "Daily Activity Pattern of the Common Hamster ( Cricetus cricetus ) at Two Localities Situated in Urban and Rural Areas",
+   "container": "Zoologica Poloniae",
+   "volume": "58",
+   "first_page": "59",
+   "last_page": "69",
+   "doi": "10.2478/zoop-2013-0005"
+  },
+  {
+   "bib_id": 20,
+   "authors": [
+    {
+     "family": "Kayser",
+     "given": "A."
+    },
+    {
+     "family": "Weinhold",
+     "given": "U."
+    },
+    {
+     "family": "Stubbe",
+     "given": "M."
+    }
+   ],
+   "year": "2003",
+   "title": "Mortality Factors of the Common Hamster Cricetus cricetus at Two Sites in Germany",
+   "container": "Acta Theriologica",
+   "volume": "48",
+   "first_page": "47",
+   "last_page": "57",
+   "doi": "10.1007/BF03194265"
+  },
+  {
+   "bib_id": 21,
+   "authors": [
+    {
+     "family": "Kitzes",
+     "given": "J."
+    },
+    {
+     "family": "Chronister",
+     "given": "L."
+    },
+    {
+     "family": "Czarnecki",
+     "given": "C."
+    }
+   ],
+   "year": "2026",
+   "title": "Integrating AI Models Into Ecological Research Workflows: The Case of Terrestrial Bioacoustics",
+   "container": "Methods in Ecology and Evolution",
+   "volume": "17",
+   "first_page": "257",
+   "last_page": "271",
+   "doi": "10.1111/2041-210x.70133"
+  },
+  {
+   "bib_id": 22,
+   "authors": [
+    {
+     "family": "Kletty",
+     "given": "F."
+    },
+    {
+     "family": "Tissier",
+     "given": "M. L."
+    },
+    {
+     "family": "Kourkgy",
+     "given": "C."
+    }
+   ],
+   "year": "2019",
+   "title": "A Focus on the European Hamster to Illustrate How to Monitor Endangered Species",
+   "container": "Integrative Zoology",
+   "volume": "14",
+   "first_page": "65",
+   "last_page": "74",
+   "doi": "10.1111/1749-4877.12375"
+  },
+  {
+   "bib_id": 23,
+   "authors": [
+    {
+     "family": "La Haye",
+     "given": "M. J. J."
+    }
+   ],
+   "year": "2010",
+   "title": "Agri‐Environmental Schemes for the Common Hamster ( Cricetus cricetus ). Why Is the Dutch Project Successful?",
+   "container": "Aspects of Applied Biology",
+   "volume": "100",
+   "first_page": "117",
+   "last_page": "124"
+  },
+  {
+   "bib_id": 24,
+   "authors": [
+    {
+     "family": "La Haye",
+     "given": "M. J. J."
+    },
+    {
+     "family": "Reiners",
+     "given": "T. E."
+    },
+    {
+     "family": "Raedts",
+     "given": "R."
+    },
+    {
+     "family": "Verbist",
+     "given": "V."
+    },
+    {
+     "family": "Koelewijn",
+     "given": "H. P."
+    }
+   ],
+   "year": "2017",
+   "title": "Genetic Monitoring to Evaluate Reintroduction Attempts of a Highly Endangered Rodent",
+   "container": "Conservation Genetics",
+   "volume": "18",
+   "first_page": "877",
+   "last_page": "892",
+   "doi": "10.1007/s10592-017-0940-z"
+  },
+  {
+   "bib_id": 25,
+   "authors": [
+    {
+     "family": "La Haye",
+     "given": "M. J. J."
+    },
+    {
+     "family": "Swinnen",
+     "given": "K. R. R."
+    },
+    {
+     "family": "Kuiters",
+     "given": "A. T."
+    },
+    {
+     "family": "Leirs",
+     "given": "H."
+    },
+    {
+     "family": "Siepel",
+     "given": "H."
+    }
+   ],
+   "year": "2014",
+   "title": "Modelling Population Dynamics of the Common Hamster ( Cricetus cricetus ): Timing of Harvest as a Critical Aspect in the Conservation of a Highly Endangered Rodent",
+   "container": "Biological Conservation",
+   "volume": "180",
+   "first_page": "53",
+   "last_page": "61",
+   "doi": "10.1016/j.biocon.2014.09.035"
+  },
+  {
+   "bib_id": 26,
+   "authors": [
+    {
+     "family": "La Haye",
+     "given": "M. J. J."
+    },
+    {
+     "family": "van Kats",
+     "given": "R. J. M."
+    },
+    {
+     "family": "Müskens",
+     "given": "G. J. D. M."
+    },
+    {
+     "family": "Hallmann",
+     "given": "C. A."
+    },
+    {
+     "family": "Jongejans",
+     "given": "E."
+    }
+   ],
+   "year": "2020",
+   "title": "Predation and Survival in Reintroduced Populations of the Common Hamster Cricetus cricetus in The Netherlands",
+   "container": "Mammalian Biology",
+   "volume": "100",
+   "first_page": "569",
+   "last_page": "579",
+   "doi": "10.1007/s42991-020-00063-5"
+  },
+  {
+   "bib_id": 27,
+   "authors": [
+    {
+     "family": "Maile",
+     "given": "R. E."
+    },
+    {
+     "family": "Duggan",
+     "given": "M. T."
+    },
+    {
+     "family": "Mousseau",
+     "given": "T. A."
+    }
+   ],
+   "year": "2023",
+   "title": "The Successes and Pitfalls: Deep‐Learning Effectiveness in a Chernobyl Field Camera Trap Application",
+   "container": "Ecology and Evolution",
+   "volume": "13",
+   "first_page": "e10454",
+   "doi": "10.1002/ece3.10454"
+  },
+  {
+   "bib_id": 28,
+   "authors": [
+    {
+     "family": "Malik",
+     "given": "F."
+    },
+    {
+     "family": "Wouters",
+     "given": "S."
+    },
+    {
+     "family": "Cartuyvels",
+     "given": "R."
+    },
+    {
+     "family": "Ghadery",
+     "given": "E."
+    },
+    {
+     "family": "Moens",
+     "given": "M.‐F."
+    }
+   ],
+   "year": "2021",
+   "title": "“Two‐Phase Training Mitigates Class Imbalance for Camera Trap Image Classification With CNNs.”",
+   "doi": "10.48550/arXiv.2112.14491"
+  },
+  {
+   "bib_id": 29,
+   "authors": [
+    {
+     "family": "Mallick",
+     "given": "A. I."
+    }
+   ],
+   "year": "2025",
+   "title": "The Intelligent Eye: AI‐Powered Elephant Monitoring for Conservation and Management",
+   "container": "World Scientific News",
+   "volume": "207",
+   "first_page": "96",
+   "last_page": "146"
+  },
+  {
+   "bib_id": 30,
+   "authors": [
+    {
+     "family": "McCallum",
+     "given": "J."
+    }
+   ],
+   "year": "2013",
+   "title": "Changing Use of Camera Traps in Mammalian Field Research: Habitats, Taxa and Study Types",
+   "container": "Mammal Review",
+   "volume": "43",
+   "first_page": "196",
+   "last_page": "206",
+   "doi": "10.1111/j.1365-2907.2012.00216.x"
+  },
+  {
+   "bib_id": 31,
+   "authors": [
+    {
+     "family": "Monecke",
+     "given": "S."
+    },
+    {
+     "family": "Wollnik",
+     "given": "F."
+    }
+   ],
+   "year": "2005",
+   "title": "Seasonal Variations in Circadian Rhythms Coincide With a Phase of Sensitivity to Short Photoperiods in the European Hamster",
+   "container": "Journal of Comparative Physiology B",
+   "volume": "175",
+   "first_page": "167",
+   "last_page": "183",
+   "doi": "10.1007/s00360-005-0472-6"
+  },
+  {
+   "bib_id": 32,
+   "authors": [
+    {
+     "family": "Nechay",
+     "given": "G."
+    }
+   ],
+   "year": "2000",
+   "title": "“Status of Hamsters: Cricetus cricetus , Cricetus migratorius, Mesocricetus newtoni and Other Hamster Species in Europe.”"
+  },
+  {
+   "bib_id": 33,
+   "authors": [
+    {
+     "family": "Nel",
+     "given": "H."
+    },
+    {
+     "family": "Mishra",
+     "given": "A. K."
+    },
+    {
+     "family": "Schonken",
+     "given": "F."
+    }
+   ],
+   "year": "2024",
+   "title": "EcoSonicML: Harnessing Machine Learning for Biodiversity Monitoring in South African Wetlands",
+   "container": "SN Computer Science",
+   "volume": "5",
+   "first_page": "513",
+   "doi": "10.1007/s42979-024-02859-5"
+  },
+  {
+   "bib_id": 34,
+   "authors": [
+    {
+     "family": "Norouzzadeh",
+     "given": "M. S."
+    },
+    {
+     "family": "Nguyen",
+     "given": "A."
+    },
+    {
+     "family": "Kosmala",
+     "given": "M."
+    }
+   ],
+   "year": "2018",
+   "title": "Automatically Identifying, Counting, and Describing Wild Animals in Camera‐Trap Images With Deep Learning",
+   "container": "Proceedings of the National Academy of Sciences",
+   "volume": "115",
+   "first_page": "E5716",
+   "last_page": "E5725",
+   "doi": "10.1073/pnas.1719367115"
+  },
+  {
+   "bib_id": 35,
+   "authors": [
+    {
+     "family": "Ojija",
+     "given": "F."
+    },
+    {
+     "family": "Ogwu",
+     "given": "M. C."
+    },
+    {
+     "family": "Ally",
+     "given": "J."
+    }
+   ],
+   "year": "2025",
+   "title": "Artificial Intelligence‐Driven Solutions for Mitigating Human–Wildlife Conflict in Biodiversity Hotspots",
+   "container": "Science Progress",
+   "volume": "108",
+   "first_page": "00368504251394584",
+   "doi": "10.1177/00368504251394584"
+  },
+  {
+   "bib_id": 36,
+   "authors": [
+    {
+     "family": "Onyebuchi",
+     "given": "N. C."
+    },
+    {
+     "family": "Preye",
+     "given": "W. B."
+    },
+    {
+     "family": "Aniekan",
+     "given": "A. U."
+    },
+    {
+     "family": "Bartholomew",
+     "given": "O. O."
+    },
+    {
+     "family": "Abimbola",
+     "given": "O. A."
+    },
+    {
+     "family": "Ayodeji",
+     "given": "A."
+    }
+   ],
+   "year": "2024",
+   "title": "Reviewing the Role of AI in Environmental Monitoring and Conservation: A Data‐Driven Revolution for Our Planet",
+   "container": "World Journal of Advanced Research and Reviews",
+   "volume": "21",
+   "first_page": "161",
+   "last_page": "171",
+   "doi": "10.30574/wjarr.2024.21.1.2720"
+  },
+  {
+   "bib_id": 37,
+   "authors": [
+    {
+     "family": "Park",
+     "given": "B."
+    },
+    {
+     "family": "Kim",
+     "given": "J."
+    },
+    {
+     "family": "Cho",
+     "given": "S."
+    },
+    {
+     "family": "Kim",
+     "given": "H."
+    },
+    {
+     "family": "Kim",
+     "given": "C."
+    }
+   ],
+   "year": "2022",
+   "title": "“Balancing Domain Experts for Long‐Tailed Camera‐Trap Recognition.”",
+   "doi": "10.48550/arXiv.2202.07215"
+  },
+  {
+   "bib_id": 38,
+   "authors": [
+    {
+     "family": "Prendergast",
+     "given": "B. J."
+    },
+    {
+     "family": "Berry",
+     "given": "A. K."
+    },
+    {
+     "family": "Paul",
+     "given": "M. J."
+    },
+    {
+     "family": "Zucker",
+     "given": "I."
+    }
+   ],
+   "year": "2012",
+   "title": "Enhancement and Suppression of Ultradian and Circadian Rhythms Across the Female Hamster Reproductive Cycle",
+   "container": "Journal of Biological Rythms",
+   "volume": "27",
+   "first_page": "246",
+   "last_page": "256",
+   "doi": "10.1177/0748730412441315"
+  },
+  {
+   "bib_id": 39,
+   "authors": [
+    {
+     "family": "Rahmati",
+     "given": "Y."
+    }
+   ],
+   "year": "2024",
+   "title": "“Artificial Intelligence for Sustainable Urban Biodiversity: A Framework for Monitoring and Conservation.”",
+   "doi": "10.48550/arXiv.2501.14766"
+  },
+  {
+   "bib_id": 40,
+   "authors": [
+    {
+     "family": "Reiners",
+     "given": "T. E."
+    },
+    {
+     "family": "Bornmann",
+     "given": "N."
+    },
+    {
+     "family": "Wolters",
+     "given": "V."
+    },
+    {
+     "family": "Encarnacao",
+     "given": "J. A."
+    }
+   ],
+   "year": "2011",
+   "title": "Genetic Diversity of Common Hamster Populations ( Cricetus cricetus ) Revealed by Non‐Invasive Genetics",
+   "container": "Säugetierkundliche Information",
+   "volume": "8",
+   "first_page": "99",
+   "last_page": "105"
+  },
+  {
+   "bib_id": 41,
+   "authors": [
+    {
+     "family": "Robert",
+     "given": "A."
+    },
+    {
+     "family": "Colas",
+     "given": "B."
+    },
+    {
+     "family": "Guigon",
+     "given": "I."
+    }
+   ],
+   "year": "2015",
+   "title": "Defining Reintroduction Success Using IUCN Criteria for Threatened Species: A Demographic Assessment",
+   "container": "Animal Conservation",
+   "volume": "18",
+   "first_page": "397",
+   "last_page": "406",
+   "doi": "10.1111/acv.12188"
+  },
+  {
+   "bib_id": 42,
+   "authors": [
+    {
+     "family": "Santangeli",
+     "given": "A."
+    },
+    {
+     "family": "Chen",
+     "given": "Y."
+    },
+    {
+     "family": "Boorman",
+     "given": "M."
+    },
+    {
+     "family": "Sales Ligero",
+     "given": "S."
+    },
+    {
+     "family": "Albert García",
+     "given": "G."
+    }
+   ],
+   "year": "2022",
+   "title": "Semi‐Automated Detection of Tagged Animals From Camera Trap Images Using Artificial Intelligence",
+   "container": "Ibis",
+   "volume": "164",
+   "first_page": "1123",
+   "last_page": "1131",
+   "doi": "10.1111/ibi.13099"
+  },
+  {
+   "bib_id": 43,
+   "authors": [
+    {
+     "family": "Schneider",
+     "given": "S."
+    },
+    {
+     "family": "Greenberg",
+     "given": "S."
+    },
+    {
+     "family": "Taylor",
+     "given": "G. W."
+    },
+    {
+     "family": "Kremer",
+     "given": "S. C."
+    }
+   ],
+   "year": "2020",
+   "title": "Three Critical Factors Affecting Automated Image Species Recognition Performance for Camera Traps",
+   "container": "Ecology and Evolution",
+   "volume": "10",
+   "first_page": "3503",
+   "last_page": "3517",
+   "doi": "10.1002/ece3.6147"
+  },
+  {
+   "bib_id": 44,
+   "authors": [
+    {
+     "family": "Surov",
+     "given": "A. V."
+    },
+    {
+     "family": "Poplavskaya",
+     "given": "N. S."
+    },
+    {
+     "family": "Bogomolov",
+     "given": "P. L."
+    }
+   ],
+   "year": "2016",
+   "title": "Synurbization of the Common Hamster ( Cricetus cricetus L., 1758)",
+   "container": "Russian Journal of Biological Invasions",
+   "volume": "7",
+   "first_page": "69",
+   "last_page": "76",
+   "doi": "10.1134/S2075111716010094"
+  },
+  {
+   "bib_id": 45,
+   "authors": [
+    {
+     "family": "Tabak",
+     "given": "M. A."
+    },
+    {
+     "family": "Norouzzadeh",
+     "given": "M. S."
+    },
+    {
+     "family": "Wolfson",
+     "given": "D. W."
+    }
+   ],
+   "year": "2019",
+   "title": "Machine Learning to Classify Animal Species in Camera Trap Images: Applications in Ecology",
+   "container": "Methods in Ecology and Evolution",
+   "volume": "10",
+   "first_page": "585",
+   "last_page": "590",
+   "doi": "10.1111/2041-210X.13120"
+  },
+  {
+   "bib_id": 46,
+   "authors": [
+    {
+     "family": "Tan",
+     "given": "M."
+    },
+    {
+     "family": "Chao",
+     "given": "W."
+    },
+    {
+     "family": "Cheng",
+     "given": "J.‐K."
+    }
+   ],
+   "year": "2022",
+   "title": "Animal Detection and Classification From Camera Trap Images Using Different Mainstream Object Detection Architectures",
+   "container": "Animals",
+   "volume": "12",
+   "first_page": "1976",
+   "doi": "10.3390/ani12151976"
+  },
+  {
+   "bib_id": 47,
+   "authors": [
+    {
+     "family": "Thürkow",
+     "given": "F."
+    },
+    {
+     "family": "Mohri",
+     "given": "M."
+    },
+    {
+     "family": "Ramstetter",
+     "given": "J."
+    },
+    {
+     "family": "Alb",
+     "given": "P."
+    }
+   ],
+   "year": "2025",
+   "title": "LiDAR‐Based Detection of Field Hamster ( Cricetus cricetus ) Burrows in Agricultural Fields",
+   "container": "Sustainability",
+   "volume": "17",
+   "first_page": "6366",
+   "doi": "10.3390/su17146366"
+  },
+  {
+   "bib_id": 48,
+   "authors": [
+    {
+     "family": "Tissier",
+     "given": "M. L."
+    },
+    {
+     "family": "Handrich",
+     "given": "Y."
+    },
+    {
+     "family": "Robin",
+     "given": "J.‐P."
+    }
+   ],
+   "year": "2016",
+   "title": "How Maize Monoculture and Increasing Winter Rainfall Have Brought the Hibernating European Hamster to the Verge of Extinction",
+   "container": "Scientific Reports",
+   "volume": "6",
+   "first_page": "25531"
+  },
+  {
+   "bib_id": 49,
+   "authors": [
+    {
+     "family": "Tissier",
+     "given": "M. L."
+    },
+    {
+     "family": "Kletty",
+     "given": "F."
+    },
+    {
+     "family": "Handrich",
+     "given": "Y."
+    },
+    {
+     "family": "Habold",
+     "given": "C."
+    }
+   ],
+   "year": "2018",
+   "title": "Monocultural Sowing in Mesocosms Decreases the Species Richness of Weeds and Invertebrates and Critically Reduces the Fitness of the Endangered European Hamster",
+   "container": "Oecologia",
+   "volume": "186",
+   "first_page": "589",
+   "last_page": "599",
+   "doi": "10.1007/s00442-017-4025-y"
+  },
+  {
+   "bib_id": 50,
+   "authors": [
+    {
+     "family": "Trolliet",
+     "given": "F."
+    },
+    {
+     "family": "Huynen",
+     "given": "M.‐C."
+    },
+    {
+     "family": "Vermeulen",
+     "given": "C."
+    },
+    {
+     "family": "Hambuckers",
+     "given": "A."
+    }
+   ],
+   "year": "2014",
+   "title": "Use of Camera Traps for Wildlife Studies. A Review",
+   "container": "Biology Agriculture Science Environnement",
+   "volume": "18",
+   "first_page": "446",
+   "last_page": "454"
+  },
+  {
+   "bib_id": 51,
+   "authors": [
+    {
+     "family": "Tuia",
+     "given": "D."
+    },
+    {
+     "family": "Kellenberger",
+     "given": "B."
+    },
+    {
+     "family": "Beery",
+     "given": "S."
+    }
+   ],
+   "year": "2022",
+   "title": "Seeing Biodiversity: Perspectives in Machine Learning for Wildlife Conservation",
+   "container": "Nature Communications",
+   "volume": "13",
+   "first_page": "792",
+   "doi": "10.1038/s41467-022-27980-y"
+  },
+  {
+   "bib_id": 52,
+   "authors": [
+    {
+     "family": "Vélez",
+     "given": "J."
+    },
+    {
+     "family": "McShea",
+     "given": "W."
+    },
+    {
+     "family": "Shamon",
+     "given": "H."
+    }
+   ],
+   "year": "2023",
+   "title": "An Evaluation of Platforms for Processing Camera‐Trap Data Using Artificial Intelligence",
+   "container": "Methods in Ecology and Evolution",
+   "volume": "14",
+   "first_page": "459",
+   "last_page": "477",
+   "doi": "10.1111/2041-210X.14044"
+  },
+  {
+   "bib_id": 53,
+   "authors": [
+    {
+     "family": "Wollnik",
+     "given": "F."
+    },
+    {
+     "family": "Breit",
+     "given": "A."
+    },
+    {
+     "family": "Reinke",
+     "given": "D."
+    }
+   ],
+   "year": "1991",
+   "title": "Seasonal Change in the Temporal Organization of Wheel‐Running Activity of the European Hamster, Cricetus cricetus",
+   "container": "Naturwissenschaften",
+   "volume": "78",
+   "first_page": "419",
+   "last_page": "422",
+   "doi": "10.1007/BF01133417"
+  },
+  {
+   "bib_id": 54,
+   "authors": [
+    {
+     "family": "Yadav",
+     "given": "S."
+    }
+   ],
+   "year": "2025",
+   "title": "“AI‐Enabled Monitoring of Migratory Birds.”",
+   "doi": "10.1109/ASIANCON66527.2025.11281171"
+  },
+  {
+   "bib_id": 55,
+   "authors": [
+    {
+     "family": "Zhang",
+     "given": "Q."
+    },
+    {
+     "family": "Liu",
+     "given": "Y."
+    },
+    {
+     "family": "Gong",
+     "given": "C."
+    },
+    {
+     "family": "Chen",
+     "given": "Y."
+    },
+    {
+     "family": "Yu",
+     "given": "H."
+    }
+   ],
+   "year": "2020",
+   "title": "Applications of Deep Learning for Dense Scenes Analysis in Agriculture: A Review",
+   "container": "Sensors",
+   "volume": "20",
+   "first_page": "1520",
+   "doi": "10.3390/s20051520"
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-core-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "jats_doi": "10.1002/ece3.74267"
+ }
+}

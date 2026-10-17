@@ -1,0 +1,2074 @@
+{
+ "paper_id": "10.2196_96835",
+ "info": {
+  "title": "Large Language Models as a New Tool for Therapists in Internet-Based Cognitive Behavioral Therapy: Blinded Clinician Rating Pilot Experiment",
+  "doi": "10.2196/96835",
+  "file_name": "10.2196_96835.pdf",
+  "keywords": [
+   "artificial intelligence",
+   "digital mental health",
+   "eHealth",
+   "functional somatic disorder",
+   "generative AI",
+   "human-AI comparison",
+   "iCBT",
+   "internet-based cognitive behavioral therapy",
+   "large language models",
+   "psychotherapy",
+   "telemedicine",
+   "text-based therapy"
+  ],
+  "abstract": "Background: Internet-based cognitive behavioral therapy (iCBT) is an effective and scalable alternative to face-to-face psychotherapy, but its reach is constrained by the time therapists spend reviewing patient input and manually drafting written responses. Studies suggest that large language models (LLMs) may be capable of generating high-quality therapeutic text, with the potential to support therapists in delivering treatment. Their suitability as therapist-support tools in structured iCBT, however, remains insufficiently studied. Objective: This study aims to assess the quality of LLM-generated iCBT responses to patient messages by comparing them to the quality of responses produced by humans. Methods: In a preregistered blinded clinician rating experiment, experienced clinicians assessed the quality of human-produced vs LLM-generated therapist responses within a simulated iCBT treatment for functional somatic disorder. Raters were exposed to a stimulus material consisting of 5 fictitious patient messages, each paired with 1 human and 1 LLM-generated response. Raters assessed message/response pairs on 5 quality dimensions (overall quality, helpfulness, empathy, professionalism, and protocol adherence) and were asked to indicate the source of the response (human/LLM). Analyses were primarily descriptive, supplemented by exploratory statistical tests and descriptive thematic content analysis of open-ended text fields. The full preregistered study protocol is available at Open Science Framework. Results: A total of 61 raters provided data, while 54 were eligible and included for analysis. Human- and LLM-generated responses were rated similarly across quality dimensions on a 1-5 scale: overall quality (LLM: mean 4.00, SD 0.54 vs human: mean 3.96, SD 0.53; d=0.06), helpfulness (LLM: mean 3.85, SD 0.57 vs human: mean 3.93, SD 0.49; d=0.13), professionalism (LLM: mean 4.25, SD 0.53 vs human: mean 4.11, SD 0.53; d=0.24), protocol adherence (LLM: mean 4.13, SD 0.52 vs human: mean 4.13, SD 0.54; d=0.03) and empathy (LLM: mean 4.31, SD 0.47 vs human: mean 4.08, SD 0.50; d=0.42). Raters correctly identified the source of human-generated responses (mean 79%, SD 19.65%) more accurately than LLM-generated responses (mean 63%, SD 21.30%). In all, 30/54 (55%) raters responded to one or more open text fields. Qualitative analysis indicated that LLM-generated responses were perceived as polished but also generic and at times excessively empathetic. Conclusions: LLM-generated responses were judged to be of comparable quality to those written by human therapists, though qualitative feedback indicated they were at times generic and insufficiently challenging. These findings provide initial support for the feasibility of using LLMs as therapist-support tools in iCBT, but further research is needed to determine whether their integration yields tangible clinical and organizational benefits."
+ },
+ "author": [
+  {
+   "author_id": 1,
+   "given": "Thomas Tandrup",
+   "family": "Lamm",
+   "affiliation": "Department of Clinical Medicine Aarhus University Aarhus N Denmark; Department of Functional Disorders Aarhus University Hospital Aarhus N Denmark",
+   "email": "",
+   "orcid": "",
+   "corresponding": true
+  },
+  {
+   "author_id": 2,
+   "given": "Arthur Bran",
+   "family": "Herbener",
+   "affiliation": "Department of Psychology and Behavioral Sciences Aarhus University Aarhus C Denmark",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 3,
+   "given": "Oliver Rønn",
+   "family": "Christensen",
+   "affiliation": "Department of Functional Disorders Aarhus University Hospital Aarhus N Denmark",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 4,
+   "given": "Malene Flensborg",
+   "family": "Damholdt",
+   "affiliation": "Department of Psychology and Behavioral Sciences Aarhus University Aarhus C Denmark",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 5,
+   "given": "Kaare Bro",
+   "family": "Wellnitz",
+   "affiliation": "Department of Clinical Medicine Aarhus University Aarhus N Denmark; Department of Functional Disorders Aarhus University Hospital Aarhus N Denmark",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 6,
+   "given": "Heidi Frølund",
+   "family": "Pedersen",
+   "affiliation": "Department of Clinical Medicine Aarhus University Aarhus N Denmark; Department of Functional Disorders Aarhus University Hospital Aarhus N Denmark",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 7,
+   "given": "Lisbeth",
+   "family": "Frostholm",
+   "affiliation": "Department of Clinical Medicine Aarhus University Aarhus N Denmark; Department of Functional Disorders Aarhus University Hospital Aarhus N Denmark",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  }
+ ],
+ "section": [
+  {
+   "section_id": 1,
+   "section_type": "abstract",
+   "header": "Abstract",
+   "level": 1,
+   "parent_section_id": null,
+   "classification_score": 1.0
+  }
+ ],
+ "text": [
+  {
+   "text_id": 1,
+   "section_id": 1,
+   "paragraph_id": 1,
+   "text": "Background: Internet-based cognitive behavioral therapy (iCBT) is an effective and scalable alternative to face-to-face psychotherapy, but its reach is constrained by the time therapists spend reviewing patient input and manually drafting written responses. Studies suggest that large language models (LLMs) may be capable of generating high-quality therapeutic text, with the potential to support therapists in delivering treatment. Their suitability as therapist-support tools in structured iCBT, however, remains insufficiently studied. Objective: This study aims to assess the quality of LLM-generated iCBT responses to patient messages by comparing them to the quality of responses produced by humans. Methods: In a preregistered blinded clinician rating experiment, experienced clinicians assessed the quality of human-produced vs LLM-generated therapist responses within a simulated iCBT treatment for functional somatic disorder. Raters were exposed to a stimulus material consisting of 5 fictitious patient messages, each paired with 1 human and 1 LLM-generated response. Raters assessed message/response pairs on 5 quality dimensions (overall quality, helpfulness, empathy, professionalism, and protocol adherence) and were asked to indicate the source of the response (human/LLM). Analyses were primarily descriptive, supplemented by exploratory statistical tests and descriptive thematic content analysis of open-ended text fields. The full preregistered study protocol is available at Open Science Framework. Results: A total of 61 raters provided data, while 54 were eligible and included for analysis. Human- and LLM-generated responses were rated similarly across quality dimensions on a 1-5 scale: overall quality (LLM: mean 4.00, SD 0.54 vs human: mean 3.96, SD 0.53; d=0.06), helpfulness (LLM: mean 3.85, SD 0.57 vs human: mean 3.93, SD 0.49; d=0.13), professionalism (LLM: mean 4.25, SD 0.53 vs human: mean 4.11, SD 0.53; d=0.24), protocol adherence (LLM: mean 4.13, SD 0.52 vs human: mean 4.13, SD 0.54; d=0.03) and empathy (LLM: mean 4.31, SD 0.47 vs human: mean 4.08, SD 0.50; d=0.42). Raters correctly identified the source of human-generated responses (mean 79%, SD 19.65%) more accurately than LLM-generated responses (mean 63%, SD 21.30%). In all, 30/54 (55%) raters responded to one or more open text fields. Qualitative analysis indicated that LLM-generated responses were perceived as polished but also generic and at times excessively empathetic. Conclusions: LLM-generated responses were judged to be of comparable quality to those written by human therapists, though qualitative feedback indicated they were at times generic and insufficiently challenging. These findings provide initial support for the feasibility of using LLMs as therapist-support tools in iCBT, but further research is needed to determine whether their integration yields tangible clinical and organizational benefits.",
+   "page_number": 1
+  }
+ ],
+ "bib": [
+  {
+   "bib_id": 1,
+   "year": "2025",
+   "title": "World mental health today: latest data",
+   "container": "World Health Organization"
+  },
+  {
+   "bib_id": 2,
+   "authors": [
+    {
+     "family": "Cuijpers",
+     "given": "P"
+    },
+    {
+     "family": "Harrer",
+     "given": "M"
+    },
+    {
+     "family": "Furukawa",
+     "given": "TA"
+    }
+   ],
+   "year": "2026",
+   "title": "Innovations to improve outcomes and uptake of psychotherapies for mental disorders: a state-of-the-art review",
+   "container": "World Psychiatry",
+   "volume": "25",
+   "first_page": "4",
+   "last_page": "33",
+   "doi": "10.1002/wps.70002"
+  },
+  {
+   "bib_id": 3,
+   "authors": [
+    {
+     "family": "De Witte",
+     "given": "N"
+    },
+    {
+     "family": "Best",
+     "given": "P"
+    },
+    {
+     "family": "Torous",
+     "given": "J"
+    },
+    {
+     "family": "Mulvenna",
+     "given": "M"
+    },
+    {
+     "family": "Van Assche",
+     "given": "E"
+    },
+    {
+     "family": "Mathiasen",
+     "given": "K"
+    },
+    {
+     "family": "Carlbring",
+     "given": "P"
+    }
+   ],
+   "year": "2026",
+   "title": "Comprehensive model for mental health access and service use (CoMMA): a process model for technology-enhanced mental healthcare",
+   "container": "Internet Interv",
+   "volume": "44",
+   "first_page": "100927",
+   "doi": "10.1016/j.invent.2026.100927"
+  },
+  {
+   "bib_id": 4,
+   "authors": [
+    {
+     "family": "Andersson",
+     "given": "G"
+    }
+   ],
+   "year": "2016",
+   "title": "Internet-delivered psychological treatments",
+   "container": "Annu Rev Clin Psychol",
+   "volume": "12",
+   "first_page": "157",
+   "last_page": "179",
+   "doi": "10.1146/annurev-clinpsy-021815-093006"
+  },
+  {
+   "bib_id": 5,
+   "authors": [
+    {
+     "family": "Hedman-Lagerlöf",
+     "given": "E"
+    },
+    {
+     "family": "Carlbring",
+     "given": "P"
+    },
+    {
+     "family": "Svärdman",
+     "given": "F"
+    },
+    {
+     "family": "Riper",
+     "given": "H"
+    },
+    {
+     "family": "Cuijpers",
+     "given": "P"
+    },
+    {
+     "family": "Andersson",
+     "given": "G"
+    }
+   ],
+   "year": "2023",
+   "title": "Therapist-supported internet-based cognitive behaviour therapy yields similar effects as face-to-face therapy for psychiatric and somatic disorders: an updated systematic review and meta-analysis",
+   "container": "World Psychiatry",
+   "volume": "22",
+   "first_page": "305",
+   "last_page": "314",
+   "doi": "10.1002/wps.21088"
+  },
+  {
+   "bib_id": 6,
+   "authors": [
+    {
+     "family": "Titov",
+     "given": "N"
+    },
+    {
+     "family": "Dear",
+     "given": "B"
+    },
+    {
+     "family": "Nielssen",
+     "given": "O"
+    },
+    {
+     "family": "Staples",
+     "given": "L"
+    },
+    {
+     "family": "Hadjistavropoulos",
+     "given": "H"
+    },
+    {
+     "family": "Nugent",
+     "given": "M"
+    }
+   ],
+   "year": "2018",
+   "title": "ICBT in routine care: a descriptive analysis of successful clinics in five countries",
+   "container": "Internet Interv",
+   "volume": "13",
+   "first_page": "108",
+   "last_page": "115",
+   "doi": "10.1016/j.invent.2018.07.006"
+  },
+  {
+   "bib_id": 7,
+   "authors": [
+    {
+     "family": "Imel",
+     "given": "ZE"
+    },
+    {
+     "family": "Creed",
+     "given": "T"
+    },
+    {
+     "family": "Kious",
+     "given": "B"
+    },
+    {
+     "family": "Althoff",
+     "given": "T"
+    },
+    {
+     "family": "Atzil-Slonim",
+     "given": "D"
+    },
+    {
+     "family": "Srikumar",
+     "given": "V"
+    }
+   ],
+   "year": "2025",
+   "title": "A framework for automation in psychotherapy",
+   "container": "Curr Dir Psychol Sci",
+   "doi": "10.1177/09637214251386047"
+  },
+  {
+   "bib_id": 8,
+   "authors": [
+    {
+     "family": "Stade",
+     "given": "EC"
+    },
+    {
+     "family": "Stirman",
+     "given": "SW"
+    },
+    {
+     "family": "Ungar",
+     "given": "LH"
+    },
+    {
+     "family": "Boland",
+     "given": "CL"
+    },
+    {
+     "family": "Schwartz",
+     "given": "HA"
+    },
+    {
+     "family": "Yaden",
+     "given": "DB"
+    }
+   ],
+   "year": "2024",
+   "title": "Large language models could change the future of behavioral healthcare: a proposal for responsible development and evaluation",
+   "container": "Npj Ment Health Res",
+   "volume": "3",
+   "first_page": "12",
+   "doi": "10.1038/s44184-024-00056-z"
+  },
+  {
+   "bib_id": 9,
+   "authors": [
+    {
+     "family": "Torous",
+     "given": "J"
+    },
+    {
+     "family": "Cipriani",
+     "given": "A"
+    }
+   ],
+   "year": "2025",
+   "title": "A paradigm shift in progress: generative AI's evolving role in mental health care",
+   "container": "JMIR Ment Health",
+   "volume": "12",
+   "first_page": "e82369",
+   "doi": "10.2196/82369"
+  },
+  {
+   "bib_id": 10,
+   "authors": [
+    {
+     "family": "Lawrence",
+     "given": "HR"
+    },
+    {
+     "family": "Schneider",
+     "given": "RA"
+    },
+    {
+     "family": "Rubin",
+     "given": "SB"
+    },
+    {
+     "family": "Matarić",
+     "given": "MJ"
+    },
+    {
+     "family": "McDuff",
+     "given": "DJ"
+    },
+    {
+     "family": "Jones Bell",
+     "given": "M"
+    }
+   ],
+   "year": "2024",
+   "title": "The opportunities and risks of large language models in mental health",
+   "container": "JMIR Ment Health",
+   "volume": "11",
+   "first_page": "e59479",
+   "doi": "10.2196/59479"
+  },
+  {
+   "bib_id": 11,
+   "authors": [
+    {
+     "family": "Schuster",
+     "given": "R"
+    },
+    {
+     "family": "Plessen",
+     "given": "CY"
+    },
+    {
+     "family": "Carlbring",
+     "given": "P"
+    },
+    {
+     "family": "Walther",
+     "given": "A"
+    }
+   ],
+   "year": "2026",
+   "title": "AI agents are coming: 5-stage taxonomy of language-based AI systems for psychiatry, psychotherapy, and counseling",
+   "container": "JMIR Ment Health",
+   "volume": "13",
+   "first_page": "e91746",
+   "doi": "10.2196/91746"
+  },
+  {
+   "bib_id": 12,
+   "authors": [
+    {
+     "family": "Howe",
+     "given": "PDL"
+    },
+    {
+     "family": "Fay",
+     "given": "N"
+    },
+    {
+     "family": "Saletta",
+     "given": "M"
+    },
+    {
+     "family": "Hovy",
+     "given": "E"
+    }
+   ],
+   "year": "2023",
+   "title": "ChatGPT's advice is perceived as better than that of professional advice columnists",
+   "container": "Front Psychol",
+   "volume": "14",
+   "first_page": "1281255",
+   "doi": "10.3389/fpsyg.2023.1281255"
+  },
+  {
+   "bib_id": 13,
+   "authors": [
+    {
+     "family": "Kuhail",
+     "given": "MA"
+    },
+    {
+     "family": "Alturki",
+     "given": "N"
+    },
+    {
+     "family": "Thomas",
+     "given": "J"
+    },
+    {
+     "family": "Alkhalifa",
+     "given": "AK"
+    },
+    {
+     "family": "Alshardan",
+     "given": "A"
+    }
+   ],
+   "year": "2024",
+   "title": "Human-human vs human-AI therapy: an empirical study",
+   "container": "Int J Hum Comput Interact",
+   "volume": "41",
+   "first_page": "6841",
+   "last_page": "6852",
+   "doi": "10.1080/10447318.2024.2385001"
+  },
+  {
+   "bib_id": 14,
+   "authors": [
+    {
+     "family": "Vowels",
+     "given": "LM"
+    }
+   ],
+   "year": "2024",
+   "title": "Are chatbots the new relationship experts? Insights from three studies",
+   "container": "Comput Hum Behav Artif Hum",
+   "volume": "2",
+   "first_page": "100077",
+   "doi": "10.1016/j.chbah.2024.100077"
+  },
+  {
+   "bib_id": 15,
+   "authors": [
+    {
+     "family": "Rollwage",
+     "given": "M"
+    },
+    {
+     "family": "McFadyen",
+     "given": "J"
+    },
+    {
+     "family": "Juchems",
+     "given": "K"
+    },
+    {
+     "family": "Balogh",
+     "given": "A"
+    },
+    {
+     "family": "Pisupati",
+     "given": "S"
+    },
+    {
+     "family": "Mircea",
+     "given": "M"
+    }
+   ],
+   "year": "2026",
+   "title": "A cognitive layer architecture to support large-language model performance in psychotherapy interactions",
+   "container": "Nat Med",
+   "volume": "32",
+   "first_page": "1717",
+   "last_page": "1725",
+   "doi": "10.1038/s41591-026-04278-w"
+  },
+  {
+   "bib_id": 16,
+   "authors": [
+    {
+     "family": "Franke Föyen",
+     "given": "L"
+    },
+    {
+     "family": "Zapel",
+     "given": "E"
+    },
+    {
+     "family": "Lekander",
+     "given": "M"
+    },
+    {
+     "family": "Hedman-Lagerlöf",
+     "given": "E"
+    },
+    {
+     "family": "Lindsäter",
+     "given": "E"
+    }
+   ],
+   "year": "2025",
+   "title": "Artificial intelligence vs. human expert: licensed mental health clinicians' blinded evaluation of AI-generated and expert psychological advice on quality, empathy, and perceived authorship",
+   "container": "Internet Interv",
+   "volume": "41",
+   "first_page": "100841",
+   "doi": "10.1016/j.invent.2025.100841"
+  },
+  {
+   "bib_id": 17,
+   "authors": [
+    {
+     "family": "Ovsyannikova",
+     "given": "D"
+    },
+    {
+     "family": "de Mello",
+     "given": "VO"
+    },
+    {
+     "family": "Inzlicht",
+     "given": "M"
+    }
+   ],
+   "year": "2025",
+   "title": "Third-party evaluators perceive AI as more compassionate than expert humans",
+   "container": "Commun Psychol",
+   "volume": "3",
+   "first_page": "4",
+   "doi": "10.1038/s44271-024-00182-6"
+  },
+  {
+   "bib_id": 18,
+   "authors": [
+    {
+     "family": "Bodner",
+     "given": "R"
+    },
+    {
+     "family": "Lim",
+     "given": "K"
+    },
+    {
+     "family": "Schneider",
+     "given": "R"
+    },
+    {
+     "family": "Torous",
+     "given": "J"
+    }
+   ],
+   "year": "2026",
+   "title": "Efficacy and risks of artificial intelligence chatbots for anxiety and depression: a narrative review of recent clinical studies",
+   "container": "Curr Opin Psychiatry",
+   "volume": "39",
+   "first_page": "19",
+   "last_page": "25",
+   "doi": "10.1097/YCO.0000000000001048"
+  },
+  {
+   "bib_id": 19,
+   "authors": [
+    {
+     "family": "De Freitas",
+     "given": "J"
+    },
+    {
+     "family": "Uğuralp",
+     "given": "AK"
+    },
+    {
+     "family": "Oğuz‐Uğuralp",
+     "given": "Z"
+    },
+    {
+     "family": "Puntoni",
+     "given": "S"
+    }
+   ],
+   "year": "2023",
+   "title": "Chatbots and mental health: insights into the safety of generative AI",
+   "container": "J Consum Psychol",
+   "volume": "34",
+   "first_page": "481",
+   "last_page": "491",
+   "doi": "10.1002/jcpy.1393"
+  },
+  {
+   "bib_id": 20,
+   "authors": [
+    {
+     "family": "Shumate",
+     "given": "JN"
+    },
+    {
+     "family": "Rozenblit",
+     "given": "E"
+    },
+    {
+     "family": "Flathers",
+     "given": "M"
+    },
+    {
+     "family": "Larrauri",
+     "given": "CA"
+    },
+    {
+     "family": "Hau",
+     "given": "C"
+    },
+    {
+     "family": "Xia",
+     "given": "W"
+    },
+    {
+     "family": "Torous",
+     "given": "EN"
+    },
+    {
+     "family": "Torous",
+     "given": "J"
+    }
+   ],
+   "year": "2025",
+   "title": "Governing AI in mental health: 50-state legislative review",
+   "container": "JMIR Ment Health",
+   "volume": "12",
+   "first_page": "e80739",
+   "doi": "10.2196/80739"
+  },
+  {
+   "bib_id": 21,
+   "authors": [
+    {
+     "family": "Cheng",
+     "given": "M"
+    },
+    {
+     "family": "Lee",
+     "given": "C"
+    },
+    {
+     "family": "Khadpe",
+     "given": "P"
+    },
+    {
+     "family": "Yu",
+     "given": "S"
+    },
+    {
+     "family": "Han",
+     "given": "D"
+    },
+    {
+     "family": "Jurafsky",
+     "given": "D"
+    }
+   ],
+   "year": "2026",
+   "title": "Sycophantic AI decreases prosocial intentions and promotes dependence",
+   "container": "Science",
+   "volume": "391",
+   "first_page": "eaec8352",
+   "doi": "10.1126/science.aec8352"
+  },
+  {
+   "bib_id": 22,
+   "authors": [
+    {
+     "family": "Dohnány",
+     "given": "S"
+    },
+    {
+     "family": "Kurth-Nelson",
+     "given": "Z"
+    },
+    {
+     "family": "Spens",
+     "given": "E"
+    },
+    {
+     "family": "Luettgau",
+     "given": "L"
+    },
+    {
+     "family": "Reid",
+     "given": "A"
+    },
+    {
+     "family": "Gabriel",
+     "given": "I"
+    }
+   ],
+   "year": "2026",
+   "title": "Technological: feedback loops between AI chatbots and mental health",
+   "container": "Nat Ment Health",
+   "volume": "4",
+   "first_page": "336",
+   "last_page": "345",
+   "doi": "10.1038/s44220-026-00595-8"
+  },
+  {
+   "bib_id": 23,
+   "authors": [
+    {
+     "family": "Aboy",
+     "given": "M"
+    },
+    {
+     "family": "Minssen",
+     "given": "T"
+    },
+    {
+     "family": "Vayena",
+     "given": "E"
+    }
+   ],
+   "year": "2024",
+   "title": "Navigating the EU AI Act: implications for regulated digital medical products",
+   "container": "NPJ Digit Med",
+   "volume": "7",
+   "first_page": "237",
+   "doi": "10.1038/s41746-024-01232-3"
+  },
+  {
+   "bib_id": 24,
+   "authors": [
+    {
+     "family": "Desage",
+     "given": "C"
+    },
+    {
+     "family": "Bunge",
+     "given": "B"
+    },
+    {
+     "family": "Bunge",
+     "given": "EL"
+    }
+   ],
+   "year": "2024",
+   "title": "A revised framework for evaluating the quality of mental health artificial intelligence-based chatbots",
+   "container": "Procedia Comput Sci",
+   "volume": "248",
+   "first_page": "3",
+   "last_page": "7",
+   "doi": "10.1016/j.procs.2024.10.356"
+  },
+  {
+   "bib_id": 25,
+   "authors": [
+    {
+     "family": "Aminoff",
+     "given": "V"
+    },
+    {
+     "family": "Bielinski",
+     "given": "LL"
+    },
+    {
+     "family": "Berg",
+     "given": "M"
+    },
+    {
+     "family": "Berger",
+     "given": "T"
+    },
+    {
+     "family": "Andersson",
+     "given": "G"
+    }
+   ],
+   "year": "2025",
+   "title": "What therapists do during guidance in individually tailored internet-based cognitive behavioral therapy for depressive symptoms: a content analysis",
+   "container": "Internet Interv",
+   "volume": "42",
+   "first_page": "100875",
+   "doi": "10.1016/j.invent.2025.100875"
+  },
+  {
+   "bib_id": 26,
+   "authors": [
+    {
+     "family": "English",
+     "given": "E"
+    },
+    {
+     "family": "Laughlin",
+     "given": "J"
+    },
+    {
+     "family": "Sippel",
+     "given": "J"
+    },
+    {
+     "family": "DeCamp",
+     "given": "M"
+    },
+    {
+     "family": "Lin",
+     "given": "C"
+    }
+   ],
+   "year": "2024",
+   "title": "Utility of artificial intelligence-generative draft replies to patient messages",
+   "container": "JAMA Netw Open",
+   "volume": "7",
+   "first_page": "e2438573",
+   "doi": "10.1001/jamanetworkopen.2024.38573"
+  },
+  {
+   "bib_id": 27,
+   "authors": [
+    {
+     "family": "Hu",
+     "given": "D"
+    },
+    {
+     "family": "Guo",
+     "given": "Y"
+    },
+    {
+     "family": "Zhou",
+     "given": "Y"
+    },
+    {
+     "family": "Flores",
+     "given": "L"
+    },
+    {
+     "family": "Zheng",
+     "given": "K"
+    }
+   ],
+   "year": "2025",
+   "title": "A systematic review of early evidence on generative AI for drafting responses to patient messages",
+   "container": "Npj Health Syst",
+   "volume": "2",
+   "first_page": "27",
+   "doi": "10.1038/s44401-025-00032-5"
+  },
+  {
+   "bib_id": 28,
+   "authors": [
+    {
+     "family": "Biswal",
+     "given": "B"
+    },
+    {
+     "family": "Gandhi",
+     "given": "Y"
+    },
+    {
+     "family": "Singla",
+     "given": "DR"
+    },
+    {
+     "family": "Velleman",
+     "given": "R"
+    },
+    {
+     "family": "Zhou",
+     "given": "B"
+    },
+    {
+     "family": "Fernandes",
+     "given": "L"
+    }
+   ],
+   "year": "2024",
+   "title": "Interventions for improving adherence to psychological treatments for common mental disorders: a systematic review",
+   "container": "Glob Ment Health (Camb)",
+   "volume": "11",
+   "first_page": "e83",
+   "doi": "10.1017/gmh.2024.94"
+  },
+  {
+   "bib_id": 29,
+   "authors": [
+    {
+     "family": "Boucher",
+     "given": "EM"
+    },
+    {
+     "family": "Raiker",
+     "given": "JS"
+    }
+   ],
+   "year": "2024",
+   "title": "Engagement and retention in digital mental health interventions: a narrative review",
+   "container": "BMC Digit Health",
+   "volume": "2",
+   "doi": "10.1186/s44247-024-00105-9"
+  },
+  {
+   "bib_id": 30,
+   "authors": [
+    {
+     "family": "Hsu",
+     "given": "S"
+    },
+    {
+     "family": "Shah",
+     "given": "RS"
+    },
+    {
+     "family": "Senthil",
+     "given": "P"
+    },
+    {
+     "family": "Ashktorab",
+     "given": "Z"
+    },
+    {
+     "family": "Dugan",
+     "given": "C"
+    },
+    {
+     "family": "Geyer",
+     "given": "W"
+    }
+   ],
+   "year": "2025",
+   "title": "Helping the helper: supporting peer counselors via AI-empowered practice and feedback",
+   "container": "Proc ACM Hum Comput Interact",
+   "volume": "9",
+   "first_page": "1",
+   "last_page": "45",
+   "doi": "10.1145/3710993"
+  },
+  {
+   "bib_id": 31,
+   "authors": [
+    {
+     "family": "Sharma",
+     "given": "A"
+    },
+    {
+     "family": "Lin",
+     "given": "IW"
+    },
+    {
+     "family": "Miner",
+     "given": "AS"
+    },
+    {
+     "family": "Atkins",
+     "given": "DC"
+    },
+    {
+     "family": "Althoff",
+     "given": "T"
+    }
+   ],
+   "year": "2023",
+   "title": "Human–AI collaboration enables more empathic conversations in text-based peer-to-peer mental health support",
+   "container": "Nat Mach Intell",
+   "volume": "5",
+   "first_page": "46",
+   "last_page": "57",
+   "doi": "10.1038/s42256-022-00593-2"
+  },
+  {
+   "bib_id": 32,
+   "authors": [
+    {
+     "family": "Yin",
+     "given": "Y"
+    },
+    {
+     "family": "Jia",
+     "given": "N"
+    },
+    {
+     "family": "Wakslak",
+     "given": "CJ"
+    }
+   ],
+   "year": "2024",
+   "title": "AI can help people feel heard, but an AI label diminishes this impact",
+   "container": "Proc Natl Acad Sci U S A",
+   "volume": "121",
+   "first_page": "e2319112121",
+   "doi": "10.1073/pnas.2319112121"
+  },
+  {
+   "bib_id": 33,
+   "authors": [
+    {
+     "family": "Burton",
+     "given": "C"
+    },
+    {
+     "family": "Fink",
+     "given": "P"
+    },
+    {
+     "family": "Henningsen",
+     "given": "P"
+    },
+    {
+     "family": "Löwe",
+     "given": "B"
+    },
+    {
+     "family": "Rief",
+     "given": "W"
+    },
+    {
+     "family": "EURONET-SOMA Group",
+     "given": ""
+    }
+   ],
+   "year": "2020",
+   "title": "Functional somatic disorders: discussion paper for a new common classification for research and clinical use",
+   "container": "BMC Med",
+   "volume": "18",
+   "first_page": "34",
+   "doi": "10.1186/s12916-020-1505-4"
+  },
+  {
+   "bib_id": 34,
+   "title": "Large language models as a new tool for iCBT therapists? An experimental pilot study",
+   "container": "Open Science Framework"
+  },
+  {
+   "bib_id": 35,
+   "authors": [
+    {
+     "family": "Jin",
+     "given": "Y"
+    },
+    {
+     "family": "Chandra",
+     "given": "M"
+    },
+    {
+     "family": "Verma",
+     "given": "G"
+    },
+    {
+     "family": "Hu",
+     "given": "Y"
+    },
+    {
+     "family": "Choudhury",
+     "given": "M"
+    },
+    {
+     "family": "Kumar",
+     "given": "S"
+    }
+   ],
+   "year": "2024",
+   "title": "Better to ask in English: cross-lingual evaluation of large language models for healthcare queries",
+   "first_page": "2627",
+   "last_page": "2638",
+   "doi": "10.1145/3589334.3645643"
+  },
+  {
+   "bib_id": 36,
+   "authors": [
+    {
+     "family": "Joshi",
+     "given": "P"
+    },
+    {
+     "family": "Santy",
+     "given": "S"
+    },
+    {
+     "family": "Budhiraja",
+     "given": "A"
+    },
+    {
+     "family": "Bali",
+     "given": "K"
+    },
+    {
+     "family": "Choudhury",
+     "given": "M"
+    }
+   ],
+   "year": "2020",
+   "title": "The state and fate of linguistic diversity and inclusion in the NLP world",
+   "first_page": "6282",
+   "last_page": "6293",
+   "doi": "10.18653/v1/2020.acl-main.560"
+  },
+  {
+   "bib_id": 37,
+   "authors": [
+    {
+     "family": "Kim",
+     "given": "MG"
+    },
+    {
+     "family": "Hwang",
+     "given": "G"
+    },
+    {
+     "family": "Chang",
+     "given": "J"
+    },
+    {
+     "family": "Chang",
+     "given": "S"
+    },
+    {
+     "family": "Roh",
+     "given": "HW"
+    },
+    {
+     "family": "Park",
+     "given": "RW"
+    }
+   ],
+   "year": "2025",
+   "title": "Performance of open-source large language models in psychiatry: usability study through comparative analysis of non-English records and English translations",
+   "container": "J Med Internet Res",
+   "volume": "27",
+   "first_page": "e69857",
+   "doi": "10.2196/69857"
+  },
+  {
+   "bib_id": 38,
+   "authors": [
+    {
+     "family": "Pedersen",
+     "given": "HF"
+    },
+    {
+     "family": "Lamm",
+     "given": "TT"
+    },
+    {
+     "family": "Fink",
+     "given": "P"
+    },
+    {
+     "family": "Ørnbøl",
+     "given": "E"
+    },
+    {
+     "family": "Frostholm",
+     "given": "L"
+    }
+   ],
+   "year": "2023",
+   "title": "Internet-delivered treatment for patients suffering from severe functional somatic disorders: protocol for a randomized controlled trial",
+   "container": "Contemp Clin Trials Commun",
+   "volume": "32",
+   "first_page": "101069",
+   "doi": "10.1016/j.conctc.2023.101069"
+  },
+  {
+   "bib_id": 39,
+   "authors": [
+    {
+     "family": "Hadjistavropoulos",
+     "given": "HD"
+    },
+    {
+     "family": "Schneider",
+     "given": "LH"
+    },
+    {
+     "family": "Klassen",
+     "given": "K"
+    },
+    {
+     "family": "Dear",
+     "given": "BF"
+    },
+    {
+     "family": "Titov",
+     "given": "N"
+    }
+   ],
+   "year": "2018",
+   "title": "Development and evaluation of a scale assessing therapist fidelity to guidelines for delivering therapist-assisted Internet-delivered cognitive behaviour therapy",
+   "container": "Cogn Behav Ther",
+   "volume": "47",
+   "first_page": "447",
+   "last_page": "461",
+   "doi": "10.1080/16506073.2018.1457079"
+  },
+  {
+   "bib_id": 40,
+   "authors": [
+    {
+     "family": "Harris",
+     "given": "PA"
+    },
+    {
+     "family": "Taylor",
+     "given": "R"
+    },
+    {
+     "family": "Minor",
+     "given": "BL"
+    },
+    {
+     "family": "Elliott",
+     "given": "V"
+    },
+    {
+     "family": "Fernandez",
+     "given": "M"
+    },
+    {
+     "family": "O'Neal",
+     "given": "L"
+    },
+    {
+     "family": "REDCap Consortium",
+     "given": ""
+    }
+   ],
+   "year": "2019",
+   "title": "The REDCap consortium: building an international community of software platform partners",
+   "container": "J Biomed Inform",
+   "volume": "95",
+   "first_page": "103208",
+   "doi": "10.1016/j.jbi.2019.103208"
+  },
+  {
+   "bib_id": 41,
+   "authors": [
+    {
+     "family": "Braun",
+     "given": "V"
+    },
+    {
+     "family": "Clarke",
+     "given": "V"
+    }
+   ],
+   "year": "2022",
+   "title": "Thematic Analysis : A Practical Guide"
+  },
+  {
+   "bib_id": 42,
+   "container": "QDAcity"
+  },
+  {
+   "bib_id": 43,
+   "authors": [
+    {
+     "family": "Gurr",
+     "given": "H"
+    },
+    {
+     "family": "Oliver",
+     "given": "L"
+    },
+    {
+     "family": "Harvey",
+     "given": "O"
+    },
+    {
+     "family": "Subedi",
+     "given": "M"
+    },
+    {
+     "family": "Van Teijlingen",
+     "given": "E"
+    }
+   ],
+   "year": "2024",
+   "title": "The importance of positionality for qualitative researchers",
+   "container": "Dhaulagiri Journal of Sociology and Anthropology",
+   "first_page": "48",
+   "last_page": "54",
+   "doi": "10.3126/dsaj.v18i01.67553"
+  },
+  {
+   "bib_id": 44,
+   "authors": [
+    {
+     "family": "Noy",
+     "given": "S"
+    },
+    {
+     "family": "Zhang",
+     "given": "W"
+    }
+   ],
+   "year": "2023",
+   "title": "Experimental evidence on the productivity effects of generative artificial intelligence",
+   "container": "Science",
+   "volume": "381",
+   "first_page": "187",
+   "last_page": "192",
+   "doi": "10.1126/science.adh2586"
+  },
+  {
+   "bib_id": 45,
+   "authors": [
+    {
+     "family": "Ikhile",
+     "given": "JA"
+    },
+    {
+     "family": "Pandey",
+     "given": "V"
+    }
+   ],
+   "year": "2026",
+   "title": "Understanding movement disorder specialists’ workflow for designing digital health tools",
+   "container": "ACM Trans. Comput. Healthcare",
+   "doi": "10.1145/3803795"
+  },
+  {
+   "bib_id": 46,
+   "authors": [
+    {
+     "family": "Artsi",
+     "given": "Y"
+    },
+    {
+     "family": "Sorin",
+     "given": "V"
+    },
+    {
+     "family": "Glicksberg",
+     "given": "BS"
+    },
+    {
+     "family": "Korfiatis",
+     "given": "P"
+    },
+    {
+     "family": "Nadkarni",
+     "given": "GN"
+    },
+    {
+     "family": "Klang",
+     "given": "E"
+    }
+   ],
+   "year": "2025",
+   "title": "Large language models in real-world clinical workflows: a systematic review of applications and implementation",
+   "container": "Front Digit Health",
+   "volume": "7",
+   "first_page": "1659134",
+   "doi": "10.3389/fdgth.2025.1659134"
+  },
+  {
+   "bib_id": 47,
+   "authors": [
+    {
+     "family": "Tai-Seale",
+     "given": "M"
+    },
+    {
+     "family": "Baxter",
+     "given": "SL"
+    },
+    {
+     "family": "Vaida",
+     "given": "F"
+    },
+    {
+     "family": "Walker",
+     "given": "A"
+    },
+    {
+     "family": "Sitapati",
+     "given": "AM"
+    },
+    {
+     "family": "Osborne",
+     "given": "C"
+    },
+    {
+     "family": "Li",
+     "given": "S"
+    }
+   ],
+   "year": "2024",
+   "title": "AI-generated draft replies integrated into health records and physicians' electronic communication",
+   "container": "JAMA Netw Open",
+   "volume": "7",
+   "first_page": "e246565",
+   "doi": "10.1001/jamanetworkopen.2024.6565"
+  },
+  {
+   "bib_id": 48,
+   "authors": [
+    {
+     "family": "Waardenburg",
+     "given": "L"
+    }
+   ],
+   "year": "2024",
+   "title": "Human-AI collaboration: a blessing or a curse for safety at work?",
+   "container": "Tecnoscienza",
+   "volume": "15",
+   "first_page": "133",
+   "last_page": "146",
+   "doi": "10.6092/issn.2038-3460/19964"
+  },
+  {
+   "bib_id": 49,
+   "authors": [
+    {
+     "family": "van Zyl",
+     "given": "LE"
+    }
+   ],
+   "year": "2026",
+   "title": "The competence paradox: when psychologists overestimate their understanding of artificial intelligence",
+   "container": "AI & Soc",
+   "volume": "41",
+   "first_page": "4639",
+   "last_page": "4653",
+   "doi": "10.1007/s00146-025-02814-9"
+  },
+  {
+   "bib_id": 50,
+   "authors": [
+    {
+     "family": "Mircea",
+     "given": "MT"
+    },
+    {
+     "family": "McFadyen",
+     "given": "J"
+    },
+    {
+     "family": "Harper",
+     "given": "R"
+    },
+    {
+     "family": "Rollwage",
+     "given": "M"
+    },
+    {
+     "family": "Hauser",
+     "given": "TU"
+    }
+   ],
+   "year": "2026",
+   "title": "AI-driven mental health decision support linked to clinician resilience and preparedness",
+   "container": "Front Digit Health",
+   "volume": "8",
+   "first_page": "1755085",
+   "doi": "10.3389/fdgth.2026.1755085"
+  },
+  {
+   "bib_id": 51,
+   "authors": [
+    {
+     "family": "Olson",
+     "given": "KD"
+    },
+    {
+     "family": "Meeker",
+     "given": "D"
+    },
+    {
+     "family": "Troup",
+     "given": "M"
+    },
+    {
+     "family": "Barker",
+     "given": "TD"
+    },
+    {
+     "family": "Nguyen",
+     "given": "VH"
+    },
+    {
+     "family": "Manders",
+     "given": "JB"
+    }
+   ],
+   "year": "2025",
+   "title": "Use of ambient AI scribes to reduce administrative burden and professional burnout",
+   "container": "JAMA Netw Open",
+   "volume": "8",
+   "first_page": "e2534976",
+   "doi": "10.1001/jamanetworkopen.2025.34976"
+  },
+  {
+   "bib_id": 52,
+   "authors": [
+    {
+     "family": "Abulibdeh",
+     "given": "R"
+    },
+    {
+     "family": "Agyemang",
+     "given": "GO"
+    },
+    {
+     "family": "Celi",
+     "given": "LA"
+    },
+    {
+     "family": "Gorijavolu",
+     "given": "R"
+    },
+    {
+     "family": "Kalema",
+     "given": "NL"
+    },
+    {
+     "family": "Kleinlein",
+     "given": "R"
+    }
+   ],
+   "year": "2026",
+   "title": "Who's really in the loop? Rethinking oversight in AI-assisted health care",
+   "container": "Lancet",
+   "volume": "407",
+   "first_page": "2340",
+   "last_page": "2344",
+   "doi": "10.1016/S0140-6736(26)00204-7"
+  },
+  {
+   "bib_id": 53,
+   "authors": [
+    {
+     "family": "Kathleen",
+     "given": "LM"
+    },
+    {
+     "family": "Mosier",
+     "given": "KL"
+    },
+    {
+     "family": "Dietrich",
+     "given": "M"
+    },
+    {
+     "family": "Manzey",
+     "given": "D"
+    },
+    {
+     "family": "Mouloua",
+     "given": "M"
+    },
+    {
+     "family": "Hancock",
+     "given": "PA"
+    }
+   ],
+   "year": "2020",
+   "title": "Humans and Automated Decision Aids: A Match Made in Heaven?",
+   "first_page": "19",
+   "last_page": "42"
+  },
+  {
+   "bib_id": 54,
+   "authors": [
+    {
+     "family": "Shaw",
+     "given": "SD"
+    },
+    {
+     "family": "Nave",
+     "given": "G"
+    }
+   ],
+   "year": "2026",
+   "title": "Thinking--Fast, slow, and artificial: how AI is reshaping human reasoning and the rise of cognitive surrender",
+   "container": "The Wharton School Research Paper"
+  },
+  {
+   "bib_id": 55,
+   "authors": [
+    {
+     "family": "Lee",
+     "given": "EH"
+    },
+    {
+     "family": "Yin",
+     "given": "Y"
+    },
+    {
+     "family": "Jia",
+     "given": "N"
+    },
+    {
+     "family": "Wakslak",
+     "given": "CJ"
+    }
+   ],
+   "year": "2026",
+   "title": "Relying on AI at work reduces self-efficacy, ownership, and meaning while active collaboration mitigates the effects",
+   "container": "Sci Rep",
+   "volume": "16",
+   "first_page": "13583",
+   "doi": "10.1038/s41598-026-42312-6"
+  },
+  {
+   "bib_id": 56,
+   "authors": [
+    {
+     "family": "Wampold",
+     "given": "B"
+    },
+    {
+     "family": "Imel",
+     "given": "ZE"
+    }
+   ],
+   "year": "2015",
+   "title": "The Great Psychotherapy Debate: The Evidence for What Makes Psychotherapy Work. 2nd ed",
+   "first_page": "1",
+   "last_page": "323"
+  },
+  {
+   "bib_id": 57,
+   "authors": [
+    {
+     "family": "Zalaznik",
+     "given": "D"
+    },
+    {
+     "family": "Zlotnick",
+     "given": "E"
+    },
+    {
+     "family": "Barzilay",
+     "given": "S"
+    },
+    {
+     "family": "Ganor",
+     "given": "T"
+    },
+    {
+     "family": "Sorka",
+     "given": "H"
+    },
+    {
+     "family": "Ebert",
+     "given": "DD"
+    }
+   ],
+   "year": "2025",
+   "title": "Interpersonal factors in internet-based cognitive behavioral therapy for depression: attachment style and alliance with the program and with the therapist",
+   "container": "Psychother Res",
+   "volume": "35",
+   "first_page": "558",
+   "last_page": "573",
+   "doi": "10.1080/10503307.2024.2325510"
+  },
+  {
+   "bib_id": 58,
+   "authors": [
+    {
+     "family": "Berger",
+     "given": "T"
+    }
+   ],
+   "year": "2017",
+   "title": "The therapeutic alliance in internet interventions: a narrative review and suggestions for future research",
+   "container": "Psychother Res",
+   "volume": "27",
+   "first_page": "511",
+   "last_page": "524",
+   "doi": "10.1080/10503307.2015.1119908"
+  },
+  {
+   "bib_id": 59,
+   "authors": [
+    {
+     "family": "Herbener",
+     "given": "AB"
+    },
+    {
+     "family": "Damholdt",
+     "given": "MF"
+    }
+   ],
+   "year": "2025",
+   "title": "A theoretical framework of the processes of change in mental health interventions delivered by artificial therapists",
+   "container": "J Psychol Artif Intell",
+   "volume": "1",
+   "first_page": "2590495",
+   "doi": "10.1080/29974100.2025.2590495"
+  },
+  {
+   "bib_id": 60,
+   "authors": [
+    {
+     "family": "Reis",
+     "given": "M"
+    },
+    {
+     "family": "Reis",
+     "given": "F"
+    },
+    {
+     "family": "Kunde",
+     "given": "W"
+    }
+   ],
+   "year": "2024",
+   "title": "Influence of believed AI involvement on the perception of digital medical advice",
+   "container": "Nat Med",
+   "volume": "30",
+   "first_page": "3098",
+   "last_page": "3100",
+   "doi": "10.1038/s41591-024-03180-7"
+  },
+  {
+   "bib_id": 61,
+   "authors": [
+    {
+     "family": "Lee",
+     "given": "HS"
+    },
+    {
+     "family": "Wright",
+     "given": "C"
+    },
+    {
+     "family": "Ferranto",
+     "given": "J"
+    },
+    {
+     "family": "Buttimer",
+     "given": "J"
+    },
+    {
+     "family": "Palmer",
+     "given": "CE"
+    },
+    {
+     "family": "Welchman",
+     "given": "A"
+    }
+   ],
+   "year": "2024",
+   "title": "Artificial intelligence conversational agents in mental health: patients see potential, but prefer humans in the loop",
+   "container": "Front Psychiatry",
+   "volume": "15",
+   "first_page": "1505024",
+   "doi": "10.3389/fpsyt.2024.1505024"
+  },
+  {
+   "bib_id": 62,
+   "authors": [
+    {
+     "family": "Laban",
+     "given": "P"
+    },
+    {
+     "family": "Hayashi",
+     "given": "H"
+    },
+    {
+     "family": "Zhou",
+     "given": "Y"
+    },
+    {
+     "family": "Neville",
+     "given": "J"
+    }
+   ],
+   "title": "LLMs get lost in multi-turn conversation",
+   "container": "arXiv",
+   "doi": "10.48550/arXiv.2505.06120"
+  },
+  {
+   "bib_id": 63,
+   "authors": [
+    {
+     "family": "Zhu",
+     "given": "H"
+    }
+   ],
+   "title": "Architectural foundations and strategic considerations for the large language model infrastructures",
+   "container": "arXiv",
+   "doi": "10.48550/arXiv.2408.09205"
+  },
+  {
+   "bib_id": 64,
+   "authors": [
+    {
+     "family": "Hadi",
+     "given": "MU"
+    },
+    {
+     "family": "tashi",
+     "given": "A"
+    },
+    {
+     "family": "Qureshi",
+     "given": "R"
+    },
+    {
+     "family": "Shah",
+     "given": "A"
+    },
+    {
+     "family": "Irfan",
+     "given": "MM"
+    },
+    {
+     "family": "Zafar",
+     "given": "A"
+    }
+   ],
+   "title": "A survey on large language models: applications, challenges, limitations, and practical usage",
+   "container": "Techrxiv",
+   "doi": "10.36227/techrxiv.23589741.v1"
+  },
+  {
+   "bib_id": 65,
+   "authors": [
+    {
+     "family": "Yang",
+     "given": "K"
+    },
+    {
+     "family": "Zhang",
+     "given": "T"
+    },
+    {
+     "family": "Kuang",
+     "given": "Z"
+    },
+    {
+     "family": "Xie",
+     "given": "Q"
+    },
+    {
+     "family": "Huang",
+     "given": "J"
+    },
+    {
+     "family": "Ananiadou",
+     "given": "S"
+    }
+   ],
+   "year": "2024",
+   "title": "MentaLLaMA: interpretable mental health analysis on social media with large language models",
+   "first_page": "4489",
+   "last_page": "4500",
+   "doi": "10.1145/3589334.3648137"
+  },
+  {
+   "bib_id": 66,
+   "authors": [
+    {
+     "family": "Kermani",
+     "given": "A"
+    },
+    {
+     "family": "Pérez-Rosas",
+     "given": "V"
+    },
+    {
+     "family": "Metsis",
+     "given": "V"
+    }
+   ],
+   "title": "A systematic evaluation of LLM strategies for mental health text analysis: fine-tuning vs. prompt engineering vs. RAG",
+   "container": "arXiv",
+   "doi": "10.48550/arXiv.2503.24307"
+  },
+  {
+   "bib_id": 67,
+   "authors": [
+    {
+     "family": "Kalinich",
+     "given": "M"
+    },
+    {
+     "family": "Luccarelli",
+     "given": "J"
+    },
+    {
+     "family": "Maria",
+     "given": "J"
+    },
+    {
+     "family": "Williams",
+     "given": "G"
+    },
+    {
+     "family": "Moss",
+     "given": "F"
+    },
+    {
+     "family": "Torous",
+     "given": "J"
+    }
+   ],
+   "title": "Evaluating the effect of mental health fine-tuning relative to other model characteristics on LLM safety performance",
+   "container": "medRxiv",
+   "doi": "10.64898/2026.01.02.25343289"
+  },
+  {
+   "bib_id": 68,
+   "authors": [
+    {
+     "family": "Enevoldsen",
+     "given": "K"
+    },
+    {
+     "family": "Hansen",
+     "given": "L"
+    },
+    {
+     "family": "Nielsen",
+     "given": "D"
+    },
+    {
+     "family": "Egebæk",
+     "given": "R"
+    },
+    {
+     "family": "Holm",
+     "given": "S"
+    },
+    {
+     "family": "Nielsen",
+     "given": "M"
+    }
+   ],
+   "title": "Danish foundation models",
+   "container": "arXiv",
+   "doi": "10.48550/arxiv.2311.07264"
+  },
+  {
+   "bib_id": 69,
+   "authors": [
+    {
+     "family": "Tan",
+     "given": "DNH"
+    },
+    {
+     "family": "Tham",
+     "given": "Y"
+    },
+    {
+     "family": "Koh",
+     "given": "V"
+    },
+    {
+     "family": "Loon",
+     "given": "SC"
+    },
+    {
+     "family": "Aquino",
+     "given": "MC"
+    },
+    {
+     "family": "Lun",
+     "given": "K"
+    },
+    {
+     "family": "Tan",
+     "given": "M"
+    }
+   ],
+   "year": "2024",
+   "title": "Evaluating chatbot responses to patient questions in the field of glaucoma",
+   "container": "Front Med (Lausanne)",
+   "volume": "11",
+   "first_page": "1359073",
+   "doi": "10.3389/fmed.2024.1359073"
+  },
+  {
+   "bib_id": 70,
+   "authors": [
+    {
+     "family": "Ayers",
+     "given": "JW"
+    },
+    {
+     "family": "Poliak",
+     "given": "A"
+    },
+    {
+     "family": "Dredze",
+     "given": "M"
+    },
+    {
+     "family": "Leas",
+     "given": "EC"
+    },
+    {
+     "family": "Zhu",
+     "given": "Z"
+    },
+    {
+     "family": "Kelley",
+     "given": "JB"
+    }
+   ],
+   "year": "2023",
+   "title": "Comparing physician and artificial intelligence chatbot responses to patient questions posted to a public social media forum",
+   "container": "JAMA Intern Med",
+   "volume": "183",
+   "first_page": "589",
+   "last_page": "596",
+   "doi": "10.1001/jamainternmed.2023.1838"
+  },
+  {
+   "bib_id": 71,
+   "container": "Flaticon"
+  },
+  {
+   "bib_id": 72,
+   "container": "Magnific"
+  },
+  {
+   "bib_id": 73,
+   "container": "SVG Repo"
+  },
+  {
+   "bib_id": 74,
+   "container": "Icon8"
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-core-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "jats_doi": "10.2196/96835"
+ }
+}

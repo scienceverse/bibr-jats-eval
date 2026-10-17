@@ -1,0 +1,1366 @@
+{
+ "paper_id": "10.1017_s0033291726105261",
+ "info": {
+  "title": "Scalable, context-sensitive psychiatric assessment with large language models and brief diaries",
+  "doi": "10.1017/S0033291726105261",
+  "file_name": "10.1017_s0033291726105261.pdf",
+  "keywords": [
+   "ambulatory assessment",
+   "artificial intelligence",
+   "daily diary",
+   "hierarchical taxonomy of psychopathology",
+   "large language models",
+   "natural language processing",
+   "psychometrics"
+  ],
+  "abstract": "Background: Accurate psychiatric assessment requires understanding a person’s unique experience within their psychosocial context. Clinical interviews have been the gold standard for assessment as the only methods capable of this complex task, but they are time and resource-intensive. Consequently, psychiatric assessment typically relies on patient report surveys that are decontextualized and narrow in scope. This comprehensiveness-scalability tradeoff is a major bottleneck in studying and treating psychopathology. We propose using large language models (LLMs) to score psychopathology from brief personal narratives as a low-burden, context-sensitive solution. Methods: Participants (N = 108) completed brief (~1 minute), freeform audio diaries daily for 2 weeks. We used six LLMs to score wide-ranging psychopathology (Internalizing, Detachment, Disinhibition, Antagonism, Anankastia) from the diary transcripts. Leveraging an array of self-report and clinical interview measures, we tested the convergent, discriminant, concurrent, and clinical validity of LLM ratings for between-person differences and within-person fluctuations in psychopathology. Results: Supporting convergent and discriminant validity, LLM ratings correlated most strongly with corresponding self-report domains at the between (average convergent r = .42) and within-person (r = .28) levels. LLM and self-report ratings had similar patterns of associations with external variables, except for Anankastia and Antagonism. Further, every LLM-rated domain related to psychopathology ascertained by clinical interview. Conclusions: Across multiple forms of validity, we showed that LLMs can assess most major forms of psychopathology from mere minutes of audio. These results support scoring open-ended narratives with LLMs as a scalable, portable method to translate idiographic diagnostic data into standardized psychiatric assessments."
+ },
+ "author": [
+  {
+   "author_id": 1,
+   "given": "Whitney R.",
+   "family": "Ringwald",
+   "affiliation": "University of Minnesota, USA",
+   "email": "",
+   "orcid": "",
+   "corresponding": true
+  },
+  {
+   "author_id": 2,
+   "given": "Aman",
+   "family": "Taxali",
+   "affiliation": "University of Michigan, USA",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 3,
+   "given": "Mike",
+   "family": "Angstadt",
+   "affiliation": "University of Michigan, USA",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 4,
+   "given": "Colin E.",
+   "family": "Vize",
+   "affiliation": "University of Pittsburgh, USA",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 5,
+   "given": "Chandra",
+   "family": "Sripada",
+   "affiliation": "University of Michigan, USA",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 6,
+   "given": "Aidan G. C.",
+   "family": "Wright",
+   "affiliation": "University of Michigan, USA",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  }
+ ],
+ "section": [
+  {
+   "section_id": 1,
+   "section_type": "abstract",
+   "header": "Abstract",
+   "level": 1,
+   "parent_section_id": null,
+   "classification_score": 1.0
+  }
+ ],
+ "text": [
+  {
+   "text_id": 1,
+   "section_id": 1,
+   "paragraph_id": 1,
+   "text": "Background: Accurate psychiatric assessment requires understanding a person’s unique experience within their psychosocial context. Clinical interviews have been the gold standard for assessment as the only methods capable of this complex task, but they are time and resource-intensive. Consequently, psychiatric assessment typically relies on patient report surveys that are decontextualized and narrow in scope. This comprehensiveness-scalability tradeoff is a major bottleneck in studying and treating psychopathology. We propose using large language models (LLMs) to score psychopathology from brief personal narratives as a low-burden, context-sensitive solution. Methods: Participants (N = 108) completed brief (~1 minute), freeform audio diaries daily for 2 weeks. We used six LLMs to score wide-ranging psychopathology (Internalizing, Detachment, Disinhibition, Antagonism, Anankastia) from the diary transcripts. Leveraging an array of self-report and clinical interview measures, we tested the convergent, discriminant, concurrent, and clinical validity of LLM ratings for between-person differences and within-person fluctuations in psychopathology. Results: Supporting convergent and discriminant validity, LLM ratings correlated most strongly with corresponding self-report domains at the between (average convergent r = .42) and within-person (r = .28) levels. LLM and self-report ratings had similar patterns of associations with external variables, except for Anankastia and Antagonism. Further, every LLM-rated domain related to psychopathology ascertained by clinical interview. Conclusions: Across multiple forms of validity, we showed that LLMs can assess most major forms of psychopathology from mere minutes of audio. These results support scoring open-ended narratives with LLMs as a scalable, portable method to translate idiographic diagnostic data into standardized psychiatric assessments.",
+   "page_number": 1
+  }
+ ],
+ "bib": [
+  {
+   "bib_id": 1,
+   "authors": [
+    {
+     "family": "Achenbach",
+     "given": "T. M."
+    },
+    {
+     "family": "Krukowski",
+     "given": "R. A."
+    },
+    {
+     "family": "Dumenci",
+     "given": "L."
+    },
+    {
+     "family": "Ivanova",
+     "given": "M. Y."
+    }
+   ],
+   "year": "2005",
+   "title": "Assessment of adult psychopathology: Meta-analyses and implications of cross-informant correlations",
+   "container": "Psychological Bulletin",
+   "volume": "131",
+   "first_page": "361",
+   "last_page": "382",
+   "doi": "10.1037/0033-2909.131.3.361"
+  },
+  {
+   "bib_id": 2,
+   "authors": [
+    {
+     "family": "Brickman",
+     "given": "J."
+    },
+    {
+     "family": "Gupta",
+     "given": "M."
+    },
+    {
+     "family": "Oltmanns",
+     "given": "J. R."
+    }
+   ],
+   "year": "2025",
+   "title": "Large language models for psychological assessment: A comprehensive overview",
+   "container": "Advances in Methods and Practices in Psychological Science",
+   "volume": "8",
+   "first_page": "25152459251343582",
+   "doi": "10.1177/25152459251343582"
+  },
+  {
+   "bib_id": 3,
+   "authors": [
+    {
+     "family": "Eichstaedt",
+     "given": "J. C."
+    },
+    {
+     "family": "Kern",
+     "given": "M. L."
+    },
+    {
+     "family": "Yaden",
+     "given": "D. B."
+    },
+    {
+     "family": "Schwartz",
+     "given": "H. A."
+    },
+    {
+     "family": "Giorgi",
+     "given": "S."
+    },
+    {
+     "family": "Park",
+     "given": "G."
+    },
+    {
+     "family": "Hagan",
+     "given": "C. A."
+    },
+    {
+     "family": "Tobolsky",
+     "given": "V. A."
+    },
+    {
+     "family": "Smith",
+     "given": "L. K."
+    },
+    {
+     "family": "Buffone",
+     "given": "A."
+    },
+    {
+     "family": "Iwry",
+     "given": "J."
+    },
+    {
+     "family": "Seligman",
+     "given": "M. E. P."
+    },
+    {
+     "family": "Ungar",
+     "given": "L. H."
+    }
+   ],
+   "year": "2021",
+   "title": "Closed- and open-vocabulary approaches to text analysis: A review, quantitative comparison, and recommendations",
+   "container": "Psychological Methods",
+   "volume": "26",
+   "first_page": "398",
+   "last_page": "427",
+   "doi": "10.1037/met0000349"
+  },
+  {
+   "bib_id": 4,
+   "authors": [
+    {
+     "family": "First",
+     "given": "M. B."
+    },
+    {
+     "family": "Williams",
+     "given": "J. B. W."
+    },
+    {
+     "family": "Karg",
+     "given": "R. S."
+    },
+    {
+     "family": "Spitzer",
+     "given": "R. L."
+    }
+   ],
+   "year": "2016",
+   "title": "Structured clinical interview for DSM-5 disorders: Clinician version (SCID-5-CV)"
+  },
+  {
+   "bib_id": 5,
+   "authors": [
+    {
+     "family": "Fisher",
+     "given": "H."
+    },
+    {
+     "family": "Jaffe",
+     "given": "N."
+    },
+    {
+     "family": "Pidvirny",
+     "given": "K."
+    },
+    {
+     "family": "Tierney",
+     "given": "A."
+    },
+    {
+     "family": "Pizzagalli",
+     "given": "D."
+    },
+    {
+     "family": "Webb",
+     "given": "C."
+    }
+   ],
+   "year": "2025",
+   "title": "Using natural language processing to track negative emotions in the daily lives of adolescents",
+   "doi": "10.21203/rs.3.rs-6414400/v1"
+  },
+  {
+   "bib_id": 6,
+   "authors": [
+    {
+     "family": "Fisher",
+     "given": "H."
+    },
+    {
+     "family": "Jaffe",
+     "given": "N. M."
+    },
+    {
+     "family": "Pidvirny",
+     "given": "K."
+    },
+    {
+     "family": "Tierney",
+     "given": "A. O."
+    },
+    {
+     "family": "Vaidean",
+     "given": "M. S."
+    },
+    {
+     "family": "Dongre",
+     "given": "P."
+    },
+    {
+     "family": "Webb",
+     "given": "C. A."
+    }
+   ],
+   "year": "2026",
+   "title": "Language-based detection of depression with machine learning: Systematic review and meta-analysis",
+   "container": "npj Digital Medicine",
+   "volume": "9",
+   "first_page": "273",
+   "doi": "10.1038/s41746-026-02448-1"
+  },
+  {
+   "bib_id": 7,
+   "authors": [
+    {
+     "family": "Fisher",
+     "given": "H."
+    },
+    {
+     "family": "Jaffe",
+     "given": "N. M."
+    },
+    {
+     "family": "Rahimi-Eichi",
+     "given": "H."
+    },
+    {
+     "family": "Forbes",
+     "given": "E. E."
+    },
+    {
+     "family": "Pizzagalli",
+     "given": "D. A."
+    },
+    {
+     "family": "Baker",
+     "given": "J. T."
+    },
+    {
+     "family": "Webb",
+     "given": "C. A."
+    }
+   ],
+   "year": "2025",
+   "title": "Measuring activation during behavioral activation therapy: A proof-of-concept study using smartphone sensors and LLM-derived ratings in adolescents with anhedonia",
+   "container": "NPP – Digital Psychiatry and Neuroscience",
+   "volume": "3",
+   "first_page": "24",
+   "doi": "10.1038/s44277-025-00045-w"
+  },
+  {
+   "bib_id": 8,
+   "authors": [
+    {
+     "family": "Ganesan",
+     "given": "A. V."
+    },
+    {
+     "family": "Varadarajan",
+     "given": "V."
+    },
+    {
+     "family": "Lal",
+     "given": "Y. K."
+    },
+    {
+     "family": "Eijsbroek",
+     "given": "V. C."
+    },
+    {
+     "family": "Kjell",
+     "given": "K."
+    },
+    {
+     "family": "Kjell",
+     "given": "O. N. E."
+    },
+    {
+     "family": "Dhanasekaran",
+     "given": "T."
+    },
+    {
+     "family": "Stade",
+     "given": "E. C."
+    },
+    {
+     "family": "Eichstaedt",
+     "given": "J. C."
+    },
+    {
+     "family": "Boyd",
+     "given": "R. L."
+    },
+    {
+     "family": "Schwartz",
+     "given": "H. A."
+    },
+    {
+     "family": "Flek",
+     "given": "L."
+    }
+   ],
+   "year": "2024",
+   "doi": "10.48550/arXiv.2411.13800"
+  },
+  {
+   "bib_id": 9,
+   "authors": [
+    {
+     "family": "Gaur",
+     "given": "M."
+    },
+    {
+     "family": "Aribandi",
+     "given": "V."
+    },
+    {
+     "family": "Alambo",
+     "given": "A."
+    },
+    {
+     "family": "Kursuncu",
+     "given": "U."
+    },
+    {
+     "family": "Thirunarayan",
+     "given": "K."
+    },
+    {
+     "family": "Beich",
+     "given": "J."
+    },
+    {
+     "family": "Pathak",
+     "given": "J."
+    },
+    {
+     "family": "Sheth",
+     "given": "A."
+    }
+   ],
+   "year": "2021",
+   "title": "Characterization of time-variant and time-invariant assessment of suicidality on Reddit using C-SSRS",
+   "container": "PLoS One",
+   "volume": "16",
+   "first_page": "e0250448",
+   "doi": "10.1371/journal.pone.0250448"
+  },
+  {
+   "bib_id": 10,
+   "authors": [
+    {
+     "family": "Gu",
+     "given": "Z."
+    },
+    {
+     "family": "Kjell",
+     "given": "K."
+    },
+    {
+     "family": "Schwartz",
+     "given": "H. A."
+    },
+    {
+     "family": "Kjell",
+     "given": "O."
+    }
+   ],
+   "year": "2025",
+   "title": "Natural language response formats for assessing depression and worry with large language models: A sequential evaluation with model pre-registration",
+   "container": "Assessment",
+   "first_page": "10731911251364022",
+   "doi": "10.1177/10731911251364022"
+  },
+  {
+   "bib_id": 11,
+   "authors": [
+    {
+     "family": "Hopwood",
+     "given": "C. J."
+    },
+    {
+     "family": "Wright",
+     "given": "A. G. C."
+    },
+    {
+     "family": "Bleidorn",
+     "given": "W."
+    }
+   ],
+   "year": "2022",
+   "title": "Person–environment transactions differentiate personality and psychopathology",
+   "container": "Nature Reviews Psychology",
+   "volume": "1",
+   "first_page": "55",
+   "last_page": "63",
+   "doi": "10.1038/s44159-021-00004-0"
+  },
+  {
+   "bib_id": 12,
+   "authors": [
+    {
+     "family": "Kim",
+     "given": "J."
+    },
+    {
+     "family": "Ma",
+     "given": "S. P."
+    },
+    {
+     "family": "Chen",
+     "given": "M. L."
+    },
+    {
+     "family": "Galatzer-Levy",
+     "given": "I. R."
+    },
+    {
+     "family": "Torous",
+     "given": "J."
+    },
+    {
+     "family": "Van Roessel",
+     "given": "P. J."
+    },
+    {
+     "family": "Sharp",
+     "given": "C."
+    },
+    {
+     "family": "Pfeffer",
+     "given": "M. A."
+    },
+    {
+     "family": "Rodriguez",
+     "given": "C. I."
+    },
+    {
+     "family": "Linos",
+     "given": "E."
+    },
+    {
+     "family": "Chen",
+     "given": "J. H."
+    }
+   ],
+   "year": "2025",
+   "title": "Optimizing large language models for detecting symptoms of depression/anxiety in chronic diseases patient communications",
+   "container": "npj Digital Medicine",
+   "volume": "8",
+   "first_page": "580",
+   "doi": "10.1038/s41746-025-01969-5"
+  },
+  {
+   "bib_id": 13,
+   "authors": [
+    {
+     "family": "Kjell",
+     "given": "O. N. E."
+    },
+    {
+     "family": "Ganesan",
+     "given": "A. V."
+    },
+    {
+     "family": "Boyd",
+     "given": "R."
+    },
+    {
+     "family": "Oltmanns",
+     "given": "J. R."
+    },
+    {
+     "family": "Rivero",
+     "given": "A."
+    },
+    {
+     "family": "Feltman",
+     "given": "S."
+    },
+    {
+     "family": "Carr",
+     "given": "M. A."
+    },
+    {
+     "family": "Luft",
+     "given": "B."
+    },
+    {
+     "family": "Kotov",
+     "given": "R."
+    },
+    {
+     "family": "Schwartz",
+     "given": "H. A."
+    }
+   ],
+   "year": "2024",
+   "doi": "10.31234/osf.io/xw24e"
+  },
+  {
+   "bib_id": 14,
+   "authors": [
+    {
+     "family": "Kjell",
+     "given": "O. N. E."
+    },
+    {
+     "family": "Kjell",
+     "given": "K."
+    },
+    {
+     "family": "Schwartz",
+     "given": "H. A."
+    }
+   ],
+   "year": "2024",
+   "title": "Beyond rating scales: With targeted evaluation, large language models are poised for psychological assessment",
+   "container": "Psychiatry Research",
+   "volume": "333",
+   "first_page": "115667",
+   "doi": "10.1016/j.psychres.2023.115667"
+  },
+  {
+   "bib_id": 15,
+   "authors": [
+    {
+     "family": "Krist",
+     "given": "A. H."
+    },
+    {
+     "family": "Phillips",
+     "given": "S. M."
+    },
+    {
+     "family": "Sabo",
+     "given": "R. T."
+    },
+    {
+     "family": "Balasubramanian",
+     "given": "B. A."
+    },
+    {
+     "family": "Heurtin-Roberts",
+     "given": "S."
+    },
+    {
+     "family": "Ory",
+     "given": "M. G."
+    },
+    {
+     "family": "Johnson",
+     "given": "S. B."
+    },
+    {
+     "family": "Sheinfeld-Gorin",
+     "given": "S. N."
+    },
+    {
+     "family": "Estabrooks",
+     "given": "P. A."
+    },
+    {
+     "family": "Ritzwoller",
+     "given": "D. P."
+    },
+    {
+     "family": "Glasgow",
+     "given": "R. E."
+    },
+    {
+     "family": "For the MOHR Study Group",
+     "given": ""
+    }
+   ],
+   "year": "2014",
+   "title": "Adoption, reach, implementation, and maintenance of a Behavioral and mental health assessment in primary care",
+   "container": "The Annals of Family Medicine",
+   "volume": "12",
+   "first_page": "525",
+   "last_page": "533",
+   "doi": "10.1370/afm.1710"
+  },
+  {
+   "bib_id": 16,
+   "authors": [
+    {
+     "family": "Lamichhane",
+     "given": "B."
+    }
+   ],
+   "year": "2023",
+   "doi": "10.48550/arXiv.2303.15727"
+  },
+  {
+   "bib_id": 17,
+   "authors": [
+    {
+     "family": "Lewis",
+     "given": "C. C."
+    },
+    {
+     "family": "Boyd",
+     "given": "M."
+    },
+    {
+     "family": "Puspitasari",
+     "given": "A."
+    },
+    {
+     "family": "Navarro",
+     "given": "E."
+    },
+    {
+     "family": "Howard",
+     "given": "J."
+    },
+    {
+     "family": "Kassab",
+     "given": "H."
+    },
+    {
+     "family": "Hoffman",
+     "given": "M."
+    },
+    {
+     "family": "Scott",
+     "given": "K."
+    },
+    {
+     "family": "Lyon",
+     "given": "A."
+    },
+    {
+     "family": "Douglas",
+     "given": "S."
+    },
+    {
+     "family": "Simon",
+     "given": "G."
+    },
+    {
+     "family": "Kroenke",
+     "given": "K."
+    }
+   ],
+   "year": "2019",
+   "title": "Implementing measurement-based care in behavioral health: A review",
+   "container": "JAMA Psychiatry",
+   "volume": "76",
+   "first_page": "324",
+   "last_page": "335",
+   "doi": "10.1001/jamapsychiatry.2018.3329"
+  },
+  {
+   "bib_id": 18,
+   "authors": [
+    {
+     "family": "Lipton",
+     "given": "Z. C."
+    }
+   ],
+   "year": "2016",
+   "doi": "10.48550/arXiv.1606.03490"
+  },
+  {
+   "bib_id": 19,
+   "authors": [
+    {
+     "family": "Lorenzo-Seva",
+     "given": "U."
+    },
+    {
+     "family": "Ten Berge",
+     "given": "J. M. F."
+    }
+   ],
+   "year": "2006",
+   "title": "Tucker’s congruence coefficient as a meaningful index of factor similarity",
+   "container": "Methodology",
+   "volume": "2",
+   "first_page": "57",
+   "last_page": "64",
+   "doi": "10.1027/1614-2241.2.2.57"
+  },
+  {
+   "bib_id": 20,
+   "authors": [
+    {
+     "family": "Muthén",
+     "given": "B."
+    },
+    {
+     "family": "Muthén",
+     "given": "L. K."
+    }
+   ],
+   "year": "2025",
+   "title": "Mplus: Statistical analysis with latent variables. User’s guide"
+  },
+  {
+   "bib_id": 21,
+   "authors": [
+    {
+     "family": "Narita",
+     "given": "Z. C."
+    },
+    {
+     "family": "Ledsam",
+     "given": "J. R."
+    },
+    {
+     "family": "Niwa",
+     "given": "M."
+    },
+    {
+     "family": "Kawada",
+     "given": "N."
+    },
+    {
+     "family": "Galatzer-Levy",
+     "given": "I. R."
+    },
+    {
+     "family": "Kim",
+     "given": "Y."
+    }
+   ],
+   "year": "2025",
+   "title": "Can generative AI assess PTSD? A clinical validation study of transcribed and direct audio input modalities",
+   "container": "BMJ Digital Health & AI",
+   "volume": "1",
+   "first_page": "e000042",
+   "doi": "10.1136/bmjdhai-2025-000042"
+  },
+  {
+   "bib_id": 22,
+   "authors": [
+    {
+     "family": "Obradovich",
+     "given": "N."
+    },
+    {
+     "family": "Khalsa",
+     "given": "S. S."
+    },
+    {
+     "family": "Khan",
+     "given": "W. U."
+    },
+    {
+     "family": "Suh",
+     "given": "J."
+    },
+    {
+     "family": "Perlis",
+     "given": "R. H."
+    },
+    {
+     "family": "Ajilore",
+     "given": "O."
+    },
+    {
+     "family": "Paulus",
+     "given": "M. P."
+    }
+   ],
+   "year": "2024",
+   "title": "Opportunities and risks of large language models in psychiatry",
+   "container": "NPP – Digital Psychiatry and Neuroscience",
+   "volume": "2",
+   "first_page": "8",
+   "doi": "10.1038/s44277-024-00010-z"
+  },
+  {
+   "bib_id": 23,
+   "authors": [
+    {
+     "family": "Ohse",
+     "given": "J."
+    },
+    {
+     "family": "Hadžić",
+     "given": "B."
+    },
+    {
+     "family": "Mohammed",
+     "given": "P."
+    },
+    {
+     "family": "Peperkorn",
+     "given": "N."
+    },
+    {
+     "family": "Danner",
+     "given": "M."
+    },
+    {
+     "family": "Yorita",
+     "given": "A."
+    },
+    {
+     "family": "Kubota",
+     "given": "N."
+    },
+    {
+     "family": "Rätsch",
+     "given": "M."
+    },
+    {
+     "family": "Shiban",
+     "given": "Y."
+    }
+   ],
+   "year": "2024",
+   "title": "Zero-shot strike: Testing the generalisation capabilities of out-of-the-box LLM models for depression detection",
+   "container": "Computer Speech & Language",
+   "volume": "88",
+   "first_page": "101663",
+   "doi": "10.1016/j.csl.2024.101663"
+  },
+  {
+   "bib_id": 24,
+   "authors": [
+    {
+     "family": "Oltmanns",
+     "given": "J. R."
+    },
+    {
+     "family": "Oltmanns",
+     "given": "T. F."
+    },
+    {
+     "family": "Letzring",
+     "given": "T. D."
+    },
+    {
+     "family": "Spain",
+     "given": "J. S."
+    }
+   ],
+   "year": "2019",
+   "title": "Self–other agreement on ratings of personality disorder symptoms and traits",
+   "container": "The Oxford handbook of accurate personality judgment",
+   "first_page": "276",
+   "last_page": "293",
+   "doi": "10.1093/oxfordhb/9780190912529.013.19"
+  },
+  {
+   "bib_id": 25,
+   "authors": [
+    {
+     "family": "Pennebaker",
+     "given": "J. W."
+    },
+    {
+     "family": "Mehl",
+     "given": "M. R."
+    },
+    {
+     "family": "Niederhoffer",
+     "given": "K. G."
+    }
+   ],
+   "year": "2003",
+   "title": "Psychological aspects of natural language use: Our words, our selves",
+   "container": "Annual Review of Psychology",
+   "volume": "54",
+   "first_page": "547",
+   "last_page": "577",
+   "doi": "10.1146/annurev.psych.54.101601.145041"
+  },
+  {
+   "bib_id": 26,
+   "authors": [
+    {
+     "family": "Pfohl",
+     "given": "B."
+    },
+    {
+     "family": "Blum",
+     "given": "N."
+    },
+    {
+     "family": "Zimmerman",
+     "given": "M."
+    }
+   ],
+   "year": "1997",
+   "title": "Structured clinical interview for DSM-IV personality (SIDP-IV)"
+  },
+  {
+   "bib_id": 27,
+   "authors": [
+    {
+     "family": "Radford",
+     "given": "A."
+    },
+    {
+     "family": "Kim",
+     "given": "J. W."
+    },
+    {
+     "family": "Xu",
+     "given": "T."
+    },
+    {
+     "family": "Brockman",
+     "given": "G."
+    },
+    {
+     "family": "McLeavey",
+     "given": "C."
+    },
+    {
+     "family": "Sutskever",
+     "given": "I."
+    }
+   ],
+   "year": "2022",
+   "doi": "10.48550/arXiv.2212.04356"
+  },
+  {
+   "bib_id": 28,
+   "authors": [
+    {
+     "family": "Ringwald",
+     "given": "W. R."
+    },
+    {
+     "family": "Emery",
+     "given": "L."
+    },
+    {
+     "family": "Khoo",
+     "given": "S."
+    },
+    {
+     "family": "Clark",
+     "given": "L. A."
+    },
+    {
+     "family": "Kotelnikova",
+     "given": "Y."
+    },
+    {
+     "family": "Scalco",
+     "given": "M. D."
+    },
+    {
+     "family": "Watson",
+     "given": "D."
+    },
+    {
+     "family": "Wright",
+     "given": "A. G. C."
+    },
+    {
+     "family": "Simms",
+     "given": "L. J."
+    }
+   ],
+   "year": "2023",
+   "title": "Structure of pathological personality traits through the lens of the CAT-PD model",
+   "container": "Assessment",
+   "volume": "30",
+   "first_page": "2276",
+   "last_page": "2295",
+   "doi": "10.1177/10731911221143343"
+  },
+  {
+   "bib_id": 29,
+   "authors": [
+    {
+     "family": "Ringwald",
+     "given": "W. R."
+    },
+    {
+     "family": "Woods",
+     "given": "W. C."
+    },
+    {
+     "family": "Wright",
+     "given": "A. G. C."
+    }
+   ],
+   "year": "2024",
+   "title": "Comparing the diagnostic and statistical manual of mental disorders, fifth edition, personality disorder models scored from the same interview",
+   "container": "Personality Disorders: Theory, Research, and Treatment",
+   "volume": "15",
+   "first_page": "371",
+   "last_page": "378",
+   "doi": "10.1037/per0000663"
+  },
+  {
+   "bib_id": 30,
+   "authors": [
+    {
+     "family": "Shah",
+     "given": "D. S."
+    },
+    {
+     "family": "Schwartz",
+     "given": "H. A."
+    },
+    {
+     "family": "Hovy",
+     "given": "D."
+    }
+   ],
+   "year": "2020",
+   "title": "Predictive biases in natural language processing models: A conceptual framework and overview",
+   "container": "Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics",
+   "first_page": "5248",
+   "last_page": "5264",
+   "doi": "10.18653/v1/2020.acl-main.468"
+  },
+  {
+   "bib_id": 31,
+   "authors": [
+    {
+     "family": "Shin",
+     "given": "D."
+    },
+    {
+     "family": "Kim",
+     "given": "H."
+    },
+    {
+     "family": "Lee",
+     "given": "S."
+    },
+    {
+     "family": "Cho",
+     "given": "Y."
+    },
+    {
+     "family": "Jung",
+     "given": "W."
+    }
+   ],
+   "year": "2024",
+   "title": "Using large language models to detect depression from user-generated diary text data as a novel approach in digital mental health screening: Instrument validation study",
+   "container": "Journal of Medical Internet Research",
+   "volume": "26",
+   "first_page": "e54617",
+   "doi": "10.2196/54617"
+  },
+  {
+   "bib_id": 32,
+   "authors": [
+    {
+     "family": "Timmons",
+     "given": "A. C."
+    },
+    {
+     "family": "Duong",
+     "given": "J. B."
+    },
+    {
+     "family": "Simo Fiallo",
+     "given": "N."
+    },
+    {
+     "family": "Lee",
+     "given": "T."
+    },
+    {
+     "family": "Vo",
+     "given": "H. P. Q."
+    },
+    {
+     "family": "Ahle",
+     "given": "M. W."
+    },
+    {
+     "family": "Comer",
+     "given": "J. S."
+    },
+    {
+     "family": "Brewer",
+     "given": "L. C."
+    },
+    {
+     "family": "Frazier",
+     "given": "S. L."
+    },
+    {
+     "family": "Chaspari",
+     "given": "T."
+    }
+   ],
+   "year": "2023",
+   "title": "A call to action on assessing and mitigating bias in artificial intelligence applications for mental health",
+   "container": "Perspectives on Psychological Science",
+   "volume": "18",
+   "first_page": "1062",
+   "last_page": "1096",
+   "doi": "10.1177/17456916221134490"
+  },
+  {
+   "bib_id": 33,
+   "authors": [
+    {
+     "family": "Wright",
+     "given": "A. G. C."
+    },
+    {
+     "family": "Ringwald",
+     "given": "W. R."
+    },
+    {
+     "family": "Vize",
+     "given": "C."
+    },
+    {
+     "family": "Eichstaedt",
+     "given": "J. C."
+    },
+    {
+     "family": "Angstadt",
+     "given": "M."
+    },
+    {
+     "family": "Taxali",
+     "given": "A."
+    },
+    {
+     "family": "Sripada",
+     "given": "C."
+    }
+   ],
+   "year": "2025",
+   "title": "Assessing personality using zero-shot generative AI scoring of brief open-ended text",
+   "container": "Nature Human Behaviour"
+  },
+  {
+   "bib_id": 34,
+   "authors": [
+    {
+     "family": "Wright",
+     "given": "A. G. C."
+    },
+    {
+     "family": "Ringwald",
+     "given": "W. R."
+    },
+    {
+     "family": "Zimmermann",
+     "given": "J."
+    }
+   ],
+   "year": "2025",
+   "title": "Measuring psychopathology in daily life",
+   "container": "Clinical Psychological Science",
+   "volume": "13",
+   "first_page": "649",
+   "last_page": "663",
+   "doi": "10.1177/21677026241291549"
+  },
+  {
+   "bib_id": 35,
+   "authors": [
+    {
+     "family": "Xu",
+     "given": "X."
+    },
+    {
+     "family": "Yao",
+     "given": "B."
+    },
+    {
+     "family": "Dong",
+     "given": "Y."
+    },
+    {
+     "family": "Gabriel",
+     "given": "S."
+    },
+    {
+     "family": "Yu",
+     "given": "H."
+    },
+    {
+     "family": "Hendler",
+     "given": "J."
+    },
+    {
+     "family": "Ghassemi",
+     "given": "M."
+    },
+    {
+     "family": "Dey",
+     "given": "A. K."
+    },
+    {
+     "family": "Wang",
+     "given": "D."
+    }
+   ],
+   "year": "2024",
+   "title": "Mental-LLM: Leveraging large language models for mental health prediction via online text data",
+   "container": "Proceedings of the ACM on Interactive, Mobile, Wearable and Ubiquitous Technologies",
+   "volume": "8",
+   "first_page": "1",
+   "last_page": "32",
+   "doi": "10.1145/3643540"
+  },
+  {
+   "bib_id": 36,
+   "authors": [
+    {
+     "family": "Zack",
+     "given": "T."
+    },
+    {
+     "family": "Lehman",
+     "given": "E."
+    },
+    {
+     "family": "Suzgun",
+     "given": "M."
+    },
+    {
+     "family": "Rodriguez",
+     "given": "J. A."
+    },
+    {
+     "family": "Celi",
+     "given": "L. A."
+    },
+    {
+     "family": "Gichoya",
+     "given": "J."
+    },
+    {
+     "family": "Jurafsky",
+     "given": "D."
+    },
+    {
+     "family": "Szolovits",
+     "given": "P."
+    },
+    {
+     "family": "Bates",
+     "given": "D. W."
+    },
+    {
+     "family": "Abdulnour",
+     "given": "R.-E. E."
+    },
+    {
+     "family": "Butte",
+     "given": "A. J."
+    },
+    {
+     "family": "Alsentzer",
+     "given": "E."
+    }
+   ],
+   "year": "2024",
+   "title": "Assessing the potential of GPT-4 to perpetuate racial and gender biases in health care: A model evaluation study",
+   "container": "The Lancet Digital Health",
+   "volume": "6",
+   "first_page": "e12",
+   "last_page": "e22",
+   "doi": "10.1016/S2589-7500(23)00225-X"
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-core-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "jats_doi": "10.1017/S0033291726105261"
+ }
+}

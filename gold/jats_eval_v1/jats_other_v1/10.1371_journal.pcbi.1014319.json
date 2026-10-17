@@ -1,0 +1,985 @@
+{
+ "paper_id": "10.1371_journal.pcbi.1014319",
+ "info": {
+  "title": "Demographic changes and behavioural responses shape vulnerability to infectious disease outbreaks",
+  "doi": "10.1371/journal.pcbi.1014319",
+  "file_name": "10.1371_journal.pcbi.1014319.pdf",
+  "abstract": "Demographic shifts are reshaping population age structures worldwide, with implications for infectious disease dynamics. Since contact patterns, susceptibility and infectiousness often vary by age, the risk that pathogen introductions initiate a substantial outbreak depends on the population’s age distribution and associated behavioural characteristics. We develop an age-structured mathematical model to estimate the risk that a single pathogen introduction leads to sustained transmission (the probability of a major outbreak) under long-term demographic transitions, incorporating changes in age-specific contact patterns and behavioural adaptation (specifically, extended workforce participation in an ageing society). Using the Republic of Korea (projected to become the world’s oldest population by 2050) as a case study, we show that population ageing may reduce the probability of a major outbreak due to older individuals’ lower contact rates. However, this effect is attenuated for pathogens with increasing susceptibility or infectiousness with age, and by factors such as later retirement that increase the number of contacts that older individuals have. These findings demonstrate that, while outbreak risks are affected by demographic changes, they are further modified by associated behavioural responses, highlighting the importance of accounting for demographic and socio-behavioural context when assessing future infectious disease outbreak risks."
+ },
+ "author": [
+  {
+   "author_id": 1,
+   "given": "Abbie",
+   "family": "Evans",
+   "affiliation": "Mathematical Institute, University of Oxford, Oxford, United Kingdom",
+   "email": "",
+   "orcid": "",
+   "corresponding": true
+  },
+  {
+   "author_id": 2,
+   "given": "William S.",
+   "family": "Hart",
+   "affiliation": "Mathematical Institute, University of Oxford, Oxford, United Kingdom",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 3,
+   "given": "Eunok",
+   "family": "Jung",
+   "affiliation": "Department of Mathematics, Konkuk University, Seoul, Republic of Korea",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 4,
+   "given": "Kyeongah",
+   "family": "Nah",
+   "affiliation": "Busan Centre for Medical Mathematics, National Institute for Mathematical Sciences, Busan, Republic of Korea",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 5,
+   "given": "Karla",
+   "family": "Bonic-Babic",
+   "affiliation": "Mathematical Institute, University of Oxford, Oxford, United Kingdom",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 6,
+   "given": "Sung-mok",
+   "family": "Jung",
+   "affiliation": "Saw Swee Hock School of Public Health, National University of Singapore, Singapore; Department of Infectious Disease Epidemiology and Dynamics, Institute of Tropical Medicine, Nagasaki University, Nagasaki, Japan; Department of Preventive Medicine, Seoul National University College of Medicine, Seoul, Republic of Korea",
+   "email": "",
+   "orcid": "",
+   "corresponding": true
+  },
+  {
+   "author_id": 7,
+   "given": "Robin N.",
+   "family": "Thompson",
+   "affiliation": "Mathematical Institute, University of Oxford, Oxford, United Kingdom",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  }
+ ],
+ "section": [
+  {
+   "section_id": 1,
+   "section_type": "abstract",
+   "header": "Abstract",
+   "level": 1,
+   "parent_section_id": null,
+   "classification_score": 1.0
+  }
+ ],
+ "text": [
+  {
+   "text_id": 1,
+   "section_id": 1,
+   "paragraph_id": 1,
+   "text": "Demographic shifts are reshaping population age structures worldwide, with implications for infectious disease dynamics. Since contact patterns, susceptibility and infectiousness often vary by age, the risk that pathogen introductions initiate a substantial outbreak depends on the population’s age distribution and associated behavioural characteristics. We develop an age-structured mathematical model to estimate the risk that a single pathogen introduction leads to sustained transmission (the probability of a major outbreak) under long-term demographic transitions, incorporating changes in age-specific contact patterns and behavioural adaptation (specifically, extended workforce participation in an ageing society). Using the Republic of Korea (projected to become the world’s oldest population by 2050) as a case study, we show that population ageing may reduce the probability of a major outbreak due to older individuals’ lower contact rates. However, this effect is attenuated for pathogens with increasing susceptibility or infectiousness with age, and by factors such as later retirement that increase the number of contacts that older individuals have. These findings demonstrate that, while outbreak risks are affected by demographic changes, they are further modified by associated behavioural responses, highlighting the importance of accounting for demographic and socio-behavioural context when assessing future infectious disease outbreak risks.",
+   "page_number": 1
+  }
+ ],
+ "bib": [
+  {
+   "bib_id": 1,
+   "authors": [
+    {
+     "family": "Christensen",
+     "given": "K"
+    },
+    {
+     "family": "Doblhammer",
+     "given": "G"
+    },
+    {
+     "family": "Rau",
+     "given": "R"
+    },
+    {
+     "family": "Vaupel",
+     "given": "JW"
+    }
+   ],
+   "year": "2009",
+   "title": "Ageing populations: The challenges ahead",
+   "container": "Lancet",
+   "volume": "374",
+   "first_page": "1196",
+   "doi": "10.1016/S0140-6736(09)61460-4"
+  },
+  {
+   "bib_id": 2,
+   "authors": [
+    {
+     "family": "Preston",
+     "given": "SH"
+    },
+    {
+     "family": "Stokes",
+     "given": "A"
+    }
+   ],
+   "year": "2012",
+   "title": "Sources of population aging in more and less developed countries",
+   "container": "Popul Dev Rev",
+   "volume": "38",
+   "first_page": "221",
+   "doi": "10.1111/j.1728-4457.2012.00490.x"
+  },
+  {
+   "bib_id": 3,
+   "authors": [
+    {
+     "family": "Prem",
+     "given": "K"
+    },
+    {
+     "family": "Zandvoort K",
+     "given": "van"
+    },
+    {
+     "family": "Klepac",
+     "given": "P"
+    },
+    {
+     "family": "Eggo",
+     "given": "RM"
+    },
+    {
+     "family": "Davies",
+     "given": "NG"
+    },
+    {
+     "family": "Centre for the Mathematical Modelling of Infectious Diseases COVID-19 Working Group",
+     "given": ""
+    }
+   ],
+   "year": "2021",
+   "title": "Projecting contact matrices in 177 geographical regions: An update and comparison with empirical data for the COVID-19 era",
+   "container": "PLoS Comput Biol",
+   "volume": "17",
+   "doi": "10.1371/journal.pcbi.1009098"
+  },
+  {
+   "bib_id": 4,
+   "authors": [
+    {
+     "family": "Møgelmose",
+     "given": "S"
+    },
+    {
+     "family": "Neels",
+     "given": "K"
+    },
+    {
+     "family": "Beutels",
+     "given": "P"
+    },
+    {
+     "family": "Hens",
+     "given": "N"
+    }
+   ],
+   "year": "2023",
+   "title": "Exploring the impact of population ageing on the spread of emerging respiratory infections and the associated burden of mortality",
+   "container": "BMC Infect Dis",
+   "volume": "23",
+   "first_page": "767",
+   "doi": "10.1186/s12879-023-08657-3"
+  },
+  {
+   "bib_id": 5,
+   "authors": [
+    {
+     "family": "Geard",
+     "given": "N"
+    },
+    {
+     "family": "Glass",
+     "given": "K"
+    },
+    {
+     "family": "McCaw",
+     "given": "JM"
+    },
+    {
+     "family": "McBryde",
+     "given": "ES"
+    },
+    {
+     "family": "Korb",
+     "given": "KB"
+    },
+    {
+     "family": "Keeling",
+     "given": "MJ"
+    }
+   ],
+   "year": "2015",
+   "title": "The effects of demographic change on disease transmission and vaccine impact in a household structured population",
+   "container": "Epidemics",
+   "volume": "13",
+   "first_page": "56",
+   "last_page": "64",
+   "doi": "10.1016/j.epidem.2015.08.002"
+  },
+  {
+   "bib_id": 6,
+   "authors": [
+    {
+     "family": "Southall",
+     "given": "E"
+    },
+    {
+     "family": "Ogi-Gittins",
+     "given": "Z"
+    },
+    {
+     "family": "Kaye",
+     "given": "AR"
+    },
+    {
+     "family": "Hart",
+     "given": "WS"
+    },
+    {
+     "family": "Lovell-Read",
+     "given": "FA"
+    },
+    {
+     "family": "Thompson",
+     "given": "RN"
+    }
+   ],
+   "year": "2023",
+   "title": "A practical guide to mathematical methods for estimating infectious disease outbreak risks",
+   "container": "J Theor Biol",
+   "volume": "562",
+   "first_page": "111417",
+   "doi": "10.1016/j.jtbi.2023.111417"
+  },
+  {
+   "bib_id": 7,
+   "authors": [
+    {
+     "family": "Evans",
+     "given": "A"
+    },
+    {
+     "family": "Hart",
+     "given": "WS"
+    },
+    {
+     "family": "Longobardi",
+     "given": "S"
+    },
+    {
+     "family": "Desikan",
+     "given": "R"
+    },
+    {
+     "family": "Sher",
+     "given": "A"
+    },
+    {
+     "family": "Thompson",
+     "given": "RN"
+    }
+   ],
+   "year": "2025",
+   "title": "Reducing transmission in multiple settings is required to eliminate the risk of major Ebola outbreaks: A mathematical modelling study",
+   "container": "J R Soc Interface",
+   "volume": "22",
+   "first_page": "20240765",
+   "doi": "10.1098/rsif.2024.0765"
+  },
+  {
+   "bib_id": 8,
+   "authors": [
+    {
+     "family": "Kaye",
+     "given": "AR"
+    },
+    {
+     "family": "Guzzetta",
+     "given": "G"
+    },
+    {
+     "family": "Tildesley",
+     "given": "MJ"
+    },
+    {
+     "family": "Thompson",
+     "given": "RN"
+    }
+   ],
+   "year": "2025",
+   "title": "Quantifying infectious disease epidemic risks: A practical approach for seasonal pathogens",
+   "container": "PLoS Comput Biol",
+   "volume": "21",
+   "doi": "10.1371/journal.pcbi.1012364"
+  },
+  {
+   "bib_id": 9,
+   "authors": [
+    {
+     "family": "Thompson",
+     "given": "RN"
+    },
+    {
+     "family": "Southall",
+     "given": "E"
+    },
+    {
+     "family": "Daon",
+     "given": "Y"
+    },
+    {
+     "family": "Lovell-Read",
+     "given": "FA"
+    },
+    {
+     "family": "Iwami",
+     "given": "S"
+    },
+    {
+     "family": "Thompson",
+     "given": "CP"
+    }
+   ],
+   "year": "2023",
+   "title": "The impact of cross-reactive immunity on the emergence of SARS-CoV-2 variants",
+   "container": "Front Immunol",
+   "volume": "13",
+   "first_page": "1049458",
+   "doi": "10.3389/fimmu.2022.1049458"
+  },
+  {
+   "bib_id": 10,
+   "authors": [
+    {
+     "family": "Hart",
+     "given": "WS"
+    },
+    {
+     "family": "Amin",
+     "given": "J"
+    },
+    {
+     "family": "Park",
+     "given": "H"
+    },
+    {
+     "family": "Kitagawa",
+     "given": "K"
+    },
+    {
+     "family": "Jeong",
+     "given": "YD"
+    },
+    {
+     "family": "Kaye",
+     "given": "AR"
+    }
+   ],
+   "year": "2025",
+   "title": "Effects of individual variation and seasonal vaccination on disease risks",
+   "container": "Nat Commun",
+   "volume": "16",
+   "first_page": "8471",
+   "doi": "10.1038/s41467-025-63375-5"
+  },
+  {
+   "bib_id": 11,
+   "authors": [
+    {
+     "family": "Lahodny",
+     "given": "GE"
+    },
+    {
+     "family": "Allen",
+     "given": "LJS"
+    }
+   ],
+   "year": "2013",
+   "title": "Probability of a disease outbreak in stochastic multipatch epidemic models",
+   "container": "Bull Math Biol",
+   "volume": "75",
+   "first_page": "1157",
+   "doi": "10.1007/s11538-013-9848-z"
+  },
+  {
+   "bib_id": 12,
+   "authors": [
+    {
+     "family": "Nishiura",
+     "given": "H"
+    },
+    {
+     "family": "Cook",
+     "given": "AR"
+    },
+    {
+     "family": "Cowling",
+     "given": "BJ"
+    }
+   ],
+   "year": "2011",
+   "title": "Assortativity and the probability of epidemic extinction: A case study of pandemic Influenza A (H1N1-2009)",
+   "container": "Interdiscip Perspect Infect Dis",
+   "volume": "2011",
+   "first_page": "194507",
+   "doi": "10.1155/2011/194507"
+  },
+  {
+   "bib_id": 13,
+   "authors": [
+    {
+     "family": "Lovell-Read",
+     "given": "FA"
+    },
+    {
+     "family": "Shen",
+     "given": "S"
+    },
+    {
+     "family": "Thompson",
+     "given": "RN"
+    }
+   ],
+   "year": "2022",
+   "title": "Estimating local outbreak risks and the effects of non-pharmaceutical interventions in age-structured populations: SARS-CoV-2 as a case study",
+   "container": "J Theor Biol",
+   "volume": "535",
+   "first_page": "110983",
+   "doi": "10.1016/j.jtbi.2021.110983"
+  },
+  {
+   "bib_id": 14,
+   "authors": [
+    {
+     "family": "Higo",
+     "given": "M"
+    },
+    {
+     "family": "Klassen",
+     "given": "TR"
+    }
+   ],
+   "year": "2015",
+   "title": "Retirement in Japan and Korea in an era of rapid population ageing",
+   "container": "Retirement in Japan and South Korea (pp.1-29)"
+  },
+  {
+   "bib_id": 15,
+   "authors": [
+    {
+     "family": "Kim",
+     "given": "KW"
+    },
+    {
+     "family": "Kim",
+     "given": "OS"
+    }
+   ],
+   "year": "2020",
+   "title": "Super aging in South Korea unstoppable but mitigatable: A sub-national scale population projection for best policy planning",
+   "container": "Spat Demogr",
+   "volume": "8",
+   "first_page": "155",
+   "doi": "10.1007/s40980-020-00061-8"
+  },
+  {
+   "bib_id": 16,
+   "authors": [
+    {
+     "family": "Diekmann",
+     "given": "O"
+    },
+    {
+     "family": "Heesterbeek",
+     "given": "JA"
+    },
+    {
+     "family": "Metz",
+     "given": "JA"
+    }
+   ],
+   "year": "1990",
+   "title": "On the definition and the computation of the basic reproduction ratio R0 in models for infectious diseases in heterogeneous populations",
+   "container": "J Math Biol",
+   "volume": "28",
+   "first_page": "365",
+   "doi": "10.1007/BF00178324"
+  },
+  {
+   "bib_id": 17,
+   "authors": [
+    {
+     "family": "Lloyd-Smith",
+     "given": "JO"
+    },
+    {
+     "family": "Schreiber",
+     "given": "SJ"
+    },
+    {
+     "family": "Kopp",
+     "given": "PE"
+    },
+    {
+     "family": "Getz",
+     "given": "WM"
+    }
+   ],
+   "year": "2005",
+   "title": "Superspreading and the effect of individual variation on disease emergence",
+   "container": "Nature",
+   "volume": "438",
+   "first_page": "355",
+   "doi": "10.1038/nature04153"
+  },
+  {
+   "bib_id": 18,
+   "authors": [
+    {
+     "family": "United Nations",
+     "given": ""
+    }
+   ],
+   "year": "2024"
+  },
+  {
+   "bib_id": 19,
+   "authors": [
+    {
+     "family": "Arregui",
+     "given": "S"
+    },
+    {
+     "family": "Aleta",
+     "given": "A"
+    },
+    {
+     "family": "Sanz",
+     "given": "J"
+    },
+    {
+     "family": "Moreno",
+     "given": "Y"
+    }
+   ],
+   "year": "2018",
+   "title": "Projecting social contact matrices to different demographic structures",
+   "container": "PLoS Comput Biol",
+   "volume": "14",
+   "doi": "10.1371/journal.pcbi.1006638"
+  },
+  {
+   "bib_id": 20,
+   "authors": [
+    {
+     "family": "Weerasuriya",
+     "given": "CK"
+    },
+    {
+     "family": "Harris",
+     "given": "RC"
+    },
+    {
+     "family": "McQuaid",
+     "given": "CF"
+    },
+    {
+     "family": "Gomez",
+     "given": "GB"
+    },
+    {
+     "family": "White",
+     "given": "RG"
+    }
+   ],
+   "year": "2022",
+   "title": "Updating age-specific contact structures to match evolving demography in a dynamic mathematical model of tuberculosis vaccination",
+   "container": "PLoS Comput Biol",
+   "volume": "18",
+   "doi": "10.1371/journal.pcbi.1010002"
+  },
+  {
+   "bib_id": 21,
+   "authors": [
+    {
+     "family": "Röst",
+     "given": "G"
+    },
+    {
+     "family": "Bartha",
+     "given": "FA"
+    },
+    {
+     "family": "Bogya",
+     "given": "N"
+    },
+    {
+     "family": "Boldog",
+     "given": "P"
+    },
+    {
+     "family": "Dénes",
+     "given": "A"
+    },
+    {
+     "family": "Ferenci",
+     "given": "T"
+    }
+   ],
+   "year": "2020",
+   "title": "Early phase of the COVID-19 outbreak in Hungary and post-lockdown scenarios",
+   "container": "Viruses",
+   "volume": "12",
+   "first_page": "708",
+   "doi": "10.3390/v12070708"
+  },
+  {
+   "bib_id": 22,
+   "authors": [
+    {
+     "family": "Korir",
+     "given": "EK"
+    },
+    {
+     "family": "Vizi",
+     "given": "Z"
+    }
+   ],
+   "year": "2024",
+   "title": "Clusters of African countries based on the social contacts and associated socioeconomic indicators relevant to the spread of the epidemic",
+   "container": "J Math Ind",
+   "volume": "14",
+   "doi": "10.1186/s13362-024-00162-9"
+  },
+  {
+   "bib_id": 23,
+   "authors": [
+    {
+     "family": "Sullivan",
+     "given": "C"
+    },
+    {
+     "family": "Senanayake",
+     "given": "P"
+    },
+    {
+     "family": "Plank",
+     "given": "MJ"
+    }
+   ],
+   "year": "2024",
+   "title": "Quantifying age-specific household contacts in Aotearoa New Zealand for infectious disease modelling",
+   "container": "R Soc Open Sci",
+   "volume": "11",
+   "first_page": "240550",
+   "doi": "10.1098/rsos.240550"
+  },
+  {
+   "bib_id": 24,
+   "authors": [
+    {
+     "family": "Chapman",
+     "given": "LAC"
+    },
+    {
+     "family": "Aubry",
+     "given": "M"
+    },
+    {
+     "family": "Maset",
+     "given": "N"
+    },
+    {
+     "family": "Russell",
+     "given": "TW"
+    },
+    {
+     "family": "Knock",
+     "given": "ES"
+    },
+    {
+     "family": "Lees",
+     "given": "JA"
+    }
+   ],
+   "year": "2023",
+   "title": "Impact of vaccinations, boosters and lockdowns on COVID-19 waves in French Polynesia",
+   "container": "Nat Commun",
+   "volume": "14",
+   "first_page": "7330",
+   "doi": "10.1038/s41467-023-43002-x"
+  },
+  {
+   "bib_id": 25,
+   "authors": [
+    {
+     "family": "Davies",
+     "given": "NG"
+    },
+    {
+     "family": "Klepac",
+     "given": "P"
+    },
+    {
+     "family": "Liu",
+     "given": "Y"
+    },
+    {
+     "family": "Prem",
+     "given": "K"
+    },
+    {
+     "family": "Jit",
+     "given": "M"
+    },
+    {
+     "family": "CMMID COVID-19 working group",
+     "given": ""
+    }
+   ],
+   "year": "2020",
+   "title": "Age-dependent effects in the transmission and control of COVID-19 epidemics",
+   "container": "Nat Med",
+   "volume": "26",
+   "first_page": "1205",
+   "doi": "10.1038/s41591-020-0962-9"
+  },
+  {
+   "bib_id": 26,
+   "authors": [
+    {
+     "family": "Dorigatti",
+     "given": "I"
+    },
+    {
+     "family": "Cauchemez",
+     "given": "S"
+    },
+    {
+     "family": "Pugliese",
+     "given": "A"
+    },
+    {
+     "family": "Ferguson",
+     "given": "NM"
+    }
+   ],
+   "year": "2012",
+   "title": "A new approach to characterising infectious disease transmission dynamics from sentinel surveillance: Application to the Italian 2009-2010 A/H1N1 influenza pandemic",
+   "container": "Epidemics",
+   "volume": "4",
+   "first_page": "9",
+   "last_page": "21",
+   "doi": "10.1016/j.epidem.2011.11.001"
+  },
+  {
+   "bib_id": 27,
+   "authors": [
+    {
+     "family": "Yamin",
+     "given": "D"
+    },
+    {
+     "family": "Jones",
+     "given": "FK"
+    },
+    {
+     "family": "DeVincenzo",
+     "given": "JP"
+    },
+    {
+     "family": "Gertler",
+     "given": "S"
+    },
+    {
+     "family": "Kobiler",
+     "given": "O"
+    },
+    {
+     "family": "Townsend",
+     "given": "JP"
+    }
+   ],
+   "year": "2016",
+   "title": "Vaccination strategies against respiratory syncytial virus",
+   "container": "Proc Natl Acad Sci U S A",
+   "volume": "113",
+   "first_page": "13239",
+   "doi": "10.1073/pnas.1522597113"
+  },
+  {
+   "bib_id": 28,
+   "authors": [
+    {
+     "family": "Kim",
+     "given": "E"
+    }
+   ],
+   "year": "2024",
+   "title": "Views of South Korean officials of enterprises on mandatory retirement age",
+   "container": "Edu Gerontol",
+   "volume": "50",
+   "first_page": "868",
+   "doi": "10.1080/03601277.2024.2370190"
+  },
+  {
+   "bib_id": 29,
+   "authors": [
+    {
+     "family": "Morens",
+     "given": "DM"
+    },
+    {
+     "family": "Folkers",
+     "given": "GK"
+    },
+    {
+     "family": "Fauci",
+     "given": "AS"
+    }
+   ],
+   "year": "2004",
+   "title": "The challenge of emerging and re-emerging infectious diseases",
+   "container": "Nature",
+   "volume": "430",
+   "first_page": "242",
+   "doi": "10.1038/nature02759"
+  },
+  {
+   "bib_id": 30,
+   "authors": [
+    {
+     "family": "Glennon",
+     "given": "EE"
+    },
+    {
+     "family": "Bruijning",
+     "given": "M"
+    },
+    {
+     "family": "Lessler",
+     "given": "J"
+    },
+    {
+     "family": "Miller",
+     "given": "IF"
+    },
+    {
+     "family": "Rice",
+     "given": "BL"
+    },
+    {
+     "family": "Thompson",
+     "given": "RN"
+    }
+   ],
+   "year": "2021",
+   "title": "Challenges in modeling the emergence of novel pathogens",
+   "container": "Epidemics",
+   "volume": "37",
+   "first_page": "100516",
+   "doi": "10.1016/j.epidem.2021.100516"
+  },
+  {
+   "bib_id": 31,
+   "authors": [
+    {
+     "family": "Craft",
+     "given": "ME"
+    },
+    {
+     "family": "Beyer",
+     "given": "HL"
+    },
+    {
+     "family": "Haydon",
+     "given": "DT"
+    }
+   ],
+   "year": "2013",
+   "title": "Estimating the probability of a major outbreak from the timing of early cases: An indeterminate problem?",
+   "container": "PLoS One",
+   "volume": "8",
+   "doi": "10.1371/journal.pone.0057878"
+  },
+  {
+   "bib_id": 32,
+   "authors": [
+    {
+     "family": "Thompson",
+     "given": "RN"
+    },
+    {
+     "family": "Gilligan",
+     "given": "CA"
+    },
+    {
+     "family": "Cunniffe",
+     "given": "NJ"
+    }
+   ],
+   "year": "2016",
+   "title": "Detecting presymptomatic infection is necessary to forecast major epidemics in the earliest stages of infectious disease outbreaks",
+   "container": "PLoS Comput Biol",
+   "volume": "12",
+   "doi": "10.1371/journal.pcbi.1004836"
+  },
+  {
+   "bib_id": 33,
+   "authors": [
+    {
+     "family": "Romero Starke",
+     "given": "K"
+    },
+    {
+     "family": "Reissig",
+     "given": "D"
+    },
+    {
+     "family": "Petereit-Haack",
+     "given": "G"
+    },
+    {
+     "family": "Schmauder",
+     "given": "S"
+    },
+    {
+     "family": "Nienhaus",
+     "given": "A"
+    },
+    {
+     "family": "Seidler",
+     "given": "A"
+    }
+   ],
+   "year": "2021",
+   "title": "The isolated effect of age on the risk of COVID-19 severe outcomes: A systematic review with meta-analysis",
+   "container": "BMJ Glob Health",
+   "volume": "6",
+   "doi": "10.1136/bmjgh-2021-006434"
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-core-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "jats_doi": "10.1371/journal.pcbi.1014319"
+ }
+}

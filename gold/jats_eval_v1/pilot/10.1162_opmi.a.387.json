@@ -1,0 +1,1934 @@
+{
+ "paper_id": "10.1162_opmi.a.387",
+ "info": {
+  "title": "Child-Directed Speech Is Semantically Constrained: Evidence From Metaphoricity and Concreteness",
+  "doi": "10.1162/OPMI.a.387",
+  "file_name": "10.1162_opmi.a.387.pdf",
+  "keywords": [
+   "child-directed speech",
+   "metaphor",
+   "concreteness",
+   "language acquisition",
+   "caregiver input"
+  ],
+  "abstract": "Child-directed speech (CDS) is widely theorized to provide a structured scaffold for early language acquisition, yet the semantic properties of this register remain insufficiently quantified. In particular, it remains unclear how figurative language and semantic grounding interact within caregiver input to stabilize early form–meaning mappings. We present a large-scale computational analysis of metaphoricity and lexical concreteness in a naturalistic corpus of CDS, evaluated against a size-matched baseline of adult-directed speech (ADS). Using a token-level metaphor detection model and human-indexed semantic norms, we test two primary accounts: the reduced metaphoricity hypothesis (H1), which predicts a systematic reduction of nonliteral expressions in caregiver input, and the lexical concreteness hypothesis (H2), which predicts an intensified reliance on perceptually grounded vocabulary. Cross-register comparisons revealed robust support for both accounts: CDS contained a significantly lower density of metaphorical expressions and a higher baseline of both continuous and categorical lexical concreteness than ADS. Longitudinal mixed-effects models further showed that these semantic constraints undergo gradual, age-dependent tuning. As children mature, caregivers appear to relax these constraints incrementally, diversifying their figurative repertoire and reducing overall vocabulary concreteness over time. Taken together, these findings suggest that the semantic structure of caregiver speech functions as a dynamic, responsive learning environment. By initially favoring concrete, transparent, and literal forms, CDS may reduce interpretive ambiguity during early phases of reference anchoring before gradually shifting toward the more abstract and flexible lexical patterns characteristic of adult speech."
+ },
+ "author": [
+  {
+   "author_id": 1,
+   "given": "Liudmyla",
+   "family": "Feurstein",
+   "affiliation": "Institute for the Interdisciplinary Study of Language Evolution (ISLE), University of Zurich, Zurich, Switzerland",
+   "email": "",
+   "orcid": "",
+   "corresponding": true
+  },
+  {
+   "author_id": 2,
+   "given": "Iulia M.",
+   "family": "Comsa",
+   "affiliation": "Google Zurich, Zurich, Switzerland",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 3,
+   "given": "Reinhard",
+   "family": "Furrer",
+   "affiliation": "Department of Mathematical Modeling and Machine Learning, University of Zurich, Zurich, Switzerland",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 4,
+   "given": "Kim",
+   "family": "Gfeller",
+   "affiliation": "Institute for the Interdisciplinary Study of Language Evolution (ISLE), University of Zurich, Zurich, Switzerland",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 5,
+   "given": "Paul",
+   "family": "Widmer",
+   "affiliation": "Institute for the Interdisciplinary Study of Language Evolution (ISLE), University of Zurich, Zurich, Switzerland",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 6,
+   "given": "Srini",
+   "family": "Narayanan",
+   "affiliation": "Google Zurich, Zurich, Switzerland",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 7,
+   "given": "Sabine",
+   "family": "Stoll",
+   "affiliation": "Institute for the Interdisciplinary Study of Language Evolution (ISLE), University of Zurich, Zurich, Switzerland",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  }
+ ],
+ "section": [
+  {
+   "section_id": 1,
+   "section_type": "abstract",
+   "header": "Abstract",
+   "level": 1,
+   "parent_section_id": null,
+   "classification_score": 1.0
+  }
+ ],
+ "text": [
+  {
+   "text_id": 1,
+   "section_id": 1,
+   "paragraph_id": 1,
+   "text": "Child-directed speech (CDS) is widely theorized to provide a structured scaffold for early language acquisition, yet the semantic properties of this register remain insufficiently quantified. In particular, it remains unclear how figurative language and semantic grounding interact within caregiver input to stabilize early form–meaning mappings. We present a large-scale computational analysis of metaphoricity and lexical concreteness in a naturalistic corpus of CDS, evaluated against a size-matched baseline of adult-directed speech (ADS). Using a token-level metaphor detection model and human-indexed semantic norms, we test two primary accounts: the reduced metaphoricity hypothesis (H1), which predicts a systematic reduction of nonliteral expressions in caregiver input, and the lexical concreteness hypothesis (H2), which predicts an intensified reliance on perceptually grounded vocabulary. Cross-register comparisons revealed robust support for both accounts: CDS contained a significantly lower density of metaphorical expressions and a higher baseline of both continuous and categorical lexical concreteness than ADS. Longitudinal mixed-effects models further showed that these semantic constraints undergo gradual, age-dependent tuning. As children mature, caregivers appear to relax these constraints incrementally, diversifying their figurative repertoire and reducing overall vocabulary concreteness over time. Taken together, these findings suggest that the semantic structure of caregiver speech functions as a dynamic, responsive learning environment. By initially favoring concrete, transparent, and literal forms, CDS may reduce interpretive ambiguity during early phases of reference anchoring before gradually shifting toward the more abstract and flexible lexical patterns characteristic of adult speech.",
+   "page_number": 1
+  }
+ ],
+ "bib": [
+  {
+   "bib_id": 1,
+   "authors": [
+    {
+     "family": "Alnafesah",
+     "given": "G."
+    },
+    {
+     "family": "Tayyar Madabushi",
+     "given": "H."
+    },
+    {
+     "family": "Lee",
+     "given": "M."
+    }
+   ],
+   "year": "2020",
+   "title": "Augmenting neural metaphor detection with concreteness",
+   "container": "Proceedings of the Second Workshop on Figurative Language Processing",
+   "first_page": "204",
+   "last_page": "210",
+   "doi": "10.18653/v1/2020.figlang-1.28"
+  },
+  {
+   "bib_id": 2,
+   "authors": [
+    {
+     "family": "Asch",
+     "given": "S. E."
+    },
+    {
+     "family": "Nerlove",
+     "given": "H."
+    }
+   ],
+   "year": "1960",
+   "title": "The development of double-function terms in children: An exploratory investigation",
+   "container": "Perspectives in psychological theory: Essays in honor of Heinz Werner",
+   "first_page": "47",
+   "last_page": "60"
+  },
+  {
+   "bib_id": 3,
+   "authors": [
+    {
+     "family": "Beigman Klebanov",
+     "given": "B."
+    },
+    {
+     "family": "Leong",
+     "given": "C. W."
+    },
+    {
+     "family": "Flor",
+     "given": "M."
+    }
+   ],
+   "year": "2015",
+   "title": "Supervised word-level metaphor detection: Experiments with concreteness and reweighting of examples",
+   "container": "Proceedings of the Third Workshop on Metaphor in NLP",
+   "first_page": "11",
+   "last_page": "20",
+   "doi": "10.3115/v1/W15-1402"
+  },
+  {
+   "bib_id": 4,
+   "authors": [
+    {
+     "family": "Bergelson",
+     "given": "E."
+    },
+    {
+     "family": "Swingley",
+     "given": "D."
+    }
+   ],
+   "year": "2013",
+   "title": "The acquisition of abstract words by young infants",
+   "container": "Cognition",
+   "volume": "127",
+   "first_page": "391",
+   "last_page": "397",
+   "doi": "10.1016/j.cognition.2013.02.011"
+  },
+  {
+   "bib_id": 5,
+   "authors": [
+    {
+     "family": "Bird",
+     "given": "S."
+    },
+    {
+     "family": "Klein",
+     "given": "E."
+    },
+    {
+     "family": "Loper",
+     "given": "E."
+    }
+   ],
+   "year": "2009",
+   "title": "Natural language processing with Python: Analyzing text with the Natural Language Toolkit"
+  },
+  {
+   "bib_id": 6,
+   "authors": [
+    {
+     "family": "BNC Consortium",
+     "given": ""
+    }
+   ],
+   "year": "2007",
+   "title": "British National Corpus (BNC), XML Edition"
+  },
+  {
+   "bib_id": 7,
+   "authors": [
+    {
+     "family": "Brochhagen",
+     "given": "T."
+    },
+    {
+     "family": "Boleda",
+     "given": "G."
+    },
+    {
+     "family": "Gualdoni",
+     "given": "E."
+    },
+    {
+     "family": "Xu",
+     "given": "Y."
+    }
+   ],
+   "year": "2023",
+   "title": "From language development to language evolution: A unified view of human lexical creativity",
+   "container": "Science",
+   "volume": "381",
+   "first_page": "431",
+   "last_page": "436",
+   "doi": "10.1126/science.ade7981"
+  },
+  {
+   "bib_id": 8,
+   "authors": [
+    {
+     "family": "Bruner",
+     "given": "J."
+    }
+   ],
+   "year": "1983",
+   "title": "Child’s talk: Learning to use language"
+  },
+  {
+   "bib_id": 9,
+   "authors": [
+    {
+     "family": "Brysbaert",
+     "given": "M."
+    },
+    {
+     "family": "Warriner",
+     "given": "A. B."
+    },
+    {
+     "family": "Kuperman",
+     "given": "V."
+    }
+   ],
+   "year": "2014",
+   "title": "Concreteness ratings for 40 thousand generally known English word lemmas",
+   "container": "Behavior Research Methods",
+   "volume": "46",
+   "first_page": "904",
+   "last_page": "911",
+   "doi": "10.3758/s13428-013-0403-5"
+  },
+  {
+   "bib_id": 10,
+   "authors": [
+    {
+     "family": "Buccino",
+     "given": "G."
+    },
+    {
+     "family": "Colagè",
+     "given": "I."
+    },
+    {
+     "family": "Silipo",
+     "given": "F."
+    },
+    {
+     "family": "D’Ambrosio",
+     "given": "P."
+    }
+   ],
+   "year": "2019",
+   "title": "The concreteness of abstract language: An ancient issue and a new perspective",
+   "container": "Brain Structure and Function",
+   "volume": "224",
+   "first_page": "1385",
+   "last_page": "1401",
+   "doi": "10.1007/s00429-019-01851-7"
+  },
+  {
+   "bib_id": 11,
+   "authors": [
+    {
+     "family": "Bunce",
+     "given": "J."
+    },
+    {
+     "family": "Soderstrom",
+     "given": "M."
+    },
+    {
+     "family": "Bergelson",
+     "given": "E."
+    },
+    {
+     "family": "Rosemberg",
+     "given": "C."
+    },
+    {
+     "family": "Stein",
+     "given": "A."
+    },
+    {
+     "family": "Alam",
+     "given": "F."
+    },
+    {
+     "family": "Migdalek",
+     "given": "M. J."
+    },
+    {
+     "family": "Casillas",
+     "given": "M."
+    }
+   ],
+   "year": "2025",
+   "title": "A cross-linguistic examination of young children’s everyday language experiences",
+   "container": "Journal of Child Language",
+   "volume": "52",
+   "first_page": "786",
+   "last_page": "814",
+   "doi": "10.1017/S030500092400028X"
+  },
+  {
+   "bib_id": 12,
+   "authors": [
+    {
+     "family": "Burnard",
+     "given": "L."
+    }
+   ],
+   "year": "2007",
+   "title": "Reference guide for the British National Corpus (XML Edition)"
+  },
+  {
+   "bib_id": 13,
+   "authors": [
+    {
+     "family": "Choi",
+     "given": "M."
+    },
+    {
+     "family": "Lee",
+     "given": "S."
+    },
+    {
+     "family": "Choi",
+     "given": "E."
+    },
+    {
+     "family": "Park",
+     "given": "H."
+    },
+    {
+     "family": "Lee",
+     "given": "J."
+    },
+    {
+     "family": "Lee",
+     "given": "D.-H."
+    },
+    {
+     "family": "Lee",
+     "given": "J."
+    }
+   ],
+   "year": "2021",
+   "title": "MelBERT: Metaphor detection via contextualized late interaction using metaphorical identification theories",
+   "container": "Proceedings of the 2021 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies",
+   "first_page": "1763",
+   "last_page": "1773",
+   "doi": "10.18653/v1/2021.naacl-main.141"
+  },
+  {
+   "bib_id": 14,
+   "authors": [
+    {
+     "family": "Chomsky",
+     "given": "N."
+    }
+   ],
+   "year": "1957",
+   "title": "Syntactic structures",
+   "doi": "10.1515/9783112316009"
+  },
+  {
+   "bib_id": 15,
+   "authors": [
+    {
+     "family": "Chomsky",
+     "given": "N."
+    }
+   ],
+   "year": "1965",
+   "title": "Aspects of the theory of syntax"
+  },
+  {
+   "bib_id": 16,
+   "authors": [
+    {
+     "family": "Chomsky",
+     "given": "N."
+    }
+   ],
+   "year": "1980",
+   "title": "Knowledge of language: Its nature, origin, and use"
+  },
+  {
+   "bib_id": 17,
+   "authors": [
+    {
+     "family": "Clark",
+     "given": "E. V."
+    }
+   ],
+   "year": "1993",
+   "title": "The lexicon in acquisition",
+   "doi": "10.1017/CBO9780511554377"
+  },
+  {
+   "bib_id": 18,
+   "authors": [
+    {
+     "family": "Cohen",
+     "given": "J."
+    }
+   ],
+   "year": "1960",
+   "title": "A coefficient of agreement for nominal scales",
+   "container": "Educational and Psychological Measurement",
+   "volume": "20",
+   "first_page": "37",
+   "last_page": "46",
+   "doi": "10.1177/001316446002000104"
+  },
+  {
+   "bib_id": 19,
+   "authors": [
+    {
+     "family": "Dąbrowska",
+     "given": "E."
+    },
+    {
+     "family": "Lieven",
+     "given": "E."
+    }
+   ],
+   "year": "2005",
+   "title": "Towards a lexically specific grammar of children’s question constructions",
+   "container": "Cognitive Linguistics",
+   "volume": "16",
+   "first_page": "437",
+   "last_page": "474",
+   "doi": "10.1515/cogl.2005.16.3.437"
+  },
+  {
+   "bib_id": 20,
+   "authors": [
+    {
+     "family": "Di Paola",
+     "given": "S."
+    },
+    {
+     "family": "Domaneschi",
+     "given": "F."
+    },
+    {
+     "family": "Pouscoulous",
+     "given": "N."
+    }
+   ],
+   "year": "2020",
+   "title": "Metaphorical developing minds: The role of multiple factors in the development of metaphor comprehension",
+   "container": "Journal of Pragmatics",
+   "volume": "156",
+   "first_page": "235",
+   "last_page": "251",
+   "doi": "10.1016/j.pragma.2019.08.008"
+  },
+  {
+   "bib_id": 21,
+   "authors": [
+    {
+     "family": "Ferguson",
+     "given": "C. A."
+    }
+   ],
+   "year": "1977",
+   "title": "Baby talk as a simplified register",
+   "container": "Talking to children: Language input and acquisition",
+   "first_page": "209",
+   "last_page": "235"
+  },
+  {
+   "bib_id": 22,
+   "authors": [
+    {
+     "family": "Fernald",
+     "given": "A."
+    }
+   ],
+   "year": "1985",
+   "title": "Four-month-old infants prefer to listen to motherese",
+   "container": "Infant Behavior and Development",
+   "volume": "8",
+   "first_page": "181",
+   "last_page": "195",
+   "doi": "10.1016/S0163-6383(85)80005-9"
+  },
+  {
+   "bib_id": 23,
+   "authors": [
+    {
+     "family": "Fernald",
+     "given": "A."
+    },
+    {
+     "family": "Taeschner",
+     "given": "T."
+    },
+    {
+     "family": "Dunn",
+     "given": "J."
+    },
+    {
+     "family": "Papousek",
+     "given": "M."
+    },
+    {
+     "family": "De Boysson-Bardies",
+     "given": "B."
+    },
+    {
+     "family": "Fukui",
+     "given": "I."
+    }
+   ],
+   "year": "1989",
+   "title": "A crosslanguage study of prosodic modifications in mothers’ and fathers’ speech to preverbal infants",
+   "container": "Journal of Child Language",
+   "volume": "16",
+   "first_page": "477",
+   "last_page": "501",
+   "doi": "10.1017/S0305000900010679"
+  },
+  {
+   "bib_id": 24,
+   "authors": [
+    {
+     "family": "Fujita",
+     "given": "K."
+    }
+   ],
+   "year": "2021",
+   "title": "Human language evolution: A view from theoretical linguistics and cognitive science",
+   "container": "Philosophical Transactions of the Royal Society B",
+   "volume": "376",
+   "first_page": "20200349",
+   "doi": "10.1098/rstb.20200349"
+  },
+  {
+   "bib_id": 25,
+   "authors": [
+    {
+     "family": "Gaskins",
+     "given": "D."
+    },
+    {
+     "family": "Falcone",
+     "given": "M."
+    },
+    {
+     "family": "Rundblad",
+     "given": "G."
+    }
+   ],
+   "year": "2024",
+   "title": "A usage-based approach to metaphor identification and analysis in child speech",
+   "container": "Language and Cognition",
+   "volume": "16",
+   "first_page": "32",
+   "last_page": "56",
+   "doi": "10.1017/langcog.2023.17"
+  },
+  {
+   "bib_id": 26,
+   "authors": [
+    {
+     "family": "Gaskins",
+     "given": "D."
+    },
+    {
+     "family": "Rundblad",
+     "given": "G."
+    }
+   ],
+   "year": "2025",
+   "title": "Budding metaphors: Input-output effects in metaphor production",
+   "container": "PLOS ONE",
+   "volume": "20",
+   "first_page": "e0323420",
+   "doi": "10.1371/journal.pone.0323420"
+  },
+  {
+   "bib_id": 27,
+   "authors": [
+    {
+     "family": "Ge",
+     "given": "M."
+    },
+    {
+     "family": "Mao",
+     "given": "R."
+    },
+    {
+     "family": "Cambria",
+     "given": "E."
+    }
+   ],
+   "year": "2022",
+   "title": "Explainable metaphor identification inspired by conceptual metaphor theory",
+   "container": "Proceedings of the AAAI Conference on Artificial Intelligence",
+   "volume": "36",
+   "first_page": "10681",
+   "last_page": "10689",
+   "doi": "10.1609/aaai.v36i10.21313"
+  },
+  {
+   "bib_id": 28,
+   "authors": [
+    {
+     "family": "Gentner",
+     "given": "D."
+    }
+   ],
+   "year": "1982",
+   "title": "Why nouns are learned before verbs",
+   "container": "Cognitive Psychology",
+   "volume": "14",
+   "first_page": "494",
+   "last_page": "529",
+   "doi": "10.1016/0010-0285(82)90019-8"
+  },
+  {
+   "bib_id": 29,
+   "authors": [
+    {
+     "family": "Gentner",
+     "given": "D."
+    }
+   ],
+   "year": "1983",
+   "title": "Structure-mapping: A theoretical framework for analogy",
+   "container": "Cognitive Science",
+   "volume": "7",
+   "first_page": "155",
+   "last_page": "170",
+   "doi": "10.1207/s15516709cog0702_3"
+  },
+  {
+   "bib_id": 30,
+   "authors": [
+    {
+     "family": "Gentner",
+     "given": "D."
+    },
+    {
+     "family": "Asmuth",
+     "given": "J."
+    }
+   ],
+   "year": "2019",
+   "title": "Metaphoric extension, relational categories, and abstraction",
+   "container": "Language, Cognition and Neuroscience",
+   "volume": "34",
+   "first_page": "1298",
+   "last_page": "1307",
+   "doi": "10.1080/23273798.2017.1410560"
+  },
+  {
+   "bib_id": 31,
+   "authors": [
+    {
+     "family": "Gentner",
+     "given": "D."
+    },
+    {
+     "family": "Boroditsky",
+     "given": "L."
+    }
+   ],
+   "year": "2001",
+   "title": "Individuation, relativity, and early word learning",
+   "container": "Language acquisition and conceptual development",
+   "first_page": "215",
+   "last_page": "256",
+   "doi": "10.1017/CBO9780511620669.010"
+  },
+  {
+   "bib_id": 32,
+   "authors": [
+    {
+     "family": "Gros-Louis",
+     "given": "J."
+    },
+    {
+     "family": "Goldstein",
+     "given": "M. H."
+    },
+    {
+     "family": "King",
+     "given": "A. P."
+    },
+    {
+     "family": "West",
+     "given": "M. J."
+    }
+   ],
+   "year": "2006",
+   "title": "Mothers provide differential feedback to infants’ prelinguistic sounds",
+   "container": "International Journal of Behavioral Development",
+   "volume": "30",
+   "first_page": "112",
+   "last_page": "119",
+   "doi": "10.1177/0165025406071914"
+  },
+  {
+   "bib_id": 33,
+   "authors": [
+    {
+     "family": "Hamilton",
+     "given": "W. L."
+    },
+    {
+     "family": "Clark",
+     "given": "K."
+    },
+    {
+     "family": "Leskovec",
+     "given": "J."
+    },
+    {
+     "family": "Jurafsky",
+     "given": "D."
+    }
+   ],
+   "year": "2016",
+   "title": "Inducing domain-specific sentiment lexicons from unlabeled corpora",
+   "container": "Proceedings of the 2016 Conference on Empirical Methods in Natural Language Processing",
+   "first_page": "595",
+   "last_page": "605",
+   "doi": "10.18653/v1/D16-1057"
+  },
+  {
+   "bib_id": 34,
+   "authors": [
+    {
+     "family": "Hartmann",
+     "given": "S."
+    },
+    {
+     "family": "Koch",
+     "given": "N."
+    },
+    {
+     "family": "Endesfelder Quick",
+     "given": "A."
+    }
+   ],
+   "year": "2021",
+   "title": "The traceback method in child language acquisition research: Identifying patterns in early speech",
+   "container": "Language and Cognition",
+   "volume": "13",
+   "first_page": "227",
+   "last_page": "253",
+   "doi": "10.1017/langcog.2021.1"
+  },
+  {
+   "bib_id": 35,
+   "authors": [
+    {
+     "family": "Hills",
+     "given": "T. T."
+    }
+   ],
+   "year": "2013",
+   "title": "The company that words keep: Comparing the statistical structure of child- versus adult-directed language",
+   "container": "Journal of Child Language",
+   "volume": "40",
+   "first_page": "586",
+   "last_page": "604",
+   "doi": "10.1017/S0305000912000165"
+  },
+  {
+   "bib_id": 36,
+   "authors": [
+    {
+     "family": "Hockett",
+     "given": "C. F."
+    }
+   ],
+   "year": "1960",
+   "title": "The origin of speech",
+   "container": "Scientific American",
+   "volume": "203",
+   "first_page": "89",
+   "last_page": "97",
+   "doi": "10.1038/scientificamerican0960-89"
+  },
+  {
+   "bib_id": 37,
+   "authors": [
+    {
+     "family": "Hoff",
+     "given": "E."
+    }
+   ],
+   "year": "2006",
+   "title": "How social contexts support and shape language development",
+   "container": "Developmental Review",
+   "volume": "26",
+   "first_page": "55",
+   "last_page": "88",
+   "doi": "10.1016/j.dr.2005.11.002"
+  },
+  {
+   "bib_id": 38,
+   "authors": [
+    {
+     "family": "Jones",
+     "given": "G."
+    },
+    {
+     "family": "Cabiddu",
+     "given": "F. i."
+    },
+    {
+     "family": "Barrett",
+     "given": "D. J."
+    },
+    {
+     "family": "Castro",
+     "given": "A."
+    },
+    {
+     "family": "Lee",
+     "given": "B."
+    }
+   ],
+   "year": "2023",
+   "title": "How the characteristics of words in child-directed speech differ from adult-directed speech to influence children’s productive vocabularies",
+   "container": "First Language",
+   "volume": "43",
+   "first_page": "253",
+   "last_page": "282",
+   "doi": "10.1177/01427237221150070"
+  },
+  {
+   "bib_id": 39,
+   "authors": [
+    {
+     "family": "Keil",
+     "given": "F. C."
+    }
+   ],
+   "year": "1986",
+   "title": "Conceptual domains and the acquisition of metaphor",
+   "container": "Cognitive Development",
+   "volume": "1",
+   "first_page": "73",
+   "last_page": "96",
+   "doi": "10.1016/S0885-2014(86)80024-7"
+  },
+  {
+   "bib_id": 40,
+   "authors": [
+    {
+     "family": "Kempe",
+     "given": "V."
+    },
+    {
+     "family": "Ota",
+     "given": "M."
+    },
+    {
+     "family": "Schaeffler",
+     "given": "S."
+    }
+   ],
+   "year": "2024",
+   "title": "Does child-directed speech facilitate language development in all domains? A study space analysis of the existing evidence",
+   "container": "Developmental Review",
+   "volume": "72",
+   "first_page": "101121",
+   "doi": "10.1016/j.dr.2024.101121"
+  },
+  {
+   "bib_id": 41,
+   "authors": [
+    {
+     "family": "Lakoff",
+     "given": "G."
+    },
+    {
+     "family": "Johnson",
+     "given": "M."
+    }
+   ],
+   "year": "1980",
+   "title": "Metaphors we live by"
+  },
+  {
+   "bib_id": 42,
+   "authors": [
+    {
+     "family": "Landis",
+     "given": "J. R."
+    },
+    {
+     "family": "Koch",
+     "given": "G. G."
+    }
+   ],
+   "year": "1977",
+   "title": "The measurement of observer agreement for categorical data",
+   "container": "Biometrics",
+   "volume": "33",
+   "first_page": "159",
+   "last_page": "174",
+   "doi": "10.2307/2529310"
+  },
+  {
+   "bib_id": 43,
+   "authors": [
+    {
+     "family": "Lester",
+     "given": "N. A."
+    },
+    {
+     "family": "Moran",
+     "given": "S."
+    },
+    {
+     "family": "Küntay",
+     "given": "A. C."
+    },
+    {
+     "family": "Allen",
+     "given": "S. E. M."
+    },
+    {
+     "family": "Pfeiler",
+     "given": "B."
+    },
+    {
+     "family": "Stoll",
+     "given": "S."
+    }
+   ],
+   "year": "2022",
+   "title": "Detecting structured repetition in child-surrounding speech: Evidence from maximally diverse languages",
+   "container": "Cognition",
+   "volume": "221",
+   "first_page": "104986",
+   "doi": "10.1016/j.cognition.2021.104986"
+  },
+  {
+   "bib_id": 44,
+   "authors": [
+    {
+     "family": "Lieven",
+     "given": "E."
+    },
+    {
+     "family": "Behrens",
+     "given": "H."
+    },
+    {
+     "family": "Speares",
+     "given": "J."
+    },
+    {
+     "family": "Tomasello",
+     "given": "M."
+    }
+   ],
+   "year": "2003",
+   "title": "Early syntactic creativity: A usage-based approach",
+   "container": "Journal of Child Language",
+   "volume": "30",
+   "first_page": "333",
+   "last_page": "370",
+   "doi": "10.1017/S0305000903005592"
+  },
+  {
+   "bib_id": 45,
+   "authors": [
+    {
+     "family": "Lieven",
+     "given": "E."
+    },
+    {
+     "family": "Salomo",
+     "given": "D."
+    },
+    {
+     "family": "Tomasello",
+     "given": "M."
+    }
+   ],
+   "year": "2009",
+   "title": "Two-year-old children’s production of multiword utterances: A usage-based analysis",
+   "container": "Cognitive Linguistics",
+   "volume": "20",
+   "first_page": "481",
+   "last_page": "508",
+   "doi": "10.1515/COGL.2009.022"
+  },
+  {
+   "bib_id": 46,
+   "authors": [
+    {
+     "family": "Martinet",
+     "given": "A."
+    }
+   ],
+   "year": "1960",
+   "title": "Éléments de linguistique générale [Elements of general linguistics]"
+  },
+  {
+   "bib_id": 47,
+   "authors": [
+    {
+     "family": "Martínez",
+     "given": "G."
+    },
+    {
+     "family": "Molero",
+     "given": "J. D."
+    },
+    {
+     "family": "González",
+     "given": "S."
+    },
+    {
+     "family": "Conde",
+     "given": "J."
+    },
+    {
+     "family": "Brysbaert",
+     "given": "M."
+    },
+    {
+     "family": "Reviriego",
+     "given": "P."
+    }
+   ],
+   "year": "2024",
+   "title": "Using large language models to estimate features of multi-word expressions: Concreteness, valence, arousal",
+   "container": "arXiv",
+   "doi": "10.48550/arXiv.2408.16012"
+  },
+  {
+   "bib_id": 48,
+   "authors": [
+    {
+     "family": "McEnery",
+     "given": "T."
+    },
+    {
+     "family": "Hardie",
+     "given": "A."
+    }
+   ],
+   "year": "2011",
+   "title": "Corpus linguistics: Method, theory and practice",
+   "doi": "10.1017/CBO9780511981395"
+  },
+  {
+   "bib_id": 49,
+   "authors": [
+    {
+     "family": "McHugh",
+     "given": "M. L."
+    }
+   ],
+   "year": "2012",
+   "title": "Interrater reliability: The kappa statistic",
+   "container": "Biochemia Medica",
+   "volume": "22",
+   "first_page": "276",
+   "last_page": "282",
+   "doi": "10.11613/BM.2012.031"
+  },
+  {
+   "bib_id": 50,
+   "authors": [
+    {
+     "family": "McKinney",
+     "given": "W."
+    }
+   ],
+   "year": "2010",
+   "title": "Data structures for statistical computing in Python",
+   "container": "Proceedings of the 9th Python in Science Conference",
+   "first_page": "56",
+   "last_page": "61",
+   "doi": "10.25080/Majora-92bf1922-00a"
+  },
+  {
+   "bib_id": 51,
+   "authors": [
+    {
+     "family": "Mintz",
+     "given": "T. H."
+    },
+    {
+     "family": "Newport",
+     "given": "E. L."
+    },
+    {
+     "family": "Bever",
+     "given": "T. G."
+    }
+   ],
+   "year": "2002",
+   "title": "The distributional structure of grammatical categories in speech to young children",
+   "container": "Cognitive Science",
+   "volume": "26",
+   "first_page": "393",
+   "last_page": "424",
+   "doi": "10.1207/s15516709cog2604_1"
+  },
+  {
+   "bib_id": 52,
+   "authors": [
+    {
+     "family": "Motamedi",
+     "given": "Y."
+    },
+    {
+     "family": "Murgiano",
+     "given": "M."
+    },
+    {
+     "family": "Grzyb",
+     "given": "B."
+    },
+    {
+     "family": "Gu",
+     "given": "Y."
+    },
+    {
+     "family": "Kewenig",
+     "given": "V."
+    },
+    {
+     "family": "Brieke",
+     "given": "R."
+    },
+    {
+     "family": "Donnellan",
+     "given": "E."
+    },
+    {
+     "family": "Marshall",
+     "given": "C."
+    },
+    {
+     "family": "Wonnacott",
+     "given": "E."
+    },
+    {
+     "family": "Perniss",
+     "given": "P."
+    },
+    {
+     "family": "Vigliocco",
+     "given": "G."
+    }
+   ],
+   "year": "2024",
+   "title": "Language development beyond the here-and-now: Iconicity and displacement in child-directed communication",
+   "container": "Child Development",
+   "volume": "95",
+   "first_page": "1539",
+   "last_page": "1557",
+   "doi": "10.1111/cdev.14099"
+  },
+  {
+   "bib_id": 53,
+   "authors": [
+    {
+     "family": "Nencheva",
+     "given": "M. L."
+    },
+    {
+     "family": "Tamir",
+     "given": "D. I."
+    },
+    {
+     "family": "Lew-Williams",
+     "given": "C."
+    }
+   ],
+   "year": "2023",
+   "title": "Caregiver speech predicts the emergence of children’s emotion vocabulary",
+   "container": "Child Development",
+   "volume": "94",
+   "first_page": "585",
+   "last_page": "602",
+   "doi": "10.1111/cdev.13897"
+  },
+  {
+   "bib_id": 54,
+   "authors": [
+    {
+     "family": "Newport",
+     "given": "E. L."
+    }
+   ],
+   "year": "1977",
+   "title": "Motherese: The speech of mothers to young children",
+   "container": "Talking to children: Language input and acquisition",
+   "first_page": "109",
+   "last_page": "149"
+  },
+  {
+   "bib_id": 55,
+   "authors": [
+    {
+     "family": "Odijk",
+     "given": "L."
+    },
+    {
+     "family": "Gillis",
+     "given": "S."
+    }
+   ],
+   "year": "2021",
+   "title": "Fine lexical tuning in infant directed speech to typically developing children",
+   "container": "Journal of Child Language",
+   "volume": "48",
+   "first_page": "591",
+   "last_page": "604",
+   "doi": "10.1017/S0305000920000379"
+  },
+  {
+   "bib_id": 56,
+   "authors": [
+    {
+     "family": "Pedregosa",
+     "given": "F."
+    },
+    {
+     "family": "Varoquaux",
+     "given": "G."
+    },
+    {
+     "family": "Gramfort",
+     "given": "A."
+    },
+    {
+     "family": "Michel",
+     "given": "V."
+    },
+    {
+     "family": "Thirion",
+     "given": "B."
+    },
+    {
+     "family": "Grisel",
+     "given": "O."
+    },
+    {
+     "family": "Blondel",
+     "given": "M."
+    },
+    {
+     "family": "Prettenhofer",
+     "given": "P."
+    },
+    {
+     "family": "Weiss",
+     "given": "R."
+    },
+    {
+     "family": "Dubourg",
+     "given": "V."
+    },
+    {
+     "family": "Vanderplas",
+     "given": "J."
+    },
+    {
+     "family": "Passos",
+     "given": "A."
+    },
+    {
+     "family": "Cournapeau",
+     "given": "D."
+    },
+    {
+     "family": "Brucher",
+     "given": "M."
+    },
+    {
+     "family": "Perrot",
+     "given": "M."
+    },
+    {
+     "family": "Duchesnay",
+     "given": "E."
+    }
+   ],
+   "year": "2011",
+   "title": "Scikit-learn: Machine learning in Python",
+   "container": "Journal of Machine Learning Research",
+   "volume": "12",
+   "first_page": "2825",
+   "last_page": "2830"
+  },
+  {
+   "bib_id": 57,
+   "authors": [
+    {
+     "family": "Pouscoulous",
+     "given": "N."
+    },
+    {
+     "family": "Tomasello",
+     "given": "M."
+    }
+   ],
+   "year": "2020",
+   "title": "Early birds: Metaphor understanding in 3-year-olds",
+   "container": "Journal of Pragmatics",
+   "volume": "156",
+   "first_page": "160",
+   "last_page": "167",
+   "doi": "10.1016/j.pragma.2019.05.021"
+  },
+  {
+   "bib_id": 58,
+   "authors": [
+    {
+     "family": "Proos",
+     "given": "M."
+    },
+    {
+     "family": "Aigro",
+     "given": "M."
+    }
+   ],
+   "year": "2024",
+   "title": "Concreteness ratings for 36,000 Estonian words",
+   "container": "Behavior Research Methods",
+   "volume": "56",
+   "first_page": "5178",
+   "last_page": "5189",
+   "doi": "10.3758/s13428-023-02257-4"
+  },
+  {
+   "bib_id": 59,
+   "authors": [
+    {
+     "family": "Python Software Foundation",
+     "given": ""
+    }
+   ],
+   "year": "2026",
+   "title": "Itertools—Functions creating iterators for efficient looping [Python Standard Library documentation]"
+  },
+  {
+   "bib_id": 60,
+   "authors": [
+    {
+     "family": "Quine",
+     "given": "W. V. O."
+    }
+   ],
+   "year": "1960",
+   "title": "Word and object"
+  },
+  {
+   "bib_id": 61,
+   "authors": [
+    {
+     "family": "R Core Team",
+     "given": ""
+    }
+   ],
+   "year": "2020",
+   "title": "R: A language and environment for statistical computing"
+  },
+  {
+   "bib_id": 62,
+   "authors": [
+    {
+     "family": "Reijnierse",
+     "given": "W. G."
+    },
+    {
+     "family": "Burgers",
+     "given": "C."
+    },
+    {
+     "family": "Bolognesi",
+     "given": "M."
+    },
+    {
+     "family": "Krennmayr",
+     "given": "T."
+    }
+   ],
+   "year": "2019",
+   "title": "How metaphors influence meaning making",
+   "container": "Discourse Processes",
+   "volume": "56",
+   "first_page": "354",
+   "last_page": "370",
+   "doi": "10.1080/0163853X.2019.1619987"
+  },
+  {
+   "bib_id": 63,
+   "authors": [
+    {
+     "family": "Rowe",
+     "given": "M. L."
+    }
+   ],
+   "year": "2012",
+   "title": "A longitudinal investigation of the role of quantity and quality of child-directed speech in vocabulary development",
+   "container": "Child Development",
+   "volume": "83",
+   "first_page": "1762",
+   "last_page": "1774",
+   "doi": "10.1111/j.1467-8624.2012.01805.x"
+  },
+  {
+   "bib_id": 64,
+   "authors": [
+    {
+     "family": "Schick",
+     "given": "J."
+    },
+    {
+     "family": "Fryns",
+     "given": "C."
+    },
+    {
+     "family": "Wegdell",
+     "given": "F."
+    },
+    {
+     "family": "Laporte",
+     "given": "M."
+    },
+    {
+     "family": "Zuberbühler",
+     "given": "K."
+    },
+    {
+     "family": "van Schaik",
+     "given": "C. P."
+    },
+    {
+     "family": "Townsend",
+     "given": "S. W."
+    },
+    {
+     "family": "Stoll",
+     "given": "S."
+    }
+   ],
+   "year": "2022",
+   "title": "The function and evolution of child-directed communication",
+   "container": "PLoS Biology",
+   "volume": "20",
+   "first_page": "e3001630",
+   "doi": "10.1371/journal.pbio.3001630"
+  },
+  {
+   "bib_id": 65,
+   "authors": [
+    {
+     "family": "Schick",
+     "given": "J."
+    },
+    {
+     "family": "Stoll",
+     "given": "S."
+    }
+   ],
+   "year": "2025",
+   "title": "Children learn best from their peers: The crucial role of input from other children in language development",
+   "container": "Open Mind: Discoveries in Cognitive Science",
+   "volume": "9",
+   "first_page": "665",
+   "last_page": "676",
+   "doi": "10.1162/opmi_a_00198"
+  },
+  {
+   "bib_id": 66,
+   "authors": [
+    {
+     "family": "Schwab",
+     "given": "J. F."
+    },
+    {
+     "family": "Lew-Williams",
+     "given": "C."
+    }
+   ],
+   "year": "2016",
+   "title": "Repetition across successive sentences facilitates young children’s word learning",
+   "container": "Developmental Psychology",
+   "volume": "52",
+   "first_page": "879",
+   "last_page": "886",
+   "doi": "10.1037/dev0000125"
+  },
+  {
+   "bib_id": 67,
+   "authors": [
+    {
+     "family": "Seabold",
+     "given": "S."
+    },
+    {
+     "family": "Perktold",
+     "given": "J."
+    }
+   ],
+   "year": "2010",
+   "title": "Statsmodels: Econometric and statistical modeling with Python",
+   "container": "Proceedings of the 9th Python in Science Conference",
+   "first_page": "57",
+   "last_page": "61",
+   "doi": "10.25080/Majora-92bf1922-011"
+  },
+  {
+   "bib_id": 68,
+   "authors": [
+    {
+     "family": "Shen",
+     "given": "L."
+    }
+   ],
+   "year": "2022",
+   "title": "LexicalRichness: A small module to compute textual lexical richness",
+   "doi": "10.5281/zenodo.6607007"
+  },
+  {
+   "bib_id": 69,
+   "authors": [
+    {
+     "family": "Shneidman",
+     "given": "L. A."
+    },
+    {
+     "family": "Goldin-Meadow",
+     "given": "S."
+    }
+   ],
+   "year": "2012",
+   "title": "Language input and acquisition in a Mayan village: How important is directed speech?",
+   "container": "Developmental Science",
+   "volume": "15",
+   "first_page": "659",
+   "last_page": "673",
+   "doi": "10.1111/j.1467-7687.2012.01168.x"
+  },
+  {
+   "bib_id": 70,
+   "authors": [
+    {
+     "family": "Shutova",
+     "given": "E."
+    }
+   ],
+   "year": "2015",
+   "title": "Design and evaluation of metaphor processing systems",
+   "container": "Computational Linguistics",
+   "volume": "41",
+   "first_page": "579",
+   "last_page": "623",
+   "doi": "10.1162/COLI_a_00233"
+  },
+  {
+   "bib_id": 71,
+   "authors": [
+    {
+     "family": "Shutova",
+     "given": "E."
+    },
+    {
+     "family": "Sun",
+     "given": "L."
+    },
+    {
+     "family": "Dario Gutierrez",
+     "given": "E."
+    },
+    {
+     "family": "Lichtenstein",
+     "given": "P."
+    },
+    {
+     "family": "Narayanan",
+     "given": "S."
+    }
+   ],
+   "year": "2017",
+   "title": "Multilingual metaphor processing: Experiments with semi-supervised and unsupervised learning",
+   "container": "Computational Linguistics",
+   "volume": "43",
+   "first_page": "185",
+   "last_page": "223",
+   "doi": "10.1162/COLI_a_00275"
+  },
+  {
+   "bib_id": 72,
+   "authors": [
+    {
+     "family": "Snefjella",
+     "given": "B."
+    },
+    {
+     "family": "Généreux",
+     "given": "M."
+    },
+    {
+     "family": "Kuperman",
+     "given": "V."
+    }
+   ],
+   "year": "2019",
+   "title": "Historical evolution of concrete and abstract language revisited",
+   "container": "Behavior Research Methods",
+   "volume": "51",
+   "first_page": "1693",
+   "last_page": "1705",
+   "doi": "10.3758/s13428-018-1071-2"
+  },
+  {
+   "bib_id": 73,
+   "authors": [
+    {
+     "family": "Snow",
+     "given": "C. E."
+    }
+   ],
+   "year": "1972",
+   "title": "Mothers’ speech to children learning language",
+   "container": "Child Development",
+   "volume": "43",
+   "first_page": "549",
+   "last_page": "565",
+   "doi": "10.2307/1127555"
+  },
+  {
+   "bib_id": 74,
+   "authors": [
+    {
+     "family": "Soderstrom",
+     "given": "M."
+    }
+   ],
+   "year": "2007",
+   "title": "Re-evaluating the nature and content of speech input to preverbal infants",
+   "container": "Developmental Review",
+   "volume": "27",
+   "first_page": "501",
+   "last_page": "532",
+   "doi": "10.1016/j.dr.2007.06.002"
+  },
+  {
+   "bib_id": 75,
+   "authors": [
+    {
+     "family": "Steen",
+     "given": "G. J."
+    },
+    {
+     "family": "Dorst",
+     "given": "A. G."
+    },
+    {
+     "family": "Herrmann",
+     "given": "J. B."
+    },
+    {
+     "family": "Kaal",
+     "given": "A. A."
+    },
+    {
+     "family": "Krennmayr",
+     "given": "T."
+    },
+    {
+     "family": "Pasma",
+     "given": "T."
+    }
+   ],
+   "year": "2010",
+   "title": "A method for linguistic metaphor identification: From MIP to MIPVU",
+   "volume": "Vol. 14",
+   "doi": "10.1075/celcr.14"
+  },
+  {
+   "bib_id": 76,
+   "authors": [
+    {
+     "family": "Theakston",
+     "given": "A. L."
+    },
+    {
+     "family": "Lieven",
+     "given": "E. V."
+    },
+    {
+     "family": "Pine",
+     "given": "J. M."
+    },
+    {
+     "family": "Rowland",
+     "given": "C. F."
+    }
+   ],
+   "year": "2001",
+   "title": "The role of performance limitations in the acquisition of verb-argument structure: An alternative account",
+   "container": "Journal of Child Language",
+   "volume": "28",
+   "first_page": "127",
+   "last_page": "152",
+   "doi": "10.1017/S0305000900004608"
+  },
+  {
+   "bib_id": 77,
+   "authors": [
+    {
+     "family": "Tomasello",
+     "given": "M."
+    }
+   ],
+   "year": "2003",
+   "title": "Constructing a language: A usage-based theory of language acquisition"
+  },
+  {
+   "bib_id": 78,
+   "authors": [
+    {
+     "family": "Tong",
+     "given": "X."
+    },
+    {
+     "family": "Shutova",
+     "given": "E."
+    },
+    {
+     "family": "Lewis",
+     "given": "M."
+    }
+   ],
+   "year": "2021",
+   "title": "Recent advances in neural metaphor processing: A linguistic, cognitive and social perspective",
+   "container": "Proceedings of the 2021 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies",
+   "first_page": "4673",
+   "last_page": "4686",
+   "doi": "10.18653/v1/2021.naacl-main.372"
+  },
+  {
+   "bib_id": 79,
+   "authors": [
+    {
+     "family": "Van Rossum",
+     "given": "G."
+    },
+    {
+     "family": "Drake",
+     "given": "F. L."
+    }
+   ],
+   "year": "2009",
+   "title": "Python 3 reference manual",
+   "container": "CreateSpace"
+  },
+  {
+   "bib_id": 80,
+   "authors": [
+    {
+     "family": "Wilks",
+     "given": "Y."
+    }
+   ],
+   "year": "1978",
+   "title": "Semantic primitives in language and vision [Microfiche 79]",
+   "container": "American Journal of Computational Linguistics",
+   "volume": "4",
+   "first_page": "87",
+   "last_page": "90"
+  },
+  {
+   "bib_id": 81,
+   "authors": [
+    {
+     "family": "Winter",
+     "given": "B."
+    },
+    {
+     "family": "Srinivasan",
+     "given": "M."
+    }
+   ],
+   "year": "2022",
+   "title": "Why is semantic change asymmetric? The role of concreteness, word frequency, metaphor, and metonymy",
+   "container": "Metaphor and Symbol",
+   "volume": "37",
+   "first_page": "39",
+   "last_page": "54",
+   "doi": "10.1080/10926488.2021.1945419"
+  },
+  {
+   "bib_id": 82,
+   "authors": [
+    {
+     "family": "You",
+     "given": "G."
+    },
+    {
+     "family": "Bickel",
+     "given": "B."
+    },
+    {
+     "family": "Daum",
+     "given": "M. M."
+    },
+    {
+     "family": "Stoll",
+     "given": "S."
+    }
+   ],
+   "year": "2021",
+   "title": "Child-directed speech is optimized for syntax-free semantic inference",
+   "container": "Scientific Reports",
+   "volume": "11",
+   "first_page": "16527",
+   "doi": "10.1038/s41598-021-95392-x"
+  },
+  {
+   "bib_id": 83,
+   "authors": [
+    {
+     "family": "Zhou",
+     "given": "X."
+    },
+    {
+     "family": "Wang",
+     "given": "L."
+    },
+    {
+     "family": "Hong",
+     "given": "X."
+    },
+    {
+     "family": "Wong",
+     "given": "P. C. M."
+    }
+   ],
+   "year": "2024",
+   "title": "Infant-directed speech facilitates word learning through attentional mechanisms: An fNIRS study of toddlers",
+   "container": "Developmental Science",
+   "volume": "27",
+   "first_page": "e13424",
+   "doi": "10.1111/desc.13424"
+  },
+  {
+   "bib_id": 84,
+   "authors": [
+    {
+     "family": "Zhu",
+     "given": "R."
+    },
+    {
+     "family": "Li",
+     "given": "P."
+    },
+    {
+     "family": "Zhang",
+     "given": "L."
+    }
+   ],
+   "year": "2024",
+   "title": "Development of metaphor comprehension in preschool children",
+   "container": "Journal of Child Language",
+   "volume": "51",
+   "first_page": "356",
+   "last_page": "379",
+   "doi": "10.1017/S0305000923000417"
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-core-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "jats_doi": "10.1162/OPMI.a.387"
+ }
+}

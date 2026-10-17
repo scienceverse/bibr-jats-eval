@@ -1,0 +1,2264 @@
+{
+ "paper_id": "10.2196_105460",
+ "info": {
+  "title": "Assessing the Need for Mental Health Support From Free-Text Responses: Development and Validation of Language-Based Assessments in Adults With Internalizing Symptoms",
+  "doi": "10.2196/105460",
+  "file_name": "10.2196_105460.pdf",
+  "keywords": [
+   "mental health support",
+   "language-based assessments",
+   "natural language processing",
+   "machine learning",
+   "large language models",
+   "best-estimate assessments",
+   "AI"
+  ],
+  "abstract": "Background: Machine learning and natural language processing have demonstrated significant potential for mental health assessment: describing your mental health in your own words can offer a more ecologically valid approach than traditional rating scales. However, most models focus on specific diagnoses, conditions, or symptoms, which may prematurely assign labels and potentially reinforce stigma in the context of early-stage mental health screening. Objective: This study develops a language-based assessment model that assesses the need for mental health support based on probed natural language and validates it against best-estimate assessments from multiple experienced psychotherapists. Methods: We analyzed an enriched online sample (n=600 for development and n=212 for validation), in which about half reported experiencing internalizing symptoms (depression or anxiety). Participants described their mental health using open-ended responses regarding (1) mental health, (2) suicidal thoughts, (3) medical history, and (4) depression. The responses were converted into contextual word embeddings using a large language model and entered as predictors in a ridge regression using nested cross-validation. Two to three experienced psychotherapists assessed each participant’s need for mental health support on a scale from 1 (no support needed) to 5 (potential crisis). Their assessments were based on longitudinal clinical data (natural language, validated scales, clinical interview, sociodemographics, and clinical history) and were averaged into a best-estimate assessment for model validation. We used the Sequential Evaluation With Model Preregistration framework, which separates model development from validation in a held-out set to support robust estimations and generalizability. Results: The language-based assessments closely aligned with the best-estimate assessments (r=0.82) and showed strong correlations with established clinical rating scales for depression (Patient Health Questionnaire-9), anxiety (Generalized Anxiety Disorder 7-Item Scale), stress (Perceived Stress Scale 10), and suicidality (Inventory of Depression and Anxiety Symptoms; r=0.62-0.77). Language-based visualizations of topics and word embeddings showed that low need for support assessments was associated with mentioning well-being and good health, while high assessments were related to depression, anxiety, and suicidality. Conclusions: This study demonstrates that natural language responses analyzed through large language models and machine learning can be used to assess individuals’ need for mental health support in close alignment with best-estimate assessments from experienced psychotherapists. Using less than 5 minutes of respondent time, this approach offers a practical tool for early-stage mental health screening in both clinical and self-guided screening contexts."
+ },
+ "author": [
+  {
+   "author_id": 1,
+   "given": "Clara",
+   "family": "Wiebel",
+   "affiliation": "Department of Psychology, Lund University, Box 213, Allhelgona Kyrkogata 16A, 16B, 18A, 18B och 18C, Lund, Skåne, 22350, Sweden, +46 46 222 00 00; School of Management, Technical University of Munich, Heilbronn, Baden-Württemberg, Germany",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 2,
+   "given": "Veerle C",
+   "family": "Eijsbroek",
+   "affiliation": "Department of Psychology, Lund University, Box 213, Allhelgona Kyrkogata 16A, 16B, 18A, 18B och 18C, Lund, Skåne, 22350, Sweden, +46 46 222 00 00",
+   "email": "",
+   "orcid": "",
+   "corresponding": true
+  },
+  {
+   "author_id": 3,
+   "given": "Vasudha",
+   "family": "Varadarajan",
+   "affiliation": "Language Technologies Institute, Carnegie Mellon University, Pittsburgh, PA, United States",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 4,
+   "given": "Katarina",
+   "family": "Kjell",
+   "affiliation": "Department of Psychology, Lund University, Box 213, Allhelgona Kyrkogata 16A, 16B, 18A, 18B och 18C, Lund, Skåne, 22350, Sweden, +46 46 222 00 00",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 5,
+   "given": "H Andrew",
+   "family": "Schwartz",
+   "affiliation": "College of Connected Computing, Vanderbilt University, Nashville, TN, United States",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 6,
+   "given": "Oscar",
+   "family": "Kjell",
+   "affiliation": "Department of Psychology, Lund University, Box 213, Allhelgona Kyrkogata 16A, 16B, 18A, 18B och 18C, Lund, Skåne, 22350, Sweden, +46 46 222 00 00; College of Connected Computing, Vanderbilt University, Nashville, TN, United States",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  }
+ ],
+ "section": [
+  {
+   "section_id": 1,
+   "section_type": "abstract",
+   "header": "Abstract",
+   "level": 1,
+   "parent_section_id": null,
+   "classification_score": 1.0
+  }
+ ],
+ "text": [
+  {
+   "text_id": 1,
+   "section_id": 1,
+   "paragraph_id": 1,
+   "text": "Background: Machine learning and natural language processing have demonstrated significant potential for mental health assessment: describing your mental health in your own words can offer a more ecologically valid approach than traditional rating scales. However, most models focus on specific diagnoses, conditions, or symptoms, which may prematurely assign labels and potentially reinforce stigma in the context of early-stage mental health screening. Objective: This study develops a language-based assessment model that assesses the need for mental health support based on probed natural language and validates it against best-estimate assessments from multiple experienced psychotherapists. Methods: We analyzed an enriched online sample (n=600 for development and n=212 for validation), in which about half reported experiencing internalizing symptoms (depression or anxiety). Participants described their mental health using open-ended responses regarding (1) mental health, (2) suicidal thoughts, (3) medical history, and (4) depression. The responses were converted into contextual word embeddings using a large language model and entered as predictors in a ridge regression using nested cross-validation. Two to three experienced psychotherapists assessed each participant’s need for mental health support on a scale from 1 (no support needed) to 5 (potential crisis). Their assessments were based on longitudinal clinical data (natural language, validated scales, clinical interview, sociodemographics, and clinical history) and were averaged into a best-estimate assessment for model validation. We used the Sequential Evaluation With Model Preregistration framework, which separates model development from validation in a held-out set to support robust estimations and generalizability. Results: The language-based assessments closely aligned with the best-estimate assessments (r=0.82) and showed strong correlations with established clinical rating scales for depression (Patient Health Questionnaire-9), anxiety (Generalized Anxiety Disorder 7-Item Scale), stress (Perceived Stress Scale 10), and suicidality (Inventory of Depression and Anxiety Symptoms; r=0.62-0.77). Language-based visualizations of topics and word embeddings showed that low need for support assessments was associated with mentioning well-being and good health, while high assessments were related to depression, anxiety, and suicidality. Conclusions: This study demonstrates that natural language responses analyzed through large language models and machine learning can be used to assess individuals’ need for mental health support in close alignment with best-estimate assessments from experienced psychotherapists. Using less than 5 minutes of respondent time, this approach offers a practical tool for early-stage mental health screening in both clinical and self-guided screening contexts.",
+   "page_number": 1
+  }
+ ],
+ "bib": [
+  {
+   "bib_id": 1,
+   "authors": [
+    {
+     "family": "European Commission: Directorate-General for Health and Food Safety and Ipsos European Public Affairs, [Directorate-General for Health and Food Safety, Ipsos European Public Affairs]",
+     "given": ""
+    }
+   ],
+   "year": "2023",
+   "title": "Mental health – report"
+  },
+  {
+   "bib_id": 2,
+   "authors": [
+    {
+     "family": "Moitra",
+     "given": "M"
+    },
+    {
+     "family": "Santomauro",
+     "given": "D"
+    },
+    {
+     "family": "Collins",
+     "given": "PY"
+    }
+   ],
+   "year": "2022",
+   "title": "The global gap in treatment coverage for major depressive disorder in 84 countries from 2000–2019: a systematic review and Bayesian meta-regression analysis",
+   "container": "PLoS Med",
+   "volume": "19",
+   "first_page": "e1003901",
+   "doi": "10.1371/journal.pmed.1003901"
+  },
+  {
+   "bib_id": 3,
+   "authors": [
+    {
+     "family": "Orozco",
+     "given": "R"
+    },
+    {
+     "family": "Vigo",
+     "given": "D"
+    },
+    {
+     "family": "Benjet",
+     "given": "C"
+    }
+   ],
+   "year": "2022",
+   "title": "Barriers to treatment for mental disorders in six countries of the Americas: a regional report from the World Mental Health Surveys",
+   "container": "J Affect Disord",
+   "volume": "303",
+   "first_page": "273",
+   "last_page": "285",
+   "doi": "10.1016/j.jad.2022.02.031"
+  },
+  {
+   "bib_id": 4,
+   "authors": [
+    {
+     "family": "Olsson",
+     "given": "S"
+    },
+    {
+     "family": "Hensing",
+     "given": "G"
+    },
+    {
+     "family": "Burström",
+     "given": "B"
+    },
+    {
+     "family": "Löve",
+     "given": "J"
+    }
+   ],
+   "year": "2021",
+   "title": "Unmet need for mental healthcare in a population sample in Sweden: a cross-sectional study of inequalities based on gender, education, and country of birth",
+   "container": "Community Ment Health J",
+   "volume": "57",
+   "first_page": "470",
+   "last_page": "481",
+   "doi": "10.1007/s10597-020-00668-7"
+  },
+  {
+   "bib_id": 5,
+   "authors": [
+    {
+     "family": "Katz",
+     "given": "SJ"
+    },
+    {
+     "family": "Kessler",
+     "given": "RC"
+    },
+    {
+     "family": "Frank",
+     "given": "RG"
+    },
+    {
+     "family": "Leaf",
+     "given": "P"
+    },
+    {
+     "family": "Lin",
+     "given": "E"
+    },
+    {
+     "family": "Edlund",
+     "given": "M"
+    }
+   ],
+   "year": "1997",
+   "title": "The use of outpatient mental health services in the United States and Ontario: the impact of mental morbidity and perceived need for care",
+   "container": "Am J Public Health",
+   "volume": "87",
+   "first_page": "1136",
+   "last_page": "1143",
+   "doi": "10.2105/ajph.87.7.1136"
+  },
+  {
+   "bib_id": 6,
+   "authors": [
+    {
+     "family": "Meadows",
+     "given": "G"
+    },
+    {
+     "family": "Harvey",
+     "given": "C"
+    },
+    {
+     "family": "Fossey",
+     "given": "E"
+    },
+    {
+     "family": "Burgess",
+     "given": "P"
+    }
+   ],
+   "year": "2000",
+   "title": "Assessing perceived need for mental health care in a community survey: development of the Perceived Need for Care Questionnaire (PNCQ)",
+   "container": "Soc Psychiatry Psychiatr Epidemiol",
+   "volume": "35",
+   "first_page": "427",
+   "last_page": "435",
+   "doi": "10.1007/s001270050260"
+  },
+  {
+   "bib_id": 7,
+   "authors": [
+    {
+     "family": "Sareen",
+     "given": "J"
+    },
+    {
+     "family": "Stein",
+     "given": "MB"
+    },
+    {
+     "family": "Campbell",
+     "given": "DW"
+    },
+    {
+     "family": "Hassard",
+     "given": "T"
+    },
+    {
+     "family": "Menec",
+     "given": "V"
+    }
+   ],
+   "year": "2005",
+   "title": "The relation between perceived need for mental health treatment, DSM diagnosis, and quality of life: a Canadian population-based survey",
+   "container": "Can J Psychiatry",
+   "volume": "50",
+   "first_page": "87",
+   "last_page": "94",
+   "doi": "10.1177/070674370505000203"
+  },
+  {
+   "bib_id": 8,
+   "authors": [
+    {
+     "family": "Alegría",
+     "given": "M"
+    },
+    {
+     "family": "NeMoyer",
+     "given": "A"
+    },
+    {
+     "family": "Bagué",
+     "given": "IF"
+    },
+    {
+     "family": "Wang",
+     "given": "Y"
+    },
+    {
+     "family": "Alvarez",
+     "given": "K"
+    }
+   ],
+   "year": "2018",
+   "title": "Social determinants of mental health: where we are and where we need to go",
+   "container": "Curr Psychiatry Rep",
+   "volume": "20",
+   "first_page": "95",
+   "doi": "10.1007/s11920-018-0969-9"
+  },
+  {
+   "bib_id": 9,
+   "authors": [
+    {
+     "family": "Alon",
+     "given": "N"
+    },
+    {
+     "family": "Macrynikola",
+     "given": "N"
+    },
+    {
+     "family": "Jester",
+     "given": "DJ"
+    }
+   ],
+   "year": "2024",
+   "title": "Social determinants of mental health in major depressive disorder: umbrella review of 26 meta-analyses and systematic reviews",
+   "container": "Psychiatry Res",
+   "volume": "335",
+   "first_page": "115854",
+   "doi": "10.1016/j.psychres.2024.115854"
+  },
+  {
+   "bib_id": 10,
+   "authors": [
+    {
+     "family": "Bolton",
+     "given": "D"
+    }
+   ],
+   "year": "2023",
+   "title": "A revitalized biopsychosocial model: core theory, research paradigms, and clinical implications",
+   "container": "Psychol Med",
+   "volume": "53",
+   "first_page": "7504",
+   "last_page": "7511",
+   "doi": "10.1017/S0033291723002660"
+  },
+  {
+   "bib_id": 11,
+   "authors": [
+    {
+     "family": "Basterfield",
+     "given": "C"
+    },
+    {
+     "family": "Fitzsimmons-Craft",
+     "given": "EE"
+    },
+    {
+     "family": "Taylor",
+     "given": "CB"
+    },
+    {
+     "family": "Eisenberg",
+     "given": "D"
+    },
+    {
+     "family": "Wilfley",
+     "given": "DE"
+    },
+    {
+     "family": "Newman",
+     "given": "MG"
+    }
+   ],
+   "year": "2024",
+   "title": "Internalizing psychopathology and its links to suicidal ideation, dysfunctional attitudes, and help-seeking readiness in a national sample of college students",
+   "container": "J Affect Disord",
+   "volume": "350",
+   "first_page": "255",
+   "last_page": "263",
+   "doi": "10.1016/j.jad.2024.01.058"
+  },
+  {
+   "bib_id": 12,
+   "authors": [
+    {
+     "family": "Kotov",
+     "given": "R"
+    },
+    {
+     "family": "Krueger",
+     "given": "RF"
+    },
+    {
+     "family": "Watson",
+     "given": "D"
+    }
+   ],
+   "year": "2017",
+   "title": "The Hierarchical Taxonomy of Psychopathology (HiTOP): a dimensional alternative to traditional nosologies",
+   "container": "J Abnorm Psychol",
+   "volume": "126",
+   "first_page": "454",
+   "last_page": "477",
+   "doi": "10.1037/abn0000258"
+  },
+  {
+   "bib_id": 13,
+   "authors": [
+    {
+     "family": "Zhang",
+     "given": "Z"
+    },
+    {
+     "family": "Chen",
+     "given": "X"
+    },
+    {
+     "family": "Wu",
+     "given": "S"
+    }
+   ],
+   "year": "2026",
+   "title": "Global, regional and national burden of anxiety and depression disorders from 1990 to 2021, and forecasts up to 2040",
+   "container": "J Affect Disord",
+   "volume": "393",
+   "first_page": "120299",
+   "doi": "10.1016/j.jad.2025.120299"
+  },
+  {
+   "bib_id": 14,
+   "authors": [
+    {
+     "family": "Pennebaker",
+     "given": "JW"
+    },
+    {
+     "family": "Mehl",
+     "given": "MR"
+    },
+    {
+     "family": "Niederhoffer",
+     "given": "KG"
+    }
+   ],
+   "year": "2003",
+   "title": "Psychological aspects of natural language use: our words, our selves",
+   "container": "Annu Rev Psychol",
+   "volume": "54",
+   "first_page": "547",
+   "last_page": "577",
+   "doi": "10.1146/annurev.psych.54.101601.145041"
+  },
+  {
+   "bib_id": 15,
+   "authors": [
+    {
+     "family": "Boyd",
+     "given": "RL"
+    },
+    {
+     "family": "Schwartz",
+     "given": "HA"
+    }
+   ],
+   "year": "2021",
+   "title": "Natural language analysis and the psychology of verbal behavior: the past, present, and future states of the field",
+   "container": "J Lang Soc Psychol",
+   "volume": "40",
+   "first_page": "21",
+   "last_page": "41",
+   "doi": "10.1177/0261927x20967028"
+  },
+  {
+   "bib_id": 16,
+   "authors": [
+    {
+     "family": "Mihalcea",
+     "given": "R"
+    },
+    {
+     "family": "Biester",
+     "given": "L"
+    },
+    {
+     "family": "Boyd",
+     "given": "RL"
+    }
+   ],
+   "year": "2024",
+   "title": "How developments in natural language processing help us in understanding human behaviour",
+   "container": "Nat Hum Behav",
+   "volume": "8",
+   "first_page": "1877",
+   "last_page": "1889",
+   "doi": "10.1038/s41562-024-01938-0"
+  },
+  {
+   "bib_id": 17,
+   "authors": [
+    {
+     "family": "Vaswani",
+     "given": "A"
+    },
+    {
+     "family": "Shazeer",
+     "given": "N"
+    },
+    {
+     "family": "Parmar",
+     "given": "N"
+    }
+   ],
+   "year": "2023",
+   "title": "Attention is all you need",
+   "container": "arXiv",
+   "doi": "10.48550/arXiv.1706.03762"
+  },
+  {
+   "bib_id": 18,
+   "authors": [
+    {
+     "family": "Eichstaedt",
+     "given": "JC"
+    },
+    {
+     "family": "Smith",
+     "given": "RJ"
+    },
+    {
+     "family": "Merchant",
+     "given": "RM"
+    }
+   ],
+   "year": "2018",
+   "title": "Facebook language predicts depression in medical records",
+   "container": "Proc Natl Acad Sci USA",
+   "volume": "115",
+   "first_page": "11203",
+   "last_page": "11208",
+   "doi": "10.1073/pnas.1802331115"
+  },
+  {
+   "bib_id": 19,
+   "authors": [
+    {
+     "family": "Entwistle",
+     "given": "C"
+    },
+    {
+     "family": "Hoemann",
+     "given": "K"
+    },
+    {
+     "family": "Nightingale",
+     "given": "SJ"
+    },
+    {
+     "family": "Boyd",
+     "given": "RL"
+    }
+   ],
+   "year": "2025",
+   "title": "Psychosocial dynamics of suicidality and nonsuicidal self-injury: a digital linguistic perspective",
+   "container": "npj Ment Health Res",
+   "volume": "4",
+   "first_page": "28",
+   "doi": "10.1038/s44184-025-00142-w"
+  },
+  {
+   "bib_id": 20,
+   "authors": [
+    {
+     "family": "Hur",
+     "given": "JK"
+    },
+    {
+     "family": "Heffner",
+     "given": "J"
+    },
+    {
+     "family": "Feng",
+     "given": "GW"
+    },
+    {
+     "family": "Joormann",
+     "given": "J"
+    },
+    {
+     "family": "Rutledge",
+     "given": "RB"
+    }
+   ],
+   "year": "2024",
+   "title": "Language sentiment predicts changes in depressive symptoms",
+   "container": "Proc Natl Acad Sci USA",
+   "volume": "121",
+   "first_page": "e2321321121",
+   "doi": "10.1073/pnas.2321321121"
+  },
+  {
+   "bib_id": 21,
+   "authors": [
+    {
+     "family": "Vine",
+     "given": "V"
+    },
+    {
+     "family": "Boyd",
+     "given": "RL"
+    },
+    {
+     "family": "Pennebaker",
+     "given": "JW"
+    }
+   ],
+   "year": "2020",
+   "title": "Natural emotion vocabularies as windows on distress and well-being",
+   "container": "Nat Commun",
+   "volume": "11",
+   "first_page": "4525",
+   "doi": "10.1038/s41467-020-18349-0"
+  },
+  {
+   "bib_id": 22,
+   "authors": [
+    {
+     "family": "Stamatis",
+     "given": "CA"
+    },
+    {
+     "family": "Meyerhoff",
+     "given": "J"
+    },
+    {
+     "family": "Liu",
+     "given": "T"
+    }
+   ],
+   "year": "2022",
+   "title": "Prospective associations of text-message-based sentiment with symptoms of depression, generalized anxiety, and social anxiety",
+   "container": "Depression Anxiety",
+   "volume": "39",
+   "first_page": "794",
+   "last_page": "804",
+   "doi": "10.1002/da.23286"
+  },
+  {
+   "bib_id": 23,
+   "authors": [
+    {
+     "family": "Hull",
+     "given": "TD"
+    },
+    {
+     "family": "Malgaroli",
+     "given": "M"
+    },
+    {
+     "family": "Connolly",
+     "given": "PS"
+    },
+    {
+     "family": "Feuerstein",
+     "given": "S"
+    },
+    {
+     "family": "Simon",
+     "given": "NM"
+    }
+   ],
+   "year": "2020",
+   "title": "Two-way messaging therapy for depression and anxiety: longitudinal response trajectories",
+   "container": "BMC Psychiatry",
+   "volume": "20",
+   "first_page": "297",
+   "doi": "10.1186/s12888-020-02721-x"
+  },
+  {
+   "bib_id": 24,
+   "authors": [
+    {
+     "family": "Nook",
+     "given": "EC"
+    },
+    {
+     "family": "Hull",
+     "given": "TD"
+    },
+    {
+     "family": "Nock",
+     "given": "MK"
+    },
+    {
+     "family": "Somerville",
+     "given": "LH"
+    }
+   ],
+   "year": "2022",
+   "title": "Linguistic measures of psychological distance track symptom levels and treatment outcomes in a large set of psychotherapy transcripts",
+   "container": "Proc Natl Acad Sci USA",
+   "volume": "119",
+   "first_page": "e2114737119",
+   "doi": "10.1073/pnas.2114737119"
+  },
+  {
+   "bib_id": 25,
+   "authors": [
+    {
+     "family": "Malgaroli",
+     "given": "M"
+    },
+    {
+     "family": "Hull",
+     "given": "TD"
+    },
+    {
+     "family": "Zech",
+     "given": "JM"
+    },
+    {
+     "family": "Althoff",
+     "given": "T"
+    }
+   ],
+   "year": "2023",
+   "title": "Natural language processing for mental health interventions: a systematic review and research framework",
+   "container": "Transl Psychiatry",
+   "volume": "13",
+   "first_page": "309",
+   "doi": "10.1038/s41398-023-02592-2"
+  },
+  {
+   "bib_id": 26,
+   "authors": [
+    {
+     "family": "Stade",
+     "given": "EC"
+    },
+    {
+     "family": "Ungar",
+     "given": "L"
+    },
+    {
+     "family": "Eichstaedt",
+     "given": "JC"
+    },
+    {
+     "family": "Sherman",
+     "given": "G"
+    },
+    {
+     "family": "Ruscio",
+     "given": "AM"
+    }
+   ],
+   "year": "2023",
+   "title": "Depression and anxiety have distinct and overlapping language patterns: results from a clinical interview",
+   "container": "J Psychopathol Clin Sci",
+   "volume": "132",
+   "first_page": "972",
+   "last_page": "983",
+   "doi": "10.1037/abn0000850"
+  },
+  {
+   "bib_id": 27,
+   "authors": [
+    {
+     "family": "Kjell",
+     "given": "ONE"
+    },
+    {
+     "family": "Kjell",
+     "given": "K"
+    },
+    {
+     "family": "Garcia",
+     "given": "D"
+    },
+    {
+     "family": "Sikström",
+     "given": "S"
+    }
+   ],
+   "year": "2019",
+   "title": "Semantic measures: using natural language processing to measure, differentiate, and describe psychological constructs",
+   "container": "Psychol Methods",
+   "volume": "24",
+   "first_page": "92",
+   "last_page": "115",
+   "doi": "10.1037/met0000191"
+  },
+  {
+   "bib_id": 28,
+   "authors": [
+    {
+     "family": "Kjell",
+     "given": "ONE"
+    },
+    {
+     "family": "Kjell",
+     "given": "K"
+    },
+    {
+     "family": "Schwartz",
+     "given": "HA"
+    }
+   ],
+   "year": "2024",
+   "title": "Beyond rating scales: with targeted evaluation, large language models are poised for psychological assessment",
+   "container": "Psychiatry Res",
+   "volume": "333",
+   "first_page": "115667",
+   "doi": "10.1016/j.psychres.2023.115667"
+  },
+  {
+   "bib_id": 29,
+   "authors": [
+    {
+     "family": "Gu",
+     "given": "Z"
+    },
+    {
+     "family": "Kjell",
+     "given": "K"
+    },
+    {
+     "family": "Schwartz",
+     "given": "HA"
+    },
+    {
+     "family": "Kjell",
+     "given": "O"
+    }
+   ],
+   "year": "2026",
+   "title": "Natural language response formats for assessing depression and worry with large language models: a sequential evaluation with model pre-registration",
+   "container": "Assessment",
+   "volume": "33",
+   "first_page": "927",
+   "last_page": "953",
+   "doi": "10.1177/10731911251364022"
+  },
+  {
+   "bib_id": 30,
+   "authors": [
+    {
+     "family": "Kjell",
+     "given": "ONE"
+    },
+    {
+     "family": "Sikström",
+     "given": "S"
+    },
+    {
+     "family": "Kjell",
+     "given": "K"
+    },
+    {
+     "family": "Schwartz",
+     "given": "HA"
+    }
+   ],
+   "year": "2022",
+   "title": "Natural language analyzed with AI-based transformers predict traditional subjective well-being measures approaching the theoretical upper limits in accuracy",
+   "container": "Sci Rep",
+   "volume": "12",
+   "first_page": "3918",
+   "doi": "10.1038/s41598-022-07520-w"
+  },
+  {
+   "bib_id": 31,
+   "authors": [
+    {
+     "family": "Nilsson",
+     "given": "A"
+    },
+    {
+     "family": "Boyd",
+     "given": "R"
+    },
+    {
+     "family": "Ganesan",
+     "given": "AV"
+    }
+   ],
+   "year": "2025",
+   "title": "Language-based assessments for experienced well-being: accuracy and external validity across behaviors, traits, and states",
+   "container": "PsyArXiv",
+   "doi": "10.31234/osf.io/dgnaf"
+  },
+  {
+   "bib_id": 32,
+   "authors": [
+    {
+     "family": "Ben-Zeev",
+     "given": "D"
+    },
+    {
+     "family": "Young",
+     "given": "MA"
+    },
+    {
+     "family": "Corrigan",
+     "given": "PW"
+    }
+   ],
+   "year": "2010",
+   "title": "DSM-V and the stigma of mental illness",
+   "container": "J Ment Health",
+   "volume": "19",
+   "first_page": "318",
+   "last_page": "327",
+   "doi": "10.3109/09638237.2010.492484"
+  },
+  {
+   "bib_id": 33,
+   "authors": [
+    {
+     "family": "Clement",
+     "given": "S"
+    },
+    {
+     "family": "Schauman",
+     "given": "O"
+    },
+    {
+     "family": "Graham",
+     "given": "T"
+    }
+   ],
+   "year": "2015",
+   "title": "What is the impact of mental health-related stigma on help-seeking? A systematic review of quantitative and qualitative studies",
+   "container": "Psychol Med",
+   "volume": "45",
+   "first_page": "11",
+   "last_page": "27",
+   "doi": "10.1017/S0033291714000129"
+  },
+  {
+   "bib_id": 34,
+   "authors": [
+    {
+     "family": "Bauer",
+     "given": "B"
+    },
+    {
+     "family": "Norel",
+     "given": "R"
+    },
+    {
+     "family": "Leow",
+     "given": "A"
+    },
+    {
+     "family": "Rached",
+     "given": "ZA"
+    },
+    {
+     "family": "Wen",
+     "given": "B"
+    },
+    {
+     "family": "Cecchi",
+     "given": "G"
+    }
+   ],
+   "year": "2024",
+   "title": "Using large language models to understand suicidality in a social media-based taxonomy of mental health disorders: linguistic analysis of Reddit posts",
+   "container": "JMIR Ment Health",
+   "volume": "11",
+   "first_page": "e57234",
+   "doi": "10.2196/57234"
+  },
+  {
+   "bib_id": 35,
+   "authors": [
+    {
+     "family": "Varadarajan",
+     "given": "V"
+    },
+    {
+     "family": "Lahnala",
+     "given": "A"
+    },
+    {
+     "family": "Vankudari",
+     "given": "S"
+    }
+   ],
+   "title": "Linking language-based distortion detection to mental health outcomes",
+   "first_page": "62",
+   "last_page": "68",
+   "doi": "10.18653/v1/2025.clpsych-1.5"
+  },
+  {
+   "bib_id": 36,
+   "authors": [
+    {
+     "family": "Jackson",
+     "given": "C"
+    }
+   ],
+   "year": "2006",
+   "title": "The General Health Questionnaire",
+   "container": "Occup Med",
+   "volume": "57",
+   "first_page": "79",
+   "last_page": "79",
+   "doi": "10.1093/occmed/kql169"
+  },
+  {
+   "bib_id": 37,
+   "authors": [
+    {
+     "family": "Gianfrancesco",
+     "given": "MA"
+    },
+    {
+     "family": "Tamang",
+     "given": "S"
+    },
+    {
+     "family": "Yazdany",
+     "given": "J"
+    },
+    {
+     "family": "Schmajuk",
+     "given": "G"
+    }
+   ],
+   "year": "2018",
+   "title": "Potential biases in machine learning algorithms using electronic health record data",
+   "container": "JAMA Intern Med",
+   "volume": "178",
+   "first_page": "1544",
+   "last_page": "1547",
+   "doi": "10.1001/jamainternmed.2018.3763"
+  },
+  {
+   "bib_id": 38,
+   "authors": [
+    {
+     "family": "Wright-Berryman",
+     "given": "J"
+    },
+    {
+     "family": "Cohen",
+     "given": "J"
+    },
+    {
+     "family": "Haq",
+     "given": "A"
+    },
+    {
+     "family": "Black",
+     "given": "DP"
+    },
+    {
+     "family": "Pease",
+     "given": "JL"
+    }
+   ],
+   "year": "2023",
+   "title": "Virtually screening adults for depression, anxiety, and suicide risk using machine learning and language from an open-ended interview",
+   "container": "Front Psychiatry",
+   "volume": "14",
+   "first_page": "1143175",
+   "doi": "10.3389/fpsyt.2023.1143175"
+  },
+  {
+   "bib_id": 39,
+   "authors": [
+    {
+     "family": "Shin",
+     "given": "D"
+    },
+    {
+     "family": "Kim",
+     "given": "K"
+    },
+    {
+     "family": "Lee",
+     "given": "SB"
+    }
+   ],
+   "year": "2022",
+   "title": "Detection of depression and suicide risk based on text from clinical interviews using machine learning: possibility of a new objective diagnostic marker",
+   "container": "Front Psychiatry",
+   "volume": "13",
+   "first_page": "801301",
+   "doi": "10.3389/fpsyt.2022.801301"
+  },
+  {
+   "bib_id": 40,
+   "authors": [
+    {
+     "family": "Ben-Zeev",
+     "given": "D"
+    },
+    {
+     "family": "Young",
+     "given": "MA"
+    }
+   ],
+   "year": "2010",
+   "title": "Accuracy of hospitalized depressed patients’ and healthy controls’ retrospective symptom reports",
+   "container": "J Nerv Ment Dis",
+   "volume": "198",
+   "first_page": "280",
+   "last_page": "285",
+   "doi": "10.1097/NMD.0b013e3181d6141f"
+  },
+  {
+   "bib_id": 41,
+   "authors": [
+    {
+     "family": "Bowes",
+     "given": "SM"
+    },
+    {
+     "family": "Ammirati",
+     "given": "RJ"
+    },
+    {
+     "family": "Costello",
+     "given": "TH"
+    },
+    {
+     "family": "Basterfield",
+     "given": "C"
+    },
+    {
+     "family": "Lilienfeld",
+     "given": "SO"
+    }
+   ],
+   "year": "2020",
+   "title": "Cognitive biases, heuristics, and logical fallacies in clinical practice: a brief field guide for practicing clinicians and supervisors",
+   "container": "Prof Psychol: Res Pract",
+   "volume": "51",
+   "first_page": "435",
+   "last_page": "445",
+   "doi": "10.1037/pro0000309"
+  },
+  {
+   "bib_id": 42,
+   "authors": [
+    {
+     "family": "Cronbach",
+     "given": "LJ"
+    },
+    {
+     "family": "Meehl",
+     "given": "PE"
+    }
+   ],
+   "year": "1955",
+   "title": "Construct validity in psychological tests",
+   "container": "Psychol Bull",
+   "volume": "52",
+   "first_page": "281",
+   "last_page": "302",
+   "doi": "10.1037/h0040957"
+  },
+  {
+   "bib_id": 43,
+   "authors": [
+    {
+     "family": "Reitsma",
+     "given": "JB"
+    },
+    {
+     "family": "Rutjes",
+     "given": "AWS"
+    },
+    {
+     "family": "Khan",
+     "given": "KS"
+    },
+    {
+     "family": "Coomarasamy",
+     "given": "A"
+    },
+    {
+     "family": "Bossuyt",
+     "given": "PM"
+    }
+   ],
+   "year": "2009",
+   "title": "A review of solutions for diagnostic accuracy studies with an imperfect or missing reference standard",
+   "container": "J Clin Epidemiol",
+   "volume": "62",
+   "first_page": "797",
+   "last_page": "806",
+   "doi": "10.1016/j.jclinepi.2009.02.005"
+  },
+  {
+   "bib_id": 44,
+   "authors": [
+    {
+     "family": "Chekroud",
+     "given": "AM"
+    },
+    {
+     "family": "Hawrilenko",
+     "given": "M"
+    },
+    {
+     "family": "Loho",
+     "given": "H"
+    }
+   ],
+   "year": "2024",
+   "title": "Illusory generalizability of clinical prediction models",
+   "container": "Science",
+   "volume": "383",
+   "first_page": "164",
+   "last_page": "167",
+   "doi": "10.1126/science.adg8538"
+  },
+  {
+   "bib_id": 45,
+   "authors": [
+    {
+     "family": "Kjell",
+     "given": "K"
+    },
+    {
+     "family": "Eijsbroek",
+     "given": "V"
+    },
+    {
+     "family": "Wiebel",
+     "given": "C"
+    }
+   ],
+   "title": "Validity of language-based assessments of depression and anxiety in comparison to best-estimate expert assessments: a sequential evaluation with model pre-registration"
+  },
+  {
+   "bib_id": 46,
+   "authors": [
+    {
+     "family": "Spitzer",
+     "given": "RL"
+    }
+   ],
+   "year": "1983",
+   "title": "Psychiatric diagnosis: are clinicians still necessary?",
+   "container": "Compr Psychiatry",
+   "volume": "24",
+   "first_page": "399",
+   "last_page": "411",
+   "doi": "10.1016/0010-440x(83)90032-9"
+  },
+  {
+   "bib_id": 47,
+   "authors": [
+    {
+     "family": "Eijsbroek",
+     "given": "VC"
+    },
+    {
+     "family": "Kjell",
+     "given": "K"
+    },
+    {
+     "family": "Schwartz",
+     "given": "HA"
+    }
+   ],
+   "year": "2025",
+   "title": "The LEADING guideline: reporting standards for expert panel, best-estimate diagnosis, and Longitudinal Expert All Data (LEAD) methods",
+   "container": "Compr Psychiatry",
+   "volume": "141",
+   "first_page": "152603",
+   "doi": "10.1016/j.comppsych.2025.152603"
+  },
+  {
+   "bib_id": 48,
+   "authors": [
+    {
+     "family": "Kjell",
+     "given": "ONE"
+    },
+    {
+     "family": "Ganesan",
+     "given": "AV"
+    },
+    {
+     "family": "Boyd",
+     "given": "R"
+    }
+   ],
+   "year": "2026",
+   "title": "Demonstrating high validity of a new AI-language assessment of PTSD: a sequential evaluation with model pre-registration",
+   "container": "PsyArXiv",
+   "doi": "10.31234/osf.io/xw24e"
+  },
+  {
+   "bib_id": 49,
+   "authors": [
+    {
+     "family": "Fredrickson",
+     "given": "BL"
+    }
+   ],
+   "year": "2001",
+   "title": "The role of positive emotions in positive psychology. The broaden-and-build theory of positive emotions",
+   "container": "Am Psychol",
+   "volume": "56",
+   "first_page": "218",
+   "last_page": "226",
+   "doi": "10.1037//0003-066x.56.3.218"
+  },
+  {
+   "bib_id": 50,
+   "authors": [
+    {
+     "family": "Beck",
+     "given": "AT"
+    }
+   ],
+   "year": "1963",
+   "title": "Thinking and depression. I. idiosyncratic content and cognitive distortions",
+   "container": "Arch Gen Psychiatry",
+   "volume": "9",
+   "first_page": "324",
+   "last_page": "333",
+   "doi": "10.1001/archpsyc.1963.01720160014002"
+  },
+  {
+   "bib_id": 51,
+   "authors": [
+    {
+     "family": "Clark",
+     "given": "LA"
+    },
+    {
+     "family": "Watson",
+     "given": "D"
+    }
+   ],
+   "year": "1991",
+   "title": "Tripartite model of anxiety and depression: psychometric evidence and taxonomic implications",
+   "container": "J Abnorm Psychol",
+   "volume": "100",
+   "first_page": "316",
+   "last_page": "336",
+   "doi": "10.1037//0021-843x.100.3.316"
+  },
+  {
+   "bib_id": 52,
+   "authors": [
+    {
+     "family": "Wiebel",
+     "given": "C"
+    },
+    {
+     "family": "Eijsbroek",
+     "given": "V"
+    },
+    {
+     "family": "Varadarajan",
+     "given": "V"
+    }
+   ],
+   "year": "2024",
+   "title": "Mental health recommendations",
+   "container": "OSF"
+  },
+  {
+   "bib_id": 53,
+   "authors": [
+    {
+     "family": "Wiebel",
+     "given": "C"
+    },
+    {
+     "family": "Hemmerich",
+     "given": "W"
+    },
+    {
+     "family": "Varadarajan",
+     "given": "V"
+    }
+   ],
+   "year": "2024",
+   "title": "Mental health recommendations - validation",
+   "container": "OSF"
+  },
+  {
+   "bib_id": 54,
+   "authors": [
+    {
+     "family": "Nilsson",
+     "given": "AH"
+    },
+    {
+     "family": "Eijsbroek",
+     "given": "VC"
+    },
+    {
+     "family": "Gu",
+     "given": "Z"
+    }
+   ],
+   "year": "2026",
+   "title": "The language-based assessment model library: open model sharing for independent validation and broader applications",
+   "container": "Adv Methods Pract Psychol Sci",
+   "volume": "9",
+   "first_page": "25152459261419036",
+   "doi": "10.1177/25152459261419036"
+  },
+  {
+   "bib_id": 55,
+   "container": "Mental health recommendations - a Hugging Face Space by cwiebel"
+  },
+  {
+   "bib_id": 56,
+   "authors": [
+    {
+     "family": "Palan",
+     "given": "S"
+    },
+    {
+     "family": "Schitter",
+     "given": "C"
+    }
+   ],
+   "year": "2018",
+   "title": "Prolific.ac—a subject pool for online experiments",
+   "container": "J Behav Exper Finance",
+   "volume": "17",
+   "first_page": "22",
+   "last_page": "27",
+   "doi": "10.1016/j.jbef.2017.12.004"
+  },
+  {
+   "bib_id": 57,
+   "year": "2013",
+   "title": "DSM-5 Task Force, American Psychiatric Association Diagnostic and Statistical Manual of Mental Disorders: DSM-5"
+  },
+  {
+   "bib_id": 58,
+   "authors": [
+    {
+     "family": "Kroenke",
+     "given": "K"
+    },
+    {
+     "family": "Spitzer",
+     "given": "RL"
+    },
+    {
+     "family": "Williams",
+     "given": "JBW"
+    }
+   ],
+   "year": "2001",
+   "title": "The PHQ-9: validity of a brief depression severity measure",
+   "container": "J Gen Intern Med",
+   "volume": "16",
+   "first_page": "606",
+   "last_page": "613",
+   "doi": "10.1046/j.1525-1497.2001.016009606.x"
+  },
+  {
+   "bib_id": 59,
+   "authors": [
+    {
+     "family": "Spitzer",
+     "given": "RL"
+    },
+    {
+     "family": "Kroenke",
+     "given": "K"
+    },
+    {
+     "family": "Williams",
+     "given": "JBW"
+    },
+    {
+     "family": "Löwe",
+     "given": "B"
+    }
+   ],
+   "year": "2006",
+   "title": "A brief measure for assessing generalized anxiety disorder: the GAD-7",
+   "container": "Arch Intern Med",
+   "volume": "166",
+   "first_page": "1092",
+   "last_page": "1097",
+   "doi": "10.1001/archinte.166.10.1092"
+  },
+  {
+   "bib_id": 60,
+   "authors": [
+    {
+     "family": "Cohen",
+     "given": "S"
+    },
+    {
+     "family": "Kamarck",
+     "given": "T"
+    },
+    {
+     "family": "Mermelstein",
+     "given": "R"
+    }
+   ],
+   "year": "1983",
+   "title": "A global measure of perceived stress",
+   "container": "J Health Soc Behav",
+   "volume": "24",
+   "first_page": "385",
+   "last_page": "396",
+   "doi": "10.2307/2136404"
+  },
+  {
+   "bib_id": 61,
+   "authors": [
+    {
+     "family": "Watson",
+     "given": "D"
+    },
+    {
+     "family": "O’Hara",
+     "given": "MW"
+    },
+    {
+     "family": "Simms",
+     "given": "LJ"
+    }
+   ],
+   "year": "2007",
+   "title": "Development and validation of the Inventory of Depression and Anxiety Symptoms (IDAS)",
+   "container": "Psychol Assess",
+   "volume": "19",
+   "first_page": "253",
+   "last_page": "268",
+   "doi": "10.1037/1040-3590.19.3.253"
+  },
+  {
+   "bib_id": 62,
+   "authors": [
+    {
+     "family": "Kjell",
+     "given": "ONE"
+    },
+    {
+     "family": "Diener",
+     "given": "E"
+    }
+   ],
+   "year": "2021",
+   "title": "Abbreviated three-item versions of the Satisfaction with Life Scale and the Harmony in Life Scale yield as strong psychometric properties as the original scales",
+   "container": "J Pers Assess",
+   "volume": "103",
+   "first_page": "183",
+   "last_page": "194",
+   "doi": "10.1080/00223891.2020.1737093"
+  },
+  {
+   "bib_id": 63,
+   "authors": [
+    {
+     "family": "Diener",
+     "given": "E"
+    },
+    {
+     "family": "Emmons",
+     "given": "RA"
+    },
+    {
+     "family": "Larsen",
+     "given": "RJ"
+    },
+    {
+     "family": "Griffin",
+     "given": "S"
+    }
+   ],
+   "year": "1985",
+   "title": "The Satisfaction With Life Scale",
+   "container": "J Pers Assess",
+   "volume": "49",
+   "first_page": "71",
+   "last_page": "75",
+   "doi": "10.1207/s15327752jpa4901_13"
+  },
+  {
+   "bib_id": 64,
+   "authors": [
+    {
+     "family": "Kjell",
+     "given": "ONE"
+    },
+    {
+     "family": "Daukantaitė",
+     "given": "D"
+    },
+    {
+     "family": "Hefferon",
+     "given": "K"
+    },
+    {
+     "family": "Sikström",
+     "given": "S"
+    }
+   ],
+   "year": "2016",
+   "title": "The Harmony in Life Scale complements the Satisfaction with Life Scale: expanding the conceptualization of the cognitive component of subjective well-being",
+   "container": "Soc Indic Res",
+   "volume": "126",
+   "first_page": "893",
+   "last_page": "919",
+   "doi": "10.1007/s11205-015-0903-z"
+  },
+  {
+   "bib_id": 65,
+   "container": "Samaritans"
+  },
+  {
+   "bib_id": 66,
+   "container": "988 Lifeline"
+  },
+  {
+   "bib_id": 67,
+   "container": "SoSci Survey"
+  },
+  {
+   "bib_id": 68,
+   "authors": [
+    {
+     "family": "Li",
+     "given": "X"
+    },
+    {
+     "family": "Li",
+     "given": "J"
+    }
+   ],
+   "year": "2024",
+   "title": "AnglE-optimized text embeddings",
+   "container": "arXiv",
+   "doi": "10.48550/arXiv.2309.12871"
+  },
+  {
+   "bib_id": 69,
+   "authors": [
+    {
+     "family": "Muennighoff",
+     "given": "N"
+    },
+    {
+     "family": "Tazi",
+     "given": "N"
+    },
+    {
+     "family": "Magne",
+     "given": "L"
+    },
+    {
+     "family": "Reimers",
+     "given": "N"
+    }
+   ],
+   "title": "MTEB: Massive Text Embedding Benchmark",
+   "doi": "10.18653/v1/2023.eacl-main.148"
+  },
+  {
+   "bib_id": 70,
+   "authors": [
+    {
+     "family": "Bång",
+     "given": "O"
+    },
+    {
+     "family": "Gu",
+     "given": "Z"
+    },
+    {
+     "family": "Nilsson",
+     "given": "A"
+    }
+   ],
+   "title": "Language-based affect assessments capture experiment-induced changes beyond rating scales",
+   "doi": "10.31234/osf.io/phgjn_v1"
+  },
+  {
+   "bib_id": 71,
+   "authors": [
+    {
+     "family": "Marker",
+     "given": "A"
+    },
+    {
+     "family": "Kjell",
+     "given": "O"
+    },
+    {
+     "family": "Varadarajan",
+     "given": "V"
+    },
+    {
+     "family": "Schwartz",
+     "given": "HA"
+    }
+   ],
+   "title": "Evaluating document-tuned transformer representations for person-level mental health assessment",
+   "doi": "10.18653/v1/2026.clpsych-1.14"
+  },
+  {
+   "bib_id": 72,
+   "authors": [
+    {
+     "family": "Kjell",
+     "given": "O"
+    },
+    {
+     "family": "Giorgi",
+     "given": "S"
+    },
+    {
+     "family": "Schwartz",
+     "given": "HA"
+    }
+   ],
+   "year": "2023",
+   "title": "The text-package: an R-package for analyzing and visualizing human language using natural language processing and transformers",
+   "container": "Psychol Methods",
+   "volume": "28",
+   "first_page": "1478",
+   "last_page": "1498",
+   "doi": "10.1037/met0000542"
+  },
+  {
+   "bib_id": 73,
+   "authors": [
+    {
+     "family": "Feuerriegel",
+     "given": "S"
+    },
+    {
+     "family": "Barrie",
+     "given": "C"
+    },
+    {
+     "family": "Crockett",
+     "given": "MJ"
+    }
+   ],
+   "year": "2026",
+   "title": "A reporting checklist for large language models in behavioural science",
+   "container": "Nat Hum Behav",
+   "volume": "10",
+   "first_page": "1182",
+   "last_page": "1186",
+   "doi": "10.1038/s41562-026-02492-7"
+  },
+  {
+   "bib_id": 74,
+   "authors": [
+    {
+     "family": "Kusupati",
+     "given": "A"
+    },
+    {
+     "family": "Bhatt",
+     "given": "G"
+    },
+    {
+     "family": "Rege",
+     "given": "A"
+    }
+   ],
+   "year": "2024",
+   "title": "Matryoshka representation learning",
+   "container": "arXiv",
+   "doi": "10.48550/arXiv.2205.13147"
+  },
+  {
+   "bib_id": 75,
+   "authors": [
+    {
+     "family": "Terwee",
+     "given": "CB"
+    },
+    {
+     "family": "Bot",
+     "given": "SDM"
+    },
+    {
+     "family": "de Boer",
+     "given": "MR"
+    }
+   ],
+   "year": "2007",
+   "title": "Quality criteria were proposed for measurement properties of health status questionnaires",
+   "container": "J Clin Epidemiol",
+   "volume": "60",
+   "first_page": "34",
+   "last_page": "42",
+   "doi": "10.1016/j.jclinepi.2006.03.012"
+  },
+  {
+   "bib_id": 76,
+   "authors": [
+    {
+     "family": "Spearman",
+     "given": "C"
+    }
+   ],
+   "year": "1904",
+   "title": "The proof and measurement of association between two things",
+   "container": "Am J Psychol",
+   "volume": "15",
+   "first_page": "72",
+   "last_page": "101",
+   "doi": "10.2307/1412159"
+  },
+  {
+   "bib_id": 77,
+   "authors": [
+    {
+     "family": "Cohen",
+     "given": "J"
+    }
+   ],
+   "year": "2013",
+   "title": "Statistical Power Analysis for the Behavioral Sciences",
+   "doi": "10.4324/9780203771587"
+  },
+  {
+   "bib_id": 78,
+   "authors": [
+    {
+     "family": "Ng",
+     "given": "AY"
+    }
+   ],
+   "title": "Latent Dirichlet Allocation",
+   "volume": "3"
+  },
+  {
+   "bib_id": 79,
+   "title": "Poweranalyse für korrelationen",
+   "container": "StatistikGuru"
+  },
+  {
+   "bib_id": 80,
+   "authors": [
+    {
+     "family": "Eijsbroek",
+     "given": "VC"
+    },
+    {
+     "family": "Nilsson",
+     "given": "A"
+    },
+    {
+     "family": "Ackermann",
+     "given": "L"
+    }
+   ],
+   "year": "2026",
+   "title": "Multiple methods for visualizing human language: a tutorial for social and behavioural scientists",
+   "container": "PsyArXiv"
+  },
+  {
+   "bib_id": 81,
+   "container": "Snowball"
+  },
+  {
+   "bib_id": 82,
+   "authors": [
+    {
+     "family": "Benjamini",
+     "given": "Y"
+    },
+    {
+     "family": "Hochberg",
+     "given": "Y"
+    }
+   ],
+   "year": "1995",
+   "title": "Controlling the false discovery rate: a practical and powerful approach to multiple testing",
+   "container": "J R Stat Soc Ser B",
+   "volume": "57",
+   "first_page": "289",
+   "last_page": "300",
+   "doi": "10.1111/j.2517-6161.1995.tb02031.x"
+  },
+  {
+   "bib_id": 83,
+   "authors": [
+    {
+     "family": "R Core Team",
+     "given": ""
+    }
+   ],
+   "year": "2023",
+   "title": "R foundation for statistical computing",
+   "container": "R: a language environment for statistical computing"
+  },
+  {
+   "bib_id": 84,
+   "authors": [
+    {
+     "family": "Ackermann",
+     "given": "L"
+    },
+    {
+     "family": "Kjell",
+     "given": "O"
+    }
+   ],
+   "year": "2024",
+   "title": "Theharmonylab/topics: topics (version v0909)",
+   "container": "Zenodo",
+   "doi": "10.5281/zenodo.11165378"
+  },
+  {
+   "bib_id": 85,
+   "authors": [
+    {
+     "family": "Wickham",
+     "given": "H"
+    },
+    {
+     "family": "François",
+     "given": "R"
+    },
+    {
+     "family": "Henry",
+     "given": "L"
+    },
+    {
+     "family": "Muller",
+     "given": "K"
+    }
+   ],
+   "title": "dplyr: a grammar of data manipulation",
+   "container": "CRAN: Package dplyr"
+  },
+  {
+   "bib_id": 86,
+   "container": "ggplot2: elegant graphics for data analysis"
+  },
+  {
+   "bib_id": 87,
+   "authors": [
+    {
+     "family": "Gamer",
+     "given": "M"
+    },
+    {
+     "family": "Lemon",
+     "given": "J"
+    },
+    {
+     "family": "Fellows",
+     "given": "I"
+    },
+    {
+     "family": "Singh",
+     "given": "P"
+    }
+   ],
+   "title": "Irr: various coefficients of interrater reliability and agreement",
+   "container": "CRAN: Package irr"
+  },
+  {
+   "bib_id": 88,
+   "authors": [
+    {
+     "family": "Bertens",
+     "given": "LCM"
+    },
+    {
+     "family": "Broekhuizen",
+     "given": "BDL"
+    },
+    {
+     "family": "Naaktgeboren",
+     "given": "CA"
+    }
+   ],
+   "year": "2013",
+   "title": "Use of expert panels to define the reference standard in diagnostic research: a systematic review of published methods and reporting",
+   "container": "PLoS Med",
+   "volume": "10",
+   "first_page": "e1001531",
+   "doi": "10.1371/journal.pmed.1001531"
+  },
+  {
+   "bib_id": 89,
+   "authors": [
+    {
+     "family": "Hallford",
+     "given": "DJ"
+    },
+    {
+     "family": "Rusanov",
+     "given": "D"
+    },
+    {
+     "family": "Winestone",
+     "given": "B"
+    },
+    {
+     "family": "Kaplan",
+     "given": "R"
+    },
+    {
+     "family": "Fuller-Tyszkiewicz",
+     "given": "M"
+    },
+    {
+     "family": "Melvin",
+     "given": "G"
+    }
+   ],
+   "year": "2023",
+   "title": "Disclosure of suicidal ideation and behaviours: a systematic review and meta-analysis of prevalence",
+   "container": "Clin Psychol Rev",
+   "volume": "101",
+   "first_page": "102272",
+   "doi": "10.1016/j.cpr.2023.102272"
+  },
+  {
+   "bib_id": 90,
+   "authors": [
+    {
+     "family": "Dazzi",
+     "given": "T"
+    },
+    {
+     "family": "Gribble",
+     "given": "R"
+    },
+    {
+     "family": "Wessely",
+     "given": "S"
+    },
+    {
+     "family": "Fear",
+     "given": "NT"
+    }
+   ],
+   "year": "2014",
+   "title": "Does asking about suicide and related behaviours induce suicidal ideation? What is the evidence?",
+   "container": "Psychol Med",
+   "volume": "44",
+   "first_page": "3361",
+   "last_page": "3363",
+   "doi": "10.1017/S0033291714001299"
+  },
+  {
+   "bib_id": 91,
+   "authors": [
+    {
+     "family": "DeCou",
+     "given": "CR"
+    },
+    {
+     "family": "Schumann",
+     "given": "ME"
+    }
+   ],
+   "year": "2018",
+   "title": "On the iatrogenic risk of assessing suicidality: a meta‐analysis",
+   "container": "Suicide Life Threat Behav",
+   "volume": "48",
+   "first_page": "531",
+   "last_page": "543",
+   "doi": "10.1111/sltb.12368"
+  },
+  {
+   "bib_id": 92,
+   "authors": [
+    {
+     "family": "Boyd",
+     "given": "RL"
+    },
+    {
+     "family": "Ashokkumar",
+     "given": "A"
+    },
+    {
+     "family": "Seraj",
+     "given": "S"
+    },
+    {
+     "family": "Pennebaker",
+     "given": "JW"
+    }
+   ],
+   "year": "2022",
+   "title": "The development and psychometric properties of LIWC-22",
+   "doi": "10.13140/RG.2.2.23890.43205"
+  },
+  {
+   "bib_id": 93,
+   "authors": [
+    {
+     "family": "Kaliosis",
+     "given": "P"
+    },
+    {
+     "family": "Ganesan",
+     "given": "AV"
+    },
+    {
+     "family": "Kjell",
+     "given": "ONE"
+    }
+   ],
+   "year": "2026",
+   "title": "A systematic evaluation of large language models for PTSD severity estimation: the role of contextual knowledge and modeling strategies",
+   "container": "arXiv",
+   "doi": "10.21203/rs.3.rs-8376581/v1"
+  },
+  {
+   "bib_id": 94,
+   "authors": [
+    {
+     "family": "Marker",
+     "given": "A"
+    },
+    {
+     "family": "Kjell",
+     "given": "O"
+    },
+    {
+     "family": "Varadarajan",
+     "given": "V"
+    },
+    {
+     "family": "Schwartz",
+     "given": "HA"
+    }
+   ],
+   "title": "Evaluating document-tuned transformer representations for person-level mental health assessment",
+   "first_page": "178",
+   "last_page": "187",
+   "doi": "10.18653/v1/2026.clpsych-1.14"
+  },
+  {
+   "bib_id": 95,
+   "authors": [
+    {
+     "family": "Panayiotou",
+     "given": "M"
+    },
+    {
+     "family": "Razum",
+     "given": "J"
+    },
+    {
+     "family": "Eisele",
+     "given": "G"
+    },
+    {
+     "family": "Wang",
+     "given": "SB"
+    },
+    {
+     "family": "Fried",
+     "given": "EI"
+    },
+    {
+     "family": "Cohen",
+     "given": "ZD"
+    }
+   ],
+   "year": "2026",
+   "title": "Interpretation issues with the Patient Health Questionnaire instructions",
+   "container": "JAMA Psychiatry",
+   "volume": "83",
+   "first_page": "399",
+   "last_page": "403",
+   "doi": "10.1001/jamapsychiatry.2025.3796"
+  },
+  {
+   "bib_id": 96,
+   "authors": [
+    {
+     "family": "Sparhuber",
+     "given": "M"
+    },
+    {
+     "family": "Eijsbroek",
+     "given": "V"
+    },
+    {
+     "family": "Kjell",
+     "given": "K"
+    },
+    {
+     "family": "Giorgi",
+     "given": "S"
+    },
+    {
+     "family": "Kjell",
+     "given": "O"
+    }
+   ],
+   "title": "Evidence of limited biases in probed language-based assessments"
+  },
+  {
+   "bib_id": 97,
+   "authors": [
+    {
+     "family": "Vaughn-Coaxum",
+     "given": "RA"
+    },
+    {
+     "family": "Mair",
+     "given": "P"
+    },
+    {
+     "family": "Weisz",
+     "given": "JR"
+    }
+   ],
+   "year": "2016",
+   "title": "Racial/ethnic differences in youth depression indicators",
+   "container": "Clin Psychol Sci",
+   "volume": "4",
+   "first_page": "239",
+   "last_page": "253",
+   "doi": "10.1177/2167702615591768"
+  },
+  {
+   "bib_id": 98,
+   "authors": [
+    {
+     "family": "Rai",
+     "given": "S"
+    },
+    {
+     "family": "Stade",
+     "given": "EC"
+    },
+    {
+     "family": "Giorgi",
+     "given": "S"
+    }
+   ],
+   "year": "2024",
+   "title": "Key language markers of depression on social media depend on race",
+   "container": "Proc Natl Acad Sci U S A",
+   "volume": "121",
+   "first_page": "e2319837121",
+   "doi": "10.1073/pnas.2319837121"
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-core-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "jats_doi": "10.2196/105460"
+ }
+}

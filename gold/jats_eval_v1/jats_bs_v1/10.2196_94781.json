@@ -1,0 +1,1367 @@
+{
+ "paper_id": "10.2196_94781",
+ "info": {
+  "title": "Large Language Model–Based Behavioral Activation Chatbot for Young People With Depression Using Artificial Users and Clinical Experts: Mixed Methods Evaluation",
+  "doi": "10.2196/94781",
+  "file_name": "10.2196_94781.pdf",
+  "keywords": [
+   "large language models",
+   "mental health chatbots",
+   "behavioral activation",
+   "depression",
+   "clinical fidelity",
+   "artificial users",
+   "prompt engineering",
+   "young people",
+   "digital mental health interventions"
+  ],
+  "abstract": "Background: Mental health chatbots are increasingly used to support people with depressive symptoms, and large language models make these systems more flexible than rule-based chatbots. However, it remains unclear how well large language model–based chatbots deliver structured psychological interventions. Objective: This study examined how well a GPT-4o–based chatbot delivered a behavioral activation intervention for young people with depression using sessions with artificial users and clinical expert assessment. It also identified limitations and potential refinements. Methods: We implemented a GPT-4o (gpt-4o-2024-08-06; OpenAI)–based chatbot using a structured system prompt to deliver a single-session behavioral activation intervention for people with depression aged 14 to 29 years. We generated 48 sessions with GPT-4o–based artificial users derived from clinical vignettes varying across 7 characteristics. Ten clinical experts, either licensed psychotherapists or advanced psychotherapy trainees, independently assessed the sessions using the 14-item Quality of Behavioral Activation Scale (Q-BAS), rated from 0 to 6, supplemented by rating therapeutic capabilities, artificial user authenticity and difficulty, and qualitative feedback. Results: The chatbot completed all 7 intervention phases in every session. The mean holistic session quality rating was 3.94 (SD 1.23), and the mean Q-BAS rating was 4.03 (SD 1.18). Thirteen of 14 Q-BAS components exceeded the satisfactory threshold of 3. Ratings were highest for mood assessment (mean 5.42, SD 1.09) and activity planning (mean 4.98, SD 1.41) and lowest for explaining positive reinforcement (mean 2.92, SD 2.30) and supporting activity-mood monitoring (mean 3.02, SD 2.04). Therapeutic capability ratings were highest for message safety (mean 5.90, SD 0.37), message clarity (mean 5.56, SD 0.77), and objective, nonjudgmental communication (mean 5.17, SD 1.04) and lowest for therapeutic rapport (mean 4.12, SD 1.45) and natural conversation flow (mean 4.25, SD 1.42). Artificial users were rated below the scale midpoint for authenticity (mean 2.75, SD 1.41) and difficulty (mean 1.23, SD 1.46). Clinical experts described the chatbot as structured, clear, and safe but identified insufficient clinical reasoning as the main limitation, particularly in evaluating the therapeutic suitability and feasibility of activities, barriers, solution strategies, and rewards. Artificial users were often highly compliant, especially when identifying positive activities. Conclusions: In expert-rated sessions with artificial users, the chatbot delivered the behavioral activation intervention as intended and performed strongest on procedural components. It performed less well on positive reinforcement and activity-mood monitoring, indicating refinement needs in clinical reasoning, follow-up questioning, and evaluating whether proposed activities, plans, barriers, solution strategies, and rewards are therapeutically appropriate and feasible. The findings identify targets for improvement before testing with human users, while the artificial user design and expert ratings limit conclusions about real therapeutic interactions."
+ },
+ "author": [
+  {
+   "author_id": 1,
+   "given": "Florian Onur",
+   "family": "Kuhlmeier",
+   "affiliation": "Institute for Information Systems (WIN), Karlsruhe Institute of Technology, Kaiserstraße 89-93, Karlsruhe, Baden-Wurttemberg, 76133, Germany, 49 721 608-48380",
+   "email": "",
+   "orcid": "",
+   "corresponding": true
+  },
+  {
+   "author_id": 2,
+   "given": "Leon",
+   "family": "Hanschmann",
+   "affiliation": "Institute for Information Systems (WIN), Karlsruhe Institute of Technology, Kaiserstraße 89-93, Karlsruhe, Baden-Wurttemberg, 76133, Germany, 49 721 608-48380",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 3,
+   "given": "Melina",
+   "family": "Rabe",
+   "affiliation": "Department of Clinical Psychology and Psychotherapy, Universität Greifswald, Greifswald, Mecklenburg-Vorpommern, Germany",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 4,
+   "given": "Stefan",
+   "family": "Lüttke",
+   "affiliation": "Chair of Clinical Child and Adolescent Psychology and Psychotherapy, Department of Psychology, Saarland University, Saarbrücken, Germany",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 5,
+   "given": "Eva-Lotta",
+   "family": "Brakemeier",
+   "affiliation": "Department of Clinical Psychology and Psychotherapy, Universität Greifswald, Greifswald, Mecklenburg-Vorpommern, Germany",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 6,
+   "given": "Alexander",
+   "family": "Maedche",
+   "affiliation": "Institute for Information Systems (WIN), Karlsruhe Institute of Technology, Kaiserstraße 89-93, Karlsruhe, Baden-Wurttemberg, 76133, Germany, 49 721 608-48380",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  }
+ ],
+ "section": [
+  {
+   "section_id": 1,
+   "section_type": "abstract",
+   "header": "Abstract",
+   "level": 1,
+   "parent_section_id": null,
+   "classification_score": 1.0
+  }
+ ],
+ "text": [
+  {
+   "text_id": 1,
+   "section_id": 1,
+   "paragraph_id": 1,
+   "text": "Background: Mental health chatbots are increasingly used to support people with depressive symptoms, and large language models make these systems more flexible than rule-based chatbots. However, it remains unclear how well large language model–based chatbots deliver structured psychological interventions. Objective: This study examined how well a GPT-4o–based chatbot delivered a behavioral activation intervention for young people with depression using sessions with artificial users and clinical expert assessment. It also identified limitations and potential refinements. Methods: We implemented a GPT-4o (gpt-4o-2024-08-06; OpenAI)–based chatbot using a structured system prompt to deliver a single-session behavioral activation intervention for people with depression aged 14 to 29 years. We generated 48 sessions with GPT-4o–based artificial users derived from clinical vignettes varying across 7 characteristics. Ten clinical experts, either licensed psychotherapists or advanced psychotherapy trainees, independently assessed the sessions using the 14-item Quality of Behavioral Activation Scale (Q-BAS), rated from 0 to 6, supplemented by rating therapeutic capabilities, artificial user authenticity and difficulty, and qualitative feedback. Results: The chatbot completed all 7 intervention phases in every session. The mean holistic session quality rating was 3.94 (SD 1.23), and the mean Q-BAS rating was 4.03 (SD 1.18). Thirteen of 14 Q-BAS components exceeded the satisfactory threshold of 3. Ratings were highest for mood assessment (mean 5.42, SD 1.09) and activity planning (mean 4.98, SD 1.41) and lowest for explaining positive reinforcement (mean 2.92, SD 2.30) and supporting activity-mood monitoring (mean 3.02, SD 2.04). Therapeutic capability ratings were highest for message safety (mean 5.90, SD 0.37), message clarity (mean 5.56, SD 0.77), and objective, nonjudgmental communication (mean 5.17, SD 1.04) and lowest for therapeutic rapport (mean 4.12, SD 1.45) and natural conversation flow (mean 4.25, SD 1.42). Artificial users were rated below the scale midpoint for authenticity (mean 2.75, SD 1.41) and difficulty (mean 1.23, SD 1.46). Clinical experts described the chatbot as structured, clear, and safe but identified insufficient clinical reasoning as the main limitation, particularly in evaluating the therapeutic suitability and feasibility of activities, barriers, solution strategies, and rewards. Artificial users were often highly compliant, especially when identifying positive activities. Conclusions: In expert-rated sessions with artificial users, the chatbot delivered the behavioral activation intervention as intended and performed strongest on procedural components. It performed less well on positive reinforcement and activity-mood monitoring, indicating refinement needs in clinical reasoning, follow-up questioning, and evaluating whether proposed activities, plans, barriers, solution strategies, and rewards are therapeutically appropriate and feasible. The findings identify targets for improvement before testing with human users, while the artificial user design and expert ratings limit conclusions about real therapeutic interactions.",
+   "page_number": 1
+  }
+ ],
+ "bib": [
+  {
+   "bib_id": 1,
+   "authors": [
+    {
+     "family": "Torous",
+     "given": "J"
+    },
+    {
+     "family": "Linardon",
+     "given": "J"
+    },
+    {
+     "family": "Goldberg",
+     "given": "SB"
+    }
+   ],
+   "year": "2025",
+   "title": "The evolving field of digital mental health: current evidence and implementation issues for smartphone apps, generative artificial intelligence, and virtual reality",
+   "container": "World Psychiatry",
+   "volume": "24",
+   "first_page": "156",
+   "last_page": "174",
+   "doi": "10.1002/wps.21299"
+  },
+  {
+   "bib_id": 2,
+   "authors": [
+    {
+     "family": "Fitzpatrick",
+     "given": "KK"
+    },
+    {
+     "family": "Darcy",
+     "given": "A"
+    },
+    {
+     "family": "Vierhile",
+     "given": "M"
+    }
+   ],
+   "year": "2017",
+   "title": "Delivering cognitive behavior therapy to young adults with symptoms of depression and anxiety using a fully automated conversational agent (Woebot): a randomized controlled trial",
+   "container": "JMIR Ment Health",
+   "volume": "4",
+   "first_page": "e19",
+   "doi": "10.2196/mental.7785"
+  },
+  {
+   "bib_id": 3,
+   "authors": [
+    {
+     "family": "Inkster",
+     "given": "B"
+    },
+    {
+     "family": "Sarda",
+     "given": "S"
+    },
+    {
+     "family": "Subramanian",
+     "given": "V"
+    }
+   ],
+   "year": "2018",
+   "title": "An empathy-driven, conversational artificial intelligence agent (Wysa) for digital mental well-being: real-world data evaluation mixed-methods study",
+   "container": "JMIR mHealth uHealth",
+   "volume": "6",
+   "first_page": "e12106",
+   "doi": "10.2196/12106"
+  },
+  {
+   "bib_id": 4,
+   "authors": [
+    {
+     "family": "Chan",
+     "given": "WW"
+    },
+    {
+     "family": "Fitzsimmons-Craft",
+     "given": "EE"
+    },
+    {
+     "family": "Smith",
+     "given": "AC"
+    }
+   ],
+   "year": "2022",
+   "title": "The challenges in designing a prevention chatbot for eating disorders: observational study",
+   "container": "JMIR Form Res",
+   "volume": "6",
+   "first_page": "e28003",
+   "doi": "10.2196/28003"
+  },
+  {
+   "bib_id": 5,
+   "authors": [
+    {
+     "family": "Linardon",
+     "given": "J"
+    },
+    {
+     "family": "Torous",
+     "given": "J"
+    },
+    {
+     "family": "Firth",
+     "given": "J"
+    },
+    {
+     "family": "Cuijpers",
+     "given": "P"
+    },
+    {
+     "family": "Messer",
+     "given": "M"
+    },
+    {
+     "family": "Fuller-Tyszkiewicz",
+     "given": "M"
+    }
+   ],
+   "year": "2024",
+   "title": "Current evidence on the efficacy of mental health smartphone apps for symptoms of depression and anxiety. a meta-analysis of 176 randomized controlled trials",
+   "container": "World Psychiatry",
+   "volume": "23",
+   "first_page": "139",
+   "last_page": "149",
+   "doi": "10.1002/wps.21183"
+  },
+  {
+   "bib_id": 6,
+   "authors": [
+    {
+     "family": "Haque",
+     "given": "MDR"
+    },
+    {
+     "family": "Rubya",
+     "given": "S"
+    }
+   ],
+   "year": "2023",
+   "title": "An overview of chatbot-based mobile mental health apps: insights from app description and user reviews",
+   "container": "JMIR mHealth uHealth",
+   "volume": "11",
+   "first_page": "e44838",
+   "doi": "10.2196/44838"
+  },
+  {
+   "bib_id": 7,
+   "authors": [
+    {
+     "family": "Blease",
+     "given": "C"
+    },
+    {
+     "family": "Torous",
+     "given": "J"
+    }
+   ],
+   "year": "2023",
+   "title": "ChatGPT and mental healthcare: balancing benefits with risks of harms",
+   "container": "BMJ Ment Health",
+   "volume": "26",
+   "first_page": "e300884",
+   "doi": "10.1136/bmjment-2023-300884"
+  },
+  {
+   "bib_id": 8,
+   "authors": [
+    {
+     "family": "Stade",
+     "given": "EC"
+    },
+    {
+     "family": "Stirman",
+     "given": "SW"
+    },
+    {
+     "family": "Ungar",
+     "given": "LH"
+    }
+   ],
+   "year": "2024",
+   "title": "Large language models could change the future of behavioral healthcare: a proposal for responsible development and evaluation",
+   "container": "Npj Ment Health Res",
+   "volume": "3",
+   "first_page": "12",
+   "doi": "10.1038/s44184-024-00056-z"
+  },
+  {
+   "bib_id": 9,
+   "authors": [
+    {
+     "family": "Meeks",
+     "given": "S"
+    },
+    {
+     "family": "Van Haitsma",
+     "given": "K"
+    },
+    {
+     "family": "Shryock",
+     "given": "SK"
+    }
+   ],
+   "year": "2019",
+   "title": "Treatment fidelity evidence for BE-ACTIV - a behavioral intervention for depression in nursing homes",
+   "container": "Aging Ment Health",
+   "volume": "23",
+   "first_page": "1192",
+   "last_page": "1202",
+   "doi": "10.1080/13607863.2018.1484888"
+  },
+  {
+   "bib_id": 10,
+   "authors": [
+    {
+     "family": "Guo",
+     "given": "Z"
+    },
+    {
+     "family": "Lai",
+     "given": "A"
+    },
+    {
+     "family": "Thygesen",
+     "given": "JH"
+    },
+    {
+     "family": "Farrington",
+     "given": "J"
+    },
+    {
+     "family": "Keen",
+     "given": "T"
+    },
+    {
+     "family": "Li",
+     "given": "K"
+    }
+   ],
+   "year": "2024",
+   "title": "Large language models for mental health applications: systematic review",
+   "container": "JMIR Ment Health",
+   "volume": "11",
+   "first_page": "e57400",
+   "doi": "10.2196/57400"
+  },
+  {
+   "bib_id": 11,
+   "authors": [
+    {
+     "family": "Hatch",
+     "given": "SG"
+    },
+    {
+     "family": "Goodman",
+     "given": "ZT"
+    },
+    {
+     "family": "Vowels",
+     "given": "L"
+    }
+   ],
+   "year": "2025",
+   "title": "Correction: when ELIZA meets therapists: a Turing test for the heart and mind",
+   "container": "PLOS Ment Health",
+   "volume": "2",
+   "first_page": "e0000426",
+   "doi": "10.1371/journal.pmen.0000426"
+  },
+  {
+   "bib_id": 12,
+   "authors": [
+    {
+     "family": "Heinz",
+     "given": "MV"
+    },
+    {
+     "family": "Mackin",
+     "given": "DM"
+    },
+    {
+     "family": "Trudeau",
+     "given": "BM"
+    }
+   ],
+   "year": "2025",
+   "title": "Randomized trial of a generative AI chatbot for mental health treatment",
+   "container": "NEJM AI",
+   "volume": "2",
+   "doi": "10.1056/AIoa2400802"
+  },
+  {
+   "bib_id": 13,
+   "authors": [
+    {
+     "family": "Hua",
+     "given": "Y"
+    },
+    {
+     "family": "Na",
+     "given": "H"
+    },
+    {
+     "family": "Li",
+     "given": "Z"
+    }
+   ],
+   "year": "2025",
+   "title": "A scoping review of large language models for generative tasks in mental health care",
+   "container": "NPJ Digit Med",
+   "volume": "8",
+   "first_page": "230",
+   "doi": "10.1038/s41746-025-01611-4"
+  },
+  {
+   "bib_id": 14,
+   "authors": [
+    {
+     "family": "Thieme",
+     "given": "A"
+    },
+    {
+     "family": "Belgrave",
+     "given": "D"
+    },
+    {
+     "family": "Doherty",
+     "given": "G"
+    }
+   ],
+   "year": "2020",
+   "title": "Machine learning in mental health: a systematic review of the HCI literature to support the development of effective and implementable ML systems",
+   "container": "ACM Trans Comput-Hum Interact",
+   "volume": "27",
+   "first_page": "1",
+   "last_page": "34",
+   "doi": "10.1145/3398069"
+  },
+  {
+   "bib_id": 15,
+   "authors": [
+    {
+     "family": "Hu",
+     "given": "Y"
+    }
+   ],
+   "year": "2026",
+   "title": "Toward retrieval-grounded evaluation for conversational large language model-based risk assessment",
+   "container": "JMIR AI",
+   "volume": "5",
+   "first_page": "e90759",
+   "doi": "10.2196/90759"
+  },
+  {
+   "bib_id": 16,
+   "authors": [
+    {
+     "family": "Cuijpers",
+     "given": "P"
+    },
+    {
+     "family": "Karyotaki",
+     "given": "E"
+    },
+    {
+     "family": "Harrer",
+     "given": "M"
+    },
+    {
+     "family": "Stikkelbroek",
+     "given": "Y"
+    }
+   ],
+   "year": "2023",
+   "title": "Individual behavioral activation in the treatment of depression: a meta analysis",
+   "container": "Psychother Res",
+   "volume": "33",
+   "first_page": "886",
+   "last_page": "897",
+   "doi": "10.1080/10503307.2023.2197630"
+  },
+  {
+   "bib_id": 17,
+   "authors": [
+    {
+     "family": "Schuller",
+     "given": "A"
+    },
+    {
+     "family": "Janssen",
+     "given": "D"
+    },
+    {
+     "family": "Blumenröther",
+     "given": "J"
+    },
+    {
+     "family": "Probst",
+     "given": "TM"
+    },
+    {
+     "family": "Schmidt",
+     "given": "M"
+    },
+    {
+     "family": "Kumar",
+     "given": "C"
+    }
+   ],
+   "year": "2024",
+   "title": "Generating personas using LLMs and assessing their viability",
+   "container": "Extended Abstracts CHI Conf Hum Factors Comput Syst",
+   "first_page": "1",
+   "last_page": "7",
+   "doi": "10.1145/3613905.3650860"
+  },
+  {
+   "bib_id": 18,
+   "authors": [
+    {
+     "family": "Steenstra",
+     "given": "I"
+    },
+    {
+     "family": "Nouraei",
+     "given": "F"
+    },
+    {
+     "family": "Bickmore",
+     "given": "T"
+    }
+   ],
+   "year": "2025",
+   "title": "Scaffolding empathy: training counselors with simulated patients and utterance-level performance visualizations",
+   "container": "Proc 2025 CHI Conf Hum Factors Comput Syst",
+   "first_page": "1",
+   "last_page": "22",
+   "doi": "10.1145/3706598.3714014"
+  },
+  {
+   "bib_id": 19,
+   "authors": [
+    {
+     "family": "Qiu",
+     "given": "H"
+    },
+    {
+     "family": "Lan",
+     "given": "Z"
+    }
+   ],
+   "year": "2024",
+   "title": "Interactive agents: simulating counselor-client psychological counseling via role-playing LLM-to-LLM interactions",
+   "container": "arXiv",
+   "doi": "10.48550/arXiv.2408.15787"
+  },
+  {
+   "bib_id": 20,
+   "authors": [
+    {
+     "family": "Wang",
+     "given": "R"
+    },
+    {
+     "family": "Milani",
+     "given": "S"
+    },
+    {
+     "family": "Chiu",
+     "given": "JC"
+    }
+   ],
+   "year": "2024",
+   "title": "PATIENT-𝜓: using large language models to simulate patients for training mental health professionals",
+   "container": "Proc 2024 Conf Empir Methods Nat Lang Process",
+   "first_page": "12772",
+   "last_page": "12797",
+   "doi": "10.18653/v1/2024.emnlp-main.711"
+  },
+  {
+   "bib_id": 21,
+   "authors": [
+    {
+     "family": "Louie",
+     "given": "R"
+    },
+    {
+     "family": "Nandi",
+     "given": "A"
+    },
+    {
+     "family": "Fang",
+     "given": "W"
+    },
+    {
+     "family": "Chang",
+     "given": "C"
+    },
+    {
+     "family": "Brunskill",
+     "given": "E"
+    },
+    {
+     "family": "Yang",
+     "given": "D"
+    }
+   ],
+   "year": "2024",
+   "title": "Roleplay-doh: enabling domain-experts to create LLM-simulated patients via eliciting and adhering to principles",
+   "container": "Proc 2024 Conf Empir Methods Nat Lang Process",
+   "first_page": "10570",
+   "last_page": "10603",
+   "doi": "10.18653/v1/2024.emnlp-main.591"
+  },
+  {
+   "bib_id": 22,
+   "authors": [
+    {
+     "family": "Schleider",
+     "given": "JL"
+    },
+    {
+     "family": "Weisz",
+     "given": "JR"
+    }
+   ],
+   "year": "2017",
+   "title": "Little treatments, promising effects? Meta-analysis of single-session interventions for youth psychiatric problems",
+   "container": "J Am Acad Child Adolesc Psychiatry",
+   "volume": "56",
+   "first_page": "107",
+   "last_page": "115",
+   "doi": "10.1016/j.jaac.2016.11.007"
+  },
+  {
+   "bib_id": 23,
+   "authors": [
+    {
+     "family": "Schleider",
+     "given": "JL"
+    },
+    {
+     "family": "Mullarkey",
+     "given": "MC"
+    },
+    {
+     "family": "Fox",
+     "given": "KR"
+    }
+   ],
+   "year": "2022",
+   "title": "A randomized trial of online single-session interventions for adolescent depression during COVID-19",
+   "container": "Nat Hum Behav",
+   "volume": "6",
+   "first_page": "258",
+   "last_page": "268",
+   "doi": "10.1038/s41562-021-01235-0"
+  },
+  {
+   "bib_id": 24,
+   "authors": [
+    {
+     "family": "Kuhlmeier",
+     "given": "FO"
+    },
+    {
+     "family": "Bauch",
+     "given": "L"
+    },
+    {
+     "family": "Gnewuch",
+     "given": "U"
+    },
+    {
+     "family": "Lüttke",
+     "given": "S"
+    }
+   ],
+   "year": "2025",
+   "title": "Designing chatbots to treat depression in youth: qualitative study",
+   "container": "JMIR Hum Factors",
+   "volume": "12",
+   "first_page": "e66632",
+   "doi": "10.2196/66632"
+  },
+  {
+   "bib_id": 25,
+   "authors": [
+    {
+     "family": "Kuhlmeier",
+     "given": "FO"
+    },
+    {
+     "family": "Gnewuch",
+     "given": "U"
+    },
+    {
+     "family": "Lüttke",
+     "given": "S"
+    },
+    {
+     "family": "Brakemeier",
+     "given": "EL"
+    },
+    {
+     "family": "Mädche",
+     "given": "A"
+    }
+   ],
+   "year": "2022",
+   "title": "A personalized conversational agent to treat depression in youth and young adults – a transdisciplinary design science research project",
+   "container": "The Transdisciplinary Reach of Design Science Research: 17th International Conference on Design Science Research in Information Systems and Technology, DESRIST 2022, St Petersburg, FL, USA, June 1–3, 2022, Proceedings",
+   "first_page": "30",
+   "last_page": "41",
+   "doi": "10.1007/978-3-031-06516-3_3"
+  },
+  {
+   "bib_id": 26,
+   "authors": [
+    {
+     "family": "Franco D’Souza",
+     "given": "R"
+    },
+    {
+     "family": "Amanullah",
+     "given": "S"
+    },
+    {
+     "family": "Mathew",
+     "given": "M"
+    },
+    {
+     "family": "Surapaneni",
+     "given": "KM"
+    }
+   ],
+   "year": "2023",
+   "title": "Appraising the performance of ChatGPT in psychiatry using 100 clinical case vignettes",
+   "container": "Asian J Psychiatr",
+   "volume": "89",
+   "first_page": "103770",
+   "doi": "10.1016/j.ajp.2023.103770"
+  },
+  {
+   "bib_id": 27,
+   "authors": [
+    {
+     "family": "Borghouts",
+     "given": "J"
+    },
+    {
+     "family": "Eikey",
+     "given": "E"
+    },
+    {
+     "family": "Mark",
+     "given": "G"
+    }
+   ],
+   "year": "2021",
+   "title": "Barriers to and facilitators of user engagement with digital mental health interventions: systematic review",
+   "container": "J Med Internet Res",
+   "volume": "23",
+   "first_page": "e24387",
+   "doi": "10.2196/24387"
+  },
+  {
+   "bib_id": 28,
+   "authors": [
+    {
+     "family": "Rice",
+     "given": "F"
+    },
+    {
+     "family": "Riglin",
+     "given": "L"
+    },
+    {
+     "family": "Lomax",
+     "given": "T"
+    }
+   ],
+   "year": "2019",
+   "title": "Adolescent and adult differences in major depression symptom profiles",
+   "container": "J Affect Disord",
+   "volume": "243",
+   "first_page": "175",
+   "last_page": "181",
+   "doi": "10.1016/j.jad.2018.09.015"
+  },
+  {
+   "bib_id": 29,
+   "authors": [
+    {
+     "family": "Jardine",
+     "given": "J"
+    },
+    {
+     "family": "Nadal",
+     "given": "C"
+    },
+    {
+     "family": "Robinson",
+     "given": "S"
+    },
+    {
+     "family": "Enrique",
+     "given": "A"
+    },
+    {
+     "family": "Hanratty",
+     "given": "M"
+    },
+    {
+     "family": "Doherty",
+     "given": "G"
+    }
+   ],
+   "year": "2024",
+   "title": "Between rhetoric and reality: real-world barriers to uptake and early engagement in digital mental health interventions",
+   "container": "ACM Trans Comput-Hum Interact",
+   "volume": "31",
+   "first_page": "1",
+   "last_page": "59",
+   "doi": "10.1145/3635472"
+  },
+  {
+   "bib_id": 30,
+   "authors": [
+    {
+     "family": "Gnewuch",
+     "given": "U"
+    },
+    {
+     "family": "Yu",
+     "given": "M"
+    },
+    {
+     "family": "Maedche",
+     "given": "A"
+    }
+   ],
+   "title": "The effect of perceived similarity in dominance on customer self-disclosure to chatbots in conversational commerce"
+  },
+  {
+   "bib_id": 31,
+   "authors": [
+    {
+     "family": "Dimidjian",
+     "given": "S"
+    },
+    {
+     "family": "Goodman",
+     "given": "SH"
+    },
+    {
+     "family": "Sherwood",
+     "given": "NE"
+    }
+   ],
+   "year": "2017",
+   "title": "A pragmatic randomized clinical trial of behavioral activation for depressed pregnant women",
+   "container": "J Consult Clin Psychol",
+   "volume": "85",
+   "first_page": "26",
+   "last_page": "36",
+   "doi": "10.1037/ccp0000151"
+  },
+  {
+   "bib_id": 32,
+   "authors": [
+    {
+     "family": "Rethorst",
+     "given": "CD"
+    },
+    {
+     "family": "Trombello",
+     "given": "JM"
+    },
+    {
+     "family": "Chen",
+     "given": "PM"
+    }
+   ],
+   "year": "2024",
+   "title": "Pilot evaluation on an adapted tele-behavioral activation to increase physical activity in persons with depression: a single-arm pilot study",
+   "container": "BMC Psychol",
+   "volume": "12",
+   "first_page": "643",
+   "doi": "10.1186/s40359-024-02053-5"
+  },
+  {
+   "bib_id": 33,
+   "authors": [
+    {
+     "family": "Bunge",
+     "given": "EL"
+    },
+    {
+     "family": "Desage",
+     "given": "C"
+    }
+   ],
+   "year": "2025",
+   "title": "A framework for evaluating mental health artificial intelligence-based conversational agents",
+   "container": "J technol behav sci",
+   "volume": "10",
+   "first_page": "731",
+   "last_page": "739",
+   "doi": "10.1007/s41347-025-00519-w"
+  },
+  {
+   "bib_id": 34,
+   "authors": [
+    {
+     "family": "Mayring",
+     "given": "P"
+    },
+    {
+     "family": "Fenzl",
+     "given": "T"
+    }
+   ],
+   "year": "2019",
+   "title": "Qualitative inhaltsanalyse",
+   "container": "Handbuch Methoden Der Empirischen Sozialforschung [Book in German]",
+   "first_page": "633",
+   "last_page": "648",
+   "doi": "10.1007/978-3-658-21308-4_42"
+  },
+  {
+   "bib_id": 35,
+   "authors": [
+    {
+     "family": "Sharma",
+     "given": "A"
+    },
+    {
+     "family": "Rushton",
+     "given": "K"
+    },
+    {
+     "family": "Lin",
+     "given": "IW"
+    },
+    {
+     "family": "Nguyen",
+     "given": "T"
+    },
+    {
+     "family": "Althoff",
+     "given": "T"
+    }
+   ],
+   "year": "2024",
+   "title": "Facilitating self-guided mental health interventions through human-language model interaction: a case study of cognitive restructuring",
+   "container": "Proc ACM Conf Hum Factors Comput Syst",
+   "first_page": "1",
+   "last_page": "29",
+   "doi": "10.1145/3613904.3642761"
+  },
+  {
+   "bib_id": 36,
+   "authors": [
+    {
+     "family": "Meyer",
+     "given": "S"
+    },
+    {
+     "family": "Elsweiler",
+     "given": "D"
+    }
+   ],
+   "year": "2025",
+   "title": "LLM-based conversational agents for behaviour change support: a randomised controlled trial examining efficacy, safety, and the role of user behaviour",
+   "container": "Int J Hum Comput Stud",
+   "volume": "200",
+   "first_page": "103514",
+   "doi": "10.1016/j.ijhcs.2025.103514"
+  },
+  {
+   "bib_id": 37,
+   "authors": [
+    {
+     "family": "Campellone",
+     "given": "TR"
+    },
+    {
+     "family": "Flom",
+     "given": "M"
+    },
+    {
+     "family": "Montgomery",
+     "given": "RM"
+    }
+   ],
+   "year": "2025",
+   "title": "Safety and user experience of a generative artificial intelligence digital mental health intervention: exploratory randomized controlled trial",
+   "container": "J Med Internet Res",
+   "volume": "27",
+   "first_page": "e67365",
+   "doi": "10.2196/67365"
+  },
+  {
+   "bib_id": 38,
+   "authors": [
+    {
+     "family": "Wang",
+     "given": "L"
+    },
+    {
+     "family": "Bhanushali",
+     "given": "T"
+    },
+    {
+     "family": "Huang",
+     "given": "Z"
+    },
+    {
+     "family": "Yang",
+     "given": "J"
+    },
+    {
+     "family": "Badami",
+     "given": "S"
+    },
+    {
+     "family": "Hightow-Weidman",
+     "given": "L"
+    }
+   ],
+   "year": "2025",
+   "title": "Evaluating generative AI in mental health: systematic review of capabilities and limitations",
+   "container": "JMIR Ment Health",
+   "volume": "12",
+   "first_page": "e70014",
+   "doi": "10.2196/70014"
+  },
+  {
+   "bib_id": 39,
+   "authors": [
+    {
+     "family": "Qiu",
+     "given": "P"
+    },
+    {
+     "family": "Wu",
+     "given": "C"
+    },
+    {
+     "family": "Liu",
+     "given": "S"
+    }
+   ],
+   "year": "2025",
+   "title": "Quantifying the reasoning abilities of LLMs on clinical cases",
+   "container": "Nat Commun",
+   "volume": "16",
+   "first_page": "9799",
+   "doi": "10.1038/s41467-025-64769-1"
+  },
+  {
+   "bib_id": 40,
+   "authors": [
+    {
+     "family": "Grabb",
+     "given": "D"
+    },
+    {
+     "family": "Lamparth",
+     "given": "M"
+    },
+    {
+     "family": "Vasan",
+     "given": "N"
+    }
+   ],
+   "year": "2024",
+   "title": "Risks from language models for automated mental healthcare: ethics and structure for implementation (extended abstract)",
+   "container": "Proc AAAI ACM Conf AI Ethics Soc",
+   "volume": "7",
+   "first_page": "519",
+   "doi": "10.1609/aies.v7i1.31654"
+  },
+  {
+   "bib_id": 41,
+   "authors": [
+    {
+     "family": "Xie",
+     "given": "C"
+    },
+    {
+     "family": "Zhu",
+     "given": "D"
+    },
+    {
+     "family": "Wang",
+     "given": "Z"
+    },
+    {
+     "family": "Zhang",
+     "given": "H"
+    },
+    {
+     "family": "Wei",
+     "given": "Z"
+    }
+   ],
+   "year": "2026",
+   "title": "Explainable AI for mental health detection from social media: a comparative study of traditional machine learning and a large language model",
+   "container": "SSRN",
+   "doi": "10.2139/ssrn.6429778"
+  },
+  {
+   "bib_id": 42,
+   "authors": [
+    {
+     "family": "Darcy",
+     "given": "A"
+    },
+    {
+     "family": "Daniels",
+     "given": "J"
+    },
+    {
+     "family": "Salinger",
+     "given": "D"
+    },
+    {
+     "family": "Wicks",
+     "given": "P"
+    },
+    {
+     "family": "Robinson",
+     "given": "A"
+    }
+   ],
+   "year": "2021",
+   "title": "Evidence of human-level bonds established with a digital conversational agent: cross-sectional, retrospective observational study",
+   "container": "JMIR Form Res",
+   "volume": "5",
+   "first_page": "e27868",
+   "doi": "10.2196/27868"
+  },
+  {
+   "bib_id": 43,
+   "authors": [
+    {
+     "family": "Rubin",
+     "given": "M"
+    },
+    {
+     "family": "Arnon",
+     "given": "H"
+    },
+    {
+     "family": "Huppert",
+     "given": "JD"
+    },
+    {
+     "family": "Perry",
+     "given": "A"
+    }
+   ],
+   "year": "2024",
+   "title": "Considering the role of human empathy in AI-driven therapy",
+   "container": "JMIR Ment Health",
+   "volume": "11",
+   "first_page": "e56529",
+   "doi": "10.2196/56529"
+  },
+  {
+   "bib_id": 44,
+   "authors": [
+    {
+     "family": "Ding",
+     "given": "H"
+    },
+    {
+     "family": "Simmich",
+     "given": "J"
+    },
+    {
+     "family": "Vaezipour",
+     "given": "A"
+    },
+    {
+     "family": "Andrews",
+     "given": "N"
+    },
+    {
+     "family": "Russell",
+     "given": "T"
+    }
+   ],
+   "year": "2024",
+   "title": "Evaluation framework for conversational agents with artificial intelligence in health interventions: a systematic scoping review",
+   "container": "J Am Med Inform Assoc",
+   "volume": "31",
+   "first_page": "746",
+   "last_page": "761",
+   "doi": "10.1093/jamia/ocad222"
+  },
+  {
+   "bib_id": 45,
+   "authors": [
+    {
+     "family": "Kocaballi",
+     "given": "AB"
+    },
+    {
+     "family": "Quiroz",
+     "given": "JC"
+    },
+    {
+     "family": "Rezazadegan",
+     "given": "D"
+    }
+   ],
+   "year": "2020",
+   "title": "Responses of conversational agents to health and lifestyle prompts: investigation of appropriateness and presentation structures",
+   "container": "J Med Internet Res",
+   "volume": "22",
+   "first_page": "e15823",
+   "doi": "10.2196/15823"
+  },
+  {
+   "bib_id": 46,
+   "authors": [
+    {
+     "family": "Gao",
+     "given": "L"
+    },
+    {
+     "family": "Sherwood",
+     "given": "J"
+    },
+    {
+     "family": "Aleisa",
+     "given": "N"
+    },
+    {
+     "family": "Damoah",
+     "given": "A"
+    },
+    {
+     "family": "Lu",
+     "given": "Y"
+    },
+    {
+     "family": "Qu",
+     "given": "X"
+    }
+   ],
+   "title": "Human-centered AI agents for healthcare and education: a systematic literature review"
+  },
+  {
+   "bib_id": 47,
+   "authors": [
+    {
+     "family": "Kapania",
+     "given": "S"
+    },
+    {
+     "family": "Agnew",
+     "given": "W"
+    },
+    {
+     "family": "Eslami",
+     "given": "M"
+    },
+    {
+     "family": "Heidari",
+     "given": "H"
+    },
+    {
+     "family": "Fox",
+     "given": "SE"
+    }
+   ],
+   "year": "2025",
+   "title": "Simulacrum of stories: examining large language models as qualitative research participants",
+   "container": "Proc 2025 CHI Conf Hum Factors Comput Syst",
+   "first_page": "1",
+   "last_page": "17",
+   "doi": "10.1145/3706598.3713220"
+  },
+  {
+   "bib_id": 48,
+   "authors": [
+    {
+     "family": "Ganguli",
+     "given": "D"
+    },
+    {
+     "family": "Lovitt",
+     "given": "L"
+    },
+    {
+     "family": "Kernion",
+     "given": "J"
+    }
+   ],
+   "year": "2022",
+   "title": "Red teaming language models to reduce harms: methods, scaling behaviors, and lessons learned",
+   "container": "arXiv",
+   "doi": "10.48550/arXiv.2209.07858"
+  },
+  {
+   "bib_id": 49,
+   "authors": [
+    {
+     "family": "Koo",
+     "given": "TK"
+    },
+    {
+     "family": "Li",
+     "given": "MY"
+    }
+   ],
+   "year": "2016",
+   "title": "A guideline of selecting and reporting intraclass correlation coefficients for reliability research",
+   "container": "J Chiropr Med",
+   "volume": "15",
+   "first_page": "155",
+   "last_page": "163",
+   "doi": "10.1016/j.jcm.2016.02.012"
+  },
+  {
+   "bib_id": 50,
+   "authors": [
+    {
+     "family": "McGraw",
+     "given": "KO"
+    },
+    {
+     "family": "Wong",
+     "given": "SP"
+    }
+   ],
+   "year": "1996",
+   "title": "Forming inferences about some intraclass correlation coefficients",
+   "container": "Psychol Methods",
+   "volume": "1",
+   "first_page": "30",
+   "last_page": "46",
+   "doi": "10.1037/1082-989X.1.1.30"
+  },
+  {
+   "bib_id": 51,
+   "authors": [
+    {
+     "family": "Lakens",
+     "given": "D"
+    }
+   ],
+   "year": "2022",
+   "title": "Sample size justification",
+   "container": "Collabra Psychol",
+   "volume": "8",
+   "doi": "10.1525/collabra.33267"
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-core-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "jats_doi": "10.2196/94781"
+ }
+}

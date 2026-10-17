@@ -1,0 +1,1622 @@
+{
+ "paper_id": "10.1111_desc.70251",
+ "info": {
+  "title": "Bridging Machine Learning and Event‐Based Analyses to Assess Maternal Contingent Responses to Infant Nondistress and Distress Vocalizations From Home Audio Recordings",
+  "doi": "10.1111/desc.70251",
+  "file_name": "10.1111_desc.70251.pdf",
+  "keywords": [
+   "home audio recordings",
+   "infant vocalizations",
+   "maternal contingent responses",
+   "machine learning algorithms"
+  ],
+  "abstract": "Caregiver‐infant vocal interactions are foundational for early development, yet most evidence is derived from brief laboratory or home‐visit observations and assessing caregiver–infant vocal contingency in everyday settings requires scalable methods. To this end, we integrated machine learning (ML) with traditional event‐based analyses to measure maternal contingent vocal responsiveness assessed from daylong audio recordings in the home. In Study 1 (N = 61 infants; 1–18 months, Mage = 9.43 months), we evaluated a wav2vec2‐based audio tagging algorithm to detect infant nondistress and distress vocalizations and caregiver vocalizations. Performance was high when tested against human annotations. In Study 2 (N = 56 infants; 1–10 months; Mage = 6.61 months), we applied the algorithm to daylong home audio recordings. Maternal response rates based on ML‐generated labels showed strong correspondence with those based on human‐annotated labels, although a consistent positive bias was observed (ML > human). Response‐rate distributions tended toward higher values in the 20 most voluble segments relative to all available mother–infant interaction segments. Additionally, on average, the 20 most voluble segments (vs all available segments) produced higher maternal response rates but lower base‐rate‐adjusted estimates of contingency. Response rates increased with lag window, and in most cases, the sharpest increase was observed between 1 and 2 s, with diminishing returns thereafter. Together, these findings support ML‐derived vocalization labels for scalable contingency estimation and underscore analytic decisions regarding sampling and lag window when estimating maternal contingent responsiveness from daylong home recordings."
+ },
+ "author": [
+  {
+   "author_id": 1,
+   "given": "Kexin",
+   "family": "Hu",
+   "affiliation": "Department of Human Development and Family Studies University of Illinois Urbana‐Champaign Urbana Illinois USA",
+   "email": "",
+   "orcid": "",
+   "corresponding": true
+  },
+  {
+   "author_id": 2,
+   "given": "Xulin",
+   "family": "Fan",
+   "affiliation": "Department of Electrical and Computer Engineering University of Illinois Urbana‐Champaign Urbana Illinois USA",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 3,
+   "given": "Yannan",
+   "family": "Hu",
+   "affiliation": "Department of Psychological and Brain Sciences Indiana University Bloomington Bloomington Indiana USA",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 4,
+   "given": "Jialu",
+   "family": "Li",
+   "affiliation": "College of Information Science University of Arizona Tucson Arizona USA",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 5,
+   "given": "Bethany",
+   "family": "Lee",
+   "affiliation": "Beckman Institute for Advanced Science and Technology University of Illinois Urbana‐Champaign Urbana Illinois USA",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 6,
+   "given": "Mark",
+   "family": "Hasegawa‐Johnson",
+   "affiliation": "Department of Electrical and Computer Engineering University of Illinois Urbana‐Champaign Urbana Illinois USA; Beckman Institute for Advanced Science and Technology University of Illinois Urbana‐Champaign Urbana Illinois USA",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 7,
+   "given": "Nancy L.",
+   "family": "McElwain",
+   "affiliation": "Department of Human Development and Family Studies University of Illinois Urbana‐Champaign Urbana Illinois USA; Beckman Institute for Advanced Science and Technology University of Illinois Urbana‐Champaign Urbana Illinois USA",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  }
+ ],
+ "section": [
+  {
+   "section_id": 1,
+   "section_type": "abstract",
+   "header": "ABSTRACT",
+   "level": 1,
+   "parent_section_id": null,
+   "classification_score": 1.0
+  }
+ ],
+ "text": [
+  {
+   "text_id": 1,
+   "section_id": 1,
+   "paragraph_id": 1,
+   "text": "Caregiver‐infant vocal interactions are foundational for early development, yet most evidence is derived from brief laboratory or home‐visit observations and assessing caregiver–infant vocal contingency in everyday settings requires scalable methods. To this end, we integrated machine learning (ML) with traditional event‐based analyses to measure maternal contingent vocal responsiveness assessed from daylong audio recordings in the home. In Study 1 (N = 61 infants; 1–18 months, Mage = 9.43 months), we evaluated a wav2vec2‐based audio tagging algorithm to detect infant nondistress and distress vocalizations and caregiver vocalizations. Performance was high when tested against human annotations. In Study 2 (N = 56 infants; 1–10 months; Mage = 6.61 months), we applied the algorithm to daylong home audio recordings. Maternal response rates based on ML‐generated labels showed strong correspondence with those based on human‐annotated labels, although a consistent positive bias was observed (ML > human). Response‐rate distributions tended toward higher values in the 20 most voluble segments relative to all available mother–infant interaction segments. Additionally, on average, the 20 most voluble segments (vs all available segments) produced higher maternal response rates but lower base‐rate‐adjusted estimates of contingency. Response rates increased with lag window, and in most cases, the sharpest increase was observed between 1 and 2 s, with diminishing returns thereafter. Together, these findings support ML‐derived vocalization labels for scalable contingency estimation and underscore analytic decisions regarding sampling and lag window when estimating maternal contingent responsiveness from daylong home recordings.",
+   "page_number": 1
+  }
+ ],
+ "bib": [
+  {
+   "bib_id": 1,
+   "authors": [
+    {
+     "family": "Baevski",
+     "given": "A."
+    },
+    {
+     "family": "Zhou",
+     "given": "Y."
+    },
+    {
+     "family": "Mohamed",
+     "given": "A."
+    },
+    {
+     "family": "Auli",
+     "given": "M."
+    }
+   ],
+   "year": "2020",
+   "title": "Wav2vec 2.0: A Framework for Self‐Supervised Learning of Speech Representations",
+   "container": "Advances in Neural Information Processing Systems",
+   "volume": "33",
+   "first_page": "12449",
+   "last_page": "12460",
+   "doi": "10.48550/arXiv.2006.11477"
+  },
+  {
+   "bib_id": 2,
+   "authors": [
+    {
+     "family": "Bakeman",
+     "given": "R."
+    },
+    {
+     "family": "Gottman",
+     "given": "J. M."
+    }
+   ],
+   "year": "1997",
+   "title": "Observing Interaction: An Introduction to Sequential Analysis",
+   "doi": "10.1017/CBO9780511527685"
+  },
+  {
+   "bib_id": 3,
+   "authors": [
+    {
+     "family": "Barr",
+     "given": "R. G."
+    }
+   ],
+   "year": "1990",
+   "title": "The Normal Crying Curve: What Do We Really Know?",
+   "container": "Developmental Medicine and Child Neurology",
+   "volume": "32",
+   "first_page": "356",
+   "last_page": "362",
+   "doi": "10.1111/j.1469-8749.1990.tb16949.x"
+  },
+  {
+   "bib_id": 4,
+   "authors": [
+    {
+     "family": "Beebe",
+     "given": "B."
+    },
+    {
+     "family": "Jaffe",
+     "given": "J."
+    },
+    {
+     "family": "Markese",
+     "given": "S."
+    }
+   ],
+   "year": "2010",
+   "title": "The Origins of 12‐Month Attachment: A Microanalysis of 4‐Month Mother‐Infant Interaction",
+   "container": "Attachment & Human Development",
+   "volume": "12",
+   "first_page": "3",
+   "last_page": "141",
+   "doi": "10.1080/14616730903338985"
+  },
+  {
+   "bib_id": 5,
+   "authors": [
+    {
+     "family": "Bell",
+     "given": "S. M."
+    },
+    {
+     "family": "Ainsworth",
+     "given": "M. D."
+    }
+   ],
+   "year": "1972",
+   "title": "Infant Crying and Maternal Responsiveness",
+   "container": "Child Development",
+   "volume": "43",
+   "first_page": "1171",
+   "last_page": "1190",
+   "doi": "10.2307/1127506"
+  },
+  {
+   "bib_id": 6,
+   "authors": [
+    {
+     "family": "Bergelson",
+     "given": "E."
+    },
+    {
+     "family": "Soderstrom",
+     "given": "M."
+    },
+    {
+     "family": "Schwarz",
+     "given": "I. C."
+    }
+   ],
+   "year": "2023",
+   "title": "Everyday Language Input and Production in 1,001 Children From Six Continents",
+   "container": "Proceedings of the National Academy of Sciences of the United States of America",
+   "volume": "120",
+   "first_page": "1",
+   "last_page": "12",
+   "doi": "10.1073/pnas.2300671120"
+  },
+  {
+   "bib_id": 7,
+   "authors": [
+    {
+     "family": "Bland",
+     "given": "J. M."
+    },
+    {
+     "family": "Altman",
+     "given": "D. G."
+    }
+   ],
+   "year": "1986",
+   "title": "Statistical Methods for Assessing Agreement Between Two Methods of Clinical Measurement",
+   "container": "Lancet",
+   "volume": "1",
+   "first_page": "307",
+   "last_page": "310"
+  },
+  {
+   "bib_id": 8,
+   "authors": [
+    {
+     "family": "Boersma",
+     "given": "P."
+    },
+    {
+     "family": "Weenink",
+     "given": "D."
+    }
+   ],
+   "year": "2024",
+   "title": "Praat: Doing phonetics by computer"
+  },
+  {
+   "bib_id": 9,
+   "authors": [
+    {
+     "family": "Bornstein",
+     "given": "M. H."
+    },
+    {
+     "family": "Manian",
+     "given": "N."
+    }
+   ],
+   "year": "2013",
+   "title": "Maternal Responsiveness and Sensitivity Reconsidered: Some Is More",
+   "container": "Development and Psychopathology",
+   "volume": "25",
+   "first_page": "957",
+   "last_page": "971",
+   "doi": "10.1017/S0954579413000308"
+  },
+  {
+   "bib_id": 10,
+   "authors": [
+    {
+     "family": "Bornstein",
+     "given": "M. H."
+    },
+    {
+     "family": "Putnick",
+     "given": "D. L."
+    },
+    {
+     "family": "Cote",
+     "given": "L. R."
+    },
+    {
+     "family": "Haynes",
+     "given": "O. M."
+    },
+    {
+     "family": "Suwalsky",
+     "given": "J. T."
+    }
+   ],
+   "year": "2015",
+   "title": "Mother‐Infant Contingent Vocalizations in 11 Countries",
+   "container": "Psychological Science",
+   "volume": "26",
+   "first_page": "1272",
+   "last_page": "1284",
+   "doi": "10.1177/0956797615586796"
+  },
+  {
+   "bib_id": 11,
+   "authors": [
+    {
+     "family": "Bradley",
+     "given": "R. H."
+    },
+    {
+     "family": "Corwyn",
+     "given": "R. F."
+    }
+   ],
+   "year": "2002",
+   "title": "Socioeconomic Status and Child Development",
+   "container": "Annual Review of Psychology",
+   "volume": "53",
+   "first_page": "371",
+   "last_page": "399",
+   "doi": "10.1146/annurev.psych.53.100901.135233"
+  },
+  {
+   "bib_id": 12,
+   "authors": [
+    {
+     "family": "Charlot",
+     "given": "T."
+    },
+    {
+     "family": "Kunze",
+     "given": "T."
+    },
+    {
+     "family": "Poli",
+     "given": "M."
+    },
+    {
+     "family": "Cristia",
+     "given": "A."
+    },
+    {
+     "family": "Dupoux",
+     "given": "E."
+    },
+    {
+     "family": "Lavechin",
+     "given": "M."
+    }
+   ],
+   "year": "2025",
+   "title": "BabyHuBERT: Multilingual Self‐Supervised Learning for Segmenting Speakers in Child‐Centered Long‐Form Recordings",
+   "doi": "10.48550/arXiv.2509.15001"
+  },
+  {
+   "bib_id": 13,
+   "authors": [
+    {
+     "family": "Chen",
+     "given": "S."
+    },
+    {
+     "family": "Wang",
+     "given": "C."
+    },
+    {
+     "family": "Chen",
+     "given": "Z."
+    }
+   ],
+   "year": "2022",
+   "title": "WavLM: Large‐Scale Self‐Supervised Pre‐Training for Full Stack Speech Processing",
+   "container": "IEEE Journal of Selected Topics in Signal Processing",
+   "volume": "16",
+   "first_page": "1505",
+   "last_page": "1518",
+   "doi": "10.48550/arXiv.2110.13900"
+  },
+  {
+   "bib_id": 14,
+   "authors": [
+    {
+     "family": "Cristia",
+     "given": "A."
+    },
+    {
+     "family": "Bulgarelli",
+     "given": "F."
+    },
+    {
+     "family": "Bergelson",
+     "given": "E."
+    }
+   ],
+   "year": "2020",
+   "title": "Accuracy of the Language Environment Analysis System Segmentation and Metrics: A Systematic Review",
+   "container": "Journal of Speech, Language, and Hearing Research",
+   "volume": "63",
+   "first_page": "1093",
+   "last_page": "1105",
+   "doi": "10.1044/2020_JSLHR-19-00017"
+  },
+  {
+   "bib_id": 15,
+   "authors": [
+    {
+     "family": "Cristia",
+     "given": "A."
+    },
+    {
+     "family": "Lavechin",
+     "given": "M."
+    },
+    {
+     "family": "Scaff",
+     "given": "C."
+    }
+   ],
+   "year": "2021",
+   "title": "A Thorough Evaluation of the Language Environment Analysis (LENA) System",
+   "container": "Behavior Research Methods",
+   "volume": "53",
+   "first_page": "467",
+   "last_page": "486",
+   "doi": "10.3758/s13428-020-01393-5"
+  },
+  {
+   "bib_id": 16,
+   "authors": [
+    {
+     "family": "de Barbaro",
+     "given": "K."
+    }
+   ],
+   "year": "2019",
+   "title": "Automated Sensing of Daily Activity: A New Lens Into Development",
+   "container": "Developmental Psychobiology",
+   "volume": "61",
+   "first_page": "444",
+   "last_page": "464",
+   "doi": "10.1002/dev.21831"
+  },
+  {
+   "bib_id": 17,
+   "authors": [
+    {
+     "family": "Donnellan",
+     "given": "E."
+    },
+    {
+     "family": "Bannard",
+     "given": "C."
+    },
+    {
+     "family": "McGillion",
+     "given": "M. L."
+    },
+    {
+     "family": "Slocombe",
+     "given": "K. E."
+    },
+    {
+     "family": "Matthews",
+     "given": "D."
+    }
+   ],
+   "year": "2020",
+   "title": "Infants' Intentionally Communicative Vocalizations Elicit Responses From Caregivers and are the Best Predictors of the Transition to Language: A Longitudinal Investigation of Infants' Vocalizations, Gestures and Word Production",
+   "container": "Developmental Science",
+   "volume": "23",
+   "first_page": "e12843",
+   "doi": "10.1111/desc.12843"
+  },
+  {
+   "bib_id": 18,
+   "authors": [
+    {
+     "family": "Endevelt‐Shapira",
+     "given": "Y."
+    },
+    {
+     "family": "Bosseler",
+     "given": "A. N."
+    },
+    {
+     "family": "Mizrahi",
+     "given": "J. C."
+    },
+    {
+     "family": "Meltzoff",
+     "given": "A. N."
+    },
+    {
+     "family": "Kuhl",
+     "given": "P. K."
+    }
+   ],
+   "year": "2024",
+   "title": "Mother‐Infant Social and Language Interactions at 3 Months are Associated With Infants' productive Language Development in the Third Year of Life",
+   "container": "Infant Behavior & Development",
+   "volume": "75",
+   "first_page": "101929",
+   "doi": "10.1016/j.infbeh.2024.101929"
+  },
+  {
+   "bib_id": 19,
+   "authors": [
+    {
+     "family": "Fan",
+     "given": "X."
+    },
+    {
+     "family": "Li",
+     "given": "J."
+    },
+    {
+     "family": "Hasegawa‐Johnson",
+     "given": "M."
+    },
+    {
+     "family": "McElwain",
+     "given": "N. L."
+    }
+   ],
+   "year": "2025",
+   "title": "Band‐Split Self‐Supervised Mamba for Infant‐Centered Audio Analysis",
+   "first_page": "2795",
+   "last_page": "2799",
+   "doi": "10.21437/Interspeech.2025-504"
+  },
+  {
+   "bib_id": 20,
+   "authors": [
+    {
+     "family": "Farran",
+     "given": "L. K."
+    },
+    {
+     "family": "Yoo",
+     "given": "H."
+    },
+    {
+     "family": "Lee",
+     "given": "C. C."
+    },
+    {
+     "family": "Bowman",
+     "given": "D. D."
+    },
+    {
+     "family": "Oller",
+     "given": "D. K."
+    }
+   ],
+   "year": "2019",
+   "title": "Temporal Coordination in Mother‐Infant Vocal Interaction: A Cross‐Cultural Comparison",
+   "container": "Frontiers in Psychology",
+   "volume": "10",
+   "first_page": "2374",
+   "doi": "10.3389/fpsyg.2019.02374"
+  },
+  {
+   "bib_id": 21,
+   "authors": [
+    {
+     "family": "Ferjan Ramírez",
+     "given": "N."
+    },
+    {
+     "family": "Hippe",
+     "given": "D. S."
+    },
+    {
+     "family": "Kuhl",
+     "given": "P. K."
+    }
+   ],
+   "year": "2021",
+   "title": "Comparing Automatic and Manual Measures of Parent‐Infant Conversational Turns: A Word of Caution",
+   "container": "Child Development",
+   "volume": "92",
+   "first_page": "672",
+   "last_page": "681",
+   "doi": "10.1111/cdev.13495"
+  },
+  {
+   "bib_id": 22,
+   "authors": [
+    {
+     "family": "Fields‐Olivieri",
+     "given": "M. A."
+    },
+    {
+     "family": "Cole",
+     "given": "P. M."
+    }
+   ],
+   "year": "2019",
+   "title": "Sequences of Toddler Negative Emotion and Parent‐Toddler Verbal Communication During a Waking Day",
+   "container": "Infancy",
+   "volume": "24",
+   "first_page": "857",
+   "last_page": "880",
+   "doi": "10.1111/infa.12310"
+  },
+  {
+   "bib_id": 23,
+   "authors": [
+    {
+     "family": "Fujita",
+     "given": "Y."
+    },
+    {
+     "family": "Kanda",
+     "given": "N."
+    },
+    {
+     "family": "Horiguchi",
+     "given": "S."
+    },
+    {
+     "family": "Nagamatsu",
+     "given": "K."
+    },
+    {
+     "family": "Watanabe",
+     "given": "S."
+    }
+   ],
+   "year": "2019",
+   "title": "End‐to‐End Neural Speaker Diarization With Permutation‐Free Objectives",
+   "first_page": "4300",
+   "last_page": "4304",
+   "doi": "10.48550/arXiv.1909.05952"
+  },
+  {
+   "bib_id": 24,
+   "authors": [
+    {
+     "family": "Gergely",
+     "given": "G."
+    },
+    {
+     "family": "Watson",
+     "given": "J. S."
+    }
+   ],
+   "year": "1999",
+   "title": "Early Socio‐Emotional Development: Contingency Perception and the Social‐Biofeedback Model",
+   "container": "Early Social Cognition: Understanding Others in the First Months of Life",
+   "first_page": "101",
+   "last_page": "136"
+  },
+  {
+   "bib_id": 25,
+   "authors": [
+    {
+     "family": "Gilkerson",
+     "given": "J."
+    },
+    {
+     "family": "Richards",
+     "given": "J. A."
+    },
+    {
+     "family": "Warren",
+     "given": "S. F."
+    }
+   ],
+   "year": "2017",
+   "title": "Mapping the Early Language Environment Using All‐Day Recordings and Automated Analysis",
+   "container": "American Journal of Speech‐Language Pathology",
+   "volume": "26",
+   "first_page": "248",
+   "last_page": "265",
+   "doi": "10.1044/2016_AJSLP-15-0169"
+  },
+  {
+   "bib_id": 26,
+   "authors": [
+    {
+     "family": "Hsu",
+     "given": "H. C."
+    },
+    {
+     "family": "Fogel",
+     "given": "A."
+    }
+   ],
+   "year": "2003",
+   "title": "Social Regulatory Effects of Infant Nondistress Vocalization on Maternal Behavior",
+   "container": "Developmental Psychology",
+   "volume": "39",
+   "first_page": "976",
+   "last_page": "991",
+   "doi": "10.1037/0012-1649.39.6.976"
+  },
+  {
+   "bib_id": 27,
+   "authors": [
+    {
+     "family": "Hsu",
+     "given": "W. N."
+    },
+    {
+     "family": "Bolte",
+     "given": "B."
+    },
+    {
+     "family": "Tsai",
+     "given": "Y. H. H."
+    },
+    {
+     "family": "Lakhotia",
+     "given": "K."
+    },
+    {
+     "family": "Salakhutdinov",
+     "given": "R."
+    },
+    {
+     "family": "Mohamed",
+     "given": "A."
+    }
+   ],
+   "year": "2021",
+   "title": "HuBERT: Self‐Supervised Speech Representation Learning by Masked Prediction of Hidden Units",
+   "container": "IEEE/ACM Transactions on Audio, Speech, and Language Processing",
+   "volume": "29",
+   "first_page": "3451",
+   "last_page": "3460",
+   "doi": "10.48550/arXiv.2106.07447"
+  },
+  {
+   "bib_id": 28,
+   "authors": [
+    {
+     "family": "Hu",
+     "given": "L."
+    },
+    {
+     "family": "Boutros",
+     "given": "N. N."
+    },
+    {
+     "family": "Jansen",
+     "given": "B. H."
+    }
+   ],
+   "year": "2009",
+   "title": "Evoked Potential Variability",
+   "container": "Journal of Neuroscience Methods",
+   "volume": "178",
+   "first_page": "228",
+   "last_page": "236",
+   "doi": "10.1016/j.jneumeth.2008.11.021"
+  },
+  {
+   "bib_id": 29,
+   "authors": [
+    {
+     "family": "Islam",
+     "given": "B."
+    },
+    {
+     "family": "McElwain",
+     "given": "N. L."
+    },
+    {
+     "family": "Li",
+     "given": "J."
+    }
+   ],
+   "year": "2024",
+   "title": "Preliminary Technical Validation of LittleBeats™: A Multimodal Sensing Platform to Capture Cardiac Physiology, Motion, and Vocalizations",
+   "container": "Sensors",
+   "volume": "24",
+   "first_page": "901",
+   "doi": "10.3390/s24030901"
+  },
+  {
+   "bib_id": 30,
+   "authors": [
+    {
+     "family": "Jaffe",
+     "given": "J."
+    },
+    {
+     "family": "Beebe",
+     "given": "B."
+    },
+    {
+     "family": "Feldstein",
+     "given": "S."
+    },
+    {
+     "family": "Crown",
+     "given": "C. L."
+    },
+    {
+     "family": "Jasnow",
+     "given": "M. D."
+    }
+   ],
+   "year": "2001",
+   "title": "Rhythms of Dialogue in Infancy: Coordinated Timing in Development",
+   "container": "Monographs of the Society for Research in Child Development",
+   "volume": "66",
+   "first_page": "132"
+  },
+  {
+   "bib_id": 31,
+   "authors": [
+    {
+     "family": "Keller",
+     "given": "H."
+    },
+    {
+     "family": "Lohaus",
+     "given": "A."
+    },
+    {
+     "family": "Völker",
+     "given": "S."
+    },
+    {
+     "family": "Cappenberg",
+     "given": "M."
+    },
+    {
+     "family": "Chasiotis",
+     "given": "A."
+    }
+   ],
+   "year": "1999",
+   "title": "Temporal Contingency as an Independent Component of Parenting Behavior",
+   "container": "Child Development",
+   "volume": "70",
+   "first_page": "474",
+   "last_page": "485"
+  },
+  {
+   "bib_id": 32,
+   "authors": [
+    {
+     "family": "Lavechin",
+     "given": "M."
+    },
+    {
+     "family": "Bousbib",
+     "given": "R."
+    },
+    {
+     "family": "Bredin",
+     "given": "H."
+    },
+    {
+     "family": "Dupoux",
+     "given": "E."
+    },
+    {
+     "family": "Cristia",
+     "given": "A."
+    }
+   ],
+   "year": "2020",
+   "title": "An Open‐Source Voice Type Classifier for Child‐Centered Daylong Recordings",
+   "first_page": "3072",
+   "last_page": "3076",
+   "doi": "10.21437/Interspeech.2020-1690"
+  },
+  {
+   "bib_id": 33,
+   "authors": [
+    {
+     "family": "Lee",
+     "given": "Y."
+    },
+    {
+     "family": "Ha",
+     "given": "S."
+    }
+   ],
+   "year": "2023",
+   "title": "Parental Verbal Responsiveness to Infant Vocalizations From 9 to 14 Months of Age",
+   "container": "Infant Behavior & Development",
+   "volume": "73",
+   "first_page": "1",
+   "last_page": "13",
+   "doi": "10.2139/ssrn.4386902"
+  },
+  {
+   "bib_id": 34,
+   "authors": [
+    {
+     "family": "Levinson",
+     "given": "S. C."
+    }
+   ],
+   "year": "2016",
+   "title": "Turn‐Taking in Human Communication–Origins and Implications for Language Processing",
+   "container": "Trends in Cognitive Sciences",
+   "volume": "20",
+   "first_page": "6",
+   "last_page": "14",
+   "doi": "10.1016/j.tics.2015.10.010"
+  },
+  {
+   "bib_id": 35,
+   "authors": [
+    {
+     "family": "Li",
+     "given": "J."
+    },
+    {
+     "family": "Hasegawa‐Johnson",
+     "given": "M."
+    },
+    {
+     "family": "McElwain",
+     "given": "N. L."
+    }
+   ],
+   "year": "2023",
+   "title": "Towards Robust family‐infant Audio Analysis Based on Unsupervised Pretraining of wav2vec 2.0 on Large‐scale Unlabeled family Audio",
+   "first_page": "1035",
+   "last_page": "1039"
+  },
+  {
+   "bib_id": 36,
+   "authors": [
+    {
+     "family": "Li",
+     "given": "J."
+    },
+    {
+     "family": "Hasegawa‐Johnson",
+     "given": "M."
+    },
+    {
+     "family": "McElwain",
+     "given": "N. L."
+    }
+   ],
+   "year": "2024",
+   "title": "Analysis of Self‐Supervised Speech Models on Children's Speech and Infant Vocalizations",
+   "first_page": "550",
+   "last_page": "554"
+  },
+  {
+   "bib_id": 37,
+   "authors": [
+    {
+     "family": "Lourenço",
+     "given": "V."
+    },
+    {
+     "family": "Coutinho",
+     "given": "J."
+    },
+    {
+     "family": "Pereira",
+     "given": "A. F."
+    }
+   ],
+   "year": "2021",
+   "title": "Advances in Microanalysis: Magnifying the Social Microscope on Mother‐Infant Interactions",
+   "container": "Infant Behavior and Development",
+   "volume": "64",
+   "first_page": "101571",
+   "doi": "10.1016/j.infbeh.2021.101571"
+  },
+  {
+   "bib_id": 38,
+   "authors": [
+    {
+     "family": "Luchkina",
+     "given": "E."
+    },
+    {
+     "family": "Xu",
+     "given": "F."
+    }
+   ],
+   "year": "2024",
+   "title": "How Does Social Contingency Facilitate Vocabulary Development?",
+   "container": "Developmental Science",
+   "volume": "27",
+   "first_page": "11",
+   "doi": "10.1111/desc.13525"
+  },
+  {
+   "bib_id": 39,
+   "authors": [
+    {
+     "family": "McElwain",
+     "given": "N. L."
+    },
+    {
+     "family": "Fisher",
+     "given": "M. C."
+    },
+    {
+     "family": "Nebeker",
+     "given": "C."
+    },
+    {
+     "family": "Bodway",
+     "given": "J. M."
+    },
+    {
+     "family": "Islam",
+     "given": "B."
+    },
+    {
+     "family": "Hasegawa‐Johnson",
+     "given": "M."
+    }
+   ],
+   "year": "2024",
+   "title": "Evaluating Users' experiences of a Child Multimodal Wearable Device: Mixed Methods Approach",
+   "container": "JMIR Human Factors",
+   "volume": "11",
+   "first_page": "e49316",
+   "doi": "10.2196/49316"
+  },
+  {
+   "bib_id": 40,
+   "authors": [
+    {
+     "family": "Mehrish",
+     "given": "A."
+    },
+    {
+     "family": "Majumder",
+     "given": "N."
+    },
+    {
+     "family": "Bharadwaj",
+     "given": "R."
+    },
+    {
+     "family": "Mihalcea",
+     "given": "R."
+    },
+    {
+     "family": "Poria",
+     "given": "S."
+    }
+   ],
+   "year": "2023",
+   "title": "A Review of Deep Learning Techniques for Speech Processing",
+   "container": "Information Fusion",
+   "volume": "99",
+   "first_page": "101869",
+   "doi": "10.1016/j.inffus.2023.101869"
+  },
+  {
+   "bib_id": 41,
+   "authors": [
+    {
+     "family": "Messinger",
+     "given": "D. S."
+    },
+    {
+     "family": "Perry",
+     "given": "L. K."
+    },
+    {
+     "family": "Mitsven",
+     "given": "S. G."
+    }
+   ],
+   "year": "2022",
+   "title": "Computational Approaches to Understanding Interaction and Development",
+   "container": "Advances in Child Development and Behavior",
+   "volume": "62",
+   "first_page": "191",
+   "last_page": "230",
+   "doi": "10.1016/bs.acdb.2021.12.002"
+  },
+  {
+   "bib_id": 42,
+   "authors": [
+    {
+     "family": "Micheletti",
+     "given": "M."
+    },
+    {
+     "family": "de Barbaro",
+     "given": "K."
+    },
+    {
+     "family": "Fellows",
+     "given": "M. D."
+    },
+    {
+     "family": "Hixon",
+     "given": "J. G."
+    },
+    {
+     "family": "Slatcher",
+     "given": "R. B."
+    },
+    {
+     "family": "Pennebaker",
+     "given": "J. W."
+    }
+   ],
+   "year": "2020",
+   "title": "Optimal Sampling Strategies for Characterizing Behavior and Affect From Ambulatory Audio Recordings",
+   "container": "Journal of Family Psychology",
+   "volume": "34",
+   "first_page": "980",
+   "last_page": "990",
+   "doi": "10.1037/fam0000654"
+  },
+  {
+   "bib_id": 43,
+   "authors": [
+    {
+     "family": "Micheletti",
+     "given": "M."
+    },
+    {
+     "family": "Yao",
+     "given": "X."
+    },
+    {
+     "family": "Johnson",
+     "given": "M."
+    },
+    {
+     "family": "de Barbaro",
+     "given": "K."
+    }
+   ],
+   "year": "2023",
+   "title": "Validating a Model to Detect Infant Crying From Naturalistic Audio",
+   "container": "Behavior Research Methods",
+   "volume": "55",
+   "first_page": "3187",
+   "last_page": "3197",
+   "doi": "10.3758/s13428-022-01961-x"
+  },
+  {
+   "bib_id": 44,
+   "authors": [
+    {
+     "family": "Mishra",
+     "given": "J."
+    },
+    {
+     "family": "Patil",
+     "given": "J. N."
+    },
+    {
+     "family": "Chowdhury",
+     "given": "A."
+    },
+    {
+     "family": "Prasanna",
+     "given": "M."
+    }
+   ],
+   "year": "2023",
+   "title": "End to End Spoken Language Diarization With Wav2vec Embeddings",
+   "first_page": "501",
+   "last_page": "505"
+  },
+  {
+   "bib_id": 45,
+   "authors": [
+    {
+     "family": "Northrup",
+     "given": "J. B."
+    },
+    {
+     "family": "Iverson",
+     "given": "J. M."
+    }
+   ],
+   "year": "2020",
+   "title": "The Development of Mother‐Infant Coordination Across the First Year of Life",
+   "container": "Developmental Psychology",
+   "volume": "56",
+   "first_page": "221",
+   "last_page": "236",
+   "doi": "10.1037/dev0000867"
+  },
+  {
+   "bib_id": 46,
+   "authors": [
+    {
+     "family": "Pepino",
+     "given": "L."
+    },
+    {
+     "family": "Riera",
+     "given": "P."
+    },
+    {
+     "family": "Ferrer",
+     "given": "L."
+    }
+   ],
+   "year": "2021",
+   "title": "Emotion Recognition From Speech Using wav2vec 2.0 Embeddings",
+   "first_page": "3400",
+   "last_page": "3404",
+   "doi": "10.21437/Interspeech.2021-703"
+  },
+  {
+   "bib_id": 47,
+   "authors": [
+    {
+     "family": "Pretzer",
+     "given": "G. M."
+    },
+    {
+     "family": "Lopez",
+     "given": "L. D."
+    },
+    {
+     "family": "Walle",
+     "given": "E. A."
+    },
+    {
+     "family": "Warlaumont",
+     "given": "A. S."
+    }
+   ],
+   "year": "2019",
+   "title": "Infant‐Adult Vocal Interaction Dynamics Depend on Infant Vocal Type, Child‐Directedness of Adult Speech, and Timeframe",
+   "container": "Infant Behavior & Development",
+   "volume": "57",
+   "first_page": "101325",
+   "doi": "10.1016/j.infbeh.2019.04.007"
+  },
+  {
+   "bib_id": 48,
+   "authors": [
+    {
+     "family": "Provenzi",
+     "given": "L."
+    },
+    {
+     "family": "Broso",
+     "given": "S."
+    },
+    {
+     "family": "Montirosso",
+     "given": "R."
+    }
+   ],
+   "year": "2018",
+   "title": "Do Mothers Sound Good? A Systematic Review of the Effects of Maternal Voice Exposure on Preterm Infants' development",
+   "container": "Neuroscience and Biobehavioral Reviews",
+   "volume": "88",
+   "first_page": "42",
+   "last_page": "50",
+   "doi": "10.1016/j.neubiorev.2018.03.009"
+  },
+  {
+   "bib_id": 49,
+   "authors": [
+    {
+     "family": "Radford",
+     "given": "A."
+    },
+    {
+     "family": "Kim",
+     "given": "J. W."
+    },
+    {
+     "family": "Xu",
+     "given": "T."
+    },
+    {
+     "family": "Brockman",
+     "given": "G."
+    },
+    {
+     "family": "McLeavey",
+     "given": "C."
+    },
+    {
+     "family": "Sutskever",
+     "given": "I."
+    }
+   ],
+   "year": "2023",
+   "title": "Robust Speech Recognition Via Large‐Scale Weak Supervision",
+   "first_page": "28492",
+   "last_page": "28518",
+   "doi": "10.48550/arXiv.2212.04356"
+  },
+  {
+   "bib_id": 50,
+   "authors": [
+    {
+     "family": "Ramírez‐Esparza",
+     "given": "N."
+    },
+    {
+     "family": "García‐Sierra",
+     "given": "A."
+    },
+    {
+     "family": "Kuhl",
+     "given": "P. K."
+    }
+   ],
+   "year": "2014",
+   "title": "Look Who's Talking: Speech Style and Social Context in Language Input to Infants Are Linked to Concurrent and Future Speech Development",
+   "container": "Developmental Science",
+   "volume": "17",
+   "first_page": "880",
+   "last_page": "891",
+   "doi": "10.1111/desc.12172"
+  },
+  {
+   "bib_id": 51,
+   "authors": [
+    {
+     "family": "Richards",
+     "given": "J. A."
+    },
+    {
+     "family": "Xu",
+     "given": "D."
+    },
+    {
+     "family": "Gilkerson",
+     "given": "J."
+    }
+   ],
+   "year": "2010",
+   "title": "Development and Performance of the LENA Automatic Autism Screen"
+  },
+  {
+   "bib_id": 52,
+   "authors": [
+    {
+     "family": "Schuller",
+     "given": "B."
+    },
+    {
+     "family": "Steidl",
+     "given": "S."
+    },
+    {
+     "family": "Batliner",
+     "given": "A."
+    }
+   ],
+   "year": "2017",
+   "title": "The Interspeech 2017 Computational Paralinguistics Challenge: Addressee, Cold, Snoring",
+   "container": "Proceedings of Interspeech 2017",
+   "first_page": "3442",
+   "last_page": "3446"
+  },
+  {
+   "bib_id": 53,
+   "authors": [
+    {
+     "family": "Schuller",
+     "given": "B."
+    },
+    {
+     "family": "Steidl",
+     "given": "S."
+    },
+    {
+     "family": "Batliner",
+     "given": "A."
+    }
+   ],
+   "year": "2018",
+   "title": "The Interspeech 2018 Computational Paralinguistics Challenge: Atypical Self‐assessed Affect, Crying, Heart Beats",
+   "first_page": "122",
+   "last_page": "126"
+  },
+  {
+   "bib_id": 54,
+   "authors": [
+    {
+     "family": "Schuller",
+     "given": "B. W."
+    },
+    {
+     "family": "Batliner",
+     "given": "A."
+    },
+    {
+     "family": "Bergler",
+     "given": "C."
+    }
+   ],
+   "year": "2019",
+   "title": "The Interspeech 2019 Computational Paralinguistics Challenge: Styrian Dialects, Continuous Sleepiness, Baby Sounds, Orca Activity",
+   "first_page": "2378",
+   "last_page": "2382"
+  },
+  {
+   "bib_id": 55,
+   "authors": [
+    {
+     "family": "van Egeren",
+     "given": "L. A."
+    },
+    {
+     "family": "Barratt",
+     "given": "M. S."
+    },
+    {
+     "family": "Roach",
+     "given": "M. A."
+    }
+   ],
+   "year": "2001",
+   "title": "Mother‐Infant Responsiveness: Timing, Mutual Regulation, and Interactional Context",
+   "container": "Developmental Psychology",
+   "volume": "37",
+   "first_page": "684",
+   "last_page": "697",
+   "doi": "10.1037//0012-1649.37.5.684"
+  },
+  {
+   "bib_id": 56,
+   "authors": [
+    {
+     "family": "Vaswani",
+     "given": "A."
+    },
+    {
+     "family": "Shazeer",
+     "given": "N."
+    },
+    {
+     "family": "Parmar",
+     "given": "N."
+    }
+   ],
+   "year": "2017",
+   "title": "Attention Is All You Need",
+   "container": "Advances in Neural Information Processing Systems",
+   "volume": "30",
+   "first_page": "5998",
+   "last_page": "6008",
+   "doi": "10.48550/arXiv.1706.03762"
+  },
+  {
+   "bib_id": 57,
+   "authors": [
+    {
+     "family": "Warlaumont",
+     "given": "A. S."
+    },
+    {
+     "family": "Richards",
+     "given": "J. A."
+    },
+    {
+     "family": "Gilkerson",
+     "given": "J."
+    },
+    {
+     "family": "Oller",
+     "given": "D. K."
+    }
+   ],
+   "year": "2014",
+   "title": "A Social Feedback Loop for Speech Development and Its Reduction in Autism",
+   "container": "Psychological Science",
+   "volume": "25",
+   "first_page": "1314",
+   "last_page": "1324",
+   "doi": "10.1177/0956797614531023"
+  },
+  {
+   "bib_id": 58,
+   "authors": [
+    {
+     "family": "Weissgerber",
+     "given": "T. L."
+    },
+    {
+     "family": "Milic",
+     "given": "N. M."
+    },
+    {
+     "family": "Winham",
+     "given": "S. J."
+    },
+    {
+     "family": "Garovic",
+     "given": "V. D."
+    }
+   ],
+   "year": "2015",
+   "title": "Beyond Bar and Line Graphs: Time for a New Data Presentation Paradigm",
+   "container": "PLoS Biology",
+   "volume": "13",
+   "first_page": "e1002128",
+   "doi": "10.1371/journal.pbio.1002128"
+  },
+  {
+   "bib_id": 59,
+   "authors": [
+    {
+     "family": "Xie",
+     "given": "J."
+    },
+    {
+     "family": "Long",
+     "given": "X."
+    },
+    {
+     "family": "Otte",
+     "given": "R. A."
+    },
+    {
+     "family": "Shan",
+     "given": "C."
+    }
+   ],
+   "year": "2021",
+   "title": "Convolutional Neural Networks for Audio‐Based Continuous Infant Cry Monitoring at Home",
+   "container": "IEEE Sensors Journal",
+   "volume": "21",
+   "first_page": "27710",
+   "last_page": "27717"
+  },
+  {
+   "bib_id": 60,
+   "authors": [
+    {
+     "family": "Xu",
+     "given": "D."
+    },
+    {
+     "family": "Yapanel",
+     "given": "U."
+    },
+    {
+     "family": "Gray",
+     "given": "S."
+    }
+   ],
+   "year": "2009",
+   "title": "Reliability of the LENATM Language Environment Analysis System in Young Children's Natural Home Environment (LTR‐05‐2)"
+  },
+  {
+   "bib_id": 61,
+   "authors": [
+    {
+     "family": "Yang",
+     "given": "S.‐W."
+    },
+    {
+     "family": "Chi",
+     "given": "P.‐H."
+    },
+    {
+     "family": "Chuang",
+     "given": "Y.‐S."
+    }
+   ],
+   "year": "2021",
+   "title": "SUPERB: Speech Processing Universal PERformance Benchmark",
+   "container": "Proceedings of Interspeech 2021",
+   "first_page": "1194",
+   "last_page": "1198",
+   "doi": "10.48550/arXiv.2105.01051"
+  },
+  {
+   "bib_id": 62,
+   "authors": [
+    {
+     "family": "Zhang",
+     "given": "V. H."
+    },
+    {
+     "family": "Elmlinger",
+     "given": "S. L."
+    },
+    {
+     "family": "Albert",
+     "given": "R. R."
+    },
+    {
+     "family": "Goldstein",
+     "given": "M. H."
+    }
+   ],
+   "year": "2024",
+   "title": "Caregiver Reactions to Babbling Organize Turn‐Taking Interactions: Facilitative Effects of Vocal Versus Non‐Vocal Responses",
+   "container": "Infancy",
+   "volume": "29",
+   "first_page": "525",
+   "last_page": "549",
+   "doi": "10.1111/infa.12596"
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-core-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "jats_doi": "10.1111/desc.70251"
+ }
+}

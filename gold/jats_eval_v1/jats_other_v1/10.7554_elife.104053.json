@@ -1,0 +1,5337 @@
+{
+ "paper_id": "10.7554_elife.104053",
+ "info": {
+  "title": "Brain cognition gaps reveal associations with dopamine and factors related to brain health through artificial intelligence prediction of functional connectome",
+  "doi": "10.7554/eLife.104053",
+  "file_name": "10.7554_elife.104053.pdf",
+  "abstract": "A key question in human neuroscience is to understand how individual differences in brain function relate to cognitive differences. However, the optimal condition of brain function to study between-person differences in cognition remains unclear. While many studies have developed objective biomarkers to accurately predict intelligence and general cognition, consensus on domain-specific markers has not yet emerged. Brain age has been proposed as a potential candidate, but recent research suggests that brain age offers minimal additional information on cognitive decline beyond what chronological age provides, prompting a shift toward approaches focused directly on cognitive prediction. Using a deep learning approach, we evaluated the predictive power of the functional connectome during various states (resting state, movie-watching, and n-back) on episodic memory and working memory performance. Our findings show that connectomes during tasks, especially during movie-watching, predict individual differences across cognitive domains, while resting state connectomes predict episodic memory meaningfully. Furthermore, individuals with a negative brain cognition gap (where brain predictions underestimate actual performance) exhibited lower physical activity and higher cardiovascular risk compared to those with a positive gap. This shows that knowledge of the brain cognition gap provides insights into factors contributing to cognitive resilience. Further, lower PET-derived measures of dopamine binding were linked to a greater brain cognition gap, mediated by regional functional variability. Together, our findings highlight the importance of brain state in connectome-based cognitive prediction and introduce the brain cognition gap as a potentially informative, dopamine-modulated marker of vulnerability to compromise brain function."
+ },
+ "author": [
+  {
+   "author_id": 1,
+   "given": "Morteza",
+   "family": "Esmaeili",
+   "affiliation": "Department of Electrical Engineering and Computer Science, University of Stavanger Stavanger Norway; Department of Diagnostic Imaging, Akershus University Hospital Lørenskog Norway",
+   "email": "",
+   "orcid": "0000-0003-0686-3571",
+   "corresponding": true
+  },
+  {
+   "author_id": 2,
+   "given": "Erin Beate",
+   "family": "Bjørkeli",
+   "affiliation": "Department of Diagnostic Imaging, Akershus University Hospital Lørenskog Norway; Institute of Clinical Medicine, University of Oslo Oslo Norway",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 3,
+   "given": "Robin",
+   "family": "Pedersen",
+   "affiliation": "Wallenberg Centre for Molecular Medicine (WCMM), Umeå University Umeå Sweden; Department of Medical and Translational Biology, Umeå University Umeå Sweden; Aging Research Center, Karolinska Institute and Stockholm University Solna Sweden",
+   "email": "",
+   "orcid": "0000-0003-4139-2461",
+   "corresponding": false
+  },
+  {
+   "author_id": 4,
+   "given": "Farshad",
+   "family": "Falahati",
+   "affiliation": "Wallenberg Centre for Molecular Medicine (WCMM), Umeå University Umeå Sweden; Department of Medical and Translational Biology, Umeå University Umeå Sweden; Aging Research Center, Karolinska Institute and Stockholm University Solna Sweden",
+   "email": "",
+   "orcid": "0000-0003-0851-4615",
+   "corresponding": false
+  },
+  {
+   "author_id": 5,
+   "given": "Jarkko",
+   "family": "Johansson",
+   "affiliation": "Wallenberg Centre for Molecular Medicine (WCMM), Umeå University Umeå Sweden; Department of Diagnostics and Intervention, Diagnostic Radiology, Umeå University Umeå Sweden",
+   "email": "",
+   "orcid": "0000-0002-4501-4735",
+   "corresponding": false
+  },
+  {
+   "author_id": 6,
+   "given": "Kristin",
+   "family": "Nordin",
+   "affiliation": "Aging Research Center, Karolinska Institute and Stockholm University Solna Sweden",
+   "email": "",
+   "orcid": "0000-0003-4157-1638",
+   "corresponding": false
+  },
+  {
+   "author_id": 7,
+   "given": "Nina",
+   "family": "Karalija",
+   "affiliation": "Department of Diagnostics and Intervention, Diagnostic Radiology, Umeå University Umeå Sweden; Umeå Center for Functional Brain Imaging (UFBI), Umeå University Umeå Sweden",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 8,
+   "given": "Lars",
+   "family": "Bäckman",
+   "affiliation": "Aging Research Center, Karolinska Institute and Stockholm University Solna Sweden",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 9,
+   "given": "Lars",
+   "family": "Nyberg",
+   "affiliation": "Department of Medical and Translational Biology, Umeå University Umeå Sweden; Department of Diagnostics and Intervention, Diagnostic Radiology, Umeå University Umeå Sweden; Umeå Center for Functional Brain Imaging (UFBI), Umeå University Umeå Sweden",
+   "email": "",
+   "orcid": "0000-0002-3367-1746",
+   "corresponding": false
+  },
+  {
+   "author_id": 10,
+   "given": "Alireza",
+   "family": "Salami",
+   "affiliation": "Wallenberg Centre for Molecular Medicine (WCMM), Umeå University Umeå Sweden; Department of Medical and Translational Biology, Umeå University Umeå Sweden; Aging Research Center, Karolinska Institute and Stockholm University Solna Sweden; Umeå Center for Functional Brain Imaging (UFBI), Umeå University Umeå Sweden; Department of Psychology, Florida State University Tallahassee United States",
+   "email": "",
+   "orcid": "0000-0002-4675-8437",
+   "corresponding": false
+  }
+ ],
+ "section": [
+  {
+   "section_id": 1,
+   "section_type": "abstract",
+   "header": "Abstract",
+   "level": 1,
+   "parent_section_id": null,
+   "classification_score": 1.0
+  }
+ ],
+ "text": [
+  {
+   "text_id": 1,
+   "section_id": 1,
+   "paragraph_id": 1,
+   "text": "A key question in human neuroscience is to understand how individual differences in brain function relate to cognitive differences. However, the optimal condition of brain function to study between-person differences in cognition remains unclear. While many studies have developed objective biomarkers to accurately predict intelligence and general cognition, consensus on domain-specific markers has not yet emerged. Brain age has been proposed as a potential candidate, but recent research suggests that brain age offers minimal additional information on cognitive decline beyond what chronological age provides, prompting a shift toward approaches focused directly on cognitive prediction. Using a deep learning approach, we evaluated the predictive power of the functional connectome during various states (resting state, movie-watching, and n-back) on episodic memory and working memory performance. Our findings show that connectomes during tasks, especially during movie-watching, predict individual differences across cognitive domains, while resting state connectomes predict episodic memory meaningfully. Furthermore, individuals with a negative brain cognition gap (where brain predictions underestimate actual performance) exhibited lower physical activity and higher cardiovascular risk compared to those with a positive gap. This shows that knowledge of the brain cognition gap provides insights into factors contributing to cognitive resilience. Further, lower PET-derived measures of dopamine binding were linked to a greater brain cognition gap, mediated by regional functional variability. Together, our findings highlight the importance of brain state in connectome-based cognitive prediction and introduce the brain cognition gap as a potentially informative, dopamine-modulated marker of vulnerability to compromise brain function.",
+   "page_number": 1
+  }
+ ],
+ "bib": [
+  {
+   "bib_id": 1,
+   "authors": [
+    {
+     "family": "Andrews-Hanna",
+     "given": "JR"
+    },
+    {
+     "family": "Snyder",
+     "given": "AZ"
+    },
+    {
+     "family": "Vincent",
+     "given": "JL"
+    },
+    {
+     "family": "Lustig",
+     "given": "C"
+    },
+    {
+     "family": "Head",
+     "given": "D"
+    },
+    {
+     "family": "Raichle",
+     "given": "ME"
+    },
+    {
+     "family": "Buckner",
+     "given": "RL"
+    }
+   ],
+   "year": "2007",
+   "title": "Disruption of large-scale brain systems in advanced aging",
+   "container": "Neuron",
+   "volume": "56",
+   "first_page": "924",
+   "last_page": "935",
+   "doi": "10.1016/j.neuron.2007.10.038"
+  },
+  {
+   "bib_id": 2,
+   "authors": [
+    {
+     "family": "Arida",
+     "given": "RM"
+    },
+    {
+     "family": "Teixeira-Machado",
+     "given": "L"
+    }
+   ],
+   "year": "2020",
+   "title": "The contribution of physical exercise to brain resilience",
+   "container": "Frontiers in Behavioral Neuroscience",
+   "volume": "14",
+   "first_page": "626769",
+   "doi": "10.3389/fnbeh.2020.626769"
+  },
+  {
+   "bib_id": 3,
+   "authors": [
+    {
+     "family": "Ashburner",
+     "given": "J"
+    }
+   ],
+   "year": "2007",
+   "title": "A fast diffeomorphic image registration algorithm",
+   "container": "NeuroImage",
+   "volume": "38",
+   "first_page": "95",
+   "last_page": "113",
+   "doi": "10.1016/j.neuroimage.2007.07.007"
+  },
+  {
+   "bib_id": 4,
+   "authors": [
+    {
+     "family": "Avelar-Pereira",
+     "given": "B"
+    },
+    {
+     "family": "Bäckman",
+     "given": "L"
+    },
+    {
+     "family": "Wåhlin",
+     "given": "A"
+    },
+    {
+     "family": "Nyberg",
+     "given": "L"
+    },
+    {
+     "family": "Salami",
+     "given": "A"
+    }
+   ],
+   "year": "2017",
+   "title": "Age-related differences in dynamic interactions among default mode, frontoparietal control, and dorsal attention networks during resting-state and interference resolution",
+   "container": "Frontiers in Aging Neuroscience",
+   "volume": "9",
+   "first_page": "152",
+   "doi": "10.3389/fnagi.2017.00152"
+  },
+  {
+   "bib_id": 5,
+   "authors": [
+    {
+     "family": "Avelar-Pereira",
+     "given": "B"
+    },
+    {
+     "family": "Bäckman",
+     "given": "L"
+    },
+    {
+     "family": "Wåhlin",
+     "given": "A"
+    },
+    {
+     "family": "Nyberg",
+     "given": "L"
+    },
+    {
+     "family": "Salami",
+     "given": "A"
+    }
+   ],
+   "year": "2020",
+   "title": "Increased functional homotopy of the prefrontal cortex is associated with corpus callosum degeneration and working memory decline",
+   "container": "Neurobiology of Aging",
+   "volume": "96",
+   "first_page": "68",
+   "last_page": "78",
+   "doi": "10.1016/j.neurobiolaging.2020.08.008"
+  },
+  {
+   "bib_id": 6,
+   "authors": [
+    {
+     "family": "Bäckman",
+     "given": "L"
+    },
+    {
+     "family": "Lindenberger",
+     "given": "U"
+    },
+    {
+     "family": "Li",
+     "given": "SC"
+    },
+    {
+     "family": "Nyberg",
+     "given": "L"
+    }
+   ],
+   "year": "2010",
+   "title": "Linking cognitive aging to alterations in dopamine neurotransmitter functioning: Recent data and future avenues",
+   "container": "Neuroscience & Biobehavioral Reviews",
+   "volume": "34",
+   "first_page": "670",
+   "last_page": "677",
+   "doi": "10.1016/j.neubiorev.2009.12.008"
+  },
+  {
+   "bib_id": 7,
+   "authors": [
+    {
+     "family": "Bäckman",
+     "given": "L"
+    },
+    {
+     "family": "Nyberg",
+     "given": "L"
+    },
+    {
+     "family": "Soveri",
+     "given": "A"
+    },
+    {
+     "family": "Johansson",
+     "given": "J"
+    },
+    {
+     "family": "Andersson",
+     "given": "M"
+    },
+    {
+     "family": "Dahlin",
+     "given": "E"
+    },
+    {
+     "family": "Neely",
+     "given": "AS"
+    },
+    {
+     "family": "Virta",
+     "given": "J"
+    },
+    {
+     "family": "Laine",
+     "given": "M"
+    },
+    {
+     "family": "Rinne",
+     "given": "JO"
+    }
+   ],
+   "year": "2011",
+   "title": "Effects of working-memory training on striatal dopamine release",
+   "container": "Science",
+   "volume": "333",
+   "first_page": "718",
+   "doi": "10.1126/science.1204978"
+  },
+  {
+   "bib_id": 8,
+   "authors": [
+    {
+     "family": "Baron",
+     "given": "RM"
+    },
+    {
+     "family": "Kenny",
+     "given": "DA"
+    }
+   ],
+   "year": "1986",
+   "title": "The moderator-mediator variable distinction in social psychological research: conceptual, strategic, and statistical considerations",
+   "container": "Journal of Personality and Social Psychology",
+   "volume": "51",
+   "first_page": "1173",
+   "last_page": "1182",
+   "doi": "10.1037//0022-3514.51.6.1173"
+  },
+  {
+   "bib_id": 9,
+   "authors": [
+    {
+     "family": "Beaty",
+     "given": "RE"
+    },
+    {
+     "family": "Kenett",
+     "given": "YN"
+    },
+    {
+     "family": "Christensen",
+     "given": "AP"
+    },
+    {
+     "family": "Rosenberg",
+     "given": "MD"
+    },
+    {
+     "family": "Benedek",
+     "given": "M"
+    },
+    {
+     "family": "Chen",
+     "given": "Q"
+    },
+    {
+     "family": "Fink",
+     "given": "A"
+    },
+    {
+     "family": "Qiu",
+     "given": "J"
+    },
+    {
+     "family": "Kwapil",
+     "given": "TR"
+    },
+    {
+     "family": "Kane",
+     "given": "MJ"
+    },
+    {
+     "family": "Silvia",
+     "given": "PJ"
+    }
+   ],
+   "year": "2018",
+   "title": "Robust prediction of individual creative ability from brain functional connectivity",
+   "container": "PNAS",
+   "volume": "115",
+   "first_page": "1087",
+   "last_page": "1092",
+   "doi": "10.1073/pnas.1713532115"
+  },
+  {
+   "bib_id": 10,
+   "authors": [
+    {
+     "family": "Berry",
+     "given": "AS"
+    },
+    {
+     "family": "Shah",
+     "given": "VD"
+    },
+    {
+     "family": "Furman",
+     "given": "DJ"
+    },
+    {
+     "family": "Baker",
+     "given": "SL"
+    },
+    {
+     "family": "O’Neil",
+     "given": "JP"
+    },
+    {
+     "family": "Janabi",
+     "given": "M"
+    },
+    {
+     "family": "D’Esposito",
+     "given": "M"
+    },
+    {
+     "family": "Jagust",
+     "given": "WJ"
+    }
+   ],
+   "year": "2018",
+   "title": "Dopamine synthesis capacity is associated with D2/3 receptor binding but not dopamine release",
+   "container": "Neuropsychopharmacology",
+   "volume": "43",
+   "first_page": "1201",
+   "last_page": "1211",
+   "doi": "10.1038/npp.2017.180"
+  },
+  {
+   "bib_id": 11,
+   "authors": [
+    {
+     "family": "Betzel",
+     "given": "RF"
+    },
+    {
+     "family": "Byrge",
+     "given": "L"
+    },
+    {
+     "family": "Esfahlani",
+     "given": "FZ"
+    },
+    {
+     "family": "Kennedy",
+     "given": "DP"
+    }
+   ],
+   "year": "2020",
+   "title": "Temporal fluctuations in the brain’s modular architecture during movie-watching",
+   "container": "NeuroImage",
+   "volume": "213",
+   "first_page": "116687",
+   "doi": "10.1016/j.neuroimage.2020.116687"
+  },
+  {
+   "bib_id": 12,
+   "authors": [
+    {
+     "family": "Biswal",
+     "given": "B"
+    },
+    {
+     "family": "Yetkin",
+     "given": "FZ"
+    },
+    {
+     "family": "Haughton",
+     "given": "VM"
+    },
+    {
+     "family": "Hyde",
+     "given": "JS"
+    }
+   ],
+   "year": "1995",
+   "title": "Functional connectivity in the motor cortex of resting human brain using echo-planar MRI",
+   "container": "Magnetic Resonance in Medicine",
+   "volume": "34",
+   "first_page": "537",
+   "last_page": "541",
+   "doi": "10.1002/mrm.1910340409"
+  },
+  {
+   "bib_id": 13,
+   "authors": [
+    {
+     "family": "Blondé",
+     "given": "P"
+    },
+    {
+     "family": "Sperduti",
+     "given": "M"
+    },
+    {
+     "family": "Makowski",
+     "given": "D"
+    },
+    {
+     "family": "Piolino",
+     "given": "P"
+    }
+   ],
+   "year": "2022",
+   "title": "Bored, distracted, and forgetful: the impact of mind wandering and boredom on memory encoding",
+   "container": "Quarterly Journal of Experimental Psychology",
+   "volume": "75",
+   "first_page": "53",
+   "last_page": "69",
+   "doi": "10.1177/17470218211026301"
+  },
+  {
+   "bib_id": 14,
+   "authors": [
+    {
+     "family": "Buckner",
+     "given": "RL"
+    },
+    {
+     "family": "Krienen",
+     "given": "FM"
+    }
+   ],
+   "year": "2013",
+   "title": "The evolution of distributed association networks in the human brain",
+   "container": "Trends in Cognitive Sciences",
+   "volume": "17",
+   "first_page": "648",
+   "last_page": "665",
+   "doi": "10.1016/j.tics.2013.09.017"
+  },
+  {
+   "bib_id": 15,
+   "authors": [
+    {
+     "family": "Bzdok",
+     "given": "D"
+    },
+    {
+     "family": "Eickenberg",
+     "given": "M"
+    },
+    {
+     "family": "Varoquaux",
+     "given": "G"
+    },
+    {
+     "family": "Thirion",
+     "given": "B"
+    }
+   ],
+   "year": "2017",
+   "title": "Hierarchical region-network sparsity for high-dimensional inference in brain imaging",
+   "container": "Information Processing in Medical Imaging",
+   "volume": "10265",
+   "first_page": "323",
+   "last_page": "335",
+   "doi": "10.1007/978-3-319-59050-9_26"
+  },
+  {
+   "bib_id": 16,
+   "authors": [
+    {
+     "family": "Bzdok",
+     "given": "D"
+    },
+    {
+     "family": "Krzywinski",
+     "given": "M"
+    },
+    {
+     "family": "Altman",
+     "given": "N"
+    }
+   ],
+   "year": "2018",
+   "title": "Machine learning: supervised methods",
+   "container": "Nature Methods",
+   "volume": "15",
+   "first_page": "5",
+   "last_page": "6",
+   "doi": "10.1038/nmeth.4551"
+  },
+  {
+   "bib_id": 17,
+   "authors": [
+    {
+     "family": "Bzdok",
+     "given": "D"
+    },
+    {
+     "family": "Meyer-Lindenberg",
+     "given": "A"
+    }
+   ],
+   "year": "2018",
+   "title": "Machine learning for precision psychiatry: opportunities and challenges",
+   "container": "Biological Psychiatry. Cognitive Neuroscience and Neuroimaging",
+   "volume": "3",
+   "first_page": "223",
+   "last_page": "230",
+   "doi": "10.1016/j.bpsc.2017.11.007"
+  },
+  {
+   "bib_id": 18,
+   "authors": [
+    {
+     "family": "Cabeza",
+     "given": "R"
+    },
+    {
+     "family": "Albert",
+     "given": "M"
+    },
+    {
+     "family": "Belleville",
+     "given": "S"
+    },
+    {
+     "family": "Craik",
+     "given": "FIM"
+    },
+    {
+     "family": "Duarte",
+     "given": "A"
+    },
+    {
+     "family": "Grady",
+     "given": "CL"
+    },
+    {
+     "family": "Lindenberger",
+     "given": "U"
+    },
+    {
+     "family": "Nyberg",
+     "given": "L"
+    },
+    {
+     "family": "Park",
+     "given": "DC"
+    },
+    {
+     "family": "Reuter-Lorenz",
+     "given": "PA"
+    },
+    {
+     "family": "Rugg",
+     "given": "MD"
+    },
+    {
+     "family": "Steffener",
+     "given": "J"
+    },
+    {
+     "family": "Rajah",
+     "given": "MN"
+    }
+   ],
+   "year": "2018",
+   "title": "Maintenance, reserve and compensation: the cognitive neuroscience of healthy ageing",
+   "container": "Nature Reviews. Neuroscience",
+   "volume": "19",
+   "first_page": "701",
+   "last_page": "710",
+   "doi": "10.1038/s41583-018-0068-2"
+  },
+  {
+   "bib_id": 19,
+   "authors": [
+    {
+     "family": "Campbell",
+     "given": "KL"
+    },
+    {
+     "family": "Schacter",
+     "given": "DL"
+    }
+   ],
+   "year": "2017",
+   "title": "Aging and the resting state: cognition is not obsolete",
+   "container": "Language, Cognition and Neuroscience",
+   "volume": "32",
+   "first_page": "692",
+   "last_page": "694",
+   "doi": "10.1080/23273798.2016.1265658"
+  },
+  {
+   "bib_id": 20,
+   "authors": [
+    {
+     "family": "Cattell",
+     "given": "RB"
+    }
+   ],
+   "year": "1971",
+   "title": "Abilities: Their Structure, Growth, and Action"
+  },
+  {
+   "bib_id": 21,
+   "authors": [
+    {
+     "family": "Chen",
+     "given": "Q"
+    },
+    {
+     "family": "Beaty",
+     "given": "RE"
+    },
+    {
+     "family": "Cui",
+     "given": "Z"
+    },
+    {
+     "family": "Sun",
+     "given": "J"
+    },
+    {
+     "family": "He",
+     "given": "H"
+    },
+    {
+     "family": "Zhuang",
+     "given": "K"
+    },
+    {
+     "family": "Ren",
+     "given": "Z"
+    },
+    {
+     "family": "Liu",
+     "given": "G"
+    },
+    {
+     "family": "Qiu",
+     "given": "J"
+    }
+   ],
+   "year": "2019",
+   "title": "Brain hemispheric involvement in visuospatial and verbal divergent thinking",
+   "container": "NeuroImage",
+   "volume": "202",
+   "first_page": "116065",
+   "doi": "10.1016/j.neuroimage.2019.116065"
+  },
+  {
+   "bib_id": 22,
+   "authors": [
+    {
+     "family": "Chen",
+     "given": "J"
+    },
+    {
+     "family": "Tam",
+     "given": "A"
+    },
+    {
+     "family": "Kebets",
+     "given": "V"
+    },
+    {
+     "family": "Orban",
+     "given": "C"
+    },
+    {
+     "family": "Ooi",
+     "given": "LQR"
+    },
+    {
+     "family": "Asplund",
+     "given": "CL"
+    },
+    {
+     "family": "Marek",
+     "given": "S"
+    },
+    {
+     "family": "Dosenbach",
+     "given": "NUF"
+    },
+    {
+     "family": "Eickhoff",
+     "given": "SB"
+    },
+    {
+     "family": "Bzdok",
+     "given": "D"
+    },
+    {
+     "family": "Holmes",
+     "given": "AJ"
+    },
+    {
+     "family": "Yeo",
+     "given": "BTT"
+    }
+   ],
+   "year": "2022",
+   "title": "Shared and unique brain network features predict cognitive, personality, and mental health scores in the ABCD study",
+   "container": "Nature Communications",
+   "volume": "13",
+   "first_page": "2217",
+   "doi": "10.1038/s41467-022-29766-8"
+  },
+  {
+   "bib_id": 23,
+   "authors": [
+    {
+     "family": "Choi",
+     "given": "Y"
+    },
+    {
+     "family": "Kwon",
+     "given": "Y"
+    },
+    {
+     "family": "Lee",
+     "given": "H"
+    },
+    {
+     "family": "Kim",
+     "given": "BJ"
+    },
+    {
+     "family": "Paik",
+     "given": "MC"
+    },
+    {
+     "family": "Won",
+     "given": "JH"
+    }
+   ],
+   "year": "2016",
+   "title": "Ensemble of Deep Convolutional Neural Networks for Prognosis of Ischemic Stroke. Brainlesion: Glioma, Multiple Sclerosis, Stroke and Traumatic Brain Injuries",
+   "doi": "10.1007/978-3-319-55524-9_22"
+  },
+  {
+   "bib_id": 24,
+   "authors": [
+    {
+     "family": "Chollet",
+     "given": "F"
+    }
+   ],
+   "year": "2022"
+  },
+  {
+   "bib_id": 25,
+   "authors": [
+    {
+     "family": "Cole",
+     "given": "JH"
+    },
+    {
+     "family": "Franke",
+     "given": "K"
+    }
+   ],
+   "year": "2017",
+   "title": "Predicting age using neuroimaging: innovative brain ageing biomarkers",
+   "container": "Trends in Neurosciences",
+   "volume": "40",
+   "first_page": "681",
+   "last_page": "690",
+   "doi": "10.1016/j.tins.2017.10.001"
+  },
+  {
+   "bib_id": 26,
+   "authors": [
+    {
+     "family": "Cole",
+     "given": "MW"
+    },
+    {
+     "family": "Ito",
+     "given": "T"
+    },
+    {
+     "family": "Schultz",
+     "given": "D"
+    },
+    {
+     "family": "Mill",
+     "given": "R"
+    },
+    {
+     "family": "Chen",
+     "given": "R"
+    },
+    {
+     "family": "Cocuzza",
+     "given": "C"
+    }
+   ],
+   "year": "2019",
+   "title": "Task activations produce spurious but systematic inflation of task functional connectivity estimates",
+   "container": "NeuroImage",
+   "volume": "189",
+   "first_page": "1",
+   "last_page": "18",
+   "doi": "10.1016/j.neuroimage.2018.12.054"
+  },
+  {
+   "bib_id": 27,
+   "authors": [
+    {
+     "family": "Cools",
+     "given": "R"
+    },
+    {
+     "family": "D’Esposito",
+     "given": "M"
+    }
+   ],
+   "year": "2011",
+   "title": "Inverted-U-shaped dopamine actions on human working memory and cognitive control",
+   "container": "Biological Psychiatry",
+   "volume": "69",
+   "first_page": "e113",
+   "last_page": "e125",
+   "doi": "10.1016/j.biopsych.2011.03.028"
+  },
+  {
+   "bib_id": 28,
+   "authors": [
+    {
+     "family": "D’Agostino",
+     "given": "RB"
+    },
+    {
+     "family": "Vasan",
+     "given": "RS"
+    },
+    {
+     "family": "Pencina",
+     "given": "MJ"
+    },
+    {
+     "family": "Wolf",
+     "given": "PA"
+    },
+    {
+     "family": "Cobain",
+     "given": "M"
+    },
+    {
+     "family": "Massaro",
+     "given": "JM"
+    },
+    {
+     "family": "Kannel",
+     "given": "WB"
+    }
+   ],
+   "year": "2008",
+   "title": "General cardiovascular risk profile for use in primary care: the framingham heart study",
+   "container": "Circulation",
+   "volume": "117",
+   "first_page": "743",
+   "last_page": "753",
+   "doi": "10.1161/CIRCULATIONAHA.107.699579"
+  },
+  {
+   "bib_id": 29,
+   "authors": [
+    {
+     "family": "Damoiseaux",
+     "given": "JS"
+    }
+   ],
+   "year": "2017",
+   "title": "Effects of aging on functional and structural brain connectivity",
+   "container": "NeuroImage",
+   "volume": "160",
+   "first_page": "32",
+   "last_page": "40",
+   "doi": "10.1016/j.neuroimage.2017.01.077"
+  },
+  {
+   "bib_id": 30,
+   "authors": [
+    {
+     "family": "de Boer",
+     "given": "L"
+    },
+    {
+     "family": "Axelsson",
+     "given": "J"
+    },
+    {
+     "family": "Riklund",
+     "given": "K"
+    },
+    {
+     "family": "Nyberg",
+     "given": "L"
+    },
+    {
+     "family": "Dayan",
+     "given": "P"
+    },
+    {
+     "family": "Bäckman",
+     "given": "L"
+    },
+    {
+     "family": "Guitart-Masip",
+     "given": "M"
+    }
+   ],
+   "year": "2017",
+   "title": "Attenuation of dopamine-modulated prefrontal value signals underlies probabilistic reward learning deficits in old age",
+   "container": "eLife",
+   "volume": "6",
+   "first_page": "e26424",
+   "doi": "10.7554/eLife.26424"
+  },
+  {
+   "bib_id": 31,
+   "year": "2022",
+   "title": "TensorFlow"
+  },
+  {
+   "bib_id": 32,
+   "authors": [
+    {
+     "family": "Dosenbach",
+     "given": "NUF"
+    },
+    {
+     "family": "Nardos",
+     "given": "B"
+    },
+    {
+     "family": "Cohen",
+     "given": "AL"
+    },
+    {
+     "family": "Fair",
+     "given": "DA"
+    },
+    {
+     "family": "Power",
+     "given": "JD"
+    },
+    {
+     "family": "Church",
+     "given": "JA"
+    },
+    {
+     "family": "Nelson",
+     "given": "SM"
+    },
+    {
+     "family": "Wig",
+     "given": "GS"
+    },
+    {
+     "family": "Vogel",
+     "given": "AC"
+    },
+    {
+     "family": "Lessov-Schlaggar",
+     "given": "CN"
+    },
+    {
+     "family": "Barnes",
+     "given": "KA"
+    },
+    {
+     "family": "Dubis",
+     "given": "JW"
+    },
+    {
+     "family": "Feczko",
+     "given": "E"
+    },
+    {
+     "family": "Coalson",
+     "given": "RS"
+    },
+    {
+     "family": "Pruett",
+     "given": "JR"
+    },
+    {
+     "family": "Barch",
+     "given": "DM"
+    },
+    {
+     "family": "Petersen",
+     "given": "SE"
+    },
+    {
+     "family": "Schlaggar",
+     "given": "BL"
+    }
+   ],
+   "year": "2010",
+   "title": "Prediction of individual brain maturity using fMRI",
+   "container": "Science",
+   "volume": "329",
+   "first_page": "1358",
+   "last_page": "1361",
+   "doi": "10.1126/science.1194144"
+  },
+  {
+   "bib_id": 33,
+   "authors": [
+    {
+     "family": "Dunås",
+     "given": "T"
+    },
+    {
+     "family": "Wåhlin",
+     "given": "A"
+    },
+    {
+     "family": "Nyberg",
+     "given": "L"
+    },
+    {
+     "family": "Boraxbekk",
+     "given": "CJ"
+    }
+   ],
+   "year": "2021",
+   "title": "Multimodal image analysis of apparent brain age identifies physical fitness as predictor of brain maintenance",
+   "container": "Cerebral Cortex",
+   "volume": "31",
+   "first_page": "3393",
+   "last_page": "3407",
+   "doi": "10.1093/cercor/bhab019"
+  },
+  {
+   "bib_id": 34,
+   "authors": [
+    {
+     "family": "Eriksson",
+     "given": "J"
+    },
+    {
+     "family": "Vogel",
+     "given": "EK"
+    },
+    {
+     "family": "Lansner",
+     "given": "A"
+    },
+    {
+     "family": "Bergström",
+     "given": "F"
+    },
+    {
+     "family": "Nyberg",
+     "given": "L"
+    }
+   ],
+   "year": "2015",
+   "title": "Neurocognitive architecture of working memory",
+   "container": "Neuron",
+   "volume": "88",
+   "first_page": "33",
+   "last_page": "46",
+   "doi": "10.1016/j.neuron.2015.09.020"
+  },
+  {
+   "bib_id": 35,
+   "authors": [
+    {
+     "family": "Esmaeili",
+     "given": "M"
+    }
+   ],
+   "year": "2026",
+   "title": "Software Heritage"
+  },
+  {
+   "bib_id": 36,
+   "authors": [
+    {
+     "family": "Fair",
+     "given": "DA"
+    },
+    {
+     "family": "Schlaggar",
+     "given": "BL"
+    },
+    {
+     "family": "Cohen",
+     "given": "AL"
+    },
+    {
+     "family": "Miezin",
+     "given": "FM"
+    },
+    {
+     "family": "Dosenbach",
+     "given": "NUF"
+    },
+    {
+     "family": "Wenger",
+     "given": "KK"
+    },
+    {
+     "family": "Fox",
+     "given": "MD"
+    },
+    {
+     "family": "Snyder",
+     "given": "AZ"
+    },
+    {
+     "family": "Raichle",
+     "given": "ME"
+    },
+    {
+     "family": "Petersen",
+     "given": "SE"
+    }
+   ],
+   "year": "2007",
+   "title": "A method for using blocked and event-related fMRI data to study “resting state” functional connectivity",
+   "container": "NeuroImage",
+   "volume": "35",
+   "first_page": "396",
+   "last_page": "405",
+   "doi": "10.1016/j.neuroimage.2006.11.051"
+  },
+  {
+   "bib_id": 37,
+   "authors": [
+    {
+     "family": "Fan",
+     "given": "L"
+    },
+    {
+     "family": "Su",
+     "given": "J"
+    },
+    {
+     "family": "Qin",
+     "given": "J"
+    },
+    {
+     "family": "Hu",
+     "given": "D"
+    },
+    {
+     "family": "Shen",
+     "given": "H"
+    }
+   ],
+   "year": "2020",
+   "title": "A deep network model on dynamic functional connectivity with applications to gender classification and intelligence prediction",
+   "container": "Frontiers in Neuroscience",
+   "volume": "14",
+   "first_page": "881",
+   "doi": "10.3389/fnins.2020.00881"
+  },
+  {
+   "bib_id": 38,
+   "authors": [
+    {
+     "family": "Farnsworth von Cederwald",
+     "given": "B"
+    },
+    {
+     "family": "Josefsson",
+     "given": "M"
+    },
+    {
+     "family": "Wåhlin",
+     "given": "A"
+    },
+    {
+     "family": "Nyberg",
+     "given": "L"
+    },
+    {
+     "family": "Karalija",
+     "given": "N"
+    }
+   ],
+   "year": "2022",
+   "title": "Association of cardiovascular risk trajectory with cognitive decline and incident dementia",
+   "container": "Neurology",
+   "volume": "98",
+   "first_page": "e2013",
+   "last_page": "e2022",
+   "doi": "10.1212/WNL.0000000000200255"
+  },
+  {
+   "bib_id": 39,
+   "authors": [
+    {
+     "family": "Ferreira",
+     "given": "LK"
+    },
+    {
+     "family": "Busatto",
+     "given": "GF"
+    }
+   ],
+   "year": "2013",
+   "title": "Resting-state functional connectivity in normal brain aging",
+   "container": "Neuroscience and Biobehavioral Reviews",
+   "volume": "37",
+   "first_page": "384",
+   "last_page": "400",
+   "doi": "10.1016/j.neubiorev.2013.01.017"
+  },
+  {
+   "bib_id": 40,
+   "authors": [
+    {
+     "family": "Ferreira",
+     "given": "LK"
+    },
+    {
+     "family": "Regina",
+     "given": "ACB"
+    },
+    {
+     "family": "Kovacevic",
+     "given": "N"
+    },
+    {
+     "family": "da Martin",
+     "given": "MG"
+    },
+    {
+     "family": "Santos",
+     "given": "PP"
+    },
+    {
+     "family": "de Carneiro",
+     "given": "CG"
+    },
+    {
+     "family": "Kerr",
+     "given": "DS"
+    },
+    {
+     "family": "McIntosh",
+     "given": "AR"
+    },
+    {
+     "family": "Busatto",
+     "given": "GF"
+    }
+   ],
+   "year": "2016",
+   "title": "Aging effects on whole-brain functional connectivity in adults free of cognitive and psychiatric disorders",
+   "container": "Cerebral Cortex",
+   "volume": "26",
+   "first_page": "3851",
+   "last_page": "3865",
+   "doi": "10.1093/cercor/bhv190"
+  },
+  {
+   "bib_id": 41,
+   "authors": [
+    {
+     "family": "Finn",
+     "given": "ES"
+    },
+    {
+     "family": "Shen",
+     "given": "X"
+    },
+    {
+     "family": "Scheinost",
+     "given": "D"
+    },
+    {
+     "family": "Rosenberg",
+     "given": "MD"
+    },
+    {
+     "family": "Huang",
+     "given": "J"
+    },
+    {
+     "family": "Chun",
+     "given": "MM"
+    },
+    {
+     "family": "Papademetris",
+     "given": "X"
+    },
+    {
+     "family": "Constable",
+     "given": "RT"
+    }
+   ],
+   "year": "2015",
+   "title": "Functional connectome fingerprinting: identifying individuals using patterns of brain connectivity",
+   "container": "Nature Neuroscience",
+   "volume": "18",
+   "first_page": "1664",
+   "last_page": "1671",
+   "doi": "10.1038/nn.4135"
+  },
+  {
+   "bib_id": 42,
+   "authors": [
+    {
+     "family": "Finn",
+     "given": "ES"
+    },
+    {
+     "family": "Todd Constable",
+     "given": "R"
+    }
+   ],
+   "year": "2016",
+   "title": "Individual variation in functional brain connectivity: implications for personalized approaches to psychiatric disease",
+   "container": "Dialogues in Clinical Neuroscience",
+   "volume": "18",
+   "first_page": "277",
+   "last_page": "287",
+   "doi": "10.31887/DCNS.2016.18.3/efinn"
+  },
+  {
+   "bib_id": 43,
+   "authors": [
+    {
+     "family": "Finn",
+     "given": "ES"
+    },
+    {
+     "family": "Scheinost",
+     "given": "D"
+    },
+    {
+     "family": "Finn",
+     "given": "DM"
+    },
+    {
+     "family": "Shen",
+     "given": "X"
+    },
+    {
+     "family": "Papademetris",
+     "given": "X"
+    },
+    {
+     "family": "Constable",
+     "given": "RT"
+    }
+   ],
+   "year": "2017",
+   "title": "Can brain state be manipulated to emphasize individual differences in functional connectivity?",
+   "container": "NeuroImage",
+   "volume": "160",
+   "first_page": "140",
+   "last_page": "151",
+   "doi": "10.1016/j.neuroimage.2017.03.064"
+  },
+  {
+   "bib_id": 44,
+   "authors": [
+    {
+     "family": "Finn",
+     "given": "ES"
+    }
+   ],
+   "year": "2021",
+   "title": "Is it time to put rest to rest?",
+   "container": "Trends in Cognitive Sciences",
+   "volume": "25",
+   "first_page": "1021",
+   "last_page": "1032",
+   "doi": "10.1016/j.tics.2021.09.005"
+  },
+  {
+   "bib_id": 45,
+   "authors": [
+    {
+     "family": "Finn",
+     "given": "ES"
+    },
+    {
+     "family": "Bandettini",
+     "given": "PA"
+    }
+   ],
+   "year": "2021",
+   "title": "Movie-watching outperforms rest for functional connectivity-based prediction of behavior",
+   "container": "NeuroImage",
+   "volume": "235",
+   "first_page": "117963",
+   "doi": "10.1016/j.neuroimage.2021.117963"
+  },
+  {
+   "bib_id": 46,
+   "authors": [
+    {
+     "family": "Finn",
+     "given": "ES"
+    },
+    {
+     "family": "Glerean",
+     "given": "E"
+    },
+    {
+     "family": "Hasson",
+     "given": "U"
+    },
+    {
+     "family": "Vanderwal",
+     "given": "T"
+    }
+   ],
+   "year": "2022",
+   "title": "Naturalistic imaging: The use of ecologically valid conditions to study brain function",
+   "container": "NeuroImage",
+   "volume": "247",
+   "first_page": "118776",
+   "doi": "10.1016/j.neuroimage.2021.118776"
+  },
+  {
+   "bib_id": 47,
+   "authors": [
+    {
+     "family": "Fonov",
+     "given": "VS"
+    },
+    {
+     "family": "Evans",
+     "given": "AC"
+    },
+    {
+     "family": "McKinstry",
+     "given": "RC"
+    },
+    {
+     "family": "Almli",
+     "given": "CR"
+    },
+    {
+     "family": "Collins",
+     "given": "DL"
+    }
+   ],
+   "year": "2009",
+   "title": "Unbiased nonlinear average age-appropriate brain templates from birth to adulthood",
+   "container": "NeuroImage",
+   "volume": "47",
+   "first_page": "S102",
+   "doi": "10.1016/S1053-8119(09)70884-5"
+  },
+  {
+   "bib_id": 48,
+   "authors": [
+    {
+     "family": "Fonov",
+     "given": "V"
+    },
+    {
+     "family": "Evans",
+     "given": "AC"
+    },
+    {
+     "family": "Botteron",
+     "given": "K"
+    },
+    {
+     "family": "Almli",
+     "given": "CR"
+    },
+    {
+     "family": "McKinstry",
+     "given": "RC"
+    },
+    {
+     "family": "Collins",
+     "given": "DL"
+    }
+   ],
+   "year": "2011",
+   "title": "Unbiased average age-appropriate atlases for pediatric studies",
+   "container": "NeuroImage",
+   "volume": "54",
+   "first_page": "313",
+   "last_page": "327",
+   "doi": "10.1016/j.neuroimage.2010.07.033"
+  },
+  {
+   "bib_id": 49,
+   "authors": [
+    {
+     "family": "Fox",
+     "given": "MD"
+    },
+    {
+     "family": "Greicius",
+     "given": "M"
+    }
+   ],
+   "year": "2010",
+   "title": "Clinical applications of resting state functional connectivity",
+   "container": "Frontiers in Systems Neuroscience",
+   "volume": "4",
+   "first_page": "19",
+   "doi": "10.3389/fnsys.2010.00019"
+  },
+  {
+   "bib_id": 50,
+   "authors": [
+    {
+     "family": "Friston",
+     "given": "KJ"
+    },
+    {
+     "family": "Williams",
+     "given": "S"
+    },
+    {
+     "family": "Howard",
+     "given": "R"
+    },
+    {
+     "family": "Frackowiak",
+     "given": "RS"
+    },
+    {
+     "family": "Turner",
+     "given": "R"
+    }
+   ],
+   "year": "1996",
+   "title": "Movement-related effects in fMRI time-series",
+   "container": "Magnetic Resonance in Medicine",
+   "volume": "35",
+   "first_page": "346",
+   "last_page": "355",
+   "doi": "10.1002/mrm.1910350312"
+  },
+  {
+   "bib_id": 51,
+   "authors": [
+    {
+     "family": "Gabrieli",
+     "given": "JDE"
+    },
+    {
+     "family": "Ghosh",
+     "given": "SS"
+    },
+    {
+     "family": "Whitfield-Gabrieli",
+     "given": "S"
+    }
+   ],
+   "year": "2015",
+   "title": "Prediction as a humanitarian and pragmatic contribution from human cognitive neuroscience",
+   "container": "Neuron",
+   "volume": "85",
+   "first_page": "11",
+   "last_page": "26",
+   "doi": "10.1016/j.neuron.2014.10.047"
+  },
+  {
+   "bib_id": 52,
+   "authors": [
+    {
+     "family": "Geerligs",
+     "given": "L"
+    },
+    {
+     "family": "Rubinov",
+     "given": "M"
+    },
+    {
+     "family": "Cam",
+     "given": "C"
+    },
+    {
+     "family": "Henson",
+     "given": "RN"
+    }
+   ],
+   "year": "2015",
+   "title": "State and trait components of functional connectivity: individual differences vary with mental state",
+   "container": "The Journal of Neuroscience",
+   "volume": "35",
+   "first_page": "13949",
+   "last_page": "13961",
+   "doi": "10.1523/JNEUROSCI.1324-15.2015"
+  },
+  {
+   "bib_id": 53,
+   "authors": [
+    {
+     "family": "Geerligs",
+     "given": "L"
+    },
+    {
+     "family": "Tsvetanov",
+     "given": "KA"
+    }
+   ],
+   "year": "2017",
+   "title": "The use of resting state data in an integrative approach to studying neurocognitive ageing - Commentary on Campbell and Schacter (2016)",
+   "container": "Language, Cognition and Neuroscience",
+   "volume": "32",
+   "first_page": "684",
+   "last_page": "691",
+   "doi": "10.1080/23273798.2016.1251600"
+  },
+  {
+   "bib_id": 54,
+   "authors": [
+    {
+     "family": "Gilson",
+     "given": "M"
+    },
+    {
+     "family": "Deco",
+     "given": "G"
+    },
+    {
+     "family": "Friston",
+     "given": "KJ"
+    },
+    {
+     "family": "Hagmann",
+     "given": "P"
+    },
+    {
+     "family": "Mantini",
+     "given": "D"
+    },
+    {
+     "family": "Betti",
+     "given": "V"
+    },
+    {
+     "family": "Romani",
+     "given": "GL"
+    },
+    {
+     "family": "Corbetta",
+     "given": "M"
+    }
+   ],
+   "year": "2018",
+   "title": "Effective connectivity inferred from fMRI transition dynamics during movie viewing points to a balanced reconfiguration of cortical interactions",
+   "container": "NeuroImage",
+   "volume": "180",
+   "first_page": "534",
+   "last_page": "546",
+   "doi": "10.1016/j.neuroimage.2017.09.061"
+  },
+  {
+   "bib_id": 55,
+   "authors": [
+    {
+     "family": "Glover",
+     "given": "GH"
+    },
+    {
+     "family": "Li",
+     "given": "TQ"
+    },
+    {
+     "family": "Ress",
+     "given": "D"
+    }
+   ],
+   "year": "2000",
+   "title": "Image-based method for retrospective correction of physiological motion effects in fMRI: RETROICOR",
+   "container": "Magnetic Resonance in Medicine",
+   "volume": "44",
+   "first_page": "162",
+   "last_page": "167",
+   "doi": "10.1002/1522-2594(200007)44:1<162::aid-mrm23>3.0.co;2-e"
+  },
+  {
+   "bib_id": 56,
+   "authors": [
+    {
+     "family": "Gonzalez-Castillo",
+     "given": "J"
+    },
+    {
+     "family": "Kam",
+     "given": "JWY"
+    },
+    {
+     "family": "Hoy",
+     "given": "CW"
+    },
+    {
+     "family": "Bandettini",
+     "given": "PA"
+    }
+   ],
+   "year": "2021",
+   "title": "How to interpret resting-state fMRI: Ask Your Participants",
+   "container": "The Journal of Neuroscience",
+   "volume": "41",
+   "first_page": "1130",
+   "last_page": "1141",
+   "doi": "10.1523/JNEUROSCI.1786-20.2020"
+  },
+  {
+   "bib_id": 57,
+   "authors": [
+    {
+     "family": "Grady",
+     "given": "CL"
+    },
+    {
+     "family": "Ryan",
+     "given": "JD"
+    }
+   ],
+   "year": "2017",
+   "title": "Age-related differences in the human hippocampus: behavioral, structural and functional measures",
+   "container": "The Hippocampus from Cells to Systems: Structure, Connectivity, and Functional Contributions to Memory and Flexible Cognition",
+   "first_page": "167",
+   "last_page": "208",
+   "doi": "10.1007/978-3-319-50406-3_7"
+  },
+  {
+   "bib_id": 58,
+   "authors": [
+    {
+     "family": "Greene",
+     "given": "AS"
+    },
+    {
+     "family": "Gao",
+     "given": "S"
+    },
+    {
+     "family": "Scheinost",
+     "given": "D"
+    },
+    {
+     "family": "Constable",
+     "given": "RT"
+    }
+   ],
+   "year": "2018",
+   "title": "Task-induced brain state manipulation improves prediction of individual traits",
+   "container": "Nature Communications",
+   "volume": "9",
+   "first_page": "2807",
+   "doi": "10.1038/s41467-018-04920-3"
+  },
+  {
+   "bib_id": 59,
+   "authors": [
+    {
+     "family": "Greve",
+     "given": "DN"
+    },
+    {
+     "family": "Salat",
+     "given": "DH"
+    },
+    {
+     "family": "Bowen",
+     "given": "SL"
+    },
+    {
+     "family": "Izquierdo-Garcia",
+     "given": "D"
+    },
+    {
+     "family": "Schultz",
+     "given": "AP"
+    },
+    {
+     "family": "Catana",
+     "given": "C"
+    },
+    {
+     "family": "Becker",
+     "given": "JA"
+    },
+    {
+     "family": "Svarer",
+     "given": "C"
+    },
+    {
+     "family": "Knudsen",
+     "given": "GM"
+    },
+    {
+     "family": "Sperling",
+     "given": "RA"
+    },
+    {
+     "family": "Johnson",
+     "given": "KA"
+    }
+   ],
+   "year": "2016",
+   "title": "Different partial volume correction methods lead to different conclusions: an (18)F-FDG-PET study of aging",
+   "container": "NeuroImage",
+   "volume": "132",
+   "first_page": "334",
+   "last_page": "343",
+   "doi": "10.1016/j.neuroimage.2016.02.042"
+  },
+  {
+   "bib_id": 60,
+   "authors": [
+    {
+     "family": "Guitart-Masip",
+     "given": "M"
+    },
+    {
+     "family": "Salami",
+     "given": "A"
+    },
+    {
+     "family": "Garrett",
+     "given": "D"
+    },
+    {
+     "family": "Rieckmann",
+     "given": "A"
+    },
+    {
+     "family": "Lindenberger",
+     "given": "U"
+    },
+    {
+     "family": "Bäckman",
+     "given": "L"
+    }
+   ],
+   "year": "2016",
+   "title": "BOLD variability is related to dopaminergic neurotransmission and cognitive aging",
+   "container": "Cerebral Cortex",
+   "volume": "26",
+   "first_page": "2074",
+   "last_page": "2083",
+   "doi": "10.1093/cercor/bhv029"
+  },
+  {
+   "bib_id": 61,
+   "authors": [
+    {
+     "family": "Hallquist",
+     "given": "MN"
+    },
+    {
+     "family": "Hwang",
+     "given": "K"
+    },
+    {
+     "family": "Luna",
+     "given": "B"
+    }
+   ],
+   "year": "2013",
+   "title": "The nuisance of nuisance regression: spectral misspecification in a common approach to resting-state fMRI preprocessing reintroduces noise and obscures functional connectivity",
+   "container": "NeuroImage",
+   "volume": "82",
+   "first_page": "208",
+   "last_page": "225",
+   "doi": "10.1016/j.neuroimage.2013.05.116"
+  },
+  {
+   "bib_id": 62,
+   "authors": [
+    {
+     "family": "Hasson",
+     "given": "U"
+    },
+    {
+     "family": "Nir",
+     "given": "Y"
+    },
+    {
+     "family": "Levy",
+     "given": "I"
+    },
+    {
+     "family": "Fuhrmann",
+     "given": "G"
+    },
+    {
+     "family": "Malach",
+     "given": "R"
+    }
+   ],
+   "year": "2004",
+   "title": "Intersubject synchronization of cortical activity during natural vision",
+   "container": "Science",
+   "volume": "303",
+   "first_page": "1634",
+   "last_page": "1640",
+   "doi": "10.1126/science.1089506"
+  },
+  {
+   "bib_id": 63,
+   "authors": [
+    {
+     "family": "He",
+     "given": "K"
+    },
+    {
+     "family": "Zhang",
+     "given": "X"
+    },
+    {
+     "family": "Ren",
+     "given": "S"
+    },
+    {
+     "family": "Sun",
+     "given": "J"
+    }
+   ],
+   "year": "2015",
+   "title": "Deep Residual Learning for Image Recognition",
+   "container": "arXiv",
+   "doi": "10.1109/CVPR.2016.90"
+  },
+  {
+   "bib_id": 64,
+   "authors": [
+    {
+     "family": "He",
+     "given": "T"
+    },
+    {
+     "family": "Kong",
+     "given": "R"
+    },
+    {
+     "family": "Holmes",
+     "given": "AJ"
+    },
+    {
+     "family": "Nguyen",
+     "given": "M"
+    },
+    {
+     "family": "Sabuncu",
+     "given": "MR"
+    },
+    {
+     "family": "Eickhoff",
+     "given": "SB"
+    },
+    {
+     "family": "Bzdok",
+     "given": "D"
+    },
+    {
+     "family": "Feng",
+     "given": "J"
+    },
+    {
+     "family": "Yeo",
+     "given": "BTT"
+    }
+   ],
+   "year": "2020",
+   "title": "Deep neural networks and kernel regression achieve comparable accuracies for functional connectivity prediction of behavior and demographics",
+   "container": "NeuroImage",
+   "volume": "206",
+   "first_page": "116276",
+   "doi": "10.1016/j.neuroimage.2019.116276"
+  },
+  {
+   "bib_id": 65,
+   "authors": [
+    {
+     "family": "Heinz",
+     "given": "A"
+    },
+    {
+     "family": "Siessmeier",
+     "given": "T"
+    },
+    {
+     "family": "Wrase",
+     "given": "J"
+    },
+    {
+     "family": "Buchholz",
+     "given": "HG"
+    },
+    {
+     "family": "Grunder",
+     "given": "G"
+    },
+    {
+     "family": "Kumakura",
+     "given": "Y"
+    }
+   ],
+   "year": "2005",
+   "title": "Correlation of alcohol craving with striatal dopamine synthesis capacity and D2/3 receptor availability: a combined",
+   "container": "The American Journal of Psychiatry",
+   "volume": "162",
+   "first_page": "1515",
+   "last_page": "1520",
+   "doi": "10.1176/appi.ajp.162.8.1515"
+  },
+  {
+   "bib_id": 66,
+   "authors": [
+    {
+     "family": "Hsu",
+     "given": "WT"
+    },
+    {
+     "family": "Rosenberg",
+     "given": "MD"
+    },
+    {
+     "family": "Scheinost",
+     "given": "D"
+    },
+    {
+     "family": "Constable",
+     "given": "RT"
+    },
+    {
+     "family": "Chun",
+     "given": "MM"
+    }
+   ],
+   "year": "2018",
+   "title": "Resting-state functional connectivity predicts neuroticism and extraversion in novel individuals",
+   "container": "Social Cognitive and Affective Neuroscience",
+   "volume": "13",
+   "first_page": "224",
+   "last_page": "232",
+   "doi": "10.1093/scan/nsy002"
+  },
+  {
+   "bib_id": 67,
+   "authors": [
+    {
+     "family": "Huang",
+     "given": "G"
+    },
+    {
+     "family": "Liu",
+     "given": "Z"
+    },
+    {
+     "family": "Van Der Maaten",
+     "given": "L"
+    },
+    {
+     "family": "Weinberger",
+     "given": "KQ"
+    }
+   ],
+   "year": "2016",
+   "title": "Densely connected convolutional networks",
+   "container": "arXiv",
+   "doi": "10.1109/CVPR.2017.243"
+  },
+  {
+   "bib_id": 68,
+   "authors": [
+    {
+     "family": "Hutton",
+     "given": "C"
+    },
+    {
+     "family": "Josephs",
+     "given": "O"
+    },
+    {
+     "family": "Stadler",
+     "given": "J"
+    },
+    {
+     "family": "Featherstone",
+     "given": "E"
+    },
+    {
+     "family": "Reid",
+     "given": "A"
+    },
+    {
+     "family": "Speck",
+     "given": "O"
+    },
+    {
+     "family": "Bernarding",
+     "given": "J"
+    },
+    {
+     "family": "Weiskopf",
+     "given": "N"
+    }
+   ],
+   "year": "2011",
+   "title": "The impact of physiological noise correction on fMRI at 7 T",
+   "container": "NeuroImage",
+   "volume": "57",
+   "first_page": "101",
+   "last_page": "112",
+   "doi": "10.1016/j.neuroimage.2011.04.018"
+  },
+  {
+   "bib_id": 69,
+   "authors": [
+    {
+     "family": "Ito",
+     "given": "H"
+    },
+    {
+     "family": "Kodaka",
+     "given": "F"
+    },
+    {
+     "family": "Takahashi",
+     "given": "H"
+    },
+    {
+     "family": "Takano",
+     "given": "H"
+    },
+    {
+     "family": "Arakawa",
+     "given": "R"
+    },
+    {
+     "family": "Shimada",
+     "given": "H"
+    },
+    {
+     "family": "Suhara",
+     "given": "T"
+    }
+   ],
+   "year": "2011",
+   "title": "Relation between presynaptic and postsynaptic dopaminergic functions measured by positron emission tomography: implication of dopaminergic tone",
+   "container": "The Journal of Neuroscience",
+   "volume": "31",
+   "first_page": "7886",
+   "last_page": "7890",
+   "doi": "10.1523/JNEUROSCI.6024-10.2011"
+  },
+  {
+   "bib_id": 70,
+   "authors": [
+    {
+     "family": "Ito",
+     "given": "T"
+    },
+    {
+     "family": "Brincat",
+     "given": "SL"
+    },
+    {
+     "family": "Siegel",
+     "given": "M"
+    },
+    {
+     "family": "Mill",
+     "given": "RD"
+    },
+    {
+     "family": "He",
+     "given": "BJ"
+    },
+    {
+     "family": "Miller",
+     "given": "EK"
+    },
+    {
+     "family": "Rotstein",
+     "given": "HG"
+    },
+    {
+     "family": "Cole",
+     "given": "MW"
+    }
+   ],
+   "year": "2020",
+   "title": "Task-evoked activity quenches neural correlations and variability across cortical areas",
+   "container": "PLOS Computational Biology",
+   "volume": "16",
+   "first_page": "e1007983",
+   "doi": "10.1371/journal.pcbi.1007983"
+  },
+  {
+   "bib_id": 71,
+   "authors": [
+    {
+     "family": "Jangraw",
+     "given": "DC"
+    },
+    {
+     "family": "Gonzalez-Castillo",
+     "given": "J"
+    },
+    {
+     "family": "Handwerker",
+     "given": "DA"
+    },
+    {
+     "family": "Ghane",
+     "given": "M"
+    },
+    {
+     "family": "Rosenberg",
+     "given": "MD"
+    },
+    {
+     "family": "Panwar",
+     "given": "P"
+    },
+    {
+     "family": "Bandettini",
+     "given": "PA"
+    }
+   ],
+   "year": "2018",
+   "title": "A functional connectivity-based neuromarker of sustained attention generalizes to predict recall in a reading task",
+   "container": "NeuroImage",
+   "volume": "166",
+   "first_page": "99",
+   "last_page": "109",
+   "doi": "10.1016/j.neuroimage.2017.10.019"
+  },
+  {
+   "bib_id": 72,
+   "authors": [
+    {
+     "family": "Janiesch",
+     "given": "C"
+    },
+    {
+     "family": "Zschech",
+     "given": "P"
+    },
+    {
+     "family": "Heinrich",
+     "given": "K"
+    }
+   ],
+   "year": "2021",
+   "title": "Machine learning and deep learning",
+   "container": "Electronic Markets",
+   "volume": "31",
+   "first_page": "685",
+   "last_page": "695",
+   "doi": "10.1007/s12525-021-00475-2"
+  },
+  {
+   "bib_id": 73,
+   "authors": [
+    {
+     "family": "Jiang",
+     "given": "L"
+    },
+    {
+     "family": "Qiao",
+     "given": "K"
+    },
+    {
+     "family": "Li",
+     "given": "C"
+    }
+   ],
+   "year": "2021",
+   "title": "Distance-based functional criticality in the human brain: intelligence and emotional intelligence",
+   "container": "BMC Bioinformatics",
+   "volume": "22",
+   "first_page": "32",
+   "doi": "10.1186/s12859-021-03973-4"
+  },
+  {
+   "bib_id": 74,
+   "authors": [
+    {
+     "family": "Johansson",
+     "given": "J"
+    },
+    {
+     "family": "Nordin",
+     "given": "K"
+    },
+    {
+     "family": "Pedersen",
+     "given": "R"
+    },
+    {
+     "family": "Karalija",
+     "given": "N"
+    },
+    {
+     "family": "Papenberg",
+     "given": "G"
+    },
+    {
+     "family": "Andersson",
+     "given": "M"
+    },
+    {
+     "family": "Korkki",
+     "given": "SM"
+    },
+    {
+     "family": "Riklund",
+     "given": "K"
+    },
+    {
+     "family": "Guitart-Masip",
+     "given": "M"
+    },
+    {
+     "family": "Rieckmann",
+     "given": "A"
+    },
+    {
+     "family": "Bäckman",
+     "given": "L"
+    },
+    {
+     "family": "Nyberg",
+     "given": "L"
+    },
+    {
+     "family": "Salami",
+     "given": "A"
+    }
+   ],
+   "year": "2023",
+   "title": "Biphasic patterns of age-related differences in dopamine D1 receptors across the adult lifespan",
+   "container": "Cell Reports",
+   "volume": "42",
+   "first_page": "113107",
+   "doi": "10.1016/j.celrep.2023.113107"
+  },
+  {
+   "bib_id": 75,
+   "authors": [
+    {
+     "family": "Jonasson",
+     "given": "LS"
+    },
+    {
+     "family": "Nyberg",
+     "given": "L"
+    },
+    {
+     "family": "Kramer",
+     "given": "AF"
+    },
+    {
+     "family": "Lundquist",
+     "given": "A"
+    },
+    {
+     "family": "Riklund",
+     "given": "K"
+    },
+    {
+     "family": "Boraxbekk",
+     "given": "CJ"
+    }
+   ],
+   "year": "2016",
+   "title": "Aerobic exercise intervention, cognitive performance, and brain structure: results from the Physical Influences on Brain in Aging (PHIBRA) Study",
+   "container": "Frontiers in Aging Neuroscience",
+   "volume": "8",
+   "first_page": "336",
+   "doi": "10.3389/fnagi.2016.00336"
+  },
+  {
+   "bib_id": 76,
+   "authors": [
+    {
+     "family": "Juarez",
+     "given": "EJ"
+    },
+    {
+     "family": "Samanez-Larkin",
+     "given": "GR"
+    }
+   ],
+   "year": "2019",
+   "title": "Exercise, dopamine, and cognition in older age",
+   "container": "Trends in Cognitive Sciences",
+   "volume": "23",
+   "first_page": "986",
+   "last_page": "988",
+   "doi": "10.1016/j.tics.2019.10.006"
+  },
+  {
+   "bib_id": 77,
+   "authors": [
+    {
+     "family": "Kaboodvand",
+     "given": "N"
+    },
+    {
+     "family": "Bäckman",
+     "given": "L"
+    },
+    {
+     "family": "Nyberg",
+     "given": "L"
+    },
+    {
+     "family": "Salami",
+     "given": "A"
+    }
+   ],
+   "year": "2018",
+   "title": "The retrosplenial cortex: a memory gateway between the cortical default mode network and the medial temporal lobe",
+   "container": "Human Brain Mapping",
+   "volume": "39",
+   "first_page": "2020",
+   "last_page": "2034",
+   "doi": "10.1002/hbm.23983"
+  },
+  {
+   "bib_id": 78,
+   "authors": [
+    {
+     "family": "Karalija",
+     "given": "N"
+    },
+    {
+     "family": "Wåhlin",
+     "given": "A"
+    },
+    {
+     "family": "Ek",
+     "given": "J"
+    },
+    {
+     "family": "Rieckmann",
+     "given": "A"
+    },
+    {
+     "family": "Papenberg",
+     "given": "G"
+    },
+    {
+     "family": "Salami",
+     "given": "A"
+    },
+    {
+     "family": "Brandmaier",
+     "given": "AM"
+    },
+    {
+     "family": "Köhncke",
+     "given": "Y"
+    },
+    {
+     "family": "Johansson",
+     "given": "J"
+    },
+    {
+     "family": "Andersson",
+     "given": "M"
+    },
+    {
+     "family": "Axelsson",
+     "given": "J"
+    },
+    {
+     "family": "Orädd",
+     "given": "G"
+    },
+    {
+     "family": "Riklund",
+     "given": "K"
+    },
+    {
+     "family": "Lövdén",
+     "given": "M"
+    },
+    {
+     "family": "Lindenberger",
+     "given": "U"
+    },
+    {
+     "family": "Bäckman",
+     "given": "L"
+    },
+    {
+     "family": "Nyberg",
+     "given": "L"
+    }
+   ],
+   "year": "2019",
+   "title": "Cardiovascular factors are related to dopamine integrity and cognition in aging",
+   "container": "Annals of Clinical and Translational Neurology",
+   "volume": "6",
+   "first_page": "2291",
+   "last_page": "2303",
+   "doi": "10.1002/acn3.50927"
+  },
+  {
+   "bib_id": 79,
+   "authors": [
+    {
+     "family": "Karalija",
+     "given": "N"
+    },
+    {
+     "family": "Papenberg",
+     "given": "G"
+    },
+    {
+     "family": "Johansson",
+     "given": "J"
+    },
+    {
+     "family": "Wåhlin",
+     "given": "A"
+    },
+    {
+     "family": "Salami",
+     "given": "A"
+    },
+    {
+     "family": "Andersson",
+     "given": "M"
+    },
+    {
+     "family": "Axelsson",
+     "given": "J"
+    },
+    {
+     "family": "Kuznetsov",
+     "given": "D"
+    },
+    {
+     "family": "Riklund",
+     "given": "K"
+    },
+    {
+     "family": "Lövdén",
+     "given": "M"
+    },
+    {
+     "family": "Lindenberger",
+     "given": "U"
+    },
+    {
+     "family": "Bäckman",
+     "given": "L"
+    },
+    {
+     "family": "Nyberg",
+     "given": "L"
+    }
+   ],
+   "year": "2024",
+   "title": "Longitudinal support for the correlative triad among aging, dopamine D2-like receptor loss, and memory decline",
+   "container": "Neurobiology of Aging",
+   "volume": "136",
+   "first_page": "125",
+   "last_page": "132",
+   "doi": "10.1016/j.neurobiolaging.2024.02.001"
+  },
+  {
+   "bib_id": 80,
+   "authors": [
+    {
+     "family": "Karapanagiotidis",
+     "given": "T"
+    },
+    {
+     "family": "Bernhardt",
+     "given": "BC"
+    },
+    {
+     "family": "Jefferies",
+     "given": "E"
+    },
+    {
+     "family": "Smallwood",
+     "given": "J"
+    }
+   ],
+   "year": "2017",
+   "title": "Tracking thoughts: Exploring the neural architecture of mental time travel during mind-wandering",
+   "container": "NeuroImage",
+   "volume": "147",
+   "first_page": "272",
+   "last_page": "281",
+   "doi": "10.1016/j.neuroimage.2016.12.031"
+  },
+  {
+   "bib_id": 81,
+   "authors": [
+    {
+     "family": "Kasper",
+     "given": "L"
+    },
+    {
+     "family": "Bollmann",
+     "given": "S"
+    },
+    {
+     "family": "Diaconescu",
+     "given": "AO"
+    },
+    {
+     "family": "Hutton",
+     "given": "C"
+    },
+    {
+     "family": "Heinzle",
+     "given": "J"
+    },
+    {
+     "family": "Iglesias",
+     "given": "S"
+    },
+    {
+     "family": "Hauser",
+     "given": "TU"
+    },
+    {
+     "family": "Sebold",
+     "given": "M"
+    },
+    {
+     "family": "Manjaly",
+     "given": "ZM"
+    },
+    {
+     "family": "Pruessmann",
+     "given": "KP"
+    },
+    {
+     "family": "Stephan",
+     "given": "KE"
+    }
+   ],
+   "year": "2017",
+   "title": "The PhysIO toolbox for modeling physiological noise in fMRI Data",
+   "container": "Journal of Neuroscience Methods",
+   "volume": "276",
+   "first_page": "56",
+   "last_page": "72",
+   "doi": "10.1016/j.jneumeth.2016.10.019"
+  },
+  {
+   "bib_id": 82,
+   "authors": [
+    {
+     "family": "Kienast",
+     "given": "T"
+    },
+    {
+     "family": "Siessmeier",
+     "given": "T"
+    },
+    {
+     "family": "Wrase",
+     "given": "J"
+    },
+    {
+     "family": "Braus",
+     "given": "DF"
+    },
+    {
+     "family": "Smolka",
+     "given": "MN"
+    },
+    {
+     "family": "Buchholz",
+     "given": "HG"
+    },
+    {
+     "family": "Rapp",
+     "given": "M"
+    },
+    {
+     "family": "Schreckenberger",
+     "given": "M"
+    },
+    {
+     "family": "Rösch",
+     "given": "F"
+    },
+    {
+     "family": "Cumming",
+     "given": "P"
+    },
+    {
+     "family": "Gruender",
+     "given": "G"
+    },
+    {
+     "family": "Mann",
+     "given": "K"
+    },
+    {
+     "family": "Bartenstein",
+     "given": "P"
+    },
+    {
+     "family": "Heinz",
+     "given": "A"
+    }
+   ],
+   "year": "2008",
+   "title": "Ratio of dopamine synthesis capacity to D2 receptor availability in ventral striatum correlates with central processing of affective stimuli",
+   "container": "European Journal of Nuclear Medicine and Molecular Imaging",
+   "volume": "35",
+   "first_page": "1147",
+   "last_page": "1158",
+   "doi": "10.1007/s00259-007-0683-z"
+  },
+  {
+   "bib_id": 83,
+   "authors": [
+    {
+     "family": "Klil-Drori",
+     "given": "S"
+    },
+    {
+     "family": "Cinalioglu",
+     "given": "K"
+    },
+    {
+     "family": "Rej",
+     "given": "S"
+    }
+   ],
+   "year": "2022",
+   "title": "Brain health and the role of exercise in maintaining late-life cognitive reserve: a narrative review providing the neuroprotective mechanisms of exercise",
+   "container": "The American Journal of Geriatric Psychiatry",
+   "volume": "30",
+   "first_page": "S72",
+   "doi": "10.1016/j.jagp.2022.01.067"
+  },
+  {
+   "bib_id": 84,
+   "authors": [
+    {
+     "family": "Köhncke",
+     "given": "Y"
+    },
+    {
+     "family": "Papenberg",
+     "given": "G"
+    },
+    {
+     "family": "Jonasson",
+     "given": "L"
+    },
+    {
+     "family": "Karalija",
+     "given": "N"
+    },
+    {
+     "family": "Wåhlin",
+     "given": "A"
+    },
+    {
+     "family": "Salami",
+     "given": "A"
+    },
+    {
+     "family": "Andersson",
+     "given": "M"
+    },
+    {
+     "family": "Axelsson",
+     "given": "JE"
+    },
+    {
+     "family": "Nyberg",
+     "given": "L"
+    },
+    {
+     "family": "Riklund",
+     "given": "K"
+    },
+    {
+     "family": "Bäckman",
+     "given": "L"
+    },
+    {
+     "family": "Lindenberger",
+     "given": "U"
+    },
+    {
+     "family": "Lövdén",
+     "given": "M"
+    }
+   ],
+   "year": "2018",
+   "title": "Self-rated intensity of habitual physical activities is positively associated with dopamine D2/3 receptor availability and cognition",
+   "container": "NeuroImage",
+   "volume": "181",
+   "first_page": "605",
+   "last_page": "616",
+   "doi": "10.1016/j.neuroimage.2018.07.036"
+  },
+  {
+   "bib_id": 85,
+   "authors": [
+    {
+     "family": "Kong",
+     "given": "J"
+    },
+    {
+     "family": "Wolcott",
+     "given": "E"
+    },
+    {
+     "family": "Wang",
+     "given": "Z"
+    },
+    {
+     "family": "Jorgenson",
+     "given": "K"
+    },
+    {
+     "family": "Harvey",
+     "given": "WF"
+    },
+    {
+     "family": "Tao",
+     "given": "J"
+    },
+    {
+     "family": "Rones",
+     "given": "R"
+    },
+    {
+     "family": "Wang",
+     "given": "C"
+    }
+   ],
+   "year": "2019",
+   "title": "Altered resting state functional connectivity of the cognitive control network in fibromyalgia and the modulation effect of mind-body intervention",
+   "container": "Brain Imaging and Behavior",
+   "volume": "13",
+   "first_page": "482",
+   "last_page": "492",
+   "doi": "10.1007/s11682-018-9875-3"
+  },
+  {
+   "bib_id": 86,
+   "authors": [
+    {
+     "family": "Korkki",
+     "given": "SM"
+    },
+    {
+     "family": "Johansson",
+     "given": "J"
+    },
+    {
+     "family": "Nordin",
+     "given": "K"
+    },
+    {
+     "family": "Pedersen",
+     "given": "R"
+    },
+    {
+     "family": "Bäckman",
+     "given": "L"
+    },
+    {
+     "family": "Rieckmann",
+     "given": "A"
+    },
+    {
+     "family": "Salami",
+     "given": "A"
+    }
+   ],
+   "year": "2024",
+   "title": "Dedifferentiation of caudate functional organization is linked to reduced D1 dopamine receptor availability and poorer memory function in aging",
+   "container": "bioRxiv",
+   "doi": "10.1101/2024.03.18.585623"
+  },
+  {
+   "bib_id": 87,
+   "authors": [
+    {
+     "family": "Kurkela",
+     "given": "K"
+    },
+    {
+     "family": "Ritchey",
+     "given": "M"
+    }
+   ],
+   "year": "2024",
+   "title": "Intrinsic functional connectivity among memory networks does not predict individual differences in narrative recall",
+   "container": "Imaging Neuroscience",
+   "volume": "2",
+   "first_page": "1",
+   "last_page": "17",
+   "doi": "10.1162/imag_a_00169"
+  },
+  {
+   "bib_id": 88,
+   "authors": [
+    {
+     "family": "Kyllonen",
+     "given": "PC"
+    }
+   ],
+   "year": "2013",
+   "title": "Is working memory capacity spearman’s g?",
+   "container": "Human Abilities",
+   "first_page": "49",
+   "last_page": "75"
+  },
+  {
+   "bib_id": 89,
+   "authors": [
+    {
+     "family": "Lammertsma",
+     "given": "AA"
+    },
+    {
+     "family": "Hume",
+     "given": "SP"
+    }
+   ],
+   "year": "1996",
+   "title": "Simplified reference tissue model for PET receptor studies",
+   "container": "NeuroImage",
+   "volume": "4",
+   "first_page": "153",
+   "last_page": "158",
+   "doi": "10.1006/nimg.1996.0066"
+  },
+  {
+   "bib_id": 90,
+   "authors": [
+    {
+     "family": "Li",
+     "given": "SC"
+    },
+    {
+     "family": "Rieckmann",
+     "given": "A"
+    }
+   ],
+   "year": "2014",
+   "title": "Neuromodulation and aging: implications of aging neuronal gain control on cognition",
+   "container": "Current Opinion in Neurobiology",
+   "volume": "29",
+   "first_page": "148",
+   "last_page": "158",
+   "doi": "10.1016/j.conb.2014.07.009"
+  },
+  {
+   "bib_id": 91,
+   "authors": [
+    {
+     "family": "Li",
+     "given": "H"
+    },
+    {
+     "family": "Jiang",
+     "given": "G"
+    },
+    {
+     "family": "Zhang",
+     "given": "J"
+    },
+    {
+     "family": "Wang",
+     "given": "R"
+    },
+    {
+     "family": "Wang",
+     "given": "Z"
+    },
+    {
+     "family": "Zheng",
+     "given": "WS"
+    },
+    {
+     "family": "Menze",
+     "given": "B"
+    }
+   ],
+   "year": "2018",
+   "title": "Fully convolutional network ensembles for white matter hyperintensities segmentation in MR images",
+   "container": "NeuroImage",
+   "volume": "183",
+   "first_page": "650",
+   "last_page": "665",
+   "doi": "10.1016/j.neuroimage.2018.07.005"
+  },
+  {
+   "bib_id": 92,
+   "authors": [
+    {
+     "family": "Liang",
+     "given": "X"
+    },
+    {
+     "family": "Zou",
+     "given": "Q"
+    },
+    {
+     "family": "He",
+     "given": "Y"
+    },
+    {
+     "family": "Yang",
+     "given": "Y"
+    }
+   ],
+   "year": "2016",
+   "title": "Topologically reorganized connectivity architecture of default-mode, executive-control, and salience networks across working memory task loads",
+   "container": "Cerebral Cortex",
+   "volume": "26",
+   "first_page": "1501",
+   "last_page": "1511",
+   "doi": "10.1093/cercor/bhu316"
+  },
+  {
+   "bib_id": 93,
+   "authors": [
+    {
+     "family": "Machner",
+     "given": "B"
+    },
+    {
+     "family": "Braun",
+     "given": "L"
+    },
+    {
+     "family": "Imholz",
+     "given": "J"
+    },
+    {
+     "family": "Koch",
+     "given": "PJ"
+    },
+    {
+     "family": "Münte",
+     "given": "TF"
+    },
+    {
+     "family": "Helmchen",
+     "given": "C"
+    },
+    {
+     "family": "Sprenger",
+     "given": "A"
+    }
+   ],
+   "year": "2021",
+   "title": "Resting-state functional connectivity in the dorsal attention network relates to behavioral performance in spatial attention tasks and may show task-related adaptation",
+   "container": "Frontiers in Human Neuroscience",
+   "volume": "15",
+   "first_page": "757128",
+   "doi": "10.3389/fnhum.2021.757128"
+  },
+  {
+   "bib_id": 94,
+   "authors": [
+    {
+     "family": "Nair",
+     "given": "V"
+    },
+    {
+     "family": "Hinton",
+     "given": "GE"
+    }
+   ],
+   "year": "2010",
+   "title": "Rectified linear units improve restricted boltzmann machines",
+   "first_page": "807",
+   "last_page": "814"
+  },
+  {
+   "bib_id": 95,
+   "authors": [
+    {
+     "family": "Nevalainen",
+     "given": "N"
+    },
+    {
+     "family": "Riklund",
+     "given": "K"
+    },
+    {
+     "family": "Andersson",
+     "given": "M"
+    },
+    {
+     "family": "Axelsson",
+     "given": "J"
+    },
+    {
+     "family": "Ögren",
+     "given": "M"
+    },
+    {
+     "family": "Lövdén",
+     "given": "M"
+    },
+    {
+     "family": "Lindenberger",
+     "given": "U"
+    },
+    {
+     "family": "Bäckman",
+     "given": "L"
+    },
+    {
+     "family": "Nyberg",
+     "given": "L"
+    }
+   ],
+   "year": "2015",
+   "title": "COBRA: a prospective multimodal imaging study of dopamine, brain structure and function, and cognition",
+   "container": "Brain Research",
+   "volume": "1612",
+   "first_page": "83",
+   "last_page": "103",
+   "doi": "10.1016/j.brainres.2014.09.010"
+  },
+  {
+   "bib_id": 96,
+   "authors": [
+    {
+     "family": "Nguyen",
+     "given": "H"
+    },
+    {
+     "family": "Nguyen",
+     "given": "V"
+    },
+    {
+     "family": "Nguyen",
+     "given": "T"
+    },
+    {
+     "family": "Larsen",
+     "given": "ME"
+    },
+    {
+     "family": "O’Dea",
+     "given": "B"
+    },
+    {
+     "family": "Nguyen",
+     "given": "DT"
+    }
+   ],
+   "year": "2018",
+   "title": "Jointly Predicting Affective and Mental Health Scores Using Deep Neural Networks of Visual Cues on the Web",
+   "doi": "10.1007/978-3-030-02925-8_7"
+  },
+  {
+   "bib_id": 97,
+   "authors": [
+    {
+     "family": "Nithianantharajah",
+     "given": "J"
+    },
+    {
+     "family": "Hannan",
+     "given": "AJ"
+    }
+   ],
+   "year": "2009",
+   "title": "The neurobiology of brain and cognitive reserve: mental and physical activity as modulators of brain disorders",
+   "container": "Progress in Neurobiology",
+   "volume": "89",
+   "first_page": "369",
+   "last_page": "382",
+   "doi": "10.1016/j.pneurobio.2009.10.001"
+  },
+  {
+   "bib_id": 98,
+   "authors": [
+    {
+     "family": "Nordin",
+     "given": "K"
+    },
+    {
+     "family": "Nyberg",
+     "given": "L"
+    },
+    {
+     "family": "Andersson",
+     "given": "M"
+    },
+    {
+     "family": "Karalija",
+     "given": "N"
+    },
+    {
+     "family": "Riklund",
+     "given": "K"
+    },
+    {
+     "family": "Bäckman",
+     "given": "L"
+    },
+    {
+     "family": "Salami",
+     "given": "A"
+    }
+   ],
+   "year": "2021",
+   "title": "Distinct and common large-scale networks of the hippocampal long axis in older age: links to episodic memory and dopamine D2 receptor availability",
+   "container": "Cerebral Cortex",
+   "volume": "31",
+   "first_page": "3435",
+   "last_page": "3450",
+   "doi": "10.1093/cercor/bhab023"
+  },
+  {
+   "bib_id": 99,
+   "authors": [
+    {
+     "family": "Nordin",
+     "given": "K"
+    },
+    {
+     "family": "Gorbach",
+     "given": "T"
+    },
+    {
+     "family": "Pedersen",
+     "given": "R"
+    },
+    {
+     "family": "Panes Lundmark",
+     "given": "V"
+    },
+    {
+     "family": "Johansson",
+     "given": "J"
+    },
+    {
+     "family": "Andersson",
+     "given": "M"
+    },
+    {
+     "family": "McNulty",
+     "given": "C"
+    },
+    {
+     "family": "Riklund",
+     "given": "K"
+    },
+    {
+     "family": "Wåhlin",
+     "given": "A"
+    },
+    {
+     "family": "Papenberg",
+     "given": "G"
+    },
+    {
+     "family": "Kalpouzos",
+     "given": "G"
+    },
+    {
+     "family": "Bäckman",
+     "given": "L"
+    },
+    {
+     "family": "Salami",
+     "given": "A"
+    }
+   ],
+   "year": "2022",
+   "title": "DyNAMiC: a prospective longitudinal study of dopamine and brain connectomes: a new window into cognitive aging",
+   "container": "Journal of Neuroscience Research",
+   "volume": "100",
+   "first_page": "1296",
+   "last_page": "1320",
+   "doi": "10.1002/jnr.25039"
+  },
+  {
+   "bib_id": 100,
+   "authors": [
+    {
+     "family": "Nyberg",
+     "given": "L"
+    },
+    {
+     "family": "Lövdén",
+     "given": "M"
+    },
+    {
+     "family": "Riklund",
+     "given": "K"
+    },
+    {
+     "family": "Lindenberger",
+     "given": "U"
+    },
+    {
+     "family": "Bäckman",
+     "given": "L"
+    }
+   ],
+   "year": "2012",
+   "title": "Memory aging and brain maintenance",
+   "container": "Trends in Cognitive Sciences",
+   "volume": "16",
+   "first_page": "292",
+   "last_page": "305",
+   "doi": "10.1016/j.tics.2012.04.005"
+  },
+  {
+   "bib_id": 101,
+   "authors": [
+    {
+     "family": "Nyberg",
+     "given": "L"
+    },
+    {
+     "family": "Karalija",
+     "given": "N"
+    },
+    {
+     "family": "Salami",
+     "given": "A"
+    },
+    {
+     "family": "Andersson",
+     "given": "M"
+    },
+    {
+     "family": "Wåhlin",
+     "given": "A"
+    },
+    {
+     "family": "Kaboovand",
+     "given": "N"
+    },
+    {
+     "family": "Köhncke",
+     "given": "Y"
+    },
+    {
+     "family": "Axelsson",
+     "given": "J"
+    },
+    {
+     "family": "Rieckmann",
+     "given": "A"
+    },
+    {
+     "family": "Papenberg",
+     "given": "G"
+    },
+    {
+     "family": "Garrett",
+     "given": "DD"
+    },
+    {
+     "family": "Riklund",
+     "given": "K"
+    },
+    {
+     "family": "Lövdén",
+     "given": "M"
+    },
+    {
+     "family": "Lindenberger",
+     "given": "U"
+    },
+    {
+     "family": "Bäckman",
+     "given": "L"
+    }
+   ],
+   "year": "2016",
+   "title": "Dopamine D2 receptor availability is linked to hippocampal–caudate functional connectivity and episodic memory",
+   "container": "PNAS",
+   "volume": "113",
+   "first_page": "7918",
+   "last_page": "7923",
+   "doi": "10.1073/pnas.1606309113"
+  },
+  {
+   "bib_id": 102,
+   "authors": [
+    {
+     "family": "Nyberg",
+     "given": "L"
+    },
+    {
+     "family": "Andersson",
+     "given": "M"
+    },
+    {
+     "family": "Lundquist",
+     "given": "A"
+    },
+    {
+     "family": "Baaré",
+     "given": "WFC"
+    },
+    {
+     "family": "Bartrés-Faz",
+     "given": "D"
+    },
+    {
+     "family": "Bertram",
+     "given": "L"
+    },
+    {
+     "family": "Boraxbekk",
+     "given": "CJ"
+    },
+    {
+     "family": "Brandmaier",
+     "given": "AM"
+    },
+    {
+     "family": "Demnitz",
+     "given": "N"
+    },
+    {
+     "family": "Drevon",
+     "given": "CA"
+    },
+    {
+     "family": "Duezel",
+     "given": "S"
+    },
+    {
+     "family": "Ebmeier",
+     "given": "KP"
+    },
+    {
+     "family": "Ghisletta",
+     "given": "P"
+    },
+    {
+     "family": "Henson",
+     "given": "R"
+    },
+    {
+     "family": "Jensen",
+     "given": "DEA"
+    },
+    {
+     "family": "Kievit",
+     "given": "RA"
+    },
+    {
+     "family": "Knights",
+     "given": "E"
+    },
+    {
+     "family": "Kühn",
+     "given": "S"
+    },
+    {
+     "family": "Lindenberger",
+     "given": "U"
+    },
+    {
+     "family": "Plachti",
+     "given": "A"
+    }
+   ],
+   "year": "2023",
+   "title": "Individual differences in brain aging: heterogeneity in cortico-hippocampal but not caudate atrophy rates",
+   "container": "Cerebral Cortex",
+   "volume": "33",
+   "first_page": "5075",
+   "last_page": "5081",
+   "doi": "10.1093/cercor/bhac400"
+  },
+  {
+   "bib_id": 103,
+   "authors": [
+    {
+     "family": "Omidvarnia",
+     "given": "A"
+    },
+    {
+     "family": "Sasse",
+     "given": "L"
+    },
+    {
+     "family": "Larabi",
+     "given": "D"
+    },
+    {
+     "family": "Raimondo",
+     "given": "F"
+    },
+    {
+     "family": "Hoffstaedter",
+     "given": "F"
+    },
+    {
+     "family": "Kasper",
+     "given": "J"
+    },
+    {
+     "family": "Dukart",
+     "given": "J"
+    },
+    {
+     "family": "Petersen",
+     "given": "M"
+    },
+    {
+     "family": "Cheng",
+     "given": "B"
+    },
+    {
+     "family": "Thomalla",
+     "given": "G"
+    },
+    {
+     "family": "Eickhoff",
+     "given": "S"
+    },
+    {
+     "family": "Patil",
+     "given": "K"
+    }
+   ],
+   "year": "2023",
+   "title": "Is resting state fmri better than individual characteristics at predicting cognition?",
+   "container": "bioRxiv",
+   "doi": "10.1101/2023.02.18.529076"
+  },
+  {
+   "bib_id": 104,
+   "authors": [
+    {
+     "family": "Papenberg",
+     "given": "G"
+    },
+    {
+     "family": "Karalija",
+     "given": "N"
+    },
+    {
+     "family": "Salami",
+     "given": "A"
+    },
+    {
+     "family": "Rieckmann",
+     "given": "A"
+    },
+    {
+     "family": "Andersson",
+     "given": "M"
+    },
+    {
+     "family": "Axelsson",
+     "given": "J"
+    },
+    {
+     "family": "Riklund",
+     "given": "K"
+    },
+    {
+     "family": "Lindenberger",
+     "given": "U"
+    },
+    {
+     "family": "Lövdén",
+     "given": "M"
+    },
+    {
+     "family": "Nyberg",
+     "given": "L"
+    },
+    {
+     "family": "Bäckman",
+     "given": "L"
+    }
+   ],
+   "year": "2020",
+   "title": "Balance between transmitter availability and dopamine D2 receptors in prefrontal cortex influences memory functioning",
+   "container": "Cerebral Cortex",
+   "volume": "30",
+   "first_page": "989",
+   "last_page": "1000",
+   "doi": "10.1093/cercor/bhz142"
+  },
+  {
+   "bib_id": 105,
+   "authors": [
+    {
+     "family": "Pedersen",
+     "given": "R"
+    },
+    {
+     "family": "Johansson",
+     "given": "J"
+    },
+    {
+     "family": "Salami",
+     "given": "A"
+    }
+   ],
+   "year": "2023",
+   "title": "Dopamine D1-signaling modulates maintenance of functional network segregation in aging",
+   "container": "Aging Brain",
+   "volume": "3",
+   "first_page": "100079",
+   "doi": "10.1016/j.nbas.2023.100079"
+  },
+  {
+   "bib_id": 106,
+   "authors": [
+    {
+     "family": "Plis",
+     "given": "SM"
+    },
+    {
+     "family": "Hjelm",
+     "given": "DR"
+    },
+    {
+     "family": "Salakhutdinov",
+     "given": "R"
+    },
+    {
+     "family": "Allen",
+     "given": "EA"
+    },
+    {
+     "family": "Bockholt",
+     "given": "HJ"
+    },
+    {
+     "family": "Long",
+     "given": "JD"
+    },
+    {
+     "family": "Johnson",
+     "given": "HJ"
+    },
+    {
+     "family": "Paulsen",
+     "given": "JS"
+    },
+    {
+     "family": "Turner",
+     "given": "JA"
+    },
+    {
+     "family": "Calhoun",
+     "given": "VD"
+    }
+   ],
+   "year": "2014",
+   "title": "Deep learning for neuroimaging: a validation study",
+   "container": "Frontiers in Neuroscience",
+   "volume": "8",
+   "first_page": "229",
+   "doi": "10.3389/fnins.2014.00229"
+  },
+  {
+   "bib_id": 107,
+   "authors": [
+    {
+     "family": "Poldrack",
+     "given": "RA"
+    },
+    {
+     "family": "Huckins",
+     "given": "G"
+    },
+    {
+     "family": "Varoquaux",
+     "given": "G"
+    }
+   ],
+   "year": "2020",
+   "title": "Establishment of best practices for evidence for prediction: a review",
+   "container": "JAMA Psychiatry",
+   "volume": "77",
+   "first_page": "534",
+   "last_page": "540",
+   "doi": "10.1001/jamapsychiatry.2019.3671"
+  },
+  {
+   "bib_id": 108,
+   "authors": [
+    {
+     "family": "Power",
+     "given": "JD"
+    },
+    {
+     "family": "Cohen",
+     "given": "AL"
+    },
+    {
+     "family": "Nelson",
+     "given": "SM"
+    },
+    {
+     "family": "Wig",
+     "given": "GS"
+    },
+    {
+     "family": "Barnes",
+     "given": "KA"
+    },
+    {
+     "family": "Church",
+     "given": "JA"
+    },
+    {
+     "family": "Vogel",
+     "given": "AC"
+    },
+    {
+     "family": "Laumann",
+     "given": "TO"
+    },
+    {
+     "family": "Miezin",
+     "given": "FM"
+    },
+    {
+     "family": "Schlaggar",
+     "given": "BL"
+    },
+    {
+     "family": "Petersen",
+     "given": "SE"
+    }
+   ],
+   "year": "2011",
+   "title": "Functional network organization of the human brain",
+   "container": "Neuron",
+   "volume": "72",
+   "first_page": "665",
+   "last_page": "678",
+   "doi": "10.1016/j.neuron.2011.09.006"
+  },
+  {
+   "bib_id": 109,
+   "authors": [
+    {
+     "family": "Power",
+     "given": "JD"
+    },
+    {
+     "family": "Barnes",
+     "given": "KA"
+    },
+    {
+     "family": "Snyder",
+     "given": "AZ"
+    },
+    {
+     "family": "Schlaggar",
+     "given": "BL"
+    },
+    {
+     "family": "Petersen",
+     "given": "SE"
+    }
+   ],
+   "year": "2012",
+   "title": "Spurious but systematic correlations in functional connectivity MRI networks arise from subject motion",
+   "container": "NeuroImage",
+   "volume": "59",
+   "first_page": "2142",
+   "last_page": "2154",
+   "doi": "10.1016/j.neuroimage.2011.10.018"
+  },
+  {
+   "bib_id": 110,
+   "authors": [
+    {
+     "family": "Preacher",
+     "given": "KJ"
+    },
+    {
+     "family": "Hayes",
+     "given": "AF"
+    }
+   ],
+   "year": "2004",
+   "title": "SPSS and SAS procedures for estimating indirect effects in simple mediation models",
+   "container": "Behavior Research Methods, Instruments, & Computers",
+   "volume": "36",
+   "first_page": "717",
+   "last_page": "731",
+   "doi": "10.3758/bf03206553"
+  },
+  {
+   "bib_id": 111,
+   "authors": [
+    {
+     "family": "Rosenberg",
+     "given": "MD"
+    },
+    {
+     "family": "Finn",
+     "given": "ES"
+    },
+    {
+     "family": "Scheinost",
+     "given": "D"
+    },
+    {
+     "family": "Papademetris",
+     "given": "X"
+    },
+    {
+     "family": "Shen",
+     "given": "X"
+    },
+    {
+     "family": "Constable",
+     "given": "RT"
+    },
+    {
+     "family": "Chun",
+     "given": "MM"
+    }
+   ],
+   "year": "2016",
+   "title": "A neuromarker of sustained attention from whole-brain functional connectivity",
+   "container": "Nature Neuroscience",
+   "volume": "19",
+   "first_page": "165",
+   "last_page": "171",
+   "doi": "10.1038/nn.4179"
+  },
+  {
+   "bib_id": 112,
+   "authors": [
+    {
+     "family": "Salami",
+     "given": "A"
+    },
+    {
+     "family": "Wåhlin",
+     "given": "A"
+    },
+    {
+     "family": "Kaboodvand",
+     "given": "N"
+    },
+    {
+     "family": "Lundquist",
+     "given": "A"
+    },
+    {
+     "family": "Nyberg",
+     "given": "L"
+    }
+   ],
+   "year": "2016",
+   "title": "Longitudinal evidence for dissociation of anterior and posterior MTL resting-state connectivity in aging: links to perfusion and memory",
+   "container": "Cerebral Cortex",
+   "volume": "26",
+   "first_page": "3953",
+   "last_page": "3963",
+   "doi": "10.1093/cercor/bhw233"
+  },
+  {
+   "bib_id": 113,
+   "authors": [
+    {
+     "family": "Salami",
+     "given": "A"
+    },
+    {
+     "family": "Rieckmann",
+     "given": "A"
+    },
+    {
+     "family": "Karalija",
+     "given": "N"
+    },
+    {
+     "family": "Avelar-Pereira",
+     "given": "B"
+    },
+    {
+     "family": "Andersson",
+     "given": "M"
+    },
+    {
+     "family": "Wåhlin",
+     "given": "A"
+    },
+    {
+     "family": "Papenberg",
+     "given": "G"
+    },
+    {
+     "family": "Garrett",
+     "given": "DD"
+    },
+    {
+     "family": "Riklund",
+     "given": "K"
+    },
+    {
+     "family": "Lövdén",
+     "given": "M"
+    },
+    {
+     "family": "Lindenberger",
+     "given": "U"
+    },
+    {
+     "family": "Bäckman",
+     "given": "L"
+    },
+    {
+     "family": "Nyberg",
+     "given": "L"
+    }
+   ],
+   "year": "2018",
+   "title": "Neurocognitive profiles of older adults with working-memory dysfunction",
+   "container": "Cerebral Cortex",
+   "volume": "28",
+   "first_page": "2525",
+   "last_page": "2539",
+   "doi": "10.1093/cercor/bhy062"
+  },
+  {
+   "bib_id": 114,
+   "authors": [
+    {
+     "family": "Salami",
+     "given": "A"
+    },
+    {
+     "family": "Garrett",
+     "given": "DD"
+    },
+    {
+     "family": "Wåhlin",
+     "given": "A"
+    },
+    {
+     "family": "Rieckmann",
+     "given": "A"
+    },
+    {
+     "family": "Papenberg",
+     "given": "G"
+    },
+    {
+     "family": "Karalija",
+     "given": "N"
+    },
+    {
+     "family": "Jonasson",
+     "given": "L"
+    },
+    {
+     "family": "Andersson",
+     "given": "M"
+    },
+    {
+     "family": "Axelsson",
+     "given": "J"
+    },
+    {
+     "family": "Johansson",
+     "given": "J"
+    },
+    {
+     "family": "Riklund",
+     "given": "K"
+    },
+    {
+     "family": "Lövdén",
+     "given": "M"
+    },
+    {
+     "family": "Lindenberger",
+     "given": "U"
+    },
+    {
+     "family": "Bäckman",
+     "given": "L"
+    },
+    {
+     "family": "Nyberg",
+     "given": "L"
+    }
+   ],
+   "year": "2019",
+   "title": "Dopamine D2/3 Binding potential modulates neural signatures of working memory in a load-dependent fashion",
+   "container": "The Journal of Neuroscience",
+   "volume": "39",
+   "first_page": "537",
+   "last_page": "547",
+   "doi": "10.1523/JNEUROSCI.1493-18.2018"
+  },
+  {
+   "bib_id": 115,
+   "authors": [
+    {
+     "family": "Salami",
+     "given": "A"
+    },
+    {
+     "family": "Adolfsson",
+     "given": "R"
+    },
+    {
+     "family": "Andersson",
+     "given": "M"
+    },
+    {
+     "family": "Blennow",
+     "given": "K"
+    },
+    {
+     "family": "Lundquist",
+     "given": "A"
+    },
+    {
+     "family": "Adolfsson",
+     "given": "AN"
+    },
+    {
+     "family": "Schöll",
+     "given": "M"
+    },
+    {
+     "family": "Zetterberg",
+     "given": "H"
+    },
+    {
+     "family": "Nyberg",
+     "given": "L"
+    }
+   ],
+   "year": "2022",
+   "title": "Association of APOE ɛ4 and Plasma p-tau181 with preclinical alzheimer’s disease and longitudinal change in hippocampus function",
+   "container": "Journal of Alzheimer’s Disease",
+   "volume": "85",
+   "first_page": "1309",
+   "last_page": "1320",
+   "doi": "10.3233/JAD-210673"
+  },
+  {
+   "bib_id": 116,
+   "authors": [
+    {
+     "family": "Schaefer",
+     "given": "A"
+    },
+    {
+     "family": "Kong",
+     "given": "R"
+    },
+    {
+     "family": "Gordon",
+     "given": "EM"
+    },
+    {
+     "family": "Laumann",
+     "given": "TO"
+    },
+    {
+     "family": "Zuo",
+     "given": "XN"
+    },
+    {
+     "family": "Holmes",
+     "given": "AJ"
+    },
+    {
+     "family": "Eickhoff",
+     "given": "SB"
+    },
+    {
+     "family": "Yeo",
+     "given": "BTT"
+    }
+   ],
+   "year": "2018",
+   "title": "Local-global parcellation of the human cerebral cortex from intrinsic functional connectivity MRI",
+   "container": "Cerebral Cortex",
+   "volume": "28",
+   "first_page": "3095",
+   "last_page": "3114",
+   "doi": "10.1093/cercor/bhx179"
+  },
+  {
+   "bib_id": 117,
+   "authors": [
+    {
+     "family": "Schimmelpfennig",
+     "given": "J"
+    },
+    {
+     "family": "Topczewski",
+     "given": "J"
+    },
+    {
+     "family": "Zajkowski",
+     "given": "W"
+    },
+    {
+     "family": "Jankowiak-Siuda",
+     "given": "K"
+    }
+   ],
+   "year": "2023",
+   "title": "The role of the salience network in cognitive and affective deficits",
+   "container": "Frontiers in Human Neuroscience",
+   "volume": "17",
+   "first_page": "1133367",
+   "doi": "10.3389/fnhum.2023.1133367"
+  },
+  {
+   "bib_id": 118,
+   "authors": [
+    {
+     "family": "Seamans",
+     "given": "JK"
+    },
+    {
+     "family": "Yang",
+     "given": "CR"
+    }
+   ],
+   "year": "2004",
+   "title": "The principal features and mechanisms of dopamine modulation in the prefrontal cortex",
+   "container": "Progress in Neurobiology",
+   "volume": "74",
+   "first_page": "1",
+   "last_page": "58",
+   "doi": "10.1016/j.pneurobio.2004.05.006"
+  },
+  {
+   "bib_id": 119,
+   "authors": [
+    {
+     "family": "Seeley",
+     "given": "WW"
+    },
+    {
+     "family": "Menon",
+     "given": "V"
+    },
+    {
+     "family": "Schatzberg",
+     "given": "AF"
+    },
+    {
+     "family": "Keller",
+     "given": "J"
+    },
+    {
+     "family": "Glover",
+     "given": "GH"
+    },
+    {
+     "family": "Kenna",
+     "given": "H"
+    },
+    {
+     "family": "Reiss",
+     "given": "AL"
+    },
+    {
+     "family": "Greicius",
+     "given": "MD"
+    }
+   ],
+   "year": "2007",
+   "title": "Dissociable intrinsic connectivity networks for salience processing and executive control",
+   "container": "The Journal of Neuroscience",
+   "volume": "27",
+   "first_page": "2349",
+   "last_page": "2356",
+   "doi": "10.1523/JNEUROSCI.5587-06.2007"
+  },
+  {
+   "bib_id": 120,
+   "authors": [
+    {
+     "family": "Selvaraju",
+     "given": "RR"
+    },
+    {
+     "family": "Cogswell",
+     "given": "M"
+    },
+    {
+     "family": "Das",
+     "given": "A"
+    },
+    {
+     "family": "Vedantam",
+     "given": "R"
+    },
+    {
+     "family": "Parikh",
+     "given": "D"
+    },
+    {
+     "family": "Batra",
+     "given": "D"
+    }
+   ],
+   "year": "2020",
+   "title": "Grad-CAM: visual explanations from deep networks via gradient-based localization",
+   "container": "International Journal of Computer Vision",
+   "volume": "128",
+   "first_page": "336",
+   "last_page": "359",
+   "doi": "10.1007/s11263-019-01228-7"
+  },
+  {
+   "bib_id": 121,
+   "authors": [
+    {
+     "family": "Servan-Schreiber",
+     "given": "D"
+    },
+    {
+     "family": "Printz",
+     "given": "H"
+    },
+    {
+     "family": "Cohen",
+     "given": "JD"
+    }
+   ],
+   "year": "1990",
+   "title": "A network model of catecholamine effects: gain, signal-to-noise ratio, and behavior",
+   "container": "Science",
+   "volume": "249",
+   "first_page": "892",
+   "last_page": "895",
+   "doi": "10.1126/science.2392679"
+  },
+  {
+   "bib_id": 122,
+   "authors": [
+    {
+     "family": "Shafiei",
+     "given": "G"
+    },
+    {
+     "family": "Zeighami",
+     "given": "Y"
+    },
+    {
+     "family": "Clark",
+     "given": "CA"
+    },
+    {
+     "family": "Coull",
+     "given": "JT"
+    },
+    {
+     "family": "Nagano-Saito",
+     "given": "A"
+    },
+    {
+     "family": "Leyton",
+     "given": "M"
+    },
+    {
+     "family": "Dagher",
+     "given": "A"
+    },
+    {
+     "family": "Mišic",
+     "given": "B"
+    }
+   ],
+   "year": "2019",
+   "title": "Dopamine signaling modulates the stability and integration of intrinsic brain networks",
+   "container": "Cerebral Cortex",
+   "volume": "29",
+   "first_page": "397",
+   "last_page": "409",
+   "doi": "10.1093/cercor/bhy264"
+  },
+  {
+   "bib_id": 123,
+   "authors": [
+    {
+     "family": "Shen",
+     "given": "X"
+    },
+    {
+     "family": "Finn",
+     "given": "ES"
+    },
+    {
+     "family": "Scheinost",
+     "given": "D"
+    },
+    {
+     "family": "Rosenberg",
+     "given": "MD"
+    },
+    {
+     "family": "Chun",
+     "given": "MM"
+    },
+    {
+     "family": "Papademetris",
+     "given": "X"
+    },
+    {
+     "family": "Constable",
+     "given": "RT"
+    }
+   ],
+   "year": "2017",
+   "title": "Using connectome-based predictive modeling to predict individual behavior from brain connectivity",
+   "container": "Nature Protocols",
+   "volume": "12",
+   "first_page": "506",
+   "last_page": "518",
+   "doi": "10.1038/nprot.2016.178"
+  },
+  {
+   "bib_id": 124,
+   "authors": [
+    {
+     "family": "Smallwood",
+     "given": "J"
+    },
+    {
+     "family": "Schooler",
+     "given": "JW"
+    }
+   ],
+   "year": "2015",
+   "title": "The science of mind wandering: empirically navigating the stream of consciousness",
+   "container": "Annual Review of Psychology",
+   "volume": "66",
+   "first_page": "487",
+   "last_page": "518",
+   "doi": "10.1146/annurev-psych-010814-015331"
+  },
+  {
+   "bib_id": 125,
+   "authors": [
+    {
+     "family": "Smith",
+     "given": "SM"
+    },
+    {
+     "family": "Elliott",
+     "given": "LT"
+    },
+    {
+     "family": "Alfaro-Almagro",
+     "given": "F"
+    },
+    {
+     "family": "McCarthy",
+     "given": "P"
+    },
+    {
+     "family": "Nichols",
+     "given": "TE"
+    },
+    {
+     "family": "Douaud",
+     "given": "G"
+    },
+    {
+     "family": "Miller",
+     "given": "KL"
+    }
+   ],
+   "year": "2020",
+   "title": "Brain aging comprises many modes of structural and functional change with distinct genetic and biophysical associations",
+   "container": "eLife",
+   "volume": "9",
+   "first_page": "e52677",
+   "doi": "10.7554/eLife.52677"
+  },
+  {
+   "bib_id": 126,
+   "authors": [
+    {
+     "family": "Sripada",
+     "given": "C"
+    },
+    {
+     "family": "Angstadt",
+     "given": "M"
+    },
+    {
+     "family": "Taxali",
+     "given": "A"
+    },
+    {
+     "family": "Clark",
+     "given": "DA"
+    },
+    {
+     "family": "Greathouse",
+     "given": "T"
+    },
+    {
+     "family": "Rutherford",
+     "given": "S"
+    },
+    {
+     "family": "Dickens",
+     "given": "JR"
+    },
+    {
+     "family": "Shedden",
+     "given": "K"
+    },
+    {
+     "family": "Gard",
+     "given": "AM"
+    },
+    {
+     "family": "Hyde",
+     "given": "LW"
+    },
+    {
+     "family": "Weigard",
+     "given": "A"
+    },
+    {
+     "family": "Heitzeg",
+     "given": "M"
+    }
+   ],
+   "year": "2021",
+   "title": "Brain-wide functional connectivity patterns support general cognitive ability and mediate effects of socioeconomic status in youth",
+   "container": "Translational Psychiatry",
+   "volume": "11",
+   "first_page": "571",
+   "doi": "10.1038/s41398-021-01704-0"
+  },
+  {
+   "bib_id": 127,
+   "authors": [
+    {
+     "family": "Srivastava",
+     "given": "N"
+    },
+    {
+     "family": "Hinton",
+     "given": "GE"
+    },
+    {
+     "family": "Krizhevsky",
+     "given": "A"
+    },
+    {
+     "family": "Sutskever",
+     "given": "I"
+    },
+    {
+     "family": "Salakhutdinov",
+     "given": "R"
+    }
+   ],
+   "year": "2014",
+   "title": "Dropout: a simple way to prevent neural networks from overfitting",
+   "container": "Journal of Machine Learning Research",
+   "volume": "15",
+   "first_page": "1929",
+   "last_page": "1958"
+  },
+  {
+   "bib_id": 128,
+   "authors": [
+    {
+     "family": "Stawarczyk",
+     "given": "D"
+    },
+    {
+     "family": "D’Argembeau",
+     "given": "A"
+    }
+   ],
+   "year": "2015",
+   "title": "Neural correlates of personal goal processing during episodic future thinking and mind-wandering: an ALE meta-analysis",
+   "container": "Human Brain Mapping",
+   "volume": "36",
+   "first_page": "2928",
+   "last_page": "2947",
+   "doi": "10.1002/hbm.22818"
+  },
+  {
+   "bib_id": 129,
+   "authors": [
+    {
+     "family": "Sui",
+     "given": "J"
+    },
+    {
+     "family": "Jiang",
+     "given": "R"
+    },
+    {
+     "family": "Bustillo",
+     "given": "J"
+    },
+    {
+     "family": "Calhoun",
+     "given": "V"
+    }
+   ],
+   "year": "2020",
+   "title": "Neuroimaging-based individualized prediction of cognition and behavior for mental disorders and health: methods and promises",
+   "container": "Biological Psychiatry",
+   "volume": "88",
+   "first_page": "818",
+   "last_page": "828",
+   "doi": "10.1016/j.biopsych.2020.02.016"
+  },
+  {
+   "bib_id": 130,
+   "authors": [
+    {
+     "family": "Sutskever",
+     "given": "I"
+    },
+    {
+     "family": "Martens",
+     "given": "J"
+    },
+    {
+     "family": "Dahl",
+     "given": "G"
+    },
+    {
+     "family": "Hinton",
+     "given": "G"
+    }
+   ],
+   "year": "2013",
+   "title": "On the importance of initialization and momentum in deep learning",
+   "first_page": "1139",
+   "last_page": "1147"
+  },
+  {
+   "bib_id": 131,
+   "authors": [
+    {
+     "family": "Tavor",
+     "given": "I"
+    },
+    {
+     "family": "Parker Jones",
+     "given": "O"
+    },
+    {
+     "family": "Mars",
+     "given": "RB"
+    },
+    {
+     "family": "Smith",
+     "given": "SM"
+    },
+    {
+     "family": "Behrens",
+     "given": "TE"
+    },
+    {
+     "family": "Jbabdi",
+     "given": "S"
+    }
+   ],
+   "year": "2016",
+   "title": "Task-free MRI predicts individual differences in brain activity during task performance",
+   "container": "Science",
+   "volume": "352",
+   "first_page": "216",
+   "last_page": "220",
+   "doi": "10.1126/science.aad8127"
+  },
+  {
+   "bib_id": 132,
+   "authors": [
+    {
+     "family": "Tetereva",
+     "given": "A"
+    },
+    {
+     "family": "Pat",
+     "given": "N"
+    }
+   ],
+   "year": "2024",
+   "title": "Brain age has limited utility as a biomarker for capturing fluid cognition in older individuals",
+   "container": "eLife",
+   "volume": "12",
+   "first_page": "RP87297",
+   "doi": "10.7554/eLife.87297"
+  },
+  {
+   "bib_id": 133,
+   "authors": [
+    {
+     "family": "Tian",
+     "given": "YE"
+    },
+    {
+     "family": "Cropley",
+     "given": "V"
+    },
+    {
+     "family": "Maier",
+     "given": "AB"
+    },
+    {
+     "family": "Lautenschlager",
+     "given": "NT"
+    },
+    {
+     "family": "Breakspear",
+     "given": "M"
+    },
+    {
+     "family": "Zalesky",
+     "given": "A"
+    }
+   ],
+   "year": "2023",
+   "title": "Heterogeneous aging across multiple organ systems and prediction of chronic disease and mortality",
+   "container": "Nature Medicine",
+   "volume": "29",
+   "first_page": "1221",
+   "last_page": "1231",
+   "doi": "10.1038/s41591-023-02296-6"
+  },
+  {
+   "bib_id": 134,
+   "authors": [
+    {
+     "family": "Tulving",
+     "given": "E"
+    },
+    {
+     "family": "Schacter",
+     "given": "DL"
+    }
+   ],
+   "year": "1990",
+   "title": "Priming and human memory systems",
+   "container": "Science",
+   "volume": "247",
+   "first_page": "301",
+   "last_page": "306",
+   "doi": "10.1126/science.2296719"
+  },
+  {
+   "bib_id": 135,
+   "authors": [
+    {
+     "family": "Unsworth",
+     "given": "N"
+    },
+    {
+     "family": "Fukuda",
+     "given": "K"
+    },
+    {
+     "family": "Awh",
+     "given": "E"
+    },
+    {
+     "family": "Vogel",
+     "given": "EK"
+    }
+   ],
+   "year": "2014",
+   "title": "Working memory and fluid intelligence: capacity, attention control, and secondary memory retrieval",
+   "container": "Cognitive Psychology",
+   "volume": "71",
+   "first_page": "1",
+   "last_page": "26",
+   "doi": "10.1016/j.cogpsych.2014.01.003"
+  },
+  {
+   "bib_id": 136,
+   "authors": [
+    {
+     "family": "van den Heuvel",
+     "given": "MP"
+    },
+    {
+     "family": "Hulshoff Pol",
+     "given": "HE"
+    }
+   ],
+   "year": "2010",
+   "title": "Exploring the brain network: a review on resting-state fMRI functional connectivity",
+   "container": "European Neuropsychopharmacology",
+   "volume": "20",
+   "first_page": "519",
+   "last_page": "534",
+   "doi": "10.1016/j.euroneuro.2010.03.008"
+  },
+  {
+   "bib_id": 137,
+   "authors": [
+    {
+     "family": "van der Burgh",
+     "given": "HK"
+    },
+    {
+     "family": "Schmidt",
+     "given": "R"
+    },
+    {
+     "family": "Westeneng",
+     "given": "HJ"
+    },
+    {
+     "family": "de Reus",
+     "given": "MA"
+    },
+    {
+     "family": "van den Berg",
+     "given": "LH"
+    },
+    {
+     "family": "van den Heuvel",
+     "given": "MP"
+    }
+   ],
+   "year": "2017",
+   "title": "Deep learning predictions of survival based on MRI in amyotrophic lateral sclerosis",
+   "container": "NeuroImage. Clinical",
+   "volume": "13",
+   "first_page": "361",
+   "last_page": "369",
+   "doi": "10.1016/j.nicl.2016.10.008"
+  },
+  {
+   "bib_id": 138,
+   "authors": [
+    {
+     "family": "Vieira",
+     "given": "S"
+    },
+    {
+     "family": "Liang",
+     "given": "X"
+    },
+    {
+     "family": "Guiomar",
+     "given": "R"
+    },
+    {
+     "family": "Mechelli",
+     "given": "A"
+    }
+   ],
+   "year": "2022",
+   "title": "Can we predict who will benefit from cognitive-behavioural therapy? a systematic review and meta-analysis of machine learning studies",
+   "container": "Clinical Psychology Review",
+   "volume": "97",
+   "first_page": "102193",
+   "doi": "10.1016/j.cpr.2022.102193"
+  },
+  {
+   "bib_id": 139,
+   "authors": [
+    {
+     "family": "Vieira",
+     "given": "BH"
+    },
+    {
+     "family": "Pamplona",
+     "given": "GSP"
+    },
+    {
+     "family": "Fachinello",
+     "given": "K"
+    },
+    {
+     "family": "Silva",
+     "given": "AK"
+    },
+    {
+     "family": "Foss",
+     "given": "MP"
+    },
+    {
+     "family": "Salmon",
+     "given": "CEG"
+    }
+   ],
+   "year": "2022",
+   "title": "On the prediction of human intelligence from neuroimaging: a systematic review of methods and reporting",
+   "container": "Intelligence",
+   "volume": "93",
+   "first_page": "101654",
+   "doi": "10.1016/j.intell.2022.101654"
+  },
+  {
+   "bib_id": 140,
+   "authors": [
+    {
+     "family": "Vieira",
+     "given": "BH"
+    },
+    {
+     "family": "Schöttner",
+     "given": "M"
+    },
+    {
+     "family": "Calhoun",
+     "given": "VD"
+    },
+    {
+     "family": "Salmon",
+     "given": "CEG"
+    }
+   ],
+   "year": "2024",
+   "title": "Beyond functional connectivity: deep learning applied to resting-state fMRI time series in the prediction of 58 human traits in the HCP",
+   "container": "bioRxiv",
+   "doi": "10.1101/2024.03.07.583858"
+  },
+  {
+   "bib_id": 141,
+   "authors": [
+    {
+     "family": "Volkow",
+     "given": "ND"
+    },
+    {
+     "family": "Gur",
+     "given": "RC"
+    },
+    {
+     "family": "Wang",
+     "given": "GJ"
+    },
+    {
+     "family": "Fowler",
+     "given": "JS"
+    },
+    {
+     "family": "Moberg",
+     "given": "PJ"
+    },
+    {
+     "family": "Ding",
+     "given": "YS"
+    },
+    {
+     "family": "Hitzemann",
+     "given": "R"
+    },
+    {
+     "family": "Smith",
+     "given": "G"
+    },
+    {
+     "family": "Logan",
+     "given": "J"
+    }
+   ],
+   "year": "1998",
+   "title": "Association between decline in brain dopamine activity with age and cognitive and motor impairment in healthy individuals",
+   "container": "The American Journal of Psychiatry",
+   "volume": "155",
+   "first_page": "344",
+   "last_page": "349",
+   "doi": "10.1176/ajp.155.3.344"
+  },
+  {
+   "bib_id": 142,
+   "authors": [
+    {
+     "family": "Volkow",
+     "given": "ND"
+    },
+    {
+     "family": "Wang",
+     "given": "GJ"
+    },
+    {
+     "family": "Fowler",
+     "given": "JS"
+    },
+    {
+     "family": "Ding",
+     "given": "YS"
+    },
+    {
+     "family": "Gur",
+     "given": "RC"
+    },
+    {
+     "family": "Gatley",
+     "given": "J"
+    },
+    {
+     "family": "Logan",
+     "given": "J"
+    },
+    {
+     "family": "Moberg",
+     "given": "PJ"
+    },
+    {
+     "family": "Hitzemann",
+     "given": "R"
+    },
+    {
+     "family": "Smith",
+     "given": "G"
+    },
+    {
+     "family": "Pappas",
+     "given": "N"
+    }
+   ],
+   "year": "1998",
+   "title": "Parallel loss of presynaptic and postsynaptic dopamine markers in normal aging",
+   "container": "Annals of Neurology",
+   "volume": "44",
+   "first_page": "143",
+   "last_page": "147",
+   "doi": "10.1002/ana.410440125"
+  },
+  {
+   "bib_id": 143,
+   "authors": [
+    {
+     "family": "Vul",
+     "given": "E"
+    },
+    {
+     "family": "Harris",
+     "given": "C"
+    },
+    {
+     "family": "Winkielman",
+     "given": "P"
+    },
+    {
+     "family": "Pashler",
+     "given": "H"
+    }
+   ],
+   "year": "2009",
+   "title": "Puzzlingly high correlations in fmri studies of emotion, personality, and social cognition",
+   "container": "Perspectives on Psychological Science",
+   "volume": "4",
+   "first_page": "274",
+   "last_page": "290",
+   "doi": "10.1111/j.1745-6924.2009.01125.x"
+  },
+  {
+   "bib_id": 144,
+   "authors": [
+    {
+     "family": "Wahlheim",
+     "given": "CN"
+    },
+    {
+     "family": "Christensen",
+     "given": "AP"
+    },
+    {
+     "family": "Reagh",
+     "given": "ZM"
+    },
+    {
+     "family": "Cassidy",
+     "given": "BS"
+    }
+   ],
+   "year": "2022",
+   "title": "Intrinsic functional connectivity in the default mode network predicts mnemonic discrimination: a connectome-based modeling approach",
+   "container": "Hippocampus",
+   "volume": "32",
+   "first_page": "21",
+   "last_page": "37",
+   "doi": "10.1002/hipo.23393"
+  },
+  {
+   "bib_id": 145,
+   "authors": [
+    {
+     "family": "Woo",
+     "given": "CW"
+    },
+    {
+     "family": "Chang",
+     "given": "LJ"
+    },
+    {
+     "family": "Lindquist",
+     "given": "MA"
+    },
+    {
+     "family": "Wager",
+     "given": "TD"
+    }
+   ],
+   "year": "2017",
+   "title": "Building better biomarkers: brain models in translational neuroimaging",
+   "container": "Nature Neuroscience",
+   "volume": "20",
+   "first_page": "365",
+   "last_page": "377",
+   "doi": "10.1038/nn.4478"
+  },
+  {
+   "bib_id": 146,
+   "authors": [
+    {
+     "family": "Zahrt",
+     "given": "J"
+    },
+    {
+     "family": "Taylor",
+     "given": "JR"
+    },
+    {
+     "family": "Mathew",
+     "given": "RG"
+    },
+    {
+     "family": "Arnsten",
+     "given": "AFT"
+    }
+   ],
+   "year": "1997",
+   "title": "Supranormal stimulation of D1 dopamine receptors in the rodent prefrontal cortex impairs spatial working memory performance",
+   "container": "The Journal of Neuroscience",
+   "volume": "17",
+   "first_page": "8528",
+   "last_page": "8535",
+   "doi": "10.1523/JNEUROSCI.17-21-08528.1997"
+  },
+  {
+   "bib_id": 147,
+   "authors": [
+    {
+     "family": "Zhang",
+     "given": "H"
+    },
+    {
+     "family": "Zhao",
+     "given": "R"
+    },
+    {
+     "family": "Hu",
+     "given": "X"
+    },
+    {
+     "family": "Guan",
+     "given": "S"
+    },
+    {
+     "family": "Margulies",
+     "given": "DS"
+    },
+    {
+     "family": "Meng",
+     "given": "C"
+    },
+    {
+     "family": "Biswal",
+     "given": "BB"
+    }
+   ],
+   "year": "2022",
+   "title": "Cortical connectivity gradients and local timescales during cognitive states are modulated by cognitive loads",
+   "container": "Brain Structure & Function",
+   "volume": "227",
+   "first_page": "2701",
+   "last_page": "2712",
+   "doi": "10.1007/s00429-022-02564-0"
+  },
+  {
+   "bib_id": 148,
+   "authors": [
+    {
+     "family": "Zhao",
+     "given": "W"
+    },
+    {
+     "family": "Makowski",
+     "given": "C"
+    },
+    {
+     "family": "Hagler",
+     "given": "DJ"
+    },
+    {
+     "family": "Garavan",
+     "given": "HP"
+    },
+    {
+     "family": "Thompson",
+     "given": "WK"
+    },
+    {
+     "family": "Greene",
+     "given": "DJ"
+    },
+    {
+     "family": "Jernigan",
+     "given": "TL"
+    },
+    {
+     "family": "Dale",
+     "given": "AM"
+    }
+   ],
+   "year": "2023",
+   "title": "Task fMRI paradigms may capture more behaviorally relevant information than resting-state functional connectivity",
+   "container": "NeuroImage",
+   "volume": "270",
+   "first_page": "119946",
+   "doi": "10.1016/j.neuroimage.2023.119946"
+  },
+  {
+   "bib_id": 149,
+   "authors": [
+    {
+     "family": "Zhu",
+     "given": "Y"
+    },
+    {
+     "family": "Zang",
+     "given": "F"
+    },
+    {
+     "family": "Wang",
+     "given": "Q"
+    },
+    {
+     "family": "Zhang",
+     "given": "Q"
+    },
+    {
+     "family": "Tan",
+     "given": "C"
+    },
+    {
+     "family": "Zhang",
+     "given": "S"
+    },
+    {
+     "family": "Hu",
+     "given": "T"
+    },
+    {
+     "family": "Qi",
+     "given": "L"
+    },
+    {
+     "family": "Xu",
+     "given": "S"
+    },
+    {
+     "family": "Ren",
+     "given": "Q"
+    },
+    {
+     "family": "Xie",
+     "given": "C"
+    }
+   ],
+   "year": "2021",
+   "title": "Connectome-based model predicts episodic memory performance in individuals with subjective cognitive decline and amnestic mild cognitive impairment",
+   "container": "Behavioural Brain Research",
+   "volume": "411",
+   "first_page": "113387",
+   "doi": "10.1016/j.bbr.2021.113387"
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-core-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "jats_doi": "10.7554/eLife.104053"
+ }
+}

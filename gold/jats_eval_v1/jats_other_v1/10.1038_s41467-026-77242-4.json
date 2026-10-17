@@ -1,0 +1,1468 @@
+{
+ "paper_id": "10.1038_s41467-026-77242-4",
+ "info": {
+  "title": "Socio-economic value of data-driven eruption forecasts to balance false alarms against catastrophic loss",
+  "doi": "10.1038/s41467-026-77242-4",
+  "file_name": "10.1038_s41467-026-77242-4.pdf",
+  "abstract": "The adoption of new forecasting methods for volcanic eruptions typically emphasizes predictive accuracy, often overlooking their potential to reduce overall life and economic losses. We introduce a Potential Economic Value (PEV) framework that evaluates forecast utility by balancing precautionary actions against avoidable catastrophic losses (such as mass casualties). Using machine-learning forecasts from continuous seismic data at five volcanoes, we show that non-forecasted eruptions (missed) have disproportionate consequences, compared to false alarms, which generate recurring and manageable disruption. Retrospective analyses of the 2019 Whakaari (New Zealand) and 2014 Ontake (Japan) eruptions, along with three additional volcanoes, indicate that losses could have been reduced by 30–90%, despite generating numerous false alarms. Across all case studies, effective forecasting prioritizes reducing missed eruptions over maximizing accuracy. This supports the use of more precautionary warning thresholds, provided that the resulting increase in alert frequency is managed in ways that maintain public compliance and trust."
+ },
+ "author": [
+  {
+   "author_id": 1,
+   "given": "Alberto",
+   "family": "Ardid",
+   "affiliation": "University of Canterbury, Christchurch, New Zealand",
+   "email": "",
+   "orcid": "",
+   "corresponding": true
+  },
+  {
+   "author_id": 2,
+   "given": "David",
+   "family": "Dempsey",
+   "affiliation": "University of Canterbury, Christchurch, New Zealand",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 3,
+   "given": "Garry",
+   "family": "McDonald",
+   "affiliation": "Market Economics, Auckland, New Zealand",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 4,
+   "given": "Shane",
+   "family": "Cronin",
+   "affiliation": "University of Auckland, Auckland, New Zealand",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  }
+ ],
+ "section": [
+  {
+   "section_id": 1,
+   "section_type": "abstract",
+   "header": "Abstract",
+   "level": 1,
+   "parent_section_id": null,
+   "classification_score": 1.0
+  }
+ ],
+ "text": [
+  {
+   "text_id": 1,
+   "section_id": 1,
+   "paragraph_id": 1,
+   "text": "The adoption of new forecasting methods for volcanic eruptions typically emphasizes predictive accuracy, often overlooking their potential to reduce overall life and economic losses. We introduce a Potential Economic Value (PEV) framework that evaluates forecast utility by balancing precautionary actions against avoidable catastrophic losses (such as mass casualties). Using machine-learning forecasts from continuous seismic data at five volcanoes, we show that non-forecasted eruptions (missed) have disproportionate consequences, compared to false alarms, which generate recurring and manageable disruption. Retrospective analyses of the 2019 Whakaari (New Zealand) and 2014 Ontake (Japan) eruptions, along with three additional volcanoes, indicate that losses could have been reduced by 30–90%, despite generating numerous false alarms. Across all case studies, effective forecasting prioritizes reducing missed eruptions over maximizing accuracy. This supports the use of more precautionary warning thresholds, provided that the resulting increase in alert frequency is managed in ways that maintain public compliance and trust.",
+   "page_number": 1
+  }
+ ],
+ "bib": [
+  {
+   "bib_id": 1,
+   "authors": [
+    {
+     "family": "Auker",
+     "given": "MR"
+    },
+    {
+     "family": "Sparks",
+     "given": "RSJ"
+    },
+    {
+     "family": "Siebert",
+     "given": "L"
+    },
+    {
+     "family": "Crosweller",
+     "given": "HS"
+    },
+    {
+     "family": "Ewert",
+     "given": "J"
+    }
+   ],
+   "year": "2013",
+   "title": "A statistical analysis of the global historical volcanic fatalities record",
+   "container": "J. Appl. Volcanol.",
+   "volume": "2",
+   "first_page": "2"
+  },
+  {
+   "bib_id": 2,
+   "authors": [
+    {
+     "family": "Mei",
+     "given": "ETW"
+    }
+   ],
+   "year": "2013",
+   "title": "Lessons learned from the 2010 evacuations at Merapi volcano",
+   "container": "J. Volcanol. Geotherm. Res.",
+   "volume": "261",
+   "first_page": "348",
+   "last_page": "365"
+  },
+  {
+   "bib_id": 3,
+   "authors": [
+    {
+     "family": "Ulfarsson",
+     "given": "GF"
+    },
+    {
+     "family": "Unger",
+     "given": "EA"
+    }
+   ],
+   "year": "2011",
+   "title": "Impacts and responses of Icelandic aviation to the 2010 Eyjafjallajökull volcanic eruption: case study",
+   "container": "Transp. Res. Rec.",
+   "volume": "2214",
+   "first_page": "144",
+   "last_page": "151"
+  },
+  {
+   "bib_id": 4
+  },
+  {
+   "bib_id": 5,
+   "authors": [
+    {
+     "family": "Craig",
+     "given": "H"
+    }
+   ],
+   "year": "2016",
+   "title": "Impacts to agriculture and critical infrastructure in Argentina after ashfall from the 2011 eruption of the Cordón Caulle volcanic complex: an assessment of published damage and function thresholds",
+   "container": "J. Appl. Volcanol.",
+   "volume": "5",
+   "first_page": "7"
+  },
+  {
+   "bib_id": 6,
+   "authors": [
+    {
+     "family": "Hayes",
+     "given": "JL"
+    }
+   ],
+   "year": "2019",
+   "title": "Tephra clean-up after the 2015 eruption of Calbuco volcano, Chile: a quantitative geospatial assessment in four communities",
+   "container": "J. Appl. Volcanol.",
+   "volume": "8",
+   "first_page": "7"
+  },
+  {
+   "bib_id": 7,
+   "authors": [
+    {
+     "family": "Troll",
+     "given": "VR"
+    }
+   ],
+   "year": "2024",
+   "title": "The 2021 La Palma eruption: social dilemmas resulting from life close to an active volcano",
+   "container": "Geol. Today",
+   "volume": "40",
+   "first_page": "96",
+   "last_page": "111"
+  },
+  {
+   "bib_id": 8,
+   "authors": [
+    {
+     "family": "Amigo",
+     "given": "A"
+    }
+   ],
+   "year": "2021",
+   "title": "Volcano monitoring and hazard assessments in Chile",
+   "container": "Volcanica",
+   "volume": "4",
+   "first_page": "1",
+   "last_page": "20"
+  },
+  {
+   "bib_id": 9,
+   "authors": [
+    {
+     "family": "Borrero",
+     "given": "JC"
+    }
+   ],
+   "year": "2023",
+   "title": "Tsunami runup and inundation in Tonga from the January 2022 eruption of Hunga Volcano",
+   "container": "Pure Appl. Geophys.",
+   "volume": "180",
+   "first_page": "1",
+   "last_page": "22"
+  },
+  {
+   "bib_id": 10,
+   "authors": [
+    {
+     "family": "Yamaoka",
+     "given": "K"
+    },
+    {
+     "family": "Geshi",
+     "given": "N"
+    },
+    {
+     "family": "Hashimoto",
+     "given": "T"
+    },
+    {
+     "family": "Ingebritsen",
+     "given": "SE"
+    },
+    {
+     "family": "Oikawa",
+     "given": "T"
+    }
+   ],
+   "year": "2016",
+   "title": "Special issue “The phreatic eruption of Mt. Ontake volcano in 2014",
+   "container": "Earth Planets Space",
+   "volume": "68",
+   "first_page": "175"
+  },
+  {
+   "bib_id": 11,
+   "authors": [
+    {
+     "family": "Dempsey",
+     "given": "DE"
+    }
+   ],
+   "year": "2022",
+   "title": "Evaluation of short-term probabilistic eruption forecasting at Whakaari, New Zealand",
+   "container": "Bull. Volcanol.",
+   "volume": "84",
+   "first_page": "91"
+  },
+  {
+   "bib_id": 12,
+   "authors": [
+    {
+     "family": "Chouet",
+     "given": "BA"
+    }
+   ],
+   "year": "1996",
+   "title": "Long-period volcano seismicity: its source and use in eruption forecasting",
+   "container": "Nature",
+   "volume": "380",
+   "first_page": "309",
+   "last_page": "316"
+  },
+  {
+   "bib_id": 13,
+   "authors": [
+    {
+     "family": "Biggs",
+     "given": "J"
+    }
+   ],
+   "year": "2014",
+   "title": "Global link between deformation and volcanic eruption quantified by satellite imagery",
+   "container": "Nat. Commun.",
+   "volume": "5",
+   "first_page": "3471"
+  },
+  {
+   "bib_id": 14,
+   "authors": [
+    {
+     "family": "de Moor",
+     "given": "JM"
+    }
+   ],
+   "year": "2016",
+   "title": "Short-period volcanic gas precursors to phreatic eruptions: insights from Poás Volcano, Costa Rica",
+   "container": "Earth Planet. Sci. Lett.",
+   "volume": "442",
+   "first_page": "218",
+   "last_page": "227"
+  },
+  {
+   "bib_id": 15,
+   "authors": [
+    {
+     "family": "Marzocchi",
+     "given": "W"
+    },
+    {
+     "family": "Woo",
+     "given": "G"
+    }
+   ],
+   "year": "2007",
+   "title": "Probabilistic eruption forecasting and the call for an evacuation",
+   "container": "Geophys. Res. Lett.",
+   "volume": "34",
+   "first_page": "L22310"
+  },
+  {
+   "bib_id": 16,
+   "authors": [
+    {
+     "family": "Marzocchi",
+     "given": "W"
+    },
+    {
+     "family": "Bebbington",
+     "given": "MS"
+    }
+   ],
+   "year": "2012",
+   "title": "Probabilistic eruption forecasting at short and long time scales",
+   "container": "Bull. Volcanol.",
+   "volume": "74",
+   "first_page": "1777",
+   "last_page": "1805"
+  },
+  {
+   "bib_id": 17,
+   "authors": [
+    {
+     "family": "Ardid",
+     "given": "A"
+    },
+    {
+     "family": "Dempsey",
+     "given": "D"
+    },
+    {
+     "family": "Caudron",
+     "given": "C"
+    },
+    {
+     "family": "Cronin",
+     "given": "S"
+    }
+   ],
+   "year": "2022",
+   "title": "Seismic precursors to the Whakaari 2019 phreatic eruption are transferable to other eruptions and volcanoes",
+   "container": "Nat. Commun.",
+   "volume": "13",
+   "first_page": "2002"
+  },
+  {
+   "bib_id": 18,
+   "authors": [
+    {
+     "family": "Walsh",
+     "given": "B"
+    }
+   ],
+   "year": "2019",
+   "title": "Geophysical examination of the 2016 Whakaari eruption",
+   "container": "Earth Planets Space",
+   "volume": "71",
+   "first_page": "25"
+  },
+  {
+   "bib_id": 19,
+   "authors": [
+    {
+     "family": "Ardid",
+     "given": "A"
+    }
+   ],
+   "year": "2025",
+   "title": "Ergodic seismic precursors and transfer learning for short term eruption forecasting at data scarce volcanoes",
+   "container": "Nat. Commun.",
+   "volume": "16",
+   "first_page": "1758",
+   "doi": "10.1038/s41467-025-56689-x"
+  },
+  {
+   "bib_id": 20,
+   "authors": [
+    {
+     "family": "Manley",
+     "given": "GF"
+    }
+   ],
+   "year": "2020",
+   "title": "Understanding the timing of eruption end using a machine learning approach to classification of seismic time series",
+   "container": "J. Volcanol. Geotherm. Res.",
+   "volume": "401",
+   "first_page": "106917"
+  },
+  {
+   "bib_id": 21,
+   "authors": [
+    {
+     "family": "Ardid",
+     "given": "A"
+    },
+    {
+     "family": "Barth",
+     "given": "A"
+    },
+    {
+     "family": "Dempsey",
+     "given": "D"
+    },
+    {
+     "family": "Manga",
+     "given": "M"
+    },
+    {
+     "family": "Cronin",
+     "given": "SJ"
+    }
+   ],
+   "year": "2025",
+   "title": "Forecasting eruptions at Steamboat Geyser: time scales, differentiability, and detectability of seismic precursors through data-driven methods",
+   "container": "J. Geophys. Res. Mach. Learn. Comput.",
+   "volume": "2",
+   "first_page": "e2024JH000569"
+  },
+  {
+   "bib_id": 22,
+   "authors": [
+    {
+     "family": "Wang",
+     "given": "T"
+    },
+    {
+     "family": "Bebbington",
+     "given": "M"
+    },
+    {
+     "family": "Cronin",
+     "given": "S"
+    },
+    {
+     "family": "Carman",
+     "given": "J"
+    }
+   ],
+   "year": "2022",
+   "title": "Forecasting eruptions at poorly known volcanoes using analogs and multivariate renewal processes",
+   "container": "Geophys. Res. Lett.",
+   "volume": "49",
+   "first_page": "e2021GL096715"
+  },
+  {
+   "bib_id": 23,
+   "authors": [
+    {
+     "family": "Zali",
+     "given": "Z"
+    },
+    {
+     "family": "Mousavi",
+     "given": "SM"
+    },
+    {
+     "family": "Ohrnberger",
+     "given": "M"
+    },
+    {
+     "family": "Eibl",
+     "given": "EPS"
+    },
+    {
+     "family": "Cotton",
+     "given": "F"
+    }
+   ],
+   "year": "2024",
+   "title": "Tremor clustering reveals pre-eruptive signals and evolution of the 2021 Geldingadalir eruption of the Fagradalsfjall Fires, Iceland",
+   "container": "Commun. Earth Environ.",
+   "volume": "5",
+   "first_page": "1"
+  },
+  {
+   "bib_id": 24,
+   "authors": [
+    {
+     "family": "Rey-Devesa",
+     "given": "P"
+    }
+   ],
+   "year": "2025",
+   "title": "Characterization of volcanic stages using seismic features: case of Tajogaite (2021) and Colima (2013-2022)",
+   "container": "J. Volcanol. Geotherm. Res.",
+   "volume": "468",
+   "first_page": "108454"
+  },
+  {
+   "bib_id": 25,
+   "authors": [
+    {
+     "family": "Chastin",
+     "given": "SF"
+    },
+    {
+     "family": "Main",
+     "given": "IG"
+    }
+   ],
+   "year": "2003",
+   "title": "Statistical analysis of daily seismic event rate as a precursor to volcanic eruptions",
+   "container": "Geophys. Res. Lett.",
+   "volume": "30",
+   "first_page": "1671"
+  },
+  {
+   "bib_id": 26,
+   "authors": [
+    {
+     "family": "Pesicek",
+     "given": "JD"
+    },
+    {
+     "family": "Wellik",
+     "given": "JJ"
+    },
+    {
+     "family": "Prejean",
+     "given": "SG"
+    },
+    {
+     "family": "Ogburn",
+     "given": "SE"
+    }
+   ],
+   "year": "2018",
+   "title": "Prevalence of seismic rate anomalies preceding volcanic eruptions in Alaska",
+   "container": "Front. Earth Sci.",
+   "volume": "6",
+   "first_page": "100"
+  },
+  {
+   "bib_id": 27,
+   "authors": [
+    {
+     "family": "Behr",
+     "given": "Y"
+    },
+    {
+     "family": "Christophersen",
+     "given": "A"
+    },
+    {
+     "family": "Miller",
+     "given": "C"
+    }
+   ],
+   "year": "2025",
+   "title": "Probabilistic, multi-sensor eruption forecasting",
+   "container": "Geophys. Res. Lett.",
+   "volume": "52",
+   "first_page": "e2024GL112029"
+  },
+  {
+   "bib_id": 28,
+   "authors": [
+    {
+     "family": "Ardid",
+     "given": "A"
+    }
+   ],
+   "year": "2023",
+   "title": "Using template matching to detect hidden fluid release episodes beneath crater lakes in Ruapehu, Copahue, and Kawah Ijen volcanoes",
+   "container": "J. Geophys. Res. Solid Earth",
+   "volume": "128",
+   "first_page": "e2023JB026729"
+  },
+  {
+   "bib_id": 29,
+   "authors": [
+    {
+     "family": "Ardid",
+     "given": "A"
+    }
+   ],
+   "year": "2024",
+   "title": "Multitimescale template matching: discovering eruption precursors across diverse volcanic settings",
+   "container": "Seismol. Res. Lett.",
+   "volume": "95",
+   "first_page": "2611",
+   "last_page": "2621"
+  },
+  {
+   "bib_id": 30,
+   "authors": [
+    {
+     "family": "Haynes",
+     "given": "K"
+    },
+    {
+     "family": "Barclay",
+     "given": "J"
+    },
+    {
+     "family": "Pidgeon",
+     "given": "N"
+    }
+   ],
+   "year": "2008",
+   "title": "The issue of trust and its influence on risk communication during a volcanic crisis",
+   "container": "Bull. Volcanol.",
+   "volume": "70",
+   "first_page": "605",
+   "last_page": "621"
+  },
+  {
+   "bib_id": 31,
+   "authors": [
+    {
+     "family": "Andreastuti",
+     "given": "SD"
+    },
+    {
+     "family": "Paripurno",
+     "given": "ET"
+    },
+    {
+     "family": "Subandriyo",
+     "given": "S"
+    },
+    {
+     "family": "Syahbana",
+     "given": "DK"
+    },
+    {
+     "family": "Prayoga",
+     "given": "AS"
+    }
+   ],
+   "year": "2023",
+   "title": "Volcano disaster risk management during crisis: implementation of risk communication in Indonesia",
+   "container": "J. Appl. Volcanol.",
+   "volume": "12",
+   "first_page": "3"
+  },
+  {
+   "bib_id": 32
+  },
+  {
+   "bib_id": 33,
+   "authors": [
+    {
+     "family": "McDonald",
+     "given": "G"
+    },
+    {
+     "family": "Smith",
+     "given": "N"
+    },
+    {
+     "family": "Kim",
+     "given": "J-H"
+    },
+    {
+     "family": "Cronin",
+     "given": "S"
+    }
+   ],
+   "year": "2017",
+   "title": "The spatial and temporal ‘cost’ of volcanic eruptions: assessing the economic impact, business inoperability, and spatial distribution of risk in the Auckland region, New Zealand",
+   "container": "Bull. Volcanol.",
+   "volume": "79",
+   "first_page": "48"
+  },
+  {
+   "bib_id": 34,
+   "authors": [
+    {
+     "family": "McDonald",
+     "given": "G"
+    }
+   ],
+   "year": "2017",
+   "title": "Computable general equilibrium modelling of economic impacts from volcanic event scenarios at regional and national scale",
+   "container": "Mt. Taranaki, N.Z. Bull. Volcanol.",
+   "volume": "79",
+   "first_page": "87"
+  },
+  {
+   "bib_id": 35,
+   "authors": [
+    {
+     "family": "Choumert-Nkolo",
+     "given": "J"
+    },
+    {
+     "family": "Lamour",
+     "given": "A"
+    },
+    {
+     "family": "Phelinas",
+     "given": "P"
+    }
+   ],
+   "year": "2021",
+   "title": "The economics of volcanoes",
+   "container": "Econ. Disasters Clim. Change",
+   "volume": "5",
+   "first_page": "277",
+   "last_page": "299"
+  },
+  {
+   "bib_id": 36
+  },
+  {
+   "bib_id": 37
+  },
+  {
+   "bib_id": 38,
+   "authors": [
+    {
+     "family": "Woo",
+     "given": "G"
+    }
+   ],
+   "year": "2008",
+   "title": "Probabilistic criteria for volcano evacuation decisions",
+   "container": "Nat. Hazards",
+   "volume": "45",
+   "first_page": "87",
+   "last_page": "97"
+  },
+  {
+   "bib_id": 39,
+   "authors": [
+    {
+     "family": "Logan",
+     "given": "TM"
+    },
+    {
+     "family": "Aven",
+     "given": "T"
+    },
+    {
+     "family": "Guikema",
+     "given": "S"
+    },
+    {
+     "family": "Flage",
+     "given": "R"
+    }
+   ],
+   "year": "2021",
+   "title": "The role of time in risk and risk analysis: implications for resilience, sustainability, and management",
+   "container": "Risk Anal.",
+   "volume": "41",
+   "first_page": "1959",
+   "last_page": "1970"
+  },
+  {
+   "bib_id": 40,
+   "authors": [
+    {
+     "family": "Roulston",
+     "given": "MS"
+    },
+    {
+     "family": "Smith",
+     "given": "LA"
+    }
+   ],
+   "year": "2004",
+   "title": "The boy who cried wolf revisited: the impact of false alarm intolerance on cost-loss scenarios",
+   "container": "Weather Forecast",
+   "volume": "19",
+   "first_page": "391",
+   "last_page": "397"
+  },
+  {
+   "bib_id": 41,
+   "authors": [
+    {
+     "family": "Johnston",
+     "given": "DM"
+    },
+    {
+     "family": "Houghton",
+     "given": "BF"
+    },
+    {
+     "family": "Neall",
+     "given": "VE"
+    },
+    {
+     "family": "Ronan",
+     "given": "KR"
+    },
+    {
+     "family": "Paton",
+     "given": "D"
+    }
+   ],
+   "year": "2000",
+   "title": "Impacts of the 1945 and 1995-1996 Ruapehu eruptions, New Zealand: an example of increasing societal vulnerability",
+   "container": "Geol. Soc. Am. Bull.",
+   "volume": "112",
+   "first_page": "720",
+   "last_page": "726"
+  },
+  {
+   "bib_id": 42,
+   "authors": [
+    {
+     "family": "Selva",
+     "given": "J"
+    },
+    {
+     "family": "Orsi",
+     "given": "G"
+    },
+    {
+     "family": "Di Vito",
+     "given": "MA"
+    },
+    {
+     "family": "Marzocchi",
+     "given": "W"
+    },
+    {
+     "family": "Sandri",
+     "given": "L"
+    }
+   ],
+   "year": "2012",
+   "title": "Probability hazard map for future vent opening at the Campi Flegrei caldera, Italy",
+   "container": "Bull. Volcanol.",
+   "volume": "74",
+   "first_page": "497",
+   "last_page": "510"
+  },
+  {
+   "bib_id": 43,
+   "authors": [
+    {
+     "family": "Kilgour",
+     "given": "G"
+    }
+   ],
+   "year": "2021",
+   "title": "Whakaari/White Island: a review of New Zealand’s most active volcano",
+   "container": "N. Z. J. Geol. Geophys.",
+   "volume": "64",
+   "first_page": "273",
+   "last_page": "295"
+  },
+  {
+   "bib_id": 44,
+   "authors": [
+    {
+     "family": "Murphy",
+     "given": "AH"
+    }
+   ],
+   "year": "1977",
+   "title": "The value of climatological, categorical and probabilistic forecasts in the cost-loss ratio situation",
+   "container": "Mon. Weather Rev.",
+   "volume": "105",
+   "first_page": "803",
+   "last_page": "816"
+  },
+  {
+   "bib_id": 45,
+   "authors": [
+    {
+     "family": "Richardson",
+     "given": "DS"
+    }
+   ],
+   "year": "2000",
+   "title": "Skill and relative economic value of the ECMWF ensemble prediction system",
+   "container": "Q. J. R. Meteorol. Soc.",
+   "volume": "126",
+   "first_page": "649",
+   "last_page": "667"
+  },
+  {
+   "bib_id": 46,
+   "authors": [
+    {
+     "family": "Ramos",
+     "given": "MH"
+    },
+    {
+     "family": "Van Andel",
+     "given": "SJ"
+    },
+    {
+     "family": "Pappenberger",
+     "given": "F"
+    }
+   ],
+   "year": "2013",
+   "title": "Do probabilistic forecasts lead to better decisions?",
+   "container": "Hydrol. Earth Syst. Sci.",
+   "volume": "17",
+   "first_page": "2219",
+   "last_page": "2232"
+  },
+  {
+   "bib_id": 47,
+   "authors": [
+    {
+     "family": "Coughlan de Perez",
+     "given": "E"
+    }
+   ],
+   "year": "2015",
+   "title": "Forecast-based financing",
+   "container": "Nat. Hazards Earth Syst. Sci.",
+   "volume": "15",
+   "first_page": "895",
+   "last_page": "904"
+  },
+  {
+   "bib_id": 48,
+   "authors": [
+    {
+     "family": "Busker",
+     "given": "T"
+    },
+    {
+     "family": "de Moel",
+     "given": "H"
+    },
+    {
+     "family": "van den Hurk",
+     "given": "B"
+    },
+    {
+     "family": "Aerts",
+     "given": "JC"
+    }
+   ],
+   "year": "2023",
+   "title": "Impact-based seasonal rainfall forecasting to trigger early action for droughts",
+   "container": "Sci. Total Environ.",
+   "volume": "898",
+   "first_page": "165506"
+  },
+  {
+   "bib_id": 49,
+   "authors": [
+    {
+     "family": "Ardid",
+     "given": "A"
+    }
+   ],
+   "year": "2026",
+   "title": "From forecast skill to economicvalue: sub-hourly wildfire potential forecasting across Australian regions",
+   "container": "Int. J. Wildland Fire",
+   "volume": "35",
+   "first_page": "WF25221"
+  },
+  {
+   "bib_id": 50
+  },
+  {
+   "bib_id": 51
+  },
+  {
+   "bib_id": 52,
+   "authors": [
+    {
+     "family": "Cabrera",
+     "given": "L"
+    }
+   ],
+   "year": "2024",
+   "title": "Eruption forecasting model for Copahue volcano (southern Andes) using seismic data and machine learning: a joint interpretation with geodetic data (GNSS and InSAR)",
+   "container": "Seismol. Res. Lett.",
+   "volume": "95",
+   "first_page": "2595",
+   "last_page": "2610"
+  },
+  {
+   "bib_id": 53,
+   "authors": [
+    {
+     "family": "Rudin",
+     "given": "C"
+    }
+   ],
+   "year": "2019",
+   "title": "Stop explaining black box machine learning models for high stakes decisions and use interpretable models instead",
+   "container": "Nat. Mach. Intell.",
+   "volume": "1",
+   "first_page": "206",
+   "last_page": "215"
+  },
+  {
+   "bib_id": 54,
+   "authors": [
+    {
+     "family": "Kratzert",
+     "given": "F"
+    }
+   ],
+   "year": "2019",
+   "title": "Toward improved predictions in ungauged basins: exploiting the power of machine learning",
+   "container": "Water Resour. Res.",
+   "volume": "55",
+   "first_page": "11344",
+   "last_page": "11354"
+  },
+  {
+   "bib_id": 55,
+   "authors": [
+    {
+     "family": "Saunders",
+     "given": "JK"
+    },
+    {
+     "family": "Minson",
+     "given": "SE"
+    },
+    {
+     "family": "Baltay",
+     "given": "AS"
+    }
+   ],
+   "year": "2022",
+   "title": "How low should we alert? Quantifying intensity threshold alerting strategies for earthquake early warning in the United States",
+   "container": "Earths Future",
+   "volume": "10",
+   "first_page": "e2021EF002515"
+  },
+  {
+   "bib_id": 56,
+   "authors": [
+    {
+     "family": "Minson",
+     "given": "SE"
+    }
+   ],
+   "year": "2019",
+   "title": "The limits of earthquake early warning accuracy and best alerting strategy",
+   "container": "Sci. Rep.",
+   "volume": "9",
+   "first_page": "2478"
+  },
+  {
+   "bib_id": 57,
+   "authors": [
+    {
+     "family": "Martina",
+     "given": "MLV"
+    },
+    {
+     "family": "Todini",
+     "given": "E"
+    },
+    {
+     "family": "Libralon",
+     "given": "A"
+    }
+   ],
+   "year": "2006",
+   "title": "A Bayesian decision approach to rainfall thresholds based flood warning",
+   "container": "Hydrol. Earth Syst. Sci.",
+   "volume": "10",
+   "first_page": "413",
+   "last_page": "426"
+  },
+  {
+   "bib_id": 58,
+   "authors": [
+    {
+     "family": "Katz",
+     "given": "RW"
+    },
+    {
+     "family": "Ehrendorfer",
+     "given": "M"
+    }
+   ],
+   "year": "2006",
+   "title": "Bayesian approach to decision making using ensemble weather forecasts",
+   "container": "Weather Forecast",
+   "volume": "21",
+   "first_page": "220",
+   "last_page": "231"
+  },
+  {
+   "bib_id": 59,
+   "authors": [
+    {
+     "family": "Viscusi",
+     "given": "WK"
+    },
+    {
+     "family": "Masterman",
+     "given": "C"
+    }
+   ],
+   "year": "2017",
+   "title": "Anchoring biases in international estimates of the value of a statistical life",
+   "container": "J. Risk Uncertain.",
+   "volume": "54",
+   "first_page": "103",
+   "last_page": "128"
+  },
+  {
+   "bib_id": 60
+  },
+  {
+   "bib_id": 61,
+   "authors": [
+    {
+     "family": "Robinson",
+     "given": "LA"
+    },
+    {
+     "family": "Hammitt",
+     "given": "JK"
+    },
+    {
+     "family": "Zeckhauser",
+     "given": "RJ"
+    }
+   ],
+   "year": "2016",
+   "title": "Attention to distribution in U.S. regulatory analyses",
+   "container": "Rev. Environ. Econ. Policy",
+   "volume": "10",
+   "first_page": "308",
+   "last_page": "328"
+  },
+  {
+   "bib_id": 62
+  },
+  {
+   "bib_id": 63,
+   "authors": [
+    {
+     "family": "Brown",
+     "given": "SK"
+    },
+    {
+     "family": "Jenkins",
+     "given": "SF"
+    },
+    {
+     "family": "Sparks",
+     "given": "RSJ"
+    },
+    {
+     "family": "Odbert",
+     "given": "H"
+    },
+    {
+     "family": "Auker",
+     "given": "MR"
+    }
+   ],
+   "year": "2017",
+   "title": "Volcanic fatalities database: analysis of volcanic threat with distance and victim classification",
+   "container": "J. Appl. Volcanol.",
+   "volume": "6",
+   "first_page": "15"
+  },
+  {
+   "bib_id": 64,
+   "authors": [
+    {
+     "family": "Feuillard",
+     "given": "M"
+    }
+   ],
+   "year": "1983",
+   "title": "The 1975–1977 crisis of la Soufrière de Guadeloupe (FWI): a still-born magmatic eruption",
+   "container": "J. Volcanol. Geotherm. Res.",
+   "volume": "16",
+   "first_page": "317",
+   "last_page": "334"
+  },
+  {
+   "bib_id": 65,
+   "authors": [
+    {
+     "family": "Voight",
+     "given": "B"
+    }
+   ],
+   "year": "1990",
+   "title": "The 1985 Nevado del Ruiz volcano catastrophe: anatomy and retrospection",
+   "container": "J. Volcanol. Geotherm. Res.",
+   "volume": "44",
+   "first_page": "349",
+   "last_page": "386"
+  },
+  {
+   "bib_id": 66,
+   "authors": [
+    {
+     "family": "Doyle",
+     "given": "EE"
+    },
+    {
+     "family": "McClure",
+     "given": "J"
+    },
+    {
+     "family": "Paton",
+     "given": "D"
+    },
+    {
+     "family": "Johnston",
+     "given": "DM"
+    }
+   ],
+   "year": "2014",
+   "title": "Uncertainty and decision making: volcanic crisis scenarios",
+   "container": "Int. J. Disaster Risk Reduct.",
+   "volume": "10",
+   "first_page": "75",
+   "last_page": "101"
+  },
+  {
+   "bib_id": 67,
+   "authors": [
+    {
+     "family": "Ardid",
+     "given": "A"
+    }
+   ],
+   "year": "2025",
+   "title": "Sub-hourly forecasting of fire potential using machine learning on time series ofsurface weather variables",
+   "container": "Int. J. Wildland Fire",
+   "volume": "34",
+   "first_page": "WF24113"
+  },
+  {
+   "bib_id": 68,
+   "authors": [
+    {
+     "family": "Sharples",
+     "given": "JJ"
+    },
+    {
+     "family": "McRae",
+     "given": "RH"
+    },
+    {
+     "family": "Weber",
+     "given": "RO"
+    },
+    {
+     "family": "Gill",
+     "given": "AM"
+    }
+   ],
+   "year": "2009",
+   "title": "A simple index for assessing fire danger rating",
+   "container": "Environ. Model. Softw.",
+   "volume": "24",
+   "first_page": "764",
+   "last_page": "774"
+  },
+  {
+   "bib_id": 69,
+   "authors": [
+    {
+     "family": "Potter",
+     "given": "SH"
+    },
+    {
+     "family": "Jolly",
+     "given": "GE"
+    },
+    {
+     "family": "Neall",
+     "given": "VE"
+    },
+    {
+     "family": "Johnston",
+     "given": "DM"
+    },
+    {
+     "family": "Scott",
+     "given": "BJ"
+    }
+   ],
+   "year": "2014",
+   "title": "Communicating the status of volcanic activity: revising New Zealand’s volcanic alert level system",
+   "container": "J. Appl. Volcanol.",
+   "volume": "3",
+   "first_page": "13"
+  },
+  {
+   "bib_id": 70,
+   "authors": [
+    {
+     "family": "Sawada",
+     "given": "Y"
+    },
+    {
+     "family": "Kanai",
+     "given": "R"
+    },
+    {
+     "family": "Kotani",
+     "given": "H"
+    }
+   ],
+   "year": "2022",
+   "title": "Impact of cry wolf effects on social preparedness and the efficiency of flood early warning systems",
+   "container": "Hydrol. Earth Syst. Sci.",
+   "volume": "26",
+   "first_page": "4265",
+   "last_page": "4278"
+  },
+  {
+   "bib_id": 71,
+   "authors": [
+    {
+     "family": "Dow",
+     "given": "K"
+    },
+    {
+     "family": "Cutter",
+     "given": "SL"
+    }
+   ],
+   "year": "1998",
+   "title": "Crying wolf: repeat responses to hurricane evacuation orders",
+   "container": "Coast. Manag.",
+   "volume": "26",
+   "first_page": "237",
+   "last_page": "252"
+  },
+  {
+   "bib_id": 72,
+   "authors": [
+    {
+     "family": "Simmons",
+     "given": "KM"
+    },
+    {
+     "family": "Sutter",
+     "given": "D"
+    }
+   ],
+   "year": "2009",
+   "title": "False alarms, tornado warnings, and tornado casualties",
+   "container": "Weather Clim. Soc.",
+   "volume": "1",
+   "first_page": "38",
+   "last_page": "53"
+  },
+  {
+   "bib_id": 73,
+   "authors": [
+    {
+     "family": "Trainor",
+     "given": "JE"
+    },
+    {
+     "family": "Nagele",
+     "given": "D"
+    },
+    {
+     "family": "Philips",
+     "given": "B"
+    },
+    {
+     "family": "Scott",
+     "given": "B"
+    }
+   ],
+   "year": "2015",
+   "title": "Tornadoes, social science, and the false alarm effect",
+   "container": "Weather Clim. Soc.",
+   "volume": "7",
+   "first_page": "333",
+   "last_page": "352"
+  },
+  {
+   "bib_id": 74,
+   "authors": [
+    {
+     "family": "Lim",
+     "given": "JR"
+    },
+    {
+     "family": "Liu",
+     "given": "BF"
+    },
+    {
+     "family": "Egnoto",
+     "given": "M"
+    }
+   ],
+   "year": "2019",
+   "title": "Cry wolf effect? Evaluating the impact of false alarms on public responses to tornado alerts in the southeastern United States",
+   "container": "Weather Clim. Soc.",
+   "volume": "11",
+   "first_page": "549",
+   "last_page": "563"
+  },
+  {
+   "bib_id": 75,
+   "authors": [
+    {
+     "family": "Lazzarin",
+     "given": "T"
+    },
+    {
+     "family": "Viero",
+     "given": "DP"
+    },
+    {
+     "family": "Molinari",
+     "given": "D"
+    },
+    {
+     "family": "Ballio",
+     "given": "F"
+    },
+    {
+     "family": "Defina",
+     "given": "A"
+    }
+   ],
+   "year": "2022",
+   "title": "A new framework for flood damage assessment considering the within-event time evolution of hazard, exposure, and vulnerability",
+   "container": "J. Hydrol.",
+   "volume": "615",
+   "first_page": "128687"
+  },
+  {
+   "bib_id": 76,
+   "authors": [
+    {
+     "family": "Regnier",
+     "given": "E"
+    },
+    {
+     "family": "Harr",
+     "given": "PA"
+    }
+   ],
+   "year": "2006",
+   "title": "A dynamic decision model applied to hurricane landfall",
+   "container": "Weather Forecast",
+   "volume": "21",
+   "first_page": "764",
+   "last_page": "780"
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-core-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "jats_doi": "10.1038/s41467-026-77242-4"
+ }
+}

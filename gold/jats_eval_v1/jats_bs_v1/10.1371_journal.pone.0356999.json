@@ -1,0 +1,1065 @@
+{
+ "paper_id": "10.1371_journal.pone.0356999",
+ "info": {
+  "title": "UROREC: A cystometry and electromyography recording system for analyzing urinary incontinence parameters in rat models",
+  "doi": "10.1371/journal.pone.0356999",
+  "file_name": "10.1371_journal.pone.0356999.pdf",
+  "abstract": "Preclinical research on the lower urinary tract relies heavily on murine models, which necessitates specialized equipment for acquiring concurrent electromyography and cystometry. However, commercial systems are often expensive and bulky, requiring dedicated workstations. These limitations hinder the reproducibility of complex urodynamic studies and restrict experimental accessibility. To address these limitations, we present the UROREC system, which is an accessible, compact, and reliable data acquisition platform designed to simultaneously record electromyography of the external urethral sphincter and intravesical pressure. We established the system’s robustness through benchtop electrical characterization and validated it via in vivo proof-of-concept pilot experiments in urethane-anesthetized female Wistar rats. Electrical testing confirmed a common-mode rejection ratio of 98.4 dB, an input-referred noise of 1.53 µV RMS, and linearity of R2 = 0.9999. Meanwhile, the pressure sensor exhibited a maximum hysteresis of 0.29% at full scale. In vivo, the device reliably digitized electromyography signals at 20 ksps and pressure signals at 100 sps in both a healthy physiological state and an acetic acid–induced overactive bladder model. UROREC precisely quantified 18 cystometric and electromyographic parameters consistent with the existing literature. The robustness of these in vivo recordings was confirmed by quantifying the signal-to-noise ratio, demonstrating high operational reliability and data integrity across all experimental sessions. Furthermore, the system accurately captured high sensitivity to specific pathophysiological shifts induced by acid instillation, with a significant reduction in both the inter-contraction interval (p < 0.001) and tonic activity duration (p < 0.001). These results validate UROREC as a robust, cost-effective alternative that makes high-fidelity urodynamic monitoring more accessible and promotes methodological reproducibility in lower urinary tract research."
+ },
+ "author": [
+  {
+   "author_id": 1,
+   "given": "Ramon Eduardo",
+   "family": "Cortina",
+   "affiliation": "Department of Electrical Engineering, Bioelectronics Section, Center for Research and Advanced Studies, Mexico City, Mexico",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 2,
+   "given": "Luis",
+   "family": "Padilla",
+   "affiliation": "Experimental Surgery Service, Microsurgery Unit, Centro Médico Nacional 20 de Noviembre ISSSTE, Mexico City, Mexico",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 3,
+   "given": "Pilar Hazel",
+   "family": "Carranza-Castro",
+   "affiliation": "Experimental Surgery Service, Microsurgery Unit, Centro Médico Nacional 20 de Noviembre ISSSTE, Mexico City, Mexico",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 4,
+   "given": "Fernando Pérez",
+   "family": "Escamirosa",
+   "affiliation": "Instituto de Ciencias Aplicadas y Tecnología (ICAT), Universidad Nacional Autónoma de México (UNAM), Ciudad de México, México",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 5,
+   "given": "Daniel Lorias",
+   "family": "Espinoza",
+   "affiliation": "Department of Electrical Engineering, Bioelectronics Section, Center for Research and Advanced Studies, Mexico City, Mexico",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 6,
+   "given": "Arturo Minor",
+   "family": "Martínez",
+   "affiliation": "Department of Electrical Engineering, Bioelectronics Section, Center for Research and Advanced Studies, Mexico City, Mexico",
+   "email": "",
+   "orcid": "",
+   "corresponding": true
+  }
+ ],
+ "section": [
+  {
+   "section_id": 1,
+   "section_type": "abstract",
+   "header": "Abstract",
+   "level": 1,
+   "parent_section_id": null,
+   "classification_score": 1.0
+  }
+ ],
+ "text": [
+  {
+   "text_id": 1,
+   "section_id": 1,
+   "paragraph_id": 1,
+   "text": "Preclinical research on the lower urinary tract relies heavily on murine models, which necessitates specialized equipment for acquiring concurrent electromyography and cystometry. However, commercial systems are often expensive and bulky, requiring dedicated workstations. These limitations hinder the reproducibility of complex urodynamic studies and restrict experimental accessibility. To address these limitations, we present the UROREC system, which is an accessible, compact, and reliable data acquisition platform designed to simultaneously record electromyography of the external urethral sphincter and intravesical pressure. We established the system’s robustness through benchtop electrical characterization and validated it via in vivo proof-of-concept pilot experiments in urethane-anesthetized female Wistar rats. Electrical testing confirmed a common-mode rejection ratio of 98.4 dB, an input-referred noise of 1.53 µV RMS, and linearity of R2 = 0.9999. Meanwhile, the pressure sensor exhibited a maximum hysteresis of 0.29% at full scale. In vivo, the device reliably digitized electromyography signals at 20 ksps and pressure signals at 100 sps in both a healthy physiological state and an acetic acid–induced overactive bladder model. UROREC precisely quantified 18 cystometric and electromyographic parameters consistent with the existing literature. The robustness of these in vivo recordings was confirmed by quantifying the signal-to-noise ratio, demonstrating high operational reliability and data integrity across all experimental sessions. Furthermore, the system accurately captured high sensitivity to specific pathophysiological shifts induced by acid instillation, with a significant reduction in both the inter-contraction interval (p < 0.001) and tonic activity duration (p < 0.001). These results validate UROREC as a robust, cost-effective alternative that makes high-fidelity urodynamic monitoring more accessible and promotes methodological reproducibility in lower urinary tract research.",
+   "page_number": 1
+  }
+ ],
+ "bib": [
+  {
+   "bib_id": 1,
+   "authors": [
+    {
+     "family": "McMurray",
+     "given": "G"
+    },
+    {
+     "family": "Casey",
+     "given": "JH"
+    },
+    {
+     "family": "Naylor",
+     "given": "AM"
+    }
+   ],
+   "year": "2006",
+   "title": "Animal models in urological disease and sexual dysfunction",
+   "container": "Br J Pharmacol",
+   "doi": "10.1038/sj.bjp.0706630"
+  },
+  {
+   "bib_id": 2,
+   "authors": [
+    {
+     "family": "Sartori",
+     "given": "AM"
+    },
+    {
+     "family": "Kessler",
+     "given": "TM"
+    },
+    {
+     "family": "Schwab",
+     "given": "ME"
+    }
+   ],
+   "year": "2021",
+   "title": "Methods for assessing lower urinary tract function in animal models",
+   "container": "Eur Urol Focus",
+   "volume": "7",
+   "first_page": "186",
+   "doi": "10.1016/j.euf.2019.12.004"
+  },
+  {
+   "bib_id": 3,
+   "authors": [
+    {
+     "family": "Hijaz",
+     "given": "A"
+    },
+    {
+     "family": "Daneshgari",
+     "given": "F"
+    },
+    {
+     "family": "Sievert",
+     "given": "K-D"
+    },
+    {
+     "family": "Damaser",
+     "given": "MS"
+    }
+   ],
+   "year": "2008",
+   "title": "Animal models of female stress urinary incontinence",
+   "container": "J Urol",
+   "volume": "179",
+   "first_page": "2103",
+   "doi": "10.1016/j.juro.2008.01.096"
+  },
+  {
+   "bib_id": 4,
+   "authors": [
+    {
+     "family": "Breinbjerg",
+     "given": "A"
+    },
+    {
+     "family": "Jørgensen",
+     "given": "CS"
+    },
+    {
+     "family": "Borg",
+     "given": "B"
+    },
+    {
+     "family": "Rittig",
+     "given": "S"
+    },
+    {
+     "family": "Kamperis",
+     "given": "K"
+    },
+    {
+     "family": "Christensen",
+     "given": "JH"
+    }
+   ],
+   "year": "2023",
+   "title": "The genetics of incontinence: a scoping review",
+   "container": "Clin Genet",
+   "volume": "104",
+   "first_page": "22",
+   "last_page": "62",
+   "doi": "10.1111/cge.14331"
+  },
+  {
+   "bib_id": 5,
+   "authors": [
+    {
+     "family": "Irwin",
+     "given": "DE"
+    },
+    {
+     "family": "Kopp",
+     "given": "ZS"
+    },
+    {
+     "family": "Agatep",
+     "given": "B"
+    },
+    {
+     "family": "Milsom",
+     "given": "I"
+    },
+    {
+     "family": "Abrams",
+     "given": "P"
+    }
+   ],
+   "year": "2011",
+   "title": "Worldwide prevalence estimates of lower urinary tract symptoms, overactive bladder, urinary incontinence and bladder outlet obstruction",
+   "container": "BJU Int",
+   "volume": "108",
+   "first_page": "1132",
+   "doi": "10.1111/j.1464-410X.2010.09993.x"
+  },
+  {
+   "bib_id": 6,
+   "authors": [
+    {
+     "family": "Sadri",
+     "given": "H"
+    },
+    {
+     "family": "Oliaei",
+     "given": "A"
+    },
+    {
+     "family": "Sadri",
+     "given": "S"
+    },
+    {
+     "family": "Pezeshki",
+     "given": "P"
+    },
+    {
+     "family": "Chughtai",
+     "given": "B"
+    },
+    {
+     "family": "Elterman",
+     "given": "D"
+    }
+   ],
+   "year": "2024",
+   "title": "Systematic review and meta-analysis of urinary incontinence prevalence and population estimates",
+   "container": "Neurourol Urodyn",
+   "volume": "43",
+   "first_page": "52",
+   "last_page": "62",
+   "doi": "10.1002/nau.25276"
+  },
+  {
+   "bib_id": 7,
+   "authors": [
+    {
+     "family": "Rosier",
+     "given": "PFWM"
+    },
+    {
+     "family": "Schaefer",
+     "given": "W"
+    },
+    {
+     "family": "Lose",
+     "given": "G"
+    },
+    {
+     "family": "Goldman",
+     "given": "HB"
+    },
+    {
+     "family": "Guralnick",
+     "given": "M"
+    },
+    {
+     "family": "Eustice",
+     "given": "S"
+    }
+   ],
+   "year": "2017",
+   "title": "International Continence Society Good Urodynamic Practices and Terms 2016: urodynamics, uroflowmetry, cystometry, and pressure-flow study",
+   "container": "Neurourol Urodynam",
+   "volume": "36",
+   "first_page": "1243",
+   "doi": "10.1002/nau.23124"
+  },
+  {
+   "bib_id": 8,
+   "authors": [
+    {
+     "family": "Thüroff",
+     "given": "JW"
+    },
+    {
+     "family": "Abrams",
+     "given": "P"
+    },
+    {
+     "family": "Andersson",
+     "given": "K-E"
+    },
+    {
+     "family": "Artibani",
+     "given": "W"
+    },
+    {
+     "family": "Chapple",
+     "given": "CR"
+    },
+    {
+     "family": "Drake",
+     "given": "MJ"
+    }
+   ],
+   "year": "2011",
+   "title": "EAU Guidelines on Urinary Incontinence",
+   "container": "Actas Urol Esp",
+   "volume": "35",
+   "first_page": "373",
+   "doi": "10.1016/j.acuro.2011.03.012"
+  },
+  {
+   "bib_id": 9,
+   "authors": [
+    {
+     "family": "Schwantes",
+     "given": "U"
+    },
+    {
+     "family": "Grosse",
+     "given": "J"
+    },
+    {
+     "family": "Wiedemann",
+     "given": "A"
+    }
+   ],
+   "year": "2015",
+   "title": "Refractory overactive bladder: a common problem?",
+   "container": "Int Urogynecol J",
+   "volume": "26",
+   "first_page": "1407",
+   "doi": "10.1007/s00192-015-2674-0"
+  },
+  {
+   "bib_id": 10,
+   "authors": [
+    {
+     "family": "Andersson",
+     "given": "K-E"
+    },
+    {
+     "family": "Soler",
+     "given": "R"
+    },
+    {
+     "family": "Füllhase",
+     "given": "C"
+    }
+   ],
+   "year": "2011",
+   "title": "Rodent models for urodynamic investigation",
+   "container": "Neurourol Urodyn",
+   "volume": "30",
+   "first_page": "636",
+   "doi": "10.1002/nau.21108"
+  },
+  {
+   "bib_id": 11,
+   "authors": [
+    {
+     "family": "Jiang",
+     "given": "H-H"
+    },
+    {
+     "family": "Salcedo",
+     "given": "LB"
+    },
+    {
+     "family": "Song",
+     "given": "B"
+    },
+    {
+     "family": "Damaser",
+     "given": "MS"
+    }
+   ],
+   "year": "2010",
+   "title": "Pelvic floor muscles and the external urethral sphincter have different responses to applied bladder pressure during continence",
+   "container": "Urology",
+   "volume": "75",
+   "doi": "10.1016/j.urology.2009.11.065"
+  },
+  {
+   "bib_id": 12,
+   "authors": [
+    {
+     "family": "Cruz",
+     "given": "Y"
+    },
+    {
+     "family": "Pastelín",
+     "given": "C"
+    },
+    {
+     "family": "Balog",
+     "given": "BM"
+    },
+    {
+     "family": "Zaszczurynski",
+     "given": "PJ"
+    },
+    {
+     "family": "Damaser",
+     "given": "MS"
+    }
+   ],
+   "year": "2014",
+   "title": "Somatomotor and sensory urethral control of micturition in female rats",
+   "container": "Am J Physiol Renal Physiol",
+   "volume": "307",
+   "doi": "10.1152/ajprenal.00255.2014"
+  },
+  {
+   "bib_id": 13,
+   "authors": [
+    {
+     "family": "Abud",
+     "given": "EM"
+    },
+    {
+     "family": "Ichiyama",
+     "given": "RM"
+    },
+    {
+     "family": "Havton",
+     "given": "LA"
+    },
+    {
+     "family": "Chang",
+     "given": "HH"
+    }
+   ],
+   "year": "2015",
+   "title": "Spinal stimulation of the upper lumbar spinal cord modulates urethral sphincter activity in rats after spinal cord injury",
+   "container": "Am J Physiol Renal Physiol",
+   "volume": "308",
+   "doi": "10.1152/ajprenal.00573.2014"
+  },
+  {
+   "bib_id": 14,
+   "authors": [
+    {
+     "family": "Choudhary",
+     "given": "M"
+    },
+    {
+     "family": "van Asselt",
+     "given": "E"
+    },
+    {
+     "family": "van Mastrigt",
+     "given": "R"
+    },
+    {
+     "family": "Clavica",
+     "given": "F"
+    }
+   ],
+   "year": "2015",
+   "title": "Neurophysiological modeling of bladder afferent activity in the rat overactive bladder model",
+   "container": "J Physiol Sci",
+   "volume": "65",
+   "first_page": "329",
+   "doi": "10.1007/s12576-015-0370-y"
+  },
+  {
+   "bib_id": 15,
+   "authors": [
+    {
+     "family": "Choudhary",
+     "given": "M"
+    },
+    {
+     "family": "van Mastrigt",
+     "given": "R"
+    },
+    {
+     "family": "van Asselt",
+     "given": "E"
+    }
+   ],
+   "year": "2016",
+   "title": "Inhibitory effects of tibial nerve stimulation on bladder neurophysiology in rats",
+   "container": "Springerplus",
+   "volume": "5",
+   "first_page": "35",
+   "doi": "10.1186/s40064-016-1687-6"
+  },
+  {
+   "bib_id": 16,
+   "authors": [
+    {
+     "family": "Qureshi",
+     "given": "F"
+    },
+    {
+     "family": "Kung",
+     "given": "P"
+    },
+    {
+     "family": "Hou",
+     "given": "W"
+    },
+    {
+     "family": "Collins",
+     "given": "WF 3rd"
+    },
+    {
+     "family": "Sisto",
+     "given": "SA"
+    }
+   ],
+   "year": "2022",
+   "title": "Serial transurethral cystometry: a novel method for longitudinal evaluation of reflex lower urinary tract function in adult female rats",
+   "container": "Physiol Rep",
+   "volume": "10",
+   "doi": "10.14814/phy2.15131"
+  },
+  {
+   "bib_id": 17,
+   "authors": [
+    {
+     "family": "Webster",
+     "given": "JG"
+    }
+   ],
+   "year": "2009",
+   "title": "Medical instrumentation: application and design"
+  },
+  {
+   "bib_id": 18,
+   "authors": [
+    {
+     "family": "Doke",
+     "given": "SK"
+    },
+    {
+     "family": "Dhawale",
+     "given": "SC"
+    }
+   ],
+   "year": "2015",
+   "title": "Alternatives to animal testing: a review",
+   "container": "Saudi Pharm J",
+   "volume": "23",
+   "first_page": "223",
+   "doi": "10.1016/j.jsps.2013.11.002"
+  },
+  {
+   "bib_id": 19,
+   "authors": [
+    {
+     "family": "Fraser",
+     "given": "MO"
+    },
+    {
+     "family": "Smith",
+     "given": "PP"
+    },
+    {
+     "family": "Sullivan",
+     "given": "MP"
+    },
+    {
+     "family": "Bjorling",
+     "given": "DE"
+    },
+    {
+     "family": "Campeau",
+     "given": "L"
+    },
+    {
+     "family": "Andersson",
+     "given": "K-E"
+    }
+   ],
+   "year": "2020",
+   "title": "Best practices for cystometric evaluation of lower urinary tract function in muriform rodents",
+   "container": "Neurourol Urodyn",
+   "volume": "39",
+   "first_page": "1868",
+   "doi": "10.1002/nau.24415"
+  },
+  {
+   "bib_id": 20,
+   "authors": [
+    {
+     "family": "Franz",
+     "given": "KS"
+    },
+    {
+     "family": "Yoo",
+     "given": "PB"
+    }
+   ],
+   "year": "2020",
+   "title": "Transecting the hypogastric nerve to uncover the bladder-inhibitory pathways involved with saphenous nerve stimulation in anesthetized rats",
+   "container": "Auton Neurosci",
+   "volume": "226",
+   "first_page": "102672",
+   "doi": "10.1016/j.autneu.2020.102672"
+  },
+  {
+   "bib_id": 21,
+   "authors": [
+    {
+     "family": "Kovacevic",
+     "given": "M"
+    },
+    {
+     "family": "Yoo",
+     "given": "PB"
+    }
+   ],
+   "year": "2015",
+   "title": "Reflex neuromodulation of bladder function elicited by posterior tibial nerve stimulation in anesthetized rats",
+   "container": "Am J Physiol Renal Physiol",
+   "volume": "308",
+   "doi": "10.1152/ajprenal.00212.2014"
+  },
+  {
+   "bib_id": 22,
+   "authors": [
+    {
+     "family": "D’Amico",
+     "given": "SC"
+    },
+    {
+     "family": "Schuster",
+     "given": "IP"
+    },
+    {
+     "family": "Collins",
+     "given": "WF 3rd"
+    }
+   ],
+   "year": "2011",
+   "title": "Quantification of external urethral sphincter and bladder activity during micturition in the intact and spinally transected adult rat",
+   "container": "Exp Neurol",
+   "volume": "228",
+   "first_page": "59",
+   "last_page": "68",
+   "doi": "10.1016/j.expneurol.2010.12.008"
+  },
+  {
+   "bib_id": 23,
+   "authors": [
+    {
+     "family": "Kadekawa",
+     "given": "K"
+    },
+    {
+     "family": "Yoshimura",
+     "given": "N"
+    },
+    {
+     "family": "Majima",
+     "given": "T"
+    },
+    {
+     "family": "Wada",
+     "given": "N"
+    },
+    {
+     "family": "Shimizu",
+     "given": "T"
+    },
+    {
+     "family": "Birder",
+     "given": "LA"
+    }
+   ],
+   "year": "2016",
+   "title": "Characterization of bladder and external urethral activity in mice with or without spinal cord injury--a comparison study with rats",
+   "container": "Am J Physiol Regul Integr Comp Physiol",
+   "volume": "310",
+   "doi": "10.1152/ajpregu.00450.2015"
+  },
+  {
+   "bib_id": 24,
+   "authors": [
+    {
+     "family": "Majerus",
+     "given": "SJA"
+    },
+    {
+     "family": "Garverick",
+     "given": "SL"
+    },
+    {
+     "family": "Suster",
+     "given": "MA"
+    },
+    {
+     "family": "Fletter",
+     "given": "PC"
+    },
+    {
+     "family": "Damaser",
+     "given": "MS"
+    }
+   ],
+   "year": "2012",
+   "title": "Wireless, ultra-low-power implantable sensor for chronic bladder pressure monitoring",
+   "container": "ACM J Emerg Technol Comput Syst",
+   "volume": "8",
+   "first_page": "11",
+   "doi": "10.1145/2180878.2180883"
+  },
+  {
+   "bib_id": 25,
+   "authors": [
+    {
+     "family": "Mickle",
+     "given": "AD"
+    },
+    {
+     "family": "Won",
+     "given": "SM"
+    },
+    {
+     "family": "Noh",
+     "given": "KN"
+    },
+    {
+     "family": "Yoon",
+     "given": "J"
+    },
+    {
+     "family": "Meacham",
+     "given": "KW"
+    },
+    {
+     "family": "Xue",
+     "given": "Y"
+    }
+   ],
+   "year": "2019",
+   "title": "A wireless closed-loop system for optogenetic peripheral neuromodulation",
+   "container": "Nature",
+   "volume": "565",
+   "first_page": "361",
+   "doi": "10.1038/s41586-018-0823-6"
+  },
+  {
+   "bib_id": 26,
+   "authors": [
+    {
+     "family": "Abdelkhalek",
+     "given": "AS"
+    },
+    {
+     "family": "Youssef",
+     "given": "HA"
+    },
+    {
+     "family": "Saleh",
+     "given": "AS"
+    },
+    {
+     "family": "Bollen",
+     "given": "P"
+    },
+    {
+     "family": "Zvara",
+     "given": "P"
+    }
+   ],
+   "year": "2021",
+   "title": "Anesthetic protocols for urodynamic studies of the lower urinary tract in small rodents-a systematic review",
+   "container": "PLoS One",
+   "volume": "16",
+   "doi": "10.1371/journal.pone.0253192"
+  },
+  {
+   "bib_id": 27,
+   "authors": [
+    {
+     "family": "Yoshiyama",
+     "given": "M"
+    },
+    {
+     "family": "Kobayashi",
+     "given": "H"
+    },
+    {
+     "family": "Araki",
+     "given": "I"
+    },
+    {
+     "family": "Du",
+     "given": "S"
+    },
+    {
+     "family": "Zakoji",
+     "given": "H"
+    },
+    {
+     "family": "Takeda",
+     "given": "M"
+    }
+   ],
+   "year": "2008",
+   "title": "Sex-related differences in activity of lower urinary tract in response to intravesical acid irritation in decerebrate unanesthetized mice",
+   "container": "Am J Physiol Regul Integr Comp Physiol",
+   "volume": "295",
+   "doi": "10.1152/ajpregu.90406.2008"
+  },
+  {
+   "bib_id": 28,
+   "authors": [
+    {
+     "family": "Merletti",
+     "given": "R"
+    },
+    {
+     "family": "Hermens",
+     "given": "HJ"
+    }
+   ],
+   "year": "2004",
+   "title": "Detection and conditioning of the surface EMG signal",
+   "container": "Electromyography",
+   "first_page": "107",
+   "doi": "10.1002/0471678384.ch5"
+  },
+  {
+   "bib_id": 29,
+   "authors": [
+    {
+     "family": "Park",
+     "given": "E"
+    },
+    {
+     "family": "Lee",
+     "given": "J-W"
+    },
+    {
+     "family": "Kim",
+     "given": "T"
+    },
+    {
+     "family": "Kang",
+     "given": "M"
+    },
+    {
+     "family": "Cho",
+     "given": "BH"
+    },
+    {
+     "family": "Lee",
+     "given": "J"
+    }
+   ],
+   "year": "2020",
+   "title": "The long-lasting post-stimulation inhibitory effects of bladder activity induced by posterior tibial nerve stimulation in unanesthetized rats",
+   "container": "Sci Rep",
+   "volume": "10",
+   "first_page": "19897",
+   "doi": "10.1038/s41598-020-76987-2"
+  },
+  {
+   "bib_id": 30,
+   "authors": [
+    {
+     "family": "Hashimoto",
+     "given": "M"
+    },
+    {
+     "family": "Karnup",
+     "given": "S"
+    },
+    {
+     "family": "Daugherty",
+     "given": "SL"
+    },
+    {
+     "family": "Cho",
+     "given": "KJ"
+    },
+    {
+     "family": "Banno",
+     "given": "E"
+    },
+    {
+     "family": "Shimizu",
+     "given": "N"
+    }
+   ],
+   "year": "2024",
+   "title": "Sex differences in lower urinary tract function in mice with or without spinal cord injury",
+   "container": "Neurourol Urodyn",
+   "volume": "43",
+   "first_page": "267",
+   "doi": "10.1002/nau.25323"
+  },
+  {
+   "bib_id": 31,
+   "authors": [
+    {
+     "family": "LaPallo",
+     "given": "BK"
+    },
+    {
+     "family": "Wolpaw",
+     "given": "JR"
+    },
+    {
+     "family": "Chen",
+     "given": "XY"
+    },
+    {
+     "family": "Carp",
+     "given": "JS"
+    }
+   ],
+   "year": "2016",
+   "title": "Contribution of the external urethral sphincter to urinary void size in unanesthetized unrestrained rats",
+   "container": "Neurourol Urodyn",
+   "volume": "35",
+   "first_page": "696",
+   "last_page": "702",
+   "doi": "10.1002/nau.22789"
+  },
+  {
+   "bib_id": 32,
+   "authors": [
+    {
+     "family": "Agyeman",
+     "given": "KA"
+    },
+    {
+     "family": "Lee",
+     "given": "DJ"
+    },
+    {
+     "family": "Abedi",
+     "given": "A"
+    },
+    {
+     "family": "Sakellaridi",
+     "given": "S"
+    },
+    {
+     "family": "Kreydin",
+     "given": "EI"
+    },
+    {
+     "family": "Russin",
+     "given": "J"
+    }
+   ],
+   "year": "2025",
+   "title": "Human spinal cord activation during filling and emptying of the bladder",
+   "container": "Nat Commun",
+   "volume": "16",
+   "first_page": "6506",
+   "doi": "10.1038/s41467-025-61470-1"
+  },
+  {
+   "bib_id": 33,
+   "authors": [
+    {
+     "family": "Schneider",
+     "given": "MP"
+    },
+    {
+     "family": "Hughes",
+     "given": "FM Jr"
+    },
+    {
+     "family": "Engmann",
+     "given": "AK"
+    },
+    {
+     "family": "Purves",
+     "given": "JT"
+    },
+    {
+     "family": "Kasper",
+     "given": "H"
+    },
+    {
+     "family": "Tedaldi",
+     "given": "M"
+    }
+   ],
+   "year": "2015",
+   "title": "A novel urodynamic model for lower urinary tract assessment in awake rats",
+   "container": "BJU Int",
+   "volume": "115",
+   "first_page": "8",
+   "last_page": "15",
+   "doi": "10.1111/bju.13039"
+  },
+  {
+   "bib_id": 34,
+   "authors": [
+    {
+     "family": "Grundy",
+     "given": "L"
+    },
+    {
+     "family": "Wyndaele",
+     "given": "JJ"
+    },
+    {
+     "family": "Hashitani",
+     "given": "H"
+    },
+    {
+     "family": "Vahabi",
+     "given": "B"
+    },
+    {
+     "family": "Wein",
+     "given": "A"
+    },
+    {
+     "family": "Abrams",
+     "given": "P"
+    }
+   ],
+   "year": "2024",
+   "title": "How does the lower urinary tract contribute to bladder sensation? ICI-RS 2023",
+   "container": "Neurourol Urodyn",
+   "volume": "43",
+   "first_page": "1293",
+   "doi": "10.1002/nau.25316"
+  },
+  {
+   "bib_id": 35,
+   "authors": [
+    {
+     "family": "OpenBCI",
+     "given": ""
+    }
+   ],
+   "year": "2026"
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-core-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "jats_doi": "10.1371/journal.pone.0356999"
+ }
+}

@@ -1,0 +1,1167 @@
+{
+ "paper_id": "10.1002_ece3.74362",
+ "info": {
+  "title": "Interaction Effects Do Not Consistently Improve the Transferability of Species Distribution Models",
+  "doi": "10.1002/ece3.74362",
+  "file_name": "10.1002_ece3.74362.pdf",
+  "keywords": [
+   "machine learning",
+   "niche",
+   "non‐stationarity",
+   "predictive ability",
+   "SDM",
+   "statistical interactions"
+  ],
+  "abstract": "Species responses to the environment are often non‐stationary, varying in space and time depending on the environmental context. This is one of the reasons why species distribution models (SDMs) often have low transferability. Context dependence may arise due to frequent and widespread interactive effects of environmental drivers on species occurrence. Thus, accounting for interactions in SDMs could in principle improve their transferability. Alternatively, incorporating driver interactions may lead to overfitting issues and reduce model transferability. We systematically assessed the extent to which interactions improve model transferability across taxa and biomes. We fitted MaxEnt and Boosted Regression Trees (BRT) models to presence data of 1158 species and evaluated their transferability to (1) independent native areas of plants, reptiles, birds and bats, (2) exotic ranges of plant species and (3) exotic ranges of bird species. While the performance of both model types (MaxEnt and BRT) was highly correlated, gains or losses in transferability when incorporating interactions were not consistent between model types. Incorporating interactions did not have any consistent impacts on transferability in 84% of the models according to a concordance (between model types) and significance criterion. In the remaining models, similar percentages of models had improved and worse transferability (~8% each). We did not detect any relevant effects of taxon, dataset, sample size, sampled area and environmental novelty on transferability gains when incorporating predictor interactions. Overall, uninformed predictor interactions modelled via widely used machine learning algorithms did not increase SDM transferability, suggesting that modelling routines should carefully consider their specification and usefulness for model extrapolation."
+ },
+ "author": [
+  {
+   "author_id": 1,
+   "given": "Duarte S.",
+   "family": "Viana",
+   "affiliation": "Estación Biológica de Doñana, CSIC Seville Spain",
+   "email": "",
+   "orcid": "",
+   "corresponding": true
+  },
+  {
+   "author_id": 2,
+   "given": "Laura",
+   "family": "Cardador",
+   "affiliation": "Departament de Biologia Evolutiva, Ecologia i Ciències Ambientals, Facultat de Biologia Universitat de Barcelona (UB) Barcelona Spain; Institut de Recerca de la Biodiversitat (IRBio) Universitat de Barcelona (UB) Barcelona Spain",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 3,
+   "given": "Miguel",
+   "family": "Clavero",
+   "affiliation": "Estación Biológica de Doñana, CSIC Seville Spain",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  }
+ ],
+ "section": [
+  {
+   "section_id": 1,
+   "section_type": "abstract",
+   "header": "ABSTRACT",
+   "level": 1,
+   "parent_section_id": null,
+   "classification_score": 1.0
+  }
+ ],
+ "text": [
+  {
+   "text_id": 1,
+   "section_id": 1,
+   "paragraph_id": 1,
+   "text": "Species responses to the environment are often non‐stationary, varying in space and time depending on the environmental context. This is one of the reasons why species distribution models (SDMs) often have low transferability. Context dependence may arise due to frequent and widespread interactive effects of environmental drivers on species occurrence. Thus, accounting for interactions in SDMs could in principle improve their transferability. Alternatively, incorporating driver interactions may lead to overfitting issues and reduce model transferability. We systematically assessed the extent to which interactions improve model transferability across taxa and biomes. We fitted MaxEnt and Boosted Regression Trees (BRT) models to presence data of 1158 species and evaluated their transferability to (1) independent native areas of plants, reptiles, birds and bats, (2) exotic ranges of plant species and (3) exotic ranges of bird species. While the performance of both model types (MaxEnt and BRT) was highly correlated, gains or losses in transferability when incorporating interactions were not consistent between model types. Incorporating interactions did not have any consistent impacts on transferability in 84% of the models according to a concordance (between model types) and significance criterion. In the remaining models, similar percentages of models had improved and worse transferability (~8% each). We did not detect any relevant effects of taxon, dataset, sample size, sampled area and environmental novelty on transferability gains when incorporating predictor interactions. Overall, uninformed predictor interactions modelled via widely used machine learning algorithms did not increase SDM transferability, suggesting that modelling routines should carefully consider their specification and usefulness for model extrapolation.",
+   "page_number": 1
+  }
+ ],
+ "bib": [
+  {
+   "bib_id": 1,
+   "authors": [
+    {
+     "family": "Alexander",
+     "given": "J. M."
+    },
+    {
+     "family": "Diez",
+     "given": "J. M."
+    },
+    {
+     "family": "Levine",
+     "given": "J. M."
+    }
+   ],
+   "year": "2015",
+   "title": "Novel Competitors Shape Species' Responses to Climate Change",
+   "container": "Nature",
+   "volume": "525",
+   "first_page": "515",
+   "last_page": "518",
+   "doi": "10.1038/nature14952"
+  },
+  {
+   "bib_id": 2,
+   "authors": [
+    {
+     "family": "Araújo",
+     "given": "M. B."
+    },
+    {
+     "family": "New",
+     "given": "M."
+    }
+   ],
+   "year": "2007",
+   "title": "Ensemble Forecasting of Species Distributions",
+   "container": "Trends in Ecology & Evolution",
+   "volume": "22",
+   "first_page": "42",
+   "last_page": "47",
+   "doi": "10.1016/j.tree.2006.09.010"
+  },
+  {
+   "bib_id": 3,
+   "authors": [
+    {
+     "family": "Avidad",
+     "given": "P. M."
+    },
+    {
+     "family": "Clavero",
+     "given": "M."
+    },
+    {
+     "family": "Viana",
+     "given": "D. S."
+    }
+   ],
+   "year": "2025",
+   "title": "Climate and Land‐Use Change Leading to Niche Expansion and Shifts in Birds",
+   "container": "Journal of Biogeography",
+   "volume": "52",
+   "first_page": "443",
+   "last_page": "453",
+   "doi": "10.1111/jbi.15045"
+  },
+  {
+   "bib_id": 4,
+   "authors": [
+    {
+     "family": "Blackburn",
+     "given": "T. M."
+    },
+    {
+     "family": "Lockwood",
+     "given": "J. L."
+    },
+    {
+     "family": "Cassey",
+     "given": "P."
+    }
+   ],
+   "year": "2009",
+   "title": "Avian Invasions: The Ecology and Evolution of Exotic Birds",
+   "doi": "10.1093/acprof:oso/9780199232543.001.0001"
+  },
+  {
+   "bib_id": 5,
+   "authors": [
+    {
+     "family": "Brooker",
+     "given": "R. W."
+    }
+   ],
+   "year": "2006",
+   "title": "Plant–Plant Interactions and Environmental Change: Tansley Review",
+   "container": "New Phytologist",
+   "volume": "171",
+   "first_page": "271",
+   "last_page": "284",
+   "doi": "10.1111/j.1469-8137.2006.01752.x"
+  },
+  {
+   "bib_id": 6,
+   "authors": [
+    {
+     "family": "Cardador",
+     "given": "L."
+    },
+    {
+     "family": "Abellán",
+     "given": "P."
+    },
+    {
+     "family": "Blackburn",
+     "given": "T. M."
+    }
+   ],
+   "year": "2022",
+   "title": "Incorporating Phylogeographic Information in Alien Bird Distribution Models Increases Geographic Extent but Not Accuracy of Predictions",
+   "container": "Biological Invasions",
+   "volume": "24",
+   "first_page": "683",
+   "last_page": "695",
+   "doi": "10.1007/s10530-021-02673-7"
+  },
+  {
+   "bib_id": 7,
+   "authors": [
+    {
+     "family": "Cardador",
+     "given": "L."
+    },
+    {
+     "family": "Blackburn",
+     "given": "T. M."
+    }
+   ],
+   "year": "2020",
+   "title": "A Global Assessment of Human Influence on Niche Shifts and Risk Predictions of Bird Invasions",
+   "container": "Global Ecology and Biogeography",
+   "volume": "29",
+   "first_page": "1956",
+   "last_page": "1966",
+   "doi": "10.1111/geb.13166"
+  },
+  {
+   "bib_id": 8,
+   "authors": [
+    {
+     "family": "Catford",
+     "given": "J. A."
+    },
+    {
+     "family": "Wilson",
+     "given": "J. R. U."
+    },
+    {
+     "family": "Pyšek",
+     "given": "P."
+    },
+    {
+     "family": "Hulme",
+     "given": "P. E."
+    },
+    {
+     "family": "Duncan",
+     "given": "R. P."
+    }
+   ],
+   "year": "2022",
+   "title": "Addressing Context Dependence in Ecology",
+   "container": "Trends in Ecology and Evolution",
+   "volume": "37",
+   "first_page": "158",
+   "last_page": "170",
+   "doi": "10.1016/j.tree.2021.09.007"
+  },
+  {
+   "bib_id": 9,
+   "authors": [
+    {
+     "family": "Chardon",
+     "given": "N. I."
+    },
+    {
+     "family": "Pironon",
+     "given": "S."
+    },
+    {
+     "family": "Peterson",
+     "given": "M. L."
+    },
+    {
+     "family": "Doak",
+     "given": "D. F."
+    }
+   ],
+   "year": "2020",
+   "title": "Incorporating Intraspecific Variation Into Species Distribution Models Improves Distribution Predictions, but Cannot Predict Species Traits for a Wide‐Spread Plant Species",
+   "container": "Ecography",
+   "volume": "43",
+   "first_page": "60",
+   "last_page": "74",
+   "doi": "10.1111/ecog.04630"
+  },
+  {
+   "bib_id": 10,
+   "authors": [
+    {
+     "family": "De Frenne",
+     "given": "P."
+    },
+    {
+     "family": "Rodríguez‐Sánchez",
+     "given": "F."
+    },
+    {
+     "family": "Coomes",
+     "given": "D. A."
+    }
+   ],
+   "year": "2013",
+   "title": "Microclimate Moderates Plant Responses to Macroclimate Warming",
+   "container": "Proceedings of the National Academy of Sciences of the United States of America",
+   "volume": "110",
+   "first_page": "18,561",
+   "last_page": "18,565",
+   "doi": "10.1073/pnas.1311190110"
+  },
+  {
+   "bib_id": 11,
+   "authors": [
+    {
+     "family": "Di Marco",
+     "given": "M."
+    },
+    {
+     "family": "Pacifici",
+     "given": "M."
+    },
+    {
+     "family": "Maiorano",
+     "given": "L."
+    },
+    {
+     "family": "Rondinini",
+     "given": "C."
+    }
+   ],
+   "year": "2021",
+   "title": "Drivers of Change in the Realised Climatic Niche of Terrestrial Mammals",
+   "container": "Ecography",
+   "volume": "44",
+   "first_page": "1180",
+   "last_page": "1190",
+   "doi": "10.1111/ecog.05414"
+  },
+  {
+   "bib_id": 12,
+   "authors": [
+    {
+     "family": "Duncan",
+     "given": "R. P."
+    },
+    {
+     "family": "Kefford",
+     "given": "B. J."
+    }
+   ],
+   "year": "2021",
+   "title": "Interactions in Statistical Models: Three Things to Know",
+   "container": "Methods in Ecology and Evolution",
+   "volume": "12",
+   "first_page": "2287",
+   "last_page": "2297",
+   "doi": "10.1111/2041-210X.13714"
+  },
+  {
+   "bib_id": 13,
+   "authors": [
+    {
+     "family": "Elith",
+     "given": "J."
+    },
+    {
+     "family": "Graham",
+     "given": "C."
+    },
+    {
+     "family": "Valavi",
+     "given": "R."
+    }
+   ],
+   "year": "2020",
+   "title": "Presence‐Only and Presence‐Absence Data for Comparing Species Distribution Modeling Methods",
+   "container": "Biodiversity Informatics",
+   "volume": "15",
+   "first_page": "69",
+   "last_page": "80",
+   "doi": "10.17161/bi.v15i2.13384"
+  },
+  {
+   "bib_id": 14,
+   "authors": [
+    {
+     "family": "Elith",
+     "given": "J."
+    },
+    {
+     "family": "Graham",
+     "given": "C. H."
+    },
+    {
+     "family": "Anderson",
+     "given": "R. P."
+    }
+   ],
+   "year": "2006",
+   "title": "Novel Methods Improve Prediction of Species' Distributions From Occurrence Data",
+   "container": "Ecography",
+   "volume": "29",
+   "first_page": "129",
+   "last_page": "151",
+   "doi": "10.1111/j.2006.0906-7590.04596.x"
+  },
+  {
+   "bib_id": 15,
+   "authors": [
+    {
+     "family": "Elith",
+     "given": "J."
+    },
+    {
+     "family": "Leathwick",
+     "given": "J. R."
+    }
+   ],
+   "year": "2009",
+   "title": "Species Distribution Models: Ecological Explanation and Prediction Across Space and Time",
+   "container": "Annual Review of Ecology, Evolution, and Systematics",
+   "volume": "40",
+   "first_page": "677",
+   "last_page": "697",
+   "doi": "10.1146/annurev.ecolsys.110308.120159"
+  },
+  {
+   "bib_id": 16,
+   "authors": [
+    {
+     "family": "Greenwell",
+     "given": "B."
+    },
+    {
+     "family": "Boehmke",
+     "given": "B."
+    },
+    {
+     "family": "Cunningham",
+     "given": "J."
+    },
+    {
+     "family": "Developers",
+     "given": "G."
+    }
+   ],
+   "year": "2019",
+   "title": "“gbm: Generalized Boosted Regression Models.”"
+  },
+  {
+   "bib_id": 17,
+   "authors": [
+    {
+     "family": "Guisan",
+     "given": "A."
+    },
+    {
+     "family": "Petitpierre",
+     "given": "B."
+    },
+    {
+     "family": "Broennimann",
+     "given": "O."
+    },
+    {
+     "family": "Daehler",
+     "given": "C."
+    },
+    {
+     "family": "Kueffer",
+     "given": "C."
+    }
+   ],
+   "year": "2014",
+   "title": "Unifying Niche Shift Studies: Insights From Biological Invasions",
+   "container": "Trends in Ecology & Evolution",
+   "volume": "29",
+   "first_page": "260",
+   "last_page": "269",
+   "doi": "10.1016/j.tree.2014.02.009"
+  },
+  {
+   "bib_id": 18,
+   "authors": [
+    {
+     "family": "Heikkinen",
+     "given": "R. K."
+    },
+    {
+     "family": "Marmion",
+     "given": "M."
+    },
+    {
+     "family": "Luoto",
+     "given": "M."
+    }
+   ],
+   "year": "2012",
+   "title": "Does the Interpolation Accuracy of Species Distribution Models Come at the Expense of Transferability?",
+   "container": "Ecography",
+   "volume": "35",
+   "first_page": "276",
+   "last_page": "288",
+   "doi": "10.1111/j.1600-0587.2011.06999.x"
+  },
+  {
+   "bib_id": 19,
+   "authors": [
+    {
+     "family": "Hijmans",
+     "given": "R. J."
+    },
+    {
+     "family": "Cameron",
+     "given": "S. E."
+    },
+    {
+     "family": "Parra",
+     "given": "J. L."
+    },
+    {
+     "family": "Jones",
+     "given": "P. G."
+    },
+    {
+     "family": "Jarvis",
+     "given": "A."
+    }
+   ],
+   "year": "2005",
+   "title": "Very High Resolution Interpolated Climate Surfaces for Global Land Areas",
+   "container": "International Journal of Climatology",
+   "volume": "25",
+   "first_page": "1965",
+   "last_page": "1978",
+   "doi": "10.1002/joc.1276"
+  },
+  {
+   "bib_id": 20,
+   "authors": [
+    {
+     "family": "Hijmans",
+     "given": "R. J."
+    },
+    {
+     "family": "Phillips",
+     "given": "S."
+    },
+    {
+     "family": "Leathwick",
+     "given": "J."
+    },
+    {
+     "family": "Elith",
+     "given": "J."
+    }
+   ],
+   "year": "2017",
+   "title": "“dismo: Species Distribution Modeling.”"
+  },
+  {
+   "bib_id": 21,
+   "authors": [
+    {
+     "family": "Hosmer",
+     "given": "D. W."
+    },
+    {
+     "family": "Lemeshow",
+     "given": "S."
+    },
+    {
+     "family": "Sturdivant",
+     "given": "R. X."
+    }
+   ],
+   "year": "2013",
+   "title": "Applied Logistic Regression"
+  },
+  {
+   "bib_id": 22,
+   "authors": [
+    {
+     "family": "Hurtt",
+     "given": "G. C."
+    },
+    {
+     "family": "Chini",
+     "given": "L."
+    },
+    {
+     "family": "Sahajpal",
+     "given": "R."
+    }
+   ],
+   "year": "2020",
+   "title": "Harmonization of Global Land Use Change and Management for the Period 850–2100 (LUH2) for CMIP6",
+   "container": "Geoscientific Model Development",
+   "volume": "13",
+   "first_page": "5425",
+   "last_page": "5464",
+   "doi": "10.5194/gmd-13-5425-2020"
+  },
+  {
+   "bib_id": 23,
+   "authors": [
+    {
+     "family": "Lindmark",
+     "given": "M."
+    },
+    {
+     "family": "Huss",
+     "given": "M."
+    },
+    {
+     "family": "Ohlberger",
+     "given": "J."
+    },
+    {
+     "family": "Gårdmark",
+     "given": "A."
+    }
+   ],
+   "year": "2018",
+   "title": "Temperature‐Dependent Body Size Effects Determine Population Responses to Climate Warming",
+   "container": "Ecology Letters",
+   "volume": "21",
+   "first_page": "181",
+   "last_page": "189",
+   "doi": "10.1111/ele.12880"
+  },
+  {
+   "bib_id": 24,
+   "authors": [
+    {
+     "family": "Liu",
+     "given": "C."
+    },
+    {
+     "family": "Wolter",
+     "given": "C."
+    },
+    {
+     "family": "Xian",
+     "given": "W."
+    },
+    {
+     "family": "Jeschke",
+     "given": "J. M."
+    }
+   ],
+   "year": "2020",
+   "title": "Species Distribution Models Have Limited Spatial Transferability for Invasive Species",
+   "container": "Ecology Letters",
+   "volume": "23",
+   "first_page": "1682",
+   "last_page": "1692",
+   "doi": "10.1111/ele.13577"
+  },
+  {
+   "bib_id": 25,
+   "authors": [
+    {
+     "family": "Lu",
+     "given": "M."
+    },
+    {
+     "family": "Jetz",
+     "given": "W."
+    }
+   ],
+   "year": "2023",
+   "title": "Scale‐Sensitivity in the Measurement and Interpretation of Environmental Niches",
+   "container": "Trends in Ecology & Evolution",
+   "volume": "38",
+   "first_page": "554",
+   "last_page": "567",
+   "doi": "10.1016/j.tree.2023.01.003"
+  },
+  {
+   "bib_id": 26,
+   "authors": [
+    {
+     "family": "Millard",
+     "given": "S. P."
+    }
+   ],
+   "year": "2013",
+   "title": "EnvStats: An R Package for Environmental Statistics",
+   "doi": "10.1007/978-1-4614-8456-1"
+  },
+  {
+   "bib_id": 27,
+   "authors": [
+    {
+     "family": "Oney",
+     "given": "B."
+    },
+    {
+     "family": "Reineking",
+     "given": "B."
+    },
+    {
+     "family": "O'Neill",
+     "given": "G."
+    },
+    {
+     "family": "Kreyling",
+     "given": "J."
+    }
+   ],
+   "year": "2013",
+   "title": "Intraspecific Variation Buffers Projected Climate Change Impacts on Pinus contorta",
+   "container": "Ecology and Evolution",
+   "volume": "3",
+   "first_page": "437",
+   "last_page": "449",
+   "doi": "10.1002/ece3.426"
+  },
+  {
+   "bib_id": 28,
+   "authors": [
+    {
+     "family": "Paton",
+     "given": "R. S."
+    },
+    {
+     "family": "Matthiopoulos",
+     "given": "J."
+    }
+   ],
+   "year": "2016",
+   "title": "Defining the Scale of Habitat Availability for Models of Habitat Selection",
+   "container": "Ecology",
+   "volume": "97",
+   "first_page": "1113",
+   "last_page": "1122",
+   "doi": "10.1890/14-2241.1"
+  },
+  {
+   "bib_id": 29,
+   "authors": [
+    {
+     "family": "Pearce",
+     "given": "J."
+    },
+    {
+     "family": "Ferrier",
+     "given": "S."
+    }
+   ],
+   "year": "2000",
+   "title": "Evaluating the Predictive Performance of Habitat Models Developed Using Logistic Regression",
+   "container": "Ecological Modelling",
+   "volume": "133",
+   "first_page": "225",
+   "last_page": "245",
+   "doi": "10.1016/S0304-3800(00)00322-7"
+  },
+  {
+   "bib_id": 30,
+   "authors": [
+    {
+     "family": "Pearman",
+     "given": "P. B."
+    },
+    {
+     "family": "Guisan",
+     "given": "A."
+    },
+    {
+     "family": "Broennimann",
+     "given": "O."
+    },
+    {
+     "family": "Randin",
+     "given": "C. F."
+    }
+   ],
+   "year": "2008",
+   "title": "Niche Dynamics in Space and Time",
+   "container": "Trends in Ecology & Evolution",
+   "volume": "23",
+   "first_page": "149",
+   "last_page": "158",
+   "doi": "10.1016/j.tree.2007.11.005"
+  },
+  {
+   "bib_id": 31,
+   "authors": [
+    {
+     "family": "Pulliam",
+     "given": "H. R."
+    }
+   ],
+   "year": "2000",
+   "title": "On the Relationship Between Niche and Distribution",
+   "container": "Ecology Letters",
+   "volume": "3",
+   "first_page": "349",
+   "last_page": "361",
+   "doi": "10.1046/j.1461-0248.2000.00143.x"
+  },
+  {
+   "bib_id": 32,
+   "authors": [
+    {
+     "family": "Robin",
+     "given": "X."
+    },
+    {
+     "family": "Turck",
+     "given": "N."
+    },
+    {
+     "family": "Hainard",
+     "given": "A."
+    }
+   ],
+   "year": "2011",
+   "title": "pROC: An Open‐Source Package for R and S+ to Analyze and Compare ROC Curves",
+   "container": "BMC Bioinformatics",
+   "volume": "12",
+   "first_page": "77",
+   "doi": "10.1186/1471-2105-12-77"
+  },
+  {
+   "bib_id": 33,
+   "authors": [
+    {
+     "family": "Rousseau",
+     "given": "J. S."
+    },
+    {
+     "family": "Betts",
+     "given": "M. G."
+    }
+   ],
+   "year": "2022",
+   "title": "Factors Influencing Transferability in Species Distribution Models",
+   "container": "Ecography",
+   "volume": "2022",
+   "first_page": "e06060",
+   "doi": "10.1111/ecog.06060"
+  },
+  {
+   "bib_id": 34,
+   "authors": [
+    {
+     "family": "Schloss",
+     "given": "C. A."
+    },
+    {
+     "family": "Nuñez",
+     "given": "T. A."
+    },
+    {
+     "family": "Lawler",
+     "given": "J. J."
+    }
+   ],
+   "year": "2012",
+   "title": "Dispersal Will Limit Ability of Mammals to Track Climate Change in the Western Hemisphere",
+   "container": "Proceedings of the National Academy of Sciences of the United States of America",
+   "volume": "109",
+   "first_page": "8606",
+   "last_page": "8611",
+   "doi": "10.1073/pnas.1116791109"
+  },
+  {
+   "bib_id": 35,
+   "authors": [
+    {
+     "family": "Sequeira",
+     "given": "A. M. M."
+    },
+    {
+     "family": "Mellin",
+     "given": "C."
+    },
+    {
+     "family": "Lozano‐Montes",
+     "given": "H. M."
+    }
+   ],
+   "year": "2016",
+   "title": "Transferability of Predictive Models of Coral Reef Fish Species Richness",
+   "container": "Journal of Applied Ecology",
+   "volume": "53",
+   "first_page": "64",
+   "last_page": "72",
+   "doi": "10.1111/1365-2664.12578"
+  },
+  {
+   "bib_id": 36,
+   "authors": [
+    {
+     "family": "Spake",
+     "given": "R."
+    },
+    {
+     "family": "Soga",
+     "given": "M."
+    },
+    {
+     "family": "Catford",
+     "given": "J. A."
+    },
+    {
+     "family": "Eigenbrod",
+     "given": "F."
+    }
+   ],
+   "year": "2021",
+   "title": "Applying the Stress‐Gradient Hypothesis to Curb the Spread of Invasive Bamboo",
+   "container": "Journal of Applied Ecology",
+   "volume": "58",
+   "first_page": "1993",
+   "last_page": "2003",
+   "doi": "10.1111/1365-2664.13945"
+  },
+  {
+   "bib_id": 37,
+   "authors": [
+    {
+     "family": "Suttle",
+     "given": "K. B."
+    },
+    {
+     "family": "Thomsen",
+     "given": "M. A."
+    },
+    {
+     "family": "Power",
+     "given": "M. E."
+    }
+   ],
+   "year": "2007",
+   "title": "Species Interactions Reverse Grassland Responses to Changing Climate",
+   "container": "Science",
+   "volume": "315",
+   "first_page": "640",
+   "last_page": "642",
+   "doi": "10.1126/science.1136401"
+  },
+  {
+   "bib_id": 38,
+   "authors": [
+    {
+     "family": "Takolander",
+     "given": "A."
+    },
+    {
+     "family": "Forsblom",
+     "given": "L."
+    },
+    {
+     "family": "Hellsten",
+     "given": "S."
+    }
+   ],
+   "year": "2025",
+   "title": "Cross‐Realm Transferability of Species Distribution Models–Species Characteristics and Prevalence Matter More Than Modelling Methods Applied",
+   "container": "Ecological Modelling",
+   "volume": "499",
+   "first_page": "110,950"
+  },
+  {
+   "bib_id": 39,
+   "authors": [
+    {
+     "family": "Tsoar",
+     "given": "A."
+    },
+    {
+     "family": "Allouche",
+     "given": "O."
+    },
+    {
+     "family": "Steinitz",
+     "given": "O."
+    },
+    {
+     "family": "Rotem",
+     "given": "D."
+    },
+    {
+     "family": "Kadmon",
+     "given": "R."
+    }
+   ],
+   "year": "2007",
+   "title": "A Comparative Evaluation of Presence‐Only Methods for Modelling Species Distribution",
+   "container": "Diversity and Distributions",
+   "volume": "13",
+   "first_page": "397",
+   "last_page": "405",
+   "doi": "10.1111/j.1472-4642.2007.00346.x"
+  },
+  {
+   "bib_id": 40,
+   "authors": [
+    {
+     "family": "Valavi",
+     "given": "R."
+    },
+    {
+     "family": "Elith",
+     "given": "J."
+    },
+    {
+     "family": "Lahoz‐Monfort",
+     "given": "J. J."
+    },
+    {
+     "family": "Guillera‐Arroita",
+     "given": "G."
+    }
+   ],
+   "year": "2023",
+   "title": "Flexible Species Distribution Modelling Methods Perform Well on Spatially Separated Testing Data",
+   "container": "Global Ecology and Biogeography",
+   "volume": "32",
+   "first_page": "369",
+   "last_page": "383",
+   "doi": "10.1111/geb.13639"
+  },
+  {
+   "bib_id": 41,
+   "authors": [
+    {
+     "family": "Valavi",
+     "given": "R."
+    },
+    {
+     "family": "Guillera‐Arroita",
+     "given": "G."
+    },
+    {
+     "family": "Lahoz‐Monfort",
+     "given": "J. J."
+    },
+    {
+     "family": "Elith",
+     "given": "J."
+    }
+   ],
+   "year": "2022",
+   "title": "Predictive Performance of Presence‐Only Species Distribution Models: A Benchmark Study With Reproducible Code",
+   "container": "Ecological Monographs",
+   "volume": "92",
+   "first_page": "e01486",
+   "doi": "10.1002/ecm.1486"
+  },
+  {
+   "bib_id": 42,
+   "authors": [
+    {
+     "family": "Viana",
+     "given": "D. S."
+    },
+    {
+     "family": "Chase",
+     "given": "J. M."
+    }
+   ],
+   "year": "2022",
+   "title": "Increasing Climatic Decoupling of Bird Abundances and Distributions",
+   "container": "Nature Ecology and Evolution",
+   "volume": "6",
+   "first_page": "1299",
+   "last_page": "1306",
+   "doi": "10.1038/s41559-022-01814-y"
+  },
+  {
+   "bib_id": 43,
+   "authors": [
+    {
+     "family": "Viana",
+     "given": "D. S."
+    },
+    {
+     "family": "Oficialdegui",
+     "given": "F. J."
+    },
+    {
+     "family": "Soriano",
+     "given": "M. d. C."
+    },
+    {
+     "family": "Hermoso",
+     "given": "V."
+    },
+    {
+     "family": "Clavero",
+     "given": "M."
+    }
+   ],
+   "year": "2023",
+   "title": "Niche Dynamics Along Two Centuries of Multiple Crayfish Invasions",
+   "container": "Journal of Animal Ecology",
+   "volume": "92",
+   "first_page": "2138",
+   "last_page": "2150",
+   "doi": "10.1111/1365-2656.14007"
+  },
+  {
+   "bib_id": 44,
+   "authors": [
+    {
+     "family": "Yates",
+     "given": "K. L."
+    },
+    {
+     "family": "Bouchet",
+     "given": "P. J."
+    },
+    {
+     "family": "Caley",
+     "given": "M. J."
+    }
+   ],
+   "year": "2018",
+   "title": "Outstanding Challenges in the Transferability of Ecological Models",
+   "container": "Trends in Ecology and Evolution",
+   "volume": "33",
+   "first_page": "790",
+   "last_page": "802",
+   "doi": "10.1016/j.tree.2018.08.001"
+  },
+  {
+   "bib_id": 45,
+   "authors": [
+    {
+     "family": "Zachariah Atwater",
+     "given": "D."
+    },
+    {
+     "family": "Barney",
+     "given": "J. N."
+    }
+   ],
+   "year": "2021",
+   "title": "Climatic Niche Shifts in 815 Introduced Plant Species Affect Their Predicted Distributions",
+   "container": "Global Ecology and Biogeography",
+   "volume": "30",
+   "first_page": "1671",
+   "last_page": "1684",
+   "doi": "10.1111/geb.13342"
+  },
+  {
+   "bib_id": 46,
+   "authors": [
+    {
+     "family": "Zurell",
+     "given": "D."
+    },
+    {
+     "family": "Schifferle",
+     "given": "K."
+    },
+    {
+     "family": "Herrando",
+     "given": "S."
+    }
+   ],
+   "year": "2024",
+   "title": "Range and Climate Niche Shifts in European and North American Breeding Birds",
+   "container": "Philosophical Transactions of the Royal Society, B: Biological Sciences",
+   "volume": "379",
+   "first_page": "20,230,013",
+   "doi": "10.1098/rstb.2023.0013"
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-core-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "jats_doi": "10.1002/ece3.74362"
+ }
+}

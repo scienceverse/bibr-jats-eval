@@ -1,0 +1,1192 @@
+{
+ "paper_id": "10.1371_journal.pone.0354307",
+ "info": {
+  "title": "Multi-view graph-regularized deep metric subspace clustering network",
+  "doi": "10.1371/journal.pone.0354307",
+  "file_name": "10.1371_journal.pone.0354307.pdf",
+  "abstract": "Multi-view subspace clustering has progressed significantly by using deep neural networks to handle nonlinear data representations. A recent advancement, the Multi-view Self-Expressive Subspace Clustering (MSESC) network, achieves markedly higher computational efficiency by substituting the traditional self-expression layer with a deep metric learning approach. Nevertheless, MSESC still suffers from two notable limitations: it fails to adequately capture the high-order geometric structures inherent in multi-view data, and it lacks effective guidance from the underlying clustering distribution. To overcome these shortcomings, we propose a novel framework termed Multi-View Graph Regularized Deep Metric Subspace Clustering (MVGR-DMSC). The proposed method introduces two key components into MSESC to enhance the discriminability of representations. First, a dual-order graph regularization module is devised to maintain both first-order and second-order manifold structures, thereby allowing the model to capture more complex local geometric relationships. Second, an adaptive view-weighted deep clustering module is incorporated, which employs the Kullback–Leibler divergence to guide representation learning while dynamically adjusting the contributions of different views. Through evaluations on five benchmark datasets, we show that MVGR-DMSC consistently yields better results than several state-of-the-art approaches, including the direct baseline MSESC, in both accuracy and robustness."
+ },
+ "author": [
+  {
+   "author_id": 1,
+   "given": "Pengpeng",
+   "family": "Luo",
+   "affiliation": "College of Mathematical Sciences, Harbin Engineering University, Harbin, Heilongjiang, PR China",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 2,
+   "given": "Ming",
+   "family": "Yang",
+   "affiliation": "College of Mathematical Sciences, Harbin Engineering University, Harbin, Heilongjiang, PR China",
+   "email": "",
+   "orcid": "",
+   "corresponding": true
+  },
+  {
+   "author_id": 3,
+   "given": "Chong",
+   "family": "Peng",
+   "affiliation": "College of Computer Science and Technology, Ocean University of China, Qingdao, Shandong, PR China",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 4,
+   "given": "Qianqian",
+   "family": "Wang",
+   "affiliation": "School of Telecommunications Engineering, Xidian University, Xi’an, PR China",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  }
+ ],
+ "section": [
+  {
+   "section_id": 1,
+   "section_type": "abstract",
+   "header": "Abstract",
+   "level": 1,
+   "parent_section_id": null,
+   "classification_score": 1.0
+  }
+ ],
+ "text": [
+  {
+   "text_id": 1,
+   "section_id": 1,
+   "paragraph_id": 1,
+   "text": "Multi-view subspace clustering has progressed significantly by using deep neural networks to handle nonlinear data representations. A recent advancement, the Multi-view Self-Expressive Subspace Clustering (MSESC) network, achieves markedly higher computational efficiency by substituting the traditional self-expression layer with a deep metric learning approach. Nevertheless, MSESC still suffers from two notable limitations: it fails to adequately capture the high-order geometric structures inherent in multi-view data, and it lacks effective guidance from the underlying clustering distribution. To overcome these shortcomings, we propose a novel framework termed Multi-View Graph Regularized Deep Metric Subspace Clustering (MVGR-DMSC). The proposed method introduces two key components into MSESC to enhance the discriminability of representations. First, a dual-order graph regularization module is devised to maintain both first-order and second-order manifold structures, thereby allowing the model to capture more complex local geometric relationships. Second, an adaptive view-weighted deep clustering module is incorporated, which employs the Kullback–Leibler divergence to guide representation learning while dynamically adjusting the contributions of different views. Through evaluations on five benchmark datasets, we show that MVGR-DMSC consistently yields better results than several state-of-the-art approaches, including the direct baseline MSESC, in both accuracy and robustness.",
+   "page_number": 1
+  }
+ ],
+ "bib": [
+  {
+   "bib_id": 1,
+   "authors": [
+    {
+     "family": "Chao",
+     "given": "G"
+    },
+    {
+     "family": "Sun",
+     "given": "S"
+    },
+    {
+     "family": "Bi",
+     "given": "J"
+    }
+   ],
+   "year": "2021",
+   "title": "A Survey on Multiview Clustering",
+   "container": "IEEE Trans Artif Intell",
+   "volume": "2",
+   "first_page": "146",
+   "doi": "10.1109/tai.2021.3065894"
+  },
+  {
+   "bib_id": 2,
+   "authors": [
+    {
+     "family": "Zhou",
+     "given": "L"
+    },
+    {
+     "family": "Du",
+     "given": "G"
+    },
+    {
+     "family": "Lü",
+     "given": "K"
+    },
+    {
+     "family": "Wang",
+     "given": "L"
+    },
+    {
+     "family": "Du",
+     "given": "J"
+    }
+   ],
+   "year": "2024",
+   "title": "A Survey and an Empirical Evaluation of Multi-View Clustering Approaches",
+   "container": "ACM Comput Surv",
+   "volume": "56",
+   "first_page": "1",
+   "last_page": "38",
+   "doi": "10.1145/3645108"
+  },
+  {
+   "bib_id": 3,
+   "doi": "10.1137/1.9781611972832.28"
+  },
+  {
+   "bib_id": 4
+  },
+  {
+   "bib_id": 5
+  },
+  {
+   "bib_id": 6,
+   "doi": "10.1109/cvpr.2015.7298657"
+  },
+  {
+   "bib_id": 7,
+   "authors": [
+    {
+     "family": "Kong",
+     "given": "Z"
+    },
+    {
+     "family": "Chang",
+     "given": "D"
+    },
+    {
+     "family": "Wang",
+     "given": "Y"
+    },
+    {
+     "family": "Li",
+     "given": "P"
+    },
+    {
+     "family": "Zhao",
+     "given": "Y"
+    }
+   ],
+   "year": "2026",
+   "title": "Tensorial Multi-View Clustering via Alternative Rank Minimization and Inter-View Alignment",
+   "container": "IEEE Trans Knowl Data Eng",
+   "volume": "38",
+   "first_page": "3196",
+   "doi": "10.1109/tkde.2026.3666476"
+  },
+  {
+   "bib_id": 8,
+   "authors": [
+    {
+     "family": "Yin",
+     "given": "Q"
+    },
+    {
+     "family": "Wu",
+     "given": "S"
+    },
+    {
+     "family": "He",
+     "given": "R"
+    },
+    {
+     "family": "Wang",
+     "given": "L"
+    }
+   ],
+   "year": "2015",
+   "title": "Multi-view clustering via pairwise sparse subspace representation",
+   "container": "Neurocomputing",
+   "volume": "156",
+   "first_page": "12",
+   "last_page": "21",
+   "doi": "10.1016/j.neucom.2015.01.017"
+  },
+  {
+   "bib_id": 9,
+   "doi": "10.1145/3301326.3301391"
+  },
+  {
+   "bib_id": 10
+  },
+  {
+   "bib_id": 11,
+   "authors": [
+    {
+     "family": "Zhu",
+     "given": "P"
+    },
+    {
+     "family": "Yao",
+     "given": "X"
+    },
+    {
+     "family": "Wang",
+     "given": "Y"
+    },
+    {
+     "family": "Hui",
+     "given": "B"
+    },
+    {
+     "family": "Du",
+     "given": "D"
+    },
+    {
+     "family": "Hu",
+     "given": "Q"
+    }
+   ],
+   "year": "2024",
+   "title": "Multiview Deep Subspace Clustering Networks",
+   "container": "IEEE Transactions on Cybernetics",
+   "volume": "54",
+   "first_page": "4280"
+  },
+  {
+   "bib_id": 12,
+   "authors": [
+    {
+     "family": "Xie",
+     "given": "C"
+    },
+    {
+     "family": "Kong",
+     "given": "J"
+    },
+    {
+     "family": "Jiang",
+     "given": "M"
+    },
+    {
+     "family": "Tao",
+     "given": "X"
+    }
+   ],
+   "year": "2026",
+   "title": "Deep tensor completion graph convolutional subspace clustering",
+   "container": "Digital Signal Processing",
+   "volume": "168",
+   "first_page": "105478",
+   "doi": "10.1016/j.dsp.2025.105478"
+  },
+  {
+   "bib_id": 13,
+   "authors": [
+    {
+     "family": "Song",
+     "given": "P"
+    },
+    {
+     "family": "Liu",
+     "given": "Z"
+    },
+    {
+     "family": "Mu",
+     "given": "J"
+    },
+    {
+     "family": "Cheng",
+     "given": "Y"
+    }
+   ],
+   "year": "2024",
+   "title": "Deep embedding based tensor incomplete multi-view clustering",
+   "container": "Digital Signal Processing",
+   "volume": "151",
+   "first_page": "104534",
+   "doi": "10.1016/j.dsp.2024.104534"
+  },
+  {
+   "bib_id": 14,
+   "authors": [
+    {
+     "family": "Zhao",
+     "given": "L"
+    },
+    {
+     "family": "Zhang",
+     "given": "X-L"
+    },
+    {
+     "family": "Yang",
+     "given": "K"
+    }
+   ],
+   "year": "2025",
+   "title": "A deep clustering framework for underwater image recognition",
+   "container": "Digital Signal Processing",
+   "volume": "161",
+   "first_page": "105131",
+   "doi": "10.1016/j.dsp.2025.105131"
+  },
+  {
+   "bib_id": 15,
+   "doi": "10.24963/ijcai.2019/409"
+  },
+  {
+   "bib_id": 16,
+   "doi": "10.1145/3581783.3612237"
+  },
+  {
+   "bib_id": 17,
+   "authors": [
+    {
+     "family": "Deng",
+     "given": "C"
+    },
+    {
+     "family": "Yao",
+     "given": "H"
+    },
+    {
+     "family": "Bu",
+     "given": "C"
+    }
+   ],
+   "year": "2020",
+   "title": "The bounds on spectral radius of nonnegative tensors via general product of tensors",
+   "container": "Linear Algebra and its Applications",
+   "volume": "602",
+   "first_page": "206",
+   "doi": "10.1016/j.laa.2020.05.019"
+  },
+  {
+   "bib_id": 18,
+   "authors": [
+    {
+     "family": "Zhang",
+     "given": "J"
+    },
+    {
+     "family": "Bu",
+     "given": "C"
+    }
+   ],
+   "year": "2021",
+   "title": "An iterative method for finding the spectral radius of an irreducible nonnegative tensor",
+   "container": "Comp Appl Math",
+   "volume": "40",
+   "doi": "10.1007/s40314-020-01375-5"
+  },
+  {
+   "bib_id": 19,
+   "authors": [
+    {
+     "family": "Lu",
+     "given": "Y"
+    },
+    {
+     "family": "Lin",
+     "given": "Y"
+    },
+    {
+     "family": "Yang",
+     "given": "M"
+    },
+    {
+     "family": "Peng",
+     "given": "D"
+    },
+    {
+     "family": "Hu",
+     "given": "P"
+    },
+    {
+     "family": "Peng",
+     "given": "X"
+    }
+   ],
+   "year": "2024",
+   "title": "Decoupled Contrastive Multi-View Clustering with High-Order Random Walks",
+   "container": "AAAI",
+   "volume": "38",
+   "first_page": "14193",
+   "doi": "10.1609/aaai.v38i13.29330"
+  },
+  {
+   "bib_id": 20
+  },
+  {
+   "bib_id": 21,
+   "authors": [
+    {
+     "family": "Elhamifar",
+     "given": "E"
+    },
+    {
+     "family": "Vidal",
+     "given": "R"
+    }
+   ],
+   "year": "2013",
+   "title": "Sparse subspace clustering: algorithm, theory, and applications",
+   "container": "IEEE Trans Pattern Anal Mach Intell",
+   "volume": "35",
+   "first_page": "2765",
+   "doi": "10.1109/TPAMI.2013.57"
+  },
+  {
+   "bib_id": 22,
+   "authors": [
+    {
+     "family": "Liu",
+     "given": "G"
+    },
+    {
+     "family": "Lin",
+     "given": "Z"
+    },
+    {
+     "family": "Yan",
+     "given": "S"
+    },
+    {
+     "family": "Sun",
+     "given": "J"
+    },
+    {
+     "family": "Yu",
+     "given": "Y"
+    },
+    {
+     "family": "Ma",
+     "given": "Y"
+    }
+   ],
+   "year": "2013",
+   "title": "Robust recovery of subspace structures by low-rank representation",
+   "container": "IEEE Trans Pattern Anal Mach Intell",
+   "volume": "35",
+   "first_page": "171",
+   "doi": "10.1109/TPAMI.2012.88"
+  },
+  {
+   "bib_id": 23,
+   "title": "Subspace Clustering",
+   "volume": "28",
+   "first_page": "52",
+   "last_page": "68"
+  },
+  {
+   "bib_id": 24,
+   "authors": [
+    {
+     "family": "Deng",
+     "given": "T"
+    },
+    {
+     "family": "Yang",
+     "given": "G"
+    },
+    {
+     "family": "Huang",
+     "given": "Y"
+    },
+    {
+     "family": "Yang",
+     "given": "M"
+    },
+    {
+     "family": "Fujita",
+     "given": "H"
+    }
+   ],
+   "year": "2023",
+   "title": "Adaptive multi-granularity sparse subspace clustering",
+   "container": "Information Sciences",
+   "volume": "642",
+   "first_page": "119143",
+   "doi": "10.1016/j.ins.2023.119143"
+  },
+  {
+   "bib_id": 25,
+   "authors": [
+    {
+     "family": "Yang",
+     "given": "G"
+    },
+    {
+     "family": "Deng",
+     "given": "T"
+    },
+    {
+     "family": "Yang",
+     "given": "M"
+    },
+    {
+     "family": "Wang",
+     "given": "C"
+    }
+   ],
+   "year": "2025",
+   "title": "Large-scale stochastic sparse subspace representation with consensus anchor guidance",
+   "container": "Appl Intell",
+   "volume": "55",
+   "doi": "10.1007/s10489-025-06392-7"
+  },
+  {
+   "bib_id": 26,
+   "authors": [
+    {
+     "family": "Zhang",
+     "given": "C"
+    },
+    {
+     "family": "Fu",
+     "given": "H"
+    },
+    {
+     "family": "Liu",
+     "given": "S"
+    },
+    {
+     "family": "Liu",
+     "given": "G"
+    },
+    {
+     "family": "Cao",
+     "given": "X"
+    }
+   ],
+   "year": "2015"
+  },
+  {
+   "bib_id": 27,
+   "authors": [
+    {
+     "family": "Mei",
+     "given": "S"
+    },
+    {
+     "family": "Wang",
+     "given": "Q"
+    },
+    {
+     "family": "Gao",
+     "given": "Q"
+    },
+    {
+     "family": "Yang",
+     "given": "M"
+    }
+   ],
+   "year": "2025",
+   "title": "Multi-view clustering based on feature selection and semi-non-negative anchor graph factorization",
+   "container": "Neural Netw",
+   "volume": "184",
+   "first_page": "107111",
+   "doi": "10.1016/j.neunet.2024.107111"
+  },
+  {
+   "bib_id": 28,
+   "authors": [
+    {
+     "family": "Chen",
+     "given": "Y"
+    },
+    {
+     "family": "Xiao",
+     "given": "X"
+    },
+    {
+     "family": "Peng",
+     "given": "C"
+    },
+    {
+     "family": "Lu",
+     "given": "G"
+    },
+    {
+     "family": "Zhou",
+     "given": "Y"
+    }
+   ],
+   "year": "2022",
+   "title": "Low-Rank Tensor Graph Learning for Multi-View Subspace Clustering",
+   "container": "IEEE Trans Circuits Syst Video Technol",
+   "volume": "32",
+   "first_page": "92",
+   "last_page": "104",
+   "doi": "10.1109/tcsvt.2021.3055625"
+  },
+  {
+   "bib_id": 29,
+   "authors": [
+    {
+     "family": "Fan",
+     "given": "Z"
+    },
+    {
+     "family": "Deng",
+     "given": "C"
+    },
+    {
+     "family": "Li",
+     "given": "H"
+    },
+    {
+     "family": "Bu",
+     "given": "C"
+    }
+   ],
+   "year": "2018",
+   "title": "Multiplications and eigenvalues of tensors via linear maps",
+   "container": "Linear and Multilinear Algebra",
+   "volume": "68",
+   "first_page": "606",
+   "doi": "10.1080/03081087.2018.1515173"
+  },
+  {
+   "bib_id": 30,
+   "authors": [
+    {
+     "family": "Wang",
+     "given": "J"
+    },
+    {
+     "family": "Deng",
+     "given": "T"
+    },
+    {
+     "family": "Yang",
+     "given": "M"
+    }
+   ],
+   "year": "2026",
+   "title": "Interpretable multi-view clustering via anchor graph-based tensor decomposition with convergence guarantees",
+   "container": "Pattern Recognition",
+   "volume": "171",
+   "first_page": "112124",
+   "doi": "10.1016/j.patcog.2025.112124"
+  },
+  {
+   "bib_id": 31,
+   "authors": [
+    {
+     "family": "Wang",
+     "given": "J"
+    },
+    {
+     "family": "Deng",
+     "given": "T"
+    },
+    {
+     "family": "Ran",
+     "given": "Y"
+    },
+    {
+     "family": "Yang",
+     "given": "M"
+    },
+    {
+     "family": "Liu",
+     "given": "X"
+    }
+   ],
+   "year": "2026",
+   "title": "Embedded Multi-View Clustering via Fusing Tensor Subspace Representation and Adaptive Graph Learning",
+   "container": "IEEE Trans Circuits Syst Video Technol",
+   "volume": "36",
+   "first_page": "8631",
+   "doi": "10.1109/tcsvt.2026.3664412"
+  },
+  {
+   "bib_id": 32,
+   "authors": [
+    {
+     "family": "Wang",
+     "given": "J"
+    },
+    {
+     "family": "Wang",
+     "given": "J"
+    },
+    {
+     "family": "Deng",
+     "given": "T"
+    },
+    {
+     "family": "Yang",
+     "given": "M"
+    }
+   ],
+   "year": "2025",
+   "title": "Nonconvex tensorial submodule clustering of 2-D images by mining local and global structural information",
+   "container": "Applied Mathematical Modelling",
+   "volume": "143",
+   "first_page": "116002",
+   "doi": "10.1016/j.apm.2025.116002"
+  },
+  {
+   "bib_id": 33,
+   "authors": [
+    {
+     "family": "Wang",
+     "given": "J"
+    },
+    {
+     "family": "Deng",
+     "given": "T"
+    },
+    {
+     "family": "Yang",
+     "given": "M"
+    },
+    {
+     "family": "Wang",
+     "given": "J"
+    }
+   ],
+   "year": "2025",
+   "title": "Embedded Multi-View Clustering via Collaborative Tensor Subspace Representation and Multi-Graph Fusion",
+   "container": "IEEE Signal Process Lett",
+   "volume": "32",
+   "first_page": "911",
+   "doi": "10.1109/lsp.2025.3540369"
+  },
+  {
+   "bib_id": 34,
+   "authors": [
+    {
+     "family": "Ji",
+     "given": "P"
+    },
+    {
+     "family": "Zhang",
+     "given": "T"
+    },
+    {
+     "family": "Li",
+     "given": "H"
+    },
+    {
+     "family": "Salzmann",
+     "given": "M"
+    },
+    {
+     "family": "Reid",
+     "given": "I"
+    }
+   ],
+   "year": "2017"
+  },
+  {
+   "bib_id": 35,
+   "authors": [
+    {
+     "family": "Peng",
+     "given": "X"
+    }
+   ],
+   "year": "2016"
+  },
+  {
+   "bib_id": 36,
+   "authors": [
+    {
+     "family": "Zhang",
+     "given": "T"
+    },
+    {
+     "family": "Ji",
+     "given": "P"
+    },
+    {
+     "family": "Harandi",
+     "given": "M"
+    },
+    {
+     "family": "Salzmann",
+     "given": "M"
+    },
+    {
+     "family": "Reid",
+     "given": "I"
+    }
+   ],
+   "year": "2019",
+   "title": "Deep subspace clustering networks",
+   "container": "Neural Networks",
+   "volume": "119",
+   "first_page": "74",
+   "last_page": "89"
+  },
+  {
+   "bib_id": 37,
+   "authors": [
+    {
+     "family": "Maggu",
+     "given": "J"
+    },
+    {
+     "family": "Majumdar",
+     "given": "A"
+    },
+    {
+     "family": "Chouzenoux",
+     "given": "E"
+    },
+    {
+     "family": "Chierchia",
+     "given": "G"
+    }
+   ],
+   "year": "2020",
+   "title": "Deeply transformed subspace clustering",
+   "container": "Signal Processing",
+   "volume": "174",
+   "first_page": "107628",
+   "doi": "10.1016/j.sigpro.2020.107628"
+  },
+  {
+   "bib_id": 38,
+   "authors": [
+    {
+     "family": "Bao",
+     "given": "Y"
+    },
+    {
+     "family": "Zhao",
+     "given": "W"
+    },
+    {
+     "family": "Zhao",
+     "given": "Q"
+    },
+    {
+     "family": "Gao",
+     "given": "Q"
+    },
+    {
+     "family": "Yang",
+     "given": "M"
+    }
+   ],
+   "year": "2024",
+   "title": "Dual contrastive learning for multi-view clustering",
+   "container": "Neurocomputing",
+   "volume": "599",
+   "first_page": "128093",
+   "doi": "10.1016/j.neucom.2024.128093"
+  },
+  {
+   "bib_id": 39,
+   "authors": [
+    {
+     "family": "Belkin",
+     "given": "M"
+    },
+    {
+     "family": "Niyogi",
+     "given": "P"
+    }
+   ],
+   "year": "2003",
+   "title": "Laplacian Eigenmaps for Dimensionality Reduction and Data Representation",
+   "container": "Neural Computation",
+   "volume": "15",
+   "first_page": "1373",
+   "doi": "10.1162/089976603321780317"
+  },
+  {
+   "bib_id": 40,
+   "authors": [
+    {
+     "family": "Cai",
+     "given": "D"
+    },
+    {
+     "family": "He",
+     "given": "X"
+    },
+    {
+     "family": "Han",
+     "given": "J"
+    },
+    {
+     "family": "Huang",
+     "given": "TS"
+    }
+   ],
+   "year": "2011",
+   "title": "Graph Regularized Nonnegative Matrix Factorization for Data Representation",
+   "container": "IEEE Trans Pattern Anal Mach Intell",
+   "volume": "33",
+   "first_page": "1548",
+   "doi": "10.1109/TPAMI.2010.231"
+  },
+  {
+   "bib_id": 41,
+   "authors": [
+    {
+     "family": "Guo",
+     "given": "X"
+    },
+    {
+     "family": "Gao",
+     "given": "L"
+    },
+    {
+     "family": "Liu",
+     "given": "X"
+    },
+    {
+     "family": "Yin",
+     "given": "J"
+    }
+   ],
+   "year": "2017"
+  },
+  {
+   "bib_id": 42
+  },
+  {
+   "bib_id": 43,
+   "authors": [
+    {
+     "family": "Wang",
+     "given": "J"
+    },
+    {
+     "family": "Deng",
+     "given": "T"
+    },
+    {
+     "family": "Yang",
+     "given": "M"
+    }
+   ],
+   "year": "2024",
+   "title": "Nonconvex submodule clustering via joint sliced sparse gradient and cluster-aware approach",
+   "container": "Pattern Recognition",
+   "volume": "154",
+   "first_page": "110619",
+   "doi": "10.1016/j.patcog.2024.110619"
+  },
+  {
+   "bib_id": 44
+  },
+  {
+   "bib_id": 45,
+   "authors": [
+    {
+     "family": "Zhang",
+     "given": "Z"
+    },
+    {
+     "family": "Liu",
+     "given": "L"
+    },
+    {
+     "family": "Shen",
+     "given": "F"
+    },
+    {
+     "family": "Shen",
+     "given": "HT"
+    },
+    {
+     "family": "Shao",
+     "given": "L"
+    }
+   ],
+   "year": "2019",
+   "title": "Binary Multi-View Clustering",
+   "container": "IEEE Trans Pattern Anal Mach Intell",
+   "volume": "41",
+   "first_page": "1774",
+   "doi": "10.1109/TPAMI.2018.2847335"
+  },
+  {
+   "bib_id": 46,
+   "authors": [
+    {
+     "family": "Kang",
+     "given": "Z"
+    },
+    {
+     "family": "Zhou",
+     "given": "W"
+    },
+    {
+     "family": "Zhao",
+     "given": "Z"
+    },
+    {
+     "family": "Shao",
+     "given": "J"
+    },
+    {
+     "family": "Han",
+     "given": "M"
+    },
+    {
+     "family": "Xu",
+     "given": "Z"
+    }
+   ],
+   "year": "2020",
+   "title": "Large-Scale Multi-View Subspace Clustering in Linear Time",
+   "container": "AAAI",
+   "volume": "34",
+   "first_page": "4412",
+   "doi": "10.1609/aaai.v34i04.5867"
+  },
+  {
+   "bib_id": 47,
+   "authors": [
+    {
+     "family": "Zheng",
+     "given": "Q"
+    },
+    {
+     "family": "Zhu",
+     "given": "J"
+    },
+    {
+     "family": "Ma",
+     "given": "Y"
+    },
+    {
+     "family": "Li",
+     "given": "Z"
+    },
+    {
+     "family": "Tian",
+     "given": "Z"
+    }
+   ],
+   "year": "2021",
+   "title": "Multi-view subspace clustering networks with local and global graph information",
+   "container": "Neurocomputing",
+   "volume": "449",
+   "first_page": "15",
+   "last_page": "23",
+   "doi": "10.1016/j.neucom.2021.03.115"
+  },
+  {
+   "bib_id": 48,
+   "authors": [
+    {
+     "family": "Liu",
+     "given": "C"
+    },
+    {
+     "family": "Liao",
+     "given": "Z"
+    },
+    {
+     "family": "Ma",
+     "given": "Y"
+    },
+    {
+     "family": "Zhan",
+     "given": "K"
+    }
+   ],
+   "year": "2022",
+   "title": "Stationary Diffusion State Neural Estimation for Multiview Clustering",
+   "container": "AAAI",
+   "volume": "36",
+   "first_page": "7542",
+   "doi": "10.1609/aaai.v36i7.20719"
+  },
+  {
+   "bib_id": 49,
+   "doi": "10.1109/cvpr52688.2022.01558"
+  },
+  {
+   "bib_id": 50,
+   "doi": "10.1109/cvpr52688.2022.00030"
+  },
+  {
+   "bib_id": 51,
+   "doi": "10.1109/iccv51070.2023.01536"
+  },
+  {
+   "bib_id": 52,
+   "authors": [
+    {
+     "family": "Xu",
+     "given": "J"
+    },
+    {
+     "family": "Meng",
+     "given": "M"
+    },
+    {
+     "family": "Liu",
+     "given": "J"
+    },
+    {
+     "family": "Wu",
+     "given": "J"
+    }
+   ],
+   "year": "2025",
+   "title": "Deep multi-view clustering with diverse and discriminative feature learning",
+   "container": "Pattern Recognition",
+   "volume": "161",
+   "first_page": "111322",
+   "doi": "10.1016/j.patcog.2024.111322"
+  },
+  {
+   "bib_id": 53,
+   "doi": "10.1109/cvpr52729.2023.01902"
+  },
+  {
+   "bib_id": 54,
+   "authors": [
+    {
+     "family": "Yan",
+     "given": "W"
+    },
+    {
+     "family": "Zhou",
+     "given": "Y"
+    },
+    {
+     "family": "Wang",
+     "given": "Y"
+    },
+    {
+     "family": "Zheng",
+     "given": "Q"
+    },
+    {
+     "family": "Zhu",
+     "given": "J"
+    }
+   ],
+   "year": "2024",
+   "title": "Multi-view Semantic Consistency based Information Bottleneck for Clustering",
+   "container": "Knowledge-Based Systems",
+   "volume": "288",
+   "first_page": "111448",
+   "doi": "10.1016/j.knosys.2024.111448"
+  },
+  {
+   "bib_id": 55,
+   "authors": [
+    {
+     "family": "Liu",
+     "given": "M"
+    },
+    {
+     "family": "Yang",
+     "given": "Z"
+    },
+    {
+     "family": "Han",
+     "given": "W"
+    },
+    {
+     "family": "Xie",
+     "given": "S"
+    }
+   ],
+   "year": "2024",
+   "title": "Progressive Neighbor-masked Contrastive Learning for Fusion-style Deep Multi-view Clustering",
+   "container": "Neural Netw",
+   "volume": "179",
+   "first_page": "106503",
+   "doi": "10.1016/j.neunet.2024.106503"
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-core-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "jats_doi": "10.1371/journal.pone.0354307"
+ }
+}

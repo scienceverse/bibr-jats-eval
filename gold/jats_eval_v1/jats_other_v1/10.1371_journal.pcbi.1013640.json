@@ -1,0 +1,1373 @@
+{
+ "paper_id": "10.1371_journal.pcbi.1013640",
+ "info": {
+  "title": "Integrating multi-type features and knowledge graph for graded prediction of drug-induced liver injury in humans",
+  "doi": "10.1371/journal.pcbi.1013640",
+  "file_name": "10.1371_journal.pcbi.1013640.pdf",
+  "abstract": "Drug-induced liver toxicity poses a threat to human health and remains a significant reason for drug withdrawal from the market. Therefore, early identification of drug-induced liver injury (DILI) during drug development is crucial. However, most studies on hepatotoxicity prediction are limited to single type of features or binary toxicity assessment. In this study, we propose a novel liver toxicity prediction model called MolFPKG-DILI (Molecular Graph, FingerPrint and Knowledge Graph-based DILI), which integrates multi-type compound features and knowledge graph for assessing DILI severity. Molecular fingerprints and molecular graphs capture different information of compounds, and models using individual features alone have shown limited performance. Our model incorporates an attention mechanism to effectively fuse the information from molecular fingerprints and molecular graphs. Furthermore, we leverage the relationship between drugs and other entities from the knowledge graph to achieve liver toxicity grading. Experimental results demonstrate that our proposed method exhibits highly competitive performance in both DILI/No-DILI and Most-DILI/Less-DILI classification. External validation conducted on an independent set of benchmark drugs yields satisfactory results, demonstrating the robustness of our approach. Additionally, we employ a series of interpretability methods to investigate the relationship between the different types of data utilized by the model and toxicity outcomes. These analyses highlight the interpretability of our method, providing valuable insights and support for drug toxicity evaluation."
+ },
+ "author": [
+  {
+   "author_id": 1,
+   "given": "Ying",
+   "family": "Liu",
+   "affiliation": "School of Computer Software, College of Intelligence and Computing, Tianjin University, Tianjin, China",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 2,
+   "given": "Kaimiao",
+   "family": "Hu",
+   "affiliation": "School of Computer Software, College of Intelligence and Computing, Tianjin University, Tianjin, China",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 3,
+   "given": "Jie",
+   "family": "Geng",
+   "affiliation": "Department of Cardiology, Tianjin Chest Hospital, Tianjin University, Tianjin, China; Tianjin Key Laboratory of Cardiovascular Emergency and Critical Care, Tianjin Municipal Science and Technology Bureau, Tianjin, China",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 4,
+   "given": "Qi",
+   "family": "Dai",
+   "affiliation": "College of Life Science and Medicine, Zhejiang Sci-Tech University, Hangzhou, China",
+   "email": "",
+   "orcid": "",
+   "corresponding": true
+  },
+  {
+   "author_id": 5,
+   "given": "Leyi",
+   "family": "Wei",
+   "affiliation": "Center for Artificial Intelligence driven Drug Discovery, Faculty of Applied Science, Macao Polytechnic University, Macao SAR, China",
+   "email": "",
+   "orcid": "",
+   "corresponding": true
+  },
+  {
+   "author_id": 6,
+   "given": "Ran",
+   "family": "Su",
+   "affiliation": "School of Computer Software, College of Intelligence and Computing, Tianjin University, Tianjin, China",
+   "email": "",
+   "orcid": "",
+   "corresponding": true
+  }
+ ],
+ "section": [
+  {
+   "section_id": 1,
+   "section_type": "abstract",
+   "header": "Abstract",
+   "level": 1,
+   "parent_section_id": null,
+   "classification_score": 1.0
+  }
+ ],
+ "text": [
+  {
+   "text_id": 1,
+   "section_id": 1,
+   "paragraph_id": 1,
+   "text": "Drug-induced liver toxicity poses a threat to human health and remains a significant reason for drug withdrawal from the market. Therefore, early identification of drug-induced liver injury (DILI) during drug development is crucial. However, most studies on hepatotoxicity prediction are limited to single type of features or binary toxicity assessment. In this study, we propose a novel liver toxicity prediction model called MolFPKG-DILI (Molecular Graph, FingerPrint and Knowledge Graph-based DILI), which integrates multi-type compound features and knowledge graph for assessing DILI severity. Molecular fingerprints and molecular graphs capture different information of compounds, and models using individual features alone have shown limited performance. Our model incorporates an attention mechanism to effectively fuse the information from molecular fingerprints and molecular graphs. Furthermore, we leverage the relationship between drugs and other entities from the knowledge graph to achieve liver toxicity grading. Experimental results demonstrate that our proposed method exhibits highly competitive performance in both DILI/No-DILI and Most-DILI/Less-DILI classification. External validation conducted on an independent set of benchmark drugs yields satisfactory results, demonstrating the robustness of our approach. Additionally, we employ a series of interpretability methods to investigate the relationship between the different types of data utilized by the model and toxicity outcomes. These analyses highlight the interpretability of our method, providing valuable insights and support for drug toxicity evaluation.",
+   "page_number": 1
+  }
+ ],
+ "bib": [
+  {
+   "bib_id": 1,
+   "authors": [
+    {
+     "family": "European Association for the Study of the",
+     "given": "Liver"
+    }
+   ],
+   "year": "2019",
+   "title": "EASL clinical practice guidelines: Drug-induced liver injury",
+   "container": "J Hepatol.",
+   "volume": "70",
+   "first_page": "1222",
+   "doi": "10.1016/j.jhep.2019.02.014"
+  },
+  {
+   "bib_id": 2,
+   "authors": [
+    {
+     "family": "Craveiro",
+     "given": "NS"
+    },
+    {
+     "family": "Lopes",
+     "given": "BS"
+    },
+    {
+     "family": "Tomás",
+     "given": "L"
+    },
+    {
+     "family": "Almeida",
+     "given": "SF"
+    }
+   ],
+   "year": "2020",
+   "title": "Drug withdrawal due to safety: A review of the data supporting withdrawal decision",
+   "container": "Curr Drug Saf.",
+   "volume": "15",
+   "first_page": "4",
+   "last_page": "12",
+   "doi": "10.2174/1574886314666191004092520"
+  },
+  {
+   "bib_id": 3,
+   "authors": [
+    {
+     "family": "Morgan",
+     "given": "S"
+    },
+    {
+     "family": "Grootendorst",
+     "given": "P"
+    },
+    {
+     "family": "Lexchin",
+     "given": "J"
+    },
+    {
+     "family": "Cunningham",
+     "given": "C"
+    },
+    {
+     "family": "Greyson",
+     "given": "D"
+    }
+   ],
+   "year": "2011",
+   "title": "The cost of drug development: A systematic review",
+   "container": "Health Policy.",
+   "volume": "100",
+   "first_page": "4",
+   "last_page": "17",
+   "doi": "10.1016/j.healthpol.2010.12.002"
+  },
+  {
+   "bib_id": 4,
+   "authors": [
+    {
+     "family": "Lim",
+     "given": "S"
+    },
+    {
+     "family": "Kim",
+     "given": "Y"
+    },
+    {
+     "family": "Gu",
+     "given": "J"
+    },
+    {
+     "family": "Lee",
+     "given": "S"
+    },
+    {
+     "family": "Shin",
+     "given": "W"
+    },
+    {
+     "family": "Kim",
+     "given": "S"
+    }
+   ],
+   "year": "2022",
+   "title": "Supervised chemical graph mining improves drug-induced liver injury prediction",
+   "container": "iScience.",
+   "volume": "26",
+   "first_page": "105677",
+   "doi": "10.1016/j.isci.2022.105677"
+  },
+  {
+   "bib_id": 5,
+   "authors": [
+    {
+     "family": "Carracedo-Reboredo",
+     "given": "P"
+    },
+    {
+     "family": "Liñares-Blanco",
+     "given": "J"
+    },
+    {
+     "family": "Rodríguez-Fernández",
+     "given": "N"
+    },
+    {
+     "family": "Cedrón",
+     "given": "F"
+    },
+    {
+     "family": "Novoa",
+     "given": "FJ"
+    },
+    {
+     "family": "Carballal",
+     "given": "A"
+    }
+   ],
+   "year": "2021",
+   "title": "A review on machine learning approaches and trends in drug discovery",
+   "container": "Comput Struct Biotechnol J.",
+   "volume": "19",
+   "first_page": "4538",
+   "doi": "10.1016/j.csbj.2021.08.011"
+  },
+  {
+   "bib_id": 6,
+   "authors": [
+    {
+     "family": "Ai",
+     "given": "H"
+    },
+    {
+     "family": "Chen",
+     "given": "W"
+    },
+    {
+     "family": "Zhang",
+     "given": "L"
+    },
+    {
+     "family": "Huang",
+     "given": "L"
+    },
+    {
+     "family": "Yin",
+     "given": "Z"
+    },
+    {
+     "family": "Hu",
+     "given": "H"
+    }
+   ],
+   "year": "2018",
+   "title": "Predicting drug-induced liver injury using ensemble learning methods and molecular fingerprints",
+   "container": "Toxicol Sci.",
+   "volume": "165",
+   "first_page": "100",
+   "doi": "10.1093/toxsci/kfy121"
+  },
+  {
+   "bib_id": 7,
+   "authors": [
+    {
+     "family": "Li",
+     "given": "T"
+    },
+    {
+     "family": "Tong",
+     "given": "W"
+    },
+    {
+     "family": "Roberts",
+     "given": "R"
+    },
+    {
+     "family": "Liu",
+     "given": "Z"
+    },
+    {
+     "family": "Thakkar",
+     "given": "S"
+    }
+   ],
+   "year": "2021",
+   "title": "DeepDILI: Deep learning-powered drug-induced liver injury prediction using model-level representation",
+   "container": "Chem Res Toxicol.",
+   "volume": "34",
+   "first_page": "550",
+   "doi": "10.1021/acs.chemrestox.0c00374"
+  },
+  {
+   "bib_id": 8,
+   "authors": [
+    {
+     "family": "Wu",
+     "given": "W"
+    },
+    {
+     "family": "Qian",
+     "given": "J"
+    },
+    {
+     "family": "Liang",
+     "given": "C"
+    },
+    {
+     "family": "Yang",
+     "given": "J"
+    },
+    {
+     "family": "Ge",
+     "given": "G"
+    },
+    {
+     "family": "Zhou",
+     "given": "Q"
+    }
+   ],
+   "year": "2023",
+   "title": "GeoDILI: A robust and interpretable model for drug-induced liver injury prediction using graph neural network-based molecular geometric representation",
+   "container": "Chem Res Toxicol.",
+   "volume": "36",
+   "first_page": "1717",
+   "doi": "10.1021/acs.chemrestox.3c00199"
+  },
+  {
+   "bib_id": 9,
+   "authors": [
+    {
+     "family": "Chen",
+     "given": "S"
+    },
+    {
+     "family": "Yi",
+     "given": "H"
+    },
+    {
+     "family": "You",
+     "given": "Z"
+    },
+    {
+     "family": "Shang",
+     "given": "X"
+    },
+    {
+     "family": "Huang",
+     "given": "Y-A"
+    },
+    {
+     "family": "Wang",
+     "given": "L"
+    }
+   ],
+   "year": "2025",
+   "title": "Local-global structure-aware geometric equivariant graph representation learning for predicting protein-ligand binding affinity",
+   "container": "IEEE Trans Neural Netw Learn Syst.",
+   "volume": "36",
+   "first_page": "15181",
+   "doi": "10.1109/TNNLS.2025.3547300"
+  },
+  {
+   "bib_id": 10,
+   "authors": [
+    {
+     "family": "Zheng",
+     "given": "J"
+    },
+    {
+     "family": "Yi",
+     "given": "H-C"
+    },
+    {
+     "family": "You",
+     "given": "Z-H"
+    }
+   ],
+   "year": "2025",
+   "title": "Equivariant 3D-conditional diffusion model for de novo drug design",
+   "container": "IEEE J Biomed Health Inform.",
+   "volume": "29",
+   "first_page": "1805",
+   "doi": "10.1109/JBHI.2024.3491318"
+  },
+  {
+   "bib_id": 11,
+   "authors": [
+    {
+     "family": "Gu",
+     "given": "Y"
+    },
+    {
+     "family": "Wang",
+     "given": "Y"
+    },
+    {
+     "family": "Wu",
+     "given": "Z"
+    },
+    {
+     "family": "Li",
+     "given": "W"
+    },
+    {
+     "family": "Liu",
+     "given": "G"
+    },
+    {
+     "family": "Tang",
+     "given": "Y"
+    }
+   ],
+   "year": "2023",
+   "title": "In silico prediction of drug-induced liver injury with a complementary integration strategy based on hybrid representation",
+   "container": "Mol Inform.",
+   "volume": "42",
+   "doi": "10.1002/minf.202200284"
+  },
+  {
+   "bib_id": 12,
+   "authors": [
+    {
+     "family": "Cai",
+     "given": "H"
+    },
+    {
+     "family": "Zhang",
+     "given": "H"
+    },
+    {
+     "family": "Zhao",
+     "given": "D"
+    },
+    {
+     "family": "Wu",
+     "given": "J"
+    },
+    {
+     "family": "Wang",
+     "given": "L"
+    }
+   ],
+   "year": "2022",
+   "title": "FP-GNN: A versatile deep learning architecture for enhanced molecular property prediction",
+   "container": "Brief Bioinform.",
+   "volume": "23",
+   "doi": "10.1093/bib/bbac408"
+  },
+  {
+   "bib_id": 13,
+   "authors": [
+    {
+     "family": "He",
+     "given": "S-H"
+    },
+    {
+     "family": "Yun",
+     "given": "L"
+    },
+    {
+     "family": "Yi",
+     "given": "H-C"
+    }
+   ],
+   "year": "2024",
+   "title": "Accurate prediction of drug combination risk levels based on relational graph convolutional network and multi-head attention",
+   "container": "J Transl Med.",
+   "volume": "22",
+   "first_page": "572",
+   "doi": "10.1186/s12967-024-05372-8"
+  },
+  {
+   "bib_id": 14,
+   "authors": [
+    {
+     "family": "Bean",
+     "given": "DM"
+    },
+    {
+     "family": "Wu",
+     "given": "H"
+    },
+    {
+     "family": "Iqbal",
+     "given": "E"
+    },
+    {
+     "family": "Dzahini",
+     "given": "O"
+    },
+    {
+     "family": "Ibrahim",
+     "given": "ZM"
+    },
+    {
+     "family": "Broadbent",
+     "given": "M"
+    }
+   ],
+   "year": "2017",
+   "title": "Knowledge graph prediction of unknown adverse drug reactions and validation in electronic health records",
+   "container": "Sci Rep.",
+   "volume": "7",
+   "first_page": "16416",
+   "doi": "10.1038/s41598-017-16674-x"
+  },
+  {
+   "bib_id": 15,
+   "authors": [
+    {
+     "family": "Chen",
+     "given": "S"
+    },
+    {
+     "family": "Semenov",
+     "given": "I"
+    },
+    {
+     "family": "Zhang",
+     "given": "F"
+    },
+    {
+     "family": "Yang",
+     "given": "Y"
+    },
+    {
+     "family": "Geng",
+     "given": "J"
+    },
+    {
+     "family": "Feng",
+     "given": "X"
+    }
+   ],
+   "year": "2024",
+   "title": "An effective framework for predicting drug-drug interactions based on molecular substructures and knowledge graph neural network",
+   "container": "Comput Biol Med.",
+   "volume": "169",
+   "first_page": "107900",
+   "doi": "10.1016/j.compbiomed.2023.107900"
+  },
+  {
+   "bib_id": 16,
+   "authors": [
+    {
+     "family": "He",
+     "given": "S"
+    },
+    {
+     "family": "Yun",
+     "given": "L"
+    },
+    {
+     "family": "Yi",
+     "given": "H"
+    }
+   ],
+   "year": "2024",
+   "title": "Fusing graph transformer with multi-aggregate GCN for enhanced drug-disease associations prediction",
+   "container": "BMC Bioinform.",
+   "volume": "25",
+   "first_page": "79",
+   "doi": "10.1186/s12859-024-05705-w"
+  },
+  {
+   "bib_id": 17,
+   "authors": [
+    {
+     "family": "Jaeschke",
+     "given": "H"
+    },
+    {
+     "family": "Ramachandran",
+     "given": "A"
+    }
+   ],
+   "year": "2024",
+   "title": "Acetaminophen hepatotoxicity: Paradigm for understanding mechanisms of drug-induced liver injury",
+   "container": "Annu Rev Pathol.",
+   "volume": "19",
+   "first_page": "453",
+   "doi": "10.1146/annurev-pathmechdis-051122-094016"
+  },
+  {
+   "bib_id": 18,
+   "authors": [
+    {
+     "family": "Roth",
+     "given": "RA"
+    },
+    {
+     "family": "Kana",
+     "given": "O"
+    },
+    {
+     "family": "Filipovic",
+     "given": "D"
+    },
+    {
+     "family": "Ganey",
+     "given": "PE"
+    }
+   ],
+   "year": "2022",
+   "title": "Pharmacokinetic and toxicodynamic concepts in idiosyncratic, drug-induced liver injury",
+   "container": "Expert Opin Drug Metab Toxicol.",
+   "volume": "18",
+   "first_page": "469",
+   "doi": "10.1080/17425255.2022.2113379"
+  },
+  {
+   "bib_id": 19,
+   "authors": [
+    {
+     "family": "Chen",
+     "given": "M"
+    },
+    {
+     "family": "Suzuki",
+     "given": "A"
+    },
+    {
+     "family": "Thakkar",
+     "given": "S"
+    },
+    {
+     "family": "Yu",
+     "given": "K"
+    },
+    {
+     "family": "Hu",
+     "given": "C"
+    },
+    {
+     "family": "Tong",
+     "given": "W"
+    }
+   ],
+   "year": "2016",
+   "title": "DILIrank: The largest reference drug list ranked by the risk for developing drug-induced liver injury in humans",
+   "container": "Drug Discov Today.",
+   "volume": "21",
+   "first_page": "648",
+   "doi": "10.1016/j.drudis.2016.02.015"
+  },
+  {
+   "bib_id": 20,
+   "authors": [
+    {
+     "family": "Thakkar",
+     "given": "S"
+    },
+    {
+     "family": "Li",
+     "given": "T"
+    },
+    {
+     "family": "Liu",
+     "given": "Z"
+    },
+    {
+     "family": "Wu",
+     "given": "L"
+    },
+    {
+     "family": "Roberts",
+     "given": "R"
+    },
+    {
+     "family": "Tong",
+     "given": "W"
+    }
+   ],
+   "year": "2020",
+   "title": "Drug-induced liver injury severity and toxicity (DILIst): Binary classification of 1279 drugs by human hepatotoxicity",
+   "container": "Drug Discov Today.",
+   "volume": "25",
+   "first_page": "201",
+   "doi": "10.1016/j.drudis.2019.09.022"
+  },
+  {
+   "bib_id": 21,
+   "authors": [
+    {
+     "family": "Durant",
+     "given": "JL"
+    },
+    {
+     "family": "Leland",
+     "given": "BA"
+    },
+    {
+     "family": "Henry",
+     "given": "DR"
+    },
+    {
+     "family": "Nourse",
+     "given": "JG"
+    }
+   ],
+   "year": "2002",
+   "title": "Reoptimization of MDL keys for use in drug discovery",
+   "container": "J Chem Inf Comput Sci.",
+   "volume": "42",
+   "first_page": "1273",
+   "doi": "10.1021/ci010132r"
+  },
+  {
+   "bib_id": 22,
+   "authors": [
+    {
+     "family": "Rogers",
+     "given": "D"
+    },
+    {
+     "family": "Hahn",
+     "given": "M"
+    }
+   ],
+   "year": "2010",
+   "title": "Extended-connectivity fingerprints",
+   "container": "J Chem Inf Model.",
+   "volume": "50",
+   "first_page": "742",
+   "doi": "10.1021/ci100050t"
+  },
+  {
+   "bib_id": 23,
+   "authors": [
+    {
+     "family": "Stiefl",
+     "given": "N"
+    },
+    {
+     "family": "Watson",
+     "given": "IA"
+    },
+    {
+     "family": "Baumann",
+     "given": "K"
+    },
+    {
+     "family": "Zaliani",
+     "given": "A"
+    }
+   ],
+   "year": "2006",
+   "title": "ErG: 2D pharmacophore descriptions for scaffold hopping",
+   "container": "J Chem Inf Model.",
+   "volume": "46",
+   "first_page": "208",
+   "doi": "10.1021/ci050457y"
+  },
+  {
+   "bib_id": 24,
+   "authors": [
+    {
+     "family": "Kuhn",
+     "given": "M"
+    },
+    {
+     "family": "Letunic",
+     "given": "I"
+    },
+    {
+     "family": "Jensen",
+     "given": "LJ"
+    },
+    {
+     "family": "Bork",
+     "given": "P"
+    }
+   ],
+   "year": "2016",
+   "title": "The SIDER database of drugs and side effects",
+   "container": "Nucleic Acids Res.",
+   "volume": "44",
+   "doi": "10.1093/nar/gkv1075"
+  },
+  {
+   "bib_id": 25,
+   "authors": [
+    {
+     "family": "Wishart",
+     "given": "DS"
+    },
+    {
+     "family": "Feunang",
+     "given": "YD"
+    },
+    {
+     "family": "Guo",
+     "given": "AC"
+    },
+    {
+     "family": "Lo",
+     "given": "EJ"
+    },
+    {
+     "family": "Marcu",
+     "given": "A"
+    },
+    {
+     "family": "Grant",
+     "given": "JR"
+    }
+   ],
+   "year": "2018",
+   "title": "DrugBank 5.0: A major update to the DrugBank database for 2018",
+   "container": "Nucleic Acids Res.",
+   "volume": "46",
+   "doi": "10.1093/nar/gkx1037"
+  },
+  {
+   "bib_id": 26,
+   "authors": [
+    {
+     "family": "Zeng",
+     "given": "H"
+    },
+    {
+     "family": "Qiu",
+     "given": "C"
+    },
+    {
+     "family": "Cui",
+     "given": "Q"
+    }
+   ],
+   "year": "2015",
+   "title": "Drug-Path: A database for drug-induced pathways",
+   "container": "Database (Oxford).",
+   "volume": "2015",
+   "doi": "10.1093/database/bav061"
+  },
+  {
+   "bib_id": 27,
+   "authors": [
+    {
+     "family": "Freshour",
+     "given": "SL"
+    },
+    {
+     "family": "Kiwala",
+     "given": "S"
+    },
+    {
+     "family": "Cotto",
+     "given": "KC"
+    },
+    {
+     "family": "Coffman",
+     "given": "AC"
+    },
+    {
+     "family": "McMichael",
+     "given": "JF"
+    },
+    {
+     "family": "Song",
+     "given": "JJ"
+    }
+   ],
+   "year": "2021",
+   "title": "Integration of the Drug-Gene Interaction Database (DGIdb 4.0) with open crowdsource efforts",
+   "container": "Nucleic Acids Res.",
+   "volume": "49",
+   "doi": "10.1093/nar/gkaa1084"
+  },
+  {
+   "bib_id": 28,
+   "authors": [
+    {
+     "family": "Nguyen-Vo",
+     "given": "T-H"
+    },
+    {
+     "family": "Nguyen",
+     "given": "L"
+    },
+    {
+     "family": "Do",
+     "given": "N"
+    },
+    {
+     "family": "Le",
+     "given": "PH"
+    },
+    {
+     "family": "Nguyen",
+     "given": "T-N"
+    },
+    {
+     "family": "Nguyen",
+     "given": "BP"
+    }
+   ],
+   "year": "2020",
+   "title": "Predicting drug-induced liver injury using convolutional neural network and molecular fingerprint-embedded features",
+   "container": "ACS Omega.",
+   "volume": "5",
+   "first_page": "25432",
+   "doi": "10.1021/acsomega.0c03866"
+  },
+  {
+   "bib_id": 29,
+   "authors": [
+    {
+     "family": "Velickovic",
+     "given": "P"
+    },
+    {
+     "family": "Cucurull",
+     "given": "G"
+    },
+    {
+     "family": "Casanova",
+     "given": "A"
+    },
+    {
+     "family": "Romero",
+     "given": "A"
+    },
+    {
+     "family": "Lio",
+     "given": "P"
+    },
+    {
+     "family": "Bengio",
+     "given": "Y"
+    }
+   ],
+   "year": "2017",
+   "title": "Graph attention networks",
+   "container": "Stat.",
+   "volume": "1050",
+   "first_page": "10",
+   "last_page": "48550"
+  },
+  {
+   "bib_id": 30,
+   "authors": [
+    {
+     "family": "Hamilton",
+     "given": "W"
+    },
+    {
+     "family": "Ying",
+     "given": "Z"
+    },
+    {
+     "family": "Leskovec",
+     "given": "J"
+    }
+   ],
+   "year": "2017",
+   "title": "Inductive representation learning on large graphs",
+   "container": "Adv Neural Inform Process Syst.",
+   "volume": "30"
+  },
+  {
+   "bib_id": 31,
+   "authors": [
+    {
+     "family": "Lee",
+     "given": "T"
+    },
+    {
+     "family": "Posma",
+     "given": "JM"
+    }
+   ],
+   "year": "2025",
+   "title": "Improving drug-induced liver injury prediction using graph neural networks with augmented graph features from molecular optimisation",
+   "container": "J Cheminform.",
+   "volume": "17",
+   "first_page": "124",
+   "doi": "10.1186/s13321-025-01068-3"
+  },
+  {
+   "bib_id": 32,
+   "authors": [
+    {
+     "family": "Joshi",
+     "given": "P"
+    },
+    {
+     "family": "V",
+     "given": "M"
+    },
+    {
+     "family": "Mukherjee",
+     "given": "A"
+    }
+   ],
+   "year": "2022",
+   "title": "A knowledge graph embedding based approach to predict the adverse drug reactions using a deep neural network",
+   "container": "J Biomed Inform.",
+   "volume": "132",
+   "first_page": "104122",
+   "doi": "10.1016/j.jbi.2022.104122"
+  },
+  {
+   "bib_id": 33,
+   "doi": "10.48550/arXiv.1810.00826"
+  },
+  {
+   "bib_id": 34,
+   "authors": [
+    {
+     "family": "Björnsson",
+     "given": "ES"
+    },
+    {
+     "family": "Hoofnagle",
+     "given": "JH"
+    }
+   ],
+   "year": "2016",
+   "title": "Categorization of drugs implicated in causing liver injury: Critical assessment based on published case reports",
+   "container": "Hepatology.",
+   "volume": "63",
+   "first_page": "590",
+   "last_page": "603",
+   "doi": "10.1002/hep.28323"
+  },
+  {
+   "bib_id": 35,
+   "authors": [
+    {
+     "family": "Lundberg",
+     "given": "SM"
+    },
+    {
+     "family": "Lee",
+     "given": "SI"
+    }
+   ],
+   "year": "2017",
+   "title": "A unified approach to interpreting model predictions",
+   "container": "Adv Neural Inform Process Syst.",
+   "volume": "30"
+  },
+  {
+   "bib_id": 36
+  },
+  {
+   "bib_id": 37,
+   "authors": [
+    {
+     "family": "Babany",
+     "given": "G"
+    },
+    {
+     "family": "Bernuau",
+     "given": "J"
+    },
+    {
+     "family": "Cailleux",
+     "given": "A"
+    },
+    {
+     "family": "Cadranel",
+     "given": "JF"
+    },
+    {
+     "family": "Degott",
+     "given": "C"
+    },
+    {
+     "family": "Erlinger",
+     "given": "S"
+    }
+   ],
+   "year": "1991",
+   "title": "Severe monochlorobenzene-induced liver cell necrosis",
+   "container": "Gastroenterology.",
+   "volume": "101",
+   "first_page": "1734",
+   "doi": "10.1016/0016-5085(91)90416-i"
+  },
+  {
+   "bib_id": 38,
+   "authors": [
+    {
+     "family": "Wang",
+     "given": "Y"
+    },
+    {
+     "family": "Gao",
+     "given": "H"
+    },
+    {
+     "family": "Na",
+     "given": "X-L"
+    },
+    {
+     "family": "Dong",
+     "given": "S-Y"
+    },
+    {
+     "family": "Dong",
+     "given": "H-W"
+    },
+    {
+     "family": "Yu",
+     "given": "J"
+    }
+   ],
+   "year": "2016",
+   "title": "Aniline induces oxidative stress and apoptosis of primary cultured hepatocytes",
+   "container": "Int J Environ Res Public Health.",
+   "volume": "13",
+   "first_page": "1188",
+   "doi": "10.3390/ijerph13121188"
+  },
+  {
+   "bib_id": 39,
+   "authors": [
+    {
+     "family": "Feng",
+     "given": "Y"
+    },
+    {
+     "family": "Chen",
+     "given": "LL"
+    },
+    {
+     "family": "Zhang",
+     "given": "T"
+    },
+    {
+     "family": "Wu",
+     "given": "YH"
+    },
+    {
+     "family": "Song",
+     "given": "L"
+    },
+    {
+     "family": "Wang",
+     "given": "Y"
+    }
+   ],
+   "year": "2020",
+   "title": "Research progress on health effects of aniline",
+   "container": "Zhonghua Yu Fang Yi Xue Za Zhi.",
+   "volume": "54",
+   "first_page": "213",
+   "doi": "10.3760/cma.j.issn.0253-9624.2020.02.019"
+  },
+  {
+   "bib_id": 40,
+   "authors": [
+    {
+     "family": "Kim",
+     "given": "MK"
+    },
+    {
+     "family": "Yee",
+     "given": "J"
+    },
+    {
+     "family": "Cho",
+     "given": "YS"
+    },
+    {
+     "family": "Jang",
+     "given": "HW"
+    },
+    {
+     "family": "Han",
+     "given": "JM"
+    },
+    {
+     "family": "Gwak",
+     "given": "HS"
+    }
+   ],
+   "year": "2018",
+   "title": "Risk factors for erlotinib-induced hepatotoxicity: A retrospective follow-up study",
+   "container": "BMC Cancer.",
+   "volume": "18",
+   "first_page": "988",
+   "doi": "10.1186/s12885-018-4891-7"
+  },
+  {
+   "bib_id": 41,
+   "authors": [
+    {
+     "family": "Hardy",
+     "given": "KD"
+    },
+    {
+     "family": "Wahlin",
+     "given": "MD"
+    },
+    {
+     "family": "Papageorgiou",
+     "given": "I"
+    },
+    {
+     "family": "Unadkat",
+     "given": "JD"
+    },
+    {
+     "family": "Rettie",
+     "given": "AE"
+    },
+    {
+     "family": "Nelson",
+     "given": "SD"
+    }
+   ],
+   "year": "2014",
+   "title": "Studies on the role of metabolic activation in tyrosine kinase inhibitor-dependent hepatotoxicity: Induction of CYP3A4 enhances the cytotoxicity of lapatinib in HepaRG cells",
+   "container": "Drug Metab Dispos.",
+   "volume": "42",
+   "first_page": "162",
+   "doi": "10.1124/dmd.113.054817"
+  },
+  {
+   "bib_id": 42,
+   "authors": [
+    {
+     "family": "Ohira",
+     "given": "H"
+    },
+    {
+     "family": "Abe",
+     "given": "K"
+    },
+    {
+     "family": "Takahashi",
+     "given": "A"
+    }
+   ],
+   "year": "2012",
+   "title": "Involvement of the liver in rheumatic diseases",
+   "container": "Clin J Gastroenterol.",
+   "volume": "5",
+   "first_page": "9",
+   "last_page": "14",
+   "doi": "10.1007/s12328-011-0271-4"
+  },
+  {
+   "bib_id": 43,
+   "authors": [
+    {
+     "family": "Takahashi",
+     "given": "A"
+    },
+    {
+     "family": "Abe",
+     "given": "K"
+    },
+    {
+     "family": "Saito",
+     "given": "R"
+    },
+    {
+     "family": "Iwadate",
+     "given": "H"
+    },
+    {
+     "family": "Okai",
+     "given": "K"
+    },
+    {
+     "family": "Katsushima",
+     "given": "F"
+    }
+   ],
+   "year": "2013",
+   "title": "Liver dysfunction in patients with systemic lupus erythematosus",
+   "container": "Intern Med.",
+   "volume": "52",
+   "first_page": "1461",
+   "doi": "10.2169/internalmedicine.52.9458"
+  },
+  {
+   "bib_id": 44,
+   "authors": [
+    {
+     "family": "Bessone",
+     "given": "F"
+    },
+    {
+     "family": "Poles",
+     "given": "N"
+    },
+    {
+     "family": "Roma",
+     "given": "MG"
+    }
+   ],
+   "year": "2014",
+   "title": "Challenge of liver disease in systemic lupus erythematosus: Clues for diagnosis and hints for pathogenesis",
+   "container": "World J Hepatol.",
+   "volume": "6",
+   "first_page": "394",
+   "last_page": "409",
+   "doi": "10.4254/wjh.v6.i6.394"
+  },
+  {
+   "bib_id": 45,
+   "authors": [
+    {
+     "family": "Spinella",
+     "given": "R"
+    },
+    {
+     "family": "Sawhney",
+     "given": "R"
+    },
+    {
+     "family": "Jalan",
+     "given": "R"
+    }
+   ],
+   "year": "2016",
+   "title": "Albumin in chronic liver disease: Structure, functions and therapeutic implications",
+   "container": "Hepatol Int.",
+   "volume": "10",
+   "first_page": "124",
+   "doi": "10.1007/s12072-015-9665-6"
+  },
+  {
+   "bib_id": 46,
+   "authors": [
+    {
+     "family": "Sun",
+     "given": "L"
+    },
+    {
+     "family": "Yin",
+     "given": "H"
+    },
+    {
+     "family": "Liu",
+     "given": "M"
+    },
+    {
+     "family": "Xu",
+     "given": "G"
+    },
+    {
+     "family": "Zhou",
+     "given": "X"
+    },
+    {
+     "family": "Ge",
+     "given": "P"
+    }
+   ],
+   "year": "2019",
+   "title": "Impaired albumin function: A novel potential indicator for liver function damage?",
+   "container": "Ann Med.",
+   "volume": "51",
+   "first_page": "333",
+   "doi": "10.1080/07853890.2019.1693056"
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-core-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "jats_doi": "10.1371/journal.pcbi.1013640"
+ }
+}

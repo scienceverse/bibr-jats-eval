@@ -1,0 +1,1845 @@
+{
+ "paper_id": "10.2196_99185",
+ "info": {
+  "title": "Interpretable Topic Modeling of Spontaneous Speech in Depression Using Large Language Models: Multilingual Four-Cohort Study",
+  "doi": "10.2196/99185",
+  "file_name": "10.2196_99185.pdf",
+  "keywords": [
+   "depression",
+   "thematic analysis",
+   "speech analysis",
+   "large language models",
+   "topic modeling",
+   "natural language processing",
+   "mental health",
+   "computational psychiatry"
+  ],
+  "abstract": "Background: Depression is underdiagnosed worldwide, and clinicians rely on interpreting patients’ subjective speech. Qualitative analysis of patient language does not scale, and existing computational approaches describe topics with keyword lists that miss clinical nuance. Objective: We evaluated whether clustering spontaneous speech transcripts with large language models (LLMs) yields clusters whose membership is associated with validated clinical scales across multilingual cohorts, and whether LLMs can render those clusters human-readable through fine-grained natural-language descriptions. We further examined which interview questions yield clusters most strongly associated with clinical status, and how sociodemographic factors relate to cluster membership. Methods: We analyzed spontaneous speech transcripts from 4 independent cohorts: a French general population sample (1338 participants) and 3 clinical samples in Italian (n=116), Chinese (n=52), and Spanish (n=90). Responses to open-ended questions were transcribed, embedded with a multilingual language model, dimensionally reduced, and grouped by density-based clustering. An LLM then summarized each cluster into a natural-language description. Cluster membership was tested for association with validated clinical scales (Patient Health Questionnaire-9, Beck Depression Inventory, Generalized Anxiety Disorder 7-item scale, Athens Insomnia Scale, Multidimensional Fatigue Inventory, and Columbia Suicide Severity Rating Scale), clinician-assigned depression diagnoses, and sociodemographic factors (age, education, and sex). Results: Unsupervised clustering yielded clusters significantly associated with clinical scores in the French, Italian, and Chinese cohorts, with an exploratory association in the smaller Spanish cohort. In the French general population, Patient Health Questionnaire-9 depression scores differed across clusters (η²=0.19, 95% CI 0.17 to 0.24, P<.001), as did anxiety (Generalized Anxiety Disorder 7-item scale), insomnia (Athens Insomnia Scale), and fatigue (Multidimensional Fatigue Inventory) scores (η²=0.14 to 0.16, all P<.001). In the clinical cohorts, cluster membership was associated with clinician-diagnosed depression in the Italian sample (Cramér V=0.74, 0.65 to 0.85, P<.001) and with major depressive disorder diagnosis in the Chinese sample (V=0.55, 0.36 to 0.78, P=.001). A suicide-risk association in the smaller Spanish sample (Columbia Suicide Severity Rating Scale) was unstable and is reported as exploratory (mean V=0.27). The feelings-and-sleep question yielded the strongest clinical associations, whereas questions about past or future events yielded small effect sizes (η²≤0.05). Age (η²=0.27, 0.24 to 0.32) and sex (Cramér V=0.22, 0.21 to 0.30) were each associated with cluster membership for the “describe your last 24 hours” question (both P<.001). Conclusions: Fine-grained LLM-based topic modeling automates the labor-intensive early stages of thematic analysis, in minutes of compute, and recovers core psychiatric constructs across languages. It produces human-readable cluster descriptions. Certain interview questions yield clusters more strongly associated with clinical status than others, and sociodemographic factors shape topic content independently of clinical status, an often-overlooked confound. As the cohorts differ, cross-cohort observations are preliminary without generalizability. Screening, treatment-planning, and decision-support uses remain to be established prospectively."
+ },
+ "author": [
+  {
+   "author_id": 1,
+   "given": "Gustave",
+   "family": "Cortal",
+   "affiliation": "Callyope, Pépinière d'entreprises Paris Santé Cochin, 29 Rue du Faubourg Saint-Jacques, Paris, 75014, France, 33 0666522141",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 2,
+   "given": "Sélim Benjamin",
+   "family": "Guessoum",
+   "affiliation": "Callyope, Pépinière d'entreprises Paris Santé Cochin, 29 Rue du Faubourg Saint-Jacques, Paris, 75014, France, 33 0666522141; Université Paris-Saclay, Centre de recherche en Epidémiologie et Santé des Populations, Villejuif, France",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 3,
+   "given": "Xuan-Nga",
+   "family": "Cao",
+   "affiliation": "Callyope, Pépinière d'entreprises Paris Santé Cochin, 29 Rue du Faubourg Saint-Jacques, Paris, 75014, France, 33 0666522141",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 4,
+   "given": "Santiago",
+   "family": "de Leon-Martinez",
+   "affiliation": "Brno University of Technology, Brno, Czech Republic; Kempelen Institute of Intelligent Technologies, Bratislava, Slovakia",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 5,
+   "given": "Enrique",
+   "family": "Baca-García",
+   "affiliation": "Department of Psychiatry, Hospital Universitario Fundación Jiménez Díaz, Madrid, Madrid, Spain; Department of Psychiatry, University Hospital Rey Juan Carlos, Mostoles, Spain; Department of Psychiatry, Hospital Universitario General de Villalba, Madrid, Madrid, Spain; Department of Psychiatry, University Hospital Infanta Elena, Valdemoro, Spain; Department of Psychology, Catholic University of the Maule, Talca, Maule Region, Chile; Department of Psychiatry, Universidad Autónoma de Madrid, Madrid, Madrid, Spain; Centro de Investigación Biomédica en Red de Salud Mental, Madrid, Madrid, Spain",
+   "email": "",
+   "orcid": "",
+   "corresponding": false
+  },
+  {
+   "author_id": 6,
+   "given": "Rachid",
+   "family": "Riad",
+   "affiliation": "Callyope, Pépinière d'entreprises Paris Santé Cochin, 29 Rue du Faubourg Saint-Jacques, Paris, 75014, France, 33 0666522141",
+   "email": "",
+   "orcid": "",
+   "corresponding": true
+  }
+ ],
+ "section": [
+  {
+   "section_id": 1,
+   "section_type": "abstract",
+   "header": "Abstract",
+   "level": 1,
+   "parent_section_id": null,
+   "classification_score": 1.0
+  }
+ ],
+ "text": [
+  {
+   "text_id": 1,
+   "section_id": 1,
+   "paragraph_id": 1,
+   "text": "Background: Depression is underdiagnosed worldwide, and clinicians rely on interpreting patients’ subjective speech. Qualitative analysis of patient language does not scale, and existing computational approaches describe topics with keyword lists that miss clinical nuance. Objective: We evaluated whether clustering spontaneous speech transcripts with large language models (LLMs) yields clusters whose membership is associated with validated clinical scales across multilingual cohorts, and whether LLMs can render those clusters human-readable through fine-grained natural-language descriptions. We further examined which interview questions yield clusters most strongly associated with clinical status, and how sociodemographic factors relate to cluster membership. Methods: We analyzed spontaneous speech transcripts from 4 independent cohorts: a French general population sample (1338 participants) and 3 clinical samples in Italian (n=116), Chinese (n=52), and Spanish (n=90). Responses to open-ended questions were transcribed, embedded with a multilingual language model, dimensionally reduced, and grouped by density-based clustering. An LLM then summarized each cluster into a natural-language description. Cluster membership was tested for association with validated clinical scales (Patient Health Questionnaire-9, Beck Depression Inventory, Generalized Anxiety Disorder 7-item scale, Athens Insomnia Scale, Multidimensional Fatigue Inventory, and Columbia Suicide Severity Rating Scale), clinician-assigned depression diagnoses, and sociodemographic factors (age, education, and sex). Results: Unsupervised clustering yielded clusters significantly associated with clinical scores in the French, Italian, and Chinese cohorts, with an exploratory association in the smaller Spanish cohort. In the French general population, Patient Health Questionnaire-9 depression scores differed across clusters (η²=0.19, 95% CI 0.17 to 0.24, P<.001), as did anxiety (Generalized Anxiety Disorder 7-item scale), insomnia (Athens Insomnia Scale), and fatigue (Multidimensional Fatigue Inventory) scores (η²=0.14 to 0.16, all P<.001). In the clinical cohorts, cluster membership was associated with clinician-diagnosed depression in the Italian sample (Cramér V=0.74, 0.65 to 0.85, P<.001) and with major depressive disorder diagnosis in the Chinese sample (V=0.55, 0.36 to 0.78, P=.001). A suicide-risk association in the smaller Spanish sample (Columbia Suicide Severity Rating Scale) was unstable and is reported as exploratory (mean V=0.27). The feelings-and-sleep question yielded the strongest clinical associations, whereas questions about past or future events yielded small effect sizes (η²≤0.05). Age (η²=0.27, 0.24 to 0.32) and sex (Cramér V=0.22, 0.21 to 0.30) were each associated with cluster membership for the “describe your last 24 hours” question (both P<.001). Conclusions: Fine-grained LLM-based topic modeling automates the labor-intensive early stages of thematic analysis, in minutes of compute, and recovers core psychiatric constructs across languages. It produces human-readable cluster descriptions. Certain interview questions yield clusters more strongly associated with clinical status than others, and sociodemographic factors shape topic content independently of clinical status, an often-overlooked confound. As the cohorts differ, cross-cohort observations are preliminary without generalizability. Screening, treatment-planning, and decision-support uses remain to be established prospectively.",
+   "page_number": 1
+  }
+ ],
+ "bib": [
+  {
+   "bib_id": 1,
+   "authors": [
+    {
+     "family": "Bromet",
+     "given": "E"
+    },
+    {
+     "family": "Andrade",
+     "given": "LH"
+    },
+    {
+     "family": "Hwang",
+     "given": "I"
+    }
+   ],
+   "year": "2011",
+   "title": "Cross-national epidemiology of DSM-IV major depressive episode",
+   "container": "BMC Med",
+   "volume": "9",
+   "first_page": "90",
+   "doi": "10.1186/1741-7015-9-90"
+  },
+  {
+   "bib_id": 2,
+   "authors": [
+    {
+     "family": "Herrman",
+     "given": "H"
+    },
+    {
+     "family": "Patel",
+     "given": "V"
+    },
+    {
+     "family": "Kieling",
+     "given": "C"
+    }
+   ],
+   "year": "2022",
+   "title": "Time for united action on depression: a Lancet-World Psychiatric Association Commission",
+   "container": "Lancet",
+   "volume": "399",
+   "first_page": "957",
+   "last_page": "1022",
+   "doi": "10.1016/S0140-6736(21)02141-3"
+  },
+  {
+   "bib_id": 3,
+   "authors": [
+    {
+     "family": "Regier",
+     "given": "DA"
+    },
+    {
+     "family": "Kuhl",
+     "given": "EA"
+    },
+    {
+     "family": "Kupfer",
+     "given": "DJ"
+    }
+   ],
+   "year": "2013",
+   "title": "The DSM-5: classification and criteria changes",
+   "container": "World Psychiatry",
+   "volume": "12",
+   "first_page": "92",
+   "last_page": "98",
+   "doi": "10.1002/wps.20050"
+  },
+  {
+   "bib_id": 4,
+   "authors": [
+    {
+     "family": "Aboraya",
+     "given": "A"
+    },
+    {
+     "family": "Rankin",
+     "given": "E"
+    },
+    {
+     "family": "France",
+     "given": "C"
+    },
+    {
+     "family": "El-Missiry",
+     "given": "A"
+    },
+    {
+     "family": "John",
+     "given": "C"
+    }
+   ],
+   "year": "2006",
+   "title": "The reliability of psychiatric diagnosis revisited: the clinician’s guide to improve the reliability of psychiatric diagnosis",
+   "container": "Psychiatry (Edgmont)",
+   "volume": "3",
+   "first_page": "41",
+   "last_page": "50"
+  },
+  {
+   "bib_id": 5,
+   "authors": [
+    {
+     "family": "Aboraya",
+     "given": "A"
+    },
+    {
+     "family": "Nasrallah",
+     "given": "HA"
+    },
+    {
+     "family": "Elswick",
+     "given": "DE"
+    }
+   ],
+   "year": "2018",
+   "title": "Measurement-based care in psychiatry-past, present, and future",
+   "container": "Innov Clin Neurosci",
+   "volume": "15",
+   "first_page": "13",
+   "last_page": "26"
+  },
+  {
+   "bib_id": 6,
+   "authors": [
+    {
+     "family": "Armstrong",
+     "given": "N"
+    },
+    {
+     "family": "Byrom",
+     "given": "N"
+    }
+   ],
+   "year": "2025",
+   "title": "An anthropological critique of psychiatric rating scales",
+   "container": "BJPsych advances",
+   "volume": "31",
+   "first_page": "73",
+   "last_page": "81",
+   "doi": "10.1192/bja.2024.60"
+  },
+  {
+   "bib_id": 7,
+   "authors": [
+    {
+     "family": "Stanghellini",
+     "given": "G"
+    },
+    {
+     "family": "Ballerini",
+     "given": "M"
+    }
+   ],
+   "year": "2008",
+   "title": "Qualitative analysis. Its use in psychopathological research",
+   "container": "Acta Psychiatr Scand",
+   "volume": "117",
+   "first_page": "161",
+   "last_page": "163",
+   "doi": "10.1111/j.1600-0447.2007.01139.x"
+  },
+  {
+   "bib_id": 8,
+   "authors": [
+    {
+     "family": "Chevance",
+     "given": "A"
+    },
+    {
+     "family": "Ravaud",
+     "given": "P"
+    },
+    {
+     "family": "Tomlinson",
+     "given": "A"
+    }
+   ],
+   "year": "2020",
+   "title": "Identifying outcomes for depression that matter to patients, informal caregivers, and health-care professionals: qualitative content analysis of a large international online survey",
+   "container": "Lancet Psychiatry",
+   "volume": "7",
+   "first_page": "692",
+   "last_page": "702",
+   "doi": "10.1016/S2215-0366(20)30191-7"
+  },
+  {
+   "bib_id": 9,
+   "title": "Manufacturer and user facility device experience (MAUDE) database",
+   "container": "US Food and Drug Administration"
+  },
+  {
+   "bib_id": 10,
+   "authors": [
+    {
+     "family": "Muralidharan",
+     "given": "V"
+    },
+    {
+     "family": "Adewale",
+     "given": "BA"
+    },
+    {
+     "family": "Huang",
+     "given": "CJ"
+    }
+   ],
+   "year": "2024",
+   "title": "A scoping review of reporting gaps in FDA-approved AI medical devices",
+   "container": "NPJ Digit Med",
+   "volume": "7",
+   "first_page": "273",
+   "doi": "10.1038/s41746-024-01270-x"
+  },
+  {
+   "bib_id": 11,
+   "authors": [
+    {
+     "family": "Cummins",
+     "given": "N"
+    },
+    {
+     "family": "Scherer",
+     "given": "S"
+    },
+    {
+     "family": "Krajewski",
+     "given": "J"
+    },
+    {
+     "family": "Schnieder",
+     "given": "S"
+    },
+    {
+     "family": "Epps",
+     "given": "J"
+    },
+    {
+     "family": "Quatieri",
+     "given": "TF"
+    }
+   ],
+   "year": "2015",
+   "title": "A review of depression and suicide risk assessment using speech analysis",
+   "container": "Speech Commun",
+   "volume": "71",
+   "first_page": "10",
+   "last_page": "49",
+   "doi": "10.1016/j.specom.2015.03.004"
+  },
+  {
+   "bib_id": 12,
+   "authors": [
+    {
+     "family": "Ehlen",
+     "given": "F"
+    },
+    {
+     "family": "Montag",
+     "given": "C"
+    },
+    {
+     "family": "Leopold",
+     "given": "K"
+    },
+    {
+     "family": "Heinz",
+     "given": "A"
+    }
+   ],
+   "year": "2023",
+   "title": "Linguistic findings in persons with schizophrenia-a review of the current literature",
+   "container": "Front Psychol",
+   "volume": "14",
+   "first_page": "1287706",
+   "doi": "10.3389/fpsyg.2023.1287706"
+  },
+  {
+   "bib_id": 13,
+   "authors": [
+    {
+     "family": "Trifu",
+     "given": "RN"
+    },
+    {
+     "family": "Nemeș",
+     "given": "B"
+    },
+    {
+     "family": "Herta",
+     "given": "DC"
+    },
+    {
+     "family": "Bodea-Hategan",
+     "given": "C"
+    },
+    {
+     "family": "Talaș",
+     "given": "DA"
+    },
+    {
+     "family": "Coman",
+     "given": "H"
+    }
+   ],
+   "year": "2024",
+   "title": "Linguistic markers for major depressive disorder: a cross-sectional study using an automated procedure",
+   "container": "Front Psychol",
+   "volume": "15",
+   "first_page": "1355734",
+   "doi": "10.3389/fpsyg.2024.1355734"
+  },
+  {
+   "bib_id": 14,
+   "authors": [
+    {
+     "family": "Fusar-Poli",
+     "given": "P"
+    },
+    {
+     "family": "Estradé",
+     "given": "A"
+    },
+    {
+     "family": "Stanghellini",
+     "given": "G"
+    }
+   ],
+   "year": "2023",
+   "title": "The lived experience of depression: a bottom-up review co-written by experts by experience and academics",
+   "container": "World Psychiatry",
+   "volume": "22",
+   "first_page": "352",
+   "last_page": "365",
+   "doi": "10.1002/wps.21111"
+  },
+  {
+   "bib_id": 15,
+   "authors": [
+    {
+     "family": "Hallford",
+     "given": "DJ"
+    },
+    {
+     "family": "Rusanov",
+     "given": "D"
+    },
+    {
+     "family": "Yeow",
+     "given": "JJE"
+    },
+    {
+     "family": "Barry",
+     "given": "TJ"
+    }
+   ],
+   "year": "2021",
+   "title": "Overgeneral and specific autobiographical memory predict the course of depression: an updated meta-analysis",
+   "container": "Psychol Med",
+   "volume": "51",
+   "first_page": "909",
+   "last_page": "926",
+   "doi": "10.1017/S0033291721001343"
+  },
+  {
+   "bib_id": 16,
+   "authors": [
+    {
+     "family": "Cortal",
+     "given": "G"
+    },
+    {
+     "family": "Finkel",
+     "given": "A"
+    },
+    {
+     "family": "Paroubek",
+     "given": "P"
+    },
+    {
+     "family": "Ye",
+     "given": "L"
+    }
+   ],
+   "title": "Emotion recognition based on psychological components in guided narratives for emotion regulation",
+   "first_page": "72",
+   "last_page": "81",
+   "doi": "10.18653/v1/2023.latechclfl-1.8"
+  },
+  {
+   "bib_id": 17,
+   "authors": [
+    {
+     "family": "Cortal",
+     "given": "G"
+    },
+    {
+     "family": "Finkel",
+     "given": "A"
+    }
+   ],
+   "title": "Formalizing style in personal narratives",
+   "first_page": "7311",
+   "last_page": "7326",
+   "doi": "10.18653/v1/2025.emnlp-main.371"
+  },
+  {
+   "bib_id": 18,
+   "authors": [
+    {
+     "family": "Lehti",
+     "given": "A"
+    },
+    {
+     "family": "Hammarström",
+     "given": "A"
+    },
+    {
+     "family": "Mattsson",
+     "given": "B"
+    }
+   ],
+   "year": "2009",
+   "title": "Recognition of depression in people of different cultures: a qualitative study",
+   "container": "BMC Fam Pract",
+   "volume": "10",
+   "first_page": "53",
+   "doi": "10.1186/1471-2296-10-53"
+  },
+  {
+   "bib_id": 19,
+   "authors": [
+    {
+     "family": "Braun",
+     "given": "V"
+    },
+    {
+     "family": "Clarke",
+     "given": "V"
+    }
+   ],
+   "year": "2006",
+   "title": "Using thematic analysis in psychology",
+   "container": "Qual Res Psychol",
+   "volume": "3",
+   "first_page": "77",
+   "last_page": "101",
+   "doi": "10.1191/1478088706qp063oa"
+  },
+  {
+   "bib_id": 20,
+   "authors": [
+    {
+     "family": "Blei",
+     "given": "DM"
+    },
+    {
+     "family": "Ng",
+     "given": "AY"
+    },
+    {
+     "family": "Jordan",
+     "given": "MI"
+    }
+   ],
+   "year": "2003",
+   "title": "Latent Dirichlet allocation",
+   "container": "J Mach Learn Res",
+   "volume": "3",
+   "first_page": "993",
+   "last_page": "1022"
+  },
+  {
+   "bib_id": 21,
+   "authors": [
+    {
+     "family": "Grootendorst",
+     "given": "M"
+    }
+   ],
+   "year": "2022",
+   "title": "BERTopic: neural topic modeling with a class-based TF-IDF procedure",
+   "container": "arXiv",
+   "doi": "10.48550/arXiv.2203.05794"
+  },
+  {
+   "bib_id": 22,
+   "authors": [
+    {
+     "family": "Pham",
+     "given": "CM"
+    },
+    {
+     "family": "Hoyle",
+     "given": "A"
+    },
+    {
+     "family": "Sun",
+     "given": "S"
+    },
+    {
+     "family": "Resnik",
+     "given": "P"
+    },
+    {
+     "family": "Iyyer",
+     "given": "M"
+    }
+   ],
+   "title": "TopicGPT: a prompt-based topic modeling framework",
+   "first_page": "2956",
+   "last_page": "2984",
+   "doi": "10.18653/v1/2024.naacl-long.164"
+  },
+  {
+   "bib_id": 23,
+   "authors": [
+    {
+     "family": "Mu",
+     "given": "Y"
+    },
+    {
+     "family": "Dong",
+     "given": "C"
+    },
+    {
+     "family": "Bontcheva",
+     "given": "K"
+    },
+    {
+     "family": "Song",
+     "given": "X"
+    }
+   ],
+   "title": "Large language models offer an alternative to the traditional approach of topic modelling",
+   "first_page": "10160",
+   "last_page": "10171",
+   "doi": "10.63317/2x489fw7wi5m"
+  },
+  {
+   "bib_id": 24,
+   "authors": [
+    {
+     "family": "Carron-Arthur",
+     "given": "B"
+    },
+    {
+     "family": "Reynolds",
+     "given": "J"
+    },
+    {
+     "family": "Bennett",
+     "given": "K"
+    },
+    {
+     "family": "Bennett",
+     "given": "A"
+    },
+    {
+     "family": "Griffiths",
+     "given": "KM"
+    }
+   ],
+   "year": "2016",
+   "title": "What’s all the talk about? Topic modelling in a mental health internet support group",
+   "container": "BMC Psychiatry",
+   "volume": "16",
+   "first_page": "367",
+   "doi": "10.1186/s12888-016-1073-5"
+  },
+  {
+   "bib_id": 25,
+   "authors": [
+    {
+     "family": "Leung",
+     "given": "YT"
+    },
+    {
+     "family": "Khalvati",
+     "given": "F"
+    }
+   ],
+   "year": "2022",
+   "title": "Exploring COVID-19-related stressors: topic modeling study",
+   "container": "J Med Internet Res",
+   "volume": "24",
+   "first_page": "e37142",
+   "doi": "10.2196/37142"
+  },
+  {
+   "bib_id": 26,
+   "authors": [
+    {
+     "family": "Boettcher",
+     "given": "N"
+    }
+   ],
+   "year": "2021",
+   "title": "Studies of depression and anxiety using Reddit as a data source: scoping review",
+   "container": "JMIR Ment Health",
+   "volume": "8",
+   "first_page": "e29487",
+   "doi": "10.2196/29487"
+  },
+  {
+   "bib_id": 27,
+   "authors": [
+    {
+     "family": "Liu",
+     "given": "Y"
+    },
+    {
+     "family": "Shan",
+     "given": "Y"
+    },
+    {
+     "family": "Sun",
+     "given": "S"
+    }
+   ],
+   "year": "2024",
+   "title": "Topic modeling and content analysis of people’s anxiety-related concerns raised on a computer-mediated health platform",
+   "container": "Sci Rep",
+   "volume": "14",
+   "first_page": "27520",
+   "doi": "10.1038/s41598-024-79164-x"
+  },
+  {
+   "bib_id": 28,
+   "authors": [
+    {
+     "family": "Zhang",
+     "given": "Y"
+    },
+    {
+     "family": "Folarin",
+     "given": "AA"
+    },
+    {
+     "family": "Dineley",
+     "given": "J"
+    }
+   ],
+   "year": "2024",
+   "title": "Identifying depression-related topics in smartphone-collected free-response speech recordings using an automatic speech recognition system and a deep learning topic model",
+   "container": "J Affect Disord",
+   "volume": "355",
+   "first_page": "40",
+   "last_page": "49",
+   "doi": "10.1016/j.jad.2024.03.106"
+  },
+  {
+   "bib_id": 29,
+   "authors": [
+    {
+     "family": "Timakum",
+     "given": "T"
+    },
+    {
+     "family": "Xie",
+     "given": "Q"
+    },
+    {
+     "family": "Lee",
+     "given": "S"
+    }
+   ],
+   "year": "2023",
+   "title": "Identifying mental health discussion topic in social media community: subreddit of bipolar disorder analysis",
+   "container": "Front Res Metrics Anal",
+   "volume": "8",
+   "first_page": "1243407",
+   "doi": "10.3389/frma.2023.1243407"
+  },
+  {
+   "bib_id": 30,
+   "authors": [
+    {
+     "family": "Johannsen",
+     "given": "A"
+    },
+    {
+     "family": "Hovy",
+     "given": "D"
+    },
+    {
+     "family": "Søgaard",
+     "given": "A"
+    }
+   ],
+   "title": "Cross-lingual syntactic variation over age and gender",
+   "first_page": "103",
+   "last_page": "112",
+   "doi": "10.18653/v1/K15-1011"
+  },
+  {
+   "bib_id": 31,
+   "authors": [
+    {
+     "family": "Preoţiuc-Pietro",
+     "given": "D"
+    },
+    {
+     "family": "Eichstaedt",
+     "given": "J"
+    },
+    {
+     "family": "Park",
+     "given": "G"
+    }
+   ],
+   "title": "The role of personality, age, and gender in tweeting about mental illness",
+   "first_page": "21",
+   "last_page": "30",
+   "doi": "10.3115/v1/W15-1203"
+  },
+  {
+   "bib_id": 32,
+   "authors": [
+    {
+     "family": "Rai",
+     "given": "S"
+    },
+    {
+     "family": "Stade",
+     "given": "EC"
+    },
+    {
+     "family": "Giorgi",
+     "given": "S"
+    }
+   ],
+   "year": "2024",
+   "title": "Key language markers of depression on social media depend on race",
+   "container": "Proc Natl Acad Sci U S A",
+   "volume": "121",
+   "first_page": "e2319837121",
+   "doi": "10.1073/pnas.2319837121"
+  },
+  {
+   "bib_id": 33,
+   "authors": [
+    {
+     "family": "Rosario",
+     "given": "C"
+    },
+    {
+     "family": "The Nueva School, San Mateo, USA",
+     "given": ""
+    }
+   ],
+   "title": "Age-specific linguistic features of depression via social media",
+   "doi": "10.26615/issn.2603-2821.2023_004"
+  },
+  {
+   "bib_id": 34,
+   "authors": [
+    {
+     "family": "Moßburger",
+     "given": "L"
+    },
+    {
+     "family": "Wende",
+     "given": "F"
+    },
+    {
+     "family": "Brinkmann",
+     "given": "K"
+    },
+    {
+     "family": "Schmidt",
+     "given": "T"
+    }
+   ],
+   "title": "Exploring online depression forums via text mining: a comparison of reddit and a curated online forum",
+   "first_page": "70",
+   "last_page": "81"
+  },
+  {
+   "bib_id": 35,
+   "authors": [
+    {
+     "family": "Low",
+     "given": "DM"
+    },
+    {
+     "family": "Rumker",
+     "given": "L"
+    },
+    {
+     "family": "Talkar",
+     "given": "T"
+    },
+    {
+     "family": "Torous",
+     "given": "J"
+    },
+    {
+     "family": "Cecchi",
+     "given": "G"
+    },
+    {
+     "family": "Ghosh",
+     "given": "SS"
+    }
+   ],
+   "year": "2020",
+   "title": "Natural language processing reveals vulnerable mental health support groups and heightened health anxiety on Reddit during COVID-19: observational study",
+   "container": "J Med Internet Res",
+   "volume": "22",
+   "first_page": "e22635",
+   "doi": "10.2196/22635"
+  },
+  {
+   "bib_id": 36,
+   "authors": [
+    {
+     "family": "Raihan",
+     "given": "N"
+    },
+    {
+     "family": "Puspo",
+     "given": "SSC"
+    },
+    {
+     "family": "Farabi",
+     "given": "S"
+    },
+    {
+     "family": "Bucur",
+     "given": "AM"
+    },
+    {
+     "family": "Ranasinghe",
+     "given": "T"
+    },
+    {
+     "family": "Zampieri",
+     "given": "M"
+    }
+   ],
+   "title": "MentalHelp: a multi-task dataset for mental health in social media",
+   "first_page": "11196",
+   "last_page": "11203",
+   "doi": "10.63317/372jegsog7nt"
+  },
+  {
+   "bib_id": 37,
+   "authors": [
+    {
+     "family": "Harrigian",
+     "given": "K"
+    },
+    {
+     "family": "Aguirre",
+     "given": "C"
+    },
+    {
+     "family": "Dredze",
+     "given": "M"
+    }
+   ],
+   "title": "Do models of mental health based on social media data generalize?",
+   "first_page": "3774",
+   "last_page": "3788",
+   "doi": "10.18653/v1/2020.findings-emnlp.337"
+  },
+  {
+   "bib_id": 38,
+   "authors": [
+    {
+     "family": "Levis",
+     "given": "B"
+    },
+    {
+     "family": "Benedetti",
+     "given": "A"
+    },
+    {
+     "family": "Thombs",
+     "given": "BD"
+    },
+    {
+     "family": "DEPRESsion Screening Data (DEPRESSD) Collaboration",
+     "given": ""
+    }
+   ],
+   "year": "2019",
+   "title": "Accuracy of Patient Health Questionnaire-9 (PHQ-9) for screening to detect major depression: individual participant data meta-analysis",
+   "container": "BMJ",
+   "volume": "365",
+   "first_page": "l1476",
+   "doi": "10.1136/bmj.l1476"
+  },
+  {
+   "bib_id": 39,
+   "authors": [
+    {
+     "family": "Beck",
+     "given": "AT"
+    },
+    {
+     "family": "Ward",
+     "given": "CH"
+    },
+    {
+     "family": "Mendelson",
+     "given": "M"
+    },
+    {
+     "family": "Mock",
+     "given": "J"
+    },
+    {
+     "family": "Erbaugh",
+     "given": "J"
+    }
+   ],
+   "year": "1961",
+   "title": "An inventory for measuring depression",
+   "container": "Arch Gen Psychiatry",
+   "volume": "4",
+   "first_page": "561",
+   "last_page": "571",
+   "doi": "10.1001/archpsyc.1961.01710120031004"
+  },
+  {
+   "bib_id": 40,
+   "authors": [
+    {
+     "family": "Okajima",
+     "given": "I"
+    },
+    {
+     "family": "Miyamoto",
+     "given": "T"
+    },
+    {
+     "family": "Ubara",
+     "given": "A"
+    }
+   ],
+   "year": "2020",
+   "title": "Evaluation of severity levels of the Athens Insomnia Scale based on the criterion of Insomnia Severity Index",
+   "container": "Int J Environ Res Public Health",
+   "volume": "17",
+   "first_page": "8789",
+   "doi": "10.3390/ijerph17238789"
+  },
+  {
+   "bib_id": 41,
+   "authors": [
+    {
+     "family": "Smets",
+     "given": "EM"
+    },
+    {
+     "family": "Garssen",
+     "given": "B"
+    },
+    {
+     "family": "Bonke",
+     "given": "B"
+    },
+    {
+     "family": "De Haes",
+     "given": "JC"
+    }
+   ],
+   "year": "1995",
+   "title": "The Multidimensional Fatigue Inventory (MFI) psychometric qualities of an instrument to assess fatigue",
+   "container": "J Psychosom Res",
+   "volume": "39",
+   "first_page": "315",
+   "last_page": "325",
+   "doi": "10.1016/0022-3999(94)00125-o"
+  },
+  {
+   "bib_id": 42,
+   "authors": [
+    {
+     "family": "Tao",
+     "given": "F"
+    },
+    {
+     "family": "Esposito",
+     "given": "A"
+    },
+    {
+     "family": "Vinciarelli",
+     "given": "A"
+    }
+   ],
+   "title": "The Androids Corpus: a new publicly available benchmark for speech based depression detection",
+   "first_page": "4149",
+   "last_page": "4153",
+   "doi": "10.21437/Interspeech.2023-894"
+  },
+  {
+   "bib_id": 43,
+   "title": "A multi-modal open dataset for mental-disorder analysis",
+   "volume": "9"
+  },
+  {
+   "bib_id": 44,
+   "authors": [
+    {
+     "family": "Lecrubier",
+     "given": "Y"
+    },
+    {
+     "family": "Sheehan",
+     "given": "D"
+    },
+    {
+     "family": "Weiller",
+     "given": "E"
+    }
+   ],
+   "year": "1997",
+   "title": "The MINI International Neuropsychiatric Interview (MINI). a short diagnostic structured interview: reliability and validity according to the CIDI",
+   "container": "Eur Psychiatr",
+   "volume": "12",
+   "first_page": "224",
+   "last_page": "231",
+   "doi": "10.1016/S0924-9338(97)83296-8"
+  },
+  {
+   "bib_id": 45,
+   "title": "Diagnostic and Statistical Manual of Mental Disorders: DSM-5"
+  },
+  {
+   "bib_id": 46,
+   "authors": [
+    {
+     "family": "Hamilton",
+     "given": "M"
+    }
+   ],
+   "year": "1960",
+   "title": "A rating scale for depression",
+   "container": "J Neurol Neurosurg Psychiatry",
+   "volume": "23",
+   "first_page": "56",
+   "last_page": "62",
+   "doi": "10.1136/jnnp.23.1.56"
+  },
+  {
+   "bib_id": 47,
+   "authors": [
+    {
+     "family": "de Leon-Martinez",
+     "given": "S"
+    },
+    {
+     "family": "Ruiz",
+     "given": "M"
+    },
+    {
+     "family": "Parra-Vargas",
+     "given": "E"
+    }
+   ],
+   "year": "2022",
+   "title": "Virtual reality and speech analysis for the assessment of impulsivity and decision-making: protocol for a comparison with neuropsychological tasks and self-administered questionnaires",
+   "container": "BMJ Open",
+   "volume": "12",
+   "first_page": "e058486",
+   "doi": "10.1136/bmjopen-2021-058486"
+  },
+  {
+   "bib_id": 48,
+   "authors": [
+    {
+     "family": "Posner",
+     "given": "K"
+    },
+    {
+     "family": "Brown",
+     "given": "GK"
+    },
+    {
+     "family": "Stanley",
+     "given": "B"
+    }
+   ],
+   "year": "2011",
+   "title": "The Columbia-Suicide Severity Rating Scale: initial validity and internal consistency findings from three multisite studies with adolescents and adults",
+   "container": "Am J Psychiatry",
+   "volume": "168",
+   "first_page": "1266",
+   "last_page": "1277",
+   "doi": "10.1176/appi.ajp.2011.10111704"
+  },
+  {
+   "bib_id": 49,
+   "authors": [
+    {
+     "family": "Al-Halabí",
+     "given": "S"
+    },
+    {
+     "family": "Sáiz",
+     "given": "PA"
+    },
+    {
+     "family": "Burón",
+     "given": "P"
+    }
+   ],
+   "year": "2016",
+   "title": "Validation of a Spanish version of the Columbia-Suicide Severity Rating Scale (C-SSRS)",
+   "container": "Rev Psiquiatr Salud Ment",
+   "volume": "9",
+   "first_page": "134",
+   "last_page": "142",
+   "doi": "10.1016/j.rpsm.2016.02.002"
+  },
+  {
+   "bib_id": 50,
+   "authors": [
+    {
+     "family": "Radford",
+     "given": "A"
+    },
+    {
+     "family": "Kim",
+     "given": "JW"
+    },
+    {
+     "family": "Xu",
+     "given": "T"
+    },
+    {
+     "family": "Brockman",
+     "given": "G"
+    },
+    {
+     "family": "McLeavey",
+     "given": "C"
+    },
+    {
+     "family": "Sutskever",
+     "given": "I"
+    }
+   ],
+   "year": "2022",
+   "title": "Robust speech recognition via large-scale weak supervision",
+   "container": "arXiv",
+   "doi": "10.48550/arXiv.2212.04356"
+  },
+  {
+   "bib_id": 51,
+   "authors": [
+    {
+     "family": "Zhang",
+     "given": "Y"
+    },
+    {
+     "family": "Li",
+     "given": "M"
+    },
+    {
+     "family": "Long",
+     "given": "D"
+    }
+   ],
+   "year": "2025",
+   "title": "Qwen3 embedding: advancing text embedding and reranking through foundation models",
+   "container": "arXiv",
+   "doi": "10.48550/arXiv.2506.05176"
+  },
+  {
+   "bib_id": 52,
+   "authors": [
+    {
+     "family": "Muennighoff",
+     "given": "N"
+    },
+    {
+     "family": "Tazi",
+     "given": "N"
+    },
+    {
+     "family": "Magne",
+     "given": "L"
+    },
+    {
+     "family": "Reimers",
+     "given": "N"
+    }
+   ],
+   "title": "MTEB: massive text embedding benchmark",
+   "doi": "10.18653/v1/2023.eacl-main.148"
+  },
+  {
+   "bib_id": 53,
+   "authors": [
+    {
+     "family": "McInnes",
+     "given": "L"
+    },
+    {
+     "family": "Healy",
+     "given": "J"
+    },
+    {
+     "family": "Melville",
+     "given": "J"
+    }
+   ],
+   "year": "2020",
+   "title": "UMAP: Uniform Manifold Approximation and Projection for dimension reduction",
+   "container": "arXiv",
+   "doi": "10.48550/arXiv.1802.03426"
+  },
+  {
+   "bib_id": 54,
+   "authors": [
+    {
+     "family": "McInnes",
+     "given": "L"
+    },
+    {
+     "family": "Healy",
+     "given": "J"
+    },
+    {
+     "family": "Astels",
+     "given": "S"
+    }
+   ],
+   "year": "2017",
+   "title": "hdbscan: hierarchical density based clustering",
+   "container": "JOSS",
+   "volume": "2",
+   "first_page": "205",
+   "doi": "10.21105/joss.00205"
+  },
+  {
+   "bib_id": 55,
+   "authors": [
+    {
+     "family": "Yang",
+     "given": "A"
+    },
+    {
+     "family": "Li",
+     "given": "A"
+    },
+    {
+     "family": "Yang",
+     "given": "B"
+    }
+   ],
+   "year": "2025",
+   "title": "Qwen3 technical report",
+   "container": "arXiv",
+   "doi": "10.48550/arXiv.2505.09388"
+  },
+  {
+   "bib_id": 56,
+   "authors": [
+    {
+     "family": "Cohen",
+     "given": "J"
+    }
+   ],
+   "year": "1988",
+   "title": "Statistical Power Analysis for the Behavioral Sciences"
+  },
+  {
+   "bib_id": 57,
+   "authors": [
+    {
+     "family": "Fried",
+     "given": "EI"
+    }
+   ],
+   "year": "2017",
+   "title": "The 52 symptoms of major depression: lack of content overlap among seven common depression scales",
+   "container": "J Affect Disord",
+   "volume": "208",
+   "first_page": "191",
+   "last_page": "197",
+   "doi": "10.1016/j.jad.2016.10.019"
+  },
+  {
+   "bib_id": 58,
+   "authors": [
+    {
+     "family": "Menne",
+     "given": "F"
+    },
+    {
+     "family": "Dörr",
+     "given": "F"
+    },
+    {
+     "family": "Schräder",
+     "given": "J"
+    }
+   ],
+   "year": "2024",
+   "title": "The voice of depression: speech features as biomarkers for major depressive disorder",
+   "container": "BMC Psychiatry",
+   "volume": "24",
+   "first_page": "794",
+   "doi": "10.1186/s12888-024-06253-6"
+  },
+  {
+   "bib_id": 59,
+   "authors": [
+    {
+     "family": "Hanna",
+     "given": "JJ"
+    },
+    {
+     "family": "Wakene",
+     "given": "AD"
+    },
+    {
+     "family": "Johnson",
+     "given": "AO"
+    },
+    {
+     "family": "Lehmann",
+     "given": "CU"
+    },
+    {
+     "family": "Medford",
+     "given": "RJ"
+    }
+   ],
+   "year": "2025",
+   "title": "Assessing racial and ethnic bias in text generation by large language models for health care-related tasks: cross-sectional study",
+   "container": "J Med Internet Res",
+   "volume": "27",
+   "first_page": "e57257",
+   "doi": "10.2196/57257"
+  },
+  {
+   "bib_id": 60,
+   "authors": [
+    {
+     "family": "Lau",
+     "given": "GR"
+    },
+    {
+     "family": "Low",
+     "given": "WY"
+    },
+    {
+     "family": "Koh",
+     "given": "SM"
+    },
+    {
+     "family": "Nah",
+     "given": "FFH"
+    },
+    {
+     "family": "Hartanto",
+     "given": "A"
+    }
+   ],
+   "year": "2026",
+   "title": "Evaluating AI alignment in LLMs: output analysis of value priorities across 75 models with human benchmarking",
+   "container": "arXiv",
+   "doi": "10.48550/arXiv.2506.12617"
+  },
+  {
+   "bib_id": 61,
+   "authors": [
+    {
+     "family": "Yasugaki",
+     "given": "S"
+    },
+    {
+     "family": "Okamura",
+     "given": "H"
+    },
+    {
+     "family": "Kaneko",
+     "given": "A"
+    },
+    {
+     "family": "Hayashi",
+     "given": "Y"
+    }
+   ],
+   "year": "2025",
+   "title": "Bidirectional relationship between sleep and depression",
+   "container": "Neurosci Res",
+   "volume": "211",
+   "first_page": "57",
+   "last_page": "64",
+   "doi": "10.1016/j.neures.2023.04.006"
+  },
+  {
+   "bib_id": 62,
+   "authors": [
+    {
+     "family": "Arena",
+     "given": "AF"
+    },
+    {
+     "family": "Mobbs",
+     "given": "S"
+    },
+    {
+     "family": "Sanatkar",
+     "given": "S"
+    }
+   ],
+   "year": "2023",
+   "title": "Mental health and unemployment: a systematic review and meta-analysis of interventions to improve depression and anxiety outcomes",
+   "container": "J Affect Disord",
+   "volume": "335",
+   "first_page": "450",
+   "last_page": "472",
+   "doi": "10.1016/j.jad.2023.05.027"
+  },
+  {
+   "bib_id": 63,
+   "authors": [
+    {
+     "family": "Pérez-Jorge",
+     "given": "D"
+    },
+    {
+     "family": "Boutaba-Alehyan",
+     "given": "M"
+    },
+    {
+     "family": "González-Contreras",
+     "given": "AI"
+    },
+    {
+     "family": "Pérez-Pérez",
+     "given": "I"
+    }
+   ],
+   "year": "2025",
+   "title": "Examining the effects of academic stress on student well-being in higher education",
+   "container": "Humanit Soc Sci Commun",
+   "volume": "12",
+   "first_page": "449",
+   "doi": "10.1057/s41599-025-04698-y"
+  },
+  {
+   "bib_id": 64,
+   "authors": [
+    {
+     "family": "Fancourt",
+     "given": "D"
+    },
+    {
+     "family": "Finn",
+     "given": "S"
+    }
+   ],
+   "year": "2019",
+   "title": "What is the evidence on the role of the arts in improving health and well-being? a scoping review"
+  },
+  {
+   "bib_id": 65,
+   "authors": [
+    {
+     "family": "Soga",
+     "given": "M"
+    },
+    {
+     "family": "Gaston",
+     "given": "KJ"
+    },
+    {
+     "family": "Yamaura",
+     "given": "Y"
+    }
+   ],
+   "year": "2017",
+   "title": "Gardening is beneficial for health: a meta-analysis",
+   "container": "Prev Med Rep",
+   "volume": "5",
+   "first_page": "92",
+   "last_page": "99",
+   "doi": "10.1016/j.pmedr.2016.11.007"
+  },
+  {
+   "bib_id": 66,
+   "authors": [
+    {
+     "family": "de Bloom",
+     "given": "J"
+    },
+    {
+     "family": "Geurts",
+     "given": "SAE"
+    },
+    {
+     "family": "Kompier",
+     "given": "MAJ"
+    }
+   ],
+   "year": "2013",
+   "title": "Vacation (after-) effects on employee health and well-being, and the role of vacation activities, experiences and sleep",
+   "container": "J Happiness Stud",
+   "volume": "14",
+   "first_page": "613",
+   "last_page": "633",
+   "doi": "10.1007/s10902-012-9345-3"
+  },
+  {
+   "bib_id": 67,
+   "authors": [
+    {
+     "family": "Pearce",
+     "given": "M"
+    },
+    {
+     "family": "Garcia",
+     "given": "L"
+    },
+    {
+     "family": "Abbas",
+     "given": "A"
+    }
+   ],
+   "year": "2022",
+   "title": "Association between physical activity and risk of depression: a systematic review and meta-analysis",
+   "container": "JAMA Psychiatry",
+   "volume": "79",
+   "first_page": "550",
+   "last_page": "559",
+   "doi": "10.1001/jamapsychiatry.2022.0609"
+  },
+  {
+   "bib_id": 68,
+   "authors": [
+    {
+     "family": "Yang",
+     "given": "X"
+    },
+    {
+     "family": "Zhao",
+     "given": "H"
+    },
+    {
+     "family": "Phung",
+     "given": "D"
+    },
+    {
+     "family": "Buntine",
+     "given": "W"
+    },
+    {
+     "family": "Du",
+     "given": "L"
+    }
+   ],
+   "year": "2025",
+   "title": "LLM reading tea leaves: automatically evaluating topic models with large language models",
+   "container": "Trans Assoc Comput Linguist",
+   "volume": "13",
+   "first_page": "357",
+   "last_page": "375",
+   "doi": "10.1162/tacl_a_00744"
+  },
+  {
+   "bib_id": 69,
+   "authors": [
+    {
+     "family": "Tan",
+     "given": "Z"
+    },
+    {
+     "family": "D’Souza",
+     "given": "J"
+    }
+   ],
+   "year": "2025",
+   "title": "Toward purpose-oriented topic model evaluation enabled by large language models",
+   "container": "Int J Digit Libr",
+   "volume": "26",
+   "first_page": "23",
+   "doi": "10.1007/s00799-025-00429-5"
+  },
+  {
+   "bib_id": 70,
+   "authors": [
+    {
+     "family": "Taylor",
+     "given": "B"
+    },
+    {
+     "family": "Henshall",
+     "given": "C"
+    },
+    {
+     "family": "Kenyon",
+     "given": "S"
+    },
+    {
+     "family": "Litchfield",
+     "given": "I"
+    },
+    {
+     "family": "Greenfield",
+     "given": "S"
+    }
+   ],
+   "year": "2018",
+   "title": "Can rapid approaches to qualitative analysis deliver timely, valid findings to clinical leaders? A mixed methods study comparing rapid and thematic analysis",
+   "container": "BMJ Open",
+   "volume": "8",
+   "first_page": "e019993",
+   "doi": "10.1136/bmjopen-2017-019993"
+  },
+  {
+   "bib_id": 71,
+   "authors": [
+    {
+     "family": "O’Connor",
+     "given": "C"
+    },
+    {
+     "family": "Joffe",
+     "given": "H"
+    }
+   ],
+   "year": "2020",
+   "title": "Intercoder reliability in qualitative research: debates and practical guidelines",
+   "container": "Int J Qual Methods",
+   "volume": "19",
+   "first_page": "1609406919899220",
+   "doi": "10.1177/1609406919899220"
+  },
+  {
+   "bib_id": 72,
+   "authors": [
+    {
+     "family": "Prescott",
+     "given": "MR"
+    },
+    {
+     "family": "Yeager",
+     "given": "S"
+    },
+    {
+     "family": "Ham",
+     "given": "L"
+    }
+   ],
+   "year": "2024",
+   "title": "Comparing the efficacy and efficiency of human and generative AI: qualitative thematic analyses",
+   "container": "JMIR AI",
+   "volume": "3",
+   "first_page": "e54482",
+   "doi": "10.2196/54482"
+  },
+  {
+   "bib_id": 73,
+   "authors": [
+    {
+     "family": "Bijker",
+     "given": "R"
+    },
+    {
+     "family": "Merkouris",
+     "given": "SS"
+    },
+    {
+     "family": "Dowling",
+     "given": "NA"
+    },
+    {
+     "family": "Rodda",
+     "given": "SN"
+    }
+   ],
+   "year": "2024",
+   "title": "ChatGPT for automated qualitative research: content analysis",
+   "container": "J Med Internet Res",
+   "volume": "26",
+   "first_page": "e59050",
+   "doi": "10.2196/59050"
+  },
+  {
+   "bib_id": 74,
+   "authors": [
+    {
+     "family": "Hill",
+     "given": "C"
+    },
+    {
+     "family": "Dahil",
+     "given": "A"
+    },
+    {
+     "family": "Simpson",
+     "given": "G"
+    }
+   ],
+   "year": "2026",
+   "title": "Large language models for thematic analysis in healthcare research: a blinded mixed-methods comparison with human analysts",
+   "container": "PLOS Digit Health",
+   "volume": "5",
+   "first_page": "e0001189",
+   "doi": "10.1371/journal.pdig.0001189"
+  },
+  {
+   "bib_id": 75,
+   "authors": [
+    {
+     "family": "Castellanos",
+     "given": "A"
+    },
+    {
+     "family": "Jiang",
+     "given": "H"
+    },
+    {
+     "family": "Gomes",
+     "given": "P"
+    },
+    {
+     "family": "Vander Meer",
+     "given": "D"
+    },
+    {
+     "family": "Castillo",
+     "given": "A"
+    }
+   ],
+   "year": "2025",
+   "title": "Large language models for thematic summarization in qualitative health care research: comparative analysis of model and human performance",
+   "container": "JMIR AI",
+   "volume": "4",
+   "first_page": "e64447",
+   "doi": "10.2196/64447"
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-core-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "jats_doi": "10.2196/99185"
+ }
+}
