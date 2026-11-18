@@ -1,0 +1,1628 @@
+{
+ "paper_id": "10.1371_journal.pcbi.1013487",
+ "paras": [
+  {
+   "para_id": 1,
+   "loc": "front",
+   "sec_title": "",
+   "text": "The code and the simulation data are publicly available, and can be found at https://github.com/iKiru-hub/PCNN.",
+   "printed": true
+  },
+  {
+   "para_id": 2,
+   "loc": "body",
+   "sec_title": "1. Introduction",
+   "text": "Survival in complex environments requires efficient navigational strategies. From desert ants to humans, successful wayfinding, defined as navigating toward goals that are not directly visible, depends on emergent internal spatial representations, known as cognitive maps [1,2]. Understanding how such maps are constructed from ongoing experiences and how they can be exploited for flexible goal-directed navigation remains an active area of research in both neuroscience and reinforcement learning.",
+   "printed": true
+  },
+  {
+   "para_id": 3,
+   "loc": "body",
+   "sec_title": "1. Introduction",
+   "text": "In the brain, the hippocampus (HP) and the entorhinal cortex (EC) are the central areas involved in spatial representation. They contain specialized neurons encoding spatial and contextual information, including grid, border, speed, and place cells [3–5]. In particular, the latter are numerous in the CA1 hippocampal sub-region and have attracted interest due to the convergence of inputs from entorhinal grid cells, the CA3 hippocampal sub-region, and the lateral EC [6–9]. This strategic integration of diverse spatial and contextual signals suggests that CA1 place cells may play a critical role in the formation and maintenance of cognitive maps [10].",
+   "printed": true
+  },
+  {
+   "para_id": 4,
+   "loc": "body",
+   "sec_title": "1. Introduction",
+   "text": "Traditional theories of cognitive maps suggest that spatial representations can emerge from multiple navigational strategies. Early frameworks suggested that the hippocampus encodes both spatial location and direction [11], while graph-based models captured structural aspects of spatial organization, although often at the cost of scalability [12].",
+   "printed": true
+  },
+  {
+   "para_id": 5,
+   "loc": "body",
+   "sec_title": "1. Introduction",
+   "text": "An important strength of path integration lies in its independence from external cues, relying instead on idiothetic internal-motion signals, which are considered biologically plausible and believed to involve entorhinal grid cells [13,14]. A common computational methodology to investigate path integration involves recurrent neural networks combined with linear readouts. When trained in navigation tasks, these systems spontaneously develop spatially tuned activity patterns reminiscent of grid, place, and border cells [15–17].",
+   "printed": true
+  },
+  {
+   "para_id": 6,
+   "loc": "body",
+   "sec_title": "1. Introduction",
+   "text": "Another proposal is the Tolman-Eichenbaum machine (TEM), a model that generalizes across spatial and relational tasks while reproducing key biological neural activity patterns [18–20]. Learning in TEM occurs through gradient descent over many episodes or epochs, in contrast to adaptive, context-dependent learning observed in biological systems. As with several modeling approaches, its neuronal dynamics remain simplified, typically reduced to artificial neurons defined by weighted sums and fixed non-linear activation functions. An alternative is the successor representation framework (SR), built around the learning of a predictive map of the explored state space, which can be used for active navigation [21,22]. It has been linked to hippocampal cognitive map generation, with the possibility of incorporating reward information and formulation in terms of biologically plausible mechanisms [23–26].",
+   "printed": true
+  },
+  {
+   "para_id": 7,
+   "loc": "body",
+   "sec_title": "1. Introduction",
+   "text": "Neuromodulation is another relevant element in brain dynamics, affecting physiology, cognition, and behavior [27]. Its functions include filtering meaningful internal and external signals, influencing neuronal dynamics, and learning by altering synaptic states and parameters [28–30]. An important neuromodulator is dopamine, long associated with reward information, prediction error encoding [30,31], and novelty detection [29], mechanisms closely related to reinforcement learning principles [32,33]. In addition, projections from the Ventral Tegmental Area (VTA) and Locus Coeruleus (LC) have been shown to target the hippocampal circuits [34–36], to be involved in memory formation [37], and affect the adjustment of CA1 place cells [38–41], particularly through LEC inputs [42,43].",
+   "printed": true
+  },
+  {
+   "para_id": 8,
+   "loc": "body",
+   "sec_title": "1. Introduction",
+   "text": "Other approaches have incorporated neuromodulators with reward-driven Hebbian plasticity [44] or other learning features, such as sparsity and update scaling [45]. However, these architectures often remain limited in their ability to integrate these components into a biologically grounded framework that works without extensive training, gradient-based optimization, or external coordinate inputs while still providing adaptable planning and behavior.",
+   "printed": true
+  },
+  {
+   "para_id": 9,
+   "loc": "body",
+   "sec_title": "1. Introduction",
+   "text": "In this work, we addressed these limitations by proposing a bio-inspired model of cognitive map formation learned online from sensory experiences. The model builds on the emergence of place cell representations from grid cells activity and velocity information, that is, internally available idiothetic input, in line with the path integration approach [15,16]. We designed plasticity mechanisms through which neuromodulatory signals could target and modulate place cells, augmenting the resulting map with behaviorally relevant information. Combined with a network-based path planning mechanism, our architecture enabled an artificial agent to construct content-rich topological maps of its environment on-the-fly and to leverage them for targeted navigation. We took direct inspiration from previous work discussing the involvement of neuromodulation in hippocampal spatial processing, for example, in terms of the gating of incoming input streams and the influence of synaptic plasticity [46–48].",
+   "printed": true
+  },
+  {
+   "para_id": 10,
+   "loc": "body",
+   "sec_title": "1. Introduction",
+   "text": "These analyses allowed us to characterize the effects of neuromodulation on place field properties, such as modulation of their size and density, and to discuss potential links to experimental findings [49,50].",
+   "printed": true
+  },
+  {
+   "para_id": 11,
+   "loc": "body",
+   "sec_title": "2. Methods",
+   "text": "The architecture operates with minimal external inputs, limited to binary reward and collision signals, as illustrated in Fig 1A. Instead of relying on exteroceptive cues, spatial representations emerge from idiothetic information, that is, the agent’s internal perception of self-motion [51], consistent with path-integration frameworks. In practice, we use the agent’s ground truth velocity vector, that is, its actual displacement within the environment, as the primary navigational signal, reflecting the integration of inertial and proprioceptive signals observed in biological systems [13,52]. Since no visual information is used, the agent effectively navigates in the dark. Importantly, the model does not receive allocentric coordinates as sensory input; any two-dimensional positions used for planning or visualization are derived from the internally constructed place cell representation.",
+   "printed": true
+  },
+  {
+   "para_id": 12,
+   "loc": "body",
+   "sec_title": "2.1. Place cell formation",
+   "text": "The primary spatial representation is formed by a set of simplified grid cell modules, each encoding a periodic tiling of 2D space, which directly maps to a toroidal manifold 𝐓2 (Fig 1C). Departing from traditional grid cell modeling approaches [53,54], we generate population activity directly by Gaussian tuning on a torus, continuously updated using the agent velocity vector, an approach used in previous work [8].",
+   "printed": true
+  },
+  {
+   "para_id": 13,
+   "loc": "body",
+   "sec_title": "2.2. Neuromodulation",
+   "text": "The term in brackets can be interpreted as an error term that implements a simple form of predictive coding, and is inspired by temporal-difference learning [33], aligning with evidence that neuromodulatory systems signal prediction errors and update beliefs [19,55,56]. This mechanism was intended to support robustness to environmental changes, such as reward displacement or the introduction of new obstacles.",
+   "printed": true
+  },
+  {
+   "para_id": 14,
+   "loc": "body",
+   "sec_title": "2.3. Modulation of place fields",
+   "text": "Here, φ is a Gaussian function with width σbk and ck a scaling factor. This rule is inspired by BTSP plasticity [49], which shifts CA1 place fields following salient experiences. This action was applied only to recently active cells, that is, with an activity trace greater than a given threshold θk. The motivation was to prioritize activity within a recent time window, consistent with suggestions of dopaminergic gating in the hippocampus [57,58]. Furthermore, this approach is consistent with mechanisms such as the BCM rule [59] and the aforementioned BTSP, both of which rely on asymmetric kernels that reduce or filter out inactive neurons [39].",
+   "printed": true
+  },
+  {
+   "para_id": 15,
+   "loc": "body",
+   "sec_title": "2.4. Policy and behavior",
+   "text": "In contrast, exploitation, defined as reward-directed navigation, involved identifying the location of the reward within the cognitive map. This location corresponded to the average position of DA-modulated place cells, reflecting mechanisms such as hippocampal replay and value-based navigation [60–62].",
+   "printed": true
+  },
+  {
+   "para_id": 16,
+   "loc": "body",
+   "sec_title": "3. Results",
+   "text": "To evaluate the model, we generated a set of closed environments with an increasing number of internal walls, thereby varying the difficulty of mapping and navigation. The internal arrangement of walls and corners renders these environments non-convex. They thus qualify as a wayfinding setting [63], where the goal location is hidden from the agent’s immediate line of sight. At each time step, the agent’s selected action updated its position. A binary collision signal was generated (1 if the new coordinates intersected or crossed a wall, and 0 otherwise). Similarly, the reward signal was defined relative to the goal location, delivering a value of 1 with a probability of pR=0.8 when the agent entered a circular region of radius σR around the reward, and 0 otherwise.",
+   "printed": true
+  },
+  {
+   "para_id": 17,
+   "loc": "body",
+   "sec_title": "3.1. Optimization",
+   "text": "The model architecture contains 15 hyperparameters, several of which control non-differentiable components of place cell generation, neuromodulation, and planning. Consequently, we optimized the model using the Covariance Matrix Adaptation Evolution Strategy (CMA-ES) [64] instead of gradient-based methods or manual tuning. The fitness function was designed to simultaneously maximize reward collection and minimize collisions across multiple environments of increasing layout complexity. Full parameter distributions and convergence analyses are detailed in S3 Fig.",
+   "printed": true
+  },
+  {
+   "para_id": 18,
+   "loc": "body",
+   "sec_title": "3.5. Adaptive goal representation through sensory error",
+   "text": "To assess the model’s flexibility to reward displacement as well, we applied a relocation protocol similar to the detour task. Here, the reward location was periodically moved after fixed intervals, requiring the agent to extinguish previous goal associations and discover novel reward zones in a design inspired by computational work [44]. Fig 2G displays representative trajectories as the reward alternated between three distinct locations. The agent consistently transitioned from exploitation and planned navigation at a known site to targeted exploration when a location became unrewarding, as evidenced by the dense overlay of successful navigation paths.",
+   "printed": true
+  },
+  {
+   "para_id": 19,
+   "loc": "body",
+   "sec_title": "3.5. Adaptive goal representation through sensory error",
+   "text": "Several empirical studies support the involvement of dopamine in updating hippocampal spatial representations under shifting reward contingencies. For instance, extinguishing reward expectations reshapes and degrades CA1 spatial maps, an effect replicated by inhibiting ventral tegmental area (VTA) dopaminergic neurons [56]. Likewise, local hippocampal D1/D5 receptor signaling is required for CA1 place cell reorientation following a change in reward-relevant spatial rules [65]. While these findings are broadly consistent with predictive coding and temporal difference learning frameworks [21,33,66], direct empirical evidence for failed reward predictions actively weakening place reward associations precisely as implemented here remains limited. Consequently, we treat our dopamine-based sensory error as a dopamine-inspired, experimentally testable prediction rather than a direct replication of an established hippocampal plasticity rule.",
+   "printed": true
+  },
+  {
+   "para_id": 20,
+   "loc": "body",
+   "sec_title": "3.6. Event-dependent modulation of place cells",
+   "text": "Functionally, this dual-modulation strategy extends spatial remapping by increasing local neuronal representation density. Mechanistically, sharper place fields reduce the lateral inhibition exerted on neighboring units, allowing additional place cells to be recruited within the same local region. Computationally, this density regulation can be interpreted to opportunely increase the spatial resolution of the cognitive map around critical environmental features. By maximizing representation density near boundaries and narrow passages, the model significantly enhances planning accuracy where navigation margins are tight. These population-level adjustments align with recent empirical findings reporting a higher clustering of place fields near points of behavioral relevance or structural interest, such as environmental boundaries and reward sites, reflecting a biological compromise between spatial resolution and total network size [67–69].",
+   "printed": true
+  },
+  {
+   "para_id": 21,
+   "loc": "body",
+   "sec_title": "4. Discussion",
+   "text": "An important element behind these abilities is the formation of a map of their surroundings, enriched with information gained from new experiences, known as a cognitive map. In this work, we presented a rate network model that simulates the CA1 area of the hippocampus [10,70]. It differs from previous approaches as it operates online, uses neuromodulated synaptic plasticity, and does not rely on external coordinates.",
+   "printed": true
+  },
+  {
+   "para_id": 22,
+   "loc": "body",
+   "sec_title": "4. Discussion",
+   "text": "We used simplified grid cells and synaptic plasticity to generate information-rich spatial representations rapidly forming in novel environments, dynamics directly following experimental observations and computational modeling of place cell generation [71,72]. The architecture and its mechanics are based on the proposal that CA1 place coding is supported by entorhinal grid cell modules that operate at different spatial frequencies [73,74]. In the spirit of minimizing geometric assumptions in the neural space, we treated the generated place network as a topological graph learned through velocity inputs, reminiscent of path integration [14,75,76]. External sensory information was added locally to each graph node, i.e., a place cell, through the action of neuromodulators acting as a signal filter of salient events such as boundary collisions and reward occurrences. We took inspiration from experimental findings about the involvement of dopaminergic projections in hippocampal representation [65,77]. This idea of enriching a spatial map aligns with the concept of a labeled graph [78,79], a cognitive map proposal that addresses the problems of geometric and metric consistency by harnessing noisy observations and supporting vector-like operations [80–82].",
+   "printed": true
+  },
+  {
+   "para_id": 23,
+   "loc": "body",
+   "sec_title": "4. Discussion",
+   "text": "Previous work has used path integration with deep neural networks, but required extensive gradient-based training [13,16,17]. Another important difference is that our resulting neural network was composed solely of place cells, although neuromodulated, and no other types of neurons were present. This distinction is justified by the partially different task protocol and internal architecture, which constrained the tuning dynamics and also did not receive visual information as in [15]. Furthermore, our model relied on predefined grid cell layers, which constituted a strong and sufficient inductive bias, and did not have to be learned from scratch. The selection of the goal location was based on dopaminergic connections and a spatial average of the associated neurons. This approach is consistent with experimental observations and dopamine activity recordings in CA1, suggesting its role in stabilizing long-term spatial memories and supporting reward-guided navigation [60,65,83].",
+   "printed": true
+  },
+  {
+   "para_id": 24,
+   "loc": "body",
+   "sec_title": "4. Discussion",
+   "text": "An additional relevant aspect is the consideration of the place cell layer as an explicit graph data structure, on which path-planning was applied, meant to be a neural-based variant of the Dijkstra algorithm [84], a popular choice for graph computations. In fact, our algorithm relied on biologically plausible neural operations, such as activity propagation through the network and the use of synaptic activity traces as masks to identify the best neighboring place cells. This structured representation introduced a strong inductive bias, promoting robustness and flexibility across environments with varying layout complexity. Moreover, this lifted the need to learn an approximation of it through network dynamics and rely on a greater variability in neural receptive fields.",
+   "printed": true
+  },
+  {
+   "para_id": 25,
+   "loc": "body",
+   "sec_title": "4. Discussion",
+   "text": "A similar approach using boundary-modulated place cells has also been used for applying the successor representation (SR) framework to large environments [85], with the emergence of place and grid cell tuning. More broadly, on the one hand, several aspects of the SR framework align with our model: the distinction of the state map and the reward/boundary signals, and the use of an update rule inspired by temporal difference learning [21–23]. In addition, several studies have investigated biologically plausible implementations [24–26], obtaining close and promising matches with experimental results. On the other hand, the construction principles of our architecture required fewer assumptions about the state space size (the environment area can be almost arbitrarily large), while learning the basis of the state representation (place cells) and the successor matrix (associated with the lateral connectivity) is more direct and immediate than in the standard SR formulation. These modeling choices reflect our interest in the online generation of an explicit place cell map with an associated graph representation, while the SR may also produce non-spatial neural profiles. In fact, the type of cognitive map that emerged in our results was solely composed of neurons with a well-defined tuning curve requiring a single grid cell population vector, thus not demanding multiple spatial observations or learning steps, except for adapting the modulation weights to failed predictions. Finally, our architecture was better suited to integrate and study our formulation of neuromodulated plasticity, given direct access to a spatial map.",
+   "printed": true
+  },
+  {
+   "para_id": 26,
+   "loc": "body",
+   "sec_title": "4. Discussion",
+   "text": "Adaptability was tested by occasionally moving the reward position, leading to the generation of an internal prediction error that was used to update its representation on the map. The agent was able to weaken previous associations, return to exploration, and encode new reward locations. This behavioral protocol is similar to previous work [86], in which dopaminergic and cholinergic activity was utilized within a Hebbian plasticity rule to strengthen or weaken reward-associated spatial representations. However, as an alternative to exploiting neuromodulators with opposite valence, we followed the direction of temporal-difference learning and predictive coding, a framework linked to hippocampal representations [19,87] and explored by various computational approaches [88–90]. This preference arose from our focus on using the data encoded in the cognitive map itself, in which each position has an associated neuromodulation value array, encapsulated in the modulatory connection weights. This array functions as an expected sensory experience to compare with the actual sensory experience to obtain a learning signal. This mechanism is aligned with long-standing theories linking neuromodulation, particularly dopamine, with prediction error signaling [31,38,66,91,92]. It also fits within the larger framework of predictive coding, which interprets cognition as the minimization of surprise [90,93], and matches with temporal-difference learning, where the values of internal states are continuously updated through sensory feedback [19,21,33].",
+   "printed": true
+  },
+  {
+   "para_id": 27,
+   "loc": "body",
+   "sec_title": "4. Discussion",
+   "text": "An important consequence of this choice is the marked limitation of the information about the environment available to the agent, which is effectively restricted to boolean quantities. This operationalization differs substantially from biology, where signals are encoded in a distributed manner and integrated with multiple pathways, providing neuromodulation circuits with high-dimensional neural representations and richer responses [47,57]. Furthermore, neuromodulation in our model only influences value representation and place field modulation, which captures only a subset of the larger roles neuromodulators play in the brain [34].",
+   "printed": true
+  },
+  {
+   "para_id": 28,
+   "loc": "body",
+   "sec_title": "4. Discussion",
+   "text": "Further investigation involved testing the effect of density and gain modulation separately. The results showed that altering the density of the place cells affected the total count of the rewards collected. These results are consistent with experimental observations that demonstrate the remapping of place fields following salient events [68,94]. Notably, behavioral time-scale plasticity (BTSP) has been shown to induce shifts in CA1 place fields in response to salient inputs delivered through pathways from the entorhinal cortex [39,49,72,95]. Additional studies further support this view, reporting spatial reorganization of place cells to better emphasize behaviorally relevant information [96,97], as well as changes in firing rate following contextual stimuli [98,99], or other activity processes [100].",
+   "printed": true
+  },
+  {
+   "para_id": 29,
+   "loc": "body",
+   "sec_title": "4. Discussion",
+   "text": "The effect was particularly clear for boundary-modulated place cells, which displayed a trend of shifting place cell centers closer to the walls, yielding a statistically significant improvement in performance. One possible interpretation is that a tighter representation of environmental edges leaves more room for the interior, improving its spatial resolution, and thereby enhancing mapping and supporting more efficient path planning. Consistent with this perspective, previous studies have reported an increase in the clustering of place field edges near surface boundaries [101], and have shown that the presence of visual cue edges stabilizes spatial tuning [102]. It should be noted that in our model, the boundary information was limited solely to collision signals rather than feature-rich sensory input. Nevertheless, the emergence of strategies that parallel biological observations suggests the existence of shared computational advantages, supporting previous work documenting the benefit of increased cell clustering near boundaries for spatial accuracy and context discrimination [69,103].",
+   "printed": true
+  },
+  {
+   "para_id": 30,
+   "loc": "body",
+   "sec_title": "4. Discussion",
+   "text": "Concerning the modulation of place fields, there is significant experimental evidence of their alteration during reward events [104–106], some reporting shrinkage near reward objects [107], and more markedly near boundaries [108]. In this direction, two possible experimental predictions can be made, based on the constraint of using self-motion cues for the generation of cognitive maps.",
+   "printed": true
+  },
+  {
+   "para_id": 31,
+   "loc": "body",
+   "sec_title": "4. Discussion",
+   "text": "In the case of boundary-modulated place cells, this shrinking effect may account for the improved performance in two ways: first, by increasing the spatial resolution of the environment layout [109]; and second, by freeing up space for other place cells to form nearby. The latter may result from reduced lateral inhibition and the inward shift of the field center toward the boundaries.",
+   "printed": true
+  },
+  {
+   "para_id": 32,
+   "loc": "body",
+   "sec_title": "4. Discussion",
+   "text": "Previous studies have proposed that the Locus Coeruleus (LC) is involved in place cell reorganization [41] and overrepresentation near reward locations through the co-release of dopamine and noradrenaline [40]. A possible experimental prediction that emerges from our results is that preventing place cell density modulation may indirectly decrease the quality of reward-directed navigation, as suggested by the remapping of boundary-modulated cells shown in Fig 2C and the statistics reported in Fig 3D.",
+   "printed": true
+  },
+  {
+   "para_id": 33,
+   "loc": "body",
+   "sec_title": "4. Discussion",
+   "text": "In conclusion, this work showed a possible architecture for coupling emergent spatial representations with neuromodulated plasticity to achieve an experience-driven cognitive map. The reliance on some spatial and algorithmic inductive biases, grid cells, and a planning algorithm supports the idea of a labeled graph for goal navigation. Future work can investigate the application to other spatial domains, such as motor control and three-dimensional navigation. In addition, a richer input feature can be added, such as visual information [110], as well as new neuromodulators that encode different sensory dimensions or internally generated signals.",
+   "printed": true
+  }
+ ],
+ "links": [
+  {
+   "link_id": 1,
+   "url": "github.com/ikiru-hub/pcnn",
+   "url_raw": "https://github.com/iKiru-hub/PCNN",
+   "href_jats": "https://github.com/iKiru-hub/PCNN",
+   "repo_key": "github:ikiru-hub/pcnn",
+   "host_class": "github",
+   "loc": "front",
+   "sec_title": "",
+   "source": "tagged",
+   "para_id": 1
+  }
+ ],
+ "links_optional": [
+  "creativecommons.org/licenses/by/4.0",
+  "doi:10.1002/(sici)1098-1063(1999)9:6<659::aid-hipo7>3.0.co;2-e",
+  "doi:10.1002/hipo.20060",
+  "doi:10.1002/hipo.20244",
+  "doi:10.1002/hipo.20909",
+  "doi:10.1002/hipo.20929",
+  "doi:10.1002/hipo.22111",
+  "doi:10.1002/hipo.22720",
+  "doi:10.1002/hipo.23246",
+  "doi:10.1007/s00441-018-2800-7",
+  "doi:10.1007/s10827-006-0002-x",
+  "doi:10.1007/s12264-022-00916-8",
+  "doi:10.1016/j.biosystems.2022.104612",
+  "doi:10.1016/j.cell.2020.10.024",
+  "doi:10.1016/j.celrep.2022.111962",
+  "doi:10.1016/j.cognition.2016.06.003",
+  "doi:10.1016/j.cogpsych.2005.08.003",
+  "doi:10.1016/j.conb.2014.05.003",
+  "doi:10.1016/j.conb.2022.102558",
+  "doi:10.1016/j.cub.2018.01.081",
+  "doi:10.1016/j.cub.2020.01.083",
+  "doi:10.1016/j.cub.2021.07.058",
+  "doi:10.1016/j.cub.2022.06.046",
+  "doi:10.1016/j.cub.2022.06.090",
+  "doi:10.1016/j.cub.2024.04.026",
+  "doi:10.1016/j.febslet.2014.06.004",
+  "doi:10.1016/j.isci.2023.106026",
+  "doi:10.1016/j.neucom.2023.126292",
+  "doi:10.1016/j.neunet.2019.09.002",
+  "doi:10.1016/j.neuron.2005.05.002",
+  "doi:10.1016/j.neuron.2006.06.033",
+  "doi:10.1016/j.neuron.2019.05.041",
+  "doi:10.1016/j.neuron.2019.09.035",
+  "doi:10.1016/j.neuron.2019.12.029",
+  "doi:10.1016/j.neuron.2022.03.026",
+  "doi:10.1016/j.neuron.2022.08.001",
+  "doi:10.1016/j.neuron.2022.10.003",
+  "doi:10.1016/j.neuron.2023.03.034",
+  "doi:10.1016/j.patter.2022.100639",
+  "doi:10.1016/j.tins.2013.12.003",
+  "doi:10.1016/j.tins.2018.10.002",
+  "doi:10.1016/s0896-6273(02)00784-5",
+  "doi:10.1037/0033-295x.100.2.163",
+  "doi:10.1038/nature14622",
+  "doi:10.1038/nature19325",
+  "doi:10.1038/ncomms11824",
+  "doi:10.1038/nn.2599",
+  "doi:10.1038/nn.3329",
+  "doi:10.1038/nn.3843",
+  "doi:10.1038/nn.4650",
+  "doi:10.1038/nrn1932",
+  "doi:10.1038/s41467-022-31040-w",
+  "doi:10.1038/s41467-022-34465-5",
+  "doi:10.1038/s41583-021-00479-z",
+  "doi:10.1038/s41583-024-00817-x",
+  "doi:10.1038/s41586-018-0102-6",
+  "doi:10.1038/s41586-022-05378-6",
+  "doi:10.1038/s41586-024-08034-3",
+  "doi:10.1038/s41593-023-01460-y",
+  "doi:10.1038/s41593-025-01985-4",
+  "doi:10.1038/s41593-025-01986-3",
+  "doi:10.1038/s41598-023-30307-6",
+  "doi:10.1073/pnas.1503155112",
+  "doi:10.1073/pnas.1616515114",
+  "doi:10.1098/rspb.2018.1645",
+  "doi:10.1098/rstb.2012.0533",
+  "doi:10.1098/rstb.2022.0333",
+  "doi:10.1126/science.1077349",
+  "doi:10.1126/science.1105370",
+  "doi:10.1126/science.1125572",
+  "doi:10.1126/science.275.5306.1593",
+  "doi:10.1126/science.aan3846",
+  "doi:10.1146/annurev-neuro-090922-010618",
+  "doi:10.1162/089892998562861",
+  "doi:10.1162/evco.2007.15.1.1",
+  "doi:10.1162/neco.1993.5.4.613",
+  "doi:10.1242/jeb.187971",
+  "doi:10.1242/jeb.199.1.211",
+  "doi:10.1371/journal.pcbi.1012804",
+  "doi:10.1371/journal.pone.0181618",
+  "doi:10.1523/jneurosci.09-08-02737.1989",
+  "doi:10.1523/jneurosci.1450-22.2022",
+  "doi:10.1523/jneurosci.16-05-01936.1996",
+  "doi:10.1523/jneurosci.23-26-08827.2003",
+  "doi:10.1523/jneurosci.2680-08.2008",
+  "doi:10.1523/jneurosci.2864-06.2007",
+  "doi:10.31887/dcns.2016.18.1/wschultz",
+  "doi:10.3389/fnbeh.2022.1068271",
+  "doi:10.3389/fnbeh.2022.1092420",
+  "doi:10.3389/fncir.2017.00108",
+  "doi:10.3389/fncir.2022.878046",
+  "doi:10.3389/fncom.2022.1039822",
+  "doi:10.3389/fncom.2023.1242300",
+  "doi:10.3389/fnsys.2014.00032",
+  "doi:10.4157/grj1984b.73.93",
+  "doi:10.7554/elife.27756",
+  "doi:10.7554/elife.55252",
+  "doi:10.7554/elife.73046",
+  "doi:10.7554/elife.80661",
+  "doi:10.7554/elife.80671",
+  "doi:10.7554/elife.80680",
+  "doi:10.7554/elife.99678",
+  "editorialmanager.com/pcompbiol",
+  "explore.plos.org/phishing",
+  "journals.plos.org/ploscompbiol/s/authorship",
+  "journals.plos.org/ploscompbiol/s/editorial-and-peer-review-process",
+  "journals.plos.org/ploscompbiol/s/figures",
+  "journals.plos.org/ploscompbiol/s/materials-and-software-sharing",
+  "journals.plos.org/ploscompbiol/s/submission-guidelines",
+  "ngplosjournals.pagemajik.ai/artanalysis",
+  "plos.org/privacy-policy",
+  "plos.org/protocols?utm_medium=editorial-email&utm_source=authorletters&utm_campaign=protocols"
+ ],
+ "own_doi": "doi:10.1371/journal.pcbi.1013487",
+ "citations": [
+  {
+   "cite_id": 1,
+   "para_id": 2,
+   "bib_id": 1,
+   "marker": "1",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 2,
+   "para_id": 2,
+   "bib_id": 2,
+   "marker": "2",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 3,
+   "para_id": 3,
+   "bib_id": 3,
+   "marker": "3",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 4,
+   "para_id": 3,
+   "bib_id": 4,
+   "marker": "3–5",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 5,
+   "para_id": 3,
+   "bib_id": 5,
+   "marker": "5",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 6,
+   "para_id": 3,
+   "bib_id": 6,
+   "marker": "6",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 7,
+   "para_id": 3,
+   "bib_id": 7,
+   "marker": "6–9",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 8,
+   "para_id": 3,
+   "bib_id": 8,
+   "marker": "6–9",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 9,
+   "para_id": 3,
+   "bib_id": 9,
+   "marker": "9",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 10,
+   "para_id": 3,
+   "bib_id": 10,
+   "marker": "10",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 11,
+   "para_id": 4,
+   "bib_id": 11,
+   "marker": "11",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 12,
+   "para_id": 4,
+   "bib_id": 12,
+   "marker": "12",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 13,
+   "para_id": 5,
+   "bib_id": 13,
+   "marker": "13",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 14,
+   "para_id": 5,
+   "bib_id": 14,
+   "marker": "14",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 15,
+   "para_id": 5,
+   "bib_id": 15,
+   "marker": "15",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 16,
+   "para_id": 5,
+   "bib_id": 16,
+   "marker": "15–17",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 17,
+   "para_id": 5,
+   "bib_id": 17,
+   "marker": "17",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 18,
+   "para_id": 6,
+   "bib_id": 18,
+   "marker": "18",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 19,
+   "para_id": 6,
+   "bib_id": 19,
+   "marker": "18–20",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 20,
+   "para_id": 6,
+   "bib_id": 20,
+   "marker": "20",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 21,
+   "para_id": 6,
+   "bib_id": 21,
+   "marker": "21",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 22,
+   "para_id": 6,
+   "bib_id": 22,
+   "marker": "22",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 23,
+   "para_id": 6,
+   "bib_id": 23,
+   "marker": "23",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 24,
+   "para_id": 6,
+   "bib_id": 24,
+   "marker": "23–26",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 25,
+   "para_id": 6,
+   "bib_id": 25,
+   "marker": "23–26",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 26,
+   "para_id": 6,
+   "bib_id": 26,
+   "marker": "26",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 27,
+   "para_id": 7,
+   "bib_id": 27,
+   "marker": "27",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 28,
+   "para_id": 7,
+   "bib_id": 28,
+   "marker": "28",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 29,
+   "para_id": 7,
+   "bib_id": 29,
+   "marker": "28–30",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 30,
+   "para_id": 7,
+   "bib_id": 30,
+   "marker": "30",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 31,
+   "para_id": 7,
+   "bib_id": 30,
+   "marker": "30",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 32,
+   "para_id": 7,
+   "bib_id": 31,
+   "marker": "31",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 33,
+   "para_id": 7,
+   "bib_id": 29,
+   "marker": "29",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 34,
+   "para_id": 7,
+   "bib_id": 32,
+   "marker": "32",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 35,
+   "para_id": 7,
+   "bib_id": 33,
+   "marker": "33",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 36,
+   "para_id": 7,
+   "bib_id": 34,
+   "marker": "34",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 37,
+   "para_id": 7,
+   "bib_id": 35,
+   "marker": "34–36",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 38,
+   "para_id": 7,
+   "bib_id": 36,
+   "marker": "36",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 39,
+   "para_id": 7,
+   "bib_id": 37,
+   "marker": "37",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 40,
+   "para_id": 7,
+   "bib_id": 38,
+   "marker": "38",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 41,
+   "para_id": 7,
+   "bib_id": 39,
+   "marker": "38–41",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 42,
+   "para_id": 7,
+   "bib_id": 40,
+   "marker": "38–41",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 43,
+   "para_id": 7,
+   "bib_id": 41,
+   "marker": "41",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 44,
+   "para_id": 7,
+   "bib_id": 42,
+   "marker": "42",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 45,
+   "para_id": 7,
+   "bib_id": 43,
+   "marker": "43",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 46,
+   "para_id": 8,
+   "bib_id": 44,
+   "marker": "44",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 47,
+   "para_id": 8,
+   "bib_id": 45,
+   "marker": "45",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 48,
+   "para_id": 9,
+   "bib_id": 15,
+   "marker": "15",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 49,
+   "para_id": 9,
+   "bib_id": 16,
+   "marker": "16",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 50,
+   "para_id": 9,
+   "bib_id": 46,
+   "marker": "46",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 51,
+   "para_id": 9,
+   "bib_id": 47,
+   "marker": "46–48",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 52,
+   "para_id": 9,
+   "bib_id": 48,
+   "marker": "48",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 53,
+   "para_id": 10,
+   "bib_id": 49,
+   "marker": "49",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 54,
+   "para_id": 10,
+   "bib_id": 50,
+   "marker": "50",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 55,
+   "para_id": 11,
+   "bib_id": 51,
+   "marker": "51",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 56,
+   "para_id": 11,
+   "bib_id": 13,
+   "marker": "13",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 57,
+   "para_id": 11,
+   "bib_id": 52,
+   "marker": "52",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 58,
+   "para_id": 12,
+   "bib_id": 53,
+   "marker": "53",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 59,
+   "para_id": 12,
+   "bib_id": 54,
+   "marker": "54",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 60,
+   "para_id": 12,
+   "bib_id": 8,
+   "marker": "8",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 61,
+   "para_id": 13,
+   "bib_id": 33,
+   "marker": "33",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 62,
+   "para_id": 13,
+   "bib_id": 19,
+   "marker": "19",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 63,
+   "para_id": 13,
+   "bib_id": 55,
+   "marker": "55",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 64,
+   "para_id": 13,
+   "bib_id": 56,
+   "marker": "56",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 65,
+   "para_id": 14,
+   "bib_id": 49,
+   "marker": "49",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 66,
+   "para_id": 14,
+   "bib_id": 57,
+   "marker": "57",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 67,
+   "para_id": 14,
+   "bib_id": 58,
+   "marker": "58",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 68,
+   "para_id": 14,
+   "bib_id": 59,
+   "marker": "59",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 69,
+   "para_id": 14,
+   "bib_id": 39,
+   "marker": "39",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 70,
+   "para_id": 15,
+   "bib_id": 60,
+   "marker": "60",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 71,
+   "para_id": 15,
+   "bib_id": 61,
+   "marker": "60–62",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 72,
+   "para_id": 15,
+   "bib_id": 62,
+   "marker": "62",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 73,
+   "para_id": 16,
+   "bib_id": 63,
+   "marker": "63",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 74,
+   "para_id": 17,
+   "bib_id": 64,
+   "marker": "64",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 75,
+   "para_id": 18,
+   "bib_id": 44,
+   "marker": "44",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 76,
+   "para_id": 19,
+   "bib_id": 56,
+   "marker": "56",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 77,
+   "para_id": 19,
+   "bib_id": 65,
+   "marker": "65",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 78,
+   "para_id": 19,
+   "bib_id": 21,
+   "marker": "21",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 79,
+   "para_id": 19,
+   "bib_id": 33,
+   "marker": "33",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 80,
+   "para_id": 19,
+   "bib_id": 66,
+   "marker": "66",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 81,
+   "para_id": 20,
+   "bib_id": 67,
+   "marker": "67",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 82,
+   "para_id": 20,
+   "bib_id": 68,
+   "marker": "67–69",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 83,
+   "para_id": 20,
+   "bib_id": 69,
+   "marker": "69",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 84,
+   "para_id": 21,
+   "bib_id": 10,
+   "marker": "10",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 85,
+   "para_id": 21,
+   "bib_id": 70,
+   "marker": "70",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 86,
+   "para_id": 22,
+   "bib_id": 71,
+   "marker": "71",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 87,
+   "para_id": 22,
+   "bib_id": 72,
+   "marker": "72",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 88,
+   "para_id": 22,
+   "bib_id": 73,
+   "marker": "73",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 89,
+   "para_id": 22,
+   "bib_id": 74,
+   "marker": "74",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 90,
+   "para_id": 22,
+   "bib_id": 14,
+   "marker": "14",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 91,
+   "para_id": 22,
+   "bib_id": 75,
+   "marker": "75",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 92,
+   "para_id": 22,
+   "bib_id": 76,
+   "marker": "76",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 93,
+   "para_id": 22,
+   "bib_id": 65,
+   "marker": "65",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 94,
+   "para_id": 22,
+   "bib_id": 77,
+   "marker": "77",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 95,
+   "para_id": 22,
+   "bib_id": 78,
+   "marker": "78",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 96,
+   "para_id": 22,
+   "bib_id": 79,
+   "marker": "79",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 97,
+   "para_id": 22,
+   "bib_id": 80,
+   "marker": "80",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 98,
+   "para_id": 22,
+   "bib_id": 81,
+   "marker": "80–82",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 99,
+   "para_id": 22,
+   "bib_id": 82,
+   "marker": "82",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 100,
+   "para_id": 23,
+   "bib_id": 13,
+   "marker": "13",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 101,
+   "para_id": 23,
+   "bib_id": 16,
+   "marker": "16",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 102,
+   "para_id": 23,
+   "bib_id": 17,
+   "marker": "17",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 103,
+   "para_id": 23,
+   "bib_id": 15,
+   "marker": "15",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 104,
+   "para_id": 23,
+   "bib_id": 60,
+   "marker": "60",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 105,
+   "para_id": 23,
+   "bib_id": 65,
+   "marker": "65",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 106,
+   "para_id": 23,
+   "bib_id": 83,
+   "marker": "83",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 107,
+   "para_id": 24,
+   "bib_id": 84,
+   "marker": "84",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 108,
+   "para_id": 25,
+   "bib_id": 85,
+   "marker": "85",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 109,
+   "para_id": 25,
+   "bib_id": 21,
+   "marker": "21",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 110,
+   "para_id": 25,
+   "bib_id": 22,
+   "marker": "21–23",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 111,
+   "para_id": 25,
+   "bib_id": 23,
+   "marker": "23",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 112,
+   "para_id": 25,
+   "bib_id": 24,
+   "marker": "24",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 113,
+   "para_id": 25,
+   "bib_id": 25,
+   "marker": "24–26",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 114,
+   "para_id": 25,
+   "bib_id": 26,
+   "marker": "26",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 115,
+   "para_id": 26,
+   "bib_id": 86,
+   "marker": "86",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 116,
+   "para_id": 26,
+   "bib_id": 19,
+   "marker": "19",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 117,
+   "para_id": 26,
+   "bib_id": 87,
+   "marker": "87",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 118,
+   "para_id": 26,
+   "bib_id": 88,
+   "marker": "88",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 119,
+   "para_id": 26,
+   "bib_id": 89,
+   "marker": "88–90",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 120,
+   "para_id": 26,
+   "bib_id": 90,
+   "marker": "90",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 121,
+   "para_id": 26,
+   "bib_id": 31,
+   "marker": "31",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 122,
+   "para_id": 26,
+   "bib_id": 38,
+   "marker": "38",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 123,
+   "para_id": 26,
+   "bib_id": 66,
+   "marker": "66",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 124,
+   "para_id": 26,
+   "bib_id": 91,
+   "marker": "91",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 125,
+   "para_id": 26,
+   "bib_id": 92,
+   "marker": "92",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 126,
+   "para_id": 26,
+   "bib_id": 90,
+   "marker": "90",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 127,
+   "para_id": 26,
+   "bib_id": 93,
+   "marker": "93",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 128,
+   "para_id": 26,
+   "bib_id": 19,
+   "marker": "19",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 129,
+   "para_id": 26,
+   "bib_id": 21,
+   "marker": "21",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 130,
+   "para_id": 26,
+   "bib_id": 33,
+   "marker": "33",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 131,
+   "para_id": 27,
+   "bib_id": 47,
+   "marker": "47",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 132,
+   "para_id": 27,
+   "bib_id": 57,
+   "marker": "57",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 133,
+   "para_id": 27,
+   "bib_id": 34,
+   "marker": "34",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 134,
+   "para_id": 28,
+   "bib_id": 68,
+   "marker": "68",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 135,
+   "para_id": 28,
+   "bib_id": 94,
+   "marker": "94",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 136,
+   "para_id": 28,
+   "bib_id": 39,
+   "marker": "39",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 137,
+   "para_id": 28,
+   "bib_id": 49,
+   "marker": "49",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 138,
+   "para_id": 28,
+   "bib_id": 72,
+   "marker": "72",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 139,
+   "para_id": 28,
+   "bib_id": 95,
+   "marker": "95",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 140,
+   "para_id": 28,
+   "bib_id": 96,
+   "marker": "96",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 141,
+   "para_id": 28,
+   "bib_id": 97,
+   "marker": "97",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 142,
+   "para_id": 28,
+   "bib_id": 98,
+   "marker": "98",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 143,
+   "para_id": 28,
+   "bib_id": 99,
+   "marker": "99",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 144,
+   "para_id": 28,
+   "bib_id": 100,
+   "marker": "100",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 145,
+   "para_id": 29,
+   "bib_id": 101,
+   "marker": "101",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 146,
+   "para_id": 29,
+   "bib_id": 102,
+   "marker": "102",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 147,
+   "para_id": 29,
+   "bib_id": 69,
+   "marker": "69",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 148,
+   "para_id": 29,
+   "bib_id": 103,
+   "marker": "103",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 149,
+   "para_id": 30,
+   "bib_id": 104,
+   "marker": "104",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 150,
+   "para_id": 30,
+   "bib_id": 105,
+   "marker": "104–106",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 151,
+   "para_id": 30,
+   "bib_id": 106,
+   "marker": "106",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 152,
+   "para_id": 30,
+   "bib_id": 107,
+   "marker": "107",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 153,
+   "para_id": 30,
+   "bib_id": 108,
+   "marker": "108",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 154,
+   "para_id": 31,
+   "bib_id": 109,
+   "marker": "109",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 155,
+   "para_id": 32,
+   "bib_id": 41,
+   "marker": "41",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 156,
+   "para_id": 32,
+   "bib_id": 40,
+   "marker": "40",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 157,
+   "para_id": 33,
+   "bib_id": 110,
+   "marker": "110",
+   "expanded": false,
+   "scored": true
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-ext-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "v1_bib_count": 110
+ }
+}

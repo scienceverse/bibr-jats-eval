@@ -1,0 +1,1525 @@
+{
+ "paper_id": "10.1038_s41467-026-77192-x",
+ "paras": [
+  {
+   "para_id": 1,
+   "loc": "fig",
+   "sec_title": "Defining subcellular translatomes in somatosensory dorsal root ganglion neurons",
+   "text": "A Schematic depicting the TRAP-sequencing protocol. Nav1.8Cre/+ mice were crossed to L10a-EGFPfl/fl mice to generate Nav1.8Cre;L10a-EGFPfl/fl mice and L10a-EGFPfl/fl negative control mice. In these mice, Nav1.8Cre drives expression of an EGFP-tagged ribosomal subunit, L10a, selectively in a set of DRG neurons. Tissue microdissections were performed in mice aged P3-7 to collect lumbar dorsal root ganglia (soma compartment), lumbar dorsal roots/ spinal cord (central axon compartment), and sciatic nerves (peripheral axon compartment). Using the Translating Ribosomal Affinity Purification (TRAP) protocol, ribosomal-associated mRNAs were isolated from tissue lysates using an anti-EGFP antibody immunoprecipitation followed by RNA extraction using filter columns. Created in BioRender. Silagi, E. (2026) https://BioRender.com/ra0oidx. B Principal component analysis of DRG soma, peripheral axon, and central axon samples (n = 4 peripheral and central axon samples, n = 8 DRG soma samples). C Heatmap showing normalized gene expression within the DRG soma, peripheral axon, and central axon TRAP datasets for all genes with expression ≥ 5 counts. D–F Volcano plots demonstrating differential gene expression between the TRAP datasets comparing peripheral axons vs. DRG soma (D), central axons vs. DRG soma (E), and central vs. peripheral axons (F). Differential gene expression analysis was conducted using the RStudio DESeq2 package, using a two-sided Wald test and Benjamini-Hochberg FDR-adjusted p-values (p.adj ≤ 0.05; fold-change ≥ 1.5). G Bar graphs depicting the normalized gene expression of select mRNA transcripts (with known expression in axons) within the DRG soma, peripheral axon, and central axon compartments. Statistical significance determined by two-sided, unpaired t tests for a priori peripheral vs. central axon comparisons (n = 4 peripheral and central axon samples, n = 8 DRG soma samples) (p-value ≤ 0.05). Data are represented as mean ± SEM. Source data are provided as a Source Data file.",
+   "printed": true
+  },
+  {
+   "para_id": 2,
+   "loc": "back",
+   "sec_title": "",
+   "text": "All raw and processed TRAP-seq and RIP-seq data from this study were deposited to Gene Expression Omnibus at GEO:GSE289550 and GEO:GSE289551 and are publicly available: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE289550. https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE289551. TRAP-seq data are also available for browsing and analysis via the Pain-seq multi-omic data resource at http://painseq.shinyapps.io/CompartmentTRAP/ (or trap.painseq.com). The TRAP-seq, RIP-seq, and integrative cross dataset analyses performed in this study are available in the Supplementary Data files. All visual data analyzed in this study can be found in the Source Data file. Requests for further information and resources should be directed to the lead contact, Rosalind Segal (Rosalind_segal@dfci.harvard.edu). Source data are provided in this paper.",
+   "printed": true
+  },
+  {
+   "para_id": 3,
+   "loc": "back",
+   "sec_title": "",
+   "text": "Novel code used to generate the web resource has been deposited to GitHub (http://github.com/Renthal-Lab/CompartmentTRAPShiny): https://doi.org/10.5281/zenodo.21176607.",
+   "printed": true
+  },
+  {
+   "para_id": 4,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Neurons possess several distinctive and essential features, including the ability to form long-range connections, efficiently propagate electrical signals, and exhibit plasticity in response to multiple stimuli. These capabilities rely on dynamic regulation of gene transcription and translation, which together shape the cellular proteome. Transcriptional programs adapt rapidly to changes in the overall neuronal state, including alterations in membrane polarization, metabolic activity, and the inflammatory environment1–3. In contrast to transcription, translation can be regulated at the subcellular level, allowing for localized responses to changes in the microenvironment, such as those occurring at synapses and along the axons and dendrites4–10. As a result, local translation offers an additional layer of spatiotemporal regulation, fine-tuning the neuronal proteome in response to both global and microenvironmental signals.",
+   "printed": true
+  },
+  {
+   "para_id": 5,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "It was not long ago that scientists believed local translation could not occur in axons. The first evidence of RNA in axons was detected in the 1960s11,12, however, it took another 30 years of technological advances in microscopy for researchers to show that ribosomes were present in axons and capable of translating mRNA13–15. Since 2000, multiple studies have revealed that local protein synthesis is necessary for axon development and regeneration, and proteins transported from the soma are not sufficient to maintain local proteomes5,16–18. Despite this progress, it is not understood how mRNA transport and translation establish local proteomes and govern the specificity of axonal functions. Analysis of local translation in the axons of retinal ganglion cells in the central nervous system (CNS) suggests that translatomes are consistent across distinct axon branches19, which would preclude dynamic regulation of individual axonal proteomes in response to changes in the local microenvironment. However, it is not known whether it is possible for neurons to differentially regulate mRNA transport and translation to establish and modulate distinctive features of individual axons.",
+   "printed": true
+  },
+  {
+   "para_id": 6,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "In the peripheral nervous system (PNS), sensory neurons of the dorsal root ganglia (DRG), trigeminal ganglia, and nodose ganglia are distinguished by their pseudounipolar morphology, where a single axon stem bifurcates into central and peripheral projections that innervate the spinal cord and peripheral tissues, respectively20,21. In humans, each of these axons can extend up to 1 meter from the cell soma in the ganglion. The peripheral axons of DRG neurons are responsible for dynamically transducing environmental stimuli into electrical signals, while the central axons transmit these signals to the CNS. Both peripheral and central axons generate and propagate action potentials, are myelinated in many DRG subtypes, and exhibit the same microtubule orientation with plus-ends towards the terminals21,22. Studies of DRG axonal function and composition have historically focused on the peripheral axon as it is more accessible for surgical isolation, injury models, and electrophysiological recordings, while investigations of the central axon are underrepresented23. Therefore, it is not known how the individualized proteomes of central and peripheral axons are decided and established24. The spatially and functionally distinct central and peripheral axon branches make DRG neurons an ideal system for addressing whether subcellular axonal translatomes differ, how any such differences arise, and how they contribute to the compartmentalized demands of encoding, transmitting, and filtering sensory information.",
+   "printed": true
+  },
+  {
+   "para_id": 7,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "In this study, we identify and compare the spatial translatomes of the two axons of somatosensory neurons. The sodium channel, Nav1.8, is expressed in approximately 60% of DRG neurons, including most subtypes involved in pain sensation20,25,26. Using Nav1.8cre; L10a-GFPfl/fl mice and a combination of Translating Ribosome Affinity Purification and highly sensitive RNA-sequencing (TRAP-seq)27, we profile the central and peripheral axonal translatomes of somatosensory neurons from microdissected mouse tissues—specifically, (1) lumbar DRG cell bodies, (2) sciatic nerves (peripheral axons), and (3) lumbar dorsal roots (central axons). Our analysis identifies thousands of axon-selective transcripts, including specialized ion channel and receptor isoforms with preferential translation in peripheral and central axons. These findings indicate that translation is an indispensable mechanism for locally modulating axonal physiology within distinct branches of the same neuron. We show that many of the locally translated mRNAs are selectively localized to the central versus peripheral axons, indicating that there is disparate transport and/or stabilization of individual mRNAs in these two axons. Notably, we identify distinct RNA-binding proteins (RBPs) that predominantly bind locally translated mRNAs of the peripheral or central axons, suggesting RBPs enable selective localization of functional RNAs cargoes to individual axons. Together, our findings offer a comprehensive understanding of how selective RNA transport and translation enable highly specialized subcellular proteomes that establish the spatial organization of neurons in normal physiology and disease states. This resource (trap.painseq.com) provides a wealth of data to investigate how cellular functions are selectively regulated at the local level and highlights how dysregulation of axonal translatomes may contribute to neuropathic diseases and disorders.",
+   "printed": true
+  },
+  {
+   "para_id": 8,
+   "loc": "body",
+   "sec_title": "Defining subcellular translatomes in somatosensory dorsal root ganglion neurons",
+   "text": "To generate a comprehensive resource of the axonally transported and translated mRNAs in DRG sensory neurons in vivo, we performed spatial translatomics using Translating Ribosome Affinity Purification (TRAP) paired with ultra-low methods for RNA-sequencing to account for the technical difficulties of extracting high-integrity RNA from axons in vivo. The lumbar ganglia (soma), sciatic nerves (peripheral axons), and lumbar dorsal roots and spinal cords (central axons) were microdissected from ~ 15 perinatal mice (P3-7) containing GFP-tagged ribosomal subunits in Nav1.8+ neuronal cell types (Nav1.8cre;L10a-GFPfl/fl) (Fig. 1A). Ribosome-associated mRNAs were isolated from tissue lysates using GFP-antibody affinity purification and ultra-low concentration RNA extraction, yielding ~10-100 pg/μL RNA (Supplementary Fig. 1A, B). We carried out the same procedure on littermate negative control mice (L10a-GFPfl/fl) that lacked GFP-tagged ribosomes. Libraries were prepared from low-input total RNA samples with SMART-Seq, and subsequently sequenced and aligned to elucidate the distinct central and peripheral axonal translatomes (n = 4 sets/condition, each set consisted of 13–17 individual animals) (Supplementary Data S1)28.Fig. 1Defining subcellular translatomes in somatosensory dorsal root ganglia neurons.A Schematic depicting the TRAP-sequencing protocol. Nav1.8Cre/+ mice were crossed to L10a-EGFPfl/fl mice to generate Nav1.8Cre;L10a-EGFPfl/fl mice and L10a-EGFPfl/fl negative control mice. In these mice, Nav1.8Cre drives expression of an EGFP-tagged ribosomal subunit, L10a, selectively in a set of DRG neurons. Tissue microdissections were performed in mice aged P3-7 to collect lumbar dorsal root ganglia (soma compartment), lumbar dorsal roots/ spinal cord (central axon compartment), and sciatic nerves (peripheral axon compartment). Using the Translating Ribosomal Affinity Purification (TRAP) protocol, ribosomal-associated mRNAs were isolated from tissue lysates using an anti-EGFP antibody immunoprecipitation followed by RNA extraction using filter columns. Created in BioRender. Silagi, E. (2026) https://BioRender.com/ra0oidx. B Principal component analysis of DRG soma, peripheral axon, and central axon samples (n = 4 peripheral and central axon samples, n = 8 DRG soma samples). C Heatmap showing normalized gene expression within the DRG soma, peripheral axon, and central axon TRAP datasets for all genes with expression ≥ 5 counts. D–F Volcano plots demonstrating differential gene expression between the TRAP datasets comparing peripheral axons vs. DRG soma (D), central axons vs. DRG soma (E), and central vs. peripheral axons (F). Differential gene expression analysis was conducted using the RStudio DESeq2 package, using a two-sided Wald test and Benjamini-Hochberg FDR-adjusted p-values (p.adj ≤ 0.05; fold-change ≥ 1.5). G Bar graphs depicting the normalized gene expression of select mRNA transcripts (with known expression in axons) within the DRG soma, peripheral axon, and central axon compartments. Statistical significance determined by two-sided, unpaired t tests for a priori peripheral vs. central axon comparisons (n = 4 peripheral and central axon samples, n = 8 DRG soma samples) (p-value ≤ 0.05). Data are represented as mean ± SEM. Source data are provided as a Source Data file.",
+   "printed": true
+  },
+  {
+   "para_id": 9,
+   "loc": "body",
+   "sec_title": "Defining subcellular translatomes in somatosensory dorsal root ganglion neurons",
+   "text": "Interestingly, previously characterized axonally translated genes such as Actb (β-actin), Bcl2l2 (Bclw), Rpl29 (60 s ribosomal protein L29), Lamb2 (Laminin β2), Vim (Vimentin), and Kpnb1 (Importin β1) all have higher axonal mRNA levels in the peripheral axon compartment than in the central axon (Fig. 1G)3,29,30. This suggests that the characterization of axonal translatomes in scientific literature mirrors DRG peripheral axons, while the translational landscape of DRG central axons may differ from the prior data. Thus, defining what is locally translated in both peripheral and central DRG axons is critical for understanding how compartment-specific protein synthesis contributes to somatosensory information transfer.",
+   "printed": true
+  },
+  {
+   "para_id": 10,
+   "loc": "body",
+   "sec_title": "Cross-dataset integration reveals compartment-specific translational remodeling during neuropathy",
+   "text": "Peripheral nerve injury induces a robust reprogramming of the axonal transcriptome and proteome, with increased axonal protein synthesis and dynamic changes in membrane protein composition and often leads to peripheral neuropathy31. However, the mechanisms governing these adaptations are not well understood. In chemotherapy-induced peripheral neuropathy (CIPN), impaired axonal transport of SFPQ-containing RNA granules has been linked to reduced expression of key neuronal survival factors, implicating a connection between axonal mRNA regulation and axon degeneration32,33. To determine whether locally translated mRNAs in distinct neuronal domains overlap with transcripts altered during neuronal injury, we performed a cross-dataset comparison between our compartment-resolved TRAP translatomes and a published single-cell RNA-seq dataset of DRG neurons treated with paclitaxel (Fig. 3A and Supplementary Data S8). In these previous studies, mice were injected intraperitoneally with 4 mg/kg paclitaxel every other day for six days (four injections total), and transcripts altered in each of the DRG cell subtypes following paclitaxel treatment were identified31. Across all DRG neuron subtypes, ~ 1–7% of transcripts present in our TRAP-seq datasets correlate with those that also change significantly with paclitaxel treatment (Fig. 3B). The proportion of paclitaxel-affected transcripts was highest for those translated in the soma and those shared among multiple compartments. Individual analysis of paclitaxel-sensitive genes in Nav1.8+ DRG subtypes, including Mrgprd+ non-peptidergic nociceptors (NPs), Tac1+ /Gpx3+ peptidergic nociceptors (PEP1), Tac1+ /Hpca+ peptidergic nociceptors (PEP2), Nefh+ Aβ low-threshold mechanoreceptors (LTMRs) (NF1), and Sst+ pruriceptors (SST) further demonstrate that paclitaxel treatment causes changes across all domains of pain-sensing neurons (Fig. 3C). However, these analyses also suggest that paclitaxel has a greater impact on transcripts in peripheral axon translatome than the central axon.Fig. 3Cross-dataset integration reveals compartment-specific translational remodeling during neuropathy.A Schematic depicting the cross-dataset integration performed between TRAP-seq (all tissues) and Pain-seq (paclitaxel-treated DRG scRNA-seq) datasets. Created in BioRender. Silagi, E. (2026) https://BioRender.com/ra0oidx. B Bioinformatic analysis showing the percentage of locally translated mRNAs from the TRAP-seq datasets (peripheral axon, central axon, DRG soma, and shared soma + axon) that are differentially expressed in the Pain-seq datasets following treatment with paclitaxel. Each datapoint represents a different DRG subtype identified via scRNA-seq. Statistical analyses were conducted using one-way repeated-measures ANOVA with Geisser–Greenhouse correction followed by Tukey’s multiple-comparisons test (p.adj ≤ 0.05). C Percentage of locally translated mRNAs in the TRAP-seq peripheral axon, central axon, soma, and shared datasets that are differentially expressed in Pain-seq datasets following treatment with paclitaxel, specifically in Nav1.8+ DRG subtypes (NP, PEP1, PEP2, NF1, and SST). D GO enrichment analysis showing significantly enriched GO terms and select locally translated genes from each tissue compartment that are differentially expressed following paclitaxel treatment (p.adj ≤ 0.05). Red: mRNAs that are upregulated following paclitaxel treatment. Blue: mRNAs that are downregulated following paclitaxel treatment. Source data are provided as a Source Data file.",
+   "printed": true
+  },
+  {
+   "para_id": 11,
+   "loc": "body",
+   "sec_title": "DRG axons locally translate specialized ion channels and membrane-bound receptors",
+   "text": "While analysis of the initial axonal translatomes demonstrates that the translatomes of the two axons differ greatly from one another, some RNAs identified in the bulk sciatic nerve, dorsal root, and spinal cord tissues may not be derived from Nav1.8+ sensory axons, but rather from local glia, epineural cells, and neuronal cell bodies in the spinal cord. For example, compared to the DRG compartment, the central translatome exhibited high levels of Olig2, a marker of oligodendrocytes, and the peripheral translatome had high levels of Ncmap, a marker of myelinating Schwann cells. To distinguish which of the thousands of transcripts were definitively derived from Nav1.8+ sensory neurons rather than other cells, we determined the transcripts with significantly higher expression in TRAP-seq of sciatic nerves, DRG or dorsal roots in Nav1.8-GFP mice as compared to negative controls of TRAP-seq from the same locations in mice lacking L10a-GFP (p.adj ≤ 0.05) (Fig. 4A)34. After bioinformatically filtering out the background transcripts with high expression in negative controls, the specific translatomic gene lists were refined to include 549 transcripts from the soma, 304 from the peripheral axons, and 225 from the central axons (Fig. 4B–E and Supplementary Data S9). This method of stringent background filtering established higher confidence cohorts of locally translated mRNAs within DRG soma and peripheral and central axons. While this additional analysis increases confidence that the selected components are translated in axons of Nav1.8 + DRG neurons, it is intentionally conservative. Accordingly, global analyses of compartment-specific translational programs were performed on the full dataset as discussed above, whereas the filtered dataset defines high-confidence Nav1.8-specific transcripts used for downstream validation.Fig. 4Identification of higher confidence translatomes through background filtering.A Schematic depicting the gene sets compared in Fig. 4 (i.e., GFP+ tissue samples vs. GFP- tissue samples). Created in BioRender. Silagi, E. (2026) https://BioRender.com/ra0oidx. B Venn diagram detailing the number of mRNA transcripts in DRG soma, peripheral axon, and central axon translatomic datasets after background filtering to remove transcripts with expression in GFP-negative control samples. C–E Volcano plots demonstrating the number mRNA transcripts with significantly higher expression in GFP+ TRAP samples from the DRG soma (C), peripheral axon (D), and central axon (E) as compared to GFP-negative control samples from the same tissue compartment. Differential gene expression analysis was conducted using the RStudio DESeq2 package, using a two-sided Wald test and Benjamini-Hochberg FDR adjusted p-values (p.adj ≤ 0.05; fold-change ≥ 1). F A gene concept network demonstrates the color-coded linkages between genes from the central axon translatome and significantly enriched GO terms. The size of the dot in the network correlates to the number of mRNAs in the central axon translatome associated with that GO category. The higher-confidence central axon translatome encodes for genes related to sensory perception, pain perception, and serotonin signaling. G A gene concept network demonstrates the color-coded linkages between genes from the peripheral axon translatome and significantly enriched GO terms. The higher confidence peripheral axon translatome encodes for genes related to synaptic specialization, cilia, and cytosolic ribosomal proteins.",
+   "printed": true
+  },
+  {
+   "para_id": 12,
+   "loc": "body",
+   "sec_title": "DRG axons locally translate specialized ion channels and membrane-bound receptors",
+   "text": "Our background filtered list of locally translated mRNAs confirmed that central and peripheral axons locally translate markedly distinct proteins, including many specialized synaptic receptors and ion channels required for sensory processing. For example, local translation of serotonin receptors, Htr3a and Htr5a, in the central axons suggests serotonin binding may be an important component of descending modulation of nociceptive inputs within the primary somatosensory neurons (Fig. 4F). Several genes encoding ion channel proteins were identified in this central axon gene set, including Scn11a, which encodes Nav1.9. The sodium channel Nav1.9 is selectively expressed in DRG neurons, and point mutations in this channel protein can cause either hyperexcitability and chronic pain or chronic insensitivity to pain35. Several distinct ion channels important for action potential propagation were identified in the higher confidence peripheral axon dataset, such as Hcn1 and Scn2a (Nav1.2) (Fig. 4G). We also identified transcripts encoding the calcium channel, Catsper2, which was initially identified as a voltage-dependent, Ca2+ selective, pH-sensitive ion channel highly expressed in sperm, as well as two ancillary components of this channel (Catsperd and Catsperζ)36. Thus, several components that are locally translated in the peripheral axons also play critical roles in membrane physiology and nociception and indicate that regulated axonal translation in both central and peripheral axons may modify pain responses.",
+   "printed": true
+  },
+  {
+   "para_id": 13,
+   "loc": "body",
+   "sec_title": "DRG axons locally translate specialized ion channels and membrane-bound receptors",
+   "text": "To verify our findings of local and selective translation in the central or peripheral axons, we focused on several channels and receptors identified in our high-confidence, background-filtered screen (Supplementary Data S10). Puromycin was intraperitoneally injected into mice to label nascent protein chains in the dorsal root ganglia, sciatic nerves, and dorsal roots (Fig. 5A). Proximity labeling (Puro-PLA) enabled the visualization of specific nascent proteins via proximity of antibodies bound to puromycin and the translating protein of interest (Supplementary Fig. 3). To make sure that we are analyzing nascent peptides within the axons targeted by our TRAP experiments, we focused on PLA puncta that are within the Nav1.8 labeled axons. PLA visualization and quantification verify that individual mRNAs identified by TRAP-seq as being preferentially translated in the peripheral axons of the sciatic nerve (Hcn1 and Scn2a) are indeed translated there, and that we find very little translation in the central axons of the dorsal roots (Fig. 5B, C”). In contrast, our analysis indicates that there is extensive translation of Htr3a and Scn11a in central axons, with little or no translation taking place in the peripheral axons (Fig. 5D, E”). Consistent with developmental single-cell datasets from Sharma et al. showing that Htr3a expression at early postnatal stages is expressed in a broad population of DRG neurons26, HTR3A is translated in both Nav1.8 positive and negative central axons. HTR3A is also translated in perineural cells at these timepoints, as we observed in sciatic nerve tissue.Fig. 5Diverse membrane-associated ion channels are locally translated.A Puromycin proximity ligation assay (Puro-PLA) enables in situ visualization of nascent protein in mouse tissues. Step 1: Puromycin injected into mice incorporates into the C-terminus of translating proteins, labeling nascent peptide chains. Step 2: PLA probes bind two targets of interest (i.e., Puromycin and ion channel) and enable amplification of a fluorescent signal if the targets are within 40 nm. Created in BioRender. Silagi, E. (2026) https://BioRender.com/ra0oidx. B–E Representative 20 × 2 fluorescent images of HCN1 (B), NAV1.2 (C), 5-HTR3A (D), and NAV1.9 (E) PLA puncta and TdTomato-labeled Nav1.8+ (Nav1.8-tdT) axons in dorsal roots and sciatic nerves, representing DRG central and peripheral axons, respectively. Scale bar = 40 μm. B’–E’ Higher magnification inset images (yellow box) demonstrating the location and abundance of HCN1 (B’), NAV1.2 (C’), 5-HTR3A (D’), and NAV1.9 (E’) puncta within Nav1.8-tdT+ axons in the dorsal root and sciatic nerve. Scale bar = 10 μm. B” Quantification of the percent area occupied by HCN1 PLA puncta within Nav1.8-tdT+ axons in individual dorsal roots (n = 7) and sciatic nerves (n = 7). C” Quantification of the percent area occupied by NAV1.2 PLA puncta within Nav1.8-tdT+ axons in individual dorsal roots (n = 4) and sciatic nerves (n = 4). D” Quantification of the percent area occupied by 5-HTR3A PLA puncta within Nav1.8-tdT+ axons in individual dorsal roots (n = 5) and sciatic nerves (n = 5). E” Quantification of the percent area occupied by NAV1.9 PLA puncta within Nav1.8-tdT+ axons in individual dorsal roots (n = 6) and sciatic nerves (n = 5). Representative images with enhanced brightness shown; raw images used in analysis. Statistical significance determined by two-way ANOVA with Tukey’s multiple comparisons test and multiple two-sided, unpaired t tests (p-value ≤ 0.05). Data are represented as mean ± SD. All statistical analyses were derived from data using 4 mice. Source data are provided as a Source Data file.",
+   "printed": true
+  },
+  {
+   "para_id": 14,
+   "loc": "body",
+   "sec_title": "DRG axons locally translate specialized ion channels and membrane-bound receptors",
+   "text": "To understand the ability of local translation to respond to environmental cues and so contribute to neuronal plasticity, we focused on the serotonin receptor 5-HTR3A. We asked whether paclitaxel treatment alters the translation of 5-HTR3A, which we identified and verified as being locally translated in the central axons, and whose expression was previously shown to change in response to chemotherapy31. As shown, paclitaxel treatment results in selective increases in 5-HTR3A translation in central axons of adult mice (Fig. 6A–C). Notably, these experiments indicate that translation of serotonin receptors in the central axons changes in response to toxic stimuli and so may have a role in neuropathic pain.",
+   "printed": true
+  },
+  {
+   "para_id": 15,
+   "loc": "body",
+   "sec_title": "RBPs are positioned to orchestrate the subcellular localization of axonal translatomes",
+   "text": "Our TRAP-seq, PLA and RNAscope findings indicate that many of the channels and receptors critical for initiating and propagating somatosensation are locally produced within either the central or peripheral axon and that the corresponding mRNAs are highly localized to one or the other axon as well. An important step in enabling such highly localized and regulated translation is the sorting and transport of mRNAs to distinct subcellular regions. Sorting of mRNAs to specific locations often depends on structural elements within mRNA sequences; axonal mRNA sorting is usually coordinated through RNA-binding protein (RBP) recognition of select localization motifs within the 3’ untranslated region (3’UTR) of the target mRNA37. RBP-bound mRNAs assemble into ribonucleoprotein (RNP) transport granules, characterized by their ability to undergo liquid-liquid phase separation and be transported directly or indirectly along microtubules by motor proteins38–40.",
+   "printed": true
+  },
+  {
+   "para_id": 16,
+   "loc": "body",
+   "sec_title": "RBPs are positioned to orchestrate the subcellular localization of axonal translatomes",
+   "text": "To investigate the potential logic for differential RNA sorting to central and peripheral axons, we bioinformatically analyzed the 3’UTRs of axonally translated mRNAs, with the goal of identifying RBPs that selectively bind and traffic mRNAs to one or the other axon41. RBPs were identified as candidates for mRNA sorting if they fulfilled two criteria: (1) multiple putative binding motifs for that RPB are in the 3’UTR of key axonally translated mRNAs, and (2) the RBP is predicted and/or demonstrated to undergo phase separation and be present in RNA granules42–44. A heatmap displaying the number of predicted motifs per 3’UTR was used to rank RBPs that were significantly more associated with peripherally or centrally translated mRNAs (Supplementary Fig. 6A). Motif predictions identify potential RBP binding sites and do not demonstrate direct occupancy at specific nucleotide positions. We predict that 16 RBPs are likely to bind the 3’UTRs of peripherally and centrally translated mRNAs, while 84 RBPs have more putative binding sites within peripherally translated mRNA transcripts, and 24 RBPs have more putative binding sites within centrally translated mRNA transcripts (Supplementary Fig. 6A).",
+   "printed": true
+  },
+  {
+   "para_id": 17,
+   "loc": "body",
+   "sec_title": "RBPs are positioned to orchestrate the subcellular localization of axonal translatomes",
+   "text": "We further investigated the three cohorts of RBPs using the STRING database protein-protein interaction functional annotation analysis (Supplementary Fig. 6B–D)45. As predicted, all cohorts were enriched for RBPs involved in RNP granules cellular components. The set of RBPs that are predicted to bind equally to mRNAs present in the peripheral and central axons were enriched for nuclear proteins (Supplementary Fig. 6B). Interestingly, peripheral-associated RBPs were instead enriched for proteins with specific neuronal functions in the synapse, dendrite, and distal axon (Supplementary Fig. 6C). RBPs predicted to bind to the centrally located and centrally translated mRNA were enriched for cytoplasmic proteins that are involved in both RNP and stress granules (Supplementary Fig. 6D). These data prompted us to examine the possibility that some of these RBPs may be constituents of cytoplasmic RNP granules involved in selective axonal transport and translation.",
+   "printed": true
+  },
+  {
+   "para_id": 18,
+   "loc": "body",
+   "sec_title": "RBPs are positioned to orchestrate the subcellular localization of axonal translatomes",
+   "text": "Fluorescence immunohistochemistry paired with particle analysis demonstrates that SFPQ protein is enriched in peripheral axons of the sciatic nerve (Fig. 8A, D), consistent with our prediction that SFPQ preferentially binds to mRNAs in the peripheral axons32,33. In contrast, we find that the SRSF10 protein is equally present in both central axons of the dorsal root and peripheral axons of the sciatic nerve (Fig. 8B, D). The third RBP tested, ELAVL1, is present in both the dorsal root and the sciatic nerve but is largely restricted to the nuclei of glia and other supporting cells (Fig. 8C, D). Thus, both SFPQ and SRSF10 are appropriately localized to contribute to trafficking and translation of mRNAs in axons, and SFPQ is appropriately located to promote selective sorting towards the peripheral axon. Our data also indicate another difference between the RBP puncta in the central versus peripheral axons: the puncta of SFPQ and SRSF10 were consistently larger within the sciatic nerve than in the dorsal root. This difference in size of the RBP-puncta suggests that there may be distinct features of RNP granules in each axon (Fig. 8E).Fig. 8RBPs are positioned to orchestrate the specialized axonal translatomes.A–C Representative 60x fluorescent immunohistochemistry images of SFPQ (A), SRSF10 (B), and ELAVL1 (C) protein in dorsal roots and sciatic nerves, representing DRG central and peripheral axons, respectively. The solid yellow box shows a 4x magnified image of the area surrounded by yellow dotted lines, demonstrating the location and abundance of protein within axons and nuclei of supporting cells. Scale bars: Full image = 40 μm; inlaid image = 10 μm. Merged images show target IHC (white), TdTomato-labeled Nav1.8+ (Nav1.8-tdT) neurons (red), and DAPI-labeled nuclei (blue). D, E Quantification of the percent area (D) and average size (E) of SFPQ, SRSF10, and ELAVL1-positive puncta within Nav1.8-tdT+ axons in individual dorsal roots (n = 4) and sciatic nerves (n = 4). n = 4 biological replicates; multiple technical replicates averaged per biological replicate. Statistical significance determined by two-way ANOVA with Tukey’s multiple comparisons test and multiple two-sided, unpaired t tests (p-value ≤ 0.05). Data are represented as mean ± SD. All statistical analyses were derived from data using 4 mice. Source data are provided as a Source Data file.",
+   "printed": true
+  },
+  {
+   "para_id": 19,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Perhaps surprisingly, our studies indicate that many mRNAs that are translated within axons encode plasma membrane-bound ion channels and receptors. It is therefore appropriate to question whether axons are capable of the translational and secretory pathways required for membrane targeting and integration. Early electron microscopy studies did not detect ribosomes, rough endoplasmic reticulum, or Golgi apparatus in axons46. More recently, monosomes, small diameter ER tubules, and Golgi satellites have been identified in peripheral axons17,47–51. It has been suggested that axonal ion channels can be shuttled from axonal Golgi satellites to the plasma membrane through Rab6-positive exocytic vesicles52. In addition, atypical membrane proteins that are core-glycosylated rather than N-glycosylated may bypass the Golgi apparatus and be more directly shuttled to the axonal plasma membrane53,54. Indeed, both the peripheral and central axonal translatomes include glycosylating enzymes (Galnt5 in the peripheral axon dataset and St6galnac2 in the central axon dataset). Several key locally translated mRNAs identified here, including Scn2a, Gabrb3, and Grin2a, encode proteins that have been observed to be core-glycosylated in axonal membranes53. Taken together, these observations confirm that axonal translation, processing, and membrane targeting of ion channels and receptors occurs in distal axons.",
+   "printed": true
+  },
+  {
+   "para_id": 20,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Our findings reveal that the neuromodulatory serotonin receptor, 5-HTR3A, is selectively located and translated in central axons, indicating that serotonergic signals in the spinal cord directly modulate primary somatosensory inputs. Indeed, axons from serotonergic neurons of the raphe nuclei are known to descend to the dorsal horn of the spinal cord, and ~ 15% of axo-axonic contacts with DRGs are serotonergic55,56. While previous models emphasized indirect modulation of somatosensory neurons through GABAergic interneurons that express excitatory 5-HTR3A receptors57,58, our findings suggest serotonergic stimulation of the central terminals of primary afferents themselves. Adjustments of pain signaling and sensation within the excitatory, glutamatergic central axon terminals may provide an important initial site of pain modulation. Consistent with this hypothesis, treatment with paclitaxel, which causes a painful, neuropathic condition, results in an increase in translation of 5-HTR3A receptors in the central axons31. Together, these results support a model in which the local translation of 5-HTR3A equips DRG central axons to integrate descending signals with ongoing sensory activity, shaping early stages of nociceptive information processing56,59.",
+   "printed": true
+  },
+  {
+   "para_id": 21,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Local translation also provides a dynamic mechanism for structural remodeling within axonal compartments. In central DRG axons, the local synthesis of cytoskeletal and scaffolding proteins supports the dynamic modification of presynaptic architecture and receptor alignment, enabling synaptic plasticity within the dorsal horn. In peripheral DRG axons, local translation is poised to support the structural remodeling required for axonal maintenance, growth-cone dynamics, and interactions with the extracellular environment. The capacity for local synthesis of cytoskeletal and translational components may underlie the unique regenerative potential of peripheral, but not central, axons. Peripheral nerve regeneration depends on both neuron-intrinsic components and signaling pathways initiated by glial and immune cells in the local microenvironment60,61. Dynamic remodeling of the axon cytoskeleton and functional connections to cell-extrinsic ECM proteins and glial cells may allow damaged sensory fibers to restore axonal integrity, rebuild growth cones, and re-establish functional connections after injury. Furthermore, local synthesis of ribosomal components and other protein-synthesis machinery suggests that peripheral axons can replenish or repair their translational apparatus on site, supporting the high biosynthetic demands of regeneration after mechanical injuries or other cell stresses29. Together, localized regulation and synthesis of cytoskeletal outgrowth and translational machinery provide peripheral axons with regenerative capacity in response to nerve injury.",
+   "printed": true
+  },
+  {
+   "para_id": 22,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Our data indicate that local translation also can play a role in modulating axonal physiology by dynamically adjusting the complement of ion channels along DRG neurons. Although differential ion channel insertion in axonal membranes has long been known to influence neuroplasticity by altering membrane composition and excitability62–64, our findings reveal that genes encoding several voltage-gated sodium channels are locally and differentially translated in the axons. There are nine distinct genes that encode different voltage-gated sodium channels, Nav1.1–1.965, and individual neurons of the CNS and PNS each express a subset of these channel genes35,66,67. Our data indicate that Scn2a, which encodes Nav1.2, is translated in peripheral axons. Nav1.2 is a tetrodotoxin-sensitive (TTX) channel with fast kinetics35,66–69. In addition, we find that the Hyperpolarization Activated Cyclic Nucleotide Gated Potassium Channel 1 (HCN1) is also selectively translated in the peripheral axons. HCN1 exhibits rapid kinetics, enhances action potential initiation and enables increased action potential frequency70–72. Peripheral axons resemble dendrites in that they are the site of initial stimulation and signal integration59 and we hypothesize that HCN1 and Nav1.2 may enable initiation and propagation of action potentials in both CNS dendrites and DRG peripheral axons. In contrast, we find that Scn11a, which encodes Nav1.9, is preferentially translated in the central axons. Unlike Nav1.2, Nav1.9 is a slowly activating/ inactivating, TTX-resistant channel that amplifies subthreshold signals35,66–69. Nav1.9 is predominantly expressed in nociceptive neurons in the PNS, and we suggest that this channel may amplify subthreshold pain signals in the central axon and so adjust the electrophysiologic input to the spinal cord35. Mutations or altered expression of many of these axonally translated components have been implicated in human pain syndromes. Gain-of-function mutations of Scn11a, a component of the central axon translatome, result in episodic cold pain sensation and painful peripheral neuropathy in people, while loss of function mutations disrupt inflammatory and cold-triggered pain sensation in mice and humans35,73,74. Similarly, null mutations of Hcn1, which is translated in peripheral axons, result in reduced neuropathic pain and cold allodynia after nerve injury, when compared to wild-type mice after nerve injury75. Therefore, precise control over Scn11a and Hcn1 localization and translation is likely required for appropriate pain sensation and may play a prominent role in neuropathic pain syndromes73,74. Determining whether axon-restricted translation of these ion channels directly alters sensory excitability or pain behaviors will require future in vivo studies.",
+   "printed": true
+  },
+  {
+   "para_id": 23,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "A key question addressed here is how specific RNA regulons, sets of functionally related mRNAs with synchronized expression, are coordinately transported and sorted to a specific axon. RBPs are known to regulate RNA regulons at the level of splicing, nuclear export, transport, localization, and stability2. It has been shown that co-regulation of RNA regulons by specific RBPs is required for axon viability33,76. In this study, we implicate two RBPs in the organization of central and peripheral axonal translatomes. SFPQ and SRSF10 were initially identified as RNA splicing factors containing both RNA recognition motifs (RRMs) and intrinsically disordered regions77–79. In addition to its role in splicing, SFPQ has been identified as a component of axonal RNP granules and enables axonal transport of mRNA cargoes33,80–82. While less is known about SRSF10, it has been shown to regulate metabolic processes such as glycolysis83, and has also been functionally linked to neurogenesis and spermatogenesis84–86. Here, we show that SFPQ and SRSF10 bind multiple locally translated mRNAs and that the subcellular distribution of these two RBPS is strikingly different, with SFPQ enriched in peripheral axons and SRSF10 present in both axons. Defining how this asymmetry is established will be an exciting area of future investigation. RIP-seq and GO analyses demonstrate that the SFPQ-associated regulon was enriched for metabolic pathways, neuronal projection morphogenesis, and distal axon maintenance, while the SRSF10-associated regulon was enriched for calcium channel complexes, cytoskeletal scaffolding, and presynaptic active zone components. These patterns support a model in which polarized RNA regulons reinforce the divergent structural and synaptic identities of peripheral and central axons.",
+   "printed": true
+  },
+  {
+   "para_id": 24,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "While many RBPs haven been implicated in axonal trafficking, our data indicate that SFPQ is involved in selectively sorting mRNAs to the peripheral, rather than the central axons. This role joins a host of cytoplasmic functions qualifying SFPQ as a master regulator of axonal survival80. For example, in peripheral neurons, SFPQ directly binds a kinesin complex containing the motor, KIF5A, and adapter, KLC1, to transport mRNAs encoding axonal survival factors, such as Laminb2 and Bclw32,33,87. Indeed, both SFPQ knockdown and selective interruption in transport activity led to axon degeneration in sensory neurons. Moreover, cytoplasmic aggregation of SFPQ is implicated in several neurodegenerative disorders including frontotemporal lobar degeneration (FTLD), and Alzheimer’s disease, as well as sensory neuropathies including chemotherapy-induced peripheral neuropathy, while SFPQ mutations can cause motor neuron dysfunction and amyotrophic lateral sclerosis (ALS)80–82. Our findings now extend our understanding of SFPQ and degeneration, with evidence that SFPQ- dependent RNA granule transport and sorting is likely to contribute to loss of epidermal innervation by peripheral somatosensory axons in neuropathy.",
+   "printed": true
+  },
+  {
+   "para_id": 25,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "SRSF10 has known roles in regulating RNAs involved in neurogenesis and myelination, but has not previously been implicated in axonal trafficking or neurodegeneration. While SFSF10 is present at similar levels in both the central and peripheral axons, our data suggest that it has a preferential role in transcripts targeted to the central axons, including transcripts encoding calcium channels and regulators. Interestingly, conditional knockouts of SRSF10 in neural progenitor cells result in impaired performance on multiple learning and memory tasks, which involve localized calcium regulation84.",
+   "printed": true
+  },
+  {
+   "para_id": 26,
+   "loc": "body",
+   "sec_title": "Mouse lines and animal care",
+   "text": "Mouse Strains: L10a-eGFPfl/fl (B6;129S4-Gt(ROSA)26Sortm9(EGFP/Rpl10a)Amc/J) mice were the generous gift of Myriam Heiman (Massachusetts Institute of Technology)27. Nav1.8cre (B6.129-Scn10atm2(cre)Jwo/H) and TdTomatofl/fl (B6.Cg-Gt(ROSA)26Sortm14(CAG-tdTomato)Hze/J) mice were kindly provided by David Ginty (Harvard Medical School). For in vivo TRAP studies, Nav1.8cre/+ and L10a-eGFPfl/fl mice were crossed to generate Nav1.8cre; L10a-eGFPfl/fl mice (GFP + ) and L10a-eGFPfl/fl (GFP-) littermate controls. For tissue collection and histology, Nav1.8cre and TdTomatofl/fl mice were crossed to generate Nav1.8cre; TdTomatofl/fl mice with labeled sensory neurons.",
+   "printed": true
+  },
+  {
+   "para_id": 27,
+   "loc": "body",
+   "sec_title": "Translating ribosomal affinity purification (TRAP)",
+   "text": "The TRAP protocol was adapted from Myriam Heiman27. Roughly 15 Nav1.8-Cre; L10a-eGFP mice aged P3-7 and L10a-eGP littermate controls were euthanized by CO2 inhalation and cervical dislocation. Early postnatal (P3–P7) mice were used to reduce myelination and glial abundance in peripheral nerve and spinal cord preparations, thereby increasing neuronal specificity and RNA yield in compartment-specific TRAP-seq experiments. Lumbar (L1-6) dorsal root ganglia (Soma), sciatic nerve (PA), and lumbar dorsal roots and spinal cords (CA) were quickly manually dissected in Dissection Buffer (1X HBSS, 2.5 mM HEPES-KOH [pH7.4], 25 mM Glucose, 4 mM NaHCO3, 100 µg/mL cycloheximide). Dorsal roots and sciatic nerves were transected at their junction with the DRG soma. The central compartment included dorsal roots extending into the lumbar spinal cord, and the peripheral compartment included sciatic nerve segments extending distally to approximately the knee, representing proximal-to-mid axonal regions.",
+   "printed": true
+  },
+  {
+   "para_id": 28,
+   "loc": "body",
+   "sec_title": "Low input total RNA sequencing and analysis",
+   "text": "Low-input total RNA Sequencing ( >10 pg total RNA or 1–500 cells) was performed at the University of California-San Francisco Functional Genomics Core Facility. RNA libraries were prepared using the SMART-Seq v4 Mouse Kit (Takara Bio Inc.) and sequenced on an Illumina HiSeq 4000 instrument via 50 bp sequencing. Sequences were aligned to the mouse reference genome with STAR_2.7.2b28. RNA-seq analysis of raw counts was performed in R v4.3.2 for sample-level quality control (principal component analysis), Differential Gene Expression testing for pairwise, group comparisons (DESeq2)34, and Functional Annotation (enrichGO)88,89.",
+   "printed": true
+  },
+  {
+   "para_id": 29,
+   "loc": "body",
+   "sec_title": "Integrative cross dataset analysis",
+   "text": "To identify genes enriched in paclitaxel-treated cells relative to naïve cells within each cell type, we performed differential gene expression analysis using Seurat’s FindAllMarkers function with default settings on data generated by Renthal and colleagues32,33. P-values were subsequently adjusted for multiple comparisons using the Benjamini-Hochberg procedure (FDR). We then intersected the differentially expressed genes from each cell subtype with those identified in our TRAP-seq data across anatomical compartments. For each resulting intersected gene list, we conducted Gene Ontology (GO) enrichment analysis – covering biological process, molecular function, and cellular component categories – using the normalized gene counts from our TRAP-seq dataset serving as the background set.",
+   "printed": true
+  },
+  {
+   "para_id": 30,
+   "loc": "body",
+   "sec_title": "RBP Bioinformatic analysis",
+   "text": "3′ UTR sequences were obtained from the UCSC Genome Browser (GRCm39/mm39 assembly). For each analyzed gene, the longest annotated 3′ UTR sequence was extracted and used for motif analysis. Bioinformatic RBP motif analysis of 3’UTRs were performed using the oRNAment and RBPmap databases42,43. The locally translated mRNAs associated with significant functional annotations were used as the input transcript reference list. Transcripts were limited to 3’UTRs. Predicted motif score cutoff was set to 90%. RBPs found to have predicted binding motifs with the key 3’UTRs were further analyzed for their ability to form ribonucleoprotein granules using the RPS.renlab database44. Functional Annotation Analysis for RBP protein-protein interactions was performed using the STRING database45. The minimum required interaction score was set to High Confidence (0.700).",
+   "printed": true
+  },
+  {
+   "para_id": 31,
+   "loc": "body",
+   "sec_title": "RIP-Sequencing",
+   "text": "Sequencing was performed by the DFCI MBCF:Genomics Core Facility using NovaSeq X: Low Input mRNAseq ( > 1 ng RNA). Libraries were prepared with Takara SmartSeq v4 full-length cDNA synthesis using oligo dT priming & 5’ template switching enzyme. Sequencing was performed with 40 M 150 bp read pairs from Illumina NovaSeq X Plus. Sequences were aligned to the rat reference genome with STAR_2.7.2b28. RNA-seq analysis of raw counts was performed in R for sample-level quality control (principal component analysis), Differential Gene Expression testing for pairwise, group comparisons (DESeq2)34, and Functional Annotation (enrichGO)88,89.",
+   "printed": true
+  }
+ ],
+ "links": [
+  {
+   "link_id": 1,
+   "url": "biorender.com/ra0oidx",
+   "url_raw": "https://BioRender.com/ra0oidx",
+   "href_jats": "https://BioRender.com/ra0oidx",
+   "repo_key": null,
+   "host_class": "other",
+   "loc": "fig",
+   "sec_title": "Defining subcellular translatomes in somatosensory dorsal root ganglion neurons",
+   "source": "tagged",
+   "para_id": 1
+  },
+  {
+   "link_id": 2,
+   "url": "ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=gse289550",
+   "url_raw": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE289550",
+   "href_jats": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE289550",
+   "repo_key": null,
+   "host_class": "other",
+   "loc": "back",
+   "sec_title": "",
+   "source": "tagged",
+   "para_id": 2
+  },
+  {
+   "link_id": 3,
+   "url": "ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=gse289551",
+   "url_raw": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE289551",
+   "href_jats": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE289551",
+   "repo_key": null,
+   "host_class": "other",
+   "loc": "back",
+   "sec_title": "",
+   "source": "tagged",
+   "para_id": 2
+  },
+  {
+   "link_id": 4,
+   "url": "painseq.shinyapps.io/compartmenttrap",
+   "url_raw": "http://painseq.shinyapps.io/CompartmentTRAP/",
+   "href_jats": "http://painseq.shinyapps.io/CompartmentTRAP/",
+   "repo_key": null,
+   "host_class": "other",
+   "loc": "back",
+   "sec_title": "",
+   "source": "tagged",
+   "para_id": 2
+  },
+  {
+   "link_id": 5,
+   "url": "github.com/renthal-lab/compartmenttrapshiny",
+   "url_raw": "http://github.com/Renthal-Lab/CompartmentTRAPShiny",
+   "href_jats": "http://github.com/Renthal-Lab/CompartmentTRAPShiny",
+   "repo_key": "github:renthal-lab/compartmenttrapshiny",
+   "host_class": "github",
+   "loc": "back",
+   "sec_title": "",
+   "source": "tagged",
+   "para_id": 3
+  },
+  {
+   "link_id": 6,
+   "url": "zenodo.org/records/21176607",
+   "url_raw": "https://doi.org/10.5281/zenodo.21176607",
+   "href_jats": "10.5281/zenodo.21176607",
+   "repo_key": "zenodo:21176607",
+   "host_class": "zenodo",
+   "loc": "back",
+   "sec_title": "",
+   "source": "tagged",
+   "para_id": 3
+  }
+ ],
+ "links_optional": [
+  "creativecommons.org/licenses/by/4.0",
+  "doi:10.1002/cac2.12607",
+  "doi:10.1007/978-1-0716-1851-6_3",
+  "doi:10.1007/s12264-013-1360-9",
+  "doi:10.1016/j.ceb.2022.102119",
+  "doi:10.1016/j.cell.2008.10.028",
+  "doi:10.1016/j.cell.2011.11.064",
+  "doi:10.1016/j.celrep.2015.04.027",
+  "doi:10.1016/j.celrep.2020.03.017",
+  "doi:10.1016/j.celrep.2024.113685",
+  "doi:10.1016/j.celrep.2024.114614",
+  "doi:10.1016/j.conb.2019.01.016",
+  "doi:10.1016/j.devcel.2024.05.005",
+  "doi:10.1016/j.isci.2023.107042",
+  "doi:10.1016/j.mcn.2008.09.008",
+  "doi:10.1016/j.molcel.2024.03.012",
+  "doi:10.1016/j.nbd.2024.106759",
+  "doi:10.1016/j.neuron.2016.04.022",
+  "doi:10.1016/j.neuron.2017.03.026",
+  "doi:10.1016/j.neuron.2018.03.030",
+  "doi:10.1016/j.neuron.2019.03.005",
+  "doi:10.1016/j.neuron.2020.07.026",
+  "doi:10.1016/j.neuron.2021.09.004",
+  "doi:10.1016/j.neuron.2022.12.015",
+  "doi:10.1016/j.neuroscience.2024.06.012",
+  "doi:10.1016/j.neuroscience.2024.12.064",
+  "doi:10.1016/j.pneurobio.2018.05.002",
+  "doi:10.1016/j.tins.2023.04.004",
+  "doi:10.1016/j.ymeth.2022.10.009",
+  "doi:10.1016/s0896-6273(01)00551-7",
+  "doi:10.1038/ncb1677",
+  "doi:10.1038/nn.4280",
+  "doi:10.1038/nrg2111",
+  "doi:10.1038/nrn3977",
+  "doi:10.1038/nrn987",
+  "doi:10.1038/s41467-020-15791-y",
+  "doi:10.1038/s41467-021-26365-x",
+  "doi:10.1038/s41467-026-77192-x",
+  "doi:10.1038/s41583-020-00407-7",
+  "doi:10.1038/s41583-021-00444-w",
+  "doi:10.1038/s41583-024-00859-1",
+  "doi:10.1038/s41586-019-1900-1",
+  "doi:10.1038/s41586-021-03819-2",
+  "doi:10.1038/s41593-020-00785-2",
+  "doi:10.1038/s41594-019-0263-5",
+  "doi:10.1038/s41596-024-01020-z",
+  "doi:10.1038/s41598-021-84667-y",
+  "doi:10.1073/pnas.0501549102",
+  "doi:10.1073/pnas.1514943113",
+  "doi:10.1073/pnas.2113929118",
+  "doi:10.1073/pnas.2136654100",
+  "doi:10.1073/pnas.2215417120",
+  "doi:10.1073/pnas.2215906120",
+  "doi:10.1073/pnas.74.9.4050",
+  "doi:10.1074/mcp.ra118.000603",
+  "doi:10.1083/jcb.201007113",
+  "doi:10.1083/jcb.202005051",
+  "doi:10.1093/bioinformatics/bts635",
+  "doi:10.1093/genetics/iyad031",
+  "doi:10.1093/nar/gkac1000",
+  "doi:10.1093/nar/gkac337",
+  "doi:10.1093/nar/gkae951",
+  "doi:10.1093/nar/gkz986",
+  "doi:10.1098/rsob.220187",
+  "doi:10.1111/j.1471-4159.1964.tb11923.x",
+  "doi:10.1111/j.1471-4159.1965.tb04236.x",
+  "doi:10.1113/jphysiol.2008.163154",
+  "doi:10.1124/pr.57.4.5",
+  "doi:10.1126/sciadv.abj0790",
+  "doi:10.1126/science.aay4991",
+  "doi:10.1146/annurev-genet-072220-030822",
+  "doi:10.1146/annurev-micro-090817-062814",
+  "doi:10.1146/annurev.physiol.63.1.235",
+  "doi:10.1152/jn.2001.86.3.1351",
+  "doi:10.1152/physrev.00029.2008",
+  "doi:10.1152/physrev.00052.2017",
+  "doi:10.1172/jci81156",
+  "doi:10.1177/17448069211043965",
+  "doi:10.1186/s13059-014-0550-8",
+  "doi:10.1371/journal.pbio.3001958",
+  "doi:10.1371/journal.pone.0001961",
+  "doi:10.1523/jneurosci.21-23-09291.2001",
+  "doi:10.1523/jneurosci.3862-12.2013",
+  "doi:10.1523/jneurosci.4015-06.2006",
+  "doi:10.3389/fcell.2023.1333738",
+  "doi:10.3389/fnmol.2022.1002842",
+  "doi:10.3390/ijms21197151",
+  "doi:10.7554/elife.104069",
+  "doi:10.7554/elife.20609",
+  "doi:10.7554/elife.27362",
+  "doi:10.7554/elife.78211"
+ ],
+ "own_doi": "doi:10.1038/s41467-026-77192-x",
+ "citations": [
+  {
+   "cite_id": 1,
+   "para_id": 4,
+   "bib_id": 1,
+   "marker": "1",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 2,
+   "para_id": 4,
+   "bib_id": 2,
+   "marker": "1–3",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 3,
+   "para_id": 4,
+   "bib_id": 3,
+   "marker": "3",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 4,
+   "para_id": 4,
+   "bib_id": 4,
+   "marker": "4",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 5,
+   "para_id": 4,
+   "bib_id": 5,
+   "marker": "4–10",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 6,
+   "para_id": 4,
+   "bib_id": 6,
+   "marker": "4–10",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 7,
+   "para_id": 4,
+   "bib_id": 7,
+   "marker": "4–10",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 8,
+   "para_id": 4,
+   "bib_id": 8,
+   "marker": "4–10",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 9,
+   "para_id": 4,
+   "bib_id": 9,
+   "marker": "4–10",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 10,
+   "para_id": 4,
+   "bib_id": 10,
+   "marker": "10",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 11,
+   "para_id": 5,
+   "bib_id": 11,
+   "marker": "11",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 12,
+   "para_id": 5,
+   "bib_id": 12,
+   "marker": "12",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 13,
+   "para_id": 5,
+   "bib_id": 13,
+   "marker": "13",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 14,
+   "para_id": 5,
+   "bib_id": 14,
+   "marker": "13–15",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 15,
+   "para_id": 5,
+   "bib_id": 15,
+   "marker": "15",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 16,
+   "para_id": 5,
+   "bib_id": 5,
+   "marker": "5",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 17,
+   "para_id": 5,
+   "bib_id": 16,
+   "marker": "16",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 18,
+   "para_id": 5,
+   "bib_id": 17,
+   "marker": "16–18",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 19,
+   "para_id": 5,
+   "bib_id": 18,
+   "marker": "18",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 20,
+   "para_id": 5,
+   "bib_id": 19,
+   "marker": "19",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 21,
+   "para_id": 6,
+   "bib_id": 20,
+   "marker": "20",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 22,
+   "para_id": 6,
+   "bib_id": 21,
+   "marker": "21",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 23,
+   "para_id": 6,
+   "bib_id": 21,
+   "marker": "21",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 24,
+   "para_id": 6,
+   "bib_id": 22,
+   "marker": "22",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 25,
+   "para_id": 6,
+   "bib_id": 23,
+   "marker": "23",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 26,
+   "para_id": 6,
+   "bib_id": 24,
+   "marker": "24",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 27,
+   "para_id": 7,
+   "bib_id": 20,
+   "marker": "20",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 28,
+   "para_id": 7,
+   "bib_id": 25,
+   "marker": "25",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 29,
+   "para_id": 7,
+   "bib_id": 26,
+   "marker": "26",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 30,
+   "para_id": 7,
+   "bib_id": 27,
+   "marker": "27",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 31,
+   "para_id": 8,
+   "bib_id": 28,
+   "marker": "28",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 32,
+   "para_id": 9,
+   "bib_id": 3,
+   "marker": "3",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 33,
+   "para_id": 9,
+   "bib_id": 29,
+   "marker": "29",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 34,
+   "para_id": 9,
+   "bib_id": 30,
+   "marker": "30",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 35,
+   "para_id": 10,
+   "bib_id": 31,
+   "marker": "31",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 36,
+   "para_id": 10,
+   "bib_id": 32,
+   "marker": "32",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 37,
+   "para_id": 10,
+   "bib_id": 33,
+   "marker": "33",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 38,
+   "para_id": 10,
+   "bib_id": 31,
+   "marker": "31",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 39,
+   "para_id": 11,
+   "bib_id": 34,
+   "marker": "34",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 40,
+   "para_id": 12,
+   "bib_id": 35,
+   "marker": "35",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 41,
+   "para_id": 12,
+   "bib_id": 36,
+   "marker": "36",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 42,
+   "para_id": 13,
+   "bib_id": 26,
+   "marker": "26",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 43,
+   "para_id": 14,
+   "bib_id": 31,
+   "marker": "31",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 44,
+   "para_id": 15,
+   "bib_id": 37,
+   "marker": "37",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 45,
+   "para_id": 15,
+   "bib_id": 38,
+   "marker": "38",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 46,
+   "para_id": 15,
+   "bib_id": 39,
+   "marker": "38–40",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 47,
+   "para_id": 15,
+   "bib_id": 40,
+   "marker": "40",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 48,
+   "para_id": 16,
+   "bib_id": 41,
+   "marker": "41",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 49,
+   "para_id": 16,
+   "bib_id": 42,
+   "marker": "42",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 50,
+   "para_id": 16,
+   "bib_id": 43,
+   "marker": "42–44",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 51,
+   "para_id": 16,
+   "bib_id": 44,
+   "marker": "44",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 52,
+   "para_id": 17,
+   "bib_id": 45,
+   "marker": "45",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 53,
+   "para_id": 18,
+   "bib_id": 32,
+   "marker": "32",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 54,
+   "para_id": 18,
+   "bib_id": 33,
+   "marker": "33",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 55,
+   "para_id": 19,
+   "bib_id": 46,
+   "marker": "46",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 56,
+   "para_id": 19,
+   "bib_id": 17,
+   "marker": "17",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 57,
+   "para_id": 19,
+   "bib_id": 47,
+   "marker": "47",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 58,
+   "para_id": 19,
+   "bib_id": 48,
+   "marker": "47–51",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 59,
+   "para_id": 19,
+   "bib_id": 49,
+   "marker": "47–51",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 60,
+   "para_id": 19,
+   "bib_id": 50,
+   "marker": "47–51",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 61,
+   "para_id": 19,
+   "bib_id": 51,
+   "marker": "51",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 62,
+   "para_id": 19,
+   "bib_id": 52,
+   "marker": "52",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 63,
+   "para_id": 19,
+   "bib_id": 53,
+   "marker": "53",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 64,
+   "para_id": 19,
+   "bib_id": 54,
+   "marker": "54",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 65,
+   "para_id": 19,
+   "bib_id": 53,
+   "marker": "53",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 66,
+   "para_id": 20,
+   "bib_id": 55,
+   "marker": "55",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 67,
+   "para_id": 20,
+   "bib_id": 56,
+   "marker": "56",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 68,
+   "para_id": 20,
+   "bib_id": 57,
+   "marker": "57",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 69,
+   "para_id": 20,
+   "bib_id": 58,
+   "marker": "58",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 70,
+   "para_id": 20,
+   "bib_id": 31,
+   "marker": "31",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 71,
+   "para_id": 20,
+   "bib_id": 56,
+   "marker": "56",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 72,
+   "para_id": 20,
+   "bib_id": 59,
+   "marker": "59",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 73,
+   "para_id": 21,
+   "bib_id": 60,
+   "marker": "60",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 74,
+   "para_id": 21,
+   "bib_id": 61,
+   "marker": "61",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 75,
+   "para_id": 21,
+   "bib_id": 29,
+   "marker": "29",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 76,
+   "para_id": 22,
+   "bib_id": 62,
+   "marker": "62",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 77,
+   "para_id": 22,
+   "bib_id": 63,
+   "marker": "62–64",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 78,
+   "para_id": 22,
+   "bib_id": 64,
+   "marker": "64",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 79,
+   "para_id": 22,
+   "bib_id": 65,
+   "marker": "65",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 80,
+   "para_id": 22,
+   "bib_id": 35,
+   "marker": "35",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 81,
+   "para_id": 22,
+   "bib_id": 66,
+   "marker": "66",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 82,
+   "para_id": 22,
+   "bib_id": 67,
+   "marker": "67",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 83,
+   "para_id": 22,
+   "bib_id": 35,
+   "marker": "35",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 84,
+   "para_id": 22,
+   "bib_id": 66,
+   "marker": "66",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 85,
+   "para_id": 22,
+   "bib_id": 67,
+   "marker": "66–69",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 86,
+   "para_id": 22,
+   "bib_id": 68,
+   "marker": "66–69",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 87,
+   "para_id": 22,
+   "bib_id": 69,
+   "marker": "69",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 88,
+   "para_id": 22,
+   "bib_id": 70,
+   "marker": "70",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 89,
+   "para_id": 22,
+   "bib_id": 71,
+   "marker": "70–72",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 90,
+   "para_id": 22,
+   "bib_id": 72,
+   "marker": "72",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 91,
+   "para_id": 22,
+   "bib_id": 59,
+   "marker": "59",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 92,
+   "para_id": 22,
+   "bib_id": 35,
+   "marker": "35",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 93,
+   "para_id": 22,
+   "bib_id": 66,
+   "marker": "66",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 94,
+   "para_id": 22,
+   "bib_id": 67,
+   "marker": "66–69",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 95,
+   "para_id": 22,
+   "bib_id": 68,
+   "marker": "66–69",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 96,
+   "para_id": 22,
+   "bib_id": 69,
+   "marker": "69",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 97,
+   "para_id": 22,
+   "bib_id": 35,
+   "marker": "35",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 98,
+   "para_id": 22,
+   "bib_id": 35,
+   "marker": "35",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 99,
+   "para_id": 22,
+   "bib_id": 73,
+   "marker": "73",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 100,
+   "para_id": 22,
+   "bib_id": 74,
+   "marker": "74",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 101,
+   "para_id": 22,
+   "bib_id": 75,
+   "marker": "75",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 102,
+   "para_id": 22,
+   "bib_id": 73,
+   "marker": "73",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 103,
+   "para_id": 22,
+   "bib_id": 74,
+   "marker": "74",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 104,
+   "para_id": 23,
+   "bib_id": 2,
+   "marker": "2",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 105,
+   "para_id": 23,
+   "bib_id": 33,
+   "marker": "33",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 106,
+   "para_id": 23,
+   "bib_id": 76,
+   "marker": "76",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 107,
+   "para_id": 23,
+   "bib_id": 77,
+   "marker": "77",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 108,
+   "para_id": 23,
+   "bib_id": 78,
+   "marker": "77–79",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 109,
+   "para_id": 23,
+   "bib_id": 79,
+   "marker": "79",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 110,
+   "para_id": 23,
+   "bib_id": 33,
+   "marker": "33",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 111,
+   "para_id": 23,
+   "bib_id": 80,
+   "marker": "80",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 112,
+   "para_id": 23,
+   "bib_id": 81,
+   "marker": "80–82",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 113,
+   "para_id": 23,
+   "bib_id": 82,
+   "marker": "82",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 114,
+   "para_id": 23,
+   "bib_id": 83,
+   "marker": "83",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 115,
+   "para_id": 23,
+   "bib_id": 84,
+   "marker": "84",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 116,
+   "para_id": 23,
+   "bib_id": 85,
+   "marker": "84–86",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 117,
+   "para_id": 23,
+   "bib_id": 86,
+   "marker": "86",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 118,
+   "para_id": 24,
+   "bib_id": 80,
+   "marker": "80",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 119,
+   "para_id": 24,
+   "bib_id": 32,
+   "marker": "32",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 120,
+   "para_id": 24,
+   "bib_id": 33,
+   "marker": "33",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 121,
+   "para_id": 24,
+   "bib_id": 87,
+   "marker": "87",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 122,
+   "para_id": 24,
+   "bib_id": 80,
+   "marker": "80",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 123,
+   "para_id": 24,
+   "bib_id": 81,
+   "marker": "80–82",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 124,
+   "para_id": 24,
+   "bib_id": 82,
+   "marker": "82",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 125,
+   "para_id": 25,
+   "bib_id": 84,
+   "marker": "84",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 126,
+   "para_id": 26,
+   "bib_id": 27,
+   "marker": "27",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 127,
+   "para_id": 27,
+   "bib_id": 27,
+   "marker": "27",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 128,
+   "para_id": 28,
+   "bib_id": 28,
+   "marker": "28",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 129,
+   "para_id": 28,
+   "bib_id": 34,
+   "marker": "34",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 130,
+   "para_id": 28,
+   "bib_id": 88,
+   "marker": "88",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 131,
+   "para_id": 28,
+   "bib_id": 89,
+   "marker": "89",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 132,
+   "para_id": 29,
+   "bib_id": 32,
+   "marker": "32",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 133,
+   "para_id": 29,
+   "bib_id": 33,
+   "marker": "33",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 134,
+   "para_id": 30,
+   "bib_id": 42,
+   "marker": "42",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 135,
+   "para_id": 30,
+   "bib_id": 43,
+   "marker": "43",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 136,
+   "para_id": 30,
+   "bib_id": 44,
+   "marker": "44",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 137,
+   "para_id": 30,
+   "bib_id": 45,
+   "marker": "45",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 138,
+   "para_id": 31,
+   "bib_id": 28,
+   "marker": "28",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 139,
+   "para_id": 31,
+   "bib_id": 34,
+   "marker": "34",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 140,
+   "para_id": 31,
+   "bib_id": 88,
+   "marker": "88",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 141,
+   "para_id": 31,
+   "bib_id": 89,
+   "marker": "89",
+   "expanded": false,
+   "scored": true
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-ext-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "v1_bib_count": 89
+ }
+}

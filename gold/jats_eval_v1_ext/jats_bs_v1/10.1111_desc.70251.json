@@ -1,0 +1,1027 @@
+{
+ "paper_id": "10.1111_desc.70251",
+ "paras": [
+  {
+   "para_id": 1,
+   "loc": "body",
+   "sec_title": "Model Architecture",
+   "text": "For model training and evaluation, we partitioned the dataset into training, validation, and test sets, with data from each family represented in only one of these three sets. To give the model more context for understanding the audio and, thereby, improve performance, the recordings were segmented into overlapping 2‐s samples, using the surrounding context (0.95 s before and after) to predict the vocalization class in the central 0.1‐s interval. We finetuned W2V2‐LB for five epochs using cross‐entropy loss under the same setting as described in (Li et al. 2023), and the checkpoint yielding the highest Cohen's kappa score on the validation set was selected for final evaluation. The model's performance on the test set was assessed using accuracy, macro‐F1 score, Cohen's kappa, and class‐wise F1 scores. To facilitate reproducibility and reuse, the code and pretrained checkpoints for our wav2vec2‐based classification model are openly available at https://github.com/xulinfan/w2v_LB_Long_Transformer.",
+   "printed": true
+  },
+  {
+   "para_id": 2,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Infant development is shaped by dynamic interactions with caregivers, and microanalytic methods used to probe the dynamic structure and timing of mother–infant interactions have a rich and long history in developmental science (see Lourenço et al. 2021; Provenzi et al. 2018). This body of work has yielded numerous and important insights into real‐time processes underlying social‐emotional (e.g., Beebe et al. 2010), cognitive (e.g., Jaffe et al. 2001), and language (e.g., Luchkina and Xu 2024) development, yet ecological validity is hampered by brief assessments, typically conducted in the lab, and/or small samples. Advances in wearable technology and machine learning (ML) approaches allow researchers to overcome these hurdles and capture microtemporal processes of mother–infant interactions in real‐world settings and across longer periods of time than has been previously possible (see de Barbaro 2019; Lourenço et al. 2021; Messinger et al. 2022). Given the primacy of vocalizations as the means by which infants elicit maternal caregiving (Bornstein et al. 2015; Hsu and Fogel 2003) and mothers respond to infant cues (van Egeren et al. 2001; Zhang et al. 2024), advances in daylong audio recording technologies (e.g., Language Environment Analysis [LENA] system; Gilkerson et al. 2017; Xu et al. 2009), in particular, have transformed the traditional study of parent‐infant vocal interactions by enabling large‐scale, ecologically valid analyses of naturalistic home environments (e.g., Bergelson et al. 2023).",
+   "printed": true
+  },
+  {
+   "para_id": 3,
+   "loc": "body",
+   "sec_title": "Study 1",
+   "text": "Speaker diarization and vocalization classification are key signal‐processing tasks that can be leveraged for a more comprehensive and fine‐grained understanding of mother–infant vocal interactions. Speaker diarization aims to identify who spoke when, whereas vocalization classification distinguishes different types of vocalizations for a given speaker. Early speech processing methods have relied primarily on statistical models due to limited labeled datasets and computation resources. With the rise of deep learning (DL), researchers have started building DL‐based models via supervised learning using labeled data. For speaker diarization, end‐to‐end neural diarization (EEND) models formulated this task as a multi‐label multi‐classification problem (Fujita et al. 2019). EEND introduces a single DL‐based model and directly optimizes diarization accuracy by predicting speaker activity given each audio frame, assigning 1 for an active speaker and 0 for an inactive speaker (see Lavechin et al. 2020, for an example of diarization of family home recordings). For vocalization classification, utterance‐level global features, either extracted from entire utterances or aggregated from frame‐level local features using global pooling, play a critical role in capturing overall vocalization patterns. Frame‐level features may also contribute as they capture temporal variations and paralinguistic cues. Interspeech Computational Paralinguistic (COMPARE) Challenges often feature multiple vocalization classification tasks relevant to adult‐infant interactions (e.g., infant cry or sound classification, adult addressee classification, Schuller et al. 2017, 2018, Schuller et al. 2019), and baseline models usually extract a feature set consisting of both utterance‐ and frame‐level features for each vocalization. These feature sets are used to train traditional ML models (e.g., Support Vector Machines, K‐Nearest Neighbors) or neural network‐based models (e.g., feedforward networks, convolutional neural networks) to predict vocalization labels.",
+   "printed": true
+  },
+  {
+   "para_id": 4,
+   "loc": "body",
+   "sec_title": "Study 1",
+   "text": "Supervised learning models require abundant labeled data, but annotating naturalistic family audio is a labor‐ and time‐intensive task. One representative supervised approach for annotating naturalistic family audio is the Voice Type Classifier (VTC; Lavechin et al. 2020). Trained on a large, diverse, child‐centered annotated corpus (approximately 260 h) spanning 10 languages, VTC segments naturalistic audio into five speaker categories: key child, adult male, adult female, other child, and unknown source. In evaluations, VTC substantially outperformed LENA. However, approaches such as VTC remain fundamentally constrained by the availability of extensive human annotation. To address the challenge of labeled data sparsity, speech foundation models (SFMs) have been developed to enhance downstream speech processing tasks given a limited amount of labeled data via (1) self‐supervised learning by pretraining on thousands of hours of unlabeled audio data, such as wav2vec 2.0 (W2V2; Baevski et al. 2020), HuBERT (Hsu et al. 2021), and WavLM (Chen et al. 2022), or (2) weakly supervised learning by pretraining on millions of hours of weakly labeled audio with imperfect labels, such as Whisper (Radford et al. 2023). SFMs are well‐suited for developing under‐resourced child‐centered speech processing applications. In this report, we use W2V2, which was originally developed for adult speech processing tasks by first pretraining on large‐scale amount of adult speech. Once pretrained, W2V2 can be fine‐tuned on smaller labeled datasets for applications such as automatic speech recognition (Baevski et al. 2020), speech emotion recognition (Pepino et al. 2021), and speaker diarization (Mishra et al. 2023).",
+   "printed": true
+  },
+  {
+   "para_id": 5,
+   "loc": "body",
+   "sec_title": "Study 1",
+   "text": "Although W2V2 has demonstrated strong performance in adult speech processing, its effectiveness in infant‐centered family settings is hindered by domain mismatch. Adult speech data differs significantly from the complex, overlapping, and often less structured audio environments found in infant‐family home recordings. To mitigate this issue, W2V2‐LittleBeats (W2V2‐LB) was introduced as a domain‐adaptive variant of W2V2, specifically designed for infant and family audio analysis (Li et al. 2023). Unlike the original W2V2, which was pretrained on adult speech, W2V2‐LB was pretrained on 4300 h of infant‐centered home recordings. This adaptation allows the model to capture unique acoustic properties of home environments and vocalization patterns of parent–infant communication. This work is part of a broader shift toward domain‐adaptive self‐supervised models for naturalistic child‐family home audio, with recent approaches extending this strategy using larger multilingual corpora (e.g., BabyHuBERT, Charlot et al. 2025) or alternative encoder architectures (e.g., Band‐Split SSAMBA, Fan et al. 2025).",
+   "printed": true
+  },
+  {
+   "para_id": 6,
+   "loc": "body",
+   "sec_title": "Study 1",
+   "text": "To situate the contribution of W2V2‐LB within the broader landscape of tools used in developmental research, it is important to contrast it with the LENA system, the most widely used platform for analyzing daylong home audio. LENA has played a critical role in scaling studies of early language environments; however, it presents several limitations for studying infant vocalizations in naturalistic settings. First, LENA was designed primarily to assess language input and development, providing broad speaker and vocalization categories (e.g., key child, adult speakers, child vocalizations, conversational turns), with a focus on speech‐like sounds, and its utility for assessing core dimensions of socioemotional development (e.g., caregiver responsiveness to distress cues) is limited. Although LENA provides cry labels, accuracy tends to be low, especially for infants under 6 months. For instance, in daylong home recordings, LENA's cry estimates were moderately correlated with human annotations over 5‐min segments (r = 0.58), underestimating cry duration by an average of 10 s (Micheletti et al. 2023). As such, researchers using the LENA platform typically rely on complementary human coding when studying infant crying. Second, LENA's speaker classification performance is modest: a systematic review reported mean recall and precision rates of 59% and 68%, respectively, and found that LENA detects only about half of the infant vocalizations identified by human coders (Cristia et al. 2020). Compared with recent DL approaches, LENA's algorithms rely on older statistical models for speech classification and diarization (Xu et al. 2009). This limits their ability to capture the complexity and variability of naturalistic infant‐caregiver interactions. In contrast, DL models have long outperformed statistical models in speech processing (Mehrish et al. 2023), and recent SFMs have achieved state‐of‐the‐art performance on several speech processing tasks with a limited amount of labeled data (Yang et al. 2021). Finally, LENA's closed‐source design restricts transparency, limits methodological flexibility, and prevents use with audio collected from nonproprietary recording devices.",
+   "printed": true
+  },
+  {
+   "para_id": 7,
+   "loc": "body",
+   "sec_title": "Home Audio Recordings",
+   "text": "We used LittleBeats, an infant‐wearable platform designed to capture synchronized audio, ECG, and IMU data, to collect home audio recordings. Parents were instructed on how to use LittleBeats and had access to online as well as written instructions as needed. LittleBeats is secured in the chest pocket of a specially designed infant shirt or onesie, and infants wore LittleBeats for 2‐3 nonconsecutive days (8+ h/day) over the course of 2 weeks. Prior reports have established the validity of the LittleBeats sensors against gold‐standard equipment (Islam et al. 2024) and have documented parents’ experiences related to ease of use, safety, and privacy protections when using LittleBeats in the home (McElwain et al. 2024).",
+   "printed": true
+  },
+  {
+   "para_id": 8,
+   "loc": "body",
+   "sec_title": "Model Architecture",
+   "text": "For the current report, automatic speaker diarization and vocalization classification were performed using a system based on the pretrained W2V2‐LB model (Li et al. 2023, 2024). The overall model architecture is illustrated in Figure 1. W2V2‐LB is built on attention‐based context integration layers (Vaswani et al. 2017), which are designed to learn speech representations from large‐scale unlabeled audio. In our system, we use W2V2‐LB representations and add an additional Transformer layer to model contextual information across time steps and layers before predicting diarization and vocalization classification labels.",
+   "printed": true
+  },
+  {
+   "para_id": 9,
+   "loc": "body",
+   "sec_title": "Manual Annotation Used for Model Finetuning and Evaluation",
+   "text": "The manual annotations used to finetune and evaluate the W2V2‐LB model were carried out by trained research assistants (RAs). RAs used Praat 6.4.05 (Boersma and Weenink 2024) to manually annotate audio recordings from the LittleBeats device. Each daylong recording was segmented into intervals (e.g., 30 s, 2 min, or 10 min), and we prioritized segments with the highest rates of infant and mother vocalizations for annotation, as estimated using the W2V2‐LB model. Trained RAs independently labeled each segment for speaker and vocalization types using onset‐offset coding, with separate tiers assigned for the focal infant (CHN), adult female (FAN), adult male (MAN), and older sibling/s (CXN). In cases of overlapping vocalizations, RAs annotated each speaker's vocalization on its own tier, and overlapping intervals were excluded from downstream analyses. For this report, we used the following five labels for training, validation, and testing: infant nondistress vocalizations (e.g., babbling, cooing), infant distress vocalizations (e.g., crying, fussing), adult female vocalizations (i.e., the mother), adult male vocalizations (i.e., the father), and silence/other (i.e., any noise that is not captured by the first four categories, including vocalizations from siblings).",
+   "printed": true
+  },
+  {
+   "para_id": 10,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Our proposed audio tagging method demonstrates the effectiveness of applying state‐of‐the‐art self‐supervised learning to infant‐centered audio analysis, specifically in the tasks of speaker diarization and infant vocalization classification. A major challenge in this domain is the mismatch between our real‐world recordings and the clean, controlled data used to train most existing speech models. Naturalistic recordings often include overlapping speech, background noise, and inconsistent recording conditions such as varying microphone placement, room acoustics, and device movement, all of which degrade the performance of the automated system. Leveraging large‐scale pretraining on unlabeled audio, the W2V2‐LB model learns noise‐robust, context‐aware representations that can be fine‐tuned efficiently on limited annotated data. This approach addresses challenges faced by fully supervised models in low‐resource settings (Cristia et al. 2021; Schuller et al. 2017; Xie et al. 2021), in which there is limited labeled data of parent‐infant vocalizations recorded at home for model training. Evaluation results indicate strong performance in identifying vocalizations from female caregivers and the focal infant, showing the model's ability to generalize well to the most common speaker classes.",
+   "printed": true
+  },
+  {
+   "para_id": 11,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Compared with widely used tools such as LENA, our open‐source W2V2‐LB model offers greater transparency, flexibility, and temporal precision for studying caregiver–infant vocal interactions. LENA operationalizes conversational turns using a default 5‐s window between adult and child vocalizations and imposes minimum vocalization duration thresholds (e.g., 600 ms for child vocalizations; Xu et al. 2009), with outputs typically aggregated at relatively coarse temporal scales (Richards et al. 2010). In contrast, W2V2‐LB supports high‐resolution, event‐based analyses at 0.1‐s granularity, allowing researchers to flexibly define lag windows and align brief vocal events with greater temporal accuracy. Moreover, it achieves comparable, and in some cases superior, accuracy in identifying female caregiver and infant vocalizations, and uniquely provides reliable labels for infant nondistress and distress vocalizations, a critical distinction not currently supported by the LENA system. Together, these features make W2V2‐LB particularly well suited for developmental research requiring fine‐grained, scalable analysis of naturalistic audio.",
+   "printed": true
+  },
+  {
+   "para_id": 12,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "At the same time, it is important to clarify the scope of direct system comparisons. A direct comparison to the VTC system (Lavechin et al. 2020), for instance, was not feasible because of differences in label definitions and data sources. Our W2V2‐LB model presented here uses a more fine‐grained infant vocal category set (i.e., distress and nondistress vocalizations). In addition, our “OTH” category aggregates silence, nonspeech, and sibling speech, whereas VTC includes an “other child” speaker category. Future benchmarking efforts would benefit from harmonized annotation schemes and domain‐adaptation strategies to enable systematic cross‐model evaluation.",
+   "printed": true
+  },
+  {
+   "para_id": 13,
+   "loc": "body",
+   "sec_title": "Study 2",
+   "text": "Mothers’ vocal contingent responsiveness and mother–infant vocal turn‐taking (involving reciprocal contingent responses) have been posited to serve as an “engine of development” in which infants develop foundational communicative skills (Levinson 2016), a sense of agency (Gergely and Watson 1999), and core cognitive capacities (e.g., information processing, memory; Jaffe et al. 2001). Compared with mothers’ nonverbal contingent responses involving facial affect, gaze, or touch, mothers’ vocal contingent responses are theorized to present infants with salient demarcations between their own vocal behavior (nondistress vocalizations, in particular) and the mother's vocalizations. Such temporal alignment provides infants with important information that their vocalizations have predictable consequences.",
+   "printed": true
+  },
+  {
+   "para_id": 14,
+   "loc": "body",
+   "sec_title": "Study 2",
+   "text": "A first challenge in estimating maternal contingent responsiveness from daylong recordings is whether automated vocalization labels can be used to generate valid measures of interaction processes. Despite the growing use of automated speech‐processing systems (e.g., LENA and related diarization and classification pipelines), prior work has largely examined agreement with human annotations for vocalization labels and aggregate counts, rather than for explicitly defined interaction processes between infants and caregivers. Notably, when agreement metrics for interaction processes are assessed, they tend to be substantially lower than those for label‐based measures. For example, large‐scale LENA studies (e.g., Cristia et al. 2020) reported relatively low correspondence between automated and human annotations for conversational turn counts (r = 0.36), in contrast to higher agreement for adult word counts and child vocalizations (r = 0.77–0.79). Similarly, Ferjan Ramírez et al. (2021) reported that LENA systematically overestimated conversational turns compared with manual coding, with relative differences ranging from 72% to 745%. That is, in some cases, the LENA system was estimating approximately 8 conversational turns for every one turn identified by a human coder. Together, these findings raise a critical issue for studies using daylong recordings regarding whether ML‐generated labels can be used to provide valid estimates of interaction processes.",
+   "printed": true
+  },
+  {
+   "para_id": 15,
+   "loc": "body",
+   "sec_title": "Study 2",
+   "text": "A second challenge concerns how behavior is sampled from the continuous audio stream. Because manual annotation of extended recordings is labor intensive, prior studies have adopted one of two broad approaches. One approach is to sample brief, high‐volubility segments, often identified using automated tools and followed by manual coding of infant and caregiver vocalizations (e.g., Lee and Ha 2023; Pretzer et al. 2019). A second approach leverages automated speech‐processing tools to analyze all available data from daylong recordings, thereby maximizing temporal coverage (e.g., Fields‐Olivieri and Cole 2019; Warlaumont et al. 2014). These sampling decisions have particularly salient consequences for estimates of more infrequent behaviors. For example, in a study that applied a DL model for automated cry detection among 27 infants, Micheletti et al. (2023) reported that estimates of infant crying were particularly sensitive to sampling coverage, with 5‐min sampling periods yielding more variable and less representative estimates than those aggregated over 1‐h and 24‐h periods. Likewise, in a second study of 11 preschool‐aged children, Micheletti et al. (2020) demonstrated that higher sampling coverage (12.5% vs. 0.5% of recordings) and systematic (vs. random) sampling reduced temporal clustering bias and produced behavior‐frequency estimates that more closely approximated estimates based on coding the entire daylong recording. These findings demonstrate the importance of evaluating how different approaches to sampling behavior may also shape estimates of caregiver–infant interaction processes.",
+   "printed": true
+  },
+  {
+   "para_id": 16,
+   "loc": "body",
+   "sec_title": "Study 2",
+   "text": "A third challenge lies in the selection of a lag window used to determine whether a maternal vocalization following an infant cue is defined as contingent. Evidence from laboratory paradigms indicates that maternal vocal responses occur rapidly, often within 800 ms, which is consistent with infants’ biological capacity to detect contingencies (Keller et al. 1999). However, definitions of contingency in home‐based studies vary widely, with lag windows ranging from brief intervals of 1 s (e.g., Warlaumont et al. 2014), 2 s (e.g., Bornstein et al. 2015; Lee and Ha 2023), and 3 s (e.g., Bornstein and Manian 2013) to longer windows of up to 5 s (e.g., Pretzer et al. 2019; van Egeren et al. 2001). This variation poses a challenge because the chosen window directly affects estimates of contingent responsiveness (i.e., response rates will likely increase as the length of the lag window increases). Further, short lag windows risk missing meaningful but delayed caregiver responses, whereas longer windows increase the likelihood of capturing caregiver speech that is temporally proximal but not contingent to the infant's vocalization. Shedding light on this tradeoff, in a 25‐min home observation with researchers present, van Egeren et al. (2001) showed that the likelihood of maternal vocal response to infant vocalization is front‐loaded in time, with cumulative Yule's Q values (a base‐rate‐adjusted estimate of contingency) increasing sharply from 1 s to 3 s and plateauing thereafter. Yet, van Egeren et al. (2001) relied on a relatively short and semi‐structured observational session, leaving open the question of how differing lag windows affect estimates of maternal contingency in daylong home recordings.",
+   "printed": true
+  },
+  {
+   "para_id": 17,
+   "loc": "body",
+   "sec_title": "Study 2",
+   "text": "Taken together, the three challenges outlined above provide important context for the assessment of maternal vocal contingent responses from home audio recordings. In Study 2, we aim to shed light on each of these challenges, in turn, by (a) evaluating agreement between maternal contingent response rates computed from W2V2‐LB vocalization labels versus human annotations, (b) comparing the distributions of response rates derived from different strategies for sampling behaviors (i.e., the 20 most voluble 5‐min segments versus all available mother–infant segments), and (c) examining how contingency estimates (both response rate and base‐rate‐adjusted estimates) vary as a function of behavioral sampling strategy and lag window (i.e., 1 s, 2 s, 3 s, 4 s, 5 s). Because infant nondistress and distress vocalizations differ in terms of frequency (e.g., Barr 1990) and function (e.g., Bell and Ainsworth 1972; Donnellan et al. 2020) and because mothers’ contingent responsiveness may differ as a function of vocalization type (e.g., Pretzer et al. 2019), we examined infant nondistress and distress vocalizations separately in addressing the above aims.",
+   "printed": true
+  },
+  {
+   "para_id": 18,
+   "loc": "body",
+   "sec_title": "Data Collection and Processing Procedures",
+   "text": "We applied lag windows of 1 s, 2 s, 3 s, 4 s, and 5 s to extract maternal response rates. A contingent response was defined as any maternal vocalization that began within the specified lag following the offset of an infant vocalization (see Northrup and Iverson 2020), and we used a one‐to‐one mapping rule to ensure unique pairing between infant and maternal vocalizations (see Farran et al. 2019; Pretzer et al. 2019). Specifically, when multiple infant vocalizations occurred before the same mother vocalization, the maternal vocalization was paired with the most recent preceding infant vocalization. Likewise, when several maternal vocalizations occurred after the same infant vocalization, the maternal vocalization closest in time to the infant vocalization and within the specified lag window was coded as contingent. Infant vocalizations shorter than 0.5 s were excluded from this analysis, as such brief events are presumed less likely to represent meaningful communicative behaviors. For each 5‐min segment, the response rate was calculated separately for infant nondistress and distress vocalizations and was defined as the proportion of vocalizations that received a maternal response within the lag window (i.e., number of infant vocalizations followed by a maternal vocalization divided by the total number of infant vocalizations of that type in the 5‐min segment). If no infant vocalizations of a given type (i.e., nondistress, distress) occurred, the response rate for that type was coded as missing.",
+   "printed": true
+  },
+  {
+   "para_id": 19,
+   "loc": "body",
+   "sec_title": "Data Analytic Plan",
+   "text": "To address our first aim, we compared maternal contingent response rates computed from ML‐generated versus human‐coded vocalization labels. Among the 32 Study 2 families who were also included in Study 1, human coders annotated 47 30‐s segments and 37 10‐min segments from the daylong audio recordings. We included only the 10‐min segments (≈6.17 h from 12 families) for this analysis to more closely parallel analyses conducted for subsequent Study 2 aims that use 5‐min segments. For each family, we aggregated all available 10‐min segments to compute maternal response‐rate scores separately for ML‐labeled and human‐coded data. Agreement between the two approaches was evaluated using Bland–Altman analyses including (a) mean difference (i.e., average difference between response rates computed from ML‐derived and human‐coded vocalization labels) and its corresponding confidence interval (CI), which indexes systematic bias and indicates whether one method tends to overestimate or underestimate the other across observations, (b) relative (log‐scale) difference derived from the geometric mean ratio (ML/Human), which assesses relative agreement under potential heteroscedasticity, and (c) limits of agreement (mean difference ± 1.96 SD of the differences), which quantifies the range within which most differences between methods are expected to fall. Given our sample size of 12, Bland–Altman analysis served as the primary agreement metric because it is robust for small samples (Bland and Altman 1986). For descriptive purposes, Pearson correlations were also computed, and scatterplots were generated to visualize these associations, consistent with recommendations for small sample sizes (Weissgerber et al. 2015).",
+   "printed": true
+  },
+  {
+   "para_id": 20,
+   "loc": "body",
+   "sec_title": "Data Analytic Plan",
+   "text": "Next, we compared estimates of maternal response rates as a function of behavioral sampling strategy and lag window. Because daylong home recordings include large fluctuations in infant and maternal vocalizations across contexts, reliance on raw response rates alone may confound response rate estimates with overall vocal density. To address this issue, we computed Yule's Q (a base‐rate‐adjusted transformation of the odds ratio derived from 2 × 2 contingency tables) to provide a rigorous estimate of maternal contingent responsiveness. This approach extends prior work on maternal responsiveness in a 25‐min home‐based observational session (e.g., van Egeren et al. 2001), where responsiveness was evaluated using lag‐sequential methods, Yule's Q to control for base rates, and cumulative analyses across successive seconds to determine when contingency plateaued. Yule's Q can range from −1 to +1 and indexes whether maternal vocalizations are more likely (positive values) or less likely (negative values) to occur within the specified lag window following infant vocalization onset than at other times, while accounting for overall infant and maternal vocalization base rates. For each infant vocalization type and sampling strategy, we discretized each segment into 0.1‐s time bins and classified each bin according to (a) whether it fell within the specified lag window (1–5 s) following an infant vocalization onset (cue present versus absent) and (b) whether a maternal vocal onset occurred within that bin (response present versus absent). Separate 2 × 2 contingency tables were constructed for each lag window. To further assess lag‐window patterns of base‐rate‐adjusted estimates (Yule's Q), we fit four multilevel polynomial mixed models (2 behavioral sampling strategies × 2 vocalization types) in which lag window (1–5 s) was treated as a repeated measure within segment, with segments nested within infants. Linear and quadratic lag terms were included to test whether contingency showed linear increases and/or curvature across windows.",
+   "printed": true
+  },
+  {
+   "para_id": 21,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "We highlight three key findings of Study 2. First, Bland–Altman analyses indicated a positive bias (ML > human), which is consistent with prior validation work on automated daylong‐audio systems used for interaction metrics. Notably, the magnitude of relative difference observed in our study (34%–95%) is substantially smaller than that reported by Ferjan Ramírez et al. (2021) for LENA‐derived conversational turn counts (72%–745% average overestimation). Nonetheless, this positive bias requires explanation. One possible contributor to the positive bias is that overlapping speech is handled differently in the automated and human coding systems. In the human annotations, caregiver vocalizations that begin before an infant vocalization has ended are treated as overlapping speech and do not count as contingent responses under our definition (i.e., responses must begin after infant offset and within the lag; also see Northrup and Iverson 2020). In contrast, W2V2‐LB outputs nonoverlapping speaker segments. When infant and caregiver speech overlap acoustically, the model may represent them as sequential rather than simultaneous events, making caregiver speech that began during the infant vocalization appear to start immediately after it ended, thereby inflating response rates computed by ML‐generated labels. Additional contributors include misclassification of maternal vocalizations directed to a sibling as infant‐directed responses, as well as greater temporal sensitivity of the model relative to human annotation. With respect to the latter concern, small onset/offset boundary differences (reflecting the model's finer temporal resolution, sometimes discussed in relation to over‐segmentation in automated systems) may shift events across lag thresholds, increasing the likelihood that ML‐detected vocalizations fall within the response window.",
+   "printed": true
+  },
+  {
+   "para_id": 22,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Second, the distribution of maternal response rates varied systematically as a function of the strategy for sampling behavior. For both infant nondistress and distress vocalizations, response rates derived from the 20 most voluble segments were consistently higher than those based on all available segments. This pattern suggests that the distribution of response rates is conditional on how vocal behavior is sampled, as vocalizations are unevenly distributed across time and across families, and does not imply that either approach is inherently optimal. Rather, these sampling parameters are useful to consider in the context of the research goal. Sampling high‐volubility segments may be particularly informative when the goal is to characterize maternal responsiveness during periods of active dyadic exchange, when vocal events are frequent and contingency estimates are based on a larger number of cue–response observations within a comparable window (e.g., Endevelt‐Shapira et al. 2024; Lee and Ha 2023; Pretzer et al. 2019). In contrast, analyses based on all available segments may be preferable when the goal is to quantify infants’ overall exposure to vocal interactions in the home environment and the typical ebb and flow of vocal interactions across the day, including low‐ activity contexts (e.g., feeding, soothing, diapering, or transitional periods) that may nevertheless contribute to individual differences in infants’ socioemotional and language development (e.g., Ramírez‐Esparza et al. 2014; Warlaumont et al. 2014). Researchers should therefore consider how their behavioral sampling strategy aligns with their research questions and exercise caution when comparing response‐rate estimates across studies that adopt different sampling approaches.",
+   "printed": true
+  },
+  {
+   "para_id": 23,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Third, mean response rate and base‐rate‐adjusted estimates of contingency varied across behavioral sampling strategy and lag windows (1–5 s). Mean response rates are directly comparable to prior work but are sensitive to how often infants and mothers vocalize within a segment. In contrast, base‐rate‐adjusted estimates control for these marginal frequencies, making estimates more comparable across segments that differ in overall vocal activity, which is especially important in daylong home recordings where vocalization density fluctuates widely. Differences between sampling strategies reflected these properties. Selecting highly voluble segments concentrates periods of dense vocal activity from both infants and mothers, increasing the likelihood that maternal speech will fall within the response window due to event clustering rather than stronger temporal coupling (Bakeman and Gottman 1997). Response rates therefore increase as a function of vocalization density, whereas base‐rate‐adjusted estimates discount the elevated likelihood of chance overlap when both partners are vocalizing frequently. This pattern highlights the value of considering both metrics when interpreting contingent responsiveness in naturalistic data.",
+   "printed": true
+  },
+  {
+   "para_id": 24,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Regarding lag windows, across both sampling strategies and vocalization types, longer lag windows yielded higher overall response rates by capturing more delayed maternal responses, and gains showed diminishing returns beyond 2 s. Base‐rate‐adjusted estimates, however, revealed a more nuanced pattern that differed by vocalization type. For nondistress vocalizations, base‐rate‐adjusted estimates were strongest at the 2‐s window and showed diminishing gains beyond this point. This pattern is consistent with prior work showing that infant–adult vocal contingencies for speech‐like vocalizations are strongest within 1‐2 s windows (Pretzer et al. 2019) and with findings that maternal responsiveness peaks within the first few seconds (around 2‐3 s) and then plateaus at longer lag windows (van Egeren et al. 2001). For distress vocalizations, however, lag windows depended more on the sampling strategy. When all available segments were included, the base‐rate‐adjusted estimate was highest at the shortest lag window, consistent with the attachment‐relevant function of distress signals, which function to elicit rapid caregiver comfort and support (Bell and Ainsworth 1972). Within high‐volubility segments, however, contingency continued to increase up to 3 s, a pattern consistent with prior findings that reflexive vocalizations (e.g., cries) can remain predictive of adult responses at longer time windows than speech‐like vocalizations (Pretzer et al. 2019). These segments likely reflect periods of dense, ongoing interaction in which maternal responses to distress are embedded within a broader mother–infant exchange rather than occurring as discrete “repair” responses. In such contexts, slightly longer response windows may reflect the natural pacing of sustained interaction rather than changes in underlying contingency. Taken together, a lag window around 2 s appears to balance capturing early contingency and limiting inflation from extended windows for nondistress vocalizations, whereas the lag window used to capture contingent response to infant distress vocalizations may depend on interactional contexts.",
+   "printed": true
+  },
+  {
+   "para_id": 25,
+   "loc": "body",
+   "sec_title": "General Discussion",
+   "text": "Despite these contributions, we note several limitations. First, W2V2‐LB collapses silence and other nontarget sounds, including sibling vocalizations, into a single class. As a result, some maternal vocalizations directed to siblings may be counted as infant‐directed responses, inflating response rates. Relatedly, the model lacks dedicated categories for other adult female speakers, so their vocalizations may be attributed to the mother, further inflating contingency estimates. Second, the homogeneous sample characterized by predominantly high‐SES, highly educated mothers, limits generalizability. Socioeconomic stressors may deplete caregivers’ cognitive and emotional resources for contingent responsiveness, whereas higher SES often acts as a protective factor, buffering stressors through access to parenting resources that facilitate timely responses (Bradley and Corwyn 2002). Future research should assess performance of automated vocalization detection and contingency estimation across more diverse samples, as variations in home environments (e.g., background noise, household composition) may affect decisions for quantifying maternal contingent responsiveness. Third, applying a fixed lag across all infant vocalizations may not fully reflect the variability in caregiver availability and responsiveness throughout the day. Parents may respond immediately when nearby but exhibit longer delays when multitasking or in another room. Adaptive lag models (e.g., dyad‐specific or context‐sensitive windows) could better reflect these natural interaction rhythms. Similar approaches have been used in ERP research, where analyses accommodate individual differences in neural response timing (e.g., Hu et al. 2009). Finally, our analyses, which treat infant vocalizations as triggers for caregiver responses, implicitly assume a unidirectional association from infant to mother. Yet, infant‐caregiver interactions are bidirectional, and caregiver behavior also shapes infant vocalization patterns (e.g., Pretzer et al. 2019; van Egeren et al. 2001). Future studies specifically designed to test bidirectional effects would complement the current findings.",
+   "printed": true
+  }
+ ],
+ "links": [
+  {
+   "link_id": 1,
+   "url": "github.com/xulinfan/w2v_lb_long_transformer",
+   "url_raw": "https://github.com/xulinfan/w2v_LB_Long_Transformer",
+   "href_jats": "https://github.com/xulinfan/w2v_LB_Long_Transformer",
+   "repo_key": "github:xulinfan/w2v_lb_long_transformer",
+   "host_class": "github",
+   "loc": "body",
+   "sec_title": "Model Architecture",
+   "source": "tagged",
+   "para_id": 1
+  }
+ ],
+ "links_optional": [
+  "creativecommons.org/licenses/by/4.0",
+  "doi:10.1002/dev.21831",
+  "doi:10.1016/bs.acdb.2021.12.002",
+  "doi:10.1016/j.infbeh.2019.04.007",
+  "doi:10.1016/j.infbeh.2021.101571",
+  "doi:10.1016/j.infbeh.2024.101929",
+  "doi:10.1016/j.inffus.2023.101869",
+  "doi:10.1016/j.jneumeth.2008.11.021",
+  "doi:10.1016/j.neubiorev.2018.03.009",
+  "doi:10.1016/j.tics.2015.10.010",
+  "doi:10.1017/cbo9780511527685",
+  "doi:10.1017/s0954579413000308",
+  "doi:10.1037//0012-1649.37.5.684",
+  "doi:10.1037/0012-1649.39.6.976",
+  "doi:10.1037/dev0000867",
+  "doi:10.1037/fam0000654",
+  "doi:10.1044/2016_ajslp-15-0169",
+  "doi:10.1044/2020_jslhr-19-00017",
+  "doi:10.1073/pnas.2300671120",
+  "doi:10.1080/14616730903338985",
+  "doi:10.1109/icasspw62465.2024.10626416",
+  "doi:10.1111/cdev.13495",
+  "doi:10.1111/desc.12172",
+  "doi:10.1111/desc.12843",
+  "doi:10.1111/desc.13525",
+  "doi:10.1111/infa.12310",
+  "doi:10.1111/infa.12596",
+  "doi:10.1111/j.1469-8749.1990.tb16949.x",
+  "doi:10.1146/annurev.psych.53.100901.135233",
+  "doi:10.1177/0956797614531023",
+  "doi:10.1177/0956797615586796",
+  "doi:10.1371/journal.pbio.1002128",
+  "doi:10.2139/ssrn.4386902",
+  "doi:10.21437/interspeech.2020-1690",
+  "doi:10.21437/interspeech.2021-703",
+  "doi:10.21437/interspeech.2023-460",
+  "doi:10.21437/interspeech.2025-504",
+  "doi:10.2196/49316",
+  "doi:10.2307/1127506",
+  "doi:10.3389/fpsyg.2019.02374",
+  "doi:10.3390/s24030901",
+  "doi:10.3758/s13428-020-01393-5",
+  "doi:10.3758/s13428-022-01961-x",
+  "doi:10.48550/arxiv.1706.03762",
+  "doi:10.48550/arxiv.1909.05952",
+  "doi:10.48550/arxiv.2006.11477",
+  "doi:10.48550/arxiv.2105.01051",
+  "doi:10.48550/arxiv.2106.07447",
+  "doi:10.48550/arxiv.2110.13900",
+  "doi:10.48550/arxiv.2212.04356",
+  "doi:10.48550/arxiv.2509.15001",
+  "ieeexplore.ieee.org/document/10626416",
+  "ieeexplore.ieee.org/document/9591582",
+  "isca-archive.org/interspeech_2017/schuller17_interspeech.html",
+  "isca-archive.org/interspeech_2018/schuller18_interspeech.html",
+  "isca-archive.org/interspeech_2019/schuller19_interspeech.html",
+  "isca-archive.org/interspeech_2023/li23e_interspeech.html",
+  "isca-archive.org/interspeech_2023/mishra23_interspeech.html",
+  "jstor.org/stable/1132101",
+  "jstor.org/stable/3181589",
+  "lena.org/wp-content/uploads/2016/07/ltr-05-2_reliability.pdf",
+  "lena.org/wp-content/uploads/2016/07/ltr-10-1-lena-automatic-autism-screen.pdf",
+  "praat.org"
+ ],
+ "own_doi": "doi:10.1111/desc.70251",
+ "citations": [
+  {
+   "cite_id": 1,
+   "para_id": 2,
+   "bib_id": 37,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 2,
+   "para_id": 2,
+   "bib_id": 48,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 3,
+   "para_id": 2,
+   "bib_id": 4,
+   "marker": "2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 4,
+   "para_id": 2,
+   "bib_id": 30,
+   "marker": "2001",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 5,
+   "para_id": 2,
+   "bib_id": 38,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 6,
+   "para_id": 2,
+   "bib_id": 16,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 7,
+   "para_id": 2,
+   "bib_id": 37,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 8,
+   "para_id": 2,
+   "bib_id": 41,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 9,
+   "para_id": 2,
+   "bib_id": 10,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 10,
+   "para_id": 2,
+   "bib_id": 26,
+   "marker": "2003",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 11,
+   "para_id": 2,
+   "bib_id": 55,
+   "marker": "2001",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 12,
+   "para_id": 2,
+   "bib_id": 62,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 13,
+   "para_id": 2,
+   "bib_id": 25,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 14,
+   "para_id": 2,
+   "bib_id": 60,
+   "marker": "2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 15,
+   "para_id": 2,
+   "bib_id": 6,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 16,
+   "para_id": 3,
+   "bib_id": 23,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 17,
+   "para_id": 3,
+   "bib_id": 32,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 18,
+   "para_id": 3,
+   "bib_id": 52,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 19,
+   "para_id": 3,
+   "bib_id": 53,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 20,
+   "para_id": 3,
+   "bib_id": 54,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 21,
+   "para_id": 4,
+   "bib_id": 32,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 22,
+   "para_id": 4,
+   "bib_id": 1,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 23,
+   "para_id": 4,
+   "bib_id": 27,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 24,
+   "para_id": 4,
+   "bib_id": 13,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 25,
+   "para_id": 4,
+   "bib_id": 49,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 26,
+   "para_id": 4,
+   "bib_id": 1,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 27,
+   "para_id": 4,
+   "bib_id": 46,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 28,
+   "para_id": 4,
+   "bib_id": 44,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 29,
+   "para_id": 5,
+   "bib_id": 35,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 30,
+   "para_id": 5,
+   "bib_id": 12,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 31,
+   "para_id": 5,
+   "bib_id": 19,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 32,
+   "para_id": 6,
+   "bib_id": 43,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 33,
+   "para_id": 6,
+   "bib_id": 14,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 34,
+   "para_id": 6,
+   "bib_id": 60,
+   "marker": "2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 35,
+   "para_id": 6,
+   "bib_id": 40,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 36,
+   "para_id": 6,
+   "bib_id": 61,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 37,
+   "para_id": 7,
+   "bib_id": 29,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 38,
+   "para_id": 7,
+   "bib_id": 39,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 39,
+   "para_id": 8,
+   "bib_id": 35,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 40,
+   "para_id": 8,
+   "bib_id": 36,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 41,
+   "para_id": 8,
+   "bib_id": 56,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 42,
+   "para_id": 1,
+   "bib_id": 35,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 43,
+   "para_id": 9,
+   "bib_id": 8,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 44,
+   "para_id": 10,
+   "bib_id": 15,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 45,
+   "para_id": 10,
+   "bib_id": 52,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 46,
+   "para_id": 10,
+   "bib_id": 59,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 47,
+   "para_id": 11,
+   "bib_id": 60,
+   "marker": "2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 48,
+   "para_id": 11,
+   "bib_id": 51,
+   "marker": "2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 49,
+   "para_id": 12,
+   "bib_id": 32,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 50,
+   "para_id": 13,
+   "bib_id": 34,
+   "marker": "2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 51,
+   "para_id": 13,
+   "bib_id": 24,
+   "marker": "1999",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 52,
+   "para_id": 13,
+   "bib_id": 30,
+   "marker": "2001",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 53,
+   "para_id": 14,
+   "bib_id": 14,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 54,
+   "para_id": 14,
+   "bib_id": 21,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 55,
+   "para_id": 15,
+   "bib_id": 33,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 56,
+   "para_id": 15,
+   "bib_id": 47,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 57,
+   "para_id": 15,
+   "bib_id": 22,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 58,
+   "para_id": 15,
+   "bib_id": 57,
+   "marker": "2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 59,
+   "para_id": 15,
+   "bib_id": 43,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 60,
+   "para_id": 15,
+   "bib_id": 42,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 61,
+   "para_id": 16,
+   "bib_id": 31,
+   "marker": "1999",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 62,
+   "para_id": 16,
+   "bib_id": 57,
+   "marker": "2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 63,
+   "para_id": 16,
+   "bib_id": 10,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 64,
+   "para_id": 16,
+   "bib_id": 33,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 65,
+   "para_id": 16,
+   "bib_id": 9,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 66,
+   "para_id": 16,
+   "bib_id": 47,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 67,
+   "para_id": 16,
+   "bib_id": 55,
+   "marker": "2001",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 68,
+   "para_id": 16,
+   "bib_id": 55,
+   "marker": "2001",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 69,
+   "para_id": 16,
+   "bib_id": 55,
+   "marker": "2001",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 70,
+   "para_id": 17,
+   "bib_id": 3,
+   "marker": "1990",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 71,
+   "para_id": 17,
+   "bib_id": 5,
+   "marker": "1972",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 72,
+   "para_id": 17,
+   "bib_id": 17,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 73,
+   "para_id": 17,
+   "bib_id": 47,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 74,
+   "para_id": 18,
+   "bib_id": 45,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 75,
+   "para_id": 18,
+   "bib_id": 20,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 76,
+   "para_id": 18,
+   "bib_id": 47,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 77,
+   "para_id": 19,
+   "bib_id": 7,
+   "marker": "1986",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 78,
+   "para_id": 19,
+   "bib_id": 58,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 79,
+   "para_id": 20,
+   "bib_id": 55,
+   "marker": "2001",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 80,
+   "para_id": 21,
+   "bib_id": 21,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 81,
+   "para_id": 21,
+   "bib_id": 45,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 82,
+   "para_id": 22,
+   "bib_id": 18,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 83,
+   "para_id": 22,
+   "bib_id": 33,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 84,
+   "para_id": 22,
+   "bib_id": 47,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 85,
+   "para_id": 22,
+   "bib_id": 50,
+   "marker": "2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 86,
+   "para_id": 22,
+   "bib_id": 57,
+   "marker": "2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 87,
+   "para_id": 23,
+   "bib_id": 2,
+   "marker": "1997",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 88,
+   "para_id": 24,
+   "bib_id": 47,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 89,
+   "para_id": 24,
+   "bib_id": 55,
+   "marker": "2001",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 90,
+   "para_id": 24,
+   "bib_id": 5,
+   "marker": "1972",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 91,
+   "para_id": 24,
+   "bib_id": 47,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 92,
+   "para_id": 25,
+   "bib_id": 11,
+   "marker": "2002",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 93,
+   "para_id": 25,
+   "bib_id": 28,
+   "marker": "2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 94,
+   "para_id": 25,
+   "bib_id": 47,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 95,
+   "para_id": 25,
+   "bib_id": 55,
+   "marker": "2001",
+   "expanded": false,
+   "scored": true
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-ext-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "v1_bib_count": 62
+ }
+}

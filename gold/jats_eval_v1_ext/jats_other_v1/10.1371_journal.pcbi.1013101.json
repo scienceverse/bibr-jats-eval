@@ -1,0 +1,2687 @@
+{
+ "paper_id": "10.1371_journal.pcbi.1013101",
+ "paras": [
+  {
+   "para_id": 1,
+   "loc": "front",
+   "sec_title": "",
+   "text": "All model code used in this study is available at https://github.com/Layton-Lab/est-ras-bone.",
+   "printed": true
+  },
+  {
+   "para_id": 2,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Bone remodeling is a complex physiological process that maintains the balance between bone formation and resorption. This process is mediated by bone cells: osteoblasts, which are responsible for bone formation, and osteoclasts, which are responsible for bone resorption. The activity and proliferation of osteoblasts and osteoclasts is regulated by a system of various receptors, their corresponding ligands, and hormonal signals [1,2]. One such regulatory system is the RANK-RANKL-OPG system. Receptor activator of nuclear factor kappa-B ligand (RANKL) is expressed by osteoblasts and binds to receptor activator of nuclear factor kappa-B (RANK) on osteoclasts to promote osteoclast differentiation and activation. Osteoprotegerin (OPG) is a decoy receptor that binds to RANKL, preventing its binding with RANK and thereby inhibiting osteoclast activity. The balance between RANKL and OPG is essential for maintaining bone homeostasis as an increase in RANKL or OPG can lead to excessive or reduced bone resorption, respectively [1].",
+   "printed": true
+  },
+  {
+   "para_id": 3,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Estrogen impacts bone remodeling by inhibiting osteoclast activity, thereby protecting bones from excessive resorption. When estrogen levels in women decline post-menopause, osteoclast activity increases, resulting in increased resorption, and ultimately weakened bones. This often leads to post-menopausal osteoporosis. Post-menopausal osteoporosis is the most common form of osteoporosis, which is characterized by increased bone fragility, making fractures more likely from minor trauma or in severe cases, even spontaneous fracture. It is estimated that about 1 in 3 women over 50 years of age will suffer a fracture related to post-menopausal osteoporosis [3,4].",
+   "printed": true
+  },
+  {
+   "para_id": 4,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "The main component of bone structure is hydroxyapatite, a compound made up of phosphate and calcium. Given their role in developing the key structure of bones, maintaining balanced levels of calcium and phosphate is critical for bone health. The regulation of calcium and phosphate levels is driven by calciotropic hormones: calcitriol and parathyroid hormone (PTH) [5]. Researchers have reported a bidirectional relationship between the calciotropic hormones and the renin-angiotensin system (RAS) [6], a hormone system that plays a key role in many physiological processes, including blood pressure regulation, in addition to a direct impact of the RAS on bone remodeling [7]. The RAS is a hormone cascade that produces the bioactive peptide angiotensin II (Ang II). Ang II binds to angiotensin type 1 receptors (AT1R) and angiotensin type 2 receptors (AT2R) to trigger various physiological effects. The RAS is also modulated by estrogen levels, and therefore is impacted by the rapidly declining estrogen levels in post-menopausal women [8]. This dysregulation contributes to the higher susceptibility of post-menopausal women to the development of hypertension, cardiovascular disease, and osteoporosis [8].",
+   "printed": true
+  },
+  {
+   "para_id": 5,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Inhibition of RAS components, particularly angiotensin-converting enzyme (ACE) and AT1R binding, has shown to be effective targets for antihypertensive treatment [9]. These drugs are classified as RAS inhibitors. Experimental data has shown that the use of RAS inhibitors improves bone quality independent of their effect on blood pressure [10,11]. Given that RAS inhibitors are relatively well tolerated, safe, and are reasonably priced drugs, there has been interest in using RAS inhibitors to prevent osteoporosis in post-menopausal women [10–12]. Additionally, since hypertension is highly prevalent in post-menopausal women, understanding the impacts of antihypertensive treatments, such as RAS inhibitors, on bone remodeling is important for achieving blood pressure control and bone health in post-menopausal women [10–12].",
+   "printed": true
+  },
+  {
+   "para_id": 6,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Many mathematical models have been developed to study bone remodeling as recently reviewed in [2]. Peterson and Riggs [13] pioneered a mathematical model of calcium homeostasis coupled to a detailed bone biology model. Their model consists of bone, renal, and blood compartments to predict levels of PTH, calcitriol, calcium, phosphate, and bone remodeling activity. This model has been applied to investigate applications related to bone remodeling and calcium homeostasis, including the impact of estrogen [14], mineral bone disorder in patients with chronic kidney disease [15], and the impact of fibroblast growth factor 23 (FGF-23) and vascular calcification [16]. Mathematical models have also been developed for the RAS to understand its role in blood pressure regulation. Specifically, Lo et al. [17] developed a model of the RAS in humans to investigate the differences between normotensive and hypertensive patients. This model was later included in a full body blood pressure model by Hallow et al. [18]. Leete et al. [19] further developed this model to investigate the effects of sex-based differences in the RAS on blood pressure regulation. However, no known models have been developed that include the direct impact of estrogen on the RAS or have coupled the RAS impacts with calcium homeostasis and bone remodeling in humans.",
+   "printed": true
+  },
+  {
+   "para_id": 7,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "In this study, we (i) investigate the impact of age-related estrogen decline by including the impact of estrogen on the RAS and (ii) couple the calcium homeostasis and bone remodeling model [13,14] with the RAS model [17–19] to predict the impact of RAS inhibitors on this system.",
+   "printed": true
+  },
+  {
+   "para_id": 8,
+   "loc": "body",
+   "sec_title": "Renin-angiotensin system model",
+   "text": "In this study, we use the RAS model with the female-specific parameter set from [19]. The model variables consist of the systemic concentrations of AGT, Ang I, Ang IV, Ang (1–7), AT1R-bound Ang II, and AT2R-bound Ang II. AT1R-bound Ang II inhibits renin secretion through a feedback loop. For a detailed description of the underlying RAS model used in this study, see [18,19].",
+   "printed": true
+  },
+  {
+   "para_id": 9,
+   "loc": "body",
+   "sec_title": "Impact of estrogen decline in aging women on the RAS.",
+   "text": "Estrogen levels impact the RAS by activating and inhibiting various key processes. Specifically, estrogen activates AGT production and AT2R binding, while inhibiting renin secretion, ACE activity, and AT1R binding [8]. These processes are illustrated in Fig 1.",
+   "printed": true
+  },
+  {
+   "para_id": 10,
+   "loc": "body",
+   "sec_title": "Impact of estrogen decline in aging women on the RAS.",
+   "text": "After the onset of menopause, estrogen levels decrease dramatically. To model this decline in estrogen levels, we use the estrogen model for post-menopausal women from [20]. The normalized level of estrogen, denoted by E, is modeled through explicit time dependence so that",
+   "printed": true
+  },
+  {
+   "para_id": 11,
+   "loc": "body",
+   "sec_title": "Impact of estrogen decline in aging women on the RAS.",
+   "text": "where t is the time in years (i.e., age), te=50 years is the age of onset of estrogen decline, and τe=2.6 years is a parameter fit to normalized estrogen data from [21] that determines the slope of estrogen decline in relation to women’s final menstrual period (see [20] for details). Note that before te, E = 1 so that estrogen is assumed to remain at baseline level pre-menopause. Indeed, estrogen levels vary during the menstrual cycle [22]. In this study, we do not consider variations in estrogen over the menstrual cycle in pre-menopausal women and consider baseline estrogen level pre-menopause as the average level through the full cycle.",
+   "printed": true
+  },
+  {
+   "para_id": 12,
+   "loc": "body",
+   "sec_title": "Impact of estrogen decline in aging women on the RAS.",
+   "text": "The enzyme renin is secreted by the juxtaglomerular cells of the kidneys to convert AGT to Ang I. Estrogen inhibits renin levels [8,23,24]. We let grenin− be the impact of estrogen on renin secretion. The parameter value for erenin was chosen based on experimental results from [24] which compared plasma estrogen to plasma renin levels under baseline conditions and estrogen injection. Renin secretion is modeled by",
+   "printed": true
+  },
+  {
+   "para_id": 13,
+   "loc": "body",
+   "sec_title": "Impact of estrogen decline in aging women on the RAS.",
+   "text": "where Nrs is baseline renin secretion and νAT1R is the feedback of [AT1R-bound Ang II] on renin secretion from [18]. Plasma renin concentration (PRC) is modeled by",
+   "printed": true
+  },
+  {
+   "para_id": 14,
+   "loc": "body",
+   "sec_title": "Impact of estrogen decline in aging women on the RAS.",
+   "text": "where hrenin denotes the half life of renin as in [18].",
+   "printed": true
+  },
+  {
+   "para_id": 15,
+   "loc": "body",
+   "sec_title": "Impact of estrogen decline in aging women on the RAS.",
+   "text": "AGT is synthesized in the liver and is stimulated by estrogen [8,23,25]. In post-menopausal women, AGT levels decline from pre-menopause levels [23]. To model the impact of estrogen on AGT, we multiply the production of AGT, denoted by kAGT, by gAGT+(E). The value of eAGT was based on rat experimental data from [25] which quantified the increase in hepatic AGT mRNA levels under estrogen injection [25]. AGT concentration is modeled by",
+   "printed": true
+  },
+  {
+   "para_id": 16,
+   "loc": "body",
+   "sec_title": "Impact of estrogen decline in aging women on the RAS.",
+   "text": "is plasma renin activity (PRA) with parameter XPRCPRA and hAGT is the half-life for AGT as in [18]. The equation for PRA is a slight modification from the equation used in [18,19] to include the impact of AGT on PRA as well. The KAGT0 parameter was fitted to predict the same model output in the original blood pressure model from [19].",
+   "printed": true
+  },
+  {
+   "para_id": 17,
+   "loc": "body",
+   "sec_title": "Impact of estrogen decline in aging women on the RAS.",
+   "text": "ACE converts Ang I into Ang II. Researchers have reported that both ACE expression and activity are inhibited by estrogen in rodent models [26–29]. We let gACE− represent the inhibition of estrogen levels on ACE activity. The eACE parameter is based on differences in ACE activity under estrogen injection in ovariectomized rats, as reported in [27]. Ang I can be converted independently of ACE into Ang II by chymases (chym) [30] or into Ang (1–7) by neprilysin (nep) [31]. Ang II can be converted to Ang (1–7) by angiotensin-converting enzyme 2 (ACE2), or into Ang IV by aminopeptidases (II, IV) [32]. The concentration of Ang I and Ang II are modeled by",
+   "printed": true
+  },
+  {
+   "para_id": 18,
+   "loc": "body",
+   "sec_title": "Impact of estrogen decline in aging women on the RAS.",
+   "text": "where ci denotes the corresponding enzyme activities and hAngI and hAngII are the half lives of Ang I and Ang II, respectively, as in [18]. kinf is an input used for Ang II infusion (see Section Parameter fitting to PTH and Ang II infusion experiments) and is set to 0 in simulations with no Ang II infusion.",
+   "printed": true
+  },
+  {
+   "para_id": 19,
+   "loc": "body",
+   "sec_title": "Impact of estrogen decline in aging women on the RAS.",
+   "text": "Ang II is reported to remain around the same in aging humans [33]. Ovariectomized rats showed a small decrease in plasma Ang II levels, which was reversed by estrogen replacement at pre-ovariectomy levels [34,35]. We note that Ang II levels are often reported in post-menopausal women on estrogen replacement therapy, but researchers have found significant differences in the impact of estrogen replacement therapy on the RAS when taking via oral or transdermal therapy [36]. This is likely due to the high exposure to estrogen in the liver when ingesting oral estrogen.",
+   "printed": true
+  },
+  {
+   "para_id": 20,
+   "loc": "body",
+   "sec_title": "Impact of estrogen decline in aging women on the RAS.",
+   "text": "Ang II binds to AT1R and AT2R, triggering different physiological responses. Estrogen inhibits Ang II binding to AT1R, but activates Ang II binding to AT2R [8,29,37]. AT1R density is increased over 2-fold in ovariectomized rats [38]. Conversely, AT2R receptor density measured in the left ventricle is significantly reduced in ovariectomized rats, but returns to baseline with estrogen replacement [37]. We based our parameter value for eAT1 and eAT2 on these changes in receptor densities. AT1R-bound Ang II ([AT1R-AngII]) and AT2R-bound Ang II ([AT2R-AngII]) concentrations are modeled by",
+   "printed": true
+  },
+  {
+   "para_id": 21,
+   "loc": "body",
+   "sec_title": "Impact of estrogen decline in aging women on the RAS.",
+   "text": "with hAT1 and hAT2 denoting the half-lives of AT1R-bound Ang II and AT2R-bound Ang II from [18]. cAT1 and cAT2 denote the binding rates of Ang II to AT1R and AT2R, respectively, as in [18]. gAT1− and gAT2+ represent the impact of estrogen on the respective binding rate.",
+   "printed": true
+  },
+  {
+   "para_id": 22,
+   "loc": "table",
+   "sec_title": "Impact of estrogen decline in aging women on the RAS.",
+   "text": "[25]",
+   "printed": true
+  },
+  {
+   "para_id": 23,
+   "loc": "table",
+   "sec_title": "Impact of estrogen decline in aging women on the RAS.",
+   "text": "[24]",
+   "printed": true
+  },
+  {
+   "para_id": 24,
+   "loc": "table",
+   "sec_title": "Impact of estrogen decline in aging women on the RAS.",
+   "text": "[27]",
+   "printed": true
+  },
+  {
+   "para_id": 25,
+   "loc": "table",
+   "sec_title": "Impact of estrogen decline in aging women on the RAS.",
+   "text": "[38]",
+   "printed": true
+  },
+  {
+   "para_id": 26,
+   "loc": "table",
+   "sec_title": "Impact of estrogen decline in aging women on the RAS.",
+   "text": "[37]",
+   "printed": true
+  },
+  {
+   "para_id": 27,
+   "loc": "body",
+   "sec_title": "RAS inhibitor simulations.",
+   "text": "To simulate the RAS inhibitors, we use the same approach as in [18]. Specifically, to simulate treatment with an angiotensin receptor blocker (ARB), we let",
+   "printed": true
+  },
+  {
+   "para_id": 28,
+   "loc": "body",
+   "sec_title": "Calcium homeostasis and bone biology model",
+   "text": "The mathematical model developed by Peterson and Riggs [13] was chosen as the basis for the calcium homeostasis and bone remodeling components of the composite model because it includes detailed bone, renal, and blood compartments, and predicts levels of PTH, calcitriol, bone cell activity, calcium, and phosphate. We further incorporated specific additions from published model extensions [14,16]:",
+   "printed": true
+  },
+  {
+   "para_id": 29,
+   "loc": "body",
+   "sec_title": "Calcium homeostasis and bone biology model",
+   "text": "Gaweda et al. [16] extended the original model to include additional regulatory mechanisms governing calcium and phosphate homeostasis. In this study, we included the impact of phosphate levels on parathyroid gland capacity as added by Gaweda et al. [16] (equation for H5,11 in [16]). Note that Gaweda et al. [16] used the Peterson and Riggs [13] model as a basis for their extensions so all other parameters and biological components are the same as in [13].",
+   "printed": true
+  },
+  {
+   "para_id": 30,
+   "loc": "body",
+   "sec_title": "Calcium homeostasis and bone biology model",
+   "text": "To evaluate long-term structural changes within the bone compartment, we incorporated the bone mineral density (BMD) compartment introduced by Riggs et al.[14].",
+   "printed": true
+  },
+  {
+   "para_id": 31,
+   "loc": "body",
+   "sec_title": "Calcium homeostasis and bone biology model",
+   "text": "To investigate estrogen-driven changes in calcium homeostasis and bone remodeling, we integrated the estrogen effects added in Riggs et al.[14]. The authors included the impact of estrogen on latent and active TGF-β, osteoblast signaling, and renal calcium handling. TGF-β is a key cytokine in bone remodeling that regulates osteoblast and osteoclast proliferation and activity. Here, TGF-β refers to canonical transforming growth factor-β signaling as represented in the underlying Peterson–Riggs framework [13], rather than the broader TGF-β superfamily including bone morphogenetic proteins. Estrogen inhibits latent TGF-β formation, while stimulating its activation. TGF-β impacts bone remodeling activity through stimulating the expression of RANK on osteoclasts, stimulating osteoclast apoptosis, stimulating pre-osteoblast formation, and inhibiting osteoblast proliferation. Estrogen directly inhibits both the formation of pre-osteoblasts as well as the apoptosis rate of osteoblasts. Riggs et al. [14] also included the impact of estrogen on renal calcium reabsorption by decreasing renal calcium reabsorption with declining estrogen levels post-menopause. All of these estrogen effects are included in the model used in this study.",
+   "printed": true
+  },
+  {
+   "para_id": 32,
+   "loc": "body",
+   "sec_title": "Composite calcium homeostasis, bone remodeling, and RAS model",
+   "text": "To model those interactions, we follow the approach in [13] and characterize the changes in responses influenced by a given stimulant using hyperbolic functions:",
+   "printed": true
+  },
+  {
+   "para_id": 33,
+   "loc": "body",
+   "sec_title": "Composite calcium homeostasis, bone remodeling, and RAS model",
+   "text": "where x denotes the stimulus variable, α is the maximum anticipated response, γ is the steepness of the response (note when γ=1 the functions are sigmoidal), δ is the value of x that produces the half-maximal response, and ρ is the minimum anticipated response. The minus or plus superscript in H denotes whether the response is a decrease or increase from the baseline steady state, respectively. Note that when ρ=0, the response is a classical Emax response often used in modeling in pharmacology (see [39]). These hyperbolic response functions were chosen because they provide a simple phenomenological representation of saturating physiological regulation with bounded responses. The parameters α, ρ, δ, and γ allow flexible control of maximal/minimal response, sensitivity, and response steepness while maintaining smooth nonlinear behavior. This formulation is also consistent with the approach used in the underlying Peterson and Riggs framework [13]. Parameter values for the equations added in this study are listed in Table 2. The newly introduced parameters in Tables 1, 2 represent the principal coupling (‘crosslinking’) parameters connecting the estrogen-RAS subsystem with the calcium homeostasis and bone remodeling subsystems. These parameters govern the strength and sensitivity of the inter-system regulatory interactions introduced in this study. Additional parameter values can be found in [13,14,16] or using our publicly available model code.",
+   "printed": true
+  },
+  {
+   "para_id": 34,
+   "loc": "table",
+   "sec_title": "Composite calcium homeostasis, bone remodeling, and RAS model",
+   "text": "Parameter values for coupling the RAS components to the calcium homeostasis and bone remodeling model. Additional parameters can be found in [13,14,16].",
+   "printed": true
+  },
+  {
+   "para_id": 35,
+   "loc": "table",
+   "sec_title": "Composite calcium homeostasis, bone remodeling, and RAS model",
+   "text": "[40]",
+   "printed": true
+  },
+  {
+   "para_id": 36,
+   "loc": "table",
+   "sec_title": "Composite calcium homeostasis, bone remodeling, and RAS model",
+   "text": "[40]",
+   "printed": true
+  },
+  {
+   "para_id": 37,
+   "loc": "table",
+   "sec_title": "Composite calcium homeostasis, bone remodeling, and RAS model",
+   "text": "[40]",
+   "printed": true
+  },
+  {
+   "para_id": 38,
+   "loc": "table",
+   "sec_title": "Composite calcium homeostasis, bone remodeling, and RAS model",
+   "text": "[40]",
+   "printed": true
+  },
+  {
+   "para_id": 39,
+   "loc": "table",
+   "sec_title": "Composite calcium homeostasis, bone remodeling, and RAS model",
+   "text": "[40]",
+   "printed": true
+  },
+  {
+   "para_id": 40,
+   "loc": "table",
+   "sec_title": "Composite calcium homeostasis, bone remodeling, and RAS model",
+   "text": "[40]",
+   "printed": true
+  },
+  {
+   "para_id": 41,
+   "loc": "table",
+   "sec_title": "Composite calcium homeostasis, bone remodeling, and RAS model",
+   "text": "[40]",
+   "printed": true
+  },
+  {
+   "para_id": 42,
+   "loc": "table",
+   "sec_title": "Composite calcium homeostasis, bone remodeling, and RAS model",
+   "text": "[40]",
+   "printed": true
+  },
+  {
+   "para_id": 43,
+   "loc": "table",
+   "sec_title": "Composite calcium homeostasis, bone remodeling, and RAS model",
+   "text": "[41,42]",
+   "printed": true
+  },
+  {
+   "para_id": 44,
+   "loc": "table",
+   "sec_title": "Composite calcium homeostasis, bone remodeling, and RAS model",
+   "text": "[41,42]",
+   "printed": true
+  },
+  {
+   "para_id": 45,
+   "loc": "table",
+   "sec_title": "Composite calcium homeostasis, bone remodeling, and RAS model",
+   "text": "[41,42]",
+   "printed": true
+  },
+  {
+   "para_id": 46,
+   "loc": "table",
+   "sec_title": "Composite calcium homeostasis, bone remodeling, and RAS model",
+   "text": "[41,42]",
+   "printed": true
+  },
+  {
+   "para_id": 47,
+   "loc": "table",
+   "sec_title": "Composite calcium homeostasis, bone remodeling, and RAS model",
+   "text": "[40]",
+   "printed": true
+  },
+  {
+   "para_id": 48,
+   "loc": "table",
+   "sec_title": "Composite calcium homeostasis, bone remodeling, and RAS model",
+   "text": "[40]",
+   "printed": true
+  },
+  {
+   "para_id": 49,
+   "loc": "table",
+   "sec_title": "Composite calcium homeostasis, bone remodeling, and RAS model",
+   "text": "[40]",
+   "printed": true
+  },
+  {
+   "para_id": 50,
+   "loc": "table",
+   "sec_title": "Composite calcium homeostasis, bone remodeling, and RAS model",
+   "text": "[40]",
+   "printed": true
+  },
+  {
+   "para_id": 51,
+   "loc": "table",
+   "sec_title": "Composite calcium homeostasis, bone remodeling, and RAS model",
+   "text": "[43]",
+   "printed": true
+  },
+  {
+   "para_id": 52,
+   "loc": "table",
+   "sec_title": "Composite calcium homeostasis, bone remodeling, and RAS model",
+   "text": "[43]",
+   "printed": true
+  },
+  {
+   "para_id": 53,
+   "loc": "table",
+   "sec_title": "Composite calcium homeostasis, bone remodeling, and RAS model",
+   "text": "[43]",
+   "printed": true
+  },
+  {
+   "para_id": 54,
+   "loc": "table",
+   "sec_title": "Composite calcium homeostasis, bone remodeling, and RAS model",
+   "text": "[43]",
+   "printed": true
+  },
+  {
+   "para_id": 55,
+   "loc": "table",
+   "sec_title": "Composite calcium homeostasis, bone remodeling, and RAS model",
+   "text": "[7]",
+   "printed": true
+  },
+  {
+   "para_id": 56,
+   "loc": "table",
+   "sec_title": "Composite calcium homeostasis, bone remodeling, and RAS model",
+   "text": "[7]",
+   "printed": true
+  },
+  {
+   "para_id": 57,
+   "loc": "table",
+   "sec_title": "Composite calcium homeostasis, bone remodeling, and RAS model",
+   "text": "[7]",
+   "printed": true
+  },
+  {
+   "para_id": 58,
+   "loc": "table",
+   "sec_title": "Composite calcium homeostasis, bone remodeling, and RAS model",
+   "text": "[7]",
+   "printed": true
+  },
+  {
+   "para_id": 59,
+   "loc": "table",
+   "sec_title": "Composite calcium homeostasis, bone remodeling, and RAS model",
+   "text": "[7]",
+   "printed": true
+  },
+  {
+   "para_id": 60,
+   "loc": "table",
+   "sec_title": "Composite calcium homeostasis, bone remodeling, and RAS model",
+   "text": "[7]",
+   "printed": true
+  },
+  {
+   "para_id": 61,
+   "loc": "table",
+   "sec_title": "Composite calcium homeostasis, bone remodeling, and RAS model",
+   "text": "[7]",
+   "printed": true
+  },
+  {
+   "para_id": 62,
+   "loc": "table",
+   "sec_title": "Composite calcium homeostasis, bone remodeling, and RAS model",
+   "text": "[7]",
+   "printed": true
+  },
+  {
+   "para_id": 63,
+   "loc": "body",
+   "sec_title": "AT1R-bound Ang II and calcium impact on PTH secretion.",
+   "text": "AT1R-bound Ang II concentration, denoted by [AT1R-AngII], increases PTH secretion from the parathyroid gland [6]. To model this effect, we let HAT1R,PTH+ denote the impact of AT1R-bound Ang II on PTH secretion:",
+   "printed": true
+  },
+  {
+   "para_id": 64,
+   "loc": "body",
+   "sec_title": "AT1R-bound Ang II and calcium impact on PTH secretion.",
+   "text": "Conversely, PTH secretion is inhibited by extracellular calcium levels ([Ca]) [44]. To model this effect, we let HCaSR,PTH− be of the form of Eq. 14:",
+   "printed": true
+  },
+  {
+   "para_id": 65,
+   "loc": "body",
+   "sec_title": "AT1R-bound Ang II and calcium impact on PTH secretion.",
+   "text": "where SPTH is the secretion of PTH from the parathyroid gland and kdeg−PTH is degradation as in [13]. The parameters for Eqs. 16 and 17 were fit using the Ang II only experiment data from Grant et al. [40] (Section Parameter fitting to PTH and Ang II infusion experiments). The parameter values are listed in Table 2.",
+   "printed": true
+  },
+  {
+   "para_id": 66,
+   "loc": "body",
+   "sec_title": "Calciotropic hormones, calcium, and renin secretion.",
+   "text": "Renin secretion, denoted by Rsec, is impacted by [PTH], calcitriol ([Ctriol]), and [Ca]. Specifically, increased [Ca] and [Ctriol] inhibit renin secretion, while [PTH] stimulates renin secretion [6].",
+   "printed": true
+  },
+  {
+   "para_id": 67,
+   "loc": "body",
+   "sec_title": "Calciotropic hormones, calcium, and renin secretion.",
+   "text": "Extracellular calcium levels are detected by the calcium sensing receptor (CaSR) in the juxtaglomerular cells [45]. To model the impact of CaSR on Rsec, we let:",
+   "printed": true
+  },
+  {
+   "para_id": 68,
+   "loc": "body",
+   "sec_title": "Calciotropic hormones, calcium, and renin secretion.",
+   "text": "Ortiz-Capisano et al. [41,42] found that renin release was 40% lower when using a calcimimetic or at elevated calcium levels in the juxtaglomerular cells of rat kidneys. We used this result to estimate parameters so that at high calcium levels, renin release is decreased by 40%.",
+   "printed": true
+  },
+  {
+   "para_id": 69,
+   "loc": "body",
+   "sec_title": "Calciotropic hormones, calcium, and renin secretion.",
+   "text": "The parameters (listed in Table 2) were fit using the PTH only infusion experiment from Grant et al. [40] (Section Parameter fitting to PTH and Ang II infusion experiments).",
+   "printed": true
+  },
+  {
+   "para_id": 70,
+   "loc": "body",
+   "sec_title": "Calciotropic hormones, calcium, and renin secretion.",
+   "text": "The parameters were selected to produce a physiologically consistent inhibitory relationship between calcitriol and renin secretion guided by the trends reported in Tomaschitz et al. in human participants [43]. Taken together, we incorporate the combined impact of calcium, PTH, and calcitriol on renin secretion by modifying Eq. 4 to",
+   "printed": true
+  },
+  {
+   "para_id": 71,
+   "loc": "body",
+   "sec_title": "AT1R-bound Ang II activation of RANKL and OPG.",
+   "text": "Shimizu et al. [7] reported that in ovariectomized rats, infusion of Ang II increased RANKL expression and led to a significant decrease in bone volume, but this impact was abolished by treatment with an AT1R blocker and not an AT2R blocker. Their results showed that RANKL production is activated by AT1R-bound Ang II levels. Additionally, Shimizu et al. [7] found that OPG expression is also increased in osteoblast cells due to infusion of Ang II, but to a much lesser extent than RANKL.",
+   "printed": true
+  },
+  {
+   "para_id": 72,
+   "loc": "body",
+   "sec_title": "AT1R-bound Ang II activation of RANKL and OPG.",
+   "text": "These are included in the equations for the production of RANKL and OPG, respectively (Eqs. F.6 and F.8 in S1 Appendix). The values for αAT1R,RANKL and αAT1R,OPG represent the highest possible amount of activation of RANKL and OPG by AT1R binding, respectively. These values were set to the fold-change in RANKL and OPG expression after Ang II infusion in Shimizu et al. [7]. The parameter values are listed in Table 2.",
+   "printed": true
+  },
+  {
+   "para_id": 73,
+   "loc": "body",
+   "sec_title": "Parameter fitting to PTH and Ang II infusion experiments.",
+   "text": "Grant et al. [40] conducted infusion experiments in healthy volunteers to determine the relationship between the RAS and PTH in humans. To test this, the authors gave healthy volunteers 1 hour infusions on different days of (i) Ang II only, (ii) PTH (i.e., teriparatide) only, and (iii) Ang II and PTH together. We simulated these experiments and used the data from this study to determine parameters values (listed in Table 2) for Eqs. 16, 17, and 20.",
+   "printed": true
+  },
+  {
+   "para_id": 74,
+   "loc": "body",
+   "sec_title": "Parameter fitting to PTH and Ang II infusion experiments.",
+   "text": "In their experiments, Ang II infusions were given in graded doses of 1, 3, and 10 ng/kg·min for consecutive infusions of 20 minutes each. We simulated Ang II infusion by letting kinf=1 ng/kg·min (Eq. 9) for the first 20 minutes, 3 ng/kg·min for the next 20 minutes, and 10 ng/kg·min for the final 20 minutes of the 1 hour infusion to simulate this infusion type. For PTH infusions we used the pharmacokinetic parameters from Peterson and Riggs [13] with a dose of 200 U of teriparatide as reported by Grant et al. [40]. To fit the parameters, we used the fmincon function from MATLAB using the interior-point algorithm to minimize the difference between the predicted values and the data for PRA, intact PTH, and [Ang II] reported in Grant et al. [40]. That is, parameter values were determined by minimizing the summed squared error between model predictions and the experimental data points. In all of these simulations we let E = 1 so that there are no estrogen effects.",
+   "printed": true
+  },
+  {
+   "para_id": 75,
+   "loc": "body",
+   "sec_title": "Sobol sensitivity analysis",
+   "text": "Mathematical models of complex biological systems, like the one used in this study, involve a large number of parameters with unknown or uncertain values. To investigate the impact of variations in parameter values on model output, we can use methods such as sensitivity analysis [46,47]. The Sobol analysis was also used to assess the robustness of model outputs to uncertainty and variability in parameter values. Global sensitivity analysis methods evaluate the model at many points in the parameter space, providing an assessment of how individual parameters contribute to variations in model output across the parameter space, including interactions with other parameter changes [46–48].",
+   "printed": true
+  },
+  {
+   "para_id": 76,
+   "loc": "body",
+   "sec_title": "Sobol sensitivity analysis",
+   "text": "The Sobol method is a variance-based global sensitivity analysis technique that decomposes the variance in the model output into contributions from each individual parameter as well as its interactions with other parameters [46,49]. The results of a Sobol sensitivity analysis are called “Sobol sensitivity indices” (or “Sobol indices” for short) and are computed for each parameter included in the analysis. First-order Sobol indices (denoted by Sfirst) are the fraction of the variance in the model output the individual parameter contributes to. Total order Sobol indices (denoted by Stotal) quantify the fraction of output variance the parameter contributes to, including interactions with other parameter changes. By evaluating Sobol indices, we can identify which parameters are the most influential on model output. For more information about Sobol sensitivity analysis and its use in applications in biology, we refer readers to [46–49].",
+   "printed": true
+  },
+  {
+   "para_id": 77,
+   "loc": "body",
+   "sec_title": "PTH and Ang II infusion experiments simulations",
+   "text": "We conducted simulations of infusion of (i) Ang II, (ii) PTH, and (iii) PTH and Ang II together (described in the Parameter fitting to PTH and Ang II infusion experiments section). Model results, together with the experimental data reported for the clinical studies done by Grant et al. [40], are shown in Fig 2.",
+   "printed": true
+  },
+  {
+   "para_id": 78,
+   "loc": "fig",
+   "sec_title": "PTH and Ang II infusion experiments simulations",
+   "text": "Shown are trajectories for (A) plasma renin activity, (B) angiotensin II plasma concentration, (C), intact parathyroid hormone plasma concentration, and (D) angiotensin receptor type 1-bound Ang II during and following the 1 hour infusion period. Lines indicate simulations, while the dots and error bars in panels (A–C) are from the relevant experimental data presented in Grant et al. [40]. Ang II: angiotensin II, AT1R: angiotensin receptor type 1, iPTH: intact parathyroid hormone, PRA: plasma renin activity.",
+   "printed": true
+  },
+  {
+   "para_id": 79,
+   "loc": "body",
+   "sec_title": "PTH and Ang II infusion experiments simulations",
+   "text": "When Ang II is infused in isolation, Ang II levels rise, resulting in an increase in AT1R-bound Ang II levels as receptor occupancy increases in response to the higher circulating ligand concentration (Fig 2(B), 2(D)). This stimulates PTH secretion so that endogenous PTH (intact PTH, denoted by [iPTH]) increases (Fig 2(C)). Grant et al. [40] reported that during an Ang II infusion, [iPTH] increased, while PRA decreased slightly likely due to the negative feedback on renin secretion by AT1R-bound Ang II (Fig 2 “Ang II only” data). Model simulations capture both the rise in [iPTH] (Fig 2(C) “Ang II only”) and slight decrease in PRA (Fig 2(A) “Ang II only”) during infusion.",
+   "printed": true
+  },
+  {
+   "para_id": 80,
+   "loc": "body",
+   "sec_title": "PTH and Ang II infusion experiments simulations",
+   "text": "When infusing PTH in healthy volunteers, PRA nearly doubled on average (Fig 2(A) “PTH only” data) [40]. Model simulations predicted a 69% increase in PRA (Fig 2(A) “PTH only”). This difference may reflects the absence of FGF-23 in the model. PTH increases circulating FGF-23 levels [50], which subsequently suppresses calcitriol, thereby increasing renin secretion [51]. Including FGF-23 effects could help strengthen and sustain the PTH induced renin increase. While total PTH levels increased substantially during the PTH infusion experiment, endogenous PTH production steadily decreased. This effect is captured by the model (Fig 2(C) “PTH only” data).",
+   "printed": true
+  },
+  {
+   "para_id": 81,
+   "loc": "body",
+   "sec_title": "PTH and Ang II infusion experiments simulations",
+   "text": "When infusing both Ang II and PTH together in healthy volunteers, the authors reported that Ang II levels were similar to those reported in the Ang II only experiment, likely due to PTH having only a small impact on Ang II levels [40]. In our model simulations, Ang II levels were slightly higher in the Ang II and PTH infusion experiment than the Ang II only experiment, but were still within the range reported by Grant et al. [40] at the end of the 1 hour infusion time (Fig 2(B) “Ang II + PTH”). Grant et al. [40] reported that PRA levels remained near baseline for the Ang II and PTH infusion experiment. In our model simulations, the “Ang II + PTH” simulations resulted in a transient increase in PRA but declines to near the levels prior to infusion by the end of the simulation time (Fig 2(A)). This discrepancy may stem from unmodeled PTH receptor dynamics. In vivo, Ang II suppresses renin release by binding to juxtaglomerular AT1R, while PTH stimulates renin release by binding to juxtaglomerular parathyroid hormone receptor 1 (PTH1R) [52]. However, the current model lacks PTH receptors and instead assumes that PTH directly stimulates renin secretion, whereas Ang II must first undergo receptor binding. Consequently, the stimulation by PTH is faster acting, which may resulting in the observed transient increase in renin secretion before it is counteracted by the AT1R-bound Ang II mediated inhibition.",
+   "printed": true
+  },
+  {
+   "para_id": 82,
+   "loc": "body",
+   "sec_title": "Impact of estrogen decline and RAS inhibitors",
+   "text": "In each simulation, estrogen decline starts at 50 years, which is about the average age of menopause onset in women. We conducted simulations with key RAS inhibitors (ACEi and ARB) starting at age 60 years, unless otherwise indicated. For ARB simulations, we let σARB (Eq. 12) vary from 88–98.3% as reported for different types and typical dose levels of ARBs by Hallow et al. [18]. For ACEi, we conducted simulations with σACEi (Eq. 13) varying from 94–97.2% as reported for common types of ACEi and doses by Hallow et al. [18]. The results are shown in Figs 3 and 4.",
+   "printed": true
+  },
+  {
+   "para_id": 83,
+   "loc": "fig",
+   "sec_title": "Impact of estrogen decline and RAS inhibitors",
+   "text": "For the angiotensin receptor blocker simulations (labeled “ARB” in the legend), σARB (Eq. 12) was varied between 88–98.3% based on the ranges reported in [18]. For the angiotensin-converting enzyme inhibitor simulations (labeled “ACEi” in the legend), σACEi (Eq. 13) was varied between 94–97.2% as reported in [18]. Lines represent the mean values over the varied σi values for the respective treatment with shaded area representing the range. AGT: angiotensinogen, Ang I: angiotensin I, Ang II: angiotensin II, AT1R: angiotensin type 1 receptor, AT2R: angiotensin type 2 receptor, RAS: renin angiotensin system, RASi: RAS inhibitor, ARB: angiotensin receptor blocker, ACEi: angiotensin-converting enzyme inhibitor.",
+   "printed": true
+  },
+  {
+   "para_id": 84,
+   "loc": "fig",
+   "sec_title": "Impact of estrogen decline and RAS inhibitors",
+   "text": "The values are normalized to their baseline levels and shown as a percent of the baseline value. For the angiotensin receptor blocker simulations (labeled “ARB” in the legend), σARB (Eq. 12) was varied between 88–98.3% based on the ranges reported in [18]. For the angiotensin-converting enzyme inhibitor simulations (labeled “ACEi” in the legend), σACEi (Eq. 13) was varied between 94–97.2% as reported in [18]. Dashed lines represent the mean values over the varied σi values for the respective treatment, with shaded areas representing the corresponding ranges. Data in panel (A) are from the female data in Looker et al. [53]. Both simulations and data are for femoral neck bone mineral density. BMD: bone mineral density, RANK: receptor activator of NF-kappaB, RANKL: RANK ligand, OPG: osteoprotegerin, RASi: RAS inhibitor, ARB: angiotensin receptor blocker, ACEi: angiotensin-converting enzyme inhibitor.",
+   "printed": true
+  },
+  {
+   "para_id": 85,
+   "loc": "body",
+   "sec_title": "Impact of estrogen decline and RAS inhibitors",
+   "text": "Next, we analyze the age-related estrogen decline effect (S2 Appendix) on bone mineral density and its response to ACEi and ARB. Estrogen maintains bone density by regulating factors involved in bone remodeling that promote the differentiation and activation of osteoblasts, while inhibiting osteoclast activity (Fig 1). When estrogen levels decline, osteoclast activity increases, which increases bone resorption, ultimately resulting in a decrease in bone mineral density (Fig 4(A), 4(B) “no RASi”). The bone mineral density simulations results with the decline in estrogen levels is consistent with the femoral neck BMD data reported by Looker et al. for age-stratified women, as measured by dual-energy X-ray absorptiometry [53] (Fig 4(A) “no RASi” data). This decrease is a result of a combination of the direct impacts of estrogen on bone remodeling and increased AT1R-bound Ang II levels, which stimulates RANKL production to bind with RANK (Fig 4(C); Fig 3(E) “no RASi”). RANK-RANKL stimulates osteoclast differentiation and activation. Throughout the estrogen decline simulations, the calciotropic hormones, PTH and calcitriol, as well as key electrolytes, calcium and phosphate, remained within normal range (Fig B in S3 Appendix).",
+   "printed": true
+  },
+  {
+   "para_id": 86,
+   "loc": "body",
+   "sec_title": "Impact of estrogen decline and RAS inhibitors",
+   "text": "We conducted simulations of RAS inhibitor treatment starting at different ages with age-related estrogen decline as in Eq. 1. In these simulations, we let σARB=93% and σACEi=95% based on the average value for the respective drugs from [18]. We did this because varying σi did not have much impact on bone mineral density (Fig 4(A)). The results are shown in Fig 5. In all simulations, bone mineral density improved on both the ARB and ACEi drugs with a greater improvement with ARB treatment. When the administration of ARB or ACEi was started before the onset of estrogen decline (i.e., starting a RAS inhibitor before 50 years old), bone mineral density increased from baseline by about 5% (Fig 5(A), 5(C). When estrogen decline started at 50 years, the bone mineral density decreased, but stays above 95% for patients on ARB (Fig 5(A)). When the administration of ACEi began before estrogen decline, bone mineral density declined below 90% of baseline during age-related estrogen decline (Fig 5(C)). Our model simulations suggest that early RAS inhibition prevents bone loss driven by age-related estrogen decline.",
+   "printed": true
+  },
+  {
+   "para_id": 87,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Given that the prevalence of hypertension increases markedly with aging, hypertension and osteoporosis often coexist. RAS inhibitors are widely used, safe, reasonably priced long term treatments for hypertension. RAS inhibitors have also been proposed as a treatment to improve bone density due to the relationship between the RAS and bone remodeling [10,11]. Since RAS inhibitors are already widely used for the treatment of hypertension in aging populations, including post-menopausal women, it may be beneficial to consider which RAS inhibitor may prevent or improve bone loss.",
+   "printed": true
+  },
+  {
+   "para_id": 88,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "In a clinical study, Kim et al. [10] reported that patients that have used ARB only experienced fewer fractures than patients who have never used a RAS inhibitor. Similarly, Solomon et al. [54] reported reduced fracture risk in users of ARB, while ACEi users had no change in fracture risk. The systemic review by Wu et al. [12] reported that lower fracture risk is consistently reported in users of ARB, but not ACEi in men. In contrast, our mathematical model predicted that bone mineral density is increased not only by ARB treatment but ACEi as well (Fig 4(A)). That discrepancy may be due to mechanisms not captured by our model. It is possible that the improvement in bone mineral density predicted by our model for ACEi is not enough to have a notable impact on fracture risk. We also note that bone mineral density is not the only factor that impacts fracture risk; the architecture of the skeleton, alcohol usage, smoking, physical activity, and previous fractures are also major factors in fracture risk that are not represented in the model in this study [55].",
+   "printed": true
+  },
+  {
+   "para_id": 89,
+   "loc": "body",
+   "sec_title": "Clinical perspectives",
+   "text": "Although estrogen replacement therapy (or hormone replacement therapy) can effectively manage menopause symptoms and post-menopausal osteoporosis, its benefits must be weighed against the heightened risks of blood clots, stroke, and breast cancer, especially with long-term use [56,57]. Furthermore, side effects such as weight gain, diarrhea, and mood changes can affect patient well-being and adherence [57]. The balance of risks and benefits associated with hormone replacement therapy varies considerably based on individual physiology, time since menopause onset, and the specific type of hormone replacement therapy [56]. Other current osteoporosis treatments, including antiresorptives and osteoanabolic therapies, have limitations on their duration of use, typically ranging from one to five years [58]. Therefore, the development of alternative long-term osteoporosis treatments are needed to broaden the range of effective options for patients. Our mathematical modeling analysis presented in this study supports clinical evidence suggesting that ARBs may contribute to maintaining bone health during post-menopausal estrogen decline by reducing AT1R-bound Ang II levels. An important future extension would be to investigate hormone replacement therapy, including the impact of treatment timing, dose, and administration route on the coupled RAS–calcium–bone remodeling system.",
+   "printed": true
+  },
+  {
+   "para_id": 90,
+   "loc": "body",
+   "sec_title": "Clinical perspectives",
+   "text": "Indeed, there are a number of clinical applications that this model could be extended to study. The RAS is a key hormone system in blood pressure regulation. The RAS model used in this study is part of a larger model that involves whole-body blood pressure regulation [18,19]. Using a similar approach to [59], the model presented in this study may be incorporated into the blood pressure model [19] through the RAS to investigate the interactions of hypertension and bone remodeling. Chronic kidney disease (CKD) is a disorder of the loss of kidney function that affects over 10% of the global population [60]. Many patients with CKD experience CKD-metabolic bone disorder, where their impaired renal function results in loss of bone mineral density. Previous mathematical modeling studies have used the underlying calcium homeostasis and bone remodeling model to study this disorder [15,16,61]. For example, in [15], the authors simulated a progressive loss of renal function using an exponential decline in glomerular filtration rate (GFR). However, none of these studies have considered the RAS. Many CKD patients take RAS inhibitors to protect their kidney function, prevent hypertension, and have been shown to improve bone health [62]. Furthermore, CKD impacts the RAS, leading to decreased conversion of Ang I to Ang1–7 via neprilysin and increased conversion of Ang I to Ang II via ACE [63]. The model presented in this study may be used to investigate how RAS inhibitors may impact bone density and electrolyte balance in patients with CKD, by incorporating CKD mechanisms from [15,16,61] with additional CKD effects on the RAS [63].",
+   "printed": true
+  },
+  {
+   "para_id": 91,
+   "loc": "body",
+   "sec_title": "Limitations and future directions",
+   "text": "A worthwhile future direction is to accurately model an aging population. In this study, we conducted simulations that represent the estrogen decline that is seen in post-menopausal women. However, aging populations, including post-menopausal women, have shown other physiological changes related to the systems in the model presented in this study. For example, aging populations have shown a blunted response to ACE inhibitors, have a lower GFR, decreased intestinal calcium absorption, lower vitamin D levels, and higher PTH levels [64–66]. These effects are not included in the model developed in this study at this time. Indeed, future work may consider the specific physiological impacts of aging for a more comprehensive description of post-menopausal physiology.",
+   "printed": true
+  },
+  {
+   "para_id": 92,
+   "loc": "body",
+   "sec_title": "Limitations and future directions",
+   "text": "Given the importance of estrogen and using a female-specific RAS, the model presented in this study only represents a female population. However, the same RAS subsystem could be used with the male-specific parameter set from [19]. Sex differences have been found in the RAS [67] and renal handling of calcium [68,69]. Men also can form osteoporosis as they age, which is not driven by the declining estrogen levels found in post-menopausal women. Rianon et al. [70] found that there are sex- and race-specific effects of ACEi on the prevention of age-related bone loss. Specifically, the authors reported that ACEi were effective at protecting against bone loss in African-American elderly men [70]. This is different than reports that did not consider sex and race differences and only reported significant changes in fracture risk in patients using ARB. Notably the systemic study by Wu et al. [12] found no significant difference in fracture risk in male patients on ACEi. The model presented in this study may be extended to consider how underlying sex and racial differences may explain altered treatment outcomes [71].",
+   "printed": true
+  },
+  {
+   "para_id": 93,
+   "loc": "body",
+   "sec_title": "Limitations and future directions",
+   "text": "In this study, we do not include the hormone aldosterone, which is connected with the RAS as a part of the renin angiotensin aldosterone system. Aldosterone is released from the adrenal cortex in response to stimulation by AT1R-bound Ang II [72]. Researchers have shown that aldosterone also has a bidirectional relationship with the calciotropic hormones, as it both stimulates and is stimulated by PTH [6]. Additionally, aldosterone increases renal calcium reabsorption [73]. Clinical reports have shown that the drug spironolactone (an aldosterone inhibitor), has a significant impact on the bone health of hypertensive patients [74]. Indeed, this hormone may be added to this model to study the impacts of hypertension, spironolactone, hyperaldosteronism, or other relevant conditions and medications on bone density and calcium regulation. Additionally, in this study, we assume that the RAS activity in the bone is the same as the systemic RAS, though this may not always be the case. Experimental evidence has shown that there is a bone-specific RAS [75]. Future work may involve modeling a bone-specific RAS to consider the impacts on bone remodeling similar to the renal-specific RAS models in [17,76].",
+   "printed": true
+  },
+  {
+   "para_id": 94,
+   "loc": "body",
+   "sec_title": "Limitations and future directions",
+   "text": "FGF-23 is produced by osteoblasts and osteocytes and has numerous system wide effects that impact the RAS, bone remodeling, and calcium homeostasis [77]. FGF-23 acts through the fibroblast growth factor receptor/αKlotho complex expressed in the kidneys and parathyroid glands. Effects include the suppression of calcitriol, PTH, and phosphate reabsorption. Furthermore, FGF-23 levels have been implicated as a clinically relevant biomarker for osteoporosis. High circulating FGF-23 levels are associated with an increased incidence of fragility fractures and decreased BMD [77]. Future model extensions could incorporate FGF-23 dynamics.",
+   "printed": true
+  },
+  {
+   "para_id": 95,
+   "loc": "body",
+   "sec_title": "Limitations and future directions",
+   "text": "Additionally, the current model assumes that PTH directly stimulates renin secretion. However, experimental evidence has shown that PTH stimulates renin secretion through binding to juxtaglomerular PTH1R receptors [52]. Including explicit PTH1R-mediated signaling dynamics may better capture the complex endocrine feedback mechanisms governing calcium homeostasis and the renin-angiotensin system.",
+   "printed": true
+  },
+  {
+   "para_id": 96,
+   "loc": "body",
+   "sec_title": "Limitations and future directions",
+   "text": "Estrogen levels vary during the different phases of the menstrual cycle in menstruating women [22]. Women who take oral contraceptives also have different estrogen levels [78]. The mathematical model presented here may be adapted to consider how changes in estrogen impacts the RAS, calcium homeostasis, and bone remodeling during the different phases of the menstrual cycle or on oral contraceptives [79]. During pregnancy, estrogen levels rise dramatically, while post-parturition, the estrogen levels drop below pre-pregnancy levels to support lactation [80]. Each of these changes results in major impacts on physiology, including the RAS, calcium homeostasis, and bone remodeling [80,81]. Previously, we developed mathematical models that represent calcium homeostasis in rats that consider sex differences and maternal adaptations of pregnancy and lactation [82], but these models do not include a detailed bone compartment or the impact of the RAS. The model presented in this study may be similarly adapted to consider the major changes that women undergo during pregnancy and lactation. Future work could further evaluate the model against longitudinal menopause-transition cohorts, such as SWAN, that include antihypertensive medication use and bone-related outcomes [83].",
+   "printed": true
+  }
+ ],
+ "links": [
+  {
+   "link_id": 1,
+   "url": "github.com/layton-lab/est-ras-bone",
+   "url_raw": "https://github.com/Layton-Lab/est-ras-bone",
+   "href_jats": "https://github.com/Layton-Lab/est-ras-bone",
+   "repo_key": "github:layton-lab/est-ras-bone",
+   "host_class": "github",
+   "loc": "front",
+   "sec_title": "",
+   "source": "tagged",
+   "para_id": 1
+  }
+ ],
+ "links_optional": [
+  "creativecommons.org/licenses/by/4.0",
+  "doi:10.1002/jbmr.356",
+  "doi:10.1002/jbmr.5650070902",
+  "doi:10.1002/psp4.12843",
+  "doi:10.1006/frne.1995.1002",
+  "doi:10.1007/978-1-4020-6372-5_9",
+  "doi:10.1007/978-1-4419-7415-0_20",
+  "doi:10.1007/978-1-4419-9485-1",
+  "doi:10.1007/s001980050093",
+  "doi:10.1007/s00285-023-01891-y",
+  "doi:10.1007/s11657-017-0387-3",
+  "doi:10.1007/s11657-021-01004-6",
+  "doi:10.1007/s11906-012-0319-y",
+  "doi:10.1007/s11914-005-0005-y",
+  "doi:10.1016/b978-0-12-416015-6.00004-6",
+  "doi:10.1016/j.amjhyper.2005.10.006",
+  "doi:10.1016/j.bone.2009.08.053",
+  "doi:10.1016/j.bpobgyn.2021.12.001",
+  "doi:10.1016/j.cca.2010.05.037",
+  "doi:10.1016/j.cobme.2019.09.012",
+  "doi:10.1016/j.compbiomed.2018.11.002",
+  "doi:10.1016/j.ddmod.2020.11.005",
+  "doi:10.1016/j.ijcard.2007.08.041",
+  "doi:10.1016/j.jtbi.2022.111074",
+  "doi:10.1016/j.jtbi.2023.111583",
+  "doi:10.1016/j.mayocp.2021.08.009",
+  "doi:10.1016/j.mbs.2020.108306",
+  "doi:10.1016/j.mbs.2024.109338",
+  "doi:10.1016/j.mce.2017.11.011",
+  "doi:10.1016/j.neuron.2023.05.018",
+  "doi:10.1016/s0008-6363(01)00479-5",
+  "doi:10.1016/s0167-0115(99)00026-9",
+  "doi:10.1016/s0378-4754(00)00270-6",
+  "doi:10.1038/jhh.2014.125",
+  "doi:10.1038/psp.2012.10",
+  "doi:10.1038/s41574-018-0115-0",
+  "doi:10.1038/s41574-023-00866-9",
+  "doi:10.1038/s41581-024-00820-6",
+  "doi:10.1038/sj.jhh.1001960",
+  "doi:10.1080/07853890701689645",
+  "doi:10.1080/13813455.2019.1676262",
+  "doi:10.1093/ajh/5.10.687",
+  "doi:10.1093/geronj/38.1.19",
+  "doi:10.1096/fj.07-098954",
+  "doi:10.1097/00004872-199204000-00007",
+  "doi:10.1097/00004872-199715070-00003",
+  "doi:10.1111/j.1523-1755.2004.00725.x",
+  "doi:10.1113/ep086797",
+  "doi:10.1152/ajpregu.00039.2013",
+  "doi:10.1152/ajpregu.00256.2011",
+  "doi:10.1152/ajpregu.00429.2007",
+  "doi:10.1152/ajpregu.1997.273.6.r1908",
+  "doi:10.1152/ajprenal.00145.2023",
+  "doi:10.1152/ajprenal.00159.2020",
+  "doi:10.1152/ajprenal.00222.2024",
+  "doi:10.1152/ajprenal.00269.2012",
+  "doi:10.1152/ajprenal.00360.2010",
+  "doi:10.1152/ajprenal.00451.2012",
+  "doi:10.1152/ajprenal.00641.2009",
+  "doi:10.1152/physiol.00036.2020",
+  "doi:10.1152/physrev.00027.2015",
+  "doi:10.1155/2013/932691",
+  "doi:10.1155/2020/9324505",
+  "doi:10.1155/2022/7581110",
+  "doi:10.1161/01.cir.95.1.39",
+  "doi:10.1161/01.cir.97.22.2197",
+  "doi:10.1161/01.hyp.33.1.323",
+  "doi:10.1161/circresaha.120.317624",
+  "doi:10.1161/hypertensionaha.107.095158",
+  "doi:10.1177/0091270011412967",
+  "doi:10.1186/s12891-023-07102-5",
+  "doi:10.1210/endrev/bnab011",
+  "doi:10.1210/jc.2008-1056",
+  "doi:10.1210/jcem.75.4.1400892",
+  "doi:10.1681/asn.2010121251",
+  "doi:10.2147/dddt.s466904",
+  "doi:10.2337/db16-1318",
+  "doi:10.3389/fphys.2018.01091",
+  "doi:10.3389/fsysb.2024.1368555",
+  "doi:10.3390/ijms23052500",
+  "doi:10.3904/kjim.2014.29.3.291",
+  "doi:10.7554/elife.76228"
+ ],
+ "own_doi": "doi:10.1371/journal.pcbi.1013101",
+ "citations": [
+  {
+   "cite_id": 1,
+   "para_id": 2,
+   "bib_id": 1,
+   "marker": "1",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 2,
+   "para_id": 2,
+   "bib_id": 2,
+   "marker": "2",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 3,
+   "para_id": 2,
+   "bib_id": 1,
+   "marker": "1",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 4,
+   "para_id": 3,
+   "bib_id": 3,
+   "marker": "3",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 5,
+   "para_id": 3,
+   "bib_id": 4,
+   "marker": "4",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 6,
+   "para_id": 4,
+   "bib_id": 5,
+   "marker": "5",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 7,
+   "para_id": 4,
+   "bib_id": 6,
+   "marker": "6",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 8,
+   "para_id": 4,
+   "bib_id": 7,
+   "marker": "7",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 9,
+   "para_id": 4,
+   "bib_id": 8,
+   "marker": "8",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 10,
+   "para_id": 4,
+   "bib_id": 8,
+   "marker": "8",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 11,
+   "para_id": 5,
+   "bib_id": 9,
+   "marker": "9",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 12,
+   "para_id": 5,
+   "bib_id": 10,
+   "marker": "10",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 13,
+   "para_id": 5,
+   "bib_id": 11,
+   "marker": "11",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 14,
+   "para_id": 5,
+   "bib_id": 10,
+   "marker": "10",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 15,
+   "para_id": 5,
+   "bib_id": 11,
+   "marker": "10–12",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 16,
+   "para_id": 5,
+   "bib_id": 12,
+   "marker": "12",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 17,
+   "para_id": 5,
+   "bib_id": 10,
+   "marker": "10",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 18,
+   "para_id": 5,
+   "bib_id": 11,
+   "marker": "10–12",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 19,
+   "para_id": 5,
+   "bib_id": 12,
+   "marker": "12",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 20,
+   "para_id": 6,
+   "bib_id": 2,
+   "marker": "2",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 21,
+   "para_id": 6,
+   "bib_id": 13,
+   "marker": "13",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 22,
+   "para_id": 6,
+   "bib_id": 14,
+   "marker": "14",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 23,
+   "para_id": 6,
+   "bib_id": 15,
+   "marker": "15",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 24,
+   "para_id": 6,
+   "bib_id": 16,
+   "marker": "16",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 25,
+   "para_id": 6,
+   "bib_id": 17,
+   "marker": "17",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 26,
+   "para_id": 6,
+   "bib_id": 18,
+   "marker": "18",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 27,
+   "para_id": 6,
+   "bib_id": 19,
+   "marker": "19",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 28,
+   "para_id": 7,
+   "bib_id": 13,
+   "marker": "13",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 29,
+   "para_id": 7,
+   "bib_id": 14,
+   "marker": "14",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 30,
+   "para_id": 7,
+   "bib_id": 17,
+   "marker": "17",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 31,
+   "para_id": 7,
+   "bib_id": 18,
+   "marker": "17–19",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 32,
+   "para_id": 7,
+   "bib_id": 19,
+   "marker": "19",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 33,
+   "para_id": 8,
+   "bib_id": 19,
+   "marker": "19",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 34,
+   "para_id": 8,
+   "bib_id": 18,
+   "marker": "18",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 35,
+   "para_id": 8,
+   "bib_id": 19,
+   "marker": "19",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 36,
+   "para_id": 9,
+   "bib_id": 8,
+   "marker": "8",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 37,
+   "para_id": 10,
+   "bib_id": 20,
+   "marker": "20",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 38,
+   "para_id": 11,
+   "bib_id": 21,
+   "marker": "21",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 39,
+   "para_id": 11,
+   "bib_id": 20,
+   "marker": "20",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 40,
+   "para_id": 11,
+   "bib_id": 22,
+   "marker": "22",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 41,
+   "para_id": 12,
+   "bib_id": 8,
+   "marker": "8",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 42,
+   "para_id": 12,
+   "bib_id": 23,
+   "marker": "23",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 43,
+   "para_id": 12,
+   "bib_id": 24,
+   "marker": "24",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 44,
+   "para_id": 12,
+   "bib_id": 24,
+   "marker": "24",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 45,
+   "para_id": 13,
+   "bib_id": 18,
+   "marker": "18",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 46,
+   "para_id": 14,
+   "bib_id": 18,
+   "marker": "18",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 47,
+   "para_id": 15,
+   "bib_id": 8,
+   "marker": "8",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 48,
+   "para_id": 15,
+   "bib_id": 23,
+   "marker": "23",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 49,
+   "para_id": 15,
+   "bib_id": 25,
+   "marker": "25",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 50,
+   "para_id": 15,
+   "bib_id": 23,
+   "marker": "23",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 51,
+   "para_id": 15,
+   "bib_id": 25,
+   "marker": "25",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 52,
+   "para_id": 15,
+   "bib_id": 25,
+   "marker": "25",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 53,
+   "para_id": 16,
+   "bib_id": 18,
+   "marker": "18",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 54,
+   "para_id": 16,
+   "bib_id": 18,
+   "marker": "18",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 55,
+   "para_id": 16,
+   "bib_id": 19,
+   "marker": "19",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 56,
+   "para_id": 16,
+   "bib_id": 19,
+   "marker": "19",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 57,
+   "para_id": 17,
+   "bib_id": 26,
+   "marker": "26",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 58,
+   "para_id": 17,
+   "bib_id": 27,
+   "marker": "26–29",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 59,
+   "para_id": 17,
+   "bib_id": 28,
+   "marker": "26–29",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 60,
+   "para_id": 17,
+   "bib_id": 29,
+   "marker": "29",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 61,
+   "para_id": 17,
+   "bib_id": 27,
+   "marker": "27",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 62,
+   "para_id": 17,
+   "bib_id": 30,
+   "marker": "30",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 63,
+   "para_id": 17,
+   "bib_id": 31,
+   "marker": "31",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 64,
+   "para_id": 17,
+   "bib_id": 32,
+   "marker": "32",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 65,
+   "para_id": 18,
+   "bib_id": 18,
+   "marker": "18",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 66,
+   "para_id": 19,
+   "bib_id": 33,
+   "marker": "33",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 67,
+   "para_id": 19,
+   "bib_id": 34,
+   "marker": "34",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 68,
+   "para_id": 19,
+   "bib_id": 35,
+   "marker": "35",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 69,
+   "para_id": 19,
+   "bib_id": 36,
+   "marker": "36",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 70,
+   "para_id": 20,
+   "bib_id": 8,
+   "marker": "8",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 71,
+   "para_id": 20,
+   "bib_id": 29,
+   "marker": "29",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 72,
+   "para_id": 20,
+   "bib_id": 37,
+   "marker": "37",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 73,
+   "para_id": 20,
+   "bib_id": 38,
+   "marker": "38",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 74,
+   "para_id": 20,
+   "bib_id": 37,
+   "marker": "37",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 75,
+   "para_id": 21,
+   "bib_id": 18,
+   "marker": "18",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 76,
+   "para_id": 21,
+   "bib_id": 18,
+   "marker": "18",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 77,
+   "para_id": 22,
+   "bib_id": 25,
+   "marker": "25",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 78,
+   "para_id": 23,
+   "bib_id": 24,
+   "marker": "24",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 79,
+   "para_id": 24,
+   "bib_id": 27,
+   "marker": "27",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 80,
+   "para_id": 25,
+   "bib_id": 38,
+   "marker": "38",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 81,
+   "para_id": 26,
+   "bib_id": 37,
+   "marker": "37",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 82,
+   "para_id": 27,
+   "bib_id": 18,
+   "marker": "18",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 83,
+   "para_id": 28,
+   "bib_id": 13,
+   "marker": "13",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 84,
+   "para_id": 28,
+   "bib_id": 14,
+   "marker": "14",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 85,
+   "para_id": 28,
+   "bib_id": 16,
+   "marker": "16",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 86,
+   "para_id": 29,
+   "bib_id": 16,
+   "marker": "16",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 87,
+   "para_id": 29,
+   "bib_id": 16,
+   "marker": "16",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 88,
+   "para_id": 29,
+   "bib_id": 16,
+   "marker": "16",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 89,
+   "para_id": 29,
+   "bib_id": 16,
+   "marker": "16",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 90,
+   "para_id": 29,
+   "bib_id": 13,
+   "marker": "13",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 91,
+   "para_id": 29,
+   "bib_id": 13,
+   "marker": "13",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 92,
+   "para_id": 30,
+   "bib_id": 14,
+   "marker": "14",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 93,
+   "para_id": 31,
+   "bib_id": 14,
+   "marker": "14",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 94,
+   "para_id": 31,
+   "bib_id": 13,
+   "marker": "13",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 95,
+   "para_id": 31,
+   "bib_id": 14,
+   "marker": "14",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 96,
+   "para_id": 32,
+   "bib_id": 13,
+   "marker": "13",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 97,
+   "para_id": 33,
+   "bib_id": 39,
+   "marker": "39",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 98,
+   "para_id": 33,
+   "bib_id": 13,
+   "marker": "13",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 99,
+   "para_id": 33,
+   "bib_id": 13,
+   "marker": "13",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 100,
+   "para_id": 33,
+   "bib_id": 14,
+   "marker": "14",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 101,
+   "para_id": 33,
+   "bib_id": 16,
+   "marker": "16",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 102,
+   "para_id": 34,
+   "bib_id": 13,
+   "marker": "13",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 103,
+   "para_id": 34,
+   "bib_id": 14,
+   "marker": "14",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 104,
+   "para_id": 34,
+   "bib_id": 16,
+   "marker": "16",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 105,
+   "para_id": 35,
+   "bib_id": 40,
+   "marker": "40",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 106,
+   "para_id": 36,
+   "bib_id": 40,
+   "marker": "40",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 107,
+   "para_id": 37,
+   "bib_id": 40,
+   "marker": "40",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 108,
+   "para_id": 38,
+   "bib_id": 40,
+   "marker": "40",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 109,
+   "para_id": 39,
+   "bib_id": 40,
+   "marker": "40",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 110,
+   "para_id": 40,
+   "bib_id": 40,
+   "marker": "40",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 111,
+   "para_id": 41,
+   "bib_id": 40,
+   "marker": "40",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 112,
+   "para_id": 42,
+   "bib_id": 40,
+   "marker": "40",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 113,
+   "para_id": 43,
+   "bib_id": 41,
+   "marker": "41",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 114,
+   "para_id": 43,
+   "bib_id": 42,
+   "marker": "42",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 115,
+   "para_id": 44,
+   "bib_id": 41,
+   "marker": "41",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 116,
+   "para_id": 44,
+   "bib_id": 42,
+   "marker": "42",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 117,
+   "para_id": 45,
+   "bib_id": 41,
+   "marker": "41",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 118,
+   "para_id": 45,
+   "bib_id": 42,
+   "marker": "42",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 119,
+   "para_id": 46,
+   "bib_id": 41,
+   "marker": "41",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 120,
+   "para_id": 46,
+   "bib_id": 42,
+   "marker": "42",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 121,
+   "para_id": 47,
+   "bib_id": 40,
+   "marker": "40",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 122,
+   "para_id": 48,
+   "bib_id": 40,
+   "marker": "40",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 123,
+   "para_id": 49,
+   "bib_id": 40,
+   "marker": "40",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 124,
+   "para_id": 50,
+   "bib_id": 40,
+   "marker": "40",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 125,
+   "para_id": 51,
+   "bib_id": 43,
+   "marker": "43",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 126,
+   "para_id": 52,
+   "bib_id": 43,
+   "marker": "43",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 127,
+   "para_id": 53,
+   "bib_id": 43,
+   "marker": "43",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 128,
+   "para_id": 54,
+   "bib_id": 43,
+   "marker": "43",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 129,
+   "para_id": 55,
+   "bib_id": 7,
+   "marker": "7",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 130,
+   "para_id": 56,
+   "bib_id": 7,
+   "marker": "7",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 131,
+   "para_id": 57,
+   "bib_id": 7,
+   "marker": "7",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 132,
+   "para_id": 58,
+   "bib_id": 7,
+   "marker": "7",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 133,
+   "para_id": 59,
+   "bib_id": 7,
+   "marker": "7",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 134,
+   "para_id": 60,
+   "bib_id": 7,
+   "marker": "7",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 135,
+   "para_id": 61,
+   "bib_id": 7,
+   "marker": "7",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 136,
+   "para_id": 62,
+   "bib_id": 7,
+   "marker": "7",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 137,
+   "para_id": 63,
+   "bib_id": 6,
+   "marker": "6",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 138,
+   "para_id": 64,
+   "bib_id": 44,
+   "marker": "44",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 139,
+   "para_id": 65,
+   "bib_id": 13,
+   "marker": "13",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 140,
+   "para_id": 65,
+   "bib_id": 40,
+   "marker": "40",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 141,
+   "para_id": 66,
+   "bib_id": 6,
+   "marker": "6",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 142,
+   "para_id": 67,
+   "bib_id": 45,
+   "marker": "45",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 143,
+   "para_id": 68,
+   "bib_id": 41,
+   "marker": "41",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 144,
+   "para_id": 68,
+   "bib_id": 42,
+   "marker": "42",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 145,
+   "para_id": 69,
+   "bib_id": 40,
+   "marker": "40",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 146,
+   "para_id": 70,
+   "bib_id": 43,
+   "marker": "43",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 147,
+   "para_id": 71,
+   "bib_id": 7,
+   "marker": "7",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 148,
+   "para_id": 71,
+   "bib_id": 7,
+   "marker": "7",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 149,
+   "para_id": 72,
+   "bib_id": 7,
+   "marker": "7",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 150,
+   "para_id": 73,
+   "bib_id": 40,
+   "marker": "40",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 151,
+   "para_id": 74,
+   "bib_id": 13,
+   "marker": "13",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 152,
+   "para_id": 74,
+   "bib_id": 40,
+   "marker": "40",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 153,
+   "para_id": 74,
+   "bib_id": 40,
+   "marker": "40",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 154,
+   "para_id": 75,
+   "bib_id": 46,
+   "marker": "46",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 155,
+   "para_id": 75,
+   "bib_id": 47,
+   "marker": "47",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 156,
+   "para_id": 75,
+   "bib_id": 46,
+   "marker": "46",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 157,
+   "para_id": 75,
+   "bib_id": 47,
+   "marker": "46–48",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 158,
+   "para_id": 75,
+   "bib_id": 48,
+   "marker": "48",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 159,
+   "para_id": 76,
+   "bib_id": 46,
+   "marker": "46",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 160,
+   "para_id": 76,
+   "bib_id": 49,
+   "marker": "49",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 161,
+   "para_id": 76,
+   "bib_id": 46,
+   "marker": "46",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 162,
+   "para_id": 76,
+   "bib_id": 47,
+   "marker": "46–49",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 163,
+   "para_id": 76,
+   "bib_id": 48,
+   "marker": "46–49",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 164,
+   "para_id": 76,
+   "bib_id": 49,
+   "marker": "49",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 165,
+   "para_id": 77,
+   "bib_id": 40,
+   "marker": "40",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 166,
+   "para_id": 78,
+   "bib_id": 40,
+   "marker": "40",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 167,
+   "para_id": 79,
+   "bib_id": 40,
+   "marker": "40",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 168,
+   "para_id": 80,
+   "bib_id": 40,
+   "marker": "40",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 169,
+   "para_id": 80,
+   "bib_id": 50,
+   "marker": "50",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 170,
+   "para_id": 80,
+   "bib_id": 51,
+   "marker": "51",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 171,
+   "para_id": 81,
+   "bib_id": 40,
+   "marker": "40",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 172,
+   "para_id": 81,
+   "bib_id": 40,
+   "marker": "40",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 173,
+   "para_id": 81,
+   "bib_id": 40,
+   "marker": "40",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 174,
+   "para_id": 81,
+   "bib_id": 52,
+   "marker": "52",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 175,
+   "para_id": 82,
+   "bib_id": 18,
+   "marker": "18",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 176,
+   "para_id": 82,
+   "bib_id": 18,
+   "marker": "18",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 177,
+   "para_id": 83,
+   "bib_id": 18,
+   "marker": "18",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 178,
+   "para_id": 83,
+   "bib_id": 18,
+   "marker": "18",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 179,
+   "para_id": 84,
+   "bib_id": 18,
+   "marker": "18",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 180,
+   "para_id": 84,
+   "bib_id": 18,
+   "marker": "18",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 181,
+   "para_id": 84,
+   "bib_id": 53,
+   "marker": "53",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 182,
+   "para_id": 85,
+   "bib_id": 53,
+   "marker": "53",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 183,
+   "para_id": 86,
+   "bib_id": 18,
+   "marker": "18",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 184,
+   "para_id": 87,
+   "bib_id": 10,
+   "marker": "10",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 185,
+   "para_id": 87,
+   "bib_id": 11,
+   "marker": "11",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 186,
+   "para_id": 88,
+   "bib_id": 10,
+   "marker": "10",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 187,
+   "para_id": 88,
+   "bib_id": 54,
+   "marker": "54",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 188,
+   "para_id": 88,
+   "bib_id": 12,
+   "marker": "12",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 189,
+   "para_id": 88,
+   "bib_id": 55,
+   "marker": "55",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 190,
+   "para_id": 89,
+   "bib_id": 56,
+   "marker": "56",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 191,
+   "para_id": 89,
+   "bib_id": 57,
+   "marker": "57",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 192,
+   "para_id": 89,
+   "bib_id": 57,
+   "marker": "57",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 193,
+   "para_id": 89,
+   "bib_id": 56,
+   "marker": "56",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 194,
+   "para_id": 89,
+   "bib_id": 58,
+   "marker": "58",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 195,
+   "para_id": 90,
+   "bib_id": 18,
+   "marker": "18",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 196,
+   "para_id": 90,
+   "bib_id": 19,
+   "marker": "19",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 197,
+   "para_id": 90,
+   "bib_id": 59,
+   "marker": "59",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 198,
+   "para_id": 90,
+   "bib_id": 19,
+   "marker": "19",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 199,
+   "para_id": 90,
+   "bib_id": 60,
+   "marker": "60",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 200,
+   "para_id": 90,
+   "bib_id": 15,
+   "marker": "15",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 201,
+   "para_id": 90,
+   "bib_id": 16,
+   "marker": "16",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 202,
+   "para_id": 90,
+   "bib_id": 61,
+   "marker": "61",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 203,
+   "para_id": 90,
+   "bib_id": 15,
+   "marker": "15",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 204,
+   "para_id": 90,
+   "bib_id": 62,
+   "marker": "62",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 205,
+   "para_id": 90,
+   "bib_id": 63,
+   "marker": "63",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 206,
+   "para_id": 90,
+   "bib_id": 15,
+   "marker": "15",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 207,
+   "para_id": 90,
+   "bib_id": 16,
+   "marker": "16",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 208,
+   "para_id": 90,
+   "bib_id": 61,
+   "marker": "61",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 209,
+   "para_id": 90,
+   "bib_id": 63,
+   "marker": "63",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 210,
+   "para_id": 91,
+   "bib_id": 64,
+   "marker": "64",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 211,
+   "para_id": 91,
+   "bib_id": 65,
+   "marker": "64–66",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 212,
+   "para_id": 91,
+   "bib_id": 66,
+   "marker": "66",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 213,
+   "para_id": 92,
+   "bib_id": 19,
+   "marker": "19",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 214,
+   "para_id": 92,
+   "bib_id": 67,
+   "marker": "67",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 215,
+   "para_id": 92,
+   "bib_id": 68,
+   "marker": "68",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 216,
+   "para_id": 92,
+   "bib_id": 69,
+   "marker": "69",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 217,
+   "para_id": 92,
+   "bib_id": 70,
+   "marker": "70",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 218,
+   "para_id": 92,
+   "bib_id": 70,
+   "marker": "70",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 219,
+   "para_id": 92,
+   "bib_id": 12,
+   "marker": "12",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 220,
+   "para_id": 92,
+   "bib_id": 71,
+   "marker": "71",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 221,
+   "para_id": 93,
+   "bib_id": 72,
+   "marker": "72",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 222,
+   "para_id": 93,
+   "bib_id": 6,
+   "marker": "6",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 223,
+   "para_id": 93,
+   "bib_id": 73,
+   "marker": "73",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 224,
+   "para_id": 93,
+   "bib_id": 74,
+   "marker": "74",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 225,
+   "para_id": 93,
+   "bib_id": 75,
+   "marker": "75",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 226,
+   "para_id": 93,
+   "bib_id": 17,
+   "marker": "17",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 227,
+   "para_id": 93,
+   "bib_id": 76,
+   "marker": "76",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 228,
+   "para_id": 94,
+   "bib_id": 77,
+   "marker": "77",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 229,
+   "para_id": 94,
+   "bib_id": 77,
+   "marker": "77",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 230,
+   "para_id": 95,
+   "bib_id": 52,
+   "marker": "52",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 231,
+   "para_id": 96,
+   "bib_id": 22,
+   "marker": "22",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 232,
+   "para_id": 96,
+   "bib_id": 78,
+   "marker": "78",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 233,
+   "para_id": 96,
+   "bib_id": 79,
+   "marker": "79",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 234,
+   "para_id": 96,
+   "bib_id": 80,
+   "marker": "80",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 235,
+   "para_id": 96,
+   "bib_id": 80,
+   "marker": "80",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 236,
+   "para_id": 96,
+   "bib_id": 81,
+   "marker": "81",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 237,
+   "para_id": 96,
+   "bib_id": 82,
+   "marker": "82",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 238,
+   "para_id": 96,
+   "bib_id": 83,
+   "marker": "83",
+   "expanded": false,
+   "scored": true
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-ext-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "v1_bib_count": 83
+ }
+}

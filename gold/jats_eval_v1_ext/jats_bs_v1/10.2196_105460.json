@@ -1,0 +1,1719 @@
+{
+ "paper_id": "10.2196_105460",
+ "paras": [
+  {
+   "para_id": 1,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Nearly half of EU (European Union) residents reported emotional distress within the past year, such as feeling depressed or anxious [1]. Yet, even in high-income countries, only 23% of people with mental health issues receive minimally adequate treatment [2]. Personal barriers play a key role in this treatment gap: across 6 countries in North and South America, nearly 40% of people who did not seek any treatment for their mental health issues reported that they did not perceive a need for it [3]. Among those who recognized a need, the most common barriers were attitudinal, such as believing that their issues were not serious enough.",
+   "printed": true
+  },
+  {
+   "para_id": 2,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "These patterns reflect what the literature terms unmet need for mental health care, which can arise at 3 stages on the pathway to care: not perceiving a need, not seeking care, and not receiving adequate care [4]. The first stage is pivotal, since perceiving a need strongly shapes whether people seek and use services [5]. Yet, perceived need is captured through self-report instruments such as the Perceived Need for Care Questionnaire [6] that depend on individuals recognizing a need themselves. This self-recognition is often absent precisely where clinical need is present: even among people who meet diagnostic criteria, those who do not perceive a need for care nonetheless show elevated distress and impairment [7]. There is thus a gap for accessible, early-stage assessments of support needs that do not depend on the individual already recognizing that need.",
+   "printed": true
+  },
+  {
+   "para_id": 3,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Someone’s need for mental health support can arise from a wide array of biological (eg, genes), developmental (eg, aging), psychological (eg, coping style), social (eg, loneliness), and structural (eg, discrimination) factors [8-10]. Rather than constituting need directly, these factors are determinants that shape the need for mental health support largely by contributing to psychological distress. In the current study, we assess the need for mental health support within the scope of internalizing symptoms (depression or anxiety) and suicidality. While internalizing symptoms do not encompass all possible manifestations of psychological distress (eg, externalizing symptoms), they represent one of the most prevalent, consistently used, and validated indicators of psychological distress in both research and clinical practice, while suicidality functions as a key marker of distress severity and urgency of need [11-13].",
+   "printed": true
+  },
+  {
+   "para_id": 4,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "One promising approach for assessing need for mental health support is language-based assessments (LBAs), where an individual’s language use is analyzed to assess their mental state. The analysis of language use patterns—how people express their emotions, thoughts, or experiences in their own words—has provided valuable psychological insights for over multiple decades [14,15]. Recent advances in natural language processing and machine learning, particularly large language models (LLMs), have substantially improved the accuracy of LBAs [16,17]. Accordingly, a growing body of work has applied natural language processing and LLMs to assess and understand mental illness. Within the scope of internalizing symptoms and suicidality, studies have analyzed social media posts [18,19], text responses and essays [20,21], and text messages and conversations [22,23], as well as clinical interview and psychotherapy transcripts [24-26], collectively yielding meaningful insight into depression, anxiety, and suicidality symptoms, profiles, and trajectories. A related line of research has explored probed LBAs, where individuals describe their symptoms and related situations in response to targeted open-ended mental health questions [27]. Probed LBAs have been proposed as an ecologically valid complement to traditional assessment methods because they offer respondents more flexibility than closed-ended rating scales [28,29]. LLM-based analysis of probed responses has achieved convergent validity with rating scales approaching the scales’ own reliability—a theoretical upper limit of assessment accuracy [30,31].",
+   "printed": true
+  },
+  {
+   "para_id": 5,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Despite these advances, current LBAs are restricted in several ways in relation to assessing the need for mental health support. First, most models focus on specific diagnoses, conditions, or symptoms, which may disregard psychiatric comorbidities and prematurely assign diagnostic labels, potentially reinforcing stigma and discouraging help-seeking [32,33]. More recently, a smaller set of studies has moved toward broader dimensional or transdiagnostic framings [12], modeling spectra such as internalizing distress, rather than predicting diagnostic categories [34,35]. While these approaches can better capture comorbidity and reduce reliance on diagnostic labels, they remain oriented toward characterizing symptom dimensions or disorder spectra rather than directly assessing an individual’s need for support. While assessing internalizing symptoms and especially suicidality directly relates to the need for mental health support, we argue that assessing overall need first, rather than focusing on a specific condition or spectrum, can avoid these issues. It is potentially better suited for early-stage screening, where a formal diagnosis or condition-specific severity estimation is neither necessary nor appropriate. Although LBAs have successfully advanced the identification of internalizing symptoms and suicidality, to our knowledge, no validated instrument to date screens for the need for mental health support using natural language without relying on a specific diagnosis, condition, or spectrum. Meanwhile, broader screening tools such as the General Health Questionnaire [36] rely exclusively on rating scales.",
+   "printed": true
+  },
+  {
+   "para_id": 6,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Second, many LBAs are trained on passively collected language, such as social media posts [18], text messages [22], medical records [37], or interview or therapy transcripts [25]. While valuable, these sources are not universally accessible or applicable for early screening: not everyone maintains a social media profile or produces sufficient digital text for analysis; personal messages raise privacy concerns; medical records vary in availability and format across health care systems; and interview or therapy transcripts are only generated once someone has already moved past the point of early screening. Probed language responses, where individuals answer the same targeted questions, provide more standardized input that isolates the constructs of interest (and typically align the language source in time and content with the outcome, producing high convergent validity [28,30]).",
+   "printed": true
+  },
+  {
+   "para_id": 7,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Third, models are typically validated against a reference standard based on a single measure, such as rating scales [38] or structured interviews [39]. This limits their validity, since, in essence, every single measure of a psychological construct is prone to some sort of error or bias, such as recall bias in self-report scales [40] or interviewer bias in clinical interviews [41], and therefore they are unable to be a best estimate of a clinical construct [42,43].",
+   "printed": true
+  },
+  {
+   "para_id": 8,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Finally, even when machine learning models perform well on training data, they often fail to generalize to unseen data, which is a problem well-documented across predictive modeling in clinical science [44], suggesting that without rigorous validation procedures, such as testing preregistered models on held-out samples, reported accuracies may be overly optimistic.",
+   "printed": true
+  },
+  {
+   "para_id": 9,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Second, our approach relies on structured, probed language responses rather than passively collected language. Respondents answer targeted mental health questions, either by writing brief paragraphs or selecting descriptive words from a predefined list [45]. This structured input produces standardized and comparable data, enhancing real-world applicability. It also enables examining whether a single general mental health question is sufficient to capture most needs, or whether additional questions, such as explicitly asking about medical history or suicidality, are needed to improve accuracy.",
+   "printed": true
+  },
+  {
+   "para_id": 10,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Third, the LBAs are validated against best-estimate assessments instead of a single measure. These best-estimates are obtained through a Longitudinal Expert All Data (LEAD) approach [46,47]: multiple experts assessed a case based on longitudinal clinical data (natural language, validated rating scales, clinical interview, sociodemographics, and clinical history), and their assessments are averaged to a “best-estimate” of the need for mental health support. Finally, to produce a fair estimation of replicability and generalizability, the current study adheres to the Sequential Evaluation With Model Preregistration (SEMP) framework [48]. In the development phase, the optimal combination of input variables that balances accuracy and parsimony is identified and preregistered. In the validation phase, preregistered models and hypotheses are tested in a separate held-out set, evaluating the LBAs model’s criterion, convergent, and face validity.",
+   "printed": true
+  },
+  {
+   "para_id": 11,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "We hypothesize that the LBAs show strong criterion validity by correlating positively with best-estimate assessments from experienced psychotherapists as reference standard (H1). For convergent validity, we expect the LBAs to correlate positively with established measures of depression (H2a), anxiety (H2b), stress (H2c), and suicidality (H2d), and negatively with satisfaction with life (H2e) and harmony in life (H2f). For external validity, we expect positive correlations with self-reported sick days (H3a) and health care visits due to mental health (H3b) as behavioral indicators of mental health service use. Finally, we expect the LBAs to show face validity, with linguistic topics aligning with established psychological theories, specifically the broaden-and-build theory [49] regarding low need for support and the theory of depression [50,51] regarding high need for support (H4). The broaden-and-build theory [49] suggests that positive emotions expand cognitive and behavioral repertoires, facilitating well-being and social connectedness. Therefore, we expect LBAs of a low need for support to be associated with topics referring to, for example, social relationships, meaningful activities, recovery from stressors, a lack of mental or physical issues, and explicit affirmations of well-being. Conversely, the theory of depression by Beck [50] emphasizes that negative thought patterns and attentional biases toward distress lead to negative affect, which Clark and Watson [51] identify as a key feature of both depression and anxiety. Accordingly, we expect LBAs of a high need for support to be associated with topics reflecting negative thoughts, negative affect, and distressing life circumstances.",
+   "printed": true
+  },
+  {
+   "para_id": 12,
+   "loc": "body",
+   "sec_title": "Procedure",
+   "text": "The participants’ mental health data used to develop and validate the LBA model were drawn from a previously conducted longitudinal study focusing on assessing depression, anxiety, stress, suicidality, and self-harm [45]. Participants completed a comprehensive assessment survey at the beginning and end of the current study’s period, as well as shorter biweekly surveys in between. The surveys assessed mental and physical health through 3 response formats: brief written paragraphs (text responses), writing or selecting words from a list (word responses), and standardized rating scales. The order of the response formats (ie, open-ended questions or rating scales first) was randomized. The median estimated response time for the 4 language responses included in the final model (see the Model Development section) was approximately 4.79 (mean 6.14, SD 7.84) minutes.",
+   "printed": true
+  },
+  {
+   "para_id": 13,
+   "loc": "body",
+   "sec_title": "Open Science",
+   "text": "In accordance with the SEMP framework, the first preregistration [52] outlines the model development, student assessment procedure, sample size, and exclusion criteria. After model development, a second preregistration [53] specified the final models and refined hypotheses tested in a held-out set. The final models are available in the LBA model library [54] and can be explored at our public demo page [55].",
+   "printed": true
+  },
+  {
+   "para_id": 14,
+   "loc": "body",
+   "sec_title": "Participants",
+   "text": "Participants from the United States and United Kingdom were recruited via Prolific [56] and followed online for 10 weeks between June and December 2021. The participant sample was enriched, with approximately half of the participants self-reporting having been diagnosed with a mental health diagnosis of major depressive disorder (MDD [57]; ≈25%) or Generalized Anxiety Disorder (GAD [57]; ≈25%). Of the total sample, 212 participants were assigned to a held-out validation set based on having received assessments from multiple psychotherapists, and 600 were assigned to the development set (see the Selection of Development Sample section).",
+   "printed": true
+  },
+  {
+   "para_id": 15,
+   "loc": "body",
+   "sec_title": "Natural Language Responses",
+   "text": "Six text response questions and 2 word response questions were chosen from Kjell et al [45] based on clinical expertise being most relevant for determining need for mental health support and used as possible inputs for the LBA model. The six text response questions prompted participants to write brief paragraphs about their (1) mental health, (2) social situation, (3) support system, (4) medical history, (5) self-harm, and (6) suicidality. The two questions for word responses prompted participants to choose at least five words from a list of 20 words that describe their (1) mental health and (2) depressive symptoms over the past two weeks. Additionally, participants could also write their own descriptive words in an open text field. The exact wording of the questions included in the final model is presented below (see Table S1 in Multimedia Appendix 1 for all text and word response questions).",
+   "printed": true
+  },
+  {
+   "para_id": 16,
+   "loc": "body",
+   "sec_title": "Rating Scales and Behavioral Measures",
+   "text": "The Patient Health Questionnaire-9 (PHQ-9) [58] is a 9-item instrument that measures the severity of depression. The items correspond to the diagnostic criteria for MDD [57]. Respondents rate how frequently they have experienced each symptom over the past 2 weeks on a scale of 0 (“not at all”) to 3 (“nearly every day”). An example item is “Over the last two weeks, how often have you been bothered by little interest or pleasure in doing things?”",
+   "printed": true
+  },
+  {
+   "para_id": 17,
+   "loc": "body",
+   "sec_title": "Rating Scales and Behavioral Measures",
+   "text": "The Generalized Anxiety Disorder 7-Item Scale (GAD-7) [59] measures the severity of GAD symptoms on a 7-item scale. Respondents indicate how often they have experienced symptoms of GAD over the past 2 weeks on a scale of 0 (“not at all”) to 3 (“nearly every day”). An example item is “Over the last two weeks, how often have you been bothered by feeling nervous, anxious, or on edge?”",
+   "printed": true
+  },
+  {
+   "para_id": 18,
+   "loc": "body",
+   "sec_title": "Rating Scales and Behavioral Measures",
+   "text": "The Perceived Stress Scale 10 (PSS-10) [60] is a 10-item instrument that assesses the frequency of subjectively experienced stress over the past month. Each item is answered on a scale of 0 (“never”) to 4 (“very often”), for instance, “In the last month, how often have you felt difficulties were piling up so high that you could not overcome them?”",
+   "printed": true
+  },
+  {
+   "para_id": 19,
+   "loc": "body",
+   "sec_title": "Rating Scales and Behavioral Measures",
+   "text": "The Inventory of Depression and Anxiety Symptoms (IDAS) [61] assesses 10 symptom dimensions of MDD and related anxiety disorders using 64 items. Participants rate the extent to which they experienced each symptom in the past 2 weeks on a scale of 1 (“not at all”) to 5 (“extremely”). This study exclusively uses the suicidality dimension, which consists of 6 items; for example, “I thought the world would be better off without me.”",
+   "printed": true
+  },
+  {
+   "para_id": 20,
+   "loc": "body",
+   "sec_title": "Rating Scales and Behavioral Measures",
+   "text": "The Satisfaction With Life Scale 3 (SWLS-3) and the Harmony in Life Scale 3 (HILS-3) [62] are abbreviated 3-item versions of their respective full scales, measuring global life satisfaction and harmony in life [63,64]. Both scales use a 7-point response format ranging from 1 (“strongly disagree”) to 7 (“strongly agree”). Example items include “In most ways, my life is close to my ideal” for the SWLS-3 and “Most aspects of my life are in balance” for the HILS-3.",
+   "printed": true
+  },
+  {
+   "para_id": 21,
+   "loc": "body",
+   "sec_title": "Need for Mental Health Support",
+   "text": "The Need for Mental Health Support Scale was developed to assess the need for support based on multiple sources of longitudinal data [45]. It is completed by trained assessors (not self-reported)—in this study, psychotherapists and graduate students of psychology. The assessors could choose between 5 levels ranging from 1 (no support needed) to 5 (potential crisis; Table 1). The tool was designed with 2 audiences in mind: psychotherapists assessing the level of support needed, and those assessed who may receive the output. Notably, item formulations 4 and 5 start similarly to avoid alarming language, as these might be shown to those assessed; the distinction between the 2 levels is conveyed through the accompanying descriptions, which include more urgency and emergency information for level 5.",
+   "printed": true
+  },
+  {
+   "para_id": 22,
+   "loc": "table",
+   "sec_title": "Need for Mental Health Support",
+   "text": "You may also get support from available helplines such as the Samaritans [65], 116 123 in the UK or the National Suicide Prevention Lifeline [66], 1-800-273-TALK (8255) in the US.",
+   "printed": true
+  },
+  {
+   "para_id": 23,
+   "loc": "table",
+   "sec_title": "Need for Mental Health Support",
+   "text": "You may also get support from available helplines such as the Samaritans [65], 116 123 in the UK or the National Suicide Prevention Lifeline [66], 1-800-273-TALK (8255) in the US.",
+   "printed": true
+  },
+  {
+   "para_id": 24,
+   "loc": "body",
+   "sec_title": "Best-Estimate Assessments",
+   "text": "Participants in the held-out validation set received a best-estimate assessment according to the LEAD method (described according to the LEADING reporting guideline [47] in Table S2 in Multimedia Appendix 1), which we used for model validation. As posed by Spitzer [46], the LEAD method establishes a near-ground truth (“best-estimate” [47]) for evaluating the validity of psychiatric assessments: participants are followed longitudinally and assessed by experts who have access to all collected data. Accordingly, experienced psychotherapists provided mental health assessments based on comprehensive, structured reports that included all information from the longitudinal surveys (eg, language responses, rating scales, sociodemographics, unstructured clinical interview, and clinical history; Figure 2 [28]). Each case was assessed by 2 or 3 licensed psychotherapists (≥5 y clinical experience; 2 women, 1 man; mean age 50.3, SD 12.9 y), and their assessments were averaged to form the best-estimate used as the reference standard.",
+   "printed": true
+  },
+  {
+   "para_id": 25,
+   "loc": "body",
+   "sec_title": "Student Assessments",
+   "text": "The student assessments were collected via an online survey on SoSci Survey [67] (Figure S1 in Multimedia Appendix 1). Each student assessed 40 participants, who were allocated semirandomly by the survey software so that each participant would receive an equal number of assessments. Four assessors (160 assessments) were excluded for completing the survey in under 15 (median completion time 45.03, IQR 35.57-80.60) minutes. The number of assessments per participant therefore varied between 2 and 4 (in the development set: 188, 31.3%, received two assessments; 392, 65.3%, three assessments; and 20, 3.3%, received four assessments).",
+   "printed": true
+  },
+  {
+   "para_id": 26,
+   "loc": "body",
+   "sec_title": "Selection of Development Sample",
+   "text": "The development set was drawn from the 1095 participants not included in the held-out validation set. Of those, 167 participants who had received one psychotherapist’s assessment were included, and the remaining 433 were randomly selected, yielding a total of 600. This sample size was chosen to balance training accuracy with feasible annotation effort, based on Gu et al [29], who showed that LBA models trained with 500 achieved accuracy within r =±0.05 of models trained with 963.",
+   "printed": true
+  },
+  {
+   "para_id": 27,
+   "loc": "body",
+   "sec_title": "Model Configuration",
+   "text": "Selected language responses (see the Selection of Language Variables section) were transformed into word embeddings and used as predictors in a ridge regression to assess the need for mental health support. Specifically, the second-to-last layer of the transformer-based LLM mxbai-embed-large-v1 [68] was used to generate the embeddings (Figure 3). This is a document-tuned transformer model, a type that has demonstrated state-of-the-art performance on the Massive Text Embedding Benchmark [69] and has been shown to consistently outperform base transformer representations for person-level psychological assessment [70,71]. The model (Mixedbread AI [68]; ≈335 million parameters; 1024-dimensional embeddings) was used off the shelf without fine-tuning and run locally via the text package [72]. A completed GUIDE-LLM checklist for reporting LLM use [73] is provided in the supplementary material (Table S3 in Multimedia Appendix 1).",
+   "printed": true
+  },
+  {
+   "para_id": 28,
+   "loc": "body",
+   "sec_title": "Model Configuration",
+   "text": "During model development, we explored 3 methods to optimize word embeddings and improve model accuracy: averaging embeddings, Matryoshka embeddings [74], and prepending the question to participant responses before embedding extraction.",
+   "printed": true
+  },
+  {
+   "para_id": 29,
+   "loc": "body",
+   "sec_title": "Model Validation",
+   "text": "Criterion validity (H1) was evaluated using the Pearson correlation between the LBAs and the best-estimate assessments in the validation set (n=212). A correlation of r≥0.70 was set as the threshold for adequate criterion validity [75]. We additionally computed a 1-sided disattenuated correlation [76]. Disattenuation estimates what the criterion validity correlation would be if the reference standard were measured without error—that is, if the psychotherapists agreed perfectly on the need for mental health support. The correction is 1-sided because only the reference standard, not the LBA, is corrected for unreliability. We used the interrater reliability among the psychotherapists (Krippendorff α) as the correction factor. As error-free measurement is unattainable in practice, the disattenuated correlation should be interpreted as an upper-bound estimate rather than a point estimate.",
+   "printed": true
+  },
+  {
+   "para_id": 30,
+   "loc": "body",
+   "sec_title": "Model Validation",
+   "text": "Convergent validity (H2) was evaluated using Pearson correlations between the LBAs and rating scales in the validation set (n=212). We expected significant, at least medium-sized, correlations of |r|>=0.30 [77]; specifically, positive correlations with depression (PHQ-9; H2a), anxiety (GAD-7; H2b), stress (PSS-10; H2c), and suicidality (IDAS; H2d); and negative correlations with life satisfaction (SWLS-3; H2e) and harmony in life (HILS-3; H2f). External validity (H3) was evaluated using Pearson correlations between the LBAs and the behavioral measures. We expected significant, at least small (r≥0.10) [77], positive correlations with the number of sick days (H3a) and the number of health care visits (H3b).",
+   "printed": true
+  },
+  {
+   "para_id": 31,
+   "loc": "body",
+   "sec_title": "Model Validation",
+   "text": "Finally, face validity (H4) was assessed by examining how linguistic topics correlate with the LBAs. Unlike H1-H3, which evaluated model performance on held-out data, this analysis aimed to provide insights into the model’s decisions through language patterns. Topics were extracted by applying latent Dirichlet allocation (LDA [78]; see the Language-Based Visualizations section) on the complete dataset (n=812). LDA is an unsupervised method that is fully independent of the word embeddings, the ridge regression, and the human assessments. This justifies using the full sample, in addition to the fact that a larger sample yields more stable and interpretable topics. Yet, this analysis should be interpreted as descriptive face validity evidence rather than a test on unseen data. An a priori power analysis determined that with 812 participants, α=.05, and 90% power, correlations of |r|≥0.113 would be statistically significant [79]. As topic-outcome correlations typically remain below |r|=0.30, we expected at least 4 significant topics per text variable and 2 significant topics per word variable.",
+   "printed": true
+  },
+  {
+   "para_id": 32,
+   "loc": "body",
+   "sec_title": "Language-Based Visualizations",
+   "text": "We examined linguistic patterns associated with the LBAs using 2 complementary methods [80]: LDA [78] and supervised embedding projections [72]. LDA is a topic modeling method that identifies latent topics within a text corpus based on word frequencies and co-occurrences. We extracted 12 topics per text variable and 2 topics per word variable. Before topic extraction, stop words [81], repeated phrases from the questions, and highly frequent terms were removed, with frequency thresholds set individually per variable (ranging from 150 to 450 occurrences). Co-occurring words were structured into a Document Term Matrix, allowing for 1- to 3-grams. Topic distributions within each response were then used to predict the LBAs via linear regression, with standardized regression weights serving as effect sizes. False Discovery Rate corrections [82] were applied within each language variable.",
+   "printed": true
+  },
+  {
+   "para_id": 33,
+   "loc": "body",
+   "sec_title": "Language-Based Visualizations",
+   "text": "Supervised embedding projections [72] provided a second, complementary visualization based on word embeddings rather than word frequency. This method identifies words significantly associated with the LBAs by comparing responses from the highest and lowest quartiles of the assessed need for support. Embeddings from both groups were aggregated, and a difference vector was computed. Each word was projected onto this vector using the dot product, mapping its association with the LBAs. Statistical significance was assessed against a permuted null distribution, with False Discovery Rate corrections [82] applied within each variable. Stop words [81] were removed before analysis.",
+   "printed": true
+  },
+  {
+   "para_id": 34,
+   "loc": "body",
+   "sec_title": "Statistical Software",
+   "text": "All analyses were performed in R (version 4.4.1) [83]. The model development and supervised embedding projections were performed using the text package (version 1.2.3) [72]. LDA topics were extracted with the topics package (version 0.40.1) [84]. Data wrangling, descriptive analyses, and visualizations were carried out with the packages dplyr (version 1.1.4) [85] and ggplot (version 3.5.1) [86]. Krippendorff α was calculated using the irr package (version 0.84.1) [87].",
+   "printed": true
+  },
+  {
+   "para_id": 35,
+   "loc": "body",
+   "sec_title": "Descriptive Statistics",
+   "text": "Participants wrote between a median of 9 with IQR 5-15 (self-harm) and 44 with IQR 30-68 words (mental health) in the text response variables (Table S4 in Multimedia Appendix 1). A substantial proportion of participants (development: 240/600 or 40%; validation: 94/212 or 44.3%) fell within clinically relevant ranges of at least moderate depression and/or anxiety according to PHQ-9 and GAD-7 thresholds [58,59]. All rating scales demonstrated good to excellent internal consistency in both the development and validation sets (Cronbach α=0.85-0.96; see Table S5 in Multimedia Appendix 1 for scale-specific values).",
+   "printed": true
+  },
+  {
+   "para_id": 36,
+   "loc": "body",
+   "sec_title": "Model Validation",
+   "text": "The LBAs further demonstrated strong convergent validity (H2; Table 4), including strong positive correlations with depression (rPHQ=0.77), anxiety (rGAD=0.72), stress (rPSS=0.76), and suicidality scores (rIDAS=0.62), as well as strong negative correlations with life satisfaction (rSWLS=−0.66) and harmony in life (rHILS=−0.64). All correlations were statistically significant (P<.001) and classified as large effects [77]. What is important to note is that the criterion and convergent validity estimates are not completely independent signals due to shared method variance: the rating scales were part of the data evaluated by the psychotherapists to achieve the best-estimate assessments, an inherent property of LEAD designs (ie, all data [46]; see the Discussion section). Regarding external validity (H3), the LBAs correlated significantly with the number of health care visits (r=0.16, P<.05), meeting the threshold for a small effect size [77], but not with the number of sick days (r=0.09, not significant). Distributions of the LBAs and human assessments, as well as analyses of model residuals, are reported in Figures S2-S5 in Multimedia Appendix 1.",
+   "printed": true
+  },
+  {
+   "para_id": 37,
+   "loc": "body",
+   "sec_title": "Model Validation",
+   "text": "Finally, the extracted LDA topics derived from the complete dataset (n=812) were well-interpretable for all 4 language responses (see Figure 4). We extracted 12 topics per text response variable and 2 topics per word response variable (see the Methods section). Eleven topics for mental health, 11 topics for suicidality, and 7 topics for medical history correlated significantly with the comprehensive LBA model. The significant topics ranged from |β|=0.08 to |β|=0.36. For the depression words, both topics were significantly associated with the LBAs, showing large associations of |β|=0.76. Overall, the number of significant topics exceeded the predefined threshold and aligned with established psychological theories [49-51], supporting face validity (H4).",
+   "printed": true
+  },
+  {
+   "para_id": 38,
+   "loc": "body",
+   "sec_title": "Model Validation",
+   "text": "Topics significantly associated with LBAs of low need for support included “work,” “home,” “happy,” “fine,” the absence of suicidal thoughts, good health, and rarely getting sick. Prominent words in the associated depression words topic included “hopeful,” “content,” and “optimistic.” These topics align with the broaden-and-build theory [49] that suggests that positive emotions expand and facilitate cognitive and behavioral patterns, which increases well-being and social connectedness. Surprisingly, the mental health topics referring to anxiety, problems in life, and the COVID-19 restrictions were also significantly associated with lower need for mental health support, despite not being inherently positive.",
+   "printed": true
+  },
+  {
+   "para_id": 39,
+   "loc": "body",
+   "sec_title": "Model Validation",
+   "text": "Topics significantly associated with LBAs of high need for support referred to anxiety, depression, the perception of others (“people”); comparisons (“like”); thinking about, planning, or attempting suicide; and thinking that others would be better off without them. Within the medical history variable, both acute mental health issues (eg, taking psychiatric medication) and long-term mental health issues (indicated by words such as “since,” “age,” “time,” and “suffered”) were significantly related to higher LBAs. Prominent words in the associated depression words topic included “anxiety,” “lethargic,” and “pessimistic.” These topics correspond to theories of depression [50,51] that suggest that negative cognitive patterns and attentional biases lead to negative affect, which can lead to or reinforce symptoms of depression and anxiety.",
+   "printed": true
+  },
+  {
+   "para_id": 40,
+   "loc": "body",
+   "sec_title": "Model Validation",
+   "text": "The exploratory supervised embedding projections (in contrast to the LDA topics, only based on the held-out set; Figure 5) revealed many words significantly associated with LBAs of low or high need for mental health support. Overall, the direction and significance of words matched those found in the LDA topics (Figure 4). For instance, words such as “happy,” “good,” and “hopeful” were significantly associated with low need for support, while “anxiety,” “depression,” and “overwhelmed” were associated with high need. In the suicidality variable, words explicitly denying “suicidal” “thoughts” (eg, “not,” “never,” and “no”) were strongly associated with low need, whereas words describing suicidal intent (eg, “plans,” “attempting,” and “committing”) were associated with high need. Notably, the word “blood” in the projection plot of the medical history variable likely refers to high blood pressure, as inferred from the LDA topics. This example shows how LDA topics and 3-grams can provide slightly more contextual grouping, while supervised embedding projections more directly reflect the LBA model’s underlying process. Overall, these results further support the face validity of the LBAs by corroborating the LDA topic findings using a different method [80].",
+   "printed": true
+  },
+  {
+   "para_id": 41,
+   "loc": "fig",
+   "sec_title": "Model Validation",
+   "text": "Words associated with LBAs of high vs low assessed need for mental health support (n=212). Each word is projected onto the semantic axis reflecting LBAs of low (left) vs high (right) need for mental health support. The boxes indicate the number of words significantly negatively correlated (green), not significantly correlated (gray), and significantly positively correlated (red) with the LBAs. The plots were created using supervised embedding projections [72]. LBA: language-based assessment.",
+   "printed": true
+  },
+  {
+   "para_id": 42,
+   "loc": "body",
+   "sec_title": "Best-Estimate Reference Assessments",
+   "text": "Much progress has been made in LLMs’ contextual language understanding and predictive accuracy [16,28]. However, for LLM-driven mental health assessments, the absence of a ground truth makes model training particularly complex. Best-estimate assessments are crucial for establishing a valid reference standard against which models can be evaluated, and averaging the assessments of multiple psychotherapists based on longitudinal clinical data represents one of the strongest available approaches [47,88]. It is important to note that the longitudinal clinical data evaluated by the psychotherapists also included the rating scales (ie, all data in the LEAD design [46]), which makes the benchmarks for criterion and convergent validity not completely independent due to shared method variance.",
+   "printed": true
+  },
+  {
+   "para_id": 43,
+   "loc": "body",
+   "sec_title": "Best-Estimate Reference Assessments",
+   "text": "The observed interrater reliability among the individual psychotherapists (Krippendorff α=0.73) highlights that even experienced experts sometimes disagree on mental health assessments. Given that this reliability sets a theoretical upper limit on expected validity [30], it is notable that the LBAs achieved a correlation of r=0.82 with the clinicians’ best-estimate assessments. This suggests that the model captures a more stable signal than a single clinician, likely because it applies the same weighting of linguistic features consistently across cases, whereas individual clinicians may vary in what information they prioritize. However, the model lacks the clinical flexibility to recognize atypical presentations or contextual factors not captured in the text, which remains an important advantage of human judgment. This underscores the potential for a complementary approach, where the model provides a consistent baseline assessment that clinicians can then refine based on their expertise.",
+   "printed": true
+  },
+  {
+   "para_id": 44,
+   "loc": "body",
+   "sec_title": "Incremental Value of Multiple Probed Language Responses",
+   "text": "While the parsimonious model already demonstrated a high accuracy, adding an explicit question about suicidality significantly improved model performance. The parsimonious model seemed to particularly miss information about suicidality, as evidenced by the correlation with IDAS suicidality substantially increasing from the parsimonious to the comprehensive model. This advantage could also be observed for the criterion validity, yet it is partly attributable to how the criterion itself was constructed: the best-estimate assessments were based on psychotherapists’ evaluations of longitudinal clinical data centering on internalizing disorders, self-harm, and suicidality. Moreover, the psychotherapists assessed participants’ need for mental health support immediately after assessing self-harm and suicidality [45] (see Table S2 in Multimedia Appendix 1), likely inflating the correlation between these assessments. Besides design characteristics, suicidal ideation and especially intention are evidently directly related to someone’s need for mental health support. Suicidal ideation remains a highly stigmatized topic and is often not disclosed spontaneously [89], highlighting the importance of explicitly prompting for suicidality to enhance the sensitivity of LBA models to this critical issue. Crucially, meta-analyses and reviews show that actively asking individuals about suicide does not appear to induce or increase suicidal ideation [90,91], affirming that explicit screening is safe.",
+   "printed": true
+  },
+  {
+   "para_id": 45,
+   "loc": "body",
+   "sec_title": "Comparison With Traditional Language Analysis Approaches",
+   "text": "To situate the contribution of the embedding-based approach within more traditional language analysis methods, we compared the LBAs with 2 established alternatives trained in the same pipeline: a tf-idf (term frequency-inverse document frequency) bag-of-words model and a model trained on a negation-aware suicide dictionary and LIWC-22 (Linguistic Inquiry and Word Count) dimensions [92]. The LBAs outperformed both baselines in the held-out set, while both language-based baseline models clearly outperformed the demographics-only model (see Figure S6 and Table S12 in Multimedia Appendix 1 for the full analysis). Notably, the advantage of the embeddings was modest when all 4 language variables were available, but substantial for the parsimonious models based only on the single mental health response. This shows that contextual embeddings maintain accuracy with brief responses, the scenario most relevant for large-scale screening.",
+   "printed": true
+  },
+  {
+   "para_id": 46,
+   "loc": "body",
+   "sec_title": "Comparison With Traditional Language Analysis Approaches",
+   "text": "Beyond these traditional baselines, our approach can be situated relative to generative encoder-decoder architectures increasingly used for LBAs by prompting an LLM to directly output a score from text. Zero-shot LLMs can approach human-rater accuracy but remain prompt-sensitive, performing best combined with document-tuned embedding-and-regression pipelines [93]. We do not argue for one method over the other, but a document-tuned encoder paired with ridge regression is well suited to person-level psychological assessment: its regularization supports stable estimates under sample size constraints, the model weights yield deterministic outputs that remain stable over time, and document-tuned LLM embeddings have been repeatedly benchmarked as strong, efficient representations of psychological constructs from text [94]. Practically, this architecture is also lightweight: with 335 million parameters, the model can be run on standard hardware and entirely on-site. In applied settings such as digital health care providers, sensitive free-text responses can be processed without transmitting them to external providers, at low computational cost.",
+   "printed": true
+  },
+  {
+   "para_id": 47,
+   "loc": "body",
+   "sec_title": "Limitations and Future Research",
+   "text": "Comparing the LBAs to rating scales requires caution, since the best-estimate assessments were based on both language responses and rating scale scores, making them difficult to use as an independent benchmark. The students based their assessments solely on language responses, so it is unsurprising that the LBAs correlated more strongly with student assessments (r=0.87) than the PHQ-9 did (r=0.75). Conversely, the psychotherapists had access to rating scales alongside language and clinical data, which likely explains why the best-estimate assessments correlated slightly more strongly with the PHQ-9 (r=0.84) than with the LBAs (r=0.82). These patterns reflect what information each assessor had access to, rather than the inherent superiority of either method. However, a recent investigation of the PHQ-9 showed that most respondents misinterpreted its instructions, basing responses on perceived bothersomeness rather than symptom frequency as intended [95]—a limitation potentially shared by similar scales. While this points to the scales being imperfect benchmarks for convergent validity, it reinforces the value of the criterion validity analysis against the best-estimate assessments as the primary validation approach. Beyond accuracy, LBAs offer unique advantages: they capture nuanced, real-life expressions of mental health and avoid the rigidity of rating scales [16,28]. Additionally, clinicians can review the written responses themselves alongside the numerical score, enabling a hybrid approach in which statistical evaluation and clinical judgment complement each other.",
+   "printed": true
+  },
+  {
+   "para_id": 48,
+   "loc": "body",
+   "sec_title": "Limitations and Future Research",
+   "text": "The model exhibited a regression-to-the-mean effect by systematically overestimating low need for support cases and underestimating high need for support cases (see Figures S2-S5 in Multimedia Appendix 1). This is common in regularized predictive models since they penalize coefficients to prevent overfitting, which shrinks predictions toward the mean of the criterion [48]. This can be mitigated by distribution-based corrections, which realign the distribution of the predictions with that of the human assessments—either by transforming the criterion before training [48] or by remapping the predictions post hoc. Our demonstration (Multimedia Appendix 1) shows that post hoc transformations substantially reduce the overestimation of low-severity cases and underestimation of high-severity cases—without lowering criterion validity (Figure S9 and Table S15 in Multimedia Appendix 1).",
+   "printed": true
+  },
+  {
+   "para_id": 49,
+   "loc": "body",
+   "sec_title": "Limitations and Future Research",
+   "text": "The need for mental health support assessed here is limited to internalizing symptoms and suicidality, and the model was trained and validated on a sample enriched for these conditions. While this coverage addresses the most common clinical needs worldwide—depression and anxiety alone account for approximately 63% of mental health diagnoses [13]—the model’s performance on related (eg, eating disorders and posttraumatic stress disorder) or less related conditions (eg, attention-deficit/hyperactivity disorders and psychotic disorders) is unknown. Additionally, while the student and psychotherapist assessors also had access to participants’ descriptions of their social situation and support system, it is uncertain whether the LBA model captures, for example, social determinants (eg, loneliness) of support need. More broadly, applying the model to populations with different demographics, cultural backgrounds, or base rates of mental health conditions may reduce its accuracy or introduce biases [96]. This concern is consistent with prior work showing differential accuracy across racial or ethnic groups, such as regarding youth depression scores [97] and language markers of depression [98].",
+   "printed": true
+  },
+  {
+   "para_id": 50,
+   "loc": "body",
+   "sec_title": "Implications",
+   "text": "In real-world settings, many people affected by mental health issues do not recognize a need for treatment, which makes help in early identification, support, and intervention crucial [2,4,7]. LBAs of the need for mental health support could complement existing screening tools and early intervention efforts. Possible applications include digital health platforms, informational websites on mood-related disorders, or health insurance portals, where individuals could receive preliminary guidance based on their responses. As the model assesses the need for support rather than psychiatric diagnoses, it may also help to reduce stigma surrounding mental health issues [33], encouraging more people to seek support. Implementing such a screening system in a real-world setting would require rigorous calibration to ensure fair, unbiased, and ethical prioritization. This is especially important when the target group differs in demographics, cultural background, or mental health condition base rates from the current enriched sample.",
+   "printed": true
+  },
+  {
+   "para_id": 51,
+   "loc": "body",
+   "sec_title": "Conclusions",
+   "text": "This study demonstrates that an LBA model based on natural language responses can closely align with experienced psychotherapists’ assessments of need for mental health support, using less than 5 minutes of respondent time. The model demonstrated strong criterion, convergent, and face validity against best-estimate reference assessments based on longitudinal data. By assessing the overall need for support based on individuals’ own descriptions of their mental health, rather than predicting single diagnostic labels, this approach may offer a less stigmatizing and potentially a more flexible alternative suited for early-stage mental health screening. Both the comprehensive and parsimonious models are openly available at the LBA model library [54] to support further and independent validation.",
+   "printed": true
+  }
+ ],
+ "links": [],
+ "links_optional": [
+  "988lifeline.org",
+  "arxiv.org/abs/2309.12871",
+  "cran.r-project.org/package=dplyr",
+  "cran.r-project.org/package=irr",
+  "creativecommons.org/licenses/by/4.0",
+  "data.europa.eu/doi/10.2875/48999",
+  "dl.acm.org/doi/10.5555/944919.944937",
+  "doi:10.1001/archinte.166.10.1092",
+  "doi:10.1001/archpsyc.1963.01720160014002",
+  "doi:10.1001/jamainternmed.2018.3763",
+  "doi:10.1001/jamapsychiatry.2025.3796",
+  "doi:10.1002/da.23286",
+  "doi:10.1007/s001270050260",
+  "doi:10.1007/s10597-020-00668-7",
+  "doi:10.1007/s11205-015-0903-z",
+  "doi:10.1007/s11920-018-0969-9",
+  "doi:10.1016/0010-440x(83)90032-9",
+  "doi:10.1016/j.comppsych.2025.152603",
+  "doi:10.1016/j.cpr.2023.102272",
+  "doi:10.1016/j.jad.2022.02.031",
+  "doi:10.1016/j.jad.2024.01.058",
+  "doi:10.1016/j.jad.2025.120299",
+  "doi:10.1016/j.jbef.2017.12.004",
+  "doi:10.1016/j.jclinepi.2006.03.012",
+  "doi:10.1016/j.jclinepi.2009.02.005",
+  "doi:10.1016/j.psychres.2023.115667",
+  "doi:10.1016/j.psychres.2024.115854",
+  "doi:10.1017/s0033291714000129",
+  "doi:10.1017/s0033291714001299",
+  "doi:10.1017/s0033291723002660",
+  "doi:10.1037//0003-066x.56.3.218",
+  "doi:10.1037//0021-843x.100.3.316",
+  "doi:10.1037/1040-3590.19.3.253",
+  "doi:10.1037/abn0000258",
+  "doi:10.1037/abn0000850",
+  "doi:10.1037/h0040957",
+  "doi:10.1037/met0000191",
+  "doi:10.1037/met0000542",
+  "doi:10.1037/pro0000309",
+  "doi:10.1038/s41398-023-02592-2",
+  "doi:10.1038/s41467-020-18349-0",
+  "doi:10.1038/s41562-024-01938-0",
+  "doi:10.1038/s41562-026-02492-7",
+  "doi:10.1038/s41598-022-07520-w",
+  "doi:10.1038/s44184-025-00142-w",
+  "doi:10.1046/j.1525-1497.2001.016009606.x",
+  "doi:10.1073/pnas.1802331115",
+  "doi:10.1073/pnas.2114737119",
+  "doi:10.1073/pnas.2319837121",
+  "doi:10.1073/pnas.2321321121",
+  "doi:10.1080/00223891.2020.1737093",
+  "doi:10.1093/occmed/kql169",
+  "doi:10.1097/nmd.0b013e3181d6141f",
+  "doi:10.1111/j.2517-6161.1995.tb02031.x",
+  "doi:10.1111/sltb.12368",
+  "doi:10.1126/science.adg8538",
+  "doi:10.1146/annurev.psych.54.101601.145041",
+  "doi:10.1177/0261927x20967028",
+  "doi:10.1177/070674370505000203",
+  "doi:10.1177/10731911251364022",
+  "doi:10.1177/2167702615591768",
+  "doi:10.1177/25152459261419036",
+  "doi:10.1186/s12888-020-02721-x",
+  "doi:10.1207/s15327752jpa4901_13",
+  "doi:10.13140/rg.2.2.23890.43205",
+  "doi:10.1371/journal.pmed.1001531",
+  "doi:10.1371/journal.pmed.1003901",
+  "doi:10.18653/v1/2023.eacl-main.148",
+  "doi:10.18653/v1/2025.clpsych-1.5",
+  "doi:10.18653/v1/2026.clpsych-1.14",
+  "doi:10.2105/ajph.87.7.1136",
+  "doi:10.21203/rs.3.rs-8376581/v1",
+  "doi:10.2196/57234",
+  "doi:10.2307/1412159",
+  "doi:10.2307/2136404",
+  "doi:10.3109/09638237.2010.492484",
+  "doi:10.31234/osf.io/dgnaf",
+  "doi:10.31234/osf.io/phgjn_v1",
+  "doi:10.31234/osf.io/xw24e",
+  "doi:10.3389/fpsyt.2022.801301",
+  "doi:10.3389/fpsyt.2023.1143175",
+  "doi:10.4324/9780203771587",
+  "doi:10.48550/arxiv.1706.03762",
+  "doi:10.48550/arxiv.2205.13147",
+  "doi:10.48550/arxiv.2309.12871",
+  "ggplot2.tidyverse.org",
+  "huggingface.co/spaces/cwiebel/mental-health-recommendations",
+  "mental.jmir.org",
+  "osf.io/2jxr4",
+  "osf.io/fc28k",
+  "osf.io/preprints/psyarxiv/nxfvr_v3",
+  "osf.io/preprints/psyarxiv/phgjn_v1",
+  "r-project.org",
+  "samaritans.org",
+  "snowballstem.org",
+  "soscisurvey.de",
+  "statistikguru.de/rechner/poweranalyse-korrelation.html",
+  "zenodo.org/records/11165378"
+ ],
+ "own_doi": "doi:10.2196/105460",
+ "citations": [
+  {
+   "cite_id": 1,
+   "para_id": 1,
+   "bib_id": 1,
+   "marker": "1",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 2,
+   "para_id": 1,
+   "bib_id": 2,
+   "marker": "2",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 3,
+   "para_id": 1,
+   "bib_id": 3,
+   "marker": "3",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 4,
+   "para_id": 2,
+   "bib_id": 4,
+   "marker": "4",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 5,
+   "para_id": 2,
+   "bib_id": 5,
+   "marker": "5",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 6,
+   "para_id": 2,
+   "bib_id": 6,
+   "marker": "6",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 7,
+   "para_id": 2,
+   "bib_id": 7,
+   "marker": "7",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 8,
+   "para_id": 3,
+   "bib_id": 8,
+   "marker": "8",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 9,
+   "para_id": 3,
+   "bib_id": 9,
+   "marker": "8–10",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 10,
+   "para_id": 3,
+   "bib_id": 10,
+   "marker": "10",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 11,
+   "para_id": 3,
+   "bib_id": 11,
+   "marker": "11",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 12,
+   "para_id": 3,
+   "bib_id": 12,
+   "marker": "11–13",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 13,
+   "para_id": 3,
+   "bib_id": 13,
+   "marker": "13",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 14,
+   "para_id": 4,
+   "bib_id": 14,
+   "marker": "14",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 15,
+   "para_id": 4,
+   "bib_id": 15,
+   "marker": "15",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 16,
+   "para_id": 4,
+   "bib_id": 16,
+   "marker": "16",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 17,
+   "para_id": 4,
+   "bib_id": 17,
+   "marker": "17",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 18,
+   "para_id": 4,
+   "bib_id": 18,
+   "marker": "18",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 19,
+   "para_id": 4,
+   "bib_id": 19,
+   "marker": "19",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 20,
+   "para_id": 4,
+   "bib_id": 20,
+   "marker": "20",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 21,
+   "para_id": 4,
+   "bib_id": 21,
+   "marker": "21",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 22,
+   "para_id": 4,
+   "bib_id": 22,
+   "marker": "22",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 23,
+   "para_id": 4,
+   "bib_id": 23,
+   "marker": "23",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 24,
+   "para_id": 4,
+   "bib_id": 24,
+   "marker": "24",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 25,
+   "para_id": 4,
+   "bib_id": 25,
+   "marker": "24–26",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 26,
+   "para_id": 4,
+   "bib_id": 26,
+   "marker": "26",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 27,
+   "para_id": 4,
+   "bib_id": 27,
+   "marker": "27",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 28,
+   "para_id": 4,
+   "bib_id": 28,
+   "marker": "28",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 29,
+   "para_id": 4,
+   "bib_id": 29,
+   "marker": "29",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 30,
+   "para_id": 4,
+   "bib_id": 30,
+   "marker": "30",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 31,
+   "para_id": 4,
+   "bib_id": 31,
+   "marker": "31",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 32,
+   "para_id": 5,
+   "bib_id": 32,
+   "marker": "32",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 33,
+   "para_id": 5,
+   "bib_id": 33,
+   "marker": "33",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 34,
+   "para_id": 5,
+   "bib_id": 12,
+   "marker": "12",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 35,
+   "para_id": 5,
+   "bib_id": 34,
+   "marker": "34",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 36,
+   "para_id": 5,
+   "bib_id": 35,
+   "marker": "35",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 37,
+   "para_id": 5,
+   "bib_id": 36,
+   "marker": "36",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 38,
+   "para_id": 6,
+   "bib_id": 18,
+   "marker": "18",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 39,
+   "para_id": 6,
+   "bib_id": 22,
+   "marker": "22",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 40,
+   "para_id": 6,
+   "bib_id": 37,
+   "marker": "37",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 41,
+   "para_id": 6,
+   "bib_id": 25,
+   "marker": "25",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 42,
+   "para_id": 6,
+   "bib_id": 28,
+   "marker": "28",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 43,
+   "para_id": 6,
+   "bib_id": 30,
+   "marker": "30",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 44,
+   "para_id": 7,
+   "bib_id": 38,
+   "marker": "38",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 45,
+   "para_id": 7,
+   "bib_id": 39,
+   "marker": "39",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 46,
+   "para_id": 7,
+   "bib_id": 40,
+   "marker": "40",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 47,
+   "para_id": 7,
+   "bib_id": 41,
+   "marker": "41",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 48,
+   "para_id": 7,
+   "bib_id": 42,
+   "marker": "42",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 49,
+   "para_id": 7,
+   "bib_id": 43,
+   "marker": "43",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 50,
+   "para_id": 8,
+   "bib_id": 44,
+   "marker": "44",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 51,
+   "para_id": 9,
+   "bib_id": 45,
+   "marker": "45",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 52,
+   "para_id": 10,
+   "bib_id": 46,
+   "marker": "46",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 53,
+   "para_id": 10,
+   "bib_id": 47,
+   "marker": "47",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 54,
+   "para_id": 10,
+   "bib_id": 48,
+   "marker": "48",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 55,
+   "para_id": 11,
+   "bib_id": 49,
+   "marker": "49",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 56,
+   "para_id": 11,
+   "bib_id": 50,
+   "marker": "50",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 57,
+   "para_id": 11,
+   "bib_id": 51,
+   "marker": "51",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 58,
+   "para_id": 11,
+   "bib_id": 49,
+   "marker": "49",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 59,
+   "para_id": 11,
+   "bib_id": 50,
+   "marker": "50",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 60,
+   "para_id": 11,
+   "bib_id": 51,
+   "marker": "51",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 61,
+   "para_id": 12,
+   "bib_id": 45,
+   "marker": "45",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 62,
+   "para_id": 13,
+   "bib_id": 52,
+   "marker": "52",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 63,
+   "para_id": 13,
+   "bib_id": 53,
+   "marker": "53",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 64,
+   "para_id": 13,
+   "bib_id": 54,
+   "marker": "54",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 65,
+   "para_id": 13,
+   "bib_id": 55,
+   "marker": "55",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 66,
+   "para_id": 14,
+   "bib_id": 56,
+   "marker": "56",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 67,
+   "para_id": 14,
+   "bib_id": 57,
+   "marker": "57",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 68,
+   "para_id": 14,
+   "bib_id": 57,
+   "marker": "57",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 69,
+   "para_id": 15,
+   "bib_id": 45,
+   "marker": "45",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 70,
+   "para_id": 16,
+   "bib_id": 58,
+   "marker": "58",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 71,
+   "para_id": 16,
+   "bib_id": 57,
+   "marker": "57",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 72,
+   "para_id": 17,
+   "bib_id": 59,
+   "marker": "59",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 73,
+   "para_id": 18,
+   "bib_id": 60,
+   "marker": "60",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 74,
+   "para_id": 19,
+   "bib_id": 61,
+   "marker": "61",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 75,
+   "para_id": 20,
+   "bib_id": 62,
+   "marker": "62",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 76,
+   "para_id": 20,
+   "bib_id": 63,
+   "marker": "63",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 77,
+   "para_id": 20,
+   "bib_id": 64,
+   "marker": "64",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 78,
+   "para_id": 21,
+   "bib_id": 45,
+   "marker": "45",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 79,
+   "para_id": 22,
+   "bib_id": 65,
+   "marker": "65",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 80,
+   "para_id": 22,
+   "bib_id": 66,
+   "marker": "66",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 81,
+   "para_id": 23,
+   "bib_id": 65,
+   "marker": "65",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 82,
+   "para_id": 23,
+   "bib_id": 66,
+   "marker": "66",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 83,
+   "para_id": 24,
+   "bib_id": 47,
+   "marker": "47",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 84,
+   "para_id": 24,
+   "bib_id": 46,
+   "marker": "46",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 85,
+   "para_id": 24,
+   "bib_id": 47,
+   "marker": "47",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 86,
+   "para_id": 24,
+   "bib_id": 28,
+   "marker": "28",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 87,
+   "para_id": 25,
+   "bib_id": 67,
+   "marker": "67",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 88,
+   "para_id": 26,
+   "bib_id": 29,
+   "marker": "29",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 89,
+   "para_id": 27,
+   "bib_id": 68,
+   "marker": "68",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 90,
+   "para_id": 27,
+   "bib_id": 69,
+   "marker": "69",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 91,
+   "para_id": 27,
+   "bib_id": 70,
+   "marker": "70",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 92,
+   "para_id": 27,
+   "bib_id": 71,
+   "marker": "71",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 93,
+   "para_id": 27,
+   "bib_id": 68,
+   "marker": "68",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 94,
+   "para_id": 27,
+   "bib_id": 72,
+   "marker": "72",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 95,
+   "para_id": 27,
+   "bib_id": 73,
+   "marker": "73",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 96,
+   "para_id": 28,
+   "bib_id": 74,
+   "marker": "74",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 97,
+   "para_id": 29,
+   "bib_id": 75,
+   "marker": "75",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 98,
+   "para_id": 29,
+   "bib_id": 76,
+   "marker": "76",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 99,
+   "para_id": 30,
+   "bib_id": 77,
+   "marker": "77",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 100,
+   "para_id": 30,
+   "bib_id": 77,
+   "marker": "77",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 101,
+   "para_id": 31,
+   "bib_id": 78,
+   "marker": "78",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 102,
+   "para_id": 31,
+   "bib_id": 79,
+   "marker": "79",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 103,
+   "para_id": 32,
+   "bib_id": 80,
+   "marker": "80",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 104,
+   "para_id": 32,
+   "bib_id": 78,
+   "marker": "78",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 105,
+   "para_id": 32,
+   "bib_id": 72,
+   "marker": "72",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 106,
+   "para_id": 32,
+   "bib_id": 81,
+   "marker": "81",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 107,
+   "para_id": 32,
+   "bib_id": 82,
+   "marker": "82",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 108,
+   "para_id": 33,
+   "bib_id": 72,
+   "marker": "72",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 109,
+   "para_id": 33,
+   "bib_id": 82,
+   "marker": "82",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 110,
+   "para_id": 33,
+   "bib_id": 81,
+   "marker": "81",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 111,
+   "para_id": 34,
+   "bib_id": 83,
+   "marker": "83",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 112,
+   "para_id": 34,
+   "bib_id": 72,
+   "marker": "72",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 113,
+   "para_id": 34,
+   "bib_id": 84,
+   "marker": "84",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 114,
+   "para_id": 34,
+   "bib_id": 85,
+   "marker": "85",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 115,
+   "para_id": 34,
+   "bib_id": 86,
+   "marker": "86",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 116,
+   "para_id": 34,
+   "bib_id": 87,
+   "marker": "87",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 117,
+   "para_id": 35,
+   "bib_id": 58,
+   "marker": "58",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 118,
+   "para_id": 35,
+   "bib_id": 59,
+   "marker": "59",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 119,
+   "para_id": 36,
+   "bib_id": 77,
+   "marker": "77",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 120,
+   "para_id": 36,
+   "bib_id": 46,
+   "marker": "46",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 121,
+   "para_id": 36,
+   "bib_id": 77,
+   "marker": "77",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 122,
+   "para_id": 37,
+   "bib_id": 49,
+   "marker": "49",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 123,
+   "para_id": 37,
+   "bib_id": 50,
+   "marker": "49–51",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 124,
+   "para_id": 37,
+   "bib_id": 51,
+   "marker": "51",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 125,
+   "para_id": 38,
+   "bib_id": 49,
+   "marker": "49",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 126,
+   "para_id": 39,
+   "bib_id": 50,
+   "marker": "50",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 127,
+   "para_id": 39,
+   "bib_id": 51,
+   "marker": "51",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 128,
+   "para_id": 40,
+   "bib_id": 80,
+   "marker": "80",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 129,
+   "para_id": 41,
+   "bib_id": 72,
+   "marker": "72",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 130,
+   "para_id": 42,
+   "bib_id": 16,
+   "marker": "16",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 131,
+   "para_id": 42,
+   "bib_id": 28,
+   "marker": "28",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 132,
+   "para_id": 42,
+   "bib_id": 47,
+   "marker": "47",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 133,
+   "para_id": 42,
+   "bib_id": 88,
+   "marker": "88",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 134,
+   "para_id": 42,
+   "bib_id": 46,
+   "marker": "46",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 135,
+   "para_id": 43,
+   "bib_id": 30,
+   "marker": "30",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 136,
+   "para_id": 44,
+   "bib_id": 45,
+   "marker": "45",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 137,
+   "para_id": 44,
+   "bib_id": 89,
+   "marker": "89",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 138,
+   "para_id": 44,
+   "bib_id": 90,
+   "marker": "90",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 139,
+   "para_id": 44,
+   "bib_id": 91,
+   "marker": "91",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 140,
+   "para_id": 45,
+   "bib_id": 92,
+   "marker": "92",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 141,
+   "para_id": 46,
+   "bib_id": 93,
+   "marker": "93",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 142,
+   "para_id": 46,
+   "bib_id": 94,
+   "marker": "94",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 143,
+   "para_id": 47,
+   "bib_id": 95,
+   "marker": "95",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 144,
+   "para_id": 47,
+   "bib_id": 16,
+   "marker": "16",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 145,
+   "para_id": 47,
+   "bib_id": 28,
+   "marker": "28",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 146,
+   "para_id": 48,
+   "bib_id": 48,
+   "marker": "48",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 147,
+   "para_id": 48,
+   "bib_id": 48,
+   "marker": "48",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 148,
+   "para_id": 49,
+   "bib_id": 13,
+   "marker": "13",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 149,
+   "para_id": 49,
+   "bib_id": 96,
+   "marker": "96",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 150,
+   "para_id": 49,
+   "bib_id": 97,
+   "marker": "97",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 151,
+   "para_id": 49,
+   "bib_id": 98,
+   "marker": "98",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 152,
+   "para_id": 50,
+   "bib_id": 2,
+   "marker": "2",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 153,
+   "para_id": 50,
+   "bib_id": 4,
+   "marker": "4",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 154,
+   "para_id": 50,
+   "bib_id": 7,
+   "marker": "7",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 155,
+   "para_id": 50,
+   "bib_id": 33,
+   "marker": "33",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 156,
+   "para_id": 51,
+   "bib_id": 54,
+   "marker": "54",
+   "expanded": false,
+   "scored": true
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-ext-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "v1_bib_count": 98
+ }
+}

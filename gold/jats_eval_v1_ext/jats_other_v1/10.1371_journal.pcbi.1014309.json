@@ -1,0 +1,1425 @@
+{
+ "paper_id": "10.1371_journal.pcbi.1014309",
+ "paras": [
+  {
+   "para_id": 1,
+   "loc": "front",
+   "sec_title": "",
+   "text": "Sarcomeres, the basic repeating unit of striated muscle, are joined together by crosslinked actin filaments found at the boundaries of muscle sarcomeres, termed Z-discs. Z-discs play a key role in cardiac signalling and disease, however, the arrangement and function of many of the proteins present in the Z-disc remain to be understood. Here, we determined the organisation of 3 key proteins, ZASP, ɑ-actinin-2 and the Z1Z2 epitope of titin, located within the Z-disc. We fluorescently labelled these proteins in cardiac myofibrils using Adhirons specific to each protein and used interferometric photoactivated localization microscopy (iPALM) to obtain the 3D position of these proteins to a high precision (<10nm in x,y,z). We then used PERPL (Pattern Extraction from Relative Positions of Localisations: available at https://github.com/oubino/z_disk/releases/tag/v0.0.3) to analyse patterns in the relative positions of the proteins and reveal their underlying organisation. This analysis revealed that ZASP and ɑ-actinin-2 have a similar repeating organisation, but that the organisation of Z1Z2 is different.",
+   "printed": true
+  },
+  {
+   "para_id": 2,
+   "loc": "front",
+   "sec_title": "",
+   "text": "The iPALM localisation data is available at https://doi.org/10.5281/zenodo.19661651. Analysis used the software at https://github.com/oubino/z_disk/releases/tag/v0.0.3, depending on PERPL v1.2.0 (https://pypi.org/project/perpl/1.2.0/). Procedural modelling is also available in PERPL v1.3.0 and above (https://pypi.org/project/perpl/; https://doi.org/10.5281/zenodo.8027436).",
+   "printed": true
+  },
+  {
+   "para_id": 3,
+   "loc": "body",
+   "sec_title": "Myofibril sample preparation",
+   "text": "17mg/mL Catalase (C100-50MG, Sigma-Aldrich) and 70mg/mL Glucose Oxidase (G-2133–50KU, Sigma-Aldrich) solutions were prepared in Buffer A (10mM Tris pH 8.0 + 50mM NaCl). Both were mixed in a 1:4 volume ratio to prepare GLOX solution. This was centrifuged and only the supernatant was used. 1M cysteamine (30070-50G, Sigma-Aldrich) solution was prepared in 0.25N HCl. The STORM buffer was prepared by combining GLOX solution, 1M cysteamine, and Buffer B (50mM Tris pH 8.0 + 10mM NaCl + 10% Glucose) in 1:10:90 volume ratio. The sample coverslip was covered with STORM-buffer. An 18 mm diameter round coverslip (CS-18R17, #1.5 thickness; Warner Instruments) was placed centrally on top of the sample and the boundary was sealed with Valap (https://cshprotocols.cshlp.org/content/2015/2/pdb.rec082917) to create a sandwich mounting.",
+   "printed": true
+  },
+  {
+   "para_id": 4,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Proteins from over 100 genes have been linked to the Z-disc [1], of which more than half localise to its core. These proteins can have either structural or signalling roles, or both. Of these proteins, ɑ-actinin plays a key role in crosslinking and anchoring actin-filaments from adjacent sarcomeres within the Z-disc (Luther, 2009). Others, such as filamin C, myotilin and ZASP, play both structural and signalling roles through their interaction with other proteins (reviewed in [2,3]). Z-disc sensing of mechanical strain and subsequent downstream signalling can remodel the Z-disc and muscle sarcomeres and is important in both vertebrate and invertebrates [4] Understanding how Z-disc proteins are organised and interact with each other is crucial not only to understanding their biological function, but in understanding disease processes. Despite this, we still know very little about how proteins are organised within the Z-disc.",
+   "printed": true
+  },
+  {
+   "para_id": 5,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "One of the main challenges in uncovering protein organisation in the Z-disc is that it is both narrow and variable in structure. At its widest in cardiac muscle, it is still only approximately 100–140 nm [5]. The lattice structure within the Z-disc has even smaller dimensions of approximately 25 nm in x, y and z [5]. These dimensions are all below the resolution limit of the light microscope (250 nm). Moreover, the lattice structure can either take a small-square (predominantly relaxed muscle) or basketweave form (predominantly contracting muscle) with some mixture of the two typically present [5–7]. The transition from small square to basketweave has been suggested to involve a change in twist in ɑ-actinin-2, accompanied by an increase of ~10–20% in lattice dimensions. This is likely because the interaction between the calponin homology (actin-binding) domain of ɑ-actinin-2 and F-actin is highly flexible [7–9]. However, in rigor muscle, the lattice always takes the basketweave form [10]. Even the improved resolution of electron microscopy has failed to reveal the organisation of Z-disc proteins. Sub-tomogram averaging blurs out the detail in the Z-disc structure, and specific proteins cannot be identified (excepting actin and α-actinin) [11–13]. Therefore, other approaches to uncovering its nanoscale organisation need to be tested and developed.",
+   "printed": true
+  },
+  {
+   "para_id": 6,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Super-resolution imaging encompasses a range of different approaches that achieve sub 250 nm 2D (x,y) resolution. Structured illumination microscopy (SIM) uses an interference‑based approach to achieve ~125 nm resolution [14]. STED (Stimulated Emission Depletion) uses a donut shaped laser to reduce the size of the point spread function (reviewed in [15,16] to achieve ~40 nm resolution. Single molecule localisation microscopy (SMLM: reviewed in [17]) depends on switching the fluorescence of most fluorophores off at any one time, leaving a subset of fluorophores that are spatially well separated, to achieve a resolution of ~20 nm or better (reviewed in [15]). SMLM approaches have been used to determine the organisation of multiple proteins within focal adhesions [18], endocytic vesicles [19] and other dense cytoskeletal structures (reviewed in [16]). While these approaches generally obtain resolutions of ~20 nm in 2D (x,y), resolution in the third dimension (z) is at best approximately 50 nm (reviewed in [16]). Interferometric photoactivated light microscopy (iPALM), combines SMLM with multiphase interferometry to achieve a much higher resolution in x,y,z of approximately 10 nm [20]. Thus, the resolving power of iPALM is ideally suited to investigate the organisation of proteins within the Z-disc, as it closely matches the dimensions of the Z-disc lattice.",
+   "printed": true
+  },
+  {
+   "para_id": 7,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Antibodies would typically be used to label specific proteins in techniques such as iPALM to image protein organisation within the Z-disc. However, the combination of both primary and secondary antibodies commonly used to do this poses two problems. First, the dye, which is attached to the secondary antibody, can be over 20 nm from the target site, as both antibodies are approximately 10 nm in size. This is compounded by the flexibility of the antibodies, which can further blur the dye position [21]. Second, the large size of the antibodies can also restrict their ability to fully label dense cytoskeletal structures, as they can be excluded from their core [22,23]. To overcome this, we isolated non-antibody binding proteins (Adhirons [24] also known as Affimers) to specific proteins within the Z-disc to use in labelling. Adhirons are a similar size (typically ~4 nm in size and 10–12 kDa in mass) to nanobodies, which are single chain antibodies derived from camelids [22,23]. They comprise a scaffold protein based on a plant phytocystatin sequence that contains two variable loops, each of which are nine amino acids long, and that mediate binding to their target proteins. The sequences of these loops were randomised to generate a phage display library containing 1010 variants used to isolate Adhirons [24]. Once isolated, they can be expressed and purified from E.coli. and used in a range of downstream applications including imaging [25]. They typically bind to their target proteins highly specifically with nanomolar affinity [25].",
+   "printed": true
+  },
+  {
+   "para_id": 8,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Here we have used Adhirons to label cardiac myofibrils, iPALM to image them, and have used downstream analysis software (PERPL [26]) to determine the pattern of organisation of three Z-disc proteins. The Adhirons we used either specifically bind the calponin-homology (actin binding) domains of α-actinin-2 [26,27], the N-terminal Z1Z2 epitope of the giant protein titin, or the signalling protein ZASP (Z-band alternatively spliced PDZ motif protein (also termed Cypher and LIM domain-binding protein 3, and PDLIM6). We chose ɑ-actinin-2, as its organisation within the Z-disc is the best characterised and is expected to show a characteristic pattern. Titin is a giant molecule, up to 4 MDa in size and 1 µm in length, which spans from its N-terminal region within the Z-disc to the C-terminal region in the M-line in the middle of the muscle sarcomere [28]. We chose the Z1Z2 epitope of titin as it has been reported to be located either in the periphery of the Z-disc [29] or in its core [30], and thus the Adhiron could resolve these findings and should reveal its pattern of organisation, if any. We chose ZASP, as its PDZ domain interacts with ɑ-actinin-2 and immunoEM shows it is distributed throughout the Z-disc [31]. Thus, ZASP might be expected to show a similar pattern of organisation to ɑ-actinin-2.",
+   "printed": true
+  },
+  {
+   "para_id": 9,
+   "loc": "body",
+   "sec_title": "Adhirons to ɑ-actinin-2, the Z1Z2 epitope of titin, and ZASP",
+   "text": "The Adhirons isolated to the calponin homology (CH) domains of ɑ-actinin-2, the Z1Z2 domains (N-terminal immunoglobulin tandem domains) of titin and ZASP have been briefly reported on in earlier work from our group [26,27]. Adhirons bind specifically to their target sequences as they recognise both sequence and structure of the domains they were raised against [24]. The structure of the co-crystal of the Adhiron bound to the calponin homology (CH) actin binding domains of ɑ-actinin-2 (6WST) shows its binding is mediated by salt bridges between Lys72 and Asp 80 in loop 1 of the Adhiron, with Glu217 and Lys221, respectively in the second CH domain of ɑ-actinin-2 [26]. While we do not have co-crystal structures for the remaining two Adhirons, Alphafold3 modelling [32] suggests that the main binding interaction of the Adhiron to Z1Z2 is through an arginine residue in loop 2 to Asp201 in the Z2 domain (S1A Fig). Alphafold3 also predicts that the ZASP Adhiron likely binds through an aspartate residue in loop 1 to a region between Trp13 and Gly14 in the PDZ domain (PDZ: postsynaptic density protein (PSD95), Drosophila disc large tumor suppressor (DlgA), and zonula occludens-1 protein (zo-1) (S1B Fig).",
+   "printed": true
+  },
+  {
+   "para_id": 10,
+   "loc": "body",
+   "sec_title": "iPALM generates high-precision localisations for Z-disc proteins in 3D",
+   "text": "The localisations for each Z-disc were extracted, allowing for per Z-disc characterisation and for subsequent modelling of protein organisation using PERPL (Fig 1B and 1C). As the orientation of the myofibrils varies across images, we developed a pipeline to segment the Z-discs and align each one to facilitate downstream pattern analysis (PERPL). Briefly, the iPALM data was converted to images and imported into Ilastik, an interactive semi-automatic segmentation tool, to segment the Z-discs in image space [33]. These segmentations were used to extract the point cloud data for each Z-disc [34], which were then aligned using principal component analysis (PCA) and denoised using DBSCAN (S3 Fig).",
+   "printed": true
+  },
+  {
+   "para_id": 11,
+   "loc": "body",
+   "sec_title": "PERPL reveals the organisation of ɑ-actinin-2, Z1Z2 and ZASP in Z-disc data",
+   "text": "PERPL was used to infer the organisation of ɑ-actinin-2, Z1Z2 and ZASP in the axial (y) direction and transverse (x,z) plane, by modelling the relative position distributions (RPDs) for the localisations (Methods, S3 Fig) [26]. Model RPDs contained different numbers of characteristic distances, which could either be independent of one another, or dependent on one another (such as a linear repeat of a targeted protein domain along one direction). The model RPDs also contain different background models for distances unaccounted for by the combination of characteristic distances (e.g., a spatially random pattern of false positive localisations). For each protein, we swept through and selected pre‑processing settings for the localisation data to generate different experimental RPDs. For each RPD, we swept over a range of possible (user-defined models) to fit to the data. We then compared the relative likelihoods of the fitted models of axial and transverse organisation (S1-S2 Tables) [26]. Finally, we selected the fitted model best describing the axial and transverse structure underlying the experimental data in each case, as determined by the Akaike criterion (AICc) (S3-S5 Tables). In all cases except for the arrangement of Z1Z2 in the transverse plane, the best model was more than 100 times more likely as an explanation of the data than the second best as determined by the AICc.",
+   "printed": true
+  },
+  {
+   "para_id": 12,
+   "loc": "body",
+   "sec_title": "PERPL reveals the organisation of ɑ-actinin-2, Z1Z2 and ZASP in Z-disc data",
+   "text": "In the axial direction (Fig 2A-2C), we found a linear repeat of between 16 and 18 nm to be the best model for the arrangement of all three proteins, with a variability (σbroadening, fitted s.d. of the component peak) of 10–12 nm on the characteristic distances between instances of the same protein (Tables 2, S3-S5, Fig 3A). This arrangement is expected for ɑ-actinin-2 from the known structure of the Z-disc complex and its ɑ-actinin-2 repeated crosslinks [5,13]. The titin Z1Z2 domains and ZASP therefore apparently follow the same pattern as ɑ-actinin-2 in the axial direction. However, for ZASP localisations, the signal (peak amplitude) decreased more significantly at higher multiples of the repeat distance. Thus, although we fit 5 peaks, the localisations are more likely to be separated by only one repeat of the Z-disc structure (18 ± 10 nm, mean distance ± σbroadening) (Fig 2C, S5 Table) in agreement with the lower density of localisations (Table 1). One possible explanation for this is that the PDZ domains of ZASP, labelled by the Adhiron, tend to be found in pairs (possibly resulting from ZASP dimerization [35]) separated by 16–18 nm, but the occurrence of this pairing occurs randomly throughout the Z-disc.",
+   "printed": true
+  },
+  {
+   "para_id": 13,
+   "loc": "fig",
+   "sec_title": "PERPL reveals the organisation of ɑ-actinin-2, Z1Z2 and ZASP in Z-disc data",
+   "text": "A: Arrangement of actin, ɑ-actinin-2, ZASP and titin Z1Z2 in the axial view. The Z-disc in cardiac muscle contains 4-6 ɑ-actinin-2 repeats [5], and here 6 repeats are shown. The ɑ-actinin-2 molecules can also be organised into doublets of the homodimer, spaced 6 nm apart ([13] not illustrated here for simplicity). B: Arrangement of actin, ɑ‑actinin‑2, ZASP and titin Z1Z2 in the transverse view (basketweave lattice). The lattice constants for titin Z1Z2 and parallel actin filaments are stable across the Z-disc, while the sets of anti-parallel actin filaments may move relative to one another. The rotation of the square lattice between different locations on the Z-disc is also shown [5].",
+   "printed": true
+  },
+  {
+   "para_id": 14,
+   "loc": "body",
+   "sec_title": "PERPL reveals the organisation of ɑ-actinin-2, Z1Z2 and ZASP in Z-disc data",
+   "text": "A component describing repeated localisations of the same molecule was found in the best model for Z1Z2 and ZASP organisation, but not in the best ɑ-actinin-2 model. The overall fit at the shortest distances is also worse for ɑ-actinin-2. The most likely explanation for these two observations is the increased likelihood of nearby pairs of ɑ-actinin-2 molecules in the Z-disc structure, which add an extra, unmodelled distance that confounds the fit of a zero-distance component. This could be consistent with the presence of pairs of ɑ-actinin-2 dimers, seen in EM density maps [13], which are approximately 6 nm apart.",
+   "printed": true
+  },
+  {
+   "para_id": 15,
+   "loc": "body",
+   "sec_title": "PERPL reveals the organisation of ɑ-actinin-2, Z1Z2 and ZASP in Z-disc data",
+   "text": "In the transverse plane (Fig 2D-2F), the most likely model for the arrangement of all three proteins included a characteristic distance of 27–30 nm, with a variability (σbroadening) of 7–9 nm (Tables 3, S3-S5, Fig 3B). This distance also corresponds to the spacing of parallel actin filaments (dp-fil) in this plane and the ɑ-actinin-2 binding sites on them in the basketweave lattice structure [5]. It is also in broad agreement with our previous estimate for the transverse distance of 24 nm measured in fixed cardiomyocytes using 3D dSTORM followed by PERPL analysis [26]. Interestingly, the Z-discs in the cardiomyocytes were more likely to have adopted the small square lattice form, as the cells were predominantly relaxed when fixed, and thus the lattice spacing would be expected to be about 10–20% smaller.",
+   "printed": true
+  },
+  {
+   "para_id": 16,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Identifying the organisation of Z-disc proteins, using a wide range of approaches, has proven to be very difficult. To improve on this, we labelled cardiac myofibrils using Adhirons, specific for Z-disc proteins. These have the advantage that their small size enables them to penetrate the Z-disc better than antibodies, and the linkage error between the target and the dye is only a few nm [23]. We imaged the fluorescent Adhirons using iPALM, which has a 2‑5x improvement in resolution in x,y and z compared to other single molecule localisation techniques [20]. We then analysed the iPALM data using PERPL [26], to successfully extract repeating distances that likely reflect the underlying organisation of three different Z-disc proteins in cardiac myofibrils. We found a repeating pattern of approximately 16 nm for ɑ‑actinin-2 molecules along the actin filament in x,y, which is in reasonable agreement with electron microscopy data, in which ɑ-actinin-2 molecules can be clearly observed [5,13]. Likewise, the main axial repeat distance in x,y was about 16–18 nm for ZASP and Z1Z2. In the transverse plane, we found a repeat distance of about 27–30 nm for all three proteins, equivalent to the distance between parallel actin filaments. However, only the localisation data for Z1Z2 additionally showed distances equivalent to that for anti-parallel actin filaments. Overall, this suggests that the Z1Z2 domains have the highest degree of organisation in the Z-disc. The variability, or relative inconsistency, that we have inferred in the distance between ɑ-actinin-2 binding domains on anti-parallel filaments may be related to the discrepancy between actin symmetry and perfect square lattice angles [9].",
+   "printed": true
+  },
+  {
+   "para_id": 17,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Our new results for ɑ-actinin-2 reveal more detail than our previous study using PERPL to analyse dSTORM data [26,36], in which the resolution was lower than achievable using iPALM. In particular, the improved axial (z) resolution from iPALM allows us to resolve the repeating organisation of ɑ-actinin-2 in the transverse plane, with a repeat distance of 27–30 nm, as well as a 10 nm repeat we ascribe to binding sites either side of a single actin filament (Fig 3). These results are consistent with recent work using cryo-electron tomography (cryo-ET) to visualise the Z-disc in mouse skeletal muscle that revealed ɑ-actinin-2 doublets spaced about 6 nm apart, and up to 3 pairs of ɑ-actinin-2 molecules, spanning about 37 nm along the actin filament, with a spacing of approximately 18.5 nm between the doublets [13]. While we cannot resolve the 6 nm separation with iPALM, our new data would be consistent with the presence of these doublets in cardiac muscle. The overall organisation of ɑ-actinin-2 in the Z-disc was also reported to be less well ordered by CryoET than in previous models [13], again consistent with our data. The overall agreement of the PERPL data for ɑ-actinin-2 with EM data suggests we can also be confident about our findings for other Z-disc proteins.",
+   "printed": true
+  },
+  {
+   "para_id": 18,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "The linear repeat of 16–18 nm for the titin Z1Z2 domains has not been reported before. Previous reports have either located the N-terminal titin Z1Z2 domain to the central region or towards the outside of the Z-disc [30,37–39]. The two Z1Z2 domains, each comprised of an Ig-like fold (4nm in size), form a highly stable complex in the Z-disc composed of antiparallel dimers between which t-cap (telethonin) is sandwiched [40–42]. The Z1Z2 domains are followed by a serine-proline rich linker region (Zis-1) and then up to seven Z-repeats (45 residues, 12 nm long) that may run through the Z-disc [29,30,43]. The number of Z-repeats is lower in fast (narrow Z-discs) than in slow and cardiac muscles (wider Z-discs), regulated through differential gene splicing of the Z-repeats [30,44]. This led to the idea that Z‑repeat number regulates the number of ɑ-actinin-2 molecules and hence width of the Z-disc. However, the span of each Z-repeat (12 nm) is lower than the spacing between ɑ-actinin-2 molecules [45], only Z-repeats 1,3,5 and 7 bind to ɑ-actinin-2 (C-terminal region), and this binding is weak [46].",
+   "printed": true
+  },
+  {
+   "para_id": 19,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Our results are not consistent with Z1Z2 only being located at the edge of the Z-disc. The regular spacing that we observe is unlikely to be explained by off-target effects, as the Z1Z2 Adhiron is specific, and does not bind to downstream Z-disc sequence. The dimensions of the axial and transverse patterns are consistent with a regular interaction of the N-terminal region of titin with ɑ-actinin-2 throughout the Z-disc. It is possible that an interaction of Z2-Zis-1 with ɑ-actinin-2 may contribute to this [43]. Importantly, the arrangement of Z1Z2 is more highly ordered than that of ɑ-actinin-2, both in the axial and transverse directions, which suggests other interactions likely contribute and that the titin N-terminal region is a key organiser of the Z-disc.",
+   "printed": true
+  },
+  {
+   "para_id": 20,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "The linear repeat of 16–18 nm that we also observed for ZASP is consistent with its binding to ɑ-actinin-2. ZASP comprises an N-terminal PDZ domain followed by a downstream intrinsically disordered region that contains several LIM (Lin11, Isl-1, Mec-3) domains and a ZASP-like motif (ZM). The PDZ and ZM domains bind to the C-terminal region (150 residues) of ɑ-actinin-2 [47]. Differential splicing results in three cardiac isoforms of ZASP, of which only two contain the 3 C-terminal LIM domains. The shorter isoform without LIM domains is only found in mature cardiac muscle and may block growth of the Z-disc [48–50]. The Adhiron to ZASP recognises the PDZ domain, present in all 3 ZASP isoforms in adult cardiac muscle. Our data suggests that there are fewer ZASP molecules than ɑ-actinin-2 molecules in the Z-disc and that ZASP does not appear to be restricted to any specific region of the Z-disc.",
+   "printed": true
+  },
+  {
+   "para_id": 21,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Z-discs contain over 50 different proteins [1] in a narrow structure. Determining the location and organisation of each of these is a highly challenging task. Here our combined use of Adhirons, iPALM data and the use of PERPL for analysis has allowed us to obtain quantitative, protein-specific spatial analysis down to 10 nm, despite the low density of iPALM localisations, particularly for ZASP. PERPL is well-suited to such a task, where low density of localisations precludes the effective use of particle averaging approaches from fluorescence localisations [51,52] and where distinguishing specific proteins by EM is not possible. Future work using single molecule localisation approaches combined with PERPL will help us to address the challenge of uncovering protein organisation in this complex structure.",
+   "printed": true
+  },
+  {
+   "para_id": 22,
+   "loc": "body",
+   "sec_title": "Adhirons – labelling and specificity",
+   "text": "Three different Adhirons were used, raised against the calponin homology (CH) domains of ɑ‑actinin-2, the Z1Z2 repeats of titin, and the protein ZASP. We have briefly reported on these Adhirons previously [27]. Once isolated, the coding sequence is subcloned into a bacterial expression vector containing a unique C-terminal cysteine. The Adhirons were expressed in BL21 STAR (DE3) E. coli (Life Technologies, Invitrogen) and affinity purified using Ni-NTA resin (Thermo Scientific) as previously described [25,27]. Briefly, a single colony was used to inoculate a 2 ml overnight culture of LB media supplemented with 100 µg/mL carbenicillin. Then, 50 ml LB media plus antibiotic was inoculated with 1 ml of the overnight culture and grown at 37 °C and 230 rpm to an OD600 between 0.6–0.8. Protein production was induced by addition of IPTG 0.1 mM and incubated for a further 20–22 hr, at 25°C and 150 rpm before harvesting. His-tagged proteins were lysed in 1 ml Adhiron lysis buffer (50 mM NaH2PO4, 300 mM NaCl, 30 mM Imidazole, 10% Glycerol, 1% Triton X-100, pH 7.4) supplemented with 0.1 mg/ml lysozyme, Halt protease inhibitor cocktail and 10 U/ml benzonase nuclease (Millipore, Burlington, MA). The lysate was then incubated with 200 µl of washed NiNTA His-Pur slurry (ThermoFisher Scientific) for 2 hr, washed with Adhiron wash buffer (50 mM NaH2PO4, 500 mM NaCl, 20 mM Imidazole, pH 7.4) and eluted in Adhiron elution buffer (50 mM NaH2PO4, 500 mM NaCl, 300 mM Imidazole, 20% glycerol, pH 7.4).",
+   "printed": true
+  },
+  {
+   "para_id": 23,
+   "loc": "body",
+   "sec_title": "Adhirons – labelling and specificity",
+   "text": "For iPALM, the Adhirons were labelled with AlexaFluor647, via a maleimide linkage to a unique cysteine residue at the C-terminus, and then further purified to remove extraneous dye as previously described [25]. Briefly, 150 µl of 40 µM Adhiron solutions were incubated with agitation at room temperature with 150 µl tris (2-carboxyethyl)phosphine (TCEP) immobilised resin (ThermoFisher Scientific) for 1 h. The solution was centrifuged (1 min at 1500 x g) and 130 µl of the supernatant transferred to a fresh tube containing 6 µl of 2 mM dye-maleimide (AlexaFluor-647-C2 maleimide, A20347 Invitrogen) and incubated at room temperature for 2 h. The reaction was quenched with 1.3 µl β-mercaptoethanol for 15 min at room temperature. Excess label was removed using Zeba dye and biotin removal columns (Thermo Scientific) as per the manufacturer’s instructions, followed by dialysis into PBS.",
+   "printed": true
+  },
+  {
+   "para_id": 24,
+   "loc": "body",
+   "sec_title": "Target protein production",
+   "text": "The calponin homology (CH) domains of ɑ-actinin-2 were expressed and purified as previously described [53], the Z1Z2 repeats of titin (residues 1–200) [27], the end of Z2 repeat to the beginning of the Zr5 domain of titin (residues 201–598) and the protein ZASP PDZ (residues 1–89) [27] were subcloned in pGEX-6P-1 between the BamHI and EcoRI sites. Target proteins were expressed in Escherichia coli BL21 Rosetta 2 (Novagen) and purified using GST-tag affinity chromatography. Briefly, a single colony was used to inoculate a 7 ml overnight culture of 2YT media supplemented with 100 µg/mL carbenicillin and 34 µg/mL chloramphenicol. Then, 400 ml LB (ɑ-actinin-2) or 500 ml TB media plus antibiotics was inoculated with 5 ml of the overnight culture and grown at 37 °C and 230 rpm to an OD600 between 0.6–0.8. Protein production was induced by addition of IPTG 0.5 mM and incubated for a further 3 h at 37 °C and 230 rpm or 2 h at 25 °C and 150 rpm before the temperature was reduced to 25°C for a further 16–18 h. Cells were harvested at 4000 x g at 4 °C for 20 mins. Harvested pellets were lysed in GST lysis buffer (50 mM Tris-HCl, 500mM NaCl, 1 mM DTT, 1 mM EDTA, 1% Triton X-100, pH 7.4) supplemented with 1x HALT protease inhibitor cocktail, 1 mg/ml lysozyme and 3U/mL benzonase followed by sonication (6 cycles of 10 s on/off pulses), centrifuged (20,000 x g, 30 min). Lysates were then incubated with 1.25 mL washed Glutathione Resin (Amintra) for 1hr. Resin was washed five times with GST Wash buffer (50 mM Tris-HCl, 500 mM NaCl, 1 mM DTT, 1 mM EDTA, pH8.0) and proteins eluted with GST Elution buffer (50 mM Tris-HCl, 500 mM NaCl, 1 mM DTT, 1 mM EDTA, 20 mM reduced glutathione, pH 7.4).",
+   "printed": true
+  },
+  {
+   "para_id": 25,
+   "loc": "body",
+   "sec_title": "SPR analysis",
+   "text": "The affinities of ZASP-Adhiron 6 and Z1/Z2-Adhiron 12 for GST-ZASP PDZ, GST-Z1/Z2, GST-α-actinin-2 CH domains and GST-end Z2 to Zr5 were determined by surface plasmon resonance (SPR) using a BIAcore 1K+ (Cytiva). Adhiron proteins with a C-terminal cysteine residue were biotinylated with biotin-maleimide (SigmaAldrich) as previously described [25]. Biotinylated Adhirons (10nM) were captured on streptavidin chips (Biacore) to a density for a predicted Rmax binding signal of <100RUs. Binding assays were performed at 25°C in PBS plus tween 20 (0.05% v/v). GST-Z1/Z2, GST-ZASP PDZ, GST-α-actinin-2 and GST-End Z2 to Zr5 were injected at 0.0, 1.5625, 3.125, 6.25, 12.5, 25, 50, 100, 200 and 400nM at a flow rate of 30μl min-1, for 3 minutes followed by a 5 min dissociation phase and a 30 second regeneration step with K2CO3 0.1M. Sensorgrams were processed by “double referencing” with subtraction of the signals from a reference flow-cell and from the zero concentration blank. The on- and off-rates and KD parameters were obtained from a fit to the lowest three concentrations using a 1:1 Langmuir model, using the BIAevaluation software.",
+   "printed": true
+  },
+  {
+   "para_id": 26,
+   "loc": "body",
+   "sec_title": "Myofibril sample preparation",
+   "text": "Frozen pig hearts were obtained from Pel-Freez Biologicals. The heart was allowed to thaw, small pieces (approximately 200–300 mg each) were excised from the left ventricular muscle wall using a scalpel and used to generate myofibrils using a similar approach to those used to generate mouse heart myofibrils [54]. Briefly, ~ 250 mg of muscle was placed into 1 ml of K60 buffer + BDM in an eppendorf and rinsed 2–3 times until the buffer was mostly clear. K60 buffer contains 1 x Protease inhibitor cocktail (Sigma P8340). The muscle was then transferred into 1 ml of K60 buffer in a 5 ml Eppendorf tube on ice and homogenised using a tissue tearor, at max speed (~21K RPM) for ~30s, repeated twice until no visible intact tissue remained. The mixture was then transferred to a 1.7 ml Eppendorf tube, and centrifuged at 4°C, 1000 g for 10 minutes. The supernatant was removed, and the pellet resuspended in K60 buffer containing 1% Triton X-100, then incubated on ice for 30 minutes. The mixture was vortexed twice during this incubation. The mixture was then centrifuged at 4°C, 1000 g for 5 minutes, the supernatant removed and the pellet resuspended in 1 ml K60 buffer. This mixture was then centrifuged at 4°C, 1000 g for 5 minutes, the supernatant removed, and the pellet resuspended in K60 buffer supplemented with 0.1% BSA, 10mM DTT and 1 mM EGTA. If not used immediately, myofibrils were stored for up to a week in the final K60 buffer containing 50% glycerol at -20°C. We thank David Warshaw’s group for sharing this detailed protocol with us [54].",
+   "printed": true
+  },
+  {
+   "para_id": 27,
+   "loc": "body",
+   "sec_title": "Sample imaging",
+   "text": "iPALM imaging was performed similarly to as described in previous work [18,20,55–57]. The Alexa Fluor 647-labelled samples were excited using 647 nm laser (Opto Engine LLC) excitation at ca. 2–3 kW/cm2 intensity in TIRF conditions. The gold fiducials embedded in the coverslip were used for calibrating interferometry. 100,000 images were collected through dual Nikon Apo TIRF 60x/1.49NA objective lenses coupled to a 647 nm long-pass filter (LP02–647RU, Semrock), and acquired via three EMCCD cameras (DU987E, Andor) at 30 ms exposure. The field-of-view (FOV) varied from 30–40 µm.",
+   "printed": true
+  },
+  {
+   "para_id": 28,
+   "loc": "body",
+   "sec_title": "iPALM data preprocessing",
+   "text": "As described in [18,20,55–57], the iPALM data was processed/localized using PeakSelector software (Janelia Research Campus). The gold fiducials embedded in the coverslip were used for drift correction. We used the grouped xyz position output as final localisation coordinates. z is depth through the sample along the optical axis.",
+   "printed": true
+  },
+  {
+   "para_id": 29,
+   "loc": "body",
+   "sec_title": "Z-disc segmentation",
+   "text": "Z-discs were segmented from iPALM reconstructions as reported previously [34]. Briefly, the point cloud data from each FOV was rendered as a 3D histogram with 50-nm bin size in x, y and z. The Z-discs in each image were then segmented using Ilastik’s pixel classification and object classification workflow, implemented through the graphical user interface (see Supplementary Videos 1–8) [33]. The underlying localisations (point-cloud data) for each Z-disc were then extracted from these segmented histograms. Z-disc dimensions and volume were then calculated respectively using principal component analysis (PCA) and the convex hull of the localisations. Sarcomere length was measured using the line selection tool in Fiji.",
+   "printed": true
+  },
+  {
+   "para_id": 30,
+   "loc": "body",
+   "sec_title": "PERPL modelling",
+   "text": "The organisation of each protein in the Z-disc in both the axial direction (cell axis, y) and in the transverse plane (x,z) was modelled using PERPL [26] (S3 Fig). Briefly, PERPL calculates the relative position distribution (RPD) for the proteins, fits RPD models generated from hypothetical models of organisation in real space and gives relative likelihoods for these models. Each model RPD is constructed by summing terms for: the background from randomly distributed localisations, Npeaks number of peaks for the characteristic distances of type, dtype, between the localisations; and the independent RPD resulting from repeated localisation of the same dye molecule (repeats).",
+   "printed": true
+  },
+  {
+   "para_id": 31,
+   "loc": "body",
+   "sec_title": "PERPL modelling",
+   "text": "The point-cloud for each Z-disc was pre-processed in preparation for PERPL analysis. First, the line of each Z-disc in its x,y view was aligned along x using 2D PCA, leaving z unchanged. Next, density-based spatial clustering of applications with noise (DBSCAN) was applied to each Z-disc to remove outlier localisations far from the main body of the Z-disc, implemented in visualisation software Open3D [42,58]. The two parameters for DBSCAN, epsilon (ε) and minimum points (minPts), were separately optimised for each Z-disc between ε: 50 – 150 nm and minPts: 3 – 7 by visually assessing the clustering result.",
+   "printed": true
+  },
+  {
+   "para_id": 32,
+   "loc": "body",
+   "sec_title": "PERPL modelling",
+   "text": "To generate the experimental RPD, the data was filtered by removing localisations with x, y or z precision above a threshold, σloc-max. The Euclidean distances between the resulting localisations were calculated up to 150 nm in the direction or plane being modelled. No limit was placed on the distances between localisations in the orthogonal directions, as this significantly reduced the number of distances available for modelling. From this set of distances, the final RPD was calculated as a kernel density estimate using Churchman’s distributions for distances between localisations in 1D or 2D [59], up to a maximum distance, Lfit. To minimise the impact of edge effects in the transverse direction, Lfit was set well below the extent of the data in x,z (Tables 1, S2).",
+   "printed": true
+  },
+  {
+   "para_id": 33,
+   "loc": "body",
+   "sec_title": "PERPL modelling",
+   "text": "Background terms were a function of the relative distance (d) between localisations, including linear1D (Ad + B, A ≤ 0, B ≥ 0), linearflat (Ad + B, A ≤ 0, B ≥ 0 for 0 ≤ d < -B/A; 0 for d ≥ -B/A), linear2D (Ad + B, A ≥ 0, B ≥ 0), linear2D,int=0 (Ad, A ≥ 0), quad2D (Ad + Bd2, A ≥ 0, B ≤ 0), cubic2D (Ad + Bd2 + Cd3, A ≥ 0, B ≤ 0, C ≥ 0), None (no background term) or constant background level. A, B and C were optimised during fitting. 2D background options were extensions to PERPL based on the theoretical distribution of distances for randomly sampled points within a finite rectangle [60].",
+   "printed": true
+  },
+  {
+   "para_id": 34,
+   "loc": "body",
+   "sec_title": "PERPL modelling",
+   "text": "Peak type in the model RPD, dtype, was “int”, where peaks were at integer multiples of a single characteristic distance, a; “sq”, where peaks were at a, a√2, 2a; or “ind”, where characteristic distances were independent of one another. These peaks have a width defined by a Gaussian-like broadening term, σbroadening, which is optimised for each model (rather than per-peak) during model fitting, to reflect experimental noise and biological variability [26,59]. The characteristic distance values were optimised during model fitting. The term for repeat localisations of the same molecule (zero-distance) has a separate σbroadening.",
+   "printed": true
+  },
+  {
+   "para_id": 35,
+   "loc": "body",
+   "sec_title": "PERPL modelling",
+   "text": "Model RPDs were fit to each experimental RPD by adjusting the model parameters to minimise the mean-squared error (MSE), having specified initial guesses and bounds for the parameter values. In the transverse plane, the count in the experimental and model RPD was divided by the distance, to avoid the fit being dominated by a parameter for a linearly increasing count as expected for a random 2D distribution (ignoring edge effects) [26,36].",
+   "printed": true
+  },
+  {
+   "para_id": 36,
+   "loc": "body",
+   "sec_title": "PERPL modelling",
+   "text": "For each experimental RPD, we selected the model with the lowest corrected Akaike information criterion (AICc) as the most likely, as in previous work [26]. AICc measures differences in information loss between different models for the same data, and therefore the relative likelihood that the models describe the true distribution from which the data is sampled. It penalises overfitting:",
+   "printed": true
+  },
+  {
+   "para_id": 37,
+   "loc": "body",
+   "sec_title": "PERPL modelling",
+   "text": "for models fitted by minimising MSE, where n is the number of datapoints, k is the number of free parameters, y is the experimental RPD and ŷ is the model RPD [61]. Models that had a relative likelihood ≥ 0.01 compared with the most likely model (∆AICc ≤ 9.21) were also identified [61]. Models with a fitted parameter value at its permitted bounds, negative background (not physically real) or large uncertainty on the parameter value (parameter uncertainty > parameter value) were rejected. AICc may not be used to compare models fitted to different data, so between different localisation filtering settings.",
+   "printed": true
+  }
+ ],
+ "links": [
+  {
+   "link_id": 1,
+   "url": "github.com/oubino/z_disk/releases/tag/v0.0.3",
+   "url_raw": "https://github.com/oubino/z_disk/releases/tag/v0.0.3",
+   "href_jats": "https://github.com/oubino/z_disk/releases/tag/v0.0.3",
+   "repo_key": "github:oubino/z_disk",
+   "host_class": "github",
+   "loc": "front",
+   "sec_title": "",
+   "source": "tagged",
+   "para_id": 1
+  },
+  {
+   "link_id": 2,
+   "url": "zenodo.org/records/19661651",
+   "url_raw": "https://doi.org/10.5281/zenodo.19661651",
+   "href_jats": "https://doi.org/10.5281/zenodo.19661651",
+   "repo_key": "zenodo:19661651",
+   "host_class": "zenodo",
+   "loc": "front",
+   "sec_title": "",
+   "source": "tagged",
+   "para_id": 2
+  },
+  {
+   "link_id": 3,
+   "url": "pypi.org/project/perpl/1.2.0",
+   "url_raw": "https://pypi.org/project/perpl/1.2.0/",
+   "href_jats": "https://pypi.org/project/perpl/1.2.0/",
+   "repo_key": null,
+   "host_class": "other",
+   "loc": "front",
+   "sec_title": "",
+   "source": "tagged",
+   "para_id": 2
+  },
+  {
+   "link_id": 4,
+   "url": "pypi.org/project/perpl",
+   "url_raw": "https://pypi.org/project/perpl/",
+   "href_jats": "https://pypi.org/project/perpl/",
+   "repo_key": null,
+   "host_class": "other",
+   "loc": "front",
+   "sec_title": "",
+   "source": "tagged",
+   "para_id": 2
+  },
+  {
+   "link_id": 5,
+   "url": "zenodo.org/records/8027436",
+   "url_raw": "https://doi.org/10.5281/zenodo.8027436",
+   "href_jats": "https://doi.org/10.5281/zenodo.8027436",
+   "repo_key": "zenodo:8027436",
+   "host_class": "zenodo",
+   "loc": "front",
+   "sec_title": "",
+   "source": "tagged",
+   "para_id": 2
+  },
+  {
+   "link_id": 6,
+   "url": "cshprotocols.cshlp.org/content/2015/2/pdb.rec082917",
+   "url_raw": "https://cshprotocols.cshlp.org/content/2015/2/pdb.rec082917",
+   "href_jats": "https://cshprotocols.cshlp.org/content/2015/2/pdb.rec082917",
+   "repo_key": null,
+   "host_class": "other",
+   "loc": "body",
+   "sec_title": "Myofibril sample preparation",
+   "source": "tagged",
+   "para_id": 3
+  }
+ ],
+ "links_optional": [
+  "arxiv.org/abs/1801.09847",
+  "creativecommons.org/licenses/by/4.0",
+  "doi:10.1006/bbrc.1996.0862",
+  "doi:10.1006/jmbi.1997.1145",
+  "doi:10.1007/bf02844387",
+  "doi:10.1007/s10974-009-9189-6",
+  "doi:10.1007/s10974-017-9477-5",
+  "doi:10.1016/0022-2836(85)90308-0",
+  "doi:10.1016/0889-1605(89)90033-5",
+  "doi:10.1016/j.bpj.2011.06.024",
+  "doi:10.1016/j.cbpa.2023.102335",
+  "doi:10.1016/j.cell.2018.06.032",
+  "doi:10.1016/j.cell.2021.02.047",
+  "doi:10.1016/j.jmb.2006.07.077",
+  "doi:10.1016/j.jmb.2015.08.018",
+  "doi:10.1016/j.str.2004.02.019",
+  "doi:10.1016/j.str.2005.12.005",
+  "doi:10.1016/j.tcm.2007.09.002",
+  "doi:10.1016/s0022-2836(02)00372-8",
+  "doi:10.1021/acs.nanolett.0c03332",
+  "doi:10.1021/acsnano.1c03677",
+  "doi:10.1038/nature09621",
+  "doi:10.1038/ncb3180",
+  "doi:10.1038/nrm1198",
+  "doi:10.1038/nsb1001-853",
+  "doi:10.1038/s41467-019-12611-w",
+  "doi:10.1038/s41467-021-22006-5",
+  "doi:10.1038/s41467-024-46868-7",
+  "doi:10.1038/s41586-024-07487-w",
+  "doi:10.1038/s41592-019-0582-9",
+  "doi:10.1038/s41592-022-01676-z",
+  "doi:10.1038/s42003-020-01321-5",
+  "doi:10.1042/bcj20160421",
+  "doi:10.1046/j.1365-2818.2000.00710.x",
+  "doi:10.1073/pnas.0813131106",
+  "doi:10.1073/pnas.0902312106",
+  "doi:10.1073/pnas.1612681114",
+  "doi:10.1074/jbc.m211875200",
+  "doi:10.1074/jbc.r110.174268",
+  "doi:10.1074/mcp.m116.065425",
+  "doi:10.1083/jcb.106.5.1563",
+  "doi:10.1083/jcb.143.4.1013",
+  "doi:10.1083/jcb.146.2.465",
+  "doi:10.1085/jgp.202213276",
+  "doi:10.1085/jgp.92.1.113",
+  "doi:10.1091/mbc.e18-11-0694",
+  "doi:10.1093/protein/gzu007",
+  "doi:10.1111/jmi.13236",
+  "doi:10.1111/jmi.13349",
+  "doi:10.1146/annurev-biophys-071524-105321",
+  "doi:10.1146/annurev-biophys-102521-112912",
+  "doi:10.1242/jcs.109.11.2747",
+  "doi:10.1242/jcs.259168",
+  "doi:10.1242/jcs.260179",
+  "doi:10.1529/biophysj.105.065599",
+  "doi:10.3389/fcell.2022.963608",
+  "doi:10.3389/fcvm.2023.1094563",
+  "doi:10.3390/ijms22063058",
+  "doi:10.7554/elife.24903",
+  "doi:10.7554/elife.50496",
+  "editorialmanager.com/pcompbiol",
+  "explore.plos.org/phishing",
+  "journals.plos.org/ploscompbiol/s/editorial-and-peer-review-process",
+  "journals.plos.org/ploscompbiol/s/figures",
+  "journals.plos.org/ploscompbiol/s/materials-and-software-sharing",
+  "journals.plos.org/ploscompbiol/s/submission-guidelines",
+  "ngplosjournals.pagemajik.ai/artanalysis",
+  "plos.org/privacy-policy",
+  "plos.org/protocols?utm_medium=editorial-email&utm_source=authorletters&utm_campaign=protocols"
+ ],
+ "own_doi": "doi:10.1371/journal.pcbi.1014309",
+ "citations": [
+  {
+   "cite_id": 1,
+   "para_id": 4,
+   "bib_id": 1,
+   "marker": "1",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 2,
+   "para_id": 4,
+   "bib_id": 2,
+   "marker": "2",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 3,
+   "para_id": 4,
+   "bib_id": 3,
+   "marker": "3",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 4,
+   "para_id": 4,
+   "bib_id": 4,
+   "marker": "4",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 5,
+   "para_id": 5,
+   "bib_id": 5,
+   "marker": "5",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 6,
+   "para_id": 5,
+   "bib_id": 5,
+   "marker": "5",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 7,
+   "para_id": 5,
+   "bib_id": 5,
+   "marker": "5",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 8,
+   "para_id": 5,
+   "bib_id": 6,
+   "marker": "5–7",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 9,
+   "para_id": 5,
+   "bib_id": 7,
+   "marker": "7",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 10,
+   "para_id": 5,
+   "bib_id": 7,
+   "marker": "7",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 11,
+   "para_id": 5,
+   "bib_id": 8,
+   "marker": "7–9",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 12,
+   "para_id": 5,
+   "bib_id": 9,
+   "marker": "9",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 13,
+   "para_id": 5,
+   "bib_id": 10,
+   "marker": "10",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 14,
+   "para_id": 5,
+   "bib_id": 11,
+   "marker": "11",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 15,
+   "para_id": 5,
+   "bib_id": 12,
+   "marker": "11–13",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 16,
+   "para_id": 5,
+   "bib_id": 13,
+   "marker": "13",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 17,
+   "para_id": 6,
+   "bib_id": 14,
+   "marker": "14",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 18,
+   "para_id": 6,
+   "bib_id": 15,
+   "marker": "15",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 19,
+   "para_id": 6,
+   "bib_id": 16,
+   "marker": "16",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 20,
+   "para_id": 6,
+   "bib_id": 17,
+   "marker": "17",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 21,
+   "para_id": 6,
+   "bib_id": 15,
+   "marker": "15",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 22,
+   "para_id": 6,
+   "bib_id": 18,
+   "marker": "18",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 23,
+   "para_id": 6,
+   "bib_id": 19,
+   "marker": "19",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 24,
+   "para_id": 6,
+   "bib_id": 16,
+   "marker": "16",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 25,
+   "para_id": 6,
+   "bib_id": 16,
+   "marker": "16",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 26,
+   "para_id": 6,
+   "bib_id": 20,
+   "marker": "20",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 27,
+   "para_id": 7,
+   "bib_id": 21,
+   "marker": "21",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 28,
+   "para_id": 7,
+   "bib_id": 22,
+   "marker": "22",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 29,
+   "para_id": 7,
+   "bib_id": 23,
+   "marker": "23",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 30,
+   "para_id": 7,
+   "bib_id": 24,
+   "marker": "24",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 31,
+   "para_id": 7,
+   "bib_id": 22,
+   "marker": "22",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 32,
+   "para_id": 7,
+   "bib_id": 23,
+   "marker": "23",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 33,
+   "para_id": 7,
+   "bib_id": 24,
+   "marker": "24",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 34,
+   "para_id": 7,
+   "bib_id": 25,
+   "marker": "25",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 35,
+   "para_id": 7,
+   "bib_id": 25,
+   "marker": "25",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 36,
+   "para_id": 8,
+   "bib_id": 26,
+   "marker": "26",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 37,
+   "para_id": 8,
+   "bib_id": 26,
+   "marker": "26",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 38,
+   "para_id": 8,
+   "bib_id": 27,
+   "marker": "27",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 39,
+   "para_id": 8,
+   "bib_id": 28,
+   "marker": "28",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 40,
+   "para_id": 8,
+   "bib_id": 29,
+   "marker": "29",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 41,
+   "para_id": 8,
+   "bib_id": 30,
+   "marker": "30",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 42,
+   "para_id": 8,
+   "bib_id": 31,
+   "marker": "31",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 43,
+   "para_id": 9,
+   "bib_id": 26,
+   "marker": "26",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 44,
+   "para_id": 9,
+   "bib_id": 27,
+   "marker": "27",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 45,
+   "para_id": 9,
+   "bib_id": 24,
+   "marker": "24",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 46,
+   "para_id": 9,
+   "bib_id": 26,
+   "marker": "26",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 47,
+   "para_id": 9,
+   "bib_id": 32,
+   "marker": "32",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 48,
+   "para_id": 10,
+   "bib_id": 33,
+   "marker": "33",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 49,
+   "para_id": 10,
+   "bib_id": 34,
+   "marker": "34",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 50,
+   "para_id": 11,
+   "bib_id": 26,
+   "marker": "26",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 51,
+   "para_id": 11,
+   "bib_id": 26,
+   "marker": "26",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 52,
+   "para_id": 12,
+   "bib_id": 5,
+   "marker": "5",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 53,
+   "para_id": 12,
+   "bib_id": 13,
+   "marker": "13",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 54,
+   "para_id": 12,
+   "bib_id": 35,
+   "marker": "35",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 55,
+   "para_id": 13,
+   "bib_id": 5,
+   "marker": "5",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 56,
+   "para_id": 13,
+   "bib_id": 13,
+   "marker": "13",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 57,
+   "para_id": 13,
+   "bib_id": 5,
+   "marker": "5",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 58,
+   "para_id": 14,
+   "bib_id": 13,
+   "marker": "13",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 59,
+   "para_id": 15,
+   "bib_id": 5,
+   "marker": "5",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 60,
+   "para_id": 15,
+   "bib_id": 26,
+   "marker": "26",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 61,
+   "para_id": 16,
+   "bib_id": 23,
+   "marker": "23",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 62,
+   "para_id": 16,
+   "bib_id": 20,
+   "marker": "20",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 63,
+   "para_id": 16,
+   "bib_id": 26,
+   "marker": "26",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 64,
+   "para_id": 16,
+   "bib_id": 5,
+   "marker": "5",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 65,
+   "para_id": 16,
+   "bib_id": 13,
+   "marker": "13",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 66,
+   "para_id": 16,
+   "bib_id": 9,
+   "marker": "9",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 67,
+   "para_id": 17,
+   "bib_id": 26,
+   "marker": "26",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 68,
+   "para_id": 17,
+   "bib_id": 36,
+   "marker": "36",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 69,
+   "para_id": 17,
+   "bib_id": 13,
+   "marker": "13",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 70,
+   "para_id": 17,
+   "bib_id": 13,
+   "marker": "13",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 71,
+   "para_id": 18,
+   "bib_id": 30,
+   "marker": "30",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 72,
+   "para_id": 18,
+   "bib_id": 37,
+   "marker": "37",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 73,
+   "para_id": 18,
+   "bib_id": 38,
+   "marker": "37–39",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 74,
+   "para_id": 18,
+   "bib_id": 39,
+   "marker": "39",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 75,
+   "para_id": 18,
+   "bib_id": 40,
+   "marker": "40",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 76,
+   "para_id": 18,
+   "bib_id": 41,
+   "marker": "40–42",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 77,
+   "para_id": 18,
+   "bib_id": 42,
+   "marker": "42",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 78,
+   "para_id": 18,
+   "bib_id": 29,
+   "marker": "29",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 79,
+   "para_id": 18,
+   "bib_id": 30,
+   "marker": "30",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 80,
+   "para_id": 18,
+   "bib_id": 43,
+   "marker": "43",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 81,
+   "para_id": 18,
+   "bib_id": 30,
+   "marker": "30",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 82,
+   "para_id": 18,
+   "bib_id": 44,
+   "marker": "44",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 83,
+   "para_id": 18,
+   "bib_id": 45,
+   "marker": "45",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 84,
+   "para_id": 18,
+   "bib_id": 46,
+   "marker": "46",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 85,
+   "para_id": 19,
+   "bib_id": 43,
+   "marker": "43",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 86,
+   "para_id": 20,
+   "bib_id": 47,
+   "marker": "47",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 87,
+   "para_id": 20,
+   "bib_id": 48,
+   "marker": "48",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 88,
+   "para_id": 20,
+   "bib_id": 49,
+   "marker": "48–50",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 89,
+   "para_id": 20,
+   "bib_id": 50,
+   "marker": "50",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 90,
+   "para_id": 21,
+   "bib_id": 1,
+   "marker": "1",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 91,
+   "para_id": 21,
+   "bib_id": 51,
+   "marker": "51",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 92,
+   "para_id": 21,
+   "bib_id": 52,
+   "marker": "52",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 93,
+   "para_id": 22,
+   "bib_id": 27,
+   "marker": "27",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 94,
+   "para_id": 22,
+   "bib_id": 25,
+   "marker": "25",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 95,
+   "para_id": 22,
+   "bib_id": 27,
+   "marker": "27",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 96,
+   "para_id": 23,
+   "bib_id": 25,
+   "marker": "25",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 97,
+   "para_id": 24,
+   "bib_id": 53,
+   "marker": "53",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 98,
+   "para_id": 24,
+   "bib_id": 27,
+   "marker": "27",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 99,
+   "para_id": 24,
+   "bib_id": 27,
+   "marker": "27",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 100,
+   "para_id": 25,
+   "bib_id": 25,
+   "marker": "25",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 101,
+   "para_id": 26,
+   "bib_id": 54,
+   "marker": "54",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 102,
+   "para_id": 26,
+   "bib_id": 54,
+   "marker": "54",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 103,
+   "para_id": 27,
+   "bib_id": 18,
+   "marker": "18",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 104,
+   "para_id": 27,
+   "bib_id": 20,
+   "marker": "20",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 105,
+   "para_id": 27,
+   "bib_id": 55,
+   "marker": "55",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 106,
+   "para_id": 27,
+   "bib_id": 56,
+   "marker": "55–57",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 107,
+   "para_id": 27,
+   "bib_id": 57,
+   "marker": "57",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 108,
+   "para_id": 28,
+   "bib_id": 18,
+   "marker": "18",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 109,
+   "para_id": 28,
+   "bib_id": 20,
+   "marker": "20",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 110,
+   "para_id": 28,
+   "bib_id": 55,
+   "marker": "55",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 111,
+   "para_id": 28,
+   "bib_id": 56,
+   "marker": "55–57",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 112,
+   "para_id": 28,
+   "bib_id": 57,
+   "marker": "57",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 113,
+   "para_id": 29,
+   "bib_id": 34,
+   "marker": "34",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 114,
+   "para_id": 29,
+   "bib_id": 33,
+   "marker": "33",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 115,
+   "para_id": 30,
+   "bib_id": 26,
+   "marker": "26",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 116,
+   "para_id": 31,
+   "bib_id": 42,
+   "marker": "42",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 117,
+   "para_id": 31,
+   "bib_id": 58,
+   "marker": "58",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 118,
+   "para_id": 32,
+   "bib_id": 59,
+   "marker": "59",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 119,
+   "para_id": 33,
+   "bib_id": 60,
+   "marker": "60",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 120,
+   "para_id": 34,
+   "bib_id": 26,
+   "marker": "26",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 121,
+   "para_id": 34,
+   "bib_id": 59,
+   "marker": "59",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 122,
+   "para_id": 35,
+   "bib_id": 26,
+   "marker": "26",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 123,
+   "para_id": 35,
+   "bib_id": 36,
+   "marker": "36",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 124,
+   "para_id": 36,
+   "bib_id": 26,
+   "marker": "26",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 125,
+   "para_id": 37,
+   "bib_id": 61,
+   "marker": "61",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 126,
+   "para_id": 37,
+   "bib_id": 61,
+   "marker": "61",
+   "expanded": false,
+   "scored": true
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-ext-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "v1_bib_count": 61
+ }
+}

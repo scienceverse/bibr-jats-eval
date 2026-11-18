@@ -1,0 +1,775 @@
+{
+ "paper_id": "10.7717_peerj.21626",
+ "paras": [
+  {
+   "para_id": 1,
+   "loc": "body",
+   "sec_title": "Sequencing analysis",
+   "text": "Flash (1.2.11) was used to overlap and merge the raw data from the Illumina MiSeq platform, followed by quality-controlled processing with QIIME (Version 1.9.1) (Caporaso et al., 2010). At 97% similarity, the clean sequences were clustered into operational taxonomic units (OTUs: microbial sequences into the basic units of communities in molecular biology analysis) using Vsearch (Eevers et al., 2016). The annotation of the bacterial and fungal OTUs was performed with Greengenes database (Release 13.8, http://greengenes.secondgenome.com/) and the UNITE database (Release 8.0, http://unite.ut.ee/index.php) using the RDP classifier (v 2.13). Data normalization was performed using the sample with the fewest sequences. All subsequent analyses were performed using the normalized data. Alpha diversity was analyzed with Mothur software (version 1.30.2) and included the Shannon index, Simpson index, Chao index, Shannon evenness index and Good’s coverage; Beta diversity and principal coordinate analysis (PCoA) were performed with QIIME (Version 1.9.1); Heatmaps and Venn diagrams were drawn and analyzed using R software (version 3.3.1). The co-occurrence network analysis was conducted by calculating Spearman’s correlation coefficients with absolute correlation coefficients ≥ 0.7 and P < 0.05, and the resulting network was visualized with Gephi (0.9.7) (Chen et al., 2022a; Chen et al., 2022b).",
+   "printed": true
+  },
+  {
+   "para_id": 2,
+   "loc": "fn",
+   "sec_title": "Data Availability",
+   "text": "– https://ngdc.cncb.ac.cn/omix/release/OMIX016964",
+   "printed": true
+  },
+  {
+   "para_id": 3,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Dracocephalum tanguticum (Maxim) is a perennial herb that belongs to the Lamiaceae family, and is mainly distributed on Qinghai Xizang Plateau. D. tanguticum, as a traditional Xizang medicine, has been recorded in the Xizang medicine standard (Li et al., 2016). D. tanguticum is rich in various chemical constituents, such as flavonoids, terpenoids, polysaccharides and volatile components (Zeng et al., 2010). The major active ingredients are flavonoids and terpenes (Chen et al., 2022b), which are commonly used to treat hepatitis, dizziness, gastritis, ulcers, and arthritis (Li et al., 2016; Liu et al., 2009; Wang et al., 2010). Previous studies have employed various methods to isolate and identify flavonoids from D. tanguticum. For instance, Li et al. (2016) utilized high-performance liquid chromatographic fingerprints combined with tandem mass spectrometry and chemometrics to identify 33 flavonoids. Additionally, Chen et al. (2022a); Chen et al. (2022b) employed three different high-speed counter-current chromatography modes to separate five flavone glycosides. However, due to the inherent complexity of the herbal medicines, which contain a plethora of primary and secondary metabolites, these methods exhibit certain limitations (Qian et al., 2023). Metabolomics technology presents a promising approach for investigating functional secondary metabolites and metabolic pathways. It has been successfully applied to study the medicinal constituents of Bistorta vivipara (He et al., 2024), bisbenzylisoquinoline alkaloids (BIAs) in Phellodendron amurense Rupr Zhang et al. (2024b), and volatile flavor compounds in cigar tobacco (Wang et al., 2024). Consequently, metabolomics technology is anticipated to significantly advance research on a wide range of medicinal plants.",
+   "printed": true
+  },
+  {
+   "para_id": 4,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Endophytes are microorganisms residing within plant organs such as leaves, stems, and roots without causing harm to the host (Huang et al., 2023; Zhang et al., 2023). They are associated with host growth, development and metabolic synthesis (Golinska et al., 2015; Chen et al., 2019). Endophytes, such as Bacillus xiamenensis NIBSM_SgR3 and Bacillus velezensis NIBSM_SgL59, isolated from Rauvolfia serpentina L. possess the potential to promote plant growth and exhibit antibacterial properties (Anisha et al., 2025). Endophytes, Bacillus subtilis IGPEB 34 and Bacillus pumilis IGPEB 37, significantly increased the growth of ginger (Jabborova et al., 2025). Endophytes play a direct or indirect role in the biosynthesis of active compounds in medicinal plants (Ling et al., 2022). Previous studies have shown that the exopolysaccharides produced by the endophytic Penicillium javanicum have anti-inflammatory activity (Lai et al., 2023). Additionally, the extracts from endophytic bacteria, such as Enterobacter, Bacillus, Erwinia, Stenotrophomonas, and Pantoea, contain various pharmacologically active ingredients (Rahman et al., 2022). The endophytic fungi (Chaetomium nozdrenkoae and Penicillium oxalicum) isolated from Paris polyphylla var. yunnanensis had antibacterial and antitumour activity (Zhang et al., 2026). The colonization of Polygonum by endophytic fungi significantly affects the contents of active ingredients (Zhang et al., 2022). Furthermore, Alternaria tenuissima ZP28 and ZM148, endophytic fungi that produce flavonoids, demonstrate antioxidant and antibacterial properties (Zheng et al., 2022). Consequently, the quality of medicinal plants depends on the contents and quantity of medicinal components associated with endophytic microbes (Huang, Long & Lam, 2018). Research on the interactions between microbes and metabolites elucidates the roles of endophytic microbes in plants. Currently, there is significant interest in the functional microbes associated with medicinal components. For instance, utilizing microbiome and metabolome data, researchers have identified numerous medicinal components in the roots of Polygonum viviparum L (He et al., 2024) and have mapped complex interaction networks between root-associated microorganisms of Phellodendron amurense and their key chemical compounds (Zhang et al., 2024a; Zhang et al., 2024b). Nevertheless, the endophytic community and the primary active compounds in D. tanguticum remain largely unknown.",
+   "printed": true
+  },
+  {
+   "para_id": 5,
+   "loc": "body",
+   "sec_title": "Sample collection and processing",
+   "text": "Samples of fresh leaves, stems, and roots from healthy D. tanguticum were gathered in Xizang, China. The fresh leaf, stem and root samples from fifty healthy D. tanguticum (three years old) were cut off and collected as one sample at each point of sampling. A total of nine sampling points were selected, the root, stem, and leaf of each sampling point constitute an independent biological replicate, respectively. DtL, DtS, and DtR represented leaf, stem and root of wild D. tanguticum, respectively. All samples were carefully washed by running water and surface-sterilized by the following operations: 75% ethanol for 1 min, and then 2.5% sodium hypochlorite for 3 min, subsequently, rinsed 6 times with sterile distilled water and dried on sterilized paper (Zhang et al., 2023). The effectiveness of surface sterilization was assessed by plating the last rinse water on Luria–Bertani (LB) and Potato Dextrose Agar (PDA) medium to confirm no microbial growth (Lu et al., 2020). The different organs samples at each sampling point were split into two portions: one for examining the endophytic community and the other portion randomly selected six different organs samples for conducting phenolics-target metabolomics analysis.",
+   "printed": true
+  },
+  {
+   "para_id": 6,
+   "loc": "body",
+   "sec_title": "Correlation analysis of microorganisms and metabolites in different organs of D. tanguticum",
+   "text": "Endophytes play a direct or indirect role in the accumulation of metabolites in plants (Ling et al., 2022). The top 20 differentially abundant microorganisms were plotted against 75 polyphenolic compounds in a correlation network diagram using the thresholds absolute correlation coefficient —r—> 0.7 and P < 0.05 to understand the intricate relationships between microbes and polyphenolic compounds (Figs. 11A and 11B). The correlation network analysis indicated that 11 bacterial genera and 16 fungal genera were significantly correlated with 44 and 51 metabolites, respectively. In the correlation analysis of bacteria and polyphenolic compounds, the vast majority of bacteria and metabolites showed significant negative correlations (Fig. 11A); for example, Rhodococcus was positively and significantly correlated with 9 metabolites (chlorogenic acid, quercetin 3-galactoside, Astragalin, etc.) and negatively correlated with 11 metabolites (catechin, quercetin 3-O-glucuronide, epicatechin, and methyl gallate, etc.), whereas Friedmanniella was positively and significantly correlated with 4 metabolites (cryptochlorogenic acid, apiin, quercetin 3-galactoside and trans-cinnamic acid) and negatively correlated with 14 metabolites (scopoletin, procyanidin B3, fraxetin, etc.). However, Solirubrobacter was positively and significantly correlated with 8 metabolites (fraxin, catechin, fraxetin, etc.) and was negatively correlated with only chlorogenic acid. In the correlation analysis of fungi and polyphenolic compounds, Cladosporium, Comoclathris, Didymella, Leptosphaerulina, and Rachicladosporium (the biomarkers of DtL) were significantly positively correlated with 16, 16, 12, 6, and 12 metabolites and negatively correlated with 19, 20, 17, 19, and 11 metabolites, respectively. Capnocheirides, Filobasidium, Genolevuria, Naganishia, and Saitozyma (the biomarkers of DtS) were significantly positively correlated with 11, 10, 6, 6, and 3 metabolites and negatively correlated with 11, 15, 10, 3, and 2 metabolites, respectively. Cadophora, Cladosporium, and Phialophora (the biomarkers of DtR) were significantly positively correlated with 14, 16, and 17 metabolites and negatively correlated with 17, 19, and 6 metabolites, respectively.",
+   "printed": true
+  },
+  {
+   "para_id": 7,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Endophytes play a direct or indirect role in host growth and development, improve defenses against abiotic and biotic stress, and synthesize metabolites (Chen et al., 2019; Shan et al., 2024; Singh et al. , 2019). Endophytes have typical host preferences and organs specificities; for example, the diversity of endophytes in the leaves of Arnebia euchroma is greater than that in the roots (Chen et al., 2025), the endophytic diversity in the fibrils of Panax quinquefolius is greater than that in other organs (Li et al., 2023), the diversity of endophytic bacteria in the roots and fungi in the stems of Gentiana officinalis is relatively high (Hou et al., 2022). In this study, the endophytic bacterial richness in the roots and fungal richness in the leaves of D. tanguticum were relatively high, and the diversity of endophytes in the stems was relatively high; however, no significant difference was observed among the different organs. The results indicated that various factors influenced the community diversity of endophytes in the different organs of D. tanguticum. PCoA revealed obvious differences across different organs, and the endophytic communities in the leaves and stems were similar, while the endophytic communities in the roots were significantly separated from the microbial communities in the leaves and stems. This result is consistent with other studies in which the microbial communities were different between aboveground and belowground plant organs (Abdelfattah et al., 2021), and the endophytic communities in the leaves and stems of Gentiana officinalis were more similar than those in the roots (Hou et al., 2022).",
+   "printed": true
+  },
+  {
+   "para_id": 8,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Previous studies have shown that endophytic bacteria and fungi are concentrated in a few phyla, such as Actinobacteriota, Pseudomonadota, Ascomycota, and Basidiomycota (Li et al., 2023; Miguel et al., 2016). In this study, a total of 32 bacterial phyla and 10 fungal phyla were identified. Actinobacteriota and Pseudomonadota were the dominant bacterial phyla, and the dominant fungal phyla were Ascomycota and Basidiomycota. Similar results were reported for Gentiana officinalis, Dendrobium, Rheum palmatum, and Panax ginseng (Hou et al., 2022; Wang et al., 2022; Chen et al., 2023; Fan et al., 2022); however, the relative abundances of the dominant phyla differed significantly across the different organs. These results indicate that the endophytic community has a certain degree of organs specificity. Previous studies have shown that most species of Pseudomonadota and Actinobacteriota play crucial roles in the nitrogen and sulfur cycles, antibacterial activity, and host metabolism (Ansola, Arroyo & Sáenz, 2013; Bashir, Iqbal & Hasnain, 2020), whereas Ascomycota and Basidiomycota might participate in nutrient cycling (Chen et al., 2025). The relative abundance of Actinobacteriota was higher in the roots, potentially to inhibit some pathogenic bacteria and maintain the stability of the endophytic community. Hou et al. (2022) reported that the endophytic fungal and bacterial communities in the leaves and stems of G. officinalis were obviously clustered but were different from those in the roots, which is consistent with our results. Chen et al. (2023) reported that the bacterial composition of the leaf and root organs of R. palmatum was obviously clustered, which is different from our results. The results indicated that the endophytes have typical host preferences and organs specificities.",
+   "printed": true
+  },
+  {
+   "para_id": 9,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "At the genus level, 616, 629, and 516 bacterial genera and 345, 389, and 309 fungal genera were detected in the leaves, stems, and roots of D. tanguticum, respectively. Ralstonia (17.45%), Comoclathris (33.69%), Cladosporium (11.23%), and Genolevuria (6.18%) were the dominant genera in the leaf organs; Ralstonia (15.22%), Comoclathris (14.80%), and Genolevuria (12.46%) were the dominant genera in the stem organs; and Solirubrobacter (8.52%), Tomentella (10.10%), and Phialophora (9.17%) were the dominant genera in the root organs. These results are consistent with those of previous studies in which the dominant genera were significantly different in various organs (Chen et al., 2023; Li et al., 2025). Previous studies have shown that some Ralstonia and Comoclathris species are plant pathogens, such as Ralstonia solanacearum and Comoclathris incompta (Caldwell, Kim & Iyer-Pascuzzi, 2017; Moral et al., 2017); however, some Ralstonia species, such as Ralstonia pickettii, can increase 1,1,1-trichloro-2,2-bis(4-chlorophenyl) ethane (DTT)biodegradation and potentially remediate environmental pollution (Adi Setyo, Diana & Ichiro , 2019; Ryan, Pembroke & Adley, 2010). Ralstonia and Comoclathris were the dominant genera in the leaf and stem organs, and thus D. tanguticum might be at risk of pathogenic bacterial infection. Solirubrobacter can promote the absorption of nutrients and plant growth (Jeewani et al., 2021), and Tomentella, a genus of ectomycorrhizal fungi, plays an important role in the absorption of nutrients (Suetsugu et al., 2021). Solirubrobacter and Tomentella were significantly enriched in the root tissue, which might help D. tanguticum absorb nutrients.",
+   "printed": true
+  },
+  {
+   "para_id": 10,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "The co-occurrence network analysis revealed greater numbers of nodes and edges, as well as greater closeness centrality and average degree, in the endophytic bacterial community than in the fungal community, indicating that the bacterial community was more complex than the fungal community. These results are consistent with those of previous studies on the roots of Stellera chamaejasme (Zhang et al., 2024a; Zhang et al., 2024b). The endophytic community has a typical modular structure, reflecting different ecological niches and functions. Stochastic processes dominated the assembly of bacterial and fungal communities in various organs of D. tanguticum. Microbiome assembly is influenced by various factors, such as plant species, tissue niches, and seasons (He et al., 2023). Furthermore, a few studies have shown that active components in medicinal plants affect the endophytic community assembly process; in turn, endophytes also affect the contents of active components in medicinal plants (Tang et al., 2024). D. tanguticum is a traditional medicinal plant enriched with various chemical constituents, such as flavonoids, terpenoids, polysaccharides and volatile components (Zeng et al., 2010). In this study, a total of 75 polyphenolic compounds were detected in the leaves (60), stems (55), and roots (57) of D. tanguticum, and the differences in polyphenolic compounds among various organs might influence the endophytic community assembly process.",
+   "printed": true
+  },
+  {
+   "para_id": 11,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "The whole plant of D. tanguticum is used for medicinal purposes, but the contents of polyphenolic compound were significantly different in various organs; the contents of polyphenolic compound in the stem were higher than those in other organs, and those in the root were the lowest. A total of 49 differentially abundant polyphenolic compounds (23 up- and 26 downregulated) were identified between the DtR and DtS groups, 65 differentially abundant metabolites (26 up- and 39 downregulated) were identified between the DtR and DtL groups, and 51 differentially abundant metabolites (20 up- and 31 downregulated) were identified between the DtS and DtL groups. Consistent with the findings of previous studies, the metabolite levels were significantly different in the root and leaf organs of Arnebia euchroma (Chen et al., 2025), the metabolite contents in the different organs of Panax quinquefolius also differed significantly (Li et al., 2023). Thus, the content of polyphenol compounds exhibited organs specificity in D. tanguticum. Endophytes are directly or indirectly involved in the biosynthesis of active ingredients in medicinal plants (Ling et al., 2022); for example, the content of flavonoids in Paeonia lactiflora is correlated with the abundance of Ruminococcaceae bacterium GD7 (Yang et al., 2023). In P. quinquefoliu s, endophytes are significantly positively and negatively correlated with metabolites (Li et al., 2023). In A. euchroma, a significant correlation has been observed between endophytes and active components (Chen et al., 2025); thus, endophytes can be used as potential substitutes for bioactive metabolites. In this study, the intricate relationships between the top 20 microbes and polyphenol compounds were analyzed. The results indicated that 11 bacterial and 16 fungal genera were significantly correlated with 44 and 51 metabolites, respectively. For example, Solirubrobacter was positively and significantly correlated with 8 metabolites (fraxin, catechin, fraxetin, etc.) and was negatively correlated with only chlorogenic acid. Cladosporium, Comoclathris, Didymella, Leptosphaerulina, and Rachicladosporium were significantly positively correlated with 16, 16, 12, 6, and 12 metabolites and negatively correlated with 19, 20, 17, 19, and 11 metabolites, respectively, which is consistent with previous studies. These results indicate that endophytes may play critical roles in the accumulation of metabolites and that the endophyte abundance and metabolite content interact with each other. However, the specific correlations between endophytes and bioactive metabolites need further study.",
+   "printed": true
+  }
+ ],
+ "links": [
+  {
+   "link_id": 1,
+   "url": "greengenes.secondgenome.com",
+   "url_raw": "http://greengenes.secondgenome.com/",
+   "href_jats": "http://greengenes.secondgenome.com/",
+   "repo_key": null,
+   "host_class": "other",
+   "loc": "body",
+   "sec_title": "Sequencing analysis",
+   "source": "tagged",
+   "para_id": 1
+  },
+  {
+   "link_id": 2,
+   "url": "unite.ut.ee/index.php",
+   "url_raw": "http://unite.ut.ee/index.php",
+   "href_jats": "http://unite.ut.ee/index.php",
+   "repo_key": null,
+   "host_class": "other",
+   "loc": "body",
+   "sec_title": "Sequencing analysis",
+   "source": "tagged",
+   "para_id": 1
+  },
+  {
+   "link_id": 3,
+   "url": "ngdc.cncb.ac.cn/omix/release/omix016964",
+   "url_raw": "https://ngdc.cncb.ac.cn/omix/release/OMIX016964",
+   "href_jats": "https://ngdc.cncb.ac.cn/omix/release/OMIX016964",
+   "repo_key": null,
+   "host_class": "other",
+   "loc": "fn",
+   "sec_title": "Data Availability",
+   "source": "tagged",
+   "para_id": 2
+  }
+ ],
+ "links_optional": [
+  "creativecommons.org/licenses/by/4.0",
+  "doi:10.1002/cbdv.200900188",
+  "doi:10.1002/jobm.70108",
+  "doi:10.1002/jssc.201600645",
+  "doi:10.1002/jssc.202100537",
+  "doi:10.1007/s00203-020-01882-3",
+  "doi:10.1007/s00203-022-02815-y",
+  "doi:10.1007/s00203-022-03349-z",
+  "doi:10.1007/s00253-024-13032-6",
+  "doi:10.1007/s00284-026-04923-0",
+  "doi:10.1007/s00572-020-00999-z",
+  "doi:10.1007/s10482-015-0502-7",
+  "doi:10.1007/s10482-016-0676-7",
+  "doi:10.1007/s12088-024-01379-3",
+  "doi:10.1007/s42770-023-01149-1",
+  "doi:10.1016/j.bmcl.2010.09.086",
+  "doi:10.1016/j.jbiotec.2022.12.008",
+  "doi:10.1016/j.jchromb.2009.06.040",
+  "doi:10.1016/j.scitotenv.2013.11.125",
+  "doi:10.1016/j.sjbs.2019.12.010",
+  "doi:10.1016/j.soilbio.2021.108417",
+  "doi:10.1016/j.syapm.2015.11.001",
+  "doi:10.1016/j.tplants.2018.05.003",
+  "doi:10.1038/nmeth.f.303",
+  "doi:10.1038/s41598-024-59055-x",
+  "doi:10.1039/d2ra08247k",
+  "doi:10.1094/pdis-06-16-0806-re",
+  "doi:10.1094/phyto-09-16-0353-r",
+  "doi:10.1111/1462-2920.15392",
+  "doi:10.1111/j.1365-2672.2007.03361.x",
+  "doi:10.1111/jam.14546",
+  "doi:10.1111/jam.15696",
+  "doi:10.1186/s12866-024-03601-0",
+  "doi:10.1186/s12870-023-04282-z",
+  "doi:10.1371/journal.pone.0277825",
+  "doi:10.3389/fmars.2022.865224",
+  "doi:10.3389/fmicb.2019.01063",
+  "doi:10.3389/fmicb.2021.775665",
+  "doi:10.3389/fmicb.2022.923162",
+  "doi:10.3389/fmicb.2023.1128727",
+  "doi:10.3389/fmicb.2025.1540669",
+  "doi:10.3389/fpls.2022.984483",
+  "doi:10.3389/fpls.2024.1363063",
+  "doi:10.3390/jof9121165",
+  "doi:10.3390/molecules29040860",
+  "doi:10.3390/molecules30030734",
+  "doi:10.3390/plants12081612",
+  "doi:10.4014/jmb.1906.06030",
+  "doi:10.48130/opr-0024-0027",
+  "doi:10.7717/peerj.13949",
+  "ncbi.nlm.nih.gov/bioproject/prjna1281329",
+  "ncbi.nlm.nih.gov/bioproject/prjna1281808",
+  "peerj.com/articles/21626"
+ ],
+ "own_doi": "doi:10.7717/peerj.21626",
+ "citations": [
+  {
+   "cite_id": 1,
+   "para_id": 3,
+   "bib_id": 25,
+   "marker": "Li et al., 2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 2,
+   "para_id": 3,
+   "bib_id": 43,
+   "marker": "Zeng et al., 2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 3,
+   "para_id": 3,
+   "bib_id": 9,
+   "marker": "Chen et al., 2022b",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 4,
+   "para_id": 3,
+   "bib_id": 25,
+   "marker": "Li et al., 2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 5,
+   "para_id": 3,
+   "bib_id": 28,
+   "marker": "Liu et al., 2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 6,
+   "para_id": 3,
+   "bib_id": 40,
+   "marker": "Wang et al., 2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 7,
+   "para_id": 3,
+   "bib_id": 25,
+   "marker": "Li et al. (2016)",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 8,
+   "para_id": 3,
+   "bib_id": 8,
+   "marker": "Chen et al. (2022a)",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 9,
+   "para_id": 3,
+   "bib_id": 9,
+   "marker": "Chen et al. (2022b)",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 10,
+   "para_id": 3,
+   "bib_id": 32,
+   "marker": "Qian et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 11,
+   "para_id": 3,
+   "bib_id": 17,
+   "marker": "He et al., 2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 12,
+   "para_id": 3,
+   "bib_id": 44,
+   "marker": "Zhang et al. (2024b)",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 13,
+   "para_id": 3,
+   "bib_id": 39,
+   "marker": "Wang et al., 2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 14,
+   "para_id": 4,
+   "bib_id": 19,
+   "marker": "Huang et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 15,
+   "para_id": 4,
+   "bib_id": 46,
+   "marker": "Zhang et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 16,
+   "para_id": 4,
+   "bib_id": 15,
+   "marker": "Golinska et al., 2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 17,
+   "para_id": 4,
+   "bib_id": 11,
+   "marker": "Chen et al., 2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 18,
+   "para_id": 4,
+   "bib_id": 3,
+   "marker": "Anisha et al., 2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 19,
+   "para_id": 4,
+   "bib_id": 21,
+   "marker": "Jabborova et al., 2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 20,
+   "para_id": 4,
+   "bib_id": 27,
+   "marker": "Ling et al., 2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 21,
+   "para_id": 4,
+   "bib_id": 23,
+   "marker": "Lai et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 22,
+   "para_id": 4,
+   "bib_id": 33,
+   "marker": "Rahman et al., 2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 23,
+   "para_id": 4,
+   "bib_id": 48,
+   "marker": "Zhang et al., 2026",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 24,
+   "para_id": 4,
+   "bib_id": 47,
+   "marker": "Zhang et al., 2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 25,
+   "para_id": 4,
+   "bib_id": 49,
+   "marker": "Zheng et al., 2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 26,
+   "para_id": 4,
+   "bib_id": 20,
+   "marker": "Huang, Long & Lam, 2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 27,
+   "para_id": 4,
+   "bib_id": 17,
+   "marker": "He et al., 2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 28,
+   "para_id": 4,
+   "bib_id": 45,
+   "marker": "Zhang et al., 2024a",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 29,
+   "para_id": 4,
+   "bib_id": 44,
+   "marker": "Zhang et al., 2024b",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 30,
+   "para_id": 5,
+   "bib_id": 46,
+   "marker": "Zhang et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 31,
+   "para_id": 5,
+   "bib_id": 29,
+   "marker": "Lu et al., 2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 32,
+   "para_id": 1,
+   "bib_id": 7,
+   "marker": "Caporaso et al., 2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 33,
+   "para_id": 1,
+   "bib_id": 13,
+   "marker": "Eevers et al., 2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 34,
+   "para_id": 1,
+   "bib_id": 8,
+   "marker": "Chen et al., 2022a",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 35,
+   "para_id": 1,
+   "bib_id": 9,
+   "marker": "Chen et al., 2022b",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 36,
+   "para_id": 6,
+   "bib_id": 27,
+   "marker": "Ling et al., 2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 37,
+   "para_id": 7,
+   "bib_id": 11,
+   "marker": "Chen et al., 2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 38,
+   "para_id": 7,
+   "bib_id": 35,
+   "marker": "Shan et al., 2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 39,
+   "para_id": 7,
+   "bib_id": 36,
+   "marker": "Singh et al. , 2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 40,
+   "para_id": 7,
+   "bib_id": 12,
+   "marker": "Chen et al., 2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 41,
+   "para_id": 7,
+   "bib_id": 24,
+   "marker": "Li et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 42,
+   "para_id": 7,
+   "bib_id": 18,
+   "marker": "Hou et al., 2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 43,
+   "para_id": 7,
+   "bib_id": 1,
+   "marker": "Abdelfattah et al., 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 44,
+   "para_id": 7,
+   "bib_id": 18,
+   "marker": "Hou et al., 2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 45,
+   "para_id": 8,
+   "bib_id": 24,
+   "marker": "Li et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 46,
+   "para_id": 8,
+   "bib_id": 30,
+   "marker": "Miguel et al., 2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 47,
+   "para_id": 8,
+   "bib_id": 18,
+   "marker": "Hou et al., 2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 48,
+   "para_id": 8,
+   "bib_id": 41,
+   "marker": "Wang et al., 2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 49,
+   "para_id": 8,
+   "bib_id": 10,
+   "marker": "Chen et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 50,
+   "para_id": 8,
+   "bib_id": 14,
+   "marker": "Fan et al., 2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 51,
+   "para_id": 8,
+   "bib_id": 4,
+   "marker": "Ansola, Arroyo & Sáenz, 2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 52,
+   "para_id": 8,
+   "bib_id": 5,
+   "marker": "Bashir, Iqbal & Hasnain, 2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 53,
+   "para_id": 8,
+   "bib_id": 12,
+   "marker": "Chen et al., 2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 54,
+   "para_id": 8,
+   "bib_id": 18,
+   "marker": "Hou et al. (2022)",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 55,
+   "para_id": 8,
+   "bib_id": 10,
+   "marker": "Chen et al. (2023)",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 56,
+   "para_id": 9,
+   "bib_id": 10,
+   "marker": "Chen et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 57,
+   "para_id": 9,
+   "bib_id": 26,
+   "marker": "Li et al., 2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 58,
+   "para_id": 9,
+   "bib_id": 6,
+   "marker": "Caldwell, Kim & Iyer-Pascuzzi, 2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 59,
+   "para_id": 9,
+   "bib_id": 31,
+   "marker": "Moral et al., 2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 60,
+   "para_id": 9,
+   "bib_id": 2,
+   "marker": "Adi Setyo, Diana & Ichiro , 2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 61,
+   "para_id": 9,
+   "bib_id": 34,
+   "marker": "Ryan, Pembroke & Adley, 2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 62,
+   "para_id": 9,
+   "bib_id": 22,
+   "marker": "Jeewani et al., 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 63,
+   "para_id": 9,
+   "bib_id": 37,
+   "marker": "Suetsugu et al., 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 64,
+   "para_id": 10,
+   "bib_id": 45,
+   "marker": "Zhang et al., 2024a",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 65,
+   "para_id": 10,
+   "bib_id": 44,
+   "marker": "Zhang et al., 2024b",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 66,
+   "para_id": 10,
+   "bib_id": 16,
+   "marker": "He et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 67,
+   "para_id": 10,
+   "bib_id": 38,
+   "marker": "Tang et al., 2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 68,
+   "para_id": 10,
+   "bib_id": 43,
+   "marker": "Zeng et al., 2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 69,
+   "para_id": 11,
+   "bib_id": 12,
+   "marker": "Chen et al., 2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 70,
+   "para_id": 11,
+   "bib_id": 24,
+   "marker": "Li et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 71,
+   "para_id": 11,
+   "bib_id": 27,
+   "marker": "Ling et al., 2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 72,
+   "para_id": 11,
+   "bib_id": 42,
+   "marker": "Yang et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 73,
+   "para_id": 11,
+   "bib_id": 24,
+   "marker": "Li et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 74,
+   "para_id": 11,
+   "bib_id": 12,
+   "marker": "Chen et al., 2025",
+   "expanded": false,
+   "scored": true
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-ext-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "v1_bib_count": 49
+ }
+}

@@ -1,0 +1,1564 @@
+{
+ "paper_id": "10.1162_opmi.a.362",
+ "paras": [
+  {
+   "para_id": 1,
+   "loc": "body",
+   "sec_title": "Results",
+   "text": "Generalized linear mixed effect models (GLMMs) were run for the accuracy data with a logistic link function with the lme4 package (Bates et al., 2015) using R Statistical Software (v4.2.2; R Core Team, 2022). We used the bobyqa optimizer with 200,000 iterations to improve convergence. All models were constructed with maximal random structures unless there was a convergence issue in which case the random correlation terms were removed (Barr et al., 2013). Experiments 2 and 3 followed these same practices. See https://osf.io/96843/overview for full model specifications.",
+   "printed": true
+  },
+  {
+   "para_id": 2,
+   "loc": "body",
+   "sec_title": "Participants.",
+   "text": "A hundred eighty-six participants were recruited from Prolific (www.prolific.com). Twenty-one were excluded from analysis using the same exclusion criteria as Experiment 1 (one due to Criterion 1, twelve due to Criterion 2, and eight due to Criterion 3, final N = 165).",
+   "printed": true
+  },
+  {
+   "para_id": 3,
+   "loc": "body",
+   "sec_title": "INTRODUCTION",
+   "text": "Comprehenders often misinterpret sentences: The sentential representation a comprehender builds does not always match the bottom-up input. Misinterpretation can shed light on the functioning of our language comprehension system (Barton & Sanford, 1993; Gibson et al., 2013; Huang & Ferreira, 2021; Paape, 2024; Slattery et al., 2013) and on how this system interacts with other cognitive functions (e.g., memory, Hahn et al., 2022; executive function, Novick et al., 2014). One misinterpretation phenomenon that has received considerable attention in the recent literature is the transposed-word effect in reading (Atanasov et al., 2025; Hossain & White, 2023; Huang & Staub, 2021a, 2023; Liu et al., 2022; Milledge et al., 2023; Mirault et al., 2018; Snell & Melo, 2024; Spinelli et al., 2024; Wen et al., 2021a, 2021b): When presented with an otherwise grammatical sentence in which two adjacent words are transposed (e.g., The robber from fled the police eventually.), readers frequently fail to notice the error (see Dufour et al., 2022, for similar effects in spoken language comprehension).",
+   "printed": true
+  },
+  {
+   "para_id": 4,
+   "loc": "body",
+   "sec_title": "INTRODUCTION",
+   "text": "On one view, this phenomenon suggests that more than one word can be processed in parallel (Snell & Grainger, 2019). That is, if multiple words are processed simultaneously in a noisy, location-independent fashion, a word in a later position might be represented as occurring at an earlier position in the sentence, when such a location is consistent with grammatical knowledge (Snell et al., 2018). Several recent studies, however, have demonstrated that the transposed-word effect exists even with strictly serial presentation of words (Hossain & White, 2023; Huang & Staub, 2023; Liu et al., 2022; McGowan et al., 2026; Milledge et al., 2023); even when words are presented one at a time, so that parallel processing of words is impossible, subjects fairly often fail to notice that two words are transposed. Thus, parallel word processing is not necessary to explain the transposed-word effect, though it is possible that parallel presentation of multiple words does contribute to the effect (Wen & Grainger, 2025). Some studies have found the effect to be larger during normal sentence reading than with serial presentation (Huang & Staub, 2023; Liu et al., 2022; Mirault et al., 2022; Snell & Melo, 2024; Spinelli et al., 2024), while others have found no clear difference (McGowan et al., 2026; Milledge et al., 2023), or even a larger effect with serial processing (Hossain & White, 2023). The mixed picture might be attributable to different presentation rates (Hossain & White, 2023) in the serial conditions of different studies; see McGowan et al. (2026) for direct evidence of an effect of presentation rate.",
+   "printed": true
+  },
+  {
+   "para_id": 5,
+   "loc": "body",
+   "sec_title": "INTRODUCTION",
+   "text": "Regardless of whether parallel word processing contributes to the transposed word effect, it is clear that in order for this effect to occur, linguistic knowledge must override bottom-up perceptual information1. This is obvious from the basic fact that while an ungrammatical transposition is often ‘corrected’, there is no evidence that readers misrepresent the order of words in grammatical sentences, rendering the sentence ungrammatical. One theoretical framework—rational inference over a noisy channel—has been proposed to account for the role of linguistic and world knowledge in various misreading phenomena (Dodd et al., 2024; Gibson et al., 2013; Levy, 2008a; Zhang et al., 2023). According to this view, a language comprehender arrives at a representation of what was intended, given what was perceived, by taking into consideration (a) the probability of an intended message, and (b) the likelihood of noise having corrupted this intended message to result in the perceived message. This can be formalized as in (1), where si is the intended message and sp is the perceived message.Psi|sp∝Psp|siPsi(1)In (1), P(sp|si) is the likelihood of noise resulting in the perceived message, given a specific intended message. Noise can arise from different sources (e.g., perceptual fallibility, Staub et al., 2019; production errors, Poppels & Levy, 2016; Ryskin et al., 2018). P(si) is the prior probability of the intended message. This prior probability is presumably based both on one’s syntactic (Keshev & Meltzer-Asscher, 2021) and world knowledge (Gibson et al., 2013). P(si|sp), then, is the probability of the intended message si given the perceived message sp. Whether the reader adopts a veridical representation of an ungrammatical sentence, or adopts a nonveridical but grammatical interpretion, depends on the ratio of the posterior probabilities P(si_literal|sp) and P(si_nonliteral|sp).",
+   "printed": true
+  },
+  {
+   "para_id": 6,
+   "loc": "body",
+   "sec_title": "INTRODUCTION",
+   "text": "Adopting this approach, Huang and Staub (2021a) proposed that failure to notice a word transposition error (The robber from fled …) can be explained by rational inference. A reader knows that The robber fled from is a probable sequence, while The robber from fled is not, and may, for example, attribute the perceived order to mis-location of their eye fixations. Consistent with this hypothesis, Huang and Staub (2021a) found more failure to notice transposition errors in trials where one of the two critical words (from fled) was skipped than in trials where both words were fixated in order (see also Staub et al., 2019). They further argued that rational inference must happen extremely fast, given that there is no evidence of disruption to readers’ eye movements on trials when participants failed to explicitly report the error (see also Hossain & White, 2023; Staub et al., 2024). Note that this interpretation is consistent with, but more specific than, the broader noisy-channel framework, which is agnostic about conscious awareness (implicit vs. explicit correction; Ryskin et al., 2018) and which was originally proposed to model sentence comprehension and interepretation (Gibson et al., 2013; Levy, 2008a) rather than error detection.",
+   "printed": true
+  },
+  {
+   "para_id": 7,
+   "loc": "body",
+   "sec_title": "INTRODUCTION",
+   "text": "Such a rational inference hypothesis also predicts that the prior probability of a specific untransposed string should influence the prevalence of failure to detect a transposition. That is, the higher P(si) is, the more likely it is the reader will interpret the sequence nonliterally. One recent study has demonstrated an effect of the prior by manipulating the discourse (Chen et al., 2023), although Chen and colleauges were interested in nonliteral interpretation of implausible but grammatical sentences caused by inversion of direct objects and goals (e.g., The girl tossed the apple the boy.), instead of misreading of ungrammatical transposed-word sentences. An implausible sentence was either preceded by a supportive context (two sentences describing a scene of a boy and a girl picking apples), by a non-supportive context (two incoherent sentences describing two unrelated scenes), or by no context. The participants were then asked Did the apple receive something/someone?. Chen et al. found that nonliteral interpretation (i.e., responding “no”) was more frequent when there was a supportive context for the critical sentence than when the context was non-supportive or non-existent. The authors argued that the supportive context made The girl tossed the apple to the boy more probable as an underlying message.",
+   "printed": true
+  },
+  {
+   "para_id": 8,
+   "loc": "body",
+   "sec_title": "INTRODUCTION",
+   "text": "However, even more recently, and more relevant to the current study, Dufour et al. (2025) transposed two words in 4-word sequences, which were presented either auditorily or visually in a speeded grammaticality judgment task. The 4-word sequences, in their untransposed grammatical form, were either frequent or infrequent. This variable was found to have no significant effect on the accuracy of grammaticality judgments; transpositions of frequent strings were not accepted as grammatical more often than transpositions of infrequent strings. Based on this null result, Dufour et al. (2025) argue for “a rather limited role of top-down sentence-level constraints on the transposed-word effect” (p. 1504).",
+   "printed": true
+  },
+  {
+   "para_id": 9,
+   "loc": "body",
+   "sec_title": "INTRODUCTION",
+   "text": "We note several potential methodological factors related to the Dufour et al. (2025) study that could have led to the null result that they obtained. First, their within-item frequency manipulation compared strings that differed in multiple words, as opposed to minimal pairs that differed in only a single word. Thus, uncontrolled differences between items could have masked a 4-gram frequency effect. Second, and perhaps more importantly, subjects’ task was to make speeded grammaticality judgments to 4-word sequences. This rather unnatural task may have compromised the communicative goal that encourages inference (Ryskin et al., 2023) and consequently weakened the role of the prior probability of an intended message. Finally, and possibly related to the previous point, the rate of erroneous acceptance of the transposed strings was extremely low. For example, in Experiment 3, which examined transpositions of the second and third word of visually-presented four-word strings, transpositions of high-frequency strings were accepted 10% of the time, while transpositions of low-frequency strings were accepted 7% of the time; the transposed-word effect for both stimulus types is smaller than is typically observed. Note that the direction of the non-significant difference (p = .18) between conditions is as predicted by the hypothesis that transpositions of higher-frequency strings are more likely to be missed.",
+   "printed": true
+  },
+  {
+   "para_id": 10,
+   "loc": "body",
+   "sec_title": "INTRODUCTION",
+   "text": "In all three experiments, we adopt a paradigm used by Huang and Staub (2021a), Staub et al. (2019), and Staub et al. (2024) to investigate detection of grammatical errors in a relatively natural reading context. In this paradigm, critical trials are followed by the judgment question, “Was there anything wrong with that sentence?” Filler trials are greater in number than the critical trials, and are followed by a two-alternative comprehension question rather than a judgment question. Subjects do not know, until a sentence has been removed from the screen, whether it will be followed by a judgment question or a comprehension question. Thus, it can be assumed that subjects will read the critical sentences somewhat more naturally than in paradigms in which error detection or linguistic judgment is presented as the main task, which may effectively encourage proofreading rather than reading for comprehension. Unlike in the previous studies using this paradigm, we do not track readers’ eye movements, as behavioral data in all experiments are collected from an online sample.",
+   "printed": true
+  },
+  {
+   "para_id": 11,
+   "loc": "body",
+   "sec_title": "Materials.",
+   "text": "As shown above in (4), the within-item manipulations were the order of two critical words (grammatical, 4a–b, vs. transposed, 4c–d) and the cloze probability of the second transposed word in the words’ grammatical order3 (high, 4a and 4c, vs. low, 4b and 4d). We adapted 80 stimuli from a large-scale cloze norming study by Peelle et al. (2020), which elicited at least 100 cloze responses to each sentence. The second critical word in (4a) was highly predictable; it was always the modal response, and had cloze probability ranging from 0.51 to 0.9. The second critical word in (4b) was less predictable, but did appear in the norms, with cloze probabilities ranging from .01 to .06. Items were selected based on the following criteria: (a) the critical word and the immediately preceding word were both between 3 and 6 characters and did not differ in length by more than one character; (b) the two responses were not synonyms (e.g., pig and hog); and (c) the target and the immediately preceding word formed a determiner-noun or adjective-noun sequence. These two types of sequences occurred in equal number and were treated as two conditions, along with the predictability manipulation, leading to a 2 (grammatical/transposed) × 2 (predictability) × 2 (structure) design. Contexts following the target words were created to fit both the high-predictable and low-predictable sentences within a pair. Each participant saw either the grammatical or transposed version and either the predictable or unpredictable version of a given item, for a total of 40 transposed sentences and 40 grammatical counterparts. Another 160 filler sentences, of similar length but varying in sentence structure, were included. As noted above, these filler sentences were followed by comprehension questions rather than judgment questions.",
+   "printed": true
+  },
+  {
+   "para_id": 12,
+   "loc": "body",
+   "sec_title": "Materials.",
+   "text": "Table 1 reports item statistics for the high predictability and low predictability conditions. For comparison with Experiments 2 and 3, we report mean log-transformed unigram (pair), bigram (new pair), and trigram (a new pair) frequency, transitional probability between the transposed words (pair|new)—calculated from the 1 billion-word COCA corpus (Davies, 2019)—and conditional probability of the two transposed words, given the preceding context, estimated by a state-of-the-art language model Llama 3.1-8B4 (Grattafiori et al., 2024) in each condition. For the contextual conditional probability measures, we further report them as the negative log base 2 of the word or sequence probability, a quantity known as surprisal (Shannon, 1948), since surprisal has been theorized and empirically shown to be an important construct in sentence processing (Hale, 2001; Levy, 2008b). The most salient difference between the high- and low-predictability condition was the mean human cloze (both probability and surprisal) of the second critical word and Llama’s conditional probability of the two critical words. While unigram log-frequency also significantly differs, the difference is relatively small, and the difference is in the opposite direction of the probability difference, with unigram word frequency being higher in the low probability condition.",
+   "printed": true
+  },
+  {
+   "para_id": 13,
+   "loc": "table",
+   "sec_title": "Materials.",
+   "text": "Mean language statistical properties in each condition and the t-test result between each high and low condition in Experiment 1. Cloze probability and surprisal was of the second critical word based on Peelle et al. (2020), while Llama probability and surprisal was for both critical words.",
+   "printed": true
+  },
+  {
+   "para_id": 14,
+   "loc": "body",
+   "sec_title": "Materials.",
+   "text": "Forty-eight pairs of trigrams were created. In each pair, the two phrases differed in only their last word, making one a very frequent three-word phrase and the other a less frequent one. For each item, the second and third words in the phrase did not differ in length by more than one character. Half of the pairs were verb phrases (e.g., close the gate vs. close the pool) and half were prepositional phrases (e.g., beside his bed vs. beside his dog). Table 3 shows the item statistics in each condition, based on the 1 billion-word COCA corpus (Davies, 2019). Between the high-frequency and low-frequency conditions, mean trigram frequencies significantly differed, but the frequency of the bigram consisting of the last two words (the gate vs. the pool) and the unigram frequency of the last word (gate vs. pool) did not. Matching bigram frequency and holding the first word in the bigram the same also renders comparable mean transitional probabilities, within the bigram, between the high and low conditions. The mean trigram frequencies did not differ significantly between the verb-phrase and prepositional-phrase conditions, within both the high- and low-frequency conditions. We also checked whether the mean conditional probability or surprisal of the critical two words given the full preceding context differs between the high and low conditions, estimating it using Llama 3.1-8B. For both phrases types, the high trigram frequency group had a significantly higher mean conditional probability and surprisal, which potentially introduces a confound that we discuss below (see Discussion and see also Analysis Across the Three Experiments).",
+   "printed": true
+  },
+  {
+   "para_id": 15,
+   "loc": "body",
+   "sec_title": "Results",
+   "text": "Inspection of the data for the grammatical sentences suggested that acceptability varied among the items (i.e., probability of responding “No” to “Was there anything wrong with that sentence” when the item was presented in the untransposed form), even though all were theoretically grammatical; arguably some critical phrases fit their context better than others for semantic/pragmatic reasons. Thus, we ran another model for the transposed-word dataset in which item acceptability (in the item’s grammatical form) was entered as a covariate. This variable did influence error detection: The more acceptable an item was in its grammatical form, the more frequently the transposition was overlooked. This finding is consistent with the rational noisy-channel framework, assuming that acceptability to certain degree reflects prior probability (Hu et al., 2026; Lau et al., 2017). However, even when including this variable as a covariate, the trigram frequency effect and its interaction with phrase structure were still significant (z = −4.57 and z = −3.90, both ps < .001)5. In short, the statistical results were consistent with the patterns in Figure 2: Higher trigram frequency induced more failure of error detection and this effect was stronger when the phrase containing the error was a verb phrase.",
+   "printed": true
+  },
+  {
+   "para_id": 16,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "We interpret the effect of trigram frequency as an effect of the prior probability of the intended message: The more frequently a reader has encountered a specific sequence of three words, the more probable it is as an intended sequence, and therefore the more likely it is that a reader will infer that it is the actual sequence that is being conveyed, discounting the apparent transposition as noise. The effect of trigram frequency adds to the abundant evidence in the literature that language users are sensitive to co-occurrence frequency of multiple words, which influences language processing (Arnon & Snider, 2010; Bannard & Matthews, 2008; Goodkind & Bicknell, 2021; Huang, 2024; Jiang et al., 2020; Öksüz et al., 2024; Wang et al., 2023). We return to this theoretical issue in the General Discussion.",
+   "printed": true
+  },
+  {
+   "para_id": 17,
+   "loc": "body",
+   "sec_title": "EXPERIMENT 3",
+   "text": "Experiment 3 attempts to conceptually replicate the key finding from Experiment 2. In Experiment 3, our experimental manipulation was based on varying 4-gram (as opposed to trigram) frequency, transposing the last two words of a high frequency 4-gram (e.g., know what they mean) or a low frequency 4-gram (know what they love); as in Experiment 3, only the second transposed word differed between conditions. We manipulated 4-gram frequency because language users’ sensitivity to 4-gram frequency has been demonstrated with production duration (Bannard & Matthews, 2008) and with response time (Arnon & Snider, 2010). As we explain below, it was not possible to match trigram frequency in these items; e.g., what they mean also has higher frequency than what they love. As a result, in effect this experiment again manipulates trigram frequency.",
+   "printed": true
+  },
+  {
+   "para_id": 18,
+   "loc": "body",
+   "sec_title": "EXPERIMENT 3",
+   "text": "The present experiment also differs from the preceding ones in that it includes items with two other types of written errors that are frequently not noticed (Staub et al., 2019): word repetition and word omission (see 6c–6f). Given the close similarity between the surface message and the intended message, misreading in these cases may also be explained under the rational inference framework.",
+   "printed": true
+  },
+  {
+   "para_id": 19,
+   "loc": "body",
+   "sec_title": "Materials.",
+   "text": "We adopted about half of the items used in Arnon and Snider (2010). We found that for many of Arnon and Snider’s item pairs, 4-gram frequency differences calculated from the COCA corpus did not support Arnon and Snider’s original categorization. These items were excluded, and new items were developed, for a total of 12 pairs targeting each of the three error types. The ungrammatical versions of the items are illustrated in (6); the error type manipulation was a between-item factor.(6) a. *I always know what mean they even though we are from different generations. (Transposition, high frequency) b. * I always know what love they even though we are from different generations. (Transposition, low frequency) c. *They have looked all over country to find you. (Omission, high frequency) d. *They have looked all over house to find you. (Omission, low frequency) e. *We’re here to help help the people in the airport. (Repetition, high frequency) f. *We’re here to keep keep the people in the airport. (Repetition, low frequency)",
+   "printed": true
+  },
+  {
+   "para_id": 20,
+   "loc": "body",
+   "sec_title": "Materials.",
+   "text": "Table 5 presents the n-gram frequency statistics for each condition based on the COCA corpus (Davies, 2019). While we aimed to manipulate only 4-gram log frequency while matching mean trigram, bigram, and unigram log frequency between the high and low groups, it was difficult to do so. Therefore, the resulting items were matched on only bigram and unigram log frequency. The difference of group means in trigram log frequency was in the same direction as in 4-gram log frequency. Among the 36 pairs, all except for one item in the high-4-gram group had higher trigram frequency than its counterpart. That is, the high and low groups differed similarly in trigram log frequency and 4-gram log frequency.",
+   "printed": true
+  },
+  {
+   "para_id": 21,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Experiment 3 tested the effect of 4-gram log frequency on failure to notice errors in sentences. Unexpectedly, for none of the three error types was there compelling evidence that 4-gram log frequency influenced failure to notice errors. For repetition errors, this was possibly due to a floor effect, as readers rarely missed this type of error to begin with, consistent with the data from repeated content words in Staub et al. (2019). For omission errors, there was a numeric trend in the expected direction for 4-gram log frequency. For transposition errors, there was little hint of a difference between the high and low conditions.",
+   "printed": true
+  },
+  {
+   "para_id": 22,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Experiment 3 contrasts with Experiment 2, where there was a very clear trigram frequency effect on failure to notice transpositions. Note that due to the inclusion of two other types of errors, the number of items with transpositions was lower in Experiment 3 than in Experiment 2. The number of participants was also lower in Experiment 3. Thus, reduced statistical power may provide part of the explanation. However, there is another aspect of our results that is worth noting, and that may provide a more compelling explanation: The rate of failing to detect word transpositions was very high in both conditions in Experiment 3, higher than in any condition in Experiment 2. In fact, these might be the most illusory transposition items of any reported in the literature (Huang & Staub, 2021a; Mirault et al., 2018; Wen et al., 2021a, 2021b, ranging 10–27.7%, excluding the case of Staub et al., 2025, see General Discussion). Comparing Table 3 and Table 5, we see that even the low 4-gram frequency condition in Experiment 3 had higher average trigram frequency than the high trigram-frequency condition in Experiment 2. And while in Experiment 3, the high 4-gram frequency condition had significantly higher trigram frequency than the low 4-gram frequency condition, for both conditions, the trigram frequency of the items was simply very high across the board. Thus, the null effect in Experiment 3 may be due to a ceiling effect, whereby trigram frequency is so high in both conditions, and failure to detect errors is so common, that it is not possible to detect differences between the conditions. To further explore this last possibility, we conducted a meta-analysis combining all data from our three experiments.",
+   "printed": true
+  },
+  {
+   "para_id": 23,
+   "loc": "body",
+   "sec_title": "Analysis Across the Three Experiments.",
+   "text": "We evaluate the seven statistical measures introduced earlier: bigram, trigram, and 4-gram frequency, conditional probability/surprisal of the last transposed word, and conditional probability/surprisal of the critical two words. The last four measures were estimated by Llama. For this analysis we only included the transposed-word trials. We ran seven models varying only in the statistical measures with the same model specification as follows: Detection Correctness ~ Experiment * Statistical Measure + (1 + Statistical Measure||Subject) + (1 + Statistical Measure||Item Pair). We did not include correlation terms, to ensure all models converged and were comparable in terms of degrees of freedom. The experiment variable was deviation-coded such that the intercept reflects the mean and the main effect reflects the average effect across the three experiments. After model fitting, we used the Akaike Information Criterion (AIC) and AIC weights (Wagenmakers & Farrell, 2004) to compare goodness-of-fit among the models.",
+   "printed": true
+  },
+  {
+   "para_id": 24,
+   "loc": "body",
+   "sec_title": "GENERAL DISCUSSION",
+   "text": "This study investigates the idea that rational inference over a noisy channel explains readers’ occasional—or even frequent—failure to notice that two words in a sentence are transposed. We test a central prediction of this theory, which is that the prior probability of a specific grammatical message, P(si), will influence how likely it is that an ungrammatical sentence will be read as the grammatical alternative. In Experiment 1 we defined si over all words in the sentence through the region of transposition. The prior probability was measured by the cloze probability of the second transposed word, given the entire left context. This variable was not found to be significantly predictive of detection of the transposition. In Experiment 2, we instead manipulated local word statistics, specifically the trigram frequency of the two transposed words and the preceding word, to operationalize P(si). This manipulation had a clear effect on the detection of transpositions. Indeed, in the verb phrase items, where the manipulation of trigram frequency was the strongest, transpositions were missed more than twice as often in the high frequency condition as in the low frequency condition. In Experiment 3, we again manipulated local word statistics using 4-gram frequency. While we did not find an effect of this manipulation, we found that in both conditions, readers failed to notice the transpositions at an exceptionally high rate, consistent with the fact that trigram frequency was extremely high in both conditions. In a meta-analysis including data across the ten conditions of the three experiments, we observed a strong relationship between trigram frequency and error rate (Figure 4). The relationship between prior probability and error rate was shown to be strongest when the prior was operationalized with trigram log frequency, compared to bigram frequency, 4-gram frequency, full-context conditional probability, and full-context surprisal. Still, the last operationalization was also found to explain some variance in error detection. Taken together, we interpret the results as supportive of the hypothesis that rational inference over a noisy channel (Gibson et al., 2013; Levy, 2008a) plays an important role in misreading of transposed words. We discuss how the complex picture across the three experiments furthers our understanding of this account.",
+   "printed": true
+  },
+  {
+   "para_id": 25,
+   "loc": "body",
+   "sec_title": "GENERAL DISCUSSION",
+   "text": "First, the null effect in Experiment 1 suggests that limitations of memory or attention play a role in rational inference. Our initial prediction that P(si) plays a role in misreading, when si is the full sentence through the point of the transposition, relies on an assumption that the preceding contextual representation is faithfully maintained. But the fact that only a slight numeric trend emerged in Experiment 1 suggests memory decay or imperfect encoding of the preceding context. For instance, the word socks in (4) is critical for prediction of the word pair; if this word is not faithfully maintained in memory, there will be little difference in the reader’s prior probabilities for a new pair and a new pack. Thus, the finding from Experiment 1 is consistent with models that assume imperfect contextual representation in prediction of the next word during sentence processing (Futrell et al., 2020; Hahn et al., 2022). At the same time, we note that in normal reading, a manipulation of cloze probability as strong as ours would be expected to result in a very clear effect on reading time on the critical word (Ehrlich & Rayner, 1981; Frisson et al., 2005; see Staub, 2015, for review). Thus, we do regard the lack of a significant difference between the two conditions in Experiment 1 as somewhat surprising. Of course, it is also possible that the weak trend we observed, in the predicted direction, corresponds to a real effect, and that Experiment 1 was not powerful enough to provide strong evidence. Indeed, when data were combined across the three experiments, we did observe an effect of full-context probability (on the log scale, i.e., surprisal). One very recent study (Vigly et al., 2025, see also Slattery, 2009) similarly found that conditional probability of a intended, target word influenced its reading time when it contained a typo (e.g., embarrasased, innovaitive), which the authors attributed to rational inference, although processing of such a word-level misspelling error might be of a quite different nature from processing a transposition, and these studies did not explicitly probe error detection.",
+   "printed": true
+  },
+  {
+   "para_id": 26,
+   "loc": "body",
+   "sec_title": "GENERAL DISCUSSION",
+   "text": "One interpretation of the effect of trigram frequency would suggest that multi-word sequences are stored in long-term memory alongside individual lexical items, which has been suggested in relation to studies demonstrating trigram- or 4-gram frequency effects in language processing (Arnon & Snider, 2010; Bannard & Matthews, 2008; Zang et al., 2024), with the accessibility and strength of the sequence in long-term memory being determined by the frequency with which the string has been encountered (Contreras Kallens & Christiansen, 2022; Divjak & Caldwell-Harris, 2015). On the other hand, it is possible that even if multi-word sequences such as close the gate are not distinctly stored, language users have implicit knowledge of their frequency (e.g., familiarity), and this knowledge determines the prior that enters into the inference process. Finally, still another interpretation would not, in fact, require that readers are sensitive to the frequency of multi-word sequences. Because we controlled bigram frequency of the transposed words themselves, our trigram frequency manipulation can also be understood as a manipulation of the transitional probability of the two transposed words following the preceding word; for example, P(the gate|close) is higher than P(the pool|close). If the variable is understood in this way, then the present results do not provide evidence that multi-word sequences are stored or even processed as a whole; rather, the present results would provide evidence that the reader’s prior is sensitive to this specific transitional probability.",
+   "printed": true
+  },
+  {
+   "para_id": 27,
+   "loc": "body",
+   "sec_title": "GENERAL DISCUSSION",
+   "text": "Yet another interesting finding in Experiment 2 is the interaction between trigram frequency and phrase structure, whereby trigram frequency had a greater effect on failure to detect transposition for verb phrases than for preposition phrases. One possible explanation would emphasize the semantics (meaningfulness) of the phrases (Chantavarin et al., 2022; Jolsvai et al., 2020; Poliak et al., 2026). Frequently co-occurring verb phrases tend to denote typical, even stereotyped, actions (e.g., lose the game vs. lose the part; pay the fee vs. pay the vet; teach the class vs. teach the stuff; turned the page vs. turned the seat). Arguably, this is less true of highly frequent prepositional phrases; the high- and low-frequency prepositional phrases in our experiment do not seem to differ along this dimension (e.g., outside the tent vs. outside the café; with her elbow vs. with her thigh; despite their efforts vs. despite their support). Thus, the interactive pattern raises the possibility that frequency may not be the sole variable that determines prior probability of a message; meaning might act on the strength of multi-word representation in addition to frequency.",
+   "printed": true
+  },
+  {
+   "para_id": 28,
+   "loc": "body",
+   "sec_title": "GENERAL DISCUSSION",
+   "text": "One interesting question is how/when trigram frequency is utilized for inference, or more generally, how/when inference takes place within a trial. Our experiments did not provide moment-by-moment processing measures. However, the measure of total sentence reading time (see https://osf.io/96843/overview) provides suggestive evidence: While whole-sentence reading times in trials where participants correctly rejected ungrammatical sentences were significantly longer than in trials where they correctly accepted grammatical sentences, reading times were comparable between trials where participants incorrectly judged an ungrammatical sentence to be grammatical and trials where participants correctly accepted grammatical counterparts7. Such a pattern replicates the eye-tracking studies of transposed-word effects (Hossain & White, 2023; Huang & Staub, 2021a; see also Staub et al., 2024 for similar results with repeated-word and omitted-word effects): When participants read a transposed-word sentence but do not identify an error, there appears to be no extra effort or processing time needed to transform the erroneous sequence into a grammatically correct sentence. This extremely rapid error correction/inference may indicate that readers use heuristic access to stored representations rather than sophisticated computation of conditional probability to determine P(si). As Staub et al. (2024) argued, such inference may be of a perceptual nature. That is, while the influence of prior probability is top-down, it acts on a very early stage of processing.",
+   "printed": true
+  },
+  {
+   "para_id": 29,
+   "loc": "body",
+   "sec_title": "GENERAL DISCUSSION",
+   "text": "The no-cost pattern of reading times (or eye movements, in the literature) creates a tension between an interpretation of the trigram frequency effect as reflecting extremely rapid top-down probabilistic inference and an interpretation of the trigram frequency effect as reflecting bottom-up, familiarity-based (perceptual) heuristics (e.g., Caldwell-Harris et al., 2012). Future studies that adopt measures other than eye movements may shed more light on this issue (e.g., ERP/MEG studies; Flower & Pylkkänen, 2024; Li & Ettinger, 2023; Ryskin et al., 2021; Wen et al., 2021a). A particular useful dataset involving these cognitive neuroscience methods would be one where failure to notice a transposition error is frequent enough to allow similar analyses as have been carried out for eye movement data (see Huang & Staub, 2021b), comparing acceptance of sentences with transposed words with acceptance of untransposed sentences. Other potentially informative investigation would assess whether a trigram frequency effect can also be obtained under serial word presentation, where perceptual familiarity of the n-gram should play no or minimal role.",
+   "printed": true
+  },
+  {
+   "para_id": 30,
+   "loc": "body",
+   "sec_title": "GENERAL DISCUSSION",
+   "text": "Our results indicating a substantial effect of local n-gram frequency on the detection of transposition errors directly contrast with the results of Dufour et al. (2025) mentioned in the Introduction; Dufour et al. did not find phrase frequency effects on the rate of detection of transpositions. However, there are several differences in experimental design between the two studies. First, Dufour et al. manipulated 4-gram frequency; the fact that Experiment 3, which manipulated 4-gram frequency, failed to result in a robust effect might seem to be consistent with their null effect. However, as explained above, we are more inclined to attribute our null result in Experiment 3 to a ceiling effect of trigram frequency. In light of our strong trigram frequency effect in Experiment 2, and in the combined analysis, Dufour and colleagues’ conclusion that frequency-sensitive phrase-/sentence-level constraints do not modulate transposed-word effects might not be tenable. Instead, as we argued in the Introduction, their failure to find a n-gram frequency effect likely was due to other design factors, namely imperfect lexical control, item length, and task choice. The last factor (i.e., speeded grammaticality judgments) arguably is the most important reason. Indeed, the overall error rate of their studies was only about 10% (regardless of the items being high- or low-frequency), compared to 20%–40% in our experiments.",
+   "printed": true
+  },
+  {
+   "para_id": 31,
+   "loc": "body",
+   "sec_title": "GENERAL DISCUSSION",
+   "text": "The difference in overall error rate between the two studies brings us to an important final point: Global variables such as the nature of the task or the length of the stimuli might play an even bigger role than item-level variables. Staub et al. (2025) recently demonstrated that only about 20% of transposition errors were detected (i.e., error rate ≈ 80%) when they were embedded in a very long passage in a task where comprehension was emphasized; they found a similarly low rate of detection of omission and repetition errors. In the current study, comprehension was also the primary demand, as two-thirds of the trials were followed by a comprehension question. Here, with stimuli of mean length of 11 words, the overall error rate was around 30%. Lastly, the overall error rate in studies using 4- or 5-word stimuli in (speeded) grammaticality judgment tasks is around 15% on average (with 9% in Dufour et al., 2025 being the lowest and 25% in Snell & Melo, 2024 being the highest). Taking these results together, we suggest that in natural everyday reading, failure to notice written errors is extremely pervasive (Chen et al., 2023); the fact that the highest error rate was found in a task requiring comprehension of long passages (Staub et al., 2025) supports the hypothesis that inference is driven by the need to understand what is being communicated (Gibson et al., 2013; Ryskin et al., 2023). Therefore, attempts to address theoretical questions regarding failure to notice written errors should use ecologically valid tasks, to the extent possible.",
+   "printed": true
+  },
+  {
+   "para_id": 32,
+   "loc": "body",
+   "sec_title": "CONCLUSIONS",
+   "text": "In three experiments, we tested the role of the prior probability of the intended message in readers’ failure to detect a transposition error in a sentence. Prior probability was operationalized in several ways. We found trigram frequency (of the two transposed words plus their immediately preceding word, in the grammatical order) to have a very robust effect, which appeared as a within-experiment effect in Experiment 2, and as a strong predictor of error rates across all three experiments. Weaker evidence for an effect of full-context conditional probability was only evident in the meta-analysis, which we suggest may be due to lossy representation of the long context (Futrell et al., 2020; Hahn et al., 2022).",
+   "printed": true
+  },
+  {
+   "para_id": 33,
+   "loc": "body",
+   "sec_title": "CONCLUSIONS",
+   "text": "Taken together, our results support a rational inference account of the transposed-word effect (Huang & Staub, 2021b). The effect of trigram frequency also adds additional evidence showing language comprehenders’ sensitivity to local word statistics (e.g., Arnon & Snider, 2010). That local word statistics are reliably utilized and robust against memory loss, compared to full-context conditional probability, suggests trigrams or n-grams in general might have special status in language processing (Contreras Kallens & Christiansen, 2022). Finally, our finding of a trigram frequency effect contrasts with the recent study (Dufour et al., 2025) that failed to find a 4-gram frequency effect on failure to notice word transpositions, which we argue highlights the importance of task ecological validity (Chen et al., 2023; Staub et al., 2025) and the communicative goal to induce inference (Ryskin et al., 2023).",
+   "printed": true
+  },
+  {
+   "para_id": 34,
+   "loc": "fn",
+   "sec_title": "Notes",
+   "text": "This might happen during perception, immediately after perception, or at a much later stage (e.g., when a decision needs to be made after the whole sentence has been presented); see Huang and Staub (2021b, 2023) and Staub et al. (2024) for discussion, and see also General Discussion for theoretical implications.",
+   "printed": true
+  },
+  {
+   "para_id": 35,
+   "loc": "fn",
+   "sec_title": "Notes",
+   "text": "The high rate of subject exclusion is a primary reason our laboratory has gradually moved from using Amazon Mechanical Turk for subject recruitment in online studies to using Prolific. In the present study, Experiment 2 used Prolific, while Experiment 3 again used Mechanical Turk. We do not believe, however, that the high rate of subject exclusion in Experiments 1 and 3 limits the interpretation of the results from these experiments, as the included subjects in these experiments did demonstrate a high degree of attention to the task (Prasad & Fargally, 2024) and they also demonstrated the fundamental transposed-word effect.",
+   "printed": true
+  },
+  {
+   "para_id": 36,
+   "loc": "fn",
+   "sec_title": "Notes",
+   "text": "We note that in theory rational inference could occur later (i.e., after reading the transposition itself) in which case the ending context would need to be considered when estimating prior probability. As mentioned in Introduction, however, eye-tracking studies (Hossain & White, 2023; Huang & Staub, 2021a; Staub et al., 2024) have indicated inference to be extremely rapid. We thus only consider the cloze probability of the second critical word rather than of the subsequent words. In post-hoc analyses (see Discussion of Experiment 2) we did explore the influence of the acceptability of the whole sentence on failure to notice transpositions.",
+   "printed": true
+  },
+  {
+   "para_id": 37,
+   "loc": "fn",
+   "sec_title": "Notes",
+   "text": "While studies have shown that smaller language models’ predictability estimates are better at predicting reading times (Oh & Schuler, 2023), larger language models’ next-word predictions align with human cloze responses better. In our case, for instance, Llama 3.1 renders much higher predictability for human modal responses (mean ≈ 0.25) than GPT-2-small (mean ≈ 0.08, cf., human cloze mean 0.67), while larger and smaller models yield similar predictabilities for unpredictable words. We thus chose to use the larger, state-of-the-art model.",
+   "printed": true
+  },
+  {
+   "para_id": 38,
+   "loc": "fn",
+   "sec_title": "Notes",
+   "text": "In the current studies, our results actually indicated a tendency for the reading times to be numerically shorter on trials where participants accepted ungrammatical sentences. This suggests that some instances of misreading may be simply due to quick, inattentive reading (Ferreira & Patson, 2007; Paape, 2024).",
+   "printed": true
+  }
+ ],
+ "links": [
+  {
+   "link_id": 1,
+   "url": "osf.io/96843/overview",
+   "url_raw": "https://osf.io/96843/overview",
+   "href_jats": "https://osf.io/96843/overview",
+   "repo_key": "osf:96843",
+   "host_class": "osf",
+   "loc": "body",
+   "sec_title": "Results",
+   "source": "tagged",
+   "para_id": 1
+  },
+  {
+   "link_id": 2,
+   "url": "prolific.com",
+   "url_raw": "www.prolific.com",
+   "href_jats": "http://www.prolific.com",
+   "repo_key": null,
+   "host_class": "other",
+   "loc": "body",
+   "sec_title": "Participants.",
+   "source": "tagged",
+   "para_id": 2
+  }
+ ],
+ "links_optional": [
+  "creativecommons.org/licenses/by/4.0",
+  "doi:10.1002/j.1538-7305.1948.tb01338.x",
+  "doi:10.1016/j.cognition.2007.05.006",
+  "doi:10.1016/j.cognition.2018.08.018",
+  "doi:10.1016/j.cognition.2021.104846",
+  "doi:10.1016/j.cognition.2021.104922",
+  "doi:10.1016/j.cognition.2022.105346",
+  "doi:10.1016/j.cognition.2022.105359",
+  "doi:10.1016/j.cognition.2023.105503",
+  "doi:10.1016/j.cognition.2023.105512",
+  "doi:10.1016/j.cognition.2025.106399",
+  "doi:10.1016/j.cogpsych.2020.101359",
+  "doi:10.1016/j.cogpsych.2024.101691",
+  "doi:10.1016/j.cogpsych.2025.101715",
+  "doi:10.1016/j.jml.2009.09.005",
+  "doi:10.1016/j.jml.2012.11.001",
+  "doi:10.1016/j.jml.2013.04.001",
+  "doi:10.1016/j.jml.2021.104288",
+  "doi:10.1016/j.neuropsychologia.2021.107855",
+  "doi:10.1016/j.tics.2019.04.006",
+  "doi:10.1016/s0022-5371(81)90220-6",
+  "doi:10.1017/s0142716420000296",
+  "doi:10.1037/0278-7393.31.5.862",
+  "doi:10.1037/a0016894",
+  "doi:10.1037/rev0000119",
+  "doi:10.1037/xge0001345",
+  "doi:10.1037/xlm0000811",
+  "doi:10.1037/xlm0001234",
+  "doi:10.1037/xlm0001255",
+  "doi:10.1037/xlm0001324",
+  "doi:10.1037/xlm0001436",
+  "doi:10.1037/xlm0001470",
+  "doi:10.1038/s41598-022-26584-2",
+  "doi:10.1073/pnas.1216438110",
+  "doi:10.1073/pnas.2122602119",
+  "doi:10.1080/01690965.2012.758297",
+  "doi:10.1080/23273798.2021.1880608",
+  "doi:10.1080/23273798.2024.2360168",
+  "doi:10.1080/23273798.2024.2387226",
+  "doi:10.1080/23273798.2025.2496910",
+  "doi:10.1111/cogs.12414",
+  "doi:10.1111/cogs.12814",
+  "doi:10.1111/cogs.12885",
+  "doi:10.1111/cogs.13187",
+  "doi:10.1111/j.1467-9280.2008.02075.x",
+  "doi:10.1111/j.1749-818x.2007.00007.x",
+  "doi:10.1111/lnc3.12151",
+  "doi:10.1111/lnc3.12434",
+  "doi:10.1162/opmi.a.362",
+  "doi:10.1162/tacl.a.611",
+  "doi:10.1177/0956797618806296",
+  "doi:10.1371/journal.pone.0277116",
+  "doi:10.1515/9783110274073.165",
+  "doi:10.1515/9783110292022-004",
+  "doi:10.1523/jneurosci.0374-24.2024",
+  "doi:10.18637/jss.v067.i01",
+  "doi:10.18653/v1/2023.findings-emnlp.128",
+  "doi:10.3115/1073336.1073357",
+  "doi:10.31234/osf.io/2498w_v1",
+  "doi:10.3389/frai.2022.781962",
+  "doi:10.3758/bf03197179",
+  "doi:10.3758/bf03206482",
+  "doi:10.3758/s13414-023-02721-5",
+  "doi:10.3758/s13423-018-1492-z",
+  "doi:10.3758/s13423-022-02150-9",
+  "doi:10.3758/s13423-024-02586-1",
+  "doi:10.3758/s13428-020-01351-1",
+  "doi:10.48550/arxiv.2103.04469",
+  "doi:10.48550/arxiv.2407.21783",
+  "doi:10.5334/joc.335",
+  "doi:10.7275/55192",
+  "english-corpora.org/coca",
+  "r-project.org"
+ ],
+ "own_doi": "doi:10.1162/opmi.a.362",
+ "citations": [
+  {
+   "cite_id": 1,
+   "para_id": 3,
+   "bib_id": 5,
+   "marker": "1993",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 2,
+   "para_id": 3,
+   "bib_id": 21,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 3,
+   "para_id": 3,
+   "bib_id": 32,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 4,
+   "para_id": 3,
+   "bib_id": 48,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 5,
+   "para_id": 3,
+   "bib_id": 59,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 6,
+   "para_id": 3,
+   "bib_id": 24,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 7,
+   "para_id": 3,
+   "bib_id": 45,
+   "marker": "2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 8,
+   "para_id": 3,
+   "bib_id": 2,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 9,
+   "para_id": 3,
+   "bib_id": 26,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 10,
+   "para_id": 3,
+   "bib_id": 29,
+   "marker": "2021a",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 11,
+   "para_id": 3,
+   "bib_id": 31,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 12,
+   "para_id": 3,
+   "bib_id": 40,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 13,
+   "para_id": 3,
+   "bib_id": 42,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 14,
+   "para_id": 3,
+   "bib_id": 43,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 15,
+   "para_id": 3,
+   "bib_id": 61,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 16,
+   "para_id": 3,
+   "bib_id": 63,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 17,
+   "para_id": 3,
+   "bib_id": 72,
+   "marker": "2021a",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 18,
+   "para_id": 3,
+   "bib_id": 73,
+   "marker": "2021b",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 19,
+   "para_id": 3,
+   "bib_id": 14,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 20,
+   "para_id": 4,
+   "bib_id": 60,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 21,
+   "para_id": 4,
+   "bib_id": 62,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 22,
+   "para_id": 4,
+   "bib_id": 26,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 23,
+   "para_id": 4,
+   "bib_id": 31,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 24,
+   "para_id": 4,
+   "bib_id": 40,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 25,
+   "para_id": 4,
+   "bib_id": 41,
+   "marker": "2026",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 26,
+   "para_id": 4,
+   "bib_id": 42,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 27,
+   "para_id": 4,
+   "bib_id": 71,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 28,
+   "para_id": 4,
+   "bib_id": 31,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 29,
+   "para_id": 4,
+   "bib_id": 40,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 30,
+   "para_id": 4,
+   "bib_id": 44,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 31,
+   "para_id": 4,
+   "bib_id": 61,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 32,
+   "para_id": 4,
+   "bib_id": 63,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 33,
+   "para_id": 4,
+   "bib_id": 41,
+   "marker": "2026",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 34,
+   "para_id": 4,
+   "bib_id": 42,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 35,
+   "para_id": 4,
+   "bib_id": 26,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 36,
+   "para_id": 4,
+   "bib_id": 26,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 37,
+   "para_id": 4,
+   "bib_id": 41,
+   "marker": "2026",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 38,
+   "para_id": 5,
+   "bib_id": 13,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 39,
+   "para_id": 5,
+   "bib_id": 21,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 40,
+   "para_id": 5,
+   "bib_id": 37,
+   "marker": "2008a",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 41,
+   "para_id": 5,
+   "bib_id": 75,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 42,
+   "para_id": 5,
+   "bib_id": 66,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 43,
+   "para_id": 5,
+   "bib_id": 51,
+   "marker": "2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 44,
+   "para_id": 5,
+   "bib_id": 54,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 45,
+   "para_id": 5,
+   "bib_id": 35,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 46,
+   "para_id": 5,
+   "bib_id": 21,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 47,
+   "para_id": 6,
+   "bib_id": 29,
+   "marker": "2021a",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 48,
+   "para_id": 6,
+   "bib_id": 29,
+   "marker": "2021a",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 49,
+   "para_id": 6,
+   "bib_id": 66,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 50,
+   "para_id": 6,
+   "bib_id": 26,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 51,
+   "para_id": 6,
+   "bib_id": 67,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 52,
+   "para_id": 6,
+   "bib_id": 54,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 53,
+   "para_id": 6,
+   "bib_id": 21,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 54,
+   "para_id": 6,
+   "bib_id": 37,
+   "marker": "2008a",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 55,
+   "para_id": 7,
+   "bib_id": 9,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 56,
+   "para_id": 8,
+   "bib_id": 15,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 57,
+   "para_id": 8,
+   "bib_id": 15,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 58,
+   "para_id": 9,
+   "bib_id": 15,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 59,
+   "para_id": 9,
+   "bib_id": 55,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 60,
+   "para_id": 10,
+   "bib_id": 29,
+   "marker": "2021a",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 61,
+   "para_id": 10,
+   "bib_id": 66,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 62,
+   "para_id": 10,
+   "bib_id": 67,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 63,
+   "para_id": 11,
+   "bib_id": 49,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 64,
+   "para_id": 12,
+   "bib_id": 11,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 65,
+   "para_id": 12,
+   "bib_id": 23,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 66,
+   "para_id": 12,
+   "bib_id": 57,
+   "marker": "1948",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 67,
+   "para_id": 12,
+   "bib_id": 25,
+   "marker": "2001",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 68,
+   "para_id": 12,
+   "bib_id": 38,
+   "marker": "2008b",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 69,
+   "para_id": 13,
+   "bib_id": 49,
+   "marker": "2020",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 70,
+   "para_id": 1,
+   "bib_id": 6,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 71,
+   "para_id": 1,
+   "bib_id": 53,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 72,
+   "para_id": 1,
+   "bib_id": 4,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 73,
+   "para_id": 14,
+   "bib_id": 11,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 74,
+   "para_id": 15,
+   "bib_id": 27,
+   "marker": "2026",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 75,
+   "para_id": 15,
+   "bib_id": 36,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 76,
+   "para_id": 16,
+   "bib_id": 1,
+   "marker": "2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 77,
+   "para_id": 16,
+   "bib_id": 3,
+   "marker": "2008",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 78,
+   "para_id": 16,
+   "bib_id": 22,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 79,
+   "para_id": 16,
+   "bib_id": 28,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 80,
+   "para_id": 16,
+   "bib_id": 33,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 81,
+   "para_id": 16,
+   "bib_id": 47,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 82,
+   "para_id": 16,
+   "bib_id": 70,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 83,
+   "para_id": 17,
+   "bib_id": 3,
+   "marker": "2008",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 84,
+   "para_id": 17,
+   "bib_id": 1,
+   "marker": "2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 85,
+   "para_id": 18,
+   "bib_id": 66,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 86,
+   "para_id": 19,
+   "bib_id": 1,
+   "marker": "2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 87,
+   "para_id": 20,
+   "bib_id": 11,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 88,
+   "para_id": 21,
+   "bib_id": 66,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 89,
+   "para_id": 22,
+   "bib_id": 29,
+   "marker": "2021a",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 90,
+   "para_id": 22,
+   "bib_id": 43,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 91,
+   "para_id": 22,
+   "bib_id": 72,
+   "marker": "2021a",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 92,
+   "para_id": 22,
+   "bib_id": 73,
+   "marker": "2021b",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 93,
+   "para_id": 22,
+   "bib_id": 65,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 94,
+   "para_id": 23,
+   "bib_id": 69,
+   "marker": "2004",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 95,
+   "para_id": 24,
+   "bib_id": 21,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 96,
+   "para_id": 24,
+   "bib_id": 37,
+   "marker": "2008a",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 97,
+   "para_id": 25,
+   "bib_id": 20,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 98,
+   "para_id": 25,
+   "bib_id": 24,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 99,
+   "para_id": 25,
+   "bib_id": 16,
+   "marker": "1981",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 100,
+   "para_id": 25,
+   "bib_id": 19,
+   "marker": "2005",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 101,
+   "para_id": 25,
+   "bib_id": 64,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 102,
+   "para_id": 25,
+   "bib_id": 68,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 103,
+   "para_id": 25,
+   "bib_id": 58,
+   "marker": "2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 104,
+   "para_id": 26,
+   "bib_id": 1,
+   "marker": "2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 105,
+   "para_id": 26,
+   "bib_id": 3,
+   "marker": "2008",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 106,
+   "para_id": 26,
+   "bib_id": 74,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 107,
+   "para_id": 26,
+   "bib_id": 10,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 108,
+   "para_id": 26,
+   "bib_id": 12,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 109,
+   "para_id": 27,
+   "bib_id": 8,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 110,
+   "para_id": 27,
+   "bib_id": 34,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 111,
+   "para_id": 27,
+   "bib_id": 50,
+   "marker": "2026",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 112,
+   "para_id": 28,
+   "bib_id": 26,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 113,
+   "para_id": 28,
+   "bib_id": 29,
+   "marker": "2021a",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 114,
+   "para_id": 28,
+   "bib_id": 67,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 115,
+   "para_id": 28,
+   "bib_id": 67,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 116,
+   "para_id": 29,
+   "bib_id": 7,
+   "marker": "2012",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 117,
+   "para_id": 29,
+   "bib_id": 18,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 118,
+   "para_id": 29,
+   "bib_id": 39,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 119,
+   "para_id": 29,
+   "bib_id": 56,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 120,
+   "para_id": 29,
+   "bib_id": 72,
+   "marker": "2021a",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 121,
+   "para_id": 29,
+   "bib_id": 30,
+   "marker": "2021b",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 122,
+   "para_id": 30,
+   "bib_id": 15,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 123,
+   "para_id": 31,
+   "bib_id": 65,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 124,
+   "para_id": 31,
+   "bib_id": 15,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 125,
+   "para_id": 31,
+   "bib_id": 61,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 126,
+   "para_id": 31,
+   "bib_id": 9,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 127,
+   "para_id": 31,
+   "bib_id": 65,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 128,
+   "para_id": 31,
+   "bib_id": 21,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 129,
+   "para_id": 31,
+   "bib_id": 55,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 130,
+   "para_id": 32,
+   "bib_id": 20,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 131,
+   "para_id": 32,
+   "bib_id": 24,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 132,
+   "para_id": 33,
+   "bib_id": 30,
+   "marker": "2021b",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 133,
+   "para_id": 33,
+   "bib_id": 1,
+   "marker": "2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 134,
+   "para_id": 33,
+   "bib_id": 10,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 135,
+   "para_id": 33,
+   "bib_id": 15,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 136,
+   "para_id": 33,
+   "bib_id": 9,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 137,
+   "para_id": 33,
+   "bib_id": 65,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 138,
+   "para_id": 33,
+   "bib_id": 55,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 139,
+   "para_id": 34,
+   "bib_id": 30,
+   "marker": "2021b",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 140,
+   "para_id": 34,
+   "bib_id": 31,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 141,
+   "para_id": 34,
+   "bib_id": 67,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 142,
+   "para_id": 35,
+   "bib_id": 52,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 143,
+   "para_id": 36,
+   "bib_id": 26,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 144,
+   "para_id": 36,
+   "bib_id": 29,
+   "marker": "2021a",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 145,
+   "para_id": 36,
+   "bib_id": 67,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 146,
+   "para_id": 37,
+   "bib_id": 46,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 147,
+   "para_id": 38,
+   "bib_id": 17,
+   "marker": "2007",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 148,
+   "para_id": 38,
+   "bib_id": 48,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-ext-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "v1_bib_count": 75
+ }
+}

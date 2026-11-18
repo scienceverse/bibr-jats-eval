@@ -1,0 +1,1532 @@
+{
+ "paper_id": "10.7554_elife.108495",
+ "paras": [
+  {
+   "para_id": 1,
+   "loc": "body",
+   "sec_title": "Model observers",
+   "text": "The codes used for stimulus generation and data analyses as well as the stimulus images, the experimental stimulation scripts, and all data (human and model observer) are publicly available at https://osf.io/fe8s9/.",
+   "printed": true
+  },
+  {
+   "para_id": 2,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "The way in which we recognize objects and people is a central but as yet unresolved question in vision science. Our understanding of visual perception is limited by our ability to account for how we recognize objects and people despite the sometimes radically different images they project onto the retinae, due to varying lighting, distance, depth rotation, etc. (DiCarlo and Cox, 2007). We experience faces under a broad range of depth rotations mainly along the x-axis, that is from left to right profile (i.e. yaw; Favelle and Palmisano, 2012) due to biomechanical constraints favoring x-axis head rotations and the vantage point on our conspecifics’ faces also varying more along the x than the y-axis (i.e. when moving around people). While rotating in depth, a given face projects retinal images that are more dissimilar than the ones that different faces under the same viewpoint would project (Adini et al., 1997; Burton et al., 2016; Hill et al., 1997). Yet, humans generally have no difficulty in recognizing a familiar face across views, which implies the joint ability to differentiate its identity from others and to generalize it from one view to another, that is with tolerance to variations (Ritchie and Burton, 2017).",
+   "printed": true
+  },
+  {
+   "para_id": 3,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "The tolerance of face identity recognition is stronger for familiar than unfamiliar faces (e.g., Favelle and Palmisano, 2018; Hancock et al., 2000; Hill et al., 1997; Jeffery et al., 2006; Johnston and Edmonds, 2009; Jones et al., 2017; Liu and Chaudhuri, 2002; Newell et al., 1999; O’Toole et al., 1998; Troje and Bülthoff, 1996), suggesting that a core determinant of tolerant recognition is the repeated exposure to the natural statistics of a person’s face (e.g. to the variability of a person’s appearance across different views; Tian and Grill-Spector, 2015; Troje and Bülthoff, 1996; Van Meel and Op de Beeck, 2018; Wallis and Bülthoff, 2001). Such statistical learning is assumed to be the main unsupervised learning route for tolerant face/object recognition in humans and animals (DiCarlo and Cox, 2007; Fiser and Aslin, 2002; Hauser et al., 2001; Huber et al., 2023; Li and DiCarlo, 2008; Li and DiCarlo, 2010; Li and Dicarlo, 2012; Tian and Grill-Spector, 2015). Since seeing the different views of a given person in succession improves the tolerance of identity recognition, temporal contiguity is presumed to contribute to the statistical learning of face identity (Li and DiCarlo, 2010; Miyashita, 1993; Pitts and McCulloch, 1947; Van Meel and Op de Beeck, 2018; Wallis et al., 2009; Wallis and Bülthoff, 1999).",
+   "printed": true
+  },
+  {
+   "para_id": 4,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "While some attention has been devoted to the contribution of temporal contiguity in view-tolerant recognition, the spatial aspects of the natural statistics supporting view-tolerant face identity recognition are still largely elusive. Face appearance results from the complex interaction between extrinsic viewing conditions and the intrinsic 3D shape and reflectance properties of the face (determined e.g. by viewpoint and lighting; Favelle et al., 2017; Hill and Bruce, 1996; Liu et al., 2000). Burton and colleagues (Mike Burton, 2013; Burton et al., 2005) suggested that as exposure to multiple appearances of a person increases, the accidental, irrelevant variations would be progressively whitened (i.e. averaged out) and reveal the stable cues to identity. Figure 1 simulates such averaging using the pictures of a given identity taken from variable poses, as experienced in natural viewing (Oruc et al., 2019). It can be seen that additionally to the whitening of accidental properties, the resulting average contains a strong horizontal structure; namely, it results in the emergence of the so-called (horizontal) bar code of the face (Dakin and Watt, 2009).",
+   "printed": true
+  },
+  {
+   "para_id": 5,
+   "loc": "fig",
+   "sec_title": "Introduction",
+   "text": "The tolerance of human face identity recognition to drastic appearance variations caused by varying lighting, viewpoint, facial expression, etc. has been proposed to emerge through averaging (Burton et al., 2005). With increased exposure to a face, an averaging mechanism would progressively whiten accidental variations in appearance while preserving stable cues to identity. Past illustrations (Mike Burton, 2013; Burton et al., 2005) used varying lighting and expressions but moderate pose variations. Here, we show that averaging highly diverse views (from left to right profile) of a face produces a horizontally smeared image, which suggests that, across encounters with a face, cues at orientations other than horizontal are whitened. Images of two celebrities (George Clooney and Daniel Radcliffe) were sampled from the internet. Image averages were made of 40% left-averted, 40% right-averted, and 20% frontal views, in line with exposure to face views in natural viewing (Oruc et al., 2019). The luminance and RMS contrast of the averaged faces were set to a luminance of 0.5 and contrast of 0.4. Using this procedure, one can appreciate the emergence of the so-called bar code, namely, the vertical arrangement of horizontally oriented cues which carries the natural statistics of the face category and of face individual identity (Dakin and Watt, 2009).",
+   "printed": true
+  },
+  {
+   "para_id": 6,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "We, and others, proposed that the horizontal content of the face stimulus may drive the visual mechanisms engaged for the view-tolerant recognition of face identity (Caldara and Seghier, 2009; Dakin and Watt, 2009; Gilad-Gutnick et al., 2018; Goffaux, 2008; Goffaux and Dakin, 2010). Several lines of empirical evidence indicate that the horizontally-oriented face information conveys optimal cues to identity. First, the visual mechanisms specialized for the identity recognition of faces’ frontal view rely preferentially on the horizontal structure of the face image, indicating a better sensitivity to identity in the horizontal range of face information (e.g. Balas et al., 2015; Dumont et al., 2024; Goffaux, 2019; Goffaux and Dakin, 2010; Pachai et al., 2013; Pachai et al., 2018). The horizontal dependence of face identity recognition has also been shown to predict face identification accuracy at the individual observer level (Duncan et al., 2019; Pachai et al., 2013). Furthermore, there is indirect evidence that horizontal face information may optimally drive the tolerance of face identity recognition. For example, while the horizontal dependence manifests from three months of age (de Heering et al., 2016), it strengthens over the lifespan, that is as individuals accumulate experience with the natural statistics of face appearance (Goffaux et al., 2015). Moreover, and considering that the recognition of familiar faces differs from unfamiliar face recognition by its stronger tolerance to retinal variations due to, for example a change in view (Bruce et al., 1999; Burton et al., 1999; Burton et al., 2010; Hill and Bruce, 1996; Megreya and Burton, 2006; O’Toole et al., 1998; Ramon, 2015), the finding by Pachai and colleagues that the recognition of a face from ¾ to full-frontal view increasingly relies on horizontal information as a function of familiarity provides indirect support to the notion that the tolerance of identity recognition most crucially depends on horizontal face cues (Pachai et al., 2017). In one of Goffaux and Dakin, 2010’s experiments, the matching of unfamiliar faces from frontal to ¾ view was more largely disrupted by horizontal than vertical noise masking. It is not clear, however, whether this effect reflects view-tolerant recognition or the horizontally tuned encoding of the frontal view probe. The important question of whether the horizontal range of face information is a privileged informational avenue for view-tolerant identity recognition is therefore still unanswered.",
+   "printed": true
+  },
+  {
+   "para_id": 7,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Second, we used a model observer approach to define the information physically available in the stimulus for the matching of face identity within a given viewpoint and across different viewpoints. A model observer is a basic image processing algorithm that cross-correlates a target image with probe images at the pixel level and selects the probe with the highest correlation, that is the most likely match. Combined with orientation filtering, this method provides a formal way to describe how the information most useful for matching identity is distributed in the orientation domain of the face image (e.g. Collin et al., 2014; Gold et al., 1999; Näsänen, 1999; for a similar approach in the spatial frequency domain). The pixelwise image correlation performed by a model observer is not taken as a computationally valid analog of human face processing; on the contrary, it is a means to separate information objectively available in the stimulus from human vision (Collin et al., 2014).",
+   "printed": true
+  },
+  {
+   "para_id": 8,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "This approach revealed a substantial difference in the orientation distribution of view-specific and view-tolerant information. The view-selective model indicated that, at the image level, the orientation ranges supporting view-selective identity matching differ drastically from one view to another: identity cues were distributed in the horizontal range at frontal views (in line with Goffaux, 2019; Keil, 2008; Pachai et al., 2013) but shifted towards the vertical range as the face turned to profile. In contrast, the view-tolerant model performance indicated that the horizontal structure of the face stimulus provides the most stable cues for matching identity across yaws. Partial correlations between model and human observer performance suggest that the horizontal tuning of human face identity recognition is due not only to the high diagnosticity of horizontal information at frontal view but also to the stability of the horizontal identity cues across views.",
+   "printed": true
+  },
+  {
+   "para_id": 9,
+   "loc": "body",
+   "sec_title": "Human observers",
+   "text": "Human face identification performance was measured using an old/new recognition task. The stimuli consisted of unfamiliar 3D laser-scanned faces (Troje and Bülthoff, 1996) captured from seven viewpoints ranging from –75° (left profile) to +75° (right profile) in 25° increments (full-face views at 0°; see Figure 2). Twenty-two healthy young adults were familiarized with the full-spectrum version of half the identities before performing the old/new recognition task on the complete set of stimuli filtered in the Fourier domain to preserve energy at selective orientations ranging from 0° (vertical) to 157.5° in steps of 22.5°.",
+   "printed": true
+  },
+  {
+   "para_id": 10,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Tolerant face identity recognition relies on the ability to extract the idiosyncratic identity cues of a face from its highly variable appearance (e.g. Burton et al., 2016; Kramer et al., 2018). The spatial information supporting the tolerance of visual recognition is a central and debated topic in the field of visual and computational neurosciences (e.g. Andrews et al., 2023; DiCarlo and Cox, 2007). By showing that the information supporting tolerance in face identity recognition is image-computable, that is that it can be objectively defined in the orientation domain of the face image, the present work makes a decisive advance on this question. Our finding that view-tolerant face identity recognition is driven by the horizontal range of face information yields concrete, image-driven constraints for the development of theoretical and computational models of visual recognition.",
+   "printed": true
+  },
+  {
+   "para_id": 11,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "As the vantage point of a face shifts away from frontal view, morphological features related to the 3D structure of the face become more apparent (e.g. nose and cheek protuberances, jaw line, nose bridge, eyebrow head; see e.g. Stephan and Caine, 2007 for evidence that the nose gains in informativeness from frontal to profile view). Our finding of moderate but systematic fluctuations in the tuning peak location and that vertical range gains importance in non-frontal views suggests that non-horizontal orientations may facilitate access to such features.",
+   "printed": true
+  },
+  {
+   "para_id": 12,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "In contrast, other sources of information are lost when shifting towards profile views, such as the bilateral symmetric organization of the face as well as the 2D shape of features and their configuration along the x axis (e.g. size of eyebrows, interocular distance; Royer et al., 2016; Troje and Bülthoff, 1996). In a way, it is surprising that this shift in accessible information did not manifest in a more substantial variation of the orientation tuning peak location. Instead, the relatively stable preference for horizontal information across views suggests that it is not solely due to this range facilitating access to the 2D shape properties and bilateral symmetry (Dakin and Watt, 2009). It aligns with our recent evidence (Dumont et al., 2024) that the horizontal face information yields not only 2D-shape but also surface cues to identity. The stable horizontal tuning may also be due to identity recognition relying mostly on the eye region irrespective of view. Indeed, despite the eye appearance being strongly affected by changes in view, the identity information extracted from this region is the most diagnostic (Stephan and Caine, 2007; but see Royer et al., 2016 for conflicting results) and best defined in the horizontal range irrespective of view.",
+   "printed": true
+  },
+  {
+   "para_id": 13,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "In contrast to the view-selective model observer, the view-tolerant model observer kept sharply tuned to the horizontal range irrespective of view (Figure 4). The horizontal range resulted in the highest cross-correlation among the different views of a given face indicating that this range yields the identity cues that are the most stable across views, that is those that enable binding different face views into a unique representation of identity (Burton, 2013). This physical property of the face image likely explains why human identity recognition keeps horizontally tuned across views (see also Goffaux and Dakin, 2010).",
+   "printed": true
+  },
+  {
+   "para_id": 14,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Tolerant representation of identity presumably builds up through repeated exposure to the physical variability of face appearance (Mike Burton, 2013; Burton et al., 2005). Over encounters, the idiosyncratic properties of a face are reinforced in its internal representation at the expense of uninformative accidental properties, the representation of which gradually attenuates (Figure 1; Tian and Grill-Spector, 2015; Troje and Bülthoff, 1996; Van Meel and Op de Beeck, 2018; Wallis and Bülthoff, 2001). The stable identity cues are horizontal, which entails that this range should best predict the average face appearance across views. Following a suggestion from a reviewer of this paper, we addressed this hypothesis by designing an additional model observer, which matched the experimental stimuli (i.e. orientation-filtered images of faces seen under different views) to the average of the different views of each face identity in full spectrum (Figure 6; see details in Appendix 1). In line with our hypothesis, this ‘view-average’ model observer performed best with horizontally filtered faces. These additional results support our suggestion that the average summary of a face identity contains a strong horizontal structure, a so-called (horizontal) bar code (Figure 1), which drives the view-tolerant recognition of face identity (Caldara and Seghier, 2009; Dakin and Watt, 2009; Gilad-Gutnick et al., 2018; Goffaux, 2008; Goffaux and Dakin, 2010).",
+   "printed": true
+  },
+  {
+   "para_id": 15,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Our stimuli, originally designed by Troje and Bülthoff, 1996, are 3D laser scans of white individuals aged between 20 and 40 years, posing with a neutral expression and shot under a fixed illumination. Ears and a small portion of the neck were visible while the hair region was removed. All face images had a normalized skin color, and we further converted them to grayscales. The use of such a controlled set restricted the range of within- and between-identity variations compared to what is experienced in natural settings. However, the skin color normalization and grayscale conversion, while limiting the range of face variability, did not eliminate the contribution of surface pigmentation in our study as the grayscale 3D laser scanned faces used here contained natural variations in crucial surface cues such as skin albedo and texture. For these reasons, we believe that the present findings generalize to more ecological viewing conditions.",
+   "printed": true
+  },
+  {
+   "para_id": 16,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "The horizontal tuning of human face recognition was found to be relatively broad across views, compared with the sharp tuning of the view-tolerant model observer. The tuning breadth of human recognition may serve to retain the complex variability of face appearance across views. Indeed, each face identity has its own idiosyncratic way to vary across expression, illumination, view, etc. Such idiosyncratic within-person variability has been proposed to drive familiar face identity recognition as much as the stable (horizontal) identity information (e.g. Burton et al., 2016; Ritchie and Burton, 2017). Moreover, accidental properties such as head and gaze orientation carry important cues for the regulation of social interactions. Our past evidence shows that the fine discrimination of gaze direction is best supported in the vertical range (Goffaux, 2019). The vertical range also likely carries most of the information about the head direction. Thus, the broad horizontal tuning of identity recognition by humans may allow for the integration of such accidental properties of a face with the (more) stable identity (Or and Wilson, 2010). For functional social interactions, it may be advantageous to retain the dynamic and variable signals emitted by a face as much as its invariant aspects, which would entail a relatively broad tuning to orientation.",
+   "printed": true
+  },
+  {
+   "para_id": 17,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Effect of lighting is even more disruptive than view changes (Adini et al., 1997; Braje et al., 1998; Favelle et al., 2017; Hill and Bruce, 1996; Johnston et al., 2013; Tarr et al., 1998; Tarr et al., 2008). Image representations that emphasized the horizontal features were found to be less sensitive to changes in the direction of illumination (Adini et al., 1997). Future research should test whether tolerance of human face identity recognition to lighting is also supported by the horizontal range.",
+   "printed": true
+  },
+  {
+   "para_id": 18,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "To conclude, this study demonstrates that the horizontal range carries the richest identity cues in frontal views, and the most stable across views. The orientation tuning profile of human identity recognition aligns with this combination of high diagnostic value in frontal views and cross-view stability. Taken together, this body of evidence suggests that the invariant representation of face identity, gradually learned through repeated exposure to its natural appearance statistics, relies heavily on horizontal facial information (Figure 1; Burton et al., 2016; Dakin and Watt, 2009; Ritchie and Burton, 2017).",
+   "printed": true
+  },
+  {
+   "para_id": 19,
+   "loc": "body",
+   "sec_title": "Subjects",
+   "text": "Twenty-two healthy young adults took part in this experiment in exchange for monetary compensation (8 euros/hr of testing). They were 14 females and 8 males, aged 23.5 (±3.4) on average (4 were left-handed), recruited via Facebook advertisement. They received a written description of the experiment protocol and gave their written informed consent. Participants had normal vision as verified by a Landolt C acuity test (conducted using FRACT; Bach, 1996). Participants wore optical corrections when necessary. The experimental protocol was approved by the local ethical committee (Psychological Sciences Research Institute, UCLouvain).",
+   "printed": true
+  },
+  {
+   "para_id": 20,
+   "loc": "body",
+   "sec_title": "Stimuli",
+   "text": "We selected 30 face identities (15 male, 15 female) from the 3D laser-scanned face database of the Max-Planck Institute for Biological Cybernetics (Tuebingen, Germany; Troje and Bülthoff, 1996). Faces were viewed under seven different viewpoints ranging from –75° (left profile) to +75° (right profile) in steps of 25° (full front faces at 0°; see Figure 2). We first converted all images to a gray scale ranging from 0 to 1 and resized them so that all faces subtended a height of 210 pixels. All images were padded into 400 × 400 pixels gray canvas and alpha-blended with a view-specific aperture designed to cover the hair and neck of the average of all face images at a given viewpoint (using Adobe Photoshop).",
+   "printed": true
+  },
+  {
+   "para_id": 21,
+   "loc": "body",
+   "sec_title": "Stimuli",
+   "text": "Next, images were normalized to obtain a mean luminance of 0 and root-mean square (RMS) contrast of 1 and submitted to a fast two-dimensional Fourier transform to manipulate orientation content. Since manipulations in the Fourier domain apply to the whole image, they encompass both the face and background pixels. When the image of a face on a plain background is filtered in the Fourier orientation domain, energy belonging to the face therefore smears to the background and vice-versa, resulting in an oriented halo. To minimize this smearing, we applied an iterative phase-scrambling procedure (as in Canoluk et al., 2023; Petras et al., 2019; Roux-Sibilon et al., 2023; Schuurmans et al., 2023), which consists in iteratively phase-scrambling the image, pasting the original face pixels, and phase-scrambling again (50 iterations). By making the power spectra of the face and background pixels more comparable, this procedure minimizes smearing during orientation filtering. The amplitude spectra of the resulting images were then multiplied with wrapped Gaussian filters (SD of 20°) centered on orientations ranging from 0° (vertical) to 157.5° in steps of 22.5°. After inverse-Fourier transform, the filtered images were combined with a view-specific aperture.",
+   "printed": true
+  },
+  {
+   "para_id": 22,
+   "loc": "body",
+   "sec_title": "Stimuli",
+   "text": "Images of faces cropped from their background as used here contain most of their energy in the horizontal range (Goffaux, 2019; Goffaux and Greenwood, 2016; Keil, 2009). Across yaws, we found face energy to range between 0.11 and 0.14 on a 0–1 grayscale, which is moderate compared to the range of face energy variations we measured across identities (from 0.08 to 0.18). To prevent energy from explaining our results, in all images, the luminance and RMS contrast of the face pixels were fixed to 0.55 and 0.15, respectively, and background pixels were uniformly set to 0.55. The percentage of clipped pixel values (below 0 or above 1) per image did not exceed 3%.",
+   "printed": true
+  },
+  {
+   "para_id": 23,
+   "loc": "body",
+   "sec_title": "Stimuli",
+   "text": "We used Matlab 2014a (Mathworks Inc, Natick, MA) for stimulus preparation. Stimuli were displayed against a gray background (0.55 luminance across RGB channels) at a viewing distance of 57 cm on a Viewpixx monitor (VPixx Technologies Inc, Saint-Bruno, Canada) with a resolution of 1920 × 1080 pixels and a 70 Hz refresh rate using PsychToolbox (Brainard, 1997). With this display, face area subtended 5° (width) by 8° (height) of visual angle (approximately corresponding to conversational distance). At the start of the experiment, lighting was switched off, and the testing area of the lab was closed off separately with light-draining black curtains.",
+   "printed": true
+  },
+  {
+   "para_id": 24,
+   "loc": "body",
+   "sec_title": "Procedure",
+   "text": "Participants were familiarized with five female and five male faces. These familiar identities were randomly sampled from the stimulus set of 30 face identities on the participant’s first visit and were kept identical throughout the experiment. In the first testing session, we familiarized each participant with their selection of to-be-learnt ‘old’ faces, presented in their full-spectrum version. To engage participants in the face learning procedure, they were asked to remember a face–name pairing, although during the main experiment they were only asked to judge whether the face was seen during familiarization (‘old’) or new (i.e. incidental learning method as in Liu and Chaudhuri, 2002). Each identity was first shown centrally rotating from left profile (+75°) to right profile (–75°) pseudo-dynamically along with its assigned first name on top of the screen (400 ms per frame). The various views of the given face (in succession from +75° to –75° in steps of 25°, i.e. seven views) were then presented one by one for 400 ms. After each identity presentation, a recap screen appeared with all the faces learned in previous trials, clustered by identity and shown under the various viewpoints side by side. All learned identities were randomly presented one-by-one in the second familiarization phase, each under one of the seven viewpoints. The face appeared in isolation for 1000 ms. Then the name associated with the face was added, and both name and face were shown together for another 2000 ms. Participants were then evaluated on their ability to name the learned so-called ‘old’ faces at various viewpoints (+75° to –75°, in steps of 25°). A trial started with a 500 ms fixation; then the stimulus was presented at screen center along with the name options (the five names of the ‘old’ faces of the same gender as the shown face), numbered from 1 to 5, at the top of the screen until participant response (maximum of 3000 ms). Participants responded by pressing the corresponding key (1–5). The fixation turned green in case of a correct response. When the response was incorrect, the fixation turned red. In both cases, the correct name appeared along with feedback. Feedback lasted for 500 ms. Familiarization and test were looped until naming accuracy reached 80%.",
+   "printed": true
+  },
+  {
+   "para_id": 25,
+   "loc": "body",
+   "sec_title": "Human data analysis",
+   "text": "In order to estimate the orientation dependence of human sensitivity to identity across views, we derived individual d’ at each viewpoint and orientation. To do so, we determined hit and false alarm rates (Tanner and Birdsall, 1958) from the ‘old’/’new’ response in each participant, at each orientation and for each viewpoint. Following the log-linear rule (Hautus, 1995), we added a 0.5 correction to both before calculating the z scores. Performance at the 0° filter was duplicated to have circular filter values from 0° to 180°. As expected from previous studies (Dumont et al., 2024; Goffaux and Greenwood, 2016; Pachai et al., 2018), the d’ plotted as a function of orientation in the frontal view condition (yaw = 0°) depicted a bell-shaped function centered on horizontal orientation (i.e. 90°; see Figure 3A, central panel). At the other viewpoints, d’ followed a very similar shape, with maximum sensitivity roughly centered on horizontal orientation. Therefore, fitting the human sensitivity data using a Gaussian model seemed most appropriate as it allows characterizing the parameters of the tuning profile, namely, peak location, peak amplitude, standard deviation, and base amplitude, which are directly interpretable in cognitive/functional terms. Moreover, the use of a nonlinear, Gaussian model is motivated by past work that showed that the Gaussian function fits the evolution of recognition performance as a function of orientation (Dakin and Watt, 2009; Goffaux and Greenwood, 2016). Simpler frameworks, that is a linear model predicting d’ from the interaction between orientation and viewpoint, would result in an 8 (orientation) * 7 (viewpoint) design that is difficult to analyze and interpret.",
+   "printed": true
+  },
+  {
+   "para_id": 26,
+   "loc": "body",
+   "sec_title": "Human data analysis",
+   "text": "We used the package brms (Bürkner, 2018) in R to implement this model in the Bayesian framework, using a multilevel modeling approach (Dumont et al., 2024; Moors et al., 2020; Nalborczyk et al., 2019). The four parameters peak location, standard deviation, base amplitude, and peak amplitude were conjointly estimated by linear predictor terms which included an intercept and the effect of Viewpoint. We also estimated a subject-level intercept of standard deviation and base amplitude as random effects, to allow the shape of the Gaussian to vary across participants. This multilevel structure provides a more accurate estimation of population-level parameters by accounting for subject variability. The prior distributions of the different parameters of the model were specified based on a compromise between (1) using knowledge from previous research (e.g. we used a normal distribution centered on horizontal orientation – 90° – for peak location, in line with the well-established horizontal tuning of face identification), (2) keeping unbiased uncertainty when previous research was not informative (e.g. for the effect of Viewpoint on the different parameters), and (3) allowing the convergence of the model. The details of the prior distributions can be found in Supplementary file 1. We ran four Markov Chain Monte-Carlo simulations, with 20,000 iterations including 3000 warm-up iterations.",
+   "printed": true
+  },
+  {
+   "para_id": 27,
+   "loc": "body",
+   "sec_title": "Image analysis",
+   "text": "We investigated how the distribution of energy across orientations in the experimental stimuli varied as a function of viewpoint. The amplitude and phase spectra for the image of each full spectrum face were obtained by means of a two-dimensional fast Fourier Transform and multiplied with wrapped Gaussian filters, with peak orientations centered on orientation values from 0° to 157.5° in steps of 22.5° (20° standard deviation; as in Goffaux and Greenwood, 2016) and with peak spatial frequencies ranging from 1 to 200 cycles per image in 20 logarithmic steps. Amplitude values within each spatial frequency and orientation bin were squared and summed, then averaged across spatial frequencies per orientation bin.",
+   "printed": true
+  },
+  {
+   "para_id": 28,
+   "loc": "body",
+   "sec_title": "Image analysis",
+   "text": "Note that because the Fourier transform represents image energy in a discrete manner, energy at the lowest spatial frequency components can only be reliably sampled at the main cardinal and oblique ranges (i.e. 0°, 45°, 90°, 135°) especially when very narrow orientation filters are used (Hansen and Essock, 2004). However, because orientation filters were broad, and we interpret relative differences and not absolute values of energy distribution across viewpoints, the influence of this issue is minimal. We obtained one mean energy value per orientation band by averaging across identities.",
+   "printed": true
+  },
+  {
+   "para_id": 29,
+   "loc": "body",
+   "sec_title": "Image analysis",
+   "text": "We found that while face images contained most of their energy in the horizontal range, irrespective of viewpoint (Figure 3), the amplitude of the horizontal energy peak decreased as the face viewpoint moved away from frontal. For profile views, there was a plateau covering the horizontal plus the adjacent left and right oblique orientations for the left- and right-pointing profile views, respectively. In comparison, vertical energy was lower than any other range regardless of viewpoint. These findings replicate past evidence that most of the energy in a face image is contained in a range centered over the horizontal angle (Goffaux, 2019; Goffaux and Greenwood, 2016; Keil, 2009).",
+   "printed": true
+  },
+  {
+   "para_id": 30,
+   "loc": "body",
+   "sec_title": "Model observers",
+   "text": "To systematically quantify the orientation profile of the stimulus information physically available to match identity either (1) within a fixed viewpoint or (2) across distinct viewpoints (i.e. thus requiring the generalization of identity from one view to other views), we designed two different model observers: a view-selective model observer and a view-tolerant model observer, respectively. By characterizing the orientation profile of the information available to recognize face identity in a view-selective and -tolerant manner, this approach enables us to investigate objectively whether and how this information is used by humans (Collin et al., 2014; Pachai et al., 2013). Namely, it allows addressing whether the orientation range used during view-tolerant identity recognition by humans is the most informative for the view at stake, or the one most stable across views, at the physical image level.",
+   "printed": true
+  },
+  {
+   "para_id": 31,
+   "loc": "body",
+   "sec_title": "Model observers",
+   "text": "In both model types, targets and probes were of the same orientation range (see Collin et al., 2014; Näsänen, 1999 for a similar method applied to the spatial frequency domain). Targets and probes in the view-selective model observer stemmed from a fixed viewpoint whereas the view-tolerant model observer matched target and probe separated by more than one viewpoint step to force tolerance to viewpoint in this model performance (e.g. a face at +025 of yaw was matched to faces at +075, –025, –050, and –075). This separation of views between target and probes was essential to force the view-tolerant model observer to generalize identity across views when matching identity at the image pixel level. It is not meant to be a computationally-valid analogy of how humans recognize identity in a view-tolerant manner. Since profile views stood at the viewpoint continuum extrema, one extra viewpoint was available for comparison. We therefore decided to drop the mirror profile view to match the number of comparisons across profile and non-profile viewpoints. Performance of the view-tolerant model was averaged across comparison viewpoints.",
+   "printed": true
+  }
+ ],
+ "links": [
+  {
+   "link_id": 1,
+   "url": "osf.io/fe8s9",
+   "url_raw": "https://osf.io/fe8s9/",
+   "href_jats": "https://osf.io/fe8s9/",
+   "repo_key": "osf:fe8s9",
+   "host_class": "osf",
+   "loc": "body",
+   "sec_title": "Model observers",
+   "source": "tagged",
+   "para_id": 1
+  }
+ ],
+ "links_optional": [
+  "creativecommons.org/licenses/by/4.0",
+  "doi:10.1002/dev.21396",
+  "doi:10.1002/hbm.20626",
+  "doi:10.1002/j.1538-9235.1996.tb04409.x",
+  "doi:10.1007/bf02478291",
+  "doi:10.1016/0042-6989(95)00230-8",
+  "doi:10.1016/j.actpsy.2007.11.005",
+  "doi:10.1016/j.cognition.2011.08.001",
+  "doi:10.1016/j.cognition.2017.12.005",
+  "doi:10.1016/j.cogpsych.2005.06.003",
+  "doi:10.1016/j.neuroimage.2018.10.086",
+  "doi:10.1016/j.neuroimage.2023.120139",
+  "doi:10.1016/j.neuron.2010.08.029",
+  "doi:10.1016/j.neuroscience.2009.07.062",
+  "doi:10.1016/j.tics.2007.06.010",
+  "doi:10.1016/j.visres.2004.11.015",
+  "doi:10.1016/j.visres.2006.11.002",
+  "doi:10.1016/j.visres.2010.05.016",
+  "doi:10.1016/j.visres.2016.04.004",
+  "doi:10.1016/j.visres.2018.01.001",
+  "doi:10.1016/j.visres.2023.108297",
+  "doi:10.1016/s0010-0277(00)00132-3",
+  "doi:10.1016/s0010-0277(01)00164-0",
+  "doi:10.1016/s0010-0277(96)00785-8",
+  "doi:10.1016/s0042-6989(98)00041-8",
+  "doi:10.1016/s0042-6989(98)00042-x",
+  "doi:10.1016/s0042-6989(99)00080-2",
+  "doi:10.1016/s0042-6989(99)00096-6",
+  "doi:10.1016/s1364-6613(00)01519-9",
+  "doi:10.1016/s1364-6613(98)01261-3",
+  "doi:10.1037//0096-1523.22.4.986",
+  "doi:10.1037//0278-7393.28.3.458",
+  "doi:10.1037/1076-898x.5.4.339",
+  "doi:10.1037/xhp0000684",
+  "doi:10.1038/srep34204",
+  "doi:10.1044/2018_jslhr-s-18-0006",
+  "doi:10.1068/p210365n",
+  "doi:10.1068/p3065",
+  "doi:10.1068/p5490",
+  "doi:10.1068/p5627",
+  "doi:10.1068/p7531",
+  "doi:10.1073/pnas.071028598",
+  "doi:10.1080/09658210902976969",
+  "doi:10.1080/17470218.2013.800125",
+  "doi:10.1080/17470218.2015.1136656",
+  "doi:10.1080/17470218.2016.1158302",
+  "doi:10.1080/713755813",
+  "doi:10.1098/rsos.172381",
+  "doi:10.1098/rspb.2008.0486",
+  "doi:10.1098/rspb.2023.1118",
+  "doi:10.1109/34.598229",
+  "doi:10.1111/cogs.12231",
+  "doi:10.1111/j.1467-9280.2006.01735.x",
+  "doi:10.1111/j.2044-8295.2011.02039.x",
+  "doi:10.1121/1.1909408",
+  "doi:10.1126/science.1160028",
+  "doi:10.1145/1279920.1279924",
+  "doi:10.1146/annurev.ne.16.030193.001333",
+  "doi:10.1152/jn.01018.2002",
+  "doi:10.1162/jocn_a_01265",
+  "doi:10.1167/15.6.7",
+  "doi:10.1167/17.6.5",
+  "doi:10.1167/4.12.5",
+  "doi:10.1167/9.4.2",
+  "doi:10.1167/9.7.6",
+  "doi:10.1167/jov.23.7.4",
+  "doi:10.1177/0301006618754479",
+  "doi:10.1177/2041669517744221",
+  "doi:10.1207/s15516709cog2301_1",
+  "doi:10.1371/journal.pcbi.1000329",
+  "doi:10.1371/journal.pone.0138812",
+  "doi:10.1371/journal.pone.0209927",
+  "doi:10.1371/journal.pone.0210503",
+  "doi:10.1371/journal.pone.0285255",
+  "doi:10.1371/journal.pone.0311225",
+  "doi:10.1523/jneurosci.3786-11.2012",
+  "doi:10.31234/osf.io/8au9j_v3",
+  "doi:10.32614/rj-2018-017",
+  "doi:10.3389/fnhum.2018.00013",
+  "doi:10.3389/fpsyg.2010.00143",
+  "doi:10.3389/fpsyg.2012.00563",
+  "doi:10.3389/fpsyg.2013.00074",
+  "doi:10.3389/fpsyg.2015.00772",
+  "doi:10.3758/bf03193433",
+  "doi:10.3758/bf03203619",
+  "doi:10.3758/bf03330623",
+  "doi:10.3758/brm.42.1.286",
+  "doi:10.3758/s13414-019-01917-y",
+  "doi:10.7554/elife.108495.1",
+  "doi:10.7554/elife.108495.1.sa1",
+  "doi:10.7554/elife.108495.1.sa2",
+  "doi:10.7554/elife.108495.1.sa3",
+  "doi:10.7554/elife.108495.2",
+  "doi:10.7554/elife.108495.2.sa1",
+  "doi:10.7554/elife.108495.2.sa2",
+  "doi:10.7554/elife.108495.2.sa3",
+  "doi:10.7554/elife.108495.3",
+  "doi:10.7554/elife.108495.3.sa1",
+  "doi:10.7554/elife.108495.3.sa2",
+  "doi:10.7554/elife.108495.3.sa3",
+  "doi:10.7717/peerj.850",
+  "ncbi.nlm.nih.gov/pubmed/12938769"
+ ],
+ "own_doi": "doi:10.7554/elife.108495",
+ "citations": [
+  {
+   "cite_id": 1,
+   "para_id": 2,
+   "bib_id": 18,
+   "marker": "DiCarlo and Cox, 2007",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 2,
+   "para_id": 2,
+   "bib_id": 21,
+   "marker": "Favelle and Palmisano, 2012",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 3,
+   "para_id": 2,
+   "bib_id": 1,
+   "marker": "Adini et al., 1997",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 4,
+   "para_id": 2,
+   "bib_id": 12,
+   "marker": "Burton et al., 2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 5,
+   "para_id": 2,
+   "bib_id": 37,
+   "marker": "Hill et al., 1997",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 6,
+   "para_id": 2,
+   "bib_id": 67,
+   "marker": "Ritchie and Burton, 2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 7,
+   "para_id": 3,
+   "bib_id": 23,
+   "marker": "Favelle and Palmisano, 2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 8,
+   "para_id": 3,
+   "bib_id": 32,
+   "marker": "Hancock et al., 2000",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 9,
+   "para_id": 3,
+   "bib_id": 37,
+   "marker": "Hill et al., 1997",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 10,
+   "para_id": 3,
+   "bib_id": 39,
+   "marker": "Jeffery et al., 2006",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 11,
+   "para_id": 3,
+   "bib_id": 40,
+   "marker": "Johnston and Edmonds, 2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 12,
+   "para_id": 3,
+   "bib_id": 42,
+   "marker": "Jones et al., 2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 13,
+   "para_id": 3,
+   "bib_id": 50,
+   "marker": "Liu and Chaudhuri, 2002",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 14,
+   "para_id": 3,
+   "bib_id": 57,
+   "marker": "Newell et al., 1999",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 15,
+   "para_id": 3,
+   "bib_id": 60,
+   "marker": "O’Toole et al., 1998",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 16,
+   "para_id": 3,
+   "bib_id": 76,
+   "marker": "Troje and Bülthoff, 1996",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 17,
+   "para_id": 3,
+   "bib_id": 75,
+   "marker": "Tian and Grill-Spector, 2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 18,
+   "para_id": 3,
+   "bib_id": 76,
+   "marker": "Troje and Bülthoff, 1996",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 19,
+   "para_id": 3,
+   "bib_id": 77,
+   "marker": "Van Meel and Op de Beeck, 2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 20,
+   "para_id": 3,
+   "bib_id": 79,
+   "marker": "Wallis and Bülthoff, 2001",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 21,
+   "para_id": 3,
+   "bib_id": 18,
+   "marker": "DiCarlo and Cox, 2007",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 22,
+   "para_id": 3,
+   "bib_id": 24,
+   "marker": "Fiser and Aslin, 2002",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 23,
+   "para_id": 3,
+   "bib_id": 34,
+   "marker": "Hauser et al., 2001",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 24,
+   "para_id": 3,
+   "bib_id": 38,
+   "marker": "Huber et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 25,
+   "para_id": 3,
+   "bib_id": 46,
+   "marker": "Li and DiCarlo, 2008",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 26,
+   "para_id": 3,
+   "bib_id": 47,
+   "marker": "Li and DiCarlo, 2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 27,
+   "para_id": 3,
+   "bib_id": 48,
+   "marker": "Li and Dicarlo, 2012",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 28,
+   "para_id": 3,
+   "bib_id": 75,
+   "marker": "Tian and Grill-Spector, 2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 29,
+   "para_id": 3,
+   "bib_id": 47,
+   "marker": "Li and DiCarlo, 2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 30,
+   "para_id": 3,
+   "bib_id": 53,
+   "marker": "Miyashita, 1993",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 31,
+   "para_id": 3,
+   "bib_id": 65,
+   "marker": "Pitts and McCulloch, 1947",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 32,
+   "para_id": 3,
+   "bib_id": 77,
+   "marker": "Van Meel and Op de Beeck, 2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 33,
+   "para_id": 3,
+   "bib_id": 80,
+   "marker": "Wallis et al., 2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 34,
+   "para_id": 3,
+   "bib_id": 78,
+   "marker": "Wallis and Bülthoff, 1999",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 35,
+   "para_id": 4,
+   "bib_id": 22,
+   "marker": "Favelle et al., 2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 36,
+   "para_id": 4,
+   "bib_id": 36,
+   "marker": "Hill and Bruce, 1996",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 37,
+   "para_id": 4,
+   "bib_id": 49,
+   "marker": "Liu et al., 2000",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 38,
+   "para_id": 4,
+   "bib_id": 52,
+   "marker": "Mike Burton, 2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 39,
+   "para_id": 4,
+   "bib_id": 10,
+   "marker": "Burton et al., 2005",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 40,
+   "para_id": 4,
+   "bib_id": 59,
+   "marker": "Oruc et al., 2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 41,
+   "para_id": 4,
+   "bib_id": 16,
+   "marker": "Dakin and Watt, 2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 42,
+   "para_id": 5,
+   "bib_id": 10,
+   "marker": "Burton et al., 2005",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 43,
+   "para_id": 5,
+   "bib_id": 52,
+   "marker": "Mike Burton, 2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 44,
+   "para_id": 5,
+   "bib_id": 10,
+   "marker": "Burton et al., 2005",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 45,
+   "para_id": 5,
+   "bib_id": 59,
+   "marker": "Oruc et al., 2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 46,
+   "para_id": 5,
+   "bib_id": 16,
+   "marker": "Dakin and Watt, 2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 47,
+   "para_id": 6,
+   "bib_id": 13,
+   "marker": "Caldara and Seghier, 2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 48,
+   "para_id": 6,
+   "bib_id": 16,
+   "marker": "Dakin and Watt, 2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 49,
+   "para_id": 6,
+   "bib_id": 25,
+   "marker": "Gilad-Gutnick et al., 2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 50,
+   "para_id": 6,
+   "bib_id": 26,
+   "marker": "Goffaux, 2008",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 51,
+   "para_id": 6,
+   "bib_id": 27,
+   "marker": "Goffaux and Dakin, 2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 52,
+   "para_id": 6,
+   "bib_id": 4,
+   "marker": "Balas et al., 2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 53,
+   "para_id": 6,
+   "bib_id": 19,
+   "marker": "Dumont et al., 2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 54,
+   "para_id": 6,
+   "bib_id": 30,
+   "marker": "Goffaux, 2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 55,
+   "para_id": 6,
+   "bib_id": 27,
+   "marker": "Goffaux and Dakin, 2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 56,
+   "para_id": 6,
+   "bib_id": 61,
+   "marker": "Pachai et al., 2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 57,
+   "para_id": 6,
+   "bib_id": 63,
+   "marker": "Pachai et al., 2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 58,
+   "para_id": 6,
+   "bib_id": 20,
+   "marker": "Duncan et al., 2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 59,
+   "para_id": 6,
+   "bib_id": 61,
+   "marker": "Pachai et al., 2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 60,
+   "para_id": 6,
+   "bib_id": 17,
+   "marker": "de Heering et al., 2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 61,
+   "para_id": 6,
+   "bib_id": 28,
+   "marker": "Goffaux et al., 2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 62,
+   "para_id": 6,
+   "bib_id": 7,
+   "marker": "Bruce et al., 1999",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 63,
+   "para_id": 6,
+   "bib_id": 9,
+   "marker": "Burton et al., 1999",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 64,
+   "para_id": 6,
+   "bib_id": 11,
+   "marker": "Burton et al., 2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 65,
+   "para_id": 6,
+   "bib_id": 36,
+   "marker": "Hill and Bruce, 1996",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 66,
+   "para_id": 6,
+   "bib_id": 51,
+   "marker": "Megreya and Burton, 2006",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 67,
+   "para_id": 6,
+   "bib_id": 60,
+   "marker": "O’Toole et al., 1998",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 68,
+   "para_id": 6,
+   "bib_id": 66,
+   "marker": "Ramon, 2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 69,
+   "para_id": 6,
+   "bib_id": 62,
+   "marker": "Pachai et al., 2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 70,
+   "para_id": 6,
+   "bib_id": 27,
+   "marker": "Goffaux and Dakin, 2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 71,
+   "para_id": 7,
+   "bib_id": 15,
+   "marker": "Collin et al., 2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 72,
+   "para_id": 7,
+   "bib_id": 31,
+   "marker": "Gold et al., 1999",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 73,
+   "para_id": 7,
+   "bib_id": 56,
+   "marker": "Näsänen, 1999",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 74,
+   "para_id": 7,
+   "bib_id": 15,
+   "marker": "Collin et al., 2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 75,
+   "para_id": 8,
+   "bib_id": 30,
+   "marker": "Goffaux, 2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 76,
+   "para_id": 8,
+   "bib_id": 43,
+   "marker": "Keil, 2008",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 77,
+   "para_id": 8,
+   "bib_id": 61,
+   "marker": "Pachai et al., 2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 78,
+   "para_id": 9,
+   "bib_id": 76,
+   "marker": "Troje and Bülthoff, 1996",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 79,
+   "para_id": 10,
+   "bib_id": 12,
+   "marker": "Burton et al., 2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 80,
+   "para_id": 10,
+   "bib_id": 45,
+   "marker": "Kramer et al., 2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 81,
+   "para_id": 10,
+   "bib_id": 2,
+   "marker": "Andrews et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 82,
+   "para_id": 10,
+   "bib_id": 18,
+   "marker": "DiCarlo and Cox, 2007",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 83,
+   "para_id": 11,
+   "bib_id": 71,
+   "marker": "Stephan and Caine, 2007",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 84,
+   "para_id": 12,
+   "bib_id": 69,
+   "marker": "Royer et al., 2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 85,
+   "para_id": 12,
+   "bib_id": 76,
+   "marker": "Troje and Bülthoff, 1996",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 86,
+   "para_id": 12,
+   "bib_id": 16,
+   "marker": "Dakin and Watt, 2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 87,
+   "para_id": 12,
+   "bib_id": 19,
+   "marker": "Dumont et al., 2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 88,
+   "para_id": 12,
+   "bib_id": 71,
+   "marker": "Stephan and Caine, 2007",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 89,
+   "para_id": 12,
+   "bib_id": 69,
+   "marker": "Royer et al., 2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 90,
+   "para_id": 13,
+   "bib_id": 27,
+   "marker": "Goffaux and Dakin, 2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 91,
+   "para_id": 14,
+   "bib_id": 52,
+   "marker": "Mike Burton, 2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 92,
+   "para_id": 14,
+   "bib_id": 10,
+   "marker": "Burton et al., 2005",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 93,
+   "para_id": 14,
+   "bib_id": 75,
+   "marker": "Tian and Grill-Spector, 2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 94,
+   "para_id": 14,
+   "bib_id": 76,
+   "marker": "Troje and Bülthoff, 1996",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 95,
+   "para_id": 14,
+   "bib_id": 77,
+   "marker": "Van Meel and Op de Beeck, 2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 96,
+   "para_id": 14,
+   "bib_id": 79,
+   "marker": "Wallis and Bülthoff, 2001",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 97,
+   "para_id": 14,
+   "bib_id": 13,
+   "marker": "Caldara and Seghier, 2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 98,
+   "para_id": 14,
+   "bib_id": 16,
+   "marker": "Dakin and Watt, 2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 99,
+   "para_id": 14,
+   "bib_id": 25,
+   "marker": "Gilad-Gutnick et al., 2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 100,
+   "para_id": 14,
+   "bib_id": 26,
+   "marker": "Goffaux, 2008",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 101,
+   "para_id": 14,
+   "bib_id": 27,
+   "marker": "Goffaux and Dakin, 2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 102,
+   "para_id": 15,
+   "bib_id": 76,
+   "marker": "Troje and Bülthoff, 1996",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 103,
+   "para_id": 16,
+   "bib_id": 12,
+   "marker": "Burton et al., 2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 104,
+   "para_id": 16,
+   "bib_id": 67,
+   "marker": "Ritchie and Burton, 2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 105,
+   "para_id": 16,
+   "bib_id": 30,
+   "marker": "Goffaux, 2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 106,
+   "para_id": 16,
+   "bib_id": 58,
+   "marker": "Or and Wilson, 2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 107,
+   "para_id": 17,
+   "bib_id": 1,
+   "marker": "Adini et al., 1997",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 108,
+   "para_id": 17,
+   "bib_id": 6,
+   "marker": "Braje et al., 1998",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 109,
+   "para_id": 17,
+   "bib_id": 22,
+   "marker": "Favelle et al., 2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 110,
+   "para_id": 17,
+   "bib_id": 36,
+   "marker": "Hill and Bruce, 1996",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 111,
+   "para_id": 17,
+   "bib_id": 41,
+   "marker": "Johnston et al., 2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 112,
+   "para_id": 17,
+   "bib_id": 73,
+   "marker": "Tarr et al., 1998",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 113,
+   "para_id": 17,
+   "bib_id": 74,
+   "marker": "Tarr et al., 2008",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 114,
+   "para_id": 17,
+   "bib_id": 1,
+   "marker": "Adini et al., 1997",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 115,
+   "para_id": 18,
+   "bib_id": 12,
+   "marker": "Burton et al., 2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 116,
+   "para_id": 18,
+   "bib_id": 16,
+   "marker": "Dakin and Watt, 2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 117,
+   "para_id": 18,
+   "bib_id": 67,
+   "marker": "Ritchie and Burton, 2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 118,
+   "para_id": 19,
+   "bib_id": 3,
+   "marker": "Bach, 1996",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 119,
+   "para_id": 20,
+   "bib_id": 76,
+   "marker": "Troje and Bülthoff, 1996",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 120,
+   "para_id": 21,
+   "bib_id": 14,
+   "marker": "Canoluk et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 121,
+   "para_id": 21,
+   "bib_id": 64,
+   "marker": "Petras et al., 2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 122,
+   "para_id": 21,
+   "bib_id": 68,
+   "marker": "Roux-Sibilon et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 123,
+   "para_id": 21,
+   "bib_id": 70,
+   "marker": "Schuurmans et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 124,
+   "para_id": 22,
+   "bib_id": 30,
+   "marker": "Goffaux, 2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 125,
+   "para_id": 22,
+   "bib_id": 29,
+   "marker": "Goffaux and Greenwood, 2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 126,
+   "para_id": 22,
+   "bib_id": 44,
+   "marker": "Keil, 2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 127,
+   "para_id": 23,
+   "bib_id": 5,
+   "marker": "Brainard, 1997",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 128,
+   "para_id": 24,
+   "bib_id": 50,
+   "marker": "Liu and Chaudhuri, 2002",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 129,
+   "para_id": 25,
+   "bib_id": 72,
+   "marker": "Tanner and Birdsall, 1958",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 130,
+   "para_id": 25,
+   "bib_id": 35,
+   "marker": "Hautus, 1995",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 131,
+   "para_id": 25,
+   "bib_id": 19,
+   "marker": "Dumont et al., 2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 132,
+   "para_id": 25,
+   "bib_id": 29,
+   "marker": "Goffaux and Greenwood, 2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 133,
+   "para_id": 25,
+   "bib_id": 63,
+   "marker": "Pachai et al., 2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 134,
+   "para_id": 25,
+   "bib_id": 16,
+   "marker": "Dakin and Watt, 2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 135,
+   "para_id": 25,
+   "bib_id": 29,
+   "marker": "Goffaux and Greenwood, 2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 136,
+   "para_id": 26,
+   "bib_id": 8,
+   "marker": "Bürkner, 2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 137,
+   "para_id": 26,
+   "bib_id": 19,
+   "marker": "Dumont et al., 2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 138,
+   "para_id": 26,
+   "bib_id": 54,
+   "marker": "Moors et al., 2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 139,
+   "para_id": 26,
+   "bib_id": 55,
+   "marker": "Nalborczyk et al., 2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 140,
+   "para_id": 27,
+   "bib_id": 29,
+   "marker": "Goffaux and Greenwood, 2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 141,
+   "para_id": 28,
+   "bib_id": 33,
+   "marker": "Hansen and Essock, 2004",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 142,
+   "para_id": 29,
+   "bib_id": 30,
+   "marker": "Goffaux, 2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 143,
+   "para_id": 29,
+   "bib_id": 29,
+   "marker": "Goffaux and Greenwood, 2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 144,
+   "para_id": 29,
+   "bib_id": 44,
+   "marker": "Keil, 2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 145,
+   "para_id": 30,
+   "bib_id": 15,
+   "marker": "Collin et al., 2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 146,
+   "para_id": 30,
+   "bib_id": 61,
+   "marker": "Pachai et al., 2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 147,
+   "para_id": 31,
+   "bib_id": 15,
+   "marker": "Collin et al., 2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 148,
+   "para_id": 31,
+   "bib_id": 56,
+   "marker": "Näsänen, 1999",
+   "expanded": false,
+   "scored": true
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-ext-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "v1_bib_count": 80
+ }
+}

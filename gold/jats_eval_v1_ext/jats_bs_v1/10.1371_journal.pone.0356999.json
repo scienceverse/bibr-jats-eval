@@ -1,0 +1,984 @@
+{
+ "paper_id": "10.1371_journal.pone.0356999",
+ "paras": [
+  {
+   "para_id": 1,
+   "loc": "front",
+   "sec_title": "",
+   "text": "The minimal data set of this study, including the UROREC hardware design files, firmware source code, and experimental datasets, is publicly available via Zenodo at https://doi.org/10.5281/zenodo.19490036.",
+   "printed": true
+  },
+  {
+   "para_id": 2,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "The study of lower urinary tract (LUT) dysfunction resulting from neurological diseases or injury is primarily conducted experimentally in animal models [1]. This research requires access to workstations, surgical equipment, specialized accessories, and data acquisition devices to generate accurate records for subsequent analysis [2]. These devices have contributed to the development and study of new therapies and surgical methods to address conditions such as organ prolapse, pelvic floor dysfunction, and overactive bladder (OAB) [3]. These conditions often result in urinary incontinence (UI), which is defined as the involuntary loss of urine [4]. UI associated with OAB affects a wide demographic spectrum, ranging from children and adolescents to adults and elderly individuals. Studies have projected that approximately 423 million people would be affected by some form of UI by 2018 [5]. However, recent estimates for 2024 have indicated a substantial increase, suggesting that between 700 million and 1.2 billion individuals residing in major urban centers may be affected by OAB-related UI [6]. These discrepancies underscore the difficulty of obtaining definitive global statistics and highlight the growing magnitude of this public health problem.",
+   "printed": true
+  },
+  {
+   "para_id": 3,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Accurate diagnosis and treatment planning for UI require imaging studies or urodynamic testing [7]. Conventional management strategies encompass a wide spectrum of approaches, ranging from pharmacotherapy to surgical interventions targeting the underlying etiology [8]. However, some patients do not respond to conventional therapies [9], making it necessary to research and develop new therapeutic alternatives, which were initially validated in animal models such as rats. To evaluate the efficacy of new treatments and their interaction with the underlying pathology, researchers often rely on ex vivo or in vivo studies, with the latter being the most prevalent [10]. A primary approach involves the use of laboratory animal models to replicate specific pathological conditions, such as denervation or nerve transection [11,12], spinal cord injury [13], or OAB [14,15]. These models facilitate the study of disease progression, tissue damage, and the onset of UI. Monitoring parameters such as filling pressure, bladder capacity, electromyographic (EMG) signals, and micturition episode duration is essential for evaluating experimental treatments [16].",
+   "printed": true
+  },
+  {
+   "para_id": 4,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "However, these studies require specialized hardware for biosignals acquisition, including low-noise amplifiers, isolated power supplies, and dedicated computer workstations [17]. Moreover, strict adherence to approved bioethics protocols, the availability of in vivo specimens, and the acquisition of surgical equipment, anesthetic agents, and specialized technical support significantly increase operating costs [18]. These logistical and financial barriers impede the feasibility of such experimental procedures and create a substantial disparity between well-funded laboratories and smaller research groups that lack the equipment necessary to replicate the reported results. Although commercial systems from companies such as Stanford Research Systems, Grass Instruments, and Astro-Med allow for in vivo experimentation in various animal models, they often rely on specialized workstations, bulky hardware, or high acquisition costs, which restrict data collection to designated areas of the laboratory.",
+   "printed": true
+  },
+  {
+   "para_id": 5,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "This study addresses logistical and financial limitations while promoting methodological reproducibility by presenting the development and rigorous in vivo pilot validation of UROREC, an accessible, compact, and highly reliable data acquisition platform for synchronous cystometry (CMG) and external urethral sphincter electromyography (EUS-EMG). This reproducible system is designed for seamless integration into standard murine urodynamic protocols [10,19], eliminating dependence on dedicated and restrictive commercial workstations. This work primarily aims to demonstrate the analytical robustness of UROREC in acquiring, processing, and logging concurrent CMG and EUS-EMG activity, rather than to explore novel or complex biological mechanisms. Furthermore, the system’s efficacy is validated by quantifying established baseline physiological benchmarks and confirming its ability to detect pathophysiological alterations in an OAB model. UROREC provides a scalable framework that makes physiological research more accessible, enabling laboratories to conduct complex LUT studies without compromising data integrity.",
+   "printed": true
+  },
+  {
+   "para_id": 6,
+   "loc": "body",
+   "sec_title": "Materials and methods",
+   "text": "The UROREC is a custom-designed device that simultaneously records EUS-EMG through implanted electrodes and CMG through a catheter. Current protocols reported in the literature typically employ data acquisition systems with sampling frequencies of 10,000–25,000 samples per second (sps) [15,20]. To meet these standards, the device was designed and configured to achieve a maximum sampling rate of 20 ksps, a specification validated experimentally [21]. The UROREC architecture consists of three main modules: a) the EMG acquisition circuit; b) the cystometry acquisition circuit; and c) the digital processing and interface unit. Fig 1 shows the block diagram of the UROREC system.",
+   "printed": true
+  },
+  {
+   "para_id": 7,
+   "loc": "body",
+   "sec_title": "Cystometry acquisition circuit",
+   "text": "For the experimental CMG procedures, female Wistar rats were used. These rats exhibit an intravesical pressure range of 30–60 cmH2O during micturition, according to studies by [12,21–23]. However, this range can occasionally be exceeded. Based on these physiological parameters, we selected a piezoresistive manometric pressure sensor from the ABP2 series (Honeywell), which is compatible with liquid media owing to its internal silicone gel insulation. This sensor features factory calibration and temperature compensation. Its availability, small size, and competitive price make it easy to integrate into the system. The assembly sensor is presented in Fig 2, and the pressure unit conversion and calibration protocol used is detailed in S1 File. S1 Appendix, Note 3.",
+   "printed": true
+  },
+  {
+   "para_id": 8,
+   "loc": "body",
+   "sec_title": "Experimental validation protocol",
+   "text": "The validation protocol focused on quantifying the device’s ability to accurately record the established physiological patterns of CMG and EUS-EMG in a murine model. The subjects were evaluated under two conditions: a healthy state and an OAB pathological state induced by acetic acid. This methodology has previously been used to differentiate between physiological states in device validation studies [24,25]. Specifically, the validation protocol quantified the tonic activity of the EUS during the filling phase and the occurrence of phasic bursts. Additionally, changes in bladder pressure before and during micturition were measured. These changes verify the synchronization of EMG events with intravesical pressure variations, as these variations are characteristic of the different phases of the micturition cycle [22].",
+   "printed": true
+  },
+  {
+   "para_id": 9,
+   "loc": "body",
+   "sec_title": "Ethical statement",
+   "text": "As this was an acute, non-survival experiment, the humane endpoint was defined as the completion of the urodynamic recording session or any evidence of physiological instability that could not be managed by adjusting the anesthetic dosage. The selection of urethane as the anesthetic agent for the recording phase was made based on its capacity to preserve stable micturition reflexes over extended periods. However, it should be noted that the pharmacological profile of urethane strictly limits its use to terminal procedures [26]. Death was not a planned experimental endpoint. The total duration of the experiment per subject was approximately four hours, including 60 minutes for surgical preparation and electrode implantation, followed by 50 minutes for stabilization and 120 minutes of data recording. Throughout the surgical and recording stages, signs of distress, including but not limited to abnormal posture, piloerection, or respiratory failure, were continuously monitored to ensure timely intervention. However, no animals reached the established humane endpoints prior to the scheduled termination. Following the conclusion of the experiments, all subjects were humanely euthanized with an overdose of isoflurane.",
+   "printed": true
+  },
+  {
+   "para_id": 10,
+   "loc": "body",
+   "sec_title": "Animal model of overactive bladder",
+   "text": "To induce detrusor hyperactivity, a 0.5% acetic acid solution diluted in physiological saline was prepared in a sterilized glass container one hour before the procedures began. An OAB model can be established by continuously perfusing an acidic solution intravesically through a catheter [14,27]. This process irritates the bladder mucosa and stimulates the afferent C fibers of the urothelium. The result is increased bladder contraction and decreased bladder capacity. This model enables the evaluation of pharmacological agents, alternative treatments such as neuromodulation, and experimental procedures for treating OAB in animal studies [10,15,21].",
+   "printed": true
+  },
+  {
+   "para_id": 11,
+   "loc": "body",
+   "sec_title": "Bladder catheterization",
+   "text": "The fluid system consisted of a 26-G catheter connected to a 15-centimeter polyethylene (PE-50) tube, a three-way stopcock, an infusion pump, and a pressure sensor. The experimental setup is shown in Fig 3. All the components were disinfected with 70% ethanol. The system was then purged with a saline solution to remove any air bubbles that could affect the accuracy of the pressure measurements [19].",
+   "printed": true
+  },
+  {
+   "para_id": 12,
+   "loc": "body",
+   "sec_title": "Bladder catheterization",
+   "text": "With the bladder exposed, gentle traction was applied to the bladder dome tissue with dissecting forceps to facilitate the insertion of the catheter up to 10 mm deep. After the guide needle was removed, light pressure was applied to the bladder with a moistened cotton swab to force retrograde urine flow into the connector and ensure a continuous liquid column. The catheter was then connected to the PE-50 tube. Finally, the catheter was connected to the three-way stopcock, which served as a common interface for the infusion pump and digital pressure sensor. This catheterization technique was chosen instead of direct PE-50 tubing implantation because it minimizes detrusor muscle trauma and potential mechanical artifacts in the pressure signal [19].",
+   "printed": true
+  },
+  {
+   "para_id": 13,
+   "loc": "body",
+   "sec_title": "Urodynamic records",
+   "text": "After the surgical procedures were complete, the anesthesia was switched from isoflurane to urethane (1.2 g/kg; Sigma-Aldrich) [10,22,26]. Half of the calculated dose was administered intraperitoneally (IP), and the inhaled anesthetic was reduced to 0.5%. Fifteen minutes later, the remaining dose was administered, and isoflurane was completely discontinued. A constant flow of oxygen was maintained for an additional 15–30 minutes to ensure oxygenation and respiratory stability during the transition. The depth of anesthesia was verified by assessing the absence of the paw withdrawal reflex to a nociceptive stimulus. If reflex activity was detected, supplemental doses of 10% of the initial dose were administered via IP. A 15-to-30-minutes observation period was subsequently conducted to reassess the anesthetic plane.",
+   "printed": true
+  },
+  {
+   "para_id": 14,
+   "loc": "body",
+   "sec_title": "Analysis parameters",
+   "text": "Table 1 summarizes the urodynamic and EMG parameters most commonly used and reported in the literature for evaluating CMG and EUS-EMG characteristics in in vivo models [10,15,19,20,22,23,27–31].",
+   "printed": true
+  },
+  {
+   "para_id": 15,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Recording devices in LUT research are essential for understanding neural control mechanisms and evaluating new treatments [32,33]. However, significant gaps remain in our understanding of the complex physiological interactions that regulate micturition [34], highlighting the need for accurate, accessible instrumentation. This study introduces and validates UROREC, a system designed to monitor bladder pressure and EUS-EMG in preclinical models simultaneously. By using commercial components, UROREC adheres to methodological standards for sampling frequencies and resolutions, enabling high-fidelity urodynamic analysis.",
+   "printed": true
+  },
+  {
+   "para_id": 16,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "UROREC’s technical characterization demonstrated robustness comparable to commercial instrumentation. The 98.4 dB CMRR and low RTI noise ensure high-fidelity EMG recordings in anesthetized rats, where microvolt-range EUS signals are highly susceptible to 60 Hz interference. The validated 5.1 Hz–3.32 kHz bandwidth captures all relevant spectral content of EUS motor unit discharges. Furthermore, a linearity of R2 = 0.9999 within ±3.0 mV preserves the morphology of tonic and phasic contractions, which is crucial for quantifying subtle EMG variations across pathological states or anesthetic regimens. Continuous CMG accuracy is supported by the pressure module’s low hysteresis, which ensures a reliable return to baseline and prevents compliance errors in the infusion lines. Unlike many biomedical prototypes, UROREC was rigorously validated in vivo using standard protocols [19,26], successfully quantifying 18 EUS-EMG and CMG parameters consistent with previous studies [10,15,19,20,22,23,27–31]. Crucially, to address the critical distinction between true measurement accuracy and internal consistency, the absolute baseline values quantified by UROREC in healthy controls were directly benchmarked against metrics established by high-end commercial workstations. For instance, the baseline Maximum Voiding Pressure (MVP) of 32.2946 [29.2174–46.4011] cmH2O and Pressure Threshold (PT) of 7.4254 ± 2.8734 cmH2O recorded by UROREC fall strictly within the classic physiological ranges reported for urethane-anesthetized female Wistar rats, which typically span 20–35 cmH2O for MVP and 5–10 cmH2O for PT in gold standard urodynamic studies [19,20,30]. This numerical correlation with established benchmarks demonstrates that UROREC does not merely track isolated internal trends or relative changes but successfully translates its metrological benchtop calibration into accurate physical units within the live environment. A key advantage of UROREC is its independence from specialized workstations and bulky power supplies. Its architecture supports real-time monitoring, open-source signal processing, and direct integration into established experimental procedures without altering gold-standard urodynamic protocols [10,33].",
+   "printed": true
+  },
+  {
+   "para_id": 17,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "In the context of the operational value of UROREC within current preclinical research, its architecture was systematically benchmarked against current market-leading commercial equipment in a workstation format and general-purpose open-source biosignals acquisition frameworks [10,33], as shown in Table 4. Although high-end commercial platforms offer high reliability, their proprietary software and closed data formats restrict custom signal analysis and real-time integration with specialized research workflows. Conversely, while general open-source boards [35] provide financial accessibility, they lack specialized EUS-EMG and cystometry requirements, meaning they cannot safely handle synchronous intravesical pressure and electromyographic signals simultaneously. UROREC bridges this technological gap by integrating a purpose-built preclinical conditioning stage into a single compact board footprint, reducing the economic barrier while maintaining the necessary specifications to perform replicable experimentation and research. Comprehensive details regarding the component specifications, unit costs, and hardware accessibility guidelines are provided in S4 Note.",
+   "printed": true
+  },
+  {
+   "para_id": 18,
+   "loc": "table",
+   "sec_title": "Discussion",
+   "text": "Commercial Workstation (BIOPAC Systems, AD Instruments Power La) [10,33]",
+   "printed": true
+  },
+  {
+   "para_id": 19,
+   "loc": "table",
+   "sec_title": "Discussion",
+   "text": "Open-SourcePlatform (OpenBCI Cyton) [35]",
+   "printed": true
+  },
+  {
+   "para_id": 20,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "The results of this study validated the sensitivity of UROREC in detecting and quantifying pathophysiological changes in LUT research. In the chemically irritated bladder model, instilling acetic acid resulted in a statistically significant reduction in both ICI and ACT (p < 0.001). These results are consistent with the occurrence of bladder hyperactivity induced by chemical irritation, a phenomenon widely reported in the literature [10,14,27]. Additionally, significant alterations in BCP (p = 0.014) and MVP (p = 0.0049) were detected. The reduction in MVP observed in our pathological group is consistent with Yoshiyama’s findings in murine models, in which acid irritation markedly decreased bladder pressure during the micturition reflex [27]. These results suggest potential reflex inhibition of bladder contractility or alterations in urethral outlet resistance. These phenomena vary in rodents and depend on experimental conditions or anesthesia [10,19]. Using recordings from UROREC, we quantified a significant decrease in PT (p = 0.027), which was associated with a reduction in the micturition reflex trigger threshold [10,12]. Additionally, the analysis revealed a significant decrease in the 1st PD in the pathological group (p = 0.0047), likely due to the experimental model used. As reported in [27], decerebration animal models enable the isolation of the micturition reflex without depression. Our urethane anesthesia model preserved micturition reflexes but introduced pharmacological modulation of the efficiency and activation thresholds of recorded events [19,26].",
+   "printed": true
+  },
+  {
+   "para_id": 21,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "In contrast to previous studies and conventional methodologies that indirectly quantify sphincter activity through high-frequency oscillations in intravesical pressure or visual observation of urethral dribbling [10,16,19], the UROREC system directly quantifies the EMG activity of the EUS synchronized with the CMG. This is evident in the reduction in the CMG ICI accompanied by the EMG IBI (p < 0.001) and Tonic Dur. This confirms the device’s ability to monitor bladder-sphincter coordination. This feature offers a technological advantage for investigating the neurophysiology of micturition reflexes in murine models. On the other hand, the device enabled us to identify parameters that remained stable compared with those of the pathological model. Specifically, the Phasic RMS, Phasic AUC, and Phasic Dur did not show statistically significant variations (p > 0.05). These findings confirm that acute intravesical acid irritation is strictly localized to the bladder urothelium, modulating the frequency of the micturition reflex through afferent sensitization without inducing direct muscular or neuromuscular alterations in the integrity of the EUS [10,27]. Figs 4 and 5, together with the collected data, enable us to perform visual and quantitative analyses of these behaviors.",
+   "printed": true
+  }
+ ],
+ "links": [
+  {
+   "link_id": 1,
+   "url": "zenodo.org/records/19490036",
+   "url_raw": "https://doi.org/10.5281/zenodo.19490036",
+   "href_jats": "https://doi.org/10.5281/zenodo.19490036",
+   "repo_key": "zenodo:19490036",
+   "host_class": "zenodo",
+   "loc": "front",
+   "sec_title": "",
+   "source": "tagged",
+   "para_id": 1
+  }
+ ],
+ "links_optional": [
+  "creativecommons.org/licenses/by/4.0",
+  "docs.openbci.com",
+  "doi:10.1002/0471678384.ch5",
+  "doi:10.1002/nau.21108",
+  "doi:10.1002/nau.22789",
+  "doi:10.1002/nau.23124",
+  "doi:10.1002/nau.24415",
+  "doi:10.1002/nau.25276",
+  "doi:10.1002/nau.25316",
+  "doi:10.1002/nau.25323",
+  "doi:10.1007/s00192-015-2674-0",
+  "doi:10.1007/s12576-015-0370-y",
+  "doi:10.1016/j.acuro.2011.03.012",
+  "doi:10.1016/j.autneu.2020.102672",
+  "doi:10.1016/j.euf.2019.12.004",
+  "doi:10.1016/j.expneurol.2010.12.008",
+  "doi:10.1016/j.jsps.2013.11.002",
+  "doi:10.1016/j.juro.2008.01.096",
+  "doi:10.1016/j.urology.2009.11.065",
+  "doi:10.1038/s41467-025-61470-1",
+  "doi:10.1038/s41586-018-0823-6",
+  "doi:10.1038/s41598-020-76987-2",
+  "doi:10.1038/sj.bjp.0706630",
+  "doi:10.1111/bju.13039",
+  "doi:10.1111/cge.14331",
+  "doi:10.1111/j.1464-410x.2010.09993.x",
+  "doi:10.1145/2180878.2180883",
+  "doi:10.1152/ajpregu.00450.2015",
+  "doi:10.1152/ajpregu.90406.2008",
+  "doi:10.1152/ajprenal.00212.2014",
+  "doi:10.1152/ajprenal.00255.2014",
+  "doi:10.1152/ajprenal.00573.2014",
+  "doi:10.1186/s40064-016-1687-6",
+  "doi:10.1371/journal.pone.0253192",
+  "doi:10.14814/phy2.15131",
+  "editorialmanager.com/pone",
+  "explore.plos.org/phishing",
+  "journals.plos.org/plosone/s/editorial-and-peer-review-process",
+  "journals.plos.org/plosone/s/figures",
+  "journals.plos.org/plosone/s/file?id=7c09/content-permission-form.pdf",
+  "journals.plos.org/plosone/s/file?id=ba62/plosone_formatting_sample_title_authors_affiliations.pdf",
+  "journals.plos.org/plosone/s/file?id=wjvg/plosone_formatting_sample_main_body.pdf",
+  "journals.plos.org/plosone/s/licenses-and-copyright",
+  "journals.plos.org/plosone/s/submission-guidelines",
+  "plos.my.site.com/s",
+  "plos.org/privacy-policy",
+  "plos.org/protocols?utm_medium=editorial-email&utm_source=authorletters&utm_campaign=protocols",
+  "plosone.org/static/policies.action"
+ ],
+ "own_doi": "doi:10.1371/journal.pone.0356999",
+ "citations": [
+  {
+   "cite_id": 1,
+   "para_id": 2,
+   "bib_id": 1,
+   "marker": "1",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 2,
+   "para_id": 2,
+   "bib_id": 2,
+   "marker": "2",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 3,
+   "para_id": 2,
+   "bib_id": 3,
+   "marker": "3",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 4,
+   "para_id": 2,
+   "bib_id": 4,
+   "marker": "4",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 5,
+   "para_id": 2,
+   "bib_id": 5,
+   "marker": "5",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 6,
+   "para_id": 2,
+   "bib_id": 6,
+   "marker": "6",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 7,
+   "para_id": 3,
+   "bib_id": 7,
+   "marker": "7",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 8,
+   "para_id": 3,
+   "bib_id": 8,
+   "marker": "8",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 9,
+   "para_id": 3,
+   "bib_id": 9,
+   "marker": "9",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 10,
+   "para_id": 3,
+   "bib_id": 10,
+   "marker": "10",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 11,
+   "para_id": 3,
+   "bib_id": 11,
+   "marker": "11",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 12,
+   "para_id": 3,
+   "bib_id": 12,
+   "marker": "12",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 13,
+   "para_id": 3,
+   "bib_id": 13,
+   "marker": "13",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 14,
+   "para_id": 3,
+   "bib_id": 14,
+   "marker": "14",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 15,
+   "para_id": 3,
+   "bib_id": 15,
+   "marker": "15",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 16,
+   "para_id": 3,
+   "bib_id": 16,
+   "marker": "16",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 17,
+   "para_id": 4,
+   "bib_id": 17,
+   "marker": "17",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 18,
+   "para_id": 4,
+   "bib_id": 18,
+   "marker": "18",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 19,
+   "para_id": 5,
+   "bib_id": 10,
+   "marker": "10",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 20,
+   "para_id": 5,
+   "bib_id": 19,
+   "marker": "19",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 21,
+   "para_id": 6,
+   "bib_id": 15,
+   "marker": "15",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 22,
+   "para_id": 6,
+   "bib_id": 20,
+   "marker": "20",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 23,
+   "para_id": 6,
+   "bib_id": 21,
+   "marker": "21",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 24,
+   "para_id": 7,
+   "bib_id": 12,
+   "marker": "12",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 25,
+   "para_id": 7,
+   "bib_id": 21,
+   "marker": "21",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 26,
+   "para_id": 7,
+   "bib_id": 22,
+   "marker": "21–23",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 27,
+   "para_id": 7,
+   "bib_id": 23,
+   "marker": "23",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 28,
+   "para_id": 8,
+   "bib_id": 24,
+   "marker": "24",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 29,
+   "para_id": 8,
+   "bib_id": 25,
+   "marker": "25",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 30,
+   "para_id": 8,
+   "bib_id": 22,
+   "marker": "22",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 31,
+   "para_id": 9,
+   "bib_id": 26,
+   "marker": "26",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 32,
+   "para_id": 10,
+   "bib_id": 14,
+   "marker": "14",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 33,
+   "para_id": 10,
+   "bib_id": 27,
+   "marker": "27",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 34,
+   "para_id": 10,
+   "bib_id": 10,
+   "marker": "10",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 35,
+   "para_id": 10,
+   "bib_id": 15,
+   "marker": "15",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 36,
+   "para_id": 10,
+   "bib_id": 21,
+   "marker": "21",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 37,
+   "para_id": 11,
+   "bib_id": 19,
+   "marker": "19",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 38,
+   "para_id": 12,
+   "bib_id": 19,
+   "marker": "19",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 39,
+   "para_id": 13,
+   "bib_id": 10,
+   "marker": "10",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 40,
+   "para_id": 13,
+   "bib_id": 22,
+   "marker": "22",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 41,
+   "para_id": 13,
+   "bib_id": 26,
+   "marker": "26",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 42,
+   "para_id": 14,
+   "bib_id": 10,
+   "marker": "10",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 43,
+   "para_id": 14,
+   "bib_id": 15,
+   "marker": "15",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 44,
+   "para_id": 14,
+   "bib_id": 19,
+   "marker": "19",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 45,
+   "para_id": 14,
+   "bib_id": 20,
+   "marker": "20",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 46,
+   "para_id": 14,
+   "bib_id": 22,
+   "marker": "22",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 47,
+   "para_id": 14,
+   "bib_id": 23,
+   "marker": "23",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 48,
+   "para_id": 14,
+   "bib_id": 27,
+   "marker": "27",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 49,
+   "para_id": 14,
+   "bib_id": 28,
+   "marker": "27–31",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 50,
+   "para_id": 14,
+   "bib_id": 29,
+   "marker": "27–31",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 51,
+   "para_id": 14,
+   "bib_id": 30,
+   "marker": "27–31",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 52,
+   "para_id": 14,
+   "bib_id": 31,
+   "marker": "31",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 53,
+   "para_id": 15,
+   "bib_id": 32,
+   "marker": "32",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 54,
+   "para_id": 15,
+   "bib_id": 33,
+   "marker": "33",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 55,
+   "para_id": 15,
+   "bib_id": 34,
+   "marker": "34",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 56,
+   "para_id": 16,
+   "bib_id": 19,
+   "marker": "19",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 57,
+   "para_id": 16,
+   "bib_id": 26,
+   "marker": "26",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 58,
+   "para_id": 16,
+   "bib_id": 10,
+   "marker": "10",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 59,
+   "para_id": 16,
+   "bib_id": 15,
+   "marker": "15",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 60,
+   "para_id": 16,
+   "bib_id": 19,
+   "marker": "19",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 61,
+   "para_id": 16,
+   "bib_id": 20,
+   "marker": "20",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 62,
+   "para_id": 16,
+   "bib_id": 22,
+   "marker": "22",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 63,
+   "para_id": 16,
+   "bib_id": 23,
+   "marker": "23",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 64,
+   "para_id": 16,
+   "bib_id": 27,
+   "marker": "27",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 65,
+   "para_id": 16,
+   "bib_id": 28,
+   "marker": "27–31",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 66,
+   "para_id": 16,
+   "bib_id": 29,
+   "marker": "27–31",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 67,
+   "para_id": 16,
+   "bib_id": 30,
+   "marker": "27–31",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 68,
+   "para_id": 16,
+   "bib_id": 31,
+   "marker": "31",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 69,
+   "para_id": 16,
+   "bib_id": 19,
+   "marker": "19",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 70,
+   "para_id": 16,
+   "bib_id": 20,
+   "marker": "20",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 71,
+   "para_id": 16,
+   "bib_id": 30,
+   "marker": "30",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 72,
+   "para_id": 16,
+   "bib_id": 10,
+   "marker": "10",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 73,
+   "para_id": 16,
+   "bib_id": 33,
+   "marker": "33",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 74,
+   "para_id": 17,
+   "bib_id": 10,
+   "marker": "10",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 75,
+   "para_id": 17,
+   "bib_id": 33,
+   "marker": "33",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 76,
+   "para_id": 17,
+   "bib_id": 35,
+   "marker": "35",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 77,
+   "para_id": 18,
+   "bib_id": 10,
+   "marker": "10",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 78,
+   "para_id": 18,
+   "bib_id": 33,
+   "marker": "33",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 79,
+   "para_id": 19,
+   "bib_id": 35,
+   "marker": "35",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 80,
+   "para_id": 20,
+   "bib_id": 10,
+   "marker": "10",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 81,
+   "para_id": 20,
+   "bib_id": 14,
+   "marker": "14",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 82,
+   "para_id": 20,
+   "bib_id": 27,
+   "marker": "27",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 83,
+   "para_id": 20,
+   "bib_id": 27,
+   "marker": "27",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 84,
+   "para_id": 20,
+   "bib_id": 10,
+   "marker": "10",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 85,
+   "para_id": 20,
+   "bib_id": 19,
+   "marker": "19",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 86,
+   "para_id": 20,
+   "bib_id": 10,
+   "marker": "10",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 87,
+   "para_id": 20,
+   "bib_id": 12,
+   "marker": "12",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 88,
+   "para_id": 20,
+   "bib_id": 27,
+   "marker": "27",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 89,
+   "para_id": 20,
+   "bib_id": 19,
+   "marker": "19",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 90,
+   "para_id": 20,
+   "bib_id": 26,
+   "marker": "26",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 91,
+   "para_id": 21,
+   "bib_id": 10,
+   "marker": "10",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 92,
+   "para_id": 21,
+   "bib_id": 16,
+   "marker": "16",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 93,
+   "para_id": 21,
+   "bib_id": 19,
+   "marker": "19",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 94,
+   "para_id": 21,
+   "bib_id": 10,
+   "marker": "10",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 95,
+   "para_id": 21,
+   "bib_id": 27,
+   "marker": "27",
+   "expanded": false,
+   "scored": true
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-ext-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "v1_bib_count": 35
+ }
+}

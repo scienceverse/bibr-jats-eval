@@ -1,0 +1,226 @@
+{
+ "paper_id": "10.1371_journal.pone.0350307",
+ "paras": [
+  {
+   "para_id": 1,
+   "loc": "body",
+   "sec_title": "1. Introduction",
+   "text": "The rapid development of marine intelligent equipment technology has made unmanned surface vessels (USVs) core equipment for tasks such as marine exploration, environmental monitoring, and maritime patrol [1]. As a typical underactuated nonlinear system, USVs are only equipped with sway thrust and yaw control torque, lacking direct lateral force control [2, 3]. Under strong and uncertain ocean disturbances such as wind, waves, and currents, their high-precision path tracking control faces severe challenges. Path tracking requires USVs to navigate strictly along a preset reference trajectory based on environmental perception and their own motion state, while simultaneously meeting multiple constraints such as motion stability, real-time control, and strong anti-interference capabilities. It is the core technology for autonomous navigation of USVs. Traditional path tracking methods, represented by line-of-sight (LOS) and PID control, are widely used due to their simple structure and ease of implementation [4–7]. However, these methods have significant drawbacks in complex sea conditions: poor robustness, making it difficult to suppress trajectory deviations caused by continuous environmental disturbances; weak nonlinear adaptability, failing to match the highly nonlinear dynamic characteristics of USVs; and insufficient anti-interference capability, easily leading to overshoot and tracking failure under model mismatch and sudden disturbances, making it difficult to meet the requirements of high-precision and high-reliability operations [8–11].",
+   "printed": true
+  },
+  {
+   "para_id": 2,
+   "loc": "body",
+   "sec_title": "1. Introduction",
+   "text": "In recent years, reinforcement learning and model predictive control (MPC) have provided new ideas for solving these problems. Deep Deterministic Policy Gradient (DDPG) is a deep reinforcement learning algorithm with adaptive environment learning capabilities. It can autonomously optimize policies through interaction with the environment, effectively handling system uncertainties and external disturbances, and can directly output continuous heading control commands, making it suitable for USV high-dimensional continuous action space decision-making [12–14]. However, a single DDPG has problems such as limited real-time control capabilities, difficulty in meeting the physical constraints of actuators, and easy training divergence. Model predictive control (MPC), relying on rolling optimization and feedback correction mechanisms, can explicitly handle system constraints, achieve precise low-level control based on predictive models, and has excellent stability and anti-interference execution capabilities [15–17]. However, MPC relies heavily on accurate dynamic models and lacks adaptability in scenarios involving sudden environmental changes and model mismatch, leading to a tendency for tracking errors to accumulate [18].",
+   "printed": true
+  },
+  {
+   "para_id": 3,
+   "loc": "body",
+   "sec_title": "1. Introduction",
+   "text": "Therefore, DDPG and MPC exhibit strong complementarity in performance: DDPG excels in adaptive decision-making and disturbance rejection learning, while MPC excels in constraint handling and precise execution. Organically integrating the two can construct a hybrid control architecture that combines environmental adaptability and precise execution, overcoming the shortcomings of a single algorithm [19–21]. To this end, this paper proposes an improved deep deterministic policy gradient-model predictive control (IDDPG-MPC) hierarchical hybrid path tracking method, addressing the high-precision tracking requirements of underactuated USVs under wind, wave, and current disturbances, and constructing a closed-loop control architecture of “perception-decision-execution-learning.” The upper layer employs the IDDPG algorithm, improving policy convergence and environmental adaptability through gradient pruning, customized composite reward functions, and state-space optimization, outputting the optimal heading angle increment command; the lower layer employs MPC, performing roll optimization based on the USV’s three-degree-of-freedom nonlinear dynamic model to generate thrust and rudder angle control quantities, achieving precise execution. By employing a two-layer collaborative coupling approach, balancing decision optimization and local real-time control, the proposed method significantly improves tracking accuracy, robustness, and anti-interference capability. Simulation results demonstrate that, compared to the traditional ALOS-PID method, the proposed method effectively reduces lateral deviation and heading angle error, exhibiting superior tracking performance in both straight-line and piecewise linear tracking scenarios. This provides a feasible solution for autonomous path tracking of underactuated USVs in complex marine environments.",
+   "printed": true
+  }
+ ],
+ "links": [],
+ "links_optional": [
+  "creativecommons.org/licenses/by/4.0",
+  "doi:10.1007/s13369-023-08380-w",
+  "doi:10.1016/j.applthermaleng.2023.120430",
+  "doi:10.1016/j.compeleceng.2024.110018",
+  "doi:10.1016/j.eswa.2024.126123",
+  "doi:10.1016/j.knosys.2024.111459",
+  "doi:10.1016/j.robot.2024.104678",
+  "doi:10.1017/s0263574723001819",
+  "doi:10.1038/s41598-024-71636-4",
+  "doi:10.1109/access.2023.3324853",
+  "doi:10.1109/cac63892.2024.10865521",
+  "doi:10.1109/csis-iac63491.2024.10919372",
+  "doi:10.1109/icnsc55846.2022.9806882",
+  "doi:10.1371/journal.pone.0308264",
+  "doi:10.1504/ijris.2023.10056198",
+  "doi:10.3390/electronics13204071",
+  "doi:10.3390/en15155399",
+  "doi:10.3390/jmse12122321",
+  "doi:10.3390/s22207881",
+  "doi:10.48550/arxiv.2404.06178",
+  "doi:10.48550/arxiv.2404.06974"
+ ],
+ "own_doi": "doi:10.1371/journal.pone.0350307",
+ "citations": [
+  {
+   "cite_id": 1,
+   "para_id": 1,
+   "bib_id": 1,
+   "marker": "1",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 2,
+   "para_id": 1,
+   "bib_id": 2,
+   "marker": "2",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 3,
+   "para_id": 1,
+   "bib_id": 3,
+   "marker": "3",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 4,
+   "para_id": 1,
+   "bib_id": 4,
+   "marker": "4",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 5,
+   "para_id": 1,
+   "bib_id": 5,
+   "marker": "4–7",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 6,
+   "para_id": 1,
+   "bib_id": 6,
+   "marker": "4–7",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 7,
+   "para_id": 1,
+   "bib_id": 7,
+   "marker": "7",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 8,
+   "para_id": 1,
+   "bib_id": 8,
+   "marker": "8",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 9,
+   "para_id": 1,
+   "bib_id": 9,
+   "marker": "8–11",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 10,
+   "para_id": 1,
+   "bib_id": 10,
+   "marker": "8–11",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 11,
+   "para_id": 1,
+   "bib_id": 11,
+   "marker": "11",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 12,
+   "para_id": 2,
+   "bib_id": 12,
+   "marker": "12",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 13,
+   "para_id": 2,
+   "bib_id": 13,
+   "marker": "12–14",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 14,
+   "para_id": 2,
+   "bib_id": 14,
+   "marker": "14",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 15,
+   "para_id": 2,
+   "bib_id": 15,
+   "marker": "15",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 16,
+   "para_id": 2,
+   "bib_id": 16,
+   "marker": "15–17",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 17,
+   "para_id": 2,
+   "bib_id": 17,
+   "marker": "17",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 18,
+   "para_id": 2,
+   "bib_id": 18,
+   "marker": "18",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 19,
+   "para_id": 3,
+   "bib_id": 19,
+   "marker": "19",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 20,
+   "para_id": 3,
+   "bib_id": 20,
+   "marker": "19–21",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 21,
+   "para_id": 3,
+   "bib_id": 21,
+   "marker": "21",
+   "expanded": false,
+   "scored": true
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-ext-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "v1_bib_count": 21
+ }
+}

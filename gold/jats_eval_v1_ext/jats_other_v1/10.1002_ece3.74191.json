@@ -1,0 +1,1349 @@
+{
+ "paper_id": "10.1002_ece3.74191",
+ "paras": [
+  {
+   "para_id": 1,
+   "loc": "body",
+   "sec_title": "Supporting information",
+   "text": "Table S3: Regional ecosystem descriptions for each automated recording unit used in the study of P. covacevichae phenology. Descriptions are taken from the Queensland Government portal: https://apps.des.qld.gov.au/regional‐ecosystems/.",
+   "printed": true
+  },
+  {
+   "para_id": 2,
+   "loc": "body",
+   "sec_title": "Supporting information",
+   "text": "Table S4: Bureau of Meteorology climate statistics for average monthly rainfall (mm) at weather stations within the Pseudophryne covacevichae study area. The station name and number are listed beside the town name with the average monthly and annual rainfall reported. Data obtained from monthly estimates using https://www.bom.gov.au/climate/data/ portal.",
+   "printed": true
+  },
+  {
+   "para_id": 3,
+   "loc": "back",
+   "sec_title": "Data Availability Statement",
+   "text": "We provide all acoustic recogniser models, training data, example R scripts, and user instructions under open access here: https://zenodo.org/records/19363487. The repository also contains the data and code used in our analyses.",
+   "printed": true
+  },
+  {
+   "para_id": 4,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Worldwide, frogs are the most threatened vertebrate group (Luedtke et al. 2023) and they are particularly sensitive to environmental change due to their narrow ecological niches, limited dispersal ability and reliance on moisture (Beebee 1995; Carey and Alexander 2003). A species' breeding phenology can provide insight into their sensitivity and response to different climatic conditions (Parmesan 2006; Green 2017). In amphibians, breeding activity is often closely associated with environmental cues such as rainfall and temperature (Brodie et al. 2025; Chae et al. 2025). Therefore, alterations in the timing, frequency, or intensity of environmental cues used to initiate calling can disrupt or reduce breeding success and affect population viability (Todd et al. 2011; Green 2017). Globally, climatic shifts have already altered amphibian phenology (Walther et al. 2002; Parmesan 2006; Ault et al. 2013), resulting in species initiating or delaying reproduction to times outside of their typical breeding seasons (Beebee 1995; Todd et al. 2011; While and Uller 2014). Phenological responses are complex and species specific, and can reflect reproductive strategy, temperature, moisture availability, habitat type and local climatic variability (Saenz et al. 2006; Ospina et al. 2013; Hoffmann and Mitchell 2022; Amram and Zainudin 2025; Chae et al. 2025). Establishing phenological patterns to understand species' responses to environmental cues are necessary to assess how populations might respond to climate change (Green 2017).",
+   "printed": true
+  },
+  {
+   "para_id": 5,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Understanding potential changes in a species' breeding phenology requires methods capable of capturing fine‐scale temporal patterns in behaviour. Passive acoustic monitoring (PAM) provides a non‐invasive, in situ method for monitoring vocal activity in species such as frogs. PAM can provide detailed insight into ecological processes, including the timing and duration of seasonal breeding activity (Heard et al. 2015; Hoffmann and Mitchell 2022; Bolitho et al. 2023; Brodie et al. 2025; Leung et al. 2026), quantifying species richness and diversity (Ramesh et al. 2023; Doohan et al. 2026) and detecting invasive species (Ribeiro et al. 2022; Leung et al. 2025). Species‐specific automated recognisers enable high‐precision detection of target vocalisations across both fine‐scale and landscape‐scale monitoring efforts (e.g., Chae et al. 2025; Leung et al. 2025). This has enabled efficient processing of terabytes of audio data (Kahl et al. 2021; Allen‐Ankins et al. 2025), permitting analyses of species temporal dynamics and responses to environmental change at unprecedented spatial and temporal scales (Roe et al. 2021; Schwarzkopf et al. 2023). By enabling continuous detection of vocal species across large temporal scales, PAM provides an opportunity to track climate‐driven shifts in breeding phenology.",
+   "printed": true
+  },
+  {
+   "para_id": 6,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "In Australia, approximately 20% of frog species are threatened (Gillespie et al. 2020) and those restricted to the high‐elevation rainforests of the Wet Tropics are considered especially susceptible to climate change (Laurence 2008; Fordham et al. 2016; Geyle et al. 2021). While most research has focused on rainforest taxa in the Wet Tropics, frog species inhabiting the wet and dry sclerophyll forests of the bioregion may be equally vulnerable to emerging stressors altering habitat. The Wet Tropics experiences relatively predictable seasonal weather patterns, with cooler, drier conditions during winter and spring (dry season) and warm, humid weather throughout summer and autumn (wet season). However, these seasonal patterns are projected to be disrupted under future climate change scenarios (Hilbert et al. 2014; McInnes et al. 2015). Over coming decades, ambient temperature across the Wet Tropics bioregion is expected to increase in all seasons. Changes to rainfall patterns are more difficult to model in northern Australia, but there is a predicted tendency toward a reduction in annual rainfall (Hilbert et al. 2014; McInnes et al. 2015).",
+   "printed": true
+  },
+  {
+   "para_id": 7,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "The upland sclerophyll forests of this region are heterogenous ecosystems shaped by altitude and fire history (Harrington et al. 2000; Stanton et al. 2014) and generally provide less microclimatic buffering than do closed‐canopy rainforests, resulting in greater exposure to elevated temperatures and moisture deficits (Little 2015). Additionally, wet sclerophyll forest is at high risk from increasing frequency and severity of wildfires, driven by climate change, indicated by the 2019/2020 wildfires in which 50% of wet sclerophyll forest and rainforest ecosystems burnt in southeastern Australia (Nolan et al. 2020; Ward et al. 2020). Though sclerophyll forests are well adapted to fire the changing patterns in response to global warming exceeds those experienced in the past, and even frogs adapted to this environment may lack adequate protections (Mahony et al. 2022).",
+   "printed": true
+  },
+  {
+   "para_id": 8,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "The magnificent broodfrog ( Pseudophryne covacevichae ) is a calling, semi‐terrestrial frog species restricted to fragmented pockets of Wet Tropics wet sclerophyll forest (Rush, Edwards, and Hoskin 2025). It is listed as Vulnerable under both the Queensland Nature Conservation Act 1994 and the Federal Environment Protection and Biodiversity Act 1999 and Endangered by the International Union for Conservation of Nature Red List (IUCN 2022). Across its range, P. covacevichae occupies ephemeral first‐ and second‐order drainage lines between ~700–1100 m on granitic and rhyolitic substrates. Variation in topography across this range gives rise to contrasting habitat types, from drier (herein: xeric) margins of open sclerophyll forest to denser, wetter (herein: mesic) closed sclerophyll forest. These habitats differ in canopy cover and, consequently, in solar radiation, evaporation rates and soil moisture retention. Although the extent of microclimatic variation among P. covacevichae populations remains unknown, such environmental heterogeneity is likely to influence local moisture availability and, potentially, the duration of suitable breeding conditions. Reproductive activity is dependent on sustained soil moisture and rainfall (Rush, Hoskin, and Edwards 2025) and even small shifts could shorten a breeding area's hydroperiod, increasing the risk of recruitment failure (e.g., McCaffery et al. 2014). Male P. covacevichae broadcast distinct vocalisations to attract females and deter competing males (Groffen et al. 2023; E. R. Rush 2025). Females are rarely encountered (E. Rush 2023) but enter the breeding sites to deposit terrestrial egg clutches within a male's nest. Embryos develop inside the egg to an advanced developmental stage over two‐weeks. Flooding of the nests induces hatching of tadpoles that complete their metamorphosis over some weeks in the adjacent water bodies (Anstis 2017).",
+   "printed": true
+  },
+  {
+   "para_id": 9,
+   "loc": "body",
+   "sec_title": "Study Sites and Acoustic Data Collection",
+   "text": "The study took place in northern Queensland across a geographic expanse of approximately 200 km, spanning montane regions from the southern Atherton Tablelands and southeast to the Paluma Range (Figure 1). Automated recording units (ARUs) were deployed at 13 P. covacevichae breeding locations, based on prior records of the species (see Rush, Hoskin, and Edwards 2025). Due to equipment availability, two types of audio recorders: SM4 (Wildlife Acoustics, Maynard, MA, USA) and BAR‐LT (Frontier Labs, QLD, Australia) were used. In the Atherton Tablelands region nine recorders (four SM4 and five BAR‐LT) were deployed, and in the Paluma Range, at the Australian Wildlife Conservancy's Mount Zero‐Taravale Wildlife Sanctuary, four recorders (BAR‐LT) were deployed. A single recording unit was deployed at each site and recorded for approximately one full year (October 2022 until November 2023). ARUs were checked and downloaded every 2–4 months depending on accessibility after rainfall. The study area experiences a tropical upland climate characterised by a pronounced wet season (November–April) and dry season (May–October). The southern Atherton Tablelands and Paluma Range experience similar mean temperatures in summer (29°C–30°C) and winter (12°C–14°C) (Elders Weather 2026a, 2026b), but differ in their average annual rainfall. The Atherton Tablelands experiences approximately 40% less annual rainfall at ~1500 mm in Ravenshoe (Bureau of Meteorology station number 031200) compared to an average of ~2700 mm at Paluma (Bureau of Meteorology station number 032064).",
+   "printed": true
+  },
+  {
+   "para_id": 10,
+   "loc": "body",
+   "sec_title": "Study Sites and Acoustic Data Collection",
+   "text": "Audio was recorded in WAV format at a sampling rate of 16,000 or 44,100 Hz, exceeding the frequency of P. covacevichae vocalisations (E. R. Rush 2025). All ARUs used a single omnidirectional microphone, which was protected by a foam cover encased in malleable metal flywire to reduce invertebrate damage. Units were mounted to trees approximately 1.8 m above ground level and within 2 m of the breeding area (Figure 1). To avoid interference from dawn and dusk bird choruses, ARUs were initially programmed to record for 5 min each hour, every night from 2 h after sunset until 2 h before sunrise. However, as day length increased the original timing schedule caused recordings to miss early calling activity, and schedules were adjusted to record from sunset to sunrise as soon as sites could be accessed.",
+   "printed": true
+  },
+  {
+   "para_id": 11,
+   "loc": "body",
+   "sec_title": "Development of Call Recogniser",
+   "text": "The species' call repertoire includes advertisement, threat and courtship calls (Groffen et al. 2023; E. R. Rush 2025). Due to its role in attracting females, advertisement calls are typically the loudest, most structurally consistent and frequently produced vocalisation in anurans (Gerhardt 1994). Accordingly, we used the species advertisement call to develop a recogniser. To create an initial training dataset, we used a small number of positively identified P. covacevichae advertisement calls (n = 13) and conducted a similarity search using BirdNET embeddings (Kahl et al. 2021). The embeddings from BirdNET are 1024‐length feature representations of 3‐s audio segments that can be used to find novel sounds outside of the original training data and train custom recognisers. The embeddings of each example call were compared to the embeddings of each 3‐s audio segment in the entire audio dataset using Euclidean distance (see Allen‐Ankins et al. 2025). We then labelled the top 50 closest audio segments (i.e., lowest distance), and 10 randomly sampled audio segments from each of five equally spaced bins across the entire Euclidean distance range per example call.",
+   "printed": true
+  },
+  {
+   "para_id": 12,
+   "loc": "body",
+   "sec_title": "Environmental Variables",
+   "text": "To assess the influence of environmental conditions on P. covacevichae calling activity, we compiled a set of variables for each ARU location using gridded data from the SILO climate database, which have a resolution of approximately 5 × 5 km (Queensland Government 2024). Data were extracted using the grid cell that overlaid the ARU location using QGIS (version 3.26.3). Daily measures of rainfall (mm), ambient minimum temperature (°C) and vapour pressure deficit (hPa) were selected based on their demonstrated importance in influencing the vocalising of frog species (Brodie et al. 2025; Chae et al. 2025). Minimum temperature was selected over maximum as it reflects evening temperatures, which is when P. covacevichae is most active and when ARUs were scheduled to record. Vapour pressure deficit represents atmospheric moisture, higher values reflect drier air and greater evaporative stress, while lower values indicate more humid conditions. Seasonality was represented by using day of year (DOY) encoded with circular terms, sin(2π DOY/365) and cos(2π DOY/365), derived from each deployment date, enabling cyclic variation in detections across the annual cycle.",
+   "printed": true
+  },
+  {
+   "para_id": 13,
+   "loc": "body",
+   "sec_title": "Statistical Analysis",
+   "text": "The analysis was conducted in two stages: first we characterised site‐level calling phenology. Second, we evaluated the environmental correlates of calling intensity. All analyses were performed using R version 4.5.0 (R Core Team 2025). Audio files were processed using the xgboost recogniser, retaining only those detections above 95% precision. Nightly calling intensity was calculated as the total number of detections per night at each site. Nights with no detections were retained to represent variation in calling activity, including periods of inactivity.",
+   "printed": true
+  },
+  {
+   "para_id": 14,
+   "loc": "body",
+   "sec_title": "Environmental Correlates of Calling",
+   "text": "We visually compared calling intensity across the full sampling period and between the Atherton Tablelands and Paluma Range regions to assess broad temporal and regional patterns (Figure S2). To formally test for differences, we fitted a global, negative binomial, generalised linear mixed model (GLMM) using the glmmTMB package (Brooks et al. 2017). Calling intensity was modelled as the response variable, with rainfall, region and their interaction included to test for region‐specific rainfall effects. Additional fixed effects were vapour pressure deficit, minimum daily temperature, seasonal timing (sinDOY and cosDOY) and recorder type (either BAR‐LT or SM4). Site was included as a random effect to account for repeated sampling at each location. All continuous predictors were centred and scaled to aid model convergence and interpretation. Multicollinearity among predictors was assessed using model‐based variance inflation factors (VIF) calculated with the Performance package (Lüdecke et al. 2021) with VIF > 5 indicating high collinearity. Model fit was evaluated using Akaike's Information Criterion (AIC) and parameter estimates interpreted on the log scale. Model diagnostics, including checks for dispersion, zero inflation and residual structure, were conducted using the DHARMa package (Hartig and Hartig 2017). This global model revealed strong effects of environmental and seasonal variables on calling activity of P. covacevichae , and a strong interaction between region and rainfall. Given the pronounced regional interaction, all subsequent analyses were conducted separately for the Atherton Tablelands and Paluma Range to accurately capture the measured environmental effects on P. covacevichae calling.",
+   "printed": true
+  },
+  {
+   "para_id": 15,
+   "loc": "body",
+   "sec_title": "Environmental Correlates of Calling",
+   "text": "Due to the potential for environmental conditions to have lagged effects on calling (Rush, Hoskin, and Edwards 2025) we investigated short‐term weather influences on calling intensity, using a sliding window analysis with the climwin package (Bailey and van de Pol 2016; van de Pol et al. 2016). This approach identifies the time window over which a climatic variable best explains variation in a biological response. Climate window analyses were conducted separately for the Atherton Tablelands and Paluma Range regions, and for each climate variable (daily rainfall, vapour pressure deficit and minimum temperature). For each variable, all possible time windows within the 30 days preceding each biological observation, using a relative time approach and a daily resolution, were evaluated. Within each candidate window, the climatic variable was summarised using the mean value. Following initial tests, baseline models in the Atherton Tablelands were fitted as a ‘glmr.nb’ and in the Paluma Range as a ‘glmr’ using a negative binomial error distribution. In all baseline models, calling intensity was the response variable and the climate window metric was a fixed effect, with site as a random intercept. Model support was assessed using ΔAICc relative to a baseline model. To assess the robustness of the climate windows and account for overfitting, randomisation tests were conducted using the randwin function with 100 repeats per variable. Climate windows were considered well supported if their observed ΔAICc exceeded those obtained from the randomised datasets. The p value was calculated with the metric set to ‘AIC’ (Bailey and van de Pol 2016).",
+   "printed": true
+  },
+  {
+   "para_id": 16,
+   "loc": "body",
+   "sec_title": "Environmental Correlates of Calling",
+   "text": "The same modelling approach applied to the Paluma Range sites revealed no collinearity when seasonal terms (DOY) were included in the model. In contrast to the Atherton Tablelands, all three environmental variables were negatively associated with calling intensity (Figure 4; Table S2). Calling intensity declined with increasing rainfall in the 2 weeks before an observation (β = −0.857 ± 0.131, p < 0.001), indicating reduced calling activity following wetter conditions. Vapour pressure deficit also showed a strong negative effect (β = −0.656 ± 0.064, p < 0.001), while minimum temperature exhibited a weaker but still significant negative relationship with calling intensity (β = −0.184 ± 0.071, p = 0.009). Seasonal timing was an important predictor of calling intensity (sinDOY: β = 0.562 ± 0.068, p < 0.001; cosDOY: β = −0.372 ± 0.121, p < 0.002), indicating a pronounced annual cycle independent of short‐term climate variation. Site‐level variation was lower in the Paluma Range (σ 2 = 0.028), indicating more consistent calling intensity among sites, relative to the Atherton Tablelands. Model diagnostics showed no evidence of zero inflation but some under‐dispersion was detected relative to the negative binomial variance assumption (dispersion = 0.49, p < 0.001) (Hartig and Hartig 2017). A bootstrapped outlier test confirmed that there were no extreme outliers in the model (p = 0.98).",
+   "printed": true
+  },
+  {
+   "para_id": 17,
+   "loc": "body",
+   "sec_title": "Site‐Level Phenology",
+   "text": "In terrestrial and semi‐terrestrial breeding anurans, including Pseudophryne species, soil moisture governs both adult hydration and the viability of terrestrial egg clutches (Mitchell 2002; O'Brien et al. 2020). Consequently, precipitation and its associated effects at a site (e.g., soil moisture) likely contribute to the observed differences we document in P. covacevichae . Presumably, the capacity of a site's hydrology and soil water potential mediates the window over which successful reproduction is possible, as documented in another myobatrachid species the white‐bellied frog, Anstisia alba (Hoffmann and Mitchell 2022).",
+   "printed": true
+  },
+  {
+   "para_id": 18,
+   "loc": "body",
+   "sec_title": "Site‐Level Phenology",
+   "text": "Forest structure influences evaporation and distribution of sunlight, wind and other atmospheric factors, which act alongside topographic features such as slope, aspect, hydrology and water availability to shape microclimate (Zellweger et al. 2019; De Frenne et al. 2021). Canopy cover, understorey density and leaf litter can alter evaporation rates and hence, soil moisture persistence (Turton and Duff 1992; Little 2015). As a result, sites receiving similar rainfall can differ substantially in moisture availability (Little 2015). In this context, the xeric sites we refer to do not necessarily receive less rainfall and have higher temperatures but rather may have less capacity to retain moisture due to higher solar radiation and evaporation rates (e.g., Figure S6). Conversely, mesic sites may be able to maintain soil moisture and standing water for longer periods regardless of the amount of rainfall they receive (see Little 2015). This is reflected in the patterns we observed where longer breeding durations and higher call counts occurred at sites characterised by mesic sclerophyll forest (Table S3). These sites may experience less variability in soil moisture relative to more exposed sites, reflecting the buffering effects of canopy cover on evaporation and soil moisture (Suggitt et al. 2018; De Frenne et al. 2021), though this was not directly measured in our study.",
+   "printed": true
+  },
+  {
+   "para_id": 19,
+   "loc": "body",
+   "sec_title": "Site‐Level Phenology",
+   "text": "Acoustic detections can be a reflection of population density (Marques et al. 2013; Pérez‐Granados and Traba 2021; Stevenson et al. 2021) and the detection totals of P. covacevichae broadly mirrored anecdotal field observations of population size (E. Rush, pers. observation), though these observations were not systematically collected and would require validation for acoustic abundance estimates. As an example, PR003, a seepage site, recorded the highest acoustic call totals and consistently high male densities in the field, whereas Millstream National Park (AT006) and Ravenshoe State Forest (AT005) produced substantially fewer call detections (1408 and 2829, respectively), consistent with lower field observed abundance. These observations suggest that forest structure and associated microclimate may influence the duration and intensity of P. covacevichae reproductive activity and, by extension, population density. At xeric sites, suitable moisture conditions may be reached for shorter periods, compressing breeding duration into smaller windows and limiting opportunities for recruitment. In contrast, where prolonged reproductive windows can occur, there may also be an increase in recruitment potential. Similar relationships between hydroperiod length, breeding opportunity and recruitment have been observed in other amphibians (Baldwin et al. 2006; Karraker and Gibbs 2009; McCaffery et al. 2014). For example, the Columbia spotted frog ( Rana luteiventris ), which also occurs in heterogeneous habitats and exhibits high site fidelity, shows higher recruitment in waterbodies that have longer hydroperiods (McCaffery et al. 2014). Overall, our results suggest that calling activity is structured primarily by the persistence of moisture, with site‐specific hydrology likely defining the timing and duration of reproduction.",
+   "printed": true
+  },
+  {
+   "para_id": 20,
+   "loc": "body",
+   "sec_title": "Environmental Correlates of Calling",
+   "text": "In the Atherton Tablelands, calling increased following several weeks of warm, wet conditions. The longer prior climate windows here suggest that calling is promoted by the gradual establishment of favourable hydrological conditions rather than isolated rainfall events. This result is consistent with previous research, where P. covacevichae detectability during on‐ground surveys increased following sustained increased soil moisture and higher accumulated prior rainfall (Rush, Hoskin, and Edwards 2025). In contrast, all three climatic windows in the Paluma Range were negatively associated with calling and their influence operated over shorter time frames. Here, calling increased following periods of reduced rainfall in the preceding 2 weeks and on nights that were cooler and atmospheric moisture was higher (i.e., low vapour pressure deficit). Early wet season detections did occur at Paluma Range sites, but calling intensity was substantially lower than later in the sampling period (Figure S2). The negative rainfall relationship observed in the Paluma Range suggests that once moisture exceeds a functional threshold, additional rainfall may suppress calling rather than facilitate it.",
+   "printed": true
+  },
+  {
+   "para_id": 21,
+   "loc": "body",
+   "sec_title": "Environmental Correlates of Calling",
+   "text": "The converse rainfall relationship observed between the Paluma Range and the Atherton Tablelands suggests that climatic conditions, or local hydrology, or both, differ sufficiently between these locations to provide contrasting timing for peak calling and hence, reproduction. In Pseudophryne species, egg clutches are positioned in an area where water flows over but does not remain standing after heavy rainfall (Woodruff 1977; Thumm and Mahony 2002). This is because during the terrestrial phase, Pseudophryne eggs are extremely susceptible to both desiccation (Woodruff 1976; Mitchell 2001; Eads et al. 2012) and incorrect timing of flooding and hatching (Geiser and Seymour 1989). If inundated too early, or too late, there is a risk that subsequent standing water will not be available to support tadpole metamorphosis (Geiser and Seymour 1989). The timing of egg laying is therefore crucial in reducing the risk of clutch mortality. Reproductive timing may therefore be under strong selective pressure to align with local moisture conditions. The species may either adjust breeding behaviour plastically in response to available moisture, or be locally adapted to their respective environment, resulting in different phenological responses.",
+   "printed": true
+  },
+  {
+   "para_id": 22,
+   "loc": "body",
+   "sec_title": "Environmental Correlates of Calling",
+   "text": "The contrasting patterns observed between the Atherton Tablelands and Paluma Range suggest that reproductive activity may have been influenced less by absolute rainfall and more by how hydrology influences moisture retention within local environments. Although the Paluma region typically receives substantially higher annual rainfall than the Atherton Tablelands (Table S4) (Bureau of Meteorology 2026a, 2026b, 2026c), interpolated SILO data indicated that Atherton Tablelands sites experienced comparable or greater monthly rainfall over the study period (Table S5). In the Atherton Tablelands, calling intensity declined markedly after May, even at more mesic sites, suggesting that in this area wet season rainfall didn't support calling (and hence reproductive activity) throughout the dry season. In contrast, the delayed and prolonged calling observed in the Paluma Range sites may reflect greater climatic buffering and hydrological capacity, for example, through topographic position, soil composition, or canopy structure that allowed favourable moisture conditions (i.e., dry season soil moisture) to be retained longer into the study year, despite potentially lower rainfall input, as evidenced by the SILO dataset.",
+   "printed": true
+  },
+  {
+   "para_id": 23,
+   "loc": "body",
+   "sec_title": "Environmental Correlates of Calling",
+   "text": "The negative relationship between rainfall and calling intensity in the Paluma Range suggested that high rainfall reduced reproductive output. If these sites do have a substantially wetter microclimate there is potential that the shallow breeding areas reach saturation early in the wet season, potentially increasing the likelihood of nest inundation during a period when embryonic development is still underway (Geiser and Seymour 1989). Egg development in P. covacevichae has only been documented for a population in the Atherton Tablelands and is relatively short (~11 days) (Anstis 2017). If the duration of terrestrial development differs in the Paluma Range, it could increase vulnerability to premature inundation. Delaying reproduction until later in the season, when rainfall subsided, may therefore reduce the risk of nest failure. Soil moisture, rather than direct rainfall, could therefore be a key ecological constraint for the species, which is consistent with its distribution being coupled to dry‐season rainfall (Rush, Edwards, and Hoskin 2025). Investigating fine‐scale habitat, including canopy cover, slope and dry season soil moisture, may aid in determining how forest structure, hydrology and microclimate influences breeding activity and persistence across the sites and regions (e.g., Hoffmann and Mitchell 2022).",
+   "printed": true
+  },
+  {
+   "para_id": 24,
+   "loc": "body",
+   "sec_title": "Environmental Correlates of Calling",
+   "text": "The extent to which regional differences reflect local adaptation vs phenotypic plasticity is unclear. Strong genetic structuring has been documented between Atherton Tablelands, Mount Fox and Paluma Range populations (E. Rush, unpublished data) suggesting long‐term isolation, which could drive adaptation to local conditions and hence the regional differences in reproductive timing we observed. If differences in reproductive timing are shaped by local adaptation, then populations may have difficulty adjusting breeding responses under changing climatic conditions (Phillimore et al. 2010; Cayuela et al. 2019). Under this scenario, populations occupying xeric habitats where observed breeding windows were shorter and recruitment may potentially be lower are likely to be disproportionately vulnerable to shifts in rainfall and increased climatic variability, predicted in the Wet Tropics (Hilbert et al. 2014; McInnes et al. 2015). In contrast, if breeding in P. covacevichae is primarily facultative, individuals may adjust reproductive timing, or skip reproduction entirely, in response to environmental stochasticity. Such plasticity has been widely documented in amphibians (Walls et al. 2013; Ficetola and Maiorano 2016; Cayuela et al. 2019) and would be advantageous for P. covacevichae , allowing them to synchronise breeding with favourable environmental conditions within the heterogenous habitats they occupy. Resolving these mechanisms would require experimental approaches, such as common garden experiments and reciprocal‐transplant studies (Blanquart et al. 2013; de Villemereuil et al. 2016), or continuous long‐term acoustic monitoring to investigate the response to varying annual rainfall.",
+   "printed": true
+  },
+  {
+   "para_id": 25,
+   "loc": "body",
+   "sec_title": "Environmental Correlates of Calling",
+   "text": "A caveat of this study is that heavy rainfall may reduce the ability of the recogniser to detect calls (Ferroudj et al. 2014; Willacy et al. 2015; Zhang et al. 2024). Anecdotal field observations during the same sampling period indicated that male P. covacevichae reduced calling during intense rainfall events (E. Rush, pers. observation), potentially because signal transmission to females is compromised when there is extensive environmental noise. Behavioural suppression of calling during heavy rainfall is documented in some anuran species (Ospina et al. 2013; Willacy et al. 2015), though in others it encourages calling (Saenz et al. 2006; Brodie et al. 2025). A further consideration is that we used ambient temperature as a proxy for thermal conditions experienced by calling males. Substrate or microhabitat temperatures at calling sites may better reflect the temperatures experienced by individuals and could improve understanding of the relationship between temperature and calling activity (Scheffers et al. 2014; Bolitho et al. 2023).",
+   "printed": true
+  }
+ ],
+ "links": [
+  {
+   "link_id": 1,
+   "url": "apps.des.qld.gov.au/regional-ecosystems",
+   "url_raw": "https://apps.des.qld.gov.au/regional-ecosystems/",
+   "href_jats": "https://apps.des.qld.gov.au/regional-ecosystems/",
+   "repo_key": null,
+   "host_class": "other",
+   "loc": "body",
+   "sec_title": "Supporting information",
+   "source": "tagged",
+   "para_id": 1
+  },
+  {
+   "link_id": 2,
+   "url": "bom.gov.au/climate/data",
+   "url_raw": "https://www.bom.gov.au/climate/data/",
+   "href_jats": "https://www.bom.gov.au/climate/data/",
+   "repo_key": null,
+   "host_class": "other",
+   "loc": "body",
+   "sec_title": "Supporting information",
+   "source": "tagged",
+   "para_id": 2
+  },
+  {
+   "link_id": 3,
+   "url": "zenodo.org/records/19363487",
+   "url_raw": "https://zenodo.org/records/19363487",
+   "href_jats": "https://zenodo.org/records/19363487",
+   "repo_key": "zenodo:19363487",
+   "host_class": "zenodo",
+   "loc": "back",
+   "sec_title": "Data Availability Statement",
+   "source": "tagged",
+   "para_id": 3
+  }
+ ],
+ "links_optional": [
+  "biotaxa.org/hn/article/view/83483",
+  "bom.gov.au/jsp/ncc/cdio/weatherdata/av?p_nccobscode=139&p_display_type=datafile&p_startyear=&p_c=&p_stn_num=031198",
+  "bom.gov.au/jsp/ncc/cdio/weatherdata/av?p_nccobscode=139&p_display_type=datafile&p_startyear=&p_c=&p_stn_num=031200",
+  "bom.gov.au/jsp/ncc/cdio/weatherdata/av?p_nccobscode=139&p_display_type=datafile&p_startyear=&p_c=&p_stn_num=032064",
+  "climatechangeinaustralia.gov.au/media/ccia/2.2/cms:page_media/168/wet_tropics_cluster_report_1.pdf",
+  "creativecommons.org/licenses/by/4.0",
+  "digitalcommons.unl.edu/r-journal/675",
+  "doi:10.1002/2013eo200001",
+  "doi:10.1002/ece3.1666",
+  "doi:10.1002/ecs2.70153",
+  "doi:10.1007/s00442-016-3610-9",
+  "doi:10.1016/j.anbehav.2020.08.023",
+  "doi:10.1016/j.biocon.2009.05.002",
+  "doi:10.1016/j.biocon.2013.12.013",
+  "doi:10.1016/j.biocon.2020.108543",
+  "doi:10.1016/j.biocon.2023.110071",
+  "doi:10.1016/j.ecoinf.2021.101236",
+  "doi:10.1016/j.ecoinf.2025.103172",
+  "doi:10.1016/j.ecolind.2024.111759",
+  "doi:10.1016/j.ecolind.2025.114533",
+  "doi:10.1016/j.tree.2018.12.012",
+  "doi:10.1038/374219a0",
+  "doi:10.1038/416389a",
+  "doi:10.1038/hdy.2015.93",
+  "doi:10.1038/s41558-018-0231-9",
+  "doi:10.1038/s41559-020-1251-1",
+  "doi:10.1038/s41586-023-06578-4",
+  "doi:10.1046/j.1472-4642.2003.00011.x",
+  "doi:10.1071/pc21019",
+  "doi:10.1071/wr25108",
+  "doi:10.1071/zo01038",
+  "doi:10.1073/pnas.0913792107",
+  "doi:10.1080/00049158.2014.882217",
+  "doi:10.1098/rsbl.2016.0236",
+  "doi:10.1098/rspb.2000.1334",
+  "doi:10.1098/rspb.2010.1768",
+  "doi:10.1111/2041-210x.12590",
+  "doi:10.1111/2041-210x.13522",
+  "doi:10.1111/2041-210x.13660",
+  "doi:10.1111/aec.12228",
+  "doi:10.1111/aec.13122",
+  "doi:10.1111/aec.13398",
+  "doi:10.1111/aec.70040",
+  "doi:10.1111/brv.12001",
+  "doi:10.1111/ecog.00521",
+  "doi:10.1111/ele.12150",
+  "doi:10.1111/gcb.12439",
+  "doi:10.1111/gcb.13390",
+  "doi:10.1111/gcb.14987",
+  "doi:10.1111/gcb.15569digital",
+  "doi:10.1111/ibi.12944",
+  "doi:10.1111/j.1442-9993.1992.tb00824.x",
+  "doi:10.1111/j.1442-9993.2007.01812.x",
+  "doi:10.1111/j.1558-5646.2012.01616.x",
+  "doi:10.1111/oik.06286",
+  "doi:10.1139/z06-146",
+  "doi:10.1146/annurev.ecolsys.37.091305.110100",
+  "doi:10.1146/annurev.es.25.110194.001453",
+  "doi:10.11646/zootaxa.3718.3.8",
+  "doi:10.1371/journal.pone.0167980",
+  "doi:10.1643/0045-8511(2002)002[0364:ltoedi]2.0.co;2",
+  "doi:10.1890/es12-00258.1digital",
+  "doi:10.21105/joss.03139",
+  "doi:10.2305/iucn.uk.2022-2.rlts.t41048a78437322.en",
+  "doi:10.2307/1445627",
+  "doi:10.2307/1563068",
+  "doi:10.3316/informit.906499144649068",
+  "doi:10.3390/ani15213141",
+  "doi:10.3390/biology2010399",
+  "doi:10.3390/d15080931",
+  "doi:10.3390/rs14184565",
+  "doi:10.47253/jtrss.v13i2.1952",
+  "doi:10.7882/az.2022.021",
+  "eldersweather.com.au/climatology/qld/paluma",
+  "eldersweather.com.au/climatology/qld/ravenshoe",
+  "herpetologynotes.org/index.php/hn/article/view/156",
+  "jstor.org/stable/3891945",
+  "jstor.org/stable/4540114",
+  "longpaddock.qld.gov.au/silo",
+  "neobiota.pensoft.net/article/181967",
+  "reefcatchments.com.au/files/2015/02/science-synthesis-report-hilbert-et-al-2014-final-web-accessible.pdf"
+ ],
+ "own_doi": "doi:10.1002/ece3.74191",
+ "citations": [
+  {
+   "cite_id": 1,
+   "para_id": 4,
+   "bib_id": 46,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 2,
+   "para_id": 4,
+   "bib_id": 7,
+   "marker": "1995",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 3,
+   "para_id": 4,
+   "bib_id": 15,
+   "marker": "2003",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 4,
+   "para_id": 4,
+   "bib_id": 56,
+   "marker": "2006",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 5,
+   "para_id": 4,
+   "bib_id": 31,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 6,
+   "para_id": 4,
+   "bib_id": 10,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 7,
+   "para_id": 4,
+   "bib_id": 17,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 8,
+   "para_id": 4,
+   "bib_id": 75,
+   "marker": "2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 9,
+   "para_id": 4,
+   "bib_id": 31,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 10,
+   "para_id": 4,
+   "bib_id": 79,
+   "marker": "2002",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 11,
+   "para_id": 4,
+   "bib_id": 56,
+   "marker": "2006",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 12,
+   "para_id": 4,
+   "bib_id": 4,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 13,
+   "para_id": 4,
+   "bib_id": 7,
+   "marker": "1995",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 14,
+   "para_id": 4,
+   "bib_id": 75,
+   "marker": "2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 15,
+   "para_id": 4,
+   "bib_id": 81,
+   "marker": "2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 16,
+   "para_id": 4,
+   "bib_id": 68,
+   "marker": "2006",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 17,
+   "para_id": 4,
+   "bib_id": 55,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 18,
+   "para_id": 4,
+   "bib_id": 37,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 19,
+   "para_id": 4,
+   "bib_id": 2,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 20,
+   "para_id": 4,
+   "bib_id": 17,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 21,
+   "para_id": 4,
+   "bib_id": 31,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 22,
+   "para_id": 5,
+   "bib_id": 35,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 23,
+   "para_id": 5,
+   "bib_id": 37,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 24,
+   "para_id": 5,
+   "bib_id": 9,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 25,
+   "para_id": 5,
+   "bib_id": 10,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 26,
+   "para_id": 5,
+   "bib_id": 42,
+   "marker": "2026",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 27,
+   "para_id": 5,
+   "bib_id": 61,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 28,
+   "para_id": 5,
+   "bib_id": 20,
+   "marker": "2026",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 29,
+   "para_id": 5,
+   "bib_id": 62,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 30,
+   "para_id": 5,
+   "bib_id": 43,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 31,
+   "para_id": 5,
+   "bib_id": 17,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 32,
+   "para_id": 5,
+   "bib_id": 43,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 33,
+   "para_id": 5,
+   "bib_id": 39,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 34,
+   "para_id": 5,
+   "bib_id": 1,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 35,
+   "para_id": 5,
+   "bib_id": 63,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 36,
+   "para_id": 5,
+   "bib_id": 70,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 37,
+   "para_id": 6,
+   "bib_id": 30,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 38,
+   "para_id": 6,
+   "bib_id": 41,
+   "marker": "2008",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 39,
+   "para_id": 6,
+   "bib_id": 26,
+   "marker": "2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 40,
+   "para_id": 6,
+   "bib_id": 29,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 41,
+   "para_id": 6,
+   "bib_id": 36,
+   "marker": "2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 42,
+   "para_id": 6,
+   "bib_id": 50,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 43,
+   "para_id": 6,
+   "bib_id": 36,
+   "marker": "2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 44,
+   "para_id": 6,
+   "bib_id": 50,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 45,
+   "para_id": 7,
+   "bib_id": 33,
+   "marker": "2000",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 46,
+   "para_id": 7,
+   "bib_id": 71,
+   "marker": "2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 47,
+   "para_id": 7,
+   "bib_id": 44,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 48,
+   "para_id": 7,
+   "bib_id": 53,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 49,
+   "para_id": 7,
+   "bib_id": 80,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 50,
+   "para_id": 7,
+   "bib_id": 47,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 51,
+   "para_id": 8,
+   "bib_id": 66,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 52,
+   "para_id": 8,
+   "bib_id": 38,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 53,
+   "para_id": 8,
+   "bib_id": 67,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 54,
+   "para_id": 8,
+   "bib_id": 49,
+   "marker": "2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 55,
+   "para_id": 8,
+   "bib_id": 32,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 56,
+   "para_id": 8,
+   "bib_id": 65,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 57,
+   "para_id": 8,
+   "bib_id": 64,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 58,
+   "para_id": 8,
+   "bib_id": 3,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 59,
+   "para_id": 9,
+   "bib_id": 67,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 60,
+   "para_id": 9,
+   "bib_id": 22,
+   "marker": "2026a",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 61,
+   "para_id": 9,
+   "bib_id": 23,
+   "marker": "2026b",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 62,
+   "para_id": 10,
+   "bib_id": 65,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 63,
+   "para_id": 11,
+   "bib_id": 32,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 64,
+   "para_id": 11,
+   "bib_id": 65,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 65,
+   "para_id": 11,
+   "bib_id": 28,
+   "marker": "1994",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 66,
+   "para_id": 11,
+   "bib_id": 39,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 67,
+   "para_id": 11,
+   "bib_id": 1,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 68,
+   "para_id": 12,
+   "bib_id": 59,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 69,
+   "para_id": 12,
+   "bib_id": 10,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 70,
+   "para_id": 12,
+   "bib_id": 17,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 71,
+   "para_id": 13,
+   "bib_id": 60,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 72,
+   "para_id": 14,
+   "bib_id": 11,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 73,
+   "para_id": 14,
+   "bib_id": 45,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 74,
+   "para_id": 14,
+   "bib_id": 34,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 75,
+   "para_id": 15,
+   "bib_id": 67,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 76,
+   "para_id": 15,
+   "bib_id": 5,
+   "marker": "2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 77,
+   "para_id": 15,
+   "bib_id": 77,
+   "marker": "2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 78,
+   "para_id": 15,
+   "bib_id": 5,
+   "marker": "2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 79,
+   "para_id": 16,
+   "bib_id": 34,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 80,
+   "para_id": 17,
+   "bib_id": 52,
+   "marker": "2002",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 81,
+   "para_id": 17,
+   "bib_id": 54,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 82,
+   "para_id": 17,
+   "bib_id": 37,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 83,
+   "para_id": 18,
+   "bib_id": 85,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 84,
+   "para_id": 18,
+   "bib_id": 18,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 85,
+   "para_id": 18,
+   "bib_id": 76,
+   "marker": "1992",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 86,
+   "para_id": 18,
+   "bib_id": 44,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 87,
+   "para_id": 18,
+   "bib_id": 44,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 88,
+   "para_id": 18,
+   "bib_id": 44,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 89,
+   "para_id": 18,
+   "bib_id": 73,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 90,
+   "para_id": 18,
+   "bib_id": 18,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 91,
+   "para_id": 19,
+   "bib_id": 48,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 92,
+   "para_id": 19,
+   "bib_id": 57,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 93,
+   "para_id": 19,
+   "bib_id": 72,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 94,
+   "para_id": 19,
+   "bib_id": 6,
+   "marker": "2006",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 95,
+   "para_id": 19,
+   "bib_id": 40,
+   "marker": "2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 96,
+   "para_id": 19,
+   "bib_id": 49,
+   "marker": "2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 97,
+   "para_id": 19,
+   "bib_id": 49,
+   "marker": "2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 98,
+   "para_id": 20,
+   "bib_id": 67,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 99,
+   "para_id": 21,
+   "bib_id": 84,
+   "marker": "1977",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 100,
+   "para_id": 21,
+   "bib_id": 74,
+   "marker": "2002",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 101,
+   "para_id": 21,
+   "bib_id": 83,
+   "marker": "1976",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 102,
+   "para_id": 21,
+   "bib_id": 51,
+   "marker": "2001",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 103,
+   "para_id": 21,
+   "bib_id": 21,
+   "marker": "2012",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 104,
+   "para_id": 21,
+   "bib_id": 27,
+   "marker": "1989",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 105,
+   "para_id": 21,
+   "bib_id": 27,
+   "marker": "1989",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 106,
+   "para_id": 22,
+   "bib_id": 12,
+   "marker": "2026a",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 107,
+   "para_id": 22,
+   "bib_id": 13,
+   "marker": "2026b",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 108,
+   "para_id": 22,
+   "bib_id": 14,
+   "marker": "2026c",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 109,
+   "para_id": 23,
+   "bib_id": 27,
+   "marker": "1989",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 110,
+   "para_id": 23,
+   "bib_id": 3,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 111,
+   "para_id": 23,
+   "bib_id": 66,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 112,
+   "para_id": 23,
+   "bib_id": 37,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 113,
+   "para_id": 24,
+   "bib_id": 58,
+   "marker": "2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 114,
+   "para_id": 24,
+   "bib_id": 16,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 115,
+   "para_id": 24,
+   "bib_id": 36,
+   "marker": "2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 116,
+   "para_id": 24,
+   "bib_id": 50,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 117,
+   "para_id": 24,
+   "bib_id": 78,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 118,
+   "para_id": 24,
+   "bib_id": 25,
+   "marker": "2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 119,
+   "para_id": 24,
+   "bib_id": 16,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 120,
+   "para_id": 24,
+   "bib_id": 8,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 121,
+   "para_id": 24,
+   "bib_id": 19,
+   "marker": "2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 122,
+   "para_id": 25,
+   "bib_id": 24,
+   "marker": "2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 123,
+   "para_id": 25,
+   "bib_id": 82,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 124,
+   "para_id": 25,
+   "bib_id": 86,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 125,
+   "para_id": 25,
+   "bib_id": 55,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 126,
+   "para_id": 25,
+   "bib_id": 82,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 127,
+   "para_id": 25,
+   "bib_id": 68,
+   "marker": "2006",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 128,
+   "para_id": 25,
+   "bib_id": 10,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 129,
+   "para_id": 25,
+   "bib_id": 69,
+   "marker": "2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 130,
+   "para_id": 25,
+   "bib_id": 9,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-ext-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "v1_bib_count": 86
+ }
+}

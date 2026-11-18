@@ -1,0 +1,1557 @@
+{
+ "paper_id": "10.1162_opmi.a.371",
+ "paras": [
+  {
+   "para_id": 1,
+   "loc": "body",
+   "sec_title": "DATA AVAILABILITY STATEMENT",
+   "text": "The data for this paper and the analysis code used to generate all reported results are available here: https://osf.io/y695j.",
+   "printed": true
+  },
+  {
+   "para_id": 2,
+   "loc": "front",
+   "sec_title": "",
+   "text": "Agreement, defined as the systematic covariance between elements (e.g., between the 3rd person singular subject she and the -s verb ending in ‘she writes’), is present in many languages despite introducing redundant complexity. A prominent hypothesis suggests that the ubiquity of complex morphological features such as agreement might be attributable to a functional advantage it provides specifically to child learners (Lupyan & Dale, 2010). We tested this hypothesis through two artificial language learning experiments involving both children and adults. In both studies we compared noun class learning in artificial languages with and without agreement marking. While no overall advantage of agreement in noun classification was observed, our findings indicate that agreement may have a differential effect on children and adults. Specifically, agreement may facilitate the generalization of noun classification to novel nouns in children, but not in adults. These findings add to the growing body of evidence that highlights differences in the cues children and adults rely on in language acquisition. We discuss the implications of these results for theories of language acquisition and language change.",
+   "printed": true
+  },
+  {
+   "para_id": 3,
+   "loc": "body",
+   "sec_title": "INTRODUCTION",
+   "text": "The world’s languages are replete with redundant elements – linguistic forms that add no additional information to the conveyed message (Dale & Lupyan, 2012; Leufkens, 2020; Mahowald et al., 2023; Pijpops & Zehentner, 2022; Wit & Gillette, 1999). In English, for example, verbs must match their subjects in person and number, as in ‘she writes’ rather than ‘she write’. The -s suffix on the verb is obligatory even though it is redundant: it repeats information (person and number) that is already conveyed by the subject. This is an instance of a widespread phenomenon across languages—agreement—a systematic formal mapping between related words.",
+   "printed": true
+  },
+  {
+   "para_id": 4,
+   "loc": "body",
+   "sec_title": "INTRODUCTION",
+   "text": "The prevalence of agreement, and linguistic redundancy more generally, has been a longstanding puzzle; it seems to make languages more complicated. There is evidence that adding more components to a linguistic system can make it harder to learn and use (Dahl, 2004; Hawkins, 2004; Kusters, 2008; Miestamo, 2006, 2008). Furthermore, because the increase in complexity does not come with added information, it seems to go against a robust principle of language design: efficiency (Gibson et al., 2019; Levshina, 2021; Mahowald et al., 2023). There is a large body of evidence suggesting that languages are shaped both by a pressure to reduce complexity in general, and by a pressure for efficiency, i.e., to maintain complexity only when it is communicatively necessary (Dryer, 2013; Gibson et al., 2019; Kirby et al., 2015; Levshina & Moran, 2021; Mahowald et al., 2022; Zaslavsky et al., 2018). For example, in both natural language corpus data and in experiments using artificial language tasks, speakers tend to minimize redundancy by omitting or reducing linguistic material that adds no additional information (Caballero & Kapatsinski, 2015; Dahl, 2004; Mahowald et al., 2013; Pate & Goldwater, 2015; Smith & Culbertson, 2025; Tily & Piantadosi, 2009). Why, then, is agreement such a common feature of language despite apparently increasing complexity and running counter to speakers’ tendency toward efficiency? In this paper, we explore the hypothesis that agreement, as an instance of linguistic redundancy, might actually benefit learning, particularly among child learners. Before describing the current proposal in detail, we review various theories posited in the literature regarding the functional benefits of redundancy.",
+   "printed": true
+  },
+  {
+   "para_id": 5,
+   "loc": "body",
+   "sec_title": "Possible Advantages for Redundancy in Language",
+   "text": "The possible functionality of redundancy in languages is a long-debated topic in the language sciences (Dahl, 2004; Leufkens, 2020; Wit & Gillette, 1999). One proposal is that redundancy makes linguistic signals more robust: in the presence of noise, having more than one cue for a certain meaning increases the chances of succesful communication (Gibson et al., 2019; Monaghan, 2017). For instance, in Choguita Rarámuri (an Uto-Aztecan language spoken in northern Mexico), some meanings are cued by two consecutive suffixes, the second of which is optional. Caballero and Kapatsinski (2015) investigated the impact of these redundant morphemes on word recognition among speakers of this language. They found that having a redundant morpheme aided recognition for ambiguous words, but made it worse for unambiguous words. That is, Choguita Rarámuri speakers expect a redundant morpheme only when understandability is otherwise compromised. This is in line with principles of efficient communication: speakers tend to increase redundancy when the conveyed meaning is less predictable in context (Kurumada & Jaeger, 2015; Levshina & Moran, 2021; Mahowald et al., 2013).",
+   "printed": true
+  },
+  {
+   "para_id": 6,
+   "loc": "body",
+   "sec_title": "Possible Advantages for Redundancy in Language",
+   "text": "In some cases, linguistic redundancy can aid real-time processing by making upcoming linguistic information more predictable. For example, in German, nouns follow determiners that agree with them in gender (see (1)). Since the determiner precedes the noun, it reduces the set of possible following nouns by cueing which gender class the noun belongs to (Dye et al., 2017). Indeed, native speakers make use of this information, by ruling out irrelevant nouns—ones that have a different gender—before they process the noun itself (for evidence from other languages see Dahan et al., 2000; Grosjean et al., 1994; Lew-Williams & Fernald, 2007).(1) German (Dye et al., 2017) Gestern besuchte ich den Arzt Yesterday visited I the.MASC doctor",
+   "printed": true
+  },
+  {
+   "para_id": 7,
+   "loc": "body",
+   "sec_title": "Possible Advantages for Redundancy in Language",
+   "text": "(1) German (Dye et al., 2017)",
+   "printed": true
+  },
+  {
+   "para_id": 8,
+   "loc": "body",
+   "sec_title": "Possible Advantages for Redundancy in Language",
+   "text": "Finally, another proposed advantage of redundancy is its potential to benefit learning, by providing multiple cues for the same piece of information (Audring, 2014; Bates & MacWhinney, 1989; Lupyan & Dale, 2010; Monaghan, 2017; Tal & Arnon, 2022). A growing body of work demonstrates that language learners benefit from redundant multi-modal cues (Flom & Bahrick, 2010; Lew-Williams et al., 2019; Monaghan, 2017; Murgiano et al., 2021). For example, synchronous touch cues applied to specific body parts help infants segment words from continuous speech (Seidl et al., 2015). However, the facilitating effect of redundant multi-modal cues does not necessarily extend to redundant morphological cues, such as agreement. While redundant morphemes may provide additional cues that can be beneficial, they also introduce a cost: these morphemes themselves, and the agreement rules governing the mapping between agreeing elements, must be learned (Bates & MacWhinney, 1989; Leufkens, 2020). For this reason, redundant morphology is typically argued to render languages more complicated (Bentz et al., 2016; Dahl, 2004; Lupyan & Dale, 2010). Despite this added cost, recent findings support the hypothesis that morphological redundancy can benefit learning, and more specifically, child learners (Tal & Arnon, 2022). Using an artificial language learning paradigm, Tal and Arnon (2022) compared the learnability of two versions of an otherwise identical language: one where word order alone provides a cue to thematic role assignment (i.e., understanding who did what to whom), and one where there is an additional, redundant, case-marking cue. Participants who were exposed to the language with the redundant cue showed better comprehension of thematic assignment, despite having to learn and reproduce an additional morpheme. While no difference was found between children and adults, post-hoc analyses for each age group separately revealed that children showed better learning in the redundant language version whereas adults showed no difference between the language versions1. Importantly, however, adults were close to ceiling in both conditions, and therefore it is unclear whether they in fact differed from children. Crucially, a recent hypothesis predicts that such differences between children and adults should be found.",
+   "printed": true
+  },
+  {
+   "para_id": 9,
+   "loc": "body",
+   "sec_title": "Child Learners vs. Adult Learners",
+   "text": "Children and adults are known to learn languages differently, likely for a number of reasons. They receive different amounts and types of linguistic input (Soderstrom, 2007; Uther et al., 2007), have different experience with languages (Arnon & Christiansen, 2017; Siegelman & Arnon, 2015), and different experience with the world. Moreover, children and adults generally differ in some aspects of their cognitive skills and neurological architecture (Kuhl, 2000; Neville & Bavelier, 2001). Consequently, they often show different learning strategies and biases when learning language (Culbertson et al., 2019; Hudson Kam & Newport, 2005, 2009; Raviv & Arnon, 2018; Samara et al., 2017; Schwab et al., 2018). For example, when learning a novel artificial language with a grammatical gender, or noun class-like system, Culbertson et al. (2019) found that adult learners more readily rely on extralinguistic cues, like the meaning of a word, but child learners are more sensitive to intralinguistic cues, that is, cues that are embedded within the linguistic signal itself (Culbertson et al., 2019; see also Gagliardi & Lidz, 2014; Karmiloff-Smith, 1981). These cues are exactly the kind that are found in patterns of agreement in general. Such differences may thus impact what adults and children learn about morphology. Indeed, there is evidence that adult learners struggle with acquiring various types of complex morphology, even when similar features exist in their native language (Clahsen et al., 2010; DeKeyser, 2005; Ellis, 2022). For example, adult learners of Turkish have difficulty acquiring case-marking morphology, even though their native language has rich morphology, including case marking (Papadopoulou et al., 2011).",
+   "printed": true
+  },
+  {
+   "para_id": 10,
+   "loc": "body",
+   "sec_title": "Child Learners vs. Adult Learners",
+   "text": "In an influential paper, Lupyan and Dale (2010) argue that these learning differences progressively shape the relative complexity of languages: languages used by many adult learners lose morphological complexity over time (see also Bentz et al., 2015; Bentz & Winter, 2013; Dale & Lupyan, 2012; Trudgill, 2009; though see Shcherbakova et al., 2023 for counter evidence for certain morphological features, not redundant morphology). Lupyan and Dale (2010) provide correlational evidence for this hypothesis by showing that languages used by a higher proportion of adult learners are less likely to possess noun or verb agreement. A corollary hypothesis is that the reason why redundant morphology is attested in languages to begin with is its potential advantage for child learners (Lupyan & Dale, 2010). That is, while adult learners struggle with redundant morphology, child learners are predicted to benefit from it. The findings of Tal and Arnon (2022) support the hypothesis that morphological redundancy can benefit child learners. However, because adults in Tal and Arnon (2022) were at ceiling in their task, it is still unclear whether children and adults are in fact differentially influenced by morphological redundancy. If the prevalence of agreement markers is linked to the advantage it holds for child learners but not adult learners, then child learners should benefit from it, but adults should not.",
+   "printed": true
+  },
+  {
+   "para_id": 11,
+   "loc": "body",
+   "sec_title": "Child Learners vs. Adult Learners",
+   "text": "Here, following Tal and Arnon (2022), we use an artificial language learning paradigm to compare the impact of redundant morphology on both types of learners. However, rather than focusing on case marking, we compare learning of a noun class system in the presence or absence of a redundant agreement cue. While agreement might impact learning of multiple features of a language (see discussion in Leufkens, 2020), it has been specifically hypothesized to facilitate learning of noun class systems in particular (Audring, 2008, 2014). We further examine whether the presence of a redundant agreement marker is more beneficial when noun classification becomes more challenging. In particular, it has been argued that redundant agreement marking may be more necessary in noun class systems that are not purely semantic (Audring, 2008). To test this, in Study 1 we compared classification of nouns with and without a semantic cue to class. In Study 2 we examined another dimension of challenge: we compared nouns that participants encountered during training with novel nouns that required generalisation.",
+   "printed": true
+  },
+  {
+   "para_id": 12,
+   "loc": "body",
+   "sec_title": "STUDY 1: ADULT LEARNERS",
+   "text": "In Study 1, we investigate whether adult learners can benefit from a redundant agreement marker when learning noun classes in a novel language. Specifically, we compare learning from two types of agreement that are attested in the world’s languages and indeed fairly common: alliterative and non-alliterative. In alliterative agreement, the agreement is expressed by repetition of the same form. In contrast, in non-alliterative agreement (sometimes referred to as arbitrary or opaque agreement, Corbett, 2006) it is expressed by different forms. Swahili, for example, shows both types of agreement for different gender classes (Examples 2(a) and 2(b) respectively).(2) Swahili (Bantu) (Corbett, 2006; Güldemann & Fiedler, 2021)ki-ti ki-le ki-moja ki-me-anguka 7-chair 7-D.DEM 7-one 7-PERF-fall‘that one chair has fallen’m-shale u-lianguka3/4-SG-nail 3-fell‘a nail fell’",
+   "printed": true
+  },
+  {
+   "para_id": 13,
+   "loc": "body",
+   "sec_title": "STUDY 1: ADULT LEARNERS",
+   "text": "(2) Swahili (Bantu) (Corbett, 2006; Güldemann & Fiedler, 2021)",
+   "printed": true
+  },
+  {
+   "para_id": 14,
+   "loc": "body",
+   "sec_title": "STUDY 1: ADULT LEARNERS",
+   "text": "Importantly, although both types of agreement systems are redundant, they pose different predictions with respect to learning. In particular, while both provide additional cues for the same information, these cues seem to have different costs. Alliterative agreement systems should be less costly for learners since, first, they require fewer forms to learn (Bates & MacWhinney, 1989) and, second, they are repetitive—a characteristic that typically facilitates language learning (Horst et al., 2011; Nencheva et al., 2024; Ota & Skarabela, 2016). Taken together, if agreement can benefit adult learners, then learning should be improved by both types of agreement, but more so by alliterative agreement.",
+   "printed": true
+  },
+  {
+   "para_id": 15,
+   "loc": "body",
+   "sec_title": "Procedure.",
+   "text": "The experiment was conducted online via code running in the web browser (written in JavaScript and using JsPsych; de Leeuw, 2015). Participants were told they were going to learn part of a new language. The experiment consisted of three training phases and three tests. The training phases included interspersed attention tests, that served two purposes: monitoring participants’ engagement and familiarizing them with the tests they would encounter after training. Some attention tests appeared only in the agreement conditions, since the task involved the agreement pattern (as detailed below). Participants received feedback on the attention tests.",
+   "printed": true
+  },
+  {
+   "para_id": 16,
+   "loc": "body",
+   "sec_title": "Procedure.",
+   "text": "In the first training phase, participants were exposed to the nouns, in audio and text, without their corresponding referents (see Figure 1A). This was done following previous studies showing that exposure to phonological cues before semantic cues can boost learning (Culbertson et al., 2019). Nouns appeared either in singular (i.e., bare) or modified by a numeral. There were 36 trials in this phase (each noun appeared once in the singular and once with the numeral). Attention tests were randomly interspersed among these 36 trials: three randomly selected singular nouns trials were followed by an attention test, where participants were shown the previously presented noun with a missing suffix, along with two suffix options, one for each noun class in their input, and had to choose the correct suffix. Participants in the agreement conditions had 4 additional attention tests following four randomly chosen numeral plus noun trials. In these tests, they were presented with the previously presented phrase, but with a missing suffix on the numeral. They were given two possible numeral-suffix options from their input and had to select the correct one.",
+   "printed": true
+  },
+  {
+   "para_id": 17,
+   "loc": "body",
+   "sec_title": "Analytic Approach.",
+   "text": "All analyses reported here used Bayesian mixed-effects logistic regression models with a Bernoulli likelihood, implemented with the brms package (Bürkner, 2017) in R software (R Core Team, 2020). Models used brms default priors: flat priors for fixed effects, weakly informative Student-t priors (df = 3, mean = 0, scale = 2.5) for the intercept and random effect standard deviations, and LKJ(1) priors for random effect correlations. For each model we report posterior means and 95% credible intervals (CrI) on the log-odds scale. To aid interpretation, we additionally report predicted differences in accuracy, expressed in percentage points (pp), and the posterior probability of direction (pd): the proportion of the posterior distribution above zero for positive effects, or below zero for negative effects, reflecting how consistently the data point toward one direction.",
+   "printed": true
+  },
+  {
+   "para_id": 18,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "The results of Study 1 show that while alliterative agreement showed a modest tendency to benefit the generalisation of semantic cues to novel nouns in the picture matching task, the presence of redundant agreement marking did not benefit learning of noun classification, regardless of whether additional semantic cues were available. However, in terms of learning the agreement markers themselves, the alliterative type, featuring repeating forms, was easier to learn than the non-alliterative type. This result is consistent with the relatively lower learning cost associated with repetitive forms (Nencheva et al., 2024; Ota & Skarabela, 2016).",
+   "printed": true
+  },
+  {
+   "para_id": 19,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Taken together, these findings are in line with previous work showing that adults struggle with redundant morphology (Clahsen et al., 2010; DeKeyser, 2005; Ellis, 2022). In the non-alliterative condition in particular, the mapping between noun and numeral suffixes was clearly very difficult for participants, with mean accuracy on a 2-alternative agreement test of 65%. This, together with the fact that noun class performance was the same across agreement conditions, suggests that adults may have largely been using the semantic cues, rather than suffixes. When no semantic cue was present, i.e., in object trials, adults may have been relying to some degree on memory for individual object meanings to determine class. Importantly, while redundant morphology is difficult for adult learners, and may not be utilised as readily as meaning (Culbertson et al., 2019), as mentioned above, it could benefit child learners (Lupyan & Dale, 2010; Tal & Arnon, 2022). If so, then child learners should benefit from the presence of agreement markers even when adult learners do not. To test this, in Study 2 we ran a simplified version of Study 1 on both children and adults.",
+   "printed": true
+  },
+  {
+   "para_id": 20,
+   "loc": "body",
+   "sec_title": "Materials.",
+   "text": "The artificial language (a modified version of the language used in Culbertson et al., 2019) consisted of 12 nouns, referring to 6 aliens and 6 planets. The nouns were divided into two noun classes, as in Study 1, indicated by distinct noun suffixes (e.g., po vs. fei). In addition, a semantic cue was present for all nouns (aliens vs. planets), and internal phonological features of noun stems also cued class membership (e.g., mibi vs. gata, see Table 5 for an example language in both conditions). Noun stems from each class were randomly paired with referents for each participant. During exposure, participants heard 4 noun-referent pairings from each class, with the remaining 2 used in testing as novel nouns (see more details below).",
+   "printed": true
+  },
+  {
+   "para_id": 21,
+   "loc": "body",
+   "sec_title": "Procedure.",
+   "text": "The experiment was written in JavaScript using JsPsych (de Leeuw, 2015) and was conducted online. Adults participated in the study independently via the Prolific platform, completing the experiment in their own web browser, while children took part through Zoom sessions, directly interacting with an experimenter. The children viewed the experiment—which was displayed on the experimenter’s web browser and shared via screen sharing—and were instructed to direct the experimenter on which elements to click (further details are provided below). To train children for this setup, the session began with two 2AFC training trials. In each trial, two numbered images, such as a tomato and a cucumber, were displayed. The experimenter would then ask, ‘Which one is a tomato, number 1 or number 2?’ If the child could not accurately direct the experimenter to click on the correct image by its number (e.g., saying e.g., ‘this one’ or ‘the tomato’), the experimenter would repeat the question and guide the child to use the numbers. The rest of the experimental structure was identical for both children and adults. Participants were informed they would meet an alien named Tweeble and would learn its language. To motivate children, they received (virtual) medals and gold for each successful trial.",
+   "printed": true
+  },
+  {
+   "para_id": 22,
+   "loc": "body",
+   "sec_title": "Results",
+   "text": "The intercept reflects predicted accuracy for children in the no-agreement condition (83.4 pp, 95% CrI: [73.8, 90.9] pp; log-odds: β = 1.65, 95% CrI = [1.03, 2.30], pd = 1), indicating above-chance performance. Adults demonstrated higher accuracy than children in the no-agreement condition (14.0 pp, 95% CrI: [6.5, 23.8] pp; log-odds: β = 2.04, 95% CrI = [1.21, 2.93], pd = 1). This outcome is common in artificial language learning experiments (Culbertson et al., 2019; Raviv & Arnon, 2018; Tal & Arnon, 2022) and reflects the generally expected differences in performance between adults and children on the same cognitive tasks. For children, the model suggested a tendency toward lower accuracy in the agreement condition, though with considerable uncertainty (−8.1 pp, 95% CrI: [−22.3, 5.6] pp; log-odds: β = −0.51, 95% CrI = [−1.35, 0.35], pd = 87.8). For adults, the pattern was very similar (−8.0 pp, 95% CrI: [−24.7, 3.6] pp; log-odds: β = −0.46, 95% CrI = [−1.26, 0.29], pd = 88.4), with performance approaching ceiling in both conditions (93–94%). The similar magnitude of log-odds estimates between children and adults despite smaller raw percentage differences in adults likely reflects ceiling effects compressing variation at high accuracy levels. Overall, these results suggest no benefit for the agreement pattern early in learning, with a modest tendency toward lower accuracy in the agreement condition in both groups.",
+   "printed": true
+  },
+  {
+   "para_id": 23,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "The results of the number test showed that overall, both children and adults understood the meaning of the number word. However, a few children received low scores on this test. Since the pattern of results did not change when these children were excluded from analysis (see Appendix C), this suggests that, at least for children, noun classification may not depend on comprehension of the dual. This interpretation is in line with previous studies showing that children tend to rely more on phonological cues and less on semantic cues in noun classification (Culbertson et al., 2019).",
+   "printed": true
+  },
+  {
+   "para_id": 24,
+   "loc": "body",
+   "sec_title": "GENERAL DISCUSSION",
+   "text": "The widespread presence of agreement patterns in the world languages, despite the complexity they add (Corbett, 2006; Leufkens, 2020, 2023), suggests they might offer some cognitive or functional advantages. Research has indeed identified several potential benefits of agreement for language users. For example, agreement can aid proficient language users in predicting upcoming information (Dye et al., 2017). Here, we investigated the possibility that agreement can be beneficial even before a comprehensive knowledge of the language is developed. That is, we explored whether agreement, as a manifestation of linguistic redundancy, can be beneficial for language learning.",
+   "printed": true
+  },
+  {
+   "para_id": 25,
+   "loc": "body",
+   "sec_title": "GENERAL DISCUSSION",
+   "text": "The Linguistic Niche Hypothesis (Lupyan & Dale, 2010) proposes that child learners in particular should benefit from redundancy, while adult learners might not. This hypothesis has received support from a recent artificial language learning study, showing that child learners are more successful at learning thematic role assignment in a language in which both word order and a redundant morpheme provide cues (Tal & Arnon, 2022). Whether adults also benefitted from a redundant morpheme was however not clear.",
+   "printed": true
+  },
+  {
+   "para_id": 26,
+   "loc": "body",
+   "sec_title": "GENERAL DISCUSSION",
+   "text": "To examine differences between child and adult learners, Study 2 used a simplified artificial language, either without agreement or with alliterative agreement. Unlike in Study 1, all nouns in this study had a semantic cue, making the cues for noun classification deterministic. However, similar to Study 1, the evidence available for noun classification varied: some nouns were familiar from the training phase, while others were novel. The results revealed that, as in Study 1, adults showed no difference between the conditions. Contrary to our predictions, there was also no significant difference observed in children. Nonetheless, we found that children and adults were potentially impacted differently by the language condition manipulation: agreement marking may have specifically facilitated the classification of novel nouns in children, whereas it had no discernible effect on adults. Importantly, our statistical analysis indicated that while most of the posterior probability pointed to such a difference between children and adults, there was substantial uncertainty. Thus, we cannot conclusively determine whether agreement marking aids children’s classification of novel nouns in this task. It should be noted that this study provided children with only brief exposure to the language, which differs considerably from real-life language acquisition (see discussions in Culbertson & Schuler, 2019; Tal et al., 2025). It is possible that increasing exposure would reveal stronger effects. However, the fact that probable differences were found between children and adults after such a short duration lends support to the idea that children and adults might learn differently from these cues.",
+   "printed": true
+  },
+  {
+   "para_id": 27,
+   "loc": "body",
+   "sec_title": "GENERAL DISCUSSION",
+   "text": "While further research is needed to determine whether this difference holds robustly, it is nevertheless worth considering why the effect of agreement might specifically benefit classification of novel nouns in children. Although the novel nouns in Study 2 followed the same obligatory cues for noun classification as familiar nouns, they posed greater challenges because they were not presented during training, preventing rote memorization. For these nouns, the additional agreeing suffix on the numeral could serve as a helpful cue for children. However, our findings suggest that such an additional cue does not benefit adults. For adults, redundant morphemes were not helpful when most needed: neither in cases where nouns lacked a semantic cue (Study 1), nor when the nouns were novel (Study 2). Indeed, adults generally struggle with acquiring morphology (Clahsen et al., 2010; DeKeyser, 2005; Ellis, 2022), and tend to rely on other cues when these are available (Kenanidis et al., 2023; Pankratz et al., 2024). This raises the possibility that children and adults might not only differ in their ability to acquire morphology, but also in how they learn from morphology. Such potential differences between children and adults prompt several important questions. First, what underlies these differences? A prominent theory suggests that morphological cues are less salient to adult second-language learners (Ellis, 2022), however, it remains unclear why children in a similar second language learning context appear to behave differently. Secondly, might adults benefit from redundant cues that are not morphological? Evidence involving multi-modal cues supports this possibility (Murgiano et al., 2021), though it is unclear whether redundant non-morphological linguistic cues can hold similar benefit. We are currently investigating this possibility in ongoing work. Finally, if young children, unlike adults, benefit from redundant morphology, this advantage might be present from an early age and guide the initial stages of language acquisition. We are currently investigating whether redundant morphology also benefits infants (see Gerken et al., 2005 for some supporting evidence). Taken together, this study contributes to the growing body of literature indicating that children and adults might rely on different types and scopes of cues during language acquisition (Arnon, 2021; Berger & Batterink, 2024; Culbertson et al., 2019; Hudson Kam & Newport, 2009).",
+   "printed": true
+  },
+  {
+   "para_id": 28,
+   "loc": "body",
+   "sec_title": "GENERAL DISCUSSION",
+   "text": "The present findings also have implications for the literature on language complexity. The Linguistic Niche Hypothesis (Lupyan & Dale, 2010) posits that child and adult learners learn differently from redundant morphology, with children benefitting from it but not adults. Lupyan and Dale (2010) propose this difference as a possible explanation for why languages that are commonly used by adults tend to lose morphological complexity over time (Bentz & Winter, 2013; Dale & Lupyan, 2012; Lupyan & Dale, 2010; Trudgill, 2009, 2011). Previous work identified a benefit of redundant morphology for children (Tal & Arnon, 2022). The results of Study 2, though somewhat uncertain, suggest that children and adults may indeed learn differently from redundant morphology. If children benefit from redundancy while adults do not, this could explain why languages maintain these forms despite the added complexity.",
+   "printed": true
+  },
+  {
+   "para_id": 29,
+   "loc": "body",
+   "sec_title": "GENERAL DISCUSSION",
+   "text": "Finally, if redundant morphology could be beneficial for child learners, is it also more prevalent in speech directed to them? Growing evidence indicates that speech directed to younger children tends to be more redundant across several domains: referential choice (Tal et al., 2023), lexical repetition (Nencheva et al., 2024; Soderstrom, 2007), frequent frames (Cameron-Faulkner et al., 2003; Stoll et al., 2009) and overall input (Tal et al., 2024). If speakers introduce more redundancy in their speech when talking to young children, this should also manifest in increased morphological redundancy. Studies examining cues to thematic assignment support this hypothesis, showing that speech directed to children often includes overlapping cues to clarify ‘who is doing what to whom’ (Ibbotson & Tomasello, 2009). However, more research is needed on languages with optional morphological redundancy. In such languages, child-directed speech is predicted to feature more redundant morphemes compared to adult-directed speech.",
+   "printed": true
+  },
+  {
+   "para_id": 30,
+   "loc": "fn",
+   "sec_title": "Notes",
+   "text": "See Tal and Arnon (2019) for an analysis of the results from children alone.",
+   "printed": true
+  },
+  {
+   "para_id": 31,
+   "loc": "fn",
+   "sec_title": "Notes",
+   "text": "The language stimuli was taken from a previous noun class learning experiment by Culbertson et al. (2017).",
+   "printed": true
+  }
+ ],
+ "links": [
+  {
+   "link_id": 1,
+   "url": "osf.io/y695j",
+   "url_raw": "https://osf.io/y695j",
+   "href_jats": "https://osf.io/y695j",
+   "repo_key": "osf:y695j",
+   "host_class": "osf",
+   "loc": "body",
+   "sec_title": "DATA AVAILABILITY STATEMENT",
+   "source": "tagged",
+   "para_id": 1
+  }
+ ],
+ "links_optional": [
+  "aclweb.org/anthology/papers/w/w16/w16-4117",
+  "creativecommons.org/licenses/by/4.0",
+  "doi:10.1006/jmla.1999.2688",
+  "doi:10.1007/s11525-009-9124-y",
+  "doi:10.1016/j.cognition.2012.09.010",
+  "doi:10.1016/j.cognition.2015.03.016",
+  "doi:10.1016/j.cognition.2018.08.011",
+  "doi:10.1016/j.cognition.2022.105055",
+  "doi:10.1016/j.cognition.2023.105543",
+  "doi:10.1016/j.cognition.2024.105817",
+  "doi:10.1016/j.cognition.2025.106164",
+  "doi:10.1016/j.cogpsych.2009.01.001",
+  "doi:10.1016/j.cogpsych.2017.02.004",
+  "doi:10.1016/j.dcn.2017.09.006",
+  "doi:10.1016/j.dr.2007.06.002",
+  "doi:10.1016/j.jml.2014.10.003",
+  "doi:10.1016/j.jml.2015.03.003",
+  "doi:10.1016/j.jml.2015.07.003",
+  "doi:10.1016/j.jml.2016.08.001",
+  "doi:10.1016/j.jml.2022.104378",
+  "doi:10.1016/j.langsci.2013.10.003",
+  "doi:10.1016/j.specom.2006.10.003",
+  "doi:10.1016/j.tics.2019.02.003",
+  "doi:10.1017/s0305000904006786",
+  "doi:10.1017/s0305000918000041",
+  "doi:10.1017/s0305000921000386",
+  "doi:10.1037/a0018410",
+  "doi:10.1073/pnas.1800521115",
+  "doi:10.1073/pnas.97.22.11850",
+  "doi:10.1075/slcs.71",
+  "doi:10.1075/slcs.94.03kus",
+  "doi:10.1075/slcs.94.04mie",
+  "doi:10.1080/15475441.2005.9684215",
+  "doi:10.1080/15475441.2016.1165100",
+  "doi:10.1080/23273798.2014.940983",
+  "doi:10.1093/acprof:oso/9780199252695.001.0001",
+  "doi:10.1093/oso/9780199545216.003.0007",
+  "doi:10.1093/oxfordhb/9780192886491.013.3",
+  "doi:10.1093/oxfordhb/9780198845003.013.19",
+  "doi:10.1111/desc.12182",
+  "doi:10.1111/desc.13498",
+  "doi:10.1111/j.0023-8333.2005.00294.x",
+  "doi:10.1111/j.1467-9280.2007.01871.x",
+  "doi:10.1111/j.1467-9922.2009.00550.x",
+  "doi:10.1111/j.1551-6709.2008.01004.x",
+  "doi:10.1111/tops.12239",
+  "doi:10.1111/tops.12271",
+  "doi:10.1126/sciadv.adf7704",
+  "doi:10.1142/s0219525911500172",
+  "doi:10.1146/annurev-linguistics-011718-012329",
+  "doi:10.1162/opmi.a.371",
+  "doi:10.1162/opmi_a_00172",
+  "doi:10.1163/22105832-13030105",
+  "doi:10.1163/9789004342934_011",
+  "doi:10.1177/0267658310376348",
+  "doi:10.1207/s15516709cog2706_2",
+  "doi:10.1353/lan.2014.0013",
+  "doi:10.1353/lan.2019.0031",
+  "doi:10.1371/journal.pone.0008559",
+  "doi:10.1371/journal.pone.0128254",
+  "doi:10.1371/journal.pone.0288989",
+  "doi:10.1515/langcog.2009.004",
+  "doi:10.1515/lingvan-2019-0087",
+  "doi:10.1515/lingvan-2020-0081",
+  "doi:10.1515/lingvan-2020-0143",
+  "doi:10.1515/stuf-2021-1030",
+  "doi:10.16995/glossa.8763",
+  "doi:10.18637/jss.v080.i01",
+  "doi:10.22599/jesla.85",
+  "doi:10.25189/rabralin.v19i3.1722",
+  "doi:10.31219/osf.io/gpt8j",
+  "doi:10.3389/fpsyg.2011.00017",
+  "doi:10.3758/bf03206954",
+  "doi:10.3758/s13428-014-0458-y",
+  "doi:10.5334/joc.113",
+  "math.rug.nl/~ernst/linguistics/redundancy3.pdf",
+  "math.rug.nl/∼ernst/linguistics/redundancy3.pdf",
+  "r-project.org",
+  "wals.info/chapter/81"
+ ],
+ "own_doi": "doi:10.1162/opmi.a.371",
+ "citations": [
+  {
+   "cite_id": 1,
+   "para_id": 2,
+   "bib_id": 49,
+   "marker": "2010",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 2,
+   "para_id": 3,
+   "bib_id": 20,
+   "marker": "2012",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 3,
+   "para_id": 3,
+   "bib_id": 43,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 4,
+   "para_id": 3,
+   "bib_id": 51,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 5,
+   "para_id": 3,
+   "bib_id": 63,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 6,
+   "para_id": 3,
+   "bib_id": 83,
+   "marker": "1999",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 7,
+   "para_id": 4,
+   "bib_id": 19,
+   "marker": "2004",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 8,
+   "para_id": 4,
+   "bib_id": 32,
+   "marker": "2004",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 9,
+   "para_id": 4,
+   "bib_id": 42,
+   "marker": "2008",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 10,
+   "para_id": 4,
+   "bib_id": 53,
+   "marker": "2006",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 11,
+   "para_id": 4,
+   "bib_id": 54,
+   "marker": "2008",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 12,
+   "para_id": 4,
+   "bib_id": 29,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 13,
+   "para_id": 4,
+   "bib_id": 45,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 14,
+   "para_id": 4,
+   "bib_id": 51,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 15,
+   "para_id": 4,
+   "bib_id": 23,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 16,
+   "para_id": 4,
+   "bib_id": 29,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 17,
+   "para_id": 4,
+   "bib_id": 39,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 18,
+   "para_id": 4,
+   "bib_id": 46,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 19,
+   "para_id": 4,
+   "bib_id": 50,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 20,
+   "para_id": 4,
+   "bib_id": 84,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 21,
+   "para_id": 4,
+   "bib_id": 11,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 22,
+   "para_id": 4,
+   "bib_id": 19,
+   "marker": "2004",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 23,
+   "para_id": 4,
+   "bib_id": 52,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 24,
+   "para_id": 4,
+   "bib_id": 62,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 25,
+   "para_id": 4,
+   "bib_id": 71,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 26,
+   "para_id": 4,
+   "bib_id": 79,
+   "marker": "2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 27,
+   "para_id": 5,
+   "bib_id": 19,
+   "marker": "2004",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 28,
+   "para_id": 5,
+   "bib_id": 43,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 29,
+   "para_id": 5,
+   "bib_id": 83,
+   "marker": "1999",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 30,
+   "para_id": 5,
+   "bib_id": 29,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 31,
+   "para_id": 5,
+   "bib_id": 55,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 32,
+   "para_id": 5,
+   "bib_id": 11,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 33,
+   "para_id": 5,
+   "bib_id": 41,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 34,
+   "para_id": 5,
+   "bib_id": 46,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 35,
+   "para_id": 5,
+   "bib_id": 52,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 36,
+   "para_id": 6,
+   "bib_id": 24,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 37,
+   "para_id": 6,
+   "bib_id": 18,
+   "marker": "2000",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 38,
+   "para_id": 6,
+   "bib_id": 30,
+   "marker": "1994",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 39,
+   "para_id": 6,
+   "bib_id": 48,
+   "marker": "2007",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 40,
+   "para_id": 7,
+   "bib_id": 24,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 41,
+   "para_id": 8,
+   "bib_id": 4,
+   "marker": "2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 42,
+   "para_id": 8,
+   "bib_id": 5,
+   "marker": "1989",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 43,
+   "para_id": 8,
+   "bib_id": 49,
+   "marker": "2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 44,
+   "para_id": 8,
+   "bib_id": 55,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 45,
+   "para_id": 8,
+   "bib_id": 75,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 46,
+   "para_id": 8,
+   "bib_id": 26,
+   "marker": "2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 47,
+   "para_id": 8,
+   "bib_id": 47,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 48,
+   "para_id": 8,
+   "bib_id": 55,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 49,
+   "para_id": 8,
+   "bib_id": 56,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 50,
+   "para_id": 8,
+   "bib_id": 68,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 51,
+   "para_id": 8,
+   "bib_id": 5,
+   "marker": "1989",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 52,
+   "para_id": 8,
+   "bib_id": 43,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 53,
+   "para_id": 8,
+   "bib_id": 6,
+   "marker": "2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 54,
+   "para_id": 8,
+   "bib_id": 19,
+   "marker": "2004",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 55,
+   "para_id": 8,
+   "bib_id": 49,
+   "marker": "2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 56,
+   "para_id": 8,
+   "bib_id": 75,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 57,
+   "para_id": 8,
+   "bib_id": 75,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 58,
+   "para_id": 9,
+   "bib_id": 72,
+   "marker": "2007",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 59,
+   "para_id": 9,
+   "bib_id": 82,
+   "marker": "2007",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 60,
+   "para_id": 9,
+   "bib_id": 2,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 61,
+   "para_id": 9,
+   "bib_id": 70,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 62,
+   "para_id": 9,
+   "bib_id": 40,
+   "marker": "2000",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 63,
+   "para_id": 9,
+   "bib_id": 58,
+   "marker": "2001",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 64,
+   "para_id": 9,
+   "bib_id": 16,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 65,
+   "para_id": 9,
+   "bib_id": 34,
+   "marker": "2005",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 66,
+   "para_id": 9,
+   "bib_id": 35,
+   "marker": "2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 67,
+   "para_id": 9,
+   "bib_id": 65,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 68,
+   "para_id": 9,
+   "bib_id": 66,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 69,
+   "para_id": 9,
+   "bib_id": 67,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 70,
+   "para_id": 9,
+   "bib_id": 16,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 71,
+   "para_id": 9,
+   "bib_id": 16,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 72,
+   "para_id": 9,
+   "bib_id": 27,
+   "marker": "2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 73,
+   "para_id": 9,
+   "bib_id": 37,
+   "marker": "1981",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 74,
+   "para_id": 9,
+   "bib_id": 13,
+   "marker": "2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 75,
+   "para_id": 9,
+   "bib_id": 22,
+   "marker": "2005",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 76,
+   "para_id": 9,
+   "bib_id": 25,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 77,
+   "para_id": 9,
+   "bib_id": 61,
+   "marker": "2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 78,
+   "para_id": 10,
+   "bib_id": 49,
+   "marker": "2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 79,
+   "para_id": 10,
+   "bib_id": 7,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 80,
+   "para_id": 10,
+   "bib_id": 8,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 81,
+   "para_id": 10,
+   "bib_id": 20,
+   "marker": "2012",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 82,
+   "para_id": 10,
+   "bib_id": 80,
+   "marker": "2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 83,
+   "para_id": 10,
+   "bib_id": 69,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 84,
+   "para_id": 10,
+   "bib_id": 49,
+   "marker": "2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 85,
+   "para_id": 10,
+   "bib_id": 49,
+   "marker": "2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 86,
+   "para_id": 10,
+   "bib_id": 75,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 87,
+   "para_id": 10,
+   "bib_id": 75,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 88,
+   "para_id": 11,
+   "bib_id": 75,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 89,
+   "para_id": 11,
+   "bib_id": 43,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 90,
+   "para_id": 11,
+   "bib_id": 3,
+   "marker": "2008",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 91,
+   "para_id": 11,
+   "bib_id": 4,
+   "marker": "2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 92,
+   "para_id": 11,
+   "bib_id": 3,
+   "marker": "2008",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 93,
+   "para_id": 12,
+   "bib_id": 14,
+   "marker": "2006",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 94,
+   "para_id": 13,
+   "bib_id": 14,
+   "marker": "2006",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 95,
+   "para_id": 13,
+   "bib_id": 31,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 96,
+   "para_id": 14,
+   "bib_id": 5,
+   "marker": "1989",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 97,
+   "para_id": 14,
+   "bib_id": 33,
+   "marker": "2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 98,
+   "para_id": 14,
+   "bib_id": 57,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 99,
+   "para_id": 14,
+   "bib_id": 59,
+   "marker": "2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 100,
+   "para_id": 15,
+   "bib_id": 21,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 101,
+   "para_id": 16,
+   "bib_id": 16,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 102,
+   "para_id": 17,
+   "bib_id": 10,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 103,
+   "para_id": 17,
+   "bib_id": 64,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 104,
+   "para_id": 18,
+   "bib_id": 57,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 105,
+   "para_id": 18,
+   "bib_id": 59,
+   "marker": "2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 106,
+   "para_id": 19,
+   "bib_id": 13,
+   "marker": "2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 107,
+   "para_id": 19,
+   "bib_id": 22,
+   "marker": "2005",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 108,
+   "para_id": 19,
+   "bib_id": 25,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 109,
+   "para_id": 19,
+   "bib_id": 16,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 110,
+   "para_id": 19,
+   "bib_id": 49,
+   "marker": "2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 111,
+   "para_id": 19,
+   "bib_id": 75,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 112,
+   "para_id": 20,
+   "bib_id": 16,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 113,
+   "para_id": 21,
+   "bib_id": 21,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 114,
+   "para_id": 22,
+   "bib_id": 16,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 115,
+   "para_id": 22,
+   "bib_id": 65,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 116,
+   "para_id": 22,
+   "bib_id": 75,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 117,
+   "para_id": 23,
+   "bib_id": 16,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 118,
+   "para_id": 24,
+   "bib_id": 14,
+   "marker": "2006",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 119,
+   "para_id": 24,
+   "bib_id": 43,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 120,
+   "para_id": 24,
+   "bib_id": 44,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 121,
+   "para_id": 24,
+   "bib_id": 24,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 122,
+   "para_id": 25,
+   "bib_id": 49,
+   "marker": "2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 123,
+   "para_id": 25,
+   "bib_id": 75,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 124,
+   "para_id": 26,
+   "bib_id": 17,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 125,
+   "para_id": 26,
+   "bib_id": 76,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 126,
+   "para_id": 27,
+   "bib_id": 13,
+   "marker": "2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 127,
+   "para_id": 27,
+   "bib_id": 22,
+   "marker": "2005",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 128,
+   "para_id": 27,
+   "bib_id": 25,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 129,
+   "para_id": 27,
+   "bib_id": 38,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 130,
+   "para_id": 27,
+   "bib_id": 60,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 131,
+   "para_id": 27,
+   "bib_id": 25,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 132,
+   "para_id": 27,
+   "bib_id": 56,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 133,
+   "para_id": 27,
+   "bib_id": 28,
+   "marker": "2005",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 134,
+   "para_id": 27,
+   "bib_id": 1,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 135,
+   "para_id": 27,
+   "bib_id": 9,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 136,
+   "para_id": 27,
+   "bib_id": 16,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 137,
+   "para_id": 27,
+   "bib_id": 35,
+   "marker": "2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 138,
+   "para_id": 28,
+   "bib_id": 49,
+   "marker": "2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 139,
+   "para_id": 28,
+   "bib_id": 49,
+   "marker": "2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 140,
+   "para_id": 28,
+   "bib_id": 8,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 141,
+   "para_id": 28,
+   "bib_id": 20,
+   "marker": "2012",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 142,
+   "para_id": 28,
+   "bib_id": 49,
+   "marker": "2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 143,
+   "para_id": 28,
+   "bib_id": 80,
+   "marker": "2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 144,
+   "para_id": 28,
+   "bib_id": 81,
+   "marker": "2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 145,
+   "para_id": 28,
+   "bib_id": 75,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 146,
+   "para_id": 29,
+   "bib_id": 78,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 147,
+   "para_id": 29,
+   "bib_id": 57,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 148,
+   "para_id": 29,
+   "bib_id": 72,
+   "marker": "2007",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 149,
+   "para_id": 29,
+   "bib_id": 12,
+   "marker": "2003",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 150,
+   "para_id": 29,
+   "bib_id": 73,
+   "marker": "2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 151,
+   "para_id": 29,
+   "bib_id": 77,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 152,
+   "para_id": 29,
+   "bib_id": 36,
+   "marker": "2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 153,
+   "para_id": 30,
+   "bib_id": 74,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 154,
+   "para_id": 31,
+   "bib_id": 15,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-ext-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "v1_bib_count": 84
+ }
+}

@@ -1,0 +1,1992 @@
+{
+ "paper_id": "10.1038_s41467-026-75111-8",
+ "paras": [
+  {
+   "para_id": 1,
+   "loc": "body",
+   "sec_title": "Pathway enrichment analysis",
+   "text": "To identify biological pathways enriched in each genetic cluster, we used gProfiler124 (g:GOSt) (https://biit.cs.ut.ee/gprofiler/gost) to test for KEGG, WikiPathways, or REACTOME pathway enrichment. g:GOSt conducts functional profiling of gene lists by analyzing various types of biological evidence, performing statistical enrichment analysis to identify over-representation of information from Gene Ontology (GO) terms, biological pathways, regulatory DNA elements, human disease gene annotations, and protein-protein interaction networks.",
+   "printed": true
+  },
+  {
+   "para_id": 2,
+   "loc": "back",
+   "sec_title": "",
+   "text": "The code used for meta-analysis and pleiotropy dissection has been deposited in Zenodo at 10.5281/zenodo.20433102 and is maintained at https://github.com/yonhojee/thyroid_cancer_bnmf. Analyses were conducted using SAIGE (v0.29.5), METAL (v2020-05-05); autoreporting, https://github.com/FINNGEN/autoreporting (v2020-10-26); LDSC (v2015-02-12); bNMF clustering, https://github.com/gwas-partitioning/bnmf-clustering (v1); g:Profiler; coloc (v6); TwoSampleMR (v0.7); MR-PRESSO; R; and RStudio.",
+   "printed": true
+  },
+  {
+   "para_id": 3,
+   "loc": "back",
+   "sec_title": "",
+   "text": "Data availabilityThe meta-analysis GWAS summary statistics are publicly available at 10.5281/zenodo.18932445. Data sources for other publicly available GWAS summary statistics are available in Supplementary Data 2, Table 4. Source data are provided with this paper.",
+   "printed": false
+  },
+  {
+   "para_id": 4,
+   "loc": "back",
+   "sec_title": "",
+   "text": "Code availabilityThe code used for meta-analysis and pleiotropy dissection has been deposited in Zenodo at 10.5281/zenodo.20433102 and is maintained at https://github.com/yonhojee/thyroid_cancer_bnmf. Analyses were conducted using SAIGE (v0.29.5), METAL (v2020-05-05); autoreporting, https://github.com/FINNGEN/autoreporting (v2020-10-26); LDSC (v2015-02-12); bNMF clustering, https://github.com/gwas-partitioning/bnmf-clustering (v1); g:Profiler; coloc (v6); TwoSampleMR (v0.7); MR-PRESSO; R; and RStudio.",
+   "printed": true
+  },
+  {
+   "para_id": 5,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Thyroid cancer is the most prevalent endocrine malignancy, with an incidence rate of 22.8 per 100,000 per year in women and 8.0 per 100,000 per year in men in the U.S. between 2014 and 20181. The vast majority of thyroid cancers are papillary thyroid carcinomas (PTC) (~85%), followed by follicular thyroid carcinomas (FTC) (~10%), while medullary (MTC) (~2–3%) and anaplastic (ATC) thyroid carcinomas (~1–2%) are considerably rarer2. Prognosis varies substantially by histologic subtype: PTC and FTC, which together comprise the differentiated thyroid cancers arising from thyroid follicular epithelial cells, are associated with favorable outcomes, with high 10-year survival rate (90 to 95%)3; in contrast, ATC is highly aggressive, with a median survival of 3–5 months4. MTC, which originates from parafollicular C cells, is frequently associated with germline RET mutations in hereditary syndromes such as multiple endocrine neoplasia type 25,6. Thyroid cancer demonstrates moderate heritability, with estimates suggesting genetic factors account for approximately 53% of the disease risk7. Globally, thyroid cancer incidence rates have markedly increased in recent decades8. While this rise has been largely attributed to improved detection of small, localized slow-growing tumors with high survival rates, the concurrent increase in advanced-stage tumors and thyroid cancer mortality suggests that additional etiological factors contribute to disease progression9,10. Established risk factors include childhood exposure to ionizing radiation, while emerging evidence highlights the role of obesity and endocrine-disrupting chemicals in thyroid carcinogenesis11–13. However, the underlying biological mechanisms linking these risk factors to thyroid cancer remain poorly understood.",
+   "printed": true
+  },
+  {
+   "para_id": 6,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Thyroid function plays a critical role in metabolic homeostasis, and its dysregulation has been linked to benign thyroid disorders, such as goiter and hyperthyroidism, both of which have been associated with an increased risk of thyroid cancer14. Additionally, autoimmune thyroid diseases, including Hashimoto’s thyroiditis and Graves’ disease, have been linked to an elevated risk of thyroid cancer, suggesting a potential immune-mediated component in thyroid tumorigenesis15,16. Thyroid-stimulating hormone (TSH), a key regulator of thyroid follicular cell growth, has been implicated in thyroid cancer development17,18. Genetic variants associated with TSH levels may exert pleiotropic effects on thyroid function through the negative feedback regulation of thyroid hormones, as well as on thyroid cell proliferation, potentially increasing the risk of both goiter and thyroid cancer19. However, studies have reported an inverse causal association between TSH levels and thyroid cancer risk, suggesting a more complex interplay between thyroid function and malignancy that warrants further investigation19–21. Beyond thyroid hormones, other endocrine factors, including sex hormones, growth hormones, and stress hormones, have been implicated in thyroid tumorigenesis22, although the mechanisms underlying the crosstalk between these hormonal systems and their influence on thyroid cancer progression remain unclear23.",
+   "printed": true
+  },
+  {
+   "para_id": 7,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "As genome-wide association studies (GWAS) expand across multiple traits, new opportunities have emerged to leverage cross-trait genetic association patterns to uncover shared disease mechanisms. Studies have demonstrated widespread pleiotropy across the human genome, revealing that genetic variants often influence multiple diseases through shared molecular mechanisms24. Pleiotropy dissection provides a powerful framework to cluster genetic associations into biologically meaningful groups, enabling a deeper understanding of how genetic variation drives disease heterogeneity25. Recent applications of this approach in type 2 and gestational diabetes26–29, autoimmune hypothyroidism30, and lung diseases31,32 have demonstrated its utility in identifying genetic subgroups that would otherwise be obscured in single-trait GWAS analyses. However, pleiotropy dissection has not yet been applied to thyroid cancer, limiting our ability to differentiate mechanistically distinct genetic pathways underlying its pathophysiology. Given the substantial overlap in genetic susceptibility loci across thyroid diseases18, large-scale pleiotropy-informed analyses of thyroid cancer could provide an opportunity to elucidate the complex underlying biological mechanisms of thyroid dysfunction and oncogenesis.",
+   "printed": true
+  },
+  {
+   "para_id": 8,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Here, we present findings from a meta-analysis of thyroid cancer GWAS data comprising over 2.5 million individuals of diverse ancestry, more than doubling the effective sample size of prior efforts17,33–44. Using cross-trait associations, we characterize the etiological heterogeneity of thyroid cancer and identify genetic clusters that are enriched for distinct tissue- and cell-specific regulatory elements. Furthermore, we construct partitioned polygenic scores (pPGSs) across multiple ancestry groups and assess their associations with thyroid cancer-related outcomes, advancing our understanding of the genetic architecture underlying thyroid cancer.",
+   "printed": true
+  },
+  {
+   "para_id": 9,
+   "loc": "body",
+   "sec_title": "Discovery of thyroid cancer loci",
+   "text": "Our top thyroid cancer loci mapped to genes with known functional relevance in thyroid tumorigenesis. The most significant association was observed near PTCSC2/FOXE1 (rs4273946; beta-C = −0.438, p = 6.07 × 10−235), a gene previously implicated in thyroid cancer susceptibility17,45 (Supplementary Fig. 1a). The second most significant variant was located in the intergenic region of DIRC3 (rs57481445; beta-A = −0.290, p = 1.34 × 10−117), supporting prior evidence of its regulatory role in thyroid cancer risk46. Additional significant intronic variants included rs4733129 in NRG1 (beta-T = −0.256, p = 3.68 × 10−100), rs17020141 in VAV3 (beta-A = −0.188, p = 6.09 × 10−21), and rs12463278 in INSR (beta-A = −0.134, p = 7.23 × 10−15). These genes are involved in TSH regulation and hypothyroidism, further supporting their potential contribution to thyroid cancer pathogenesis18,19,34.",
+   "printed": true
+  },
+  {
+   "para_id": 10,
+   "loc": "body",
+   "sec_title": "Discovery of thyroid cancer loci",
+   "text": "Several thyroid cancer-associated variants overlapped with well-established cancer predisposition genes, reinforcing their role in oncogenic pathways. Notably, rs78378222 at 3’ UTR of TP53, rs186430430 (intronic) in CHEK2, rs10069690 (intronic) in TERT, and rs72743461 (intronic) in SMAD3 were significantly associated with both thyroid cancer and other malignancies, particularly breast, colorectal, glioma, and prostate cancers47–51. Furthermore, a missense variant in ATM (rs1800057; beta-C = −0.252, p = 2.89 × 10−08, AF = 0.0226) was identified (Supplementary Fig. 1b). ATM plays a critical role in the DNA damage response pathway52.",
+   "printed": true
+  },
+  {
+   "para_id": 11,
+   "loc": "body",
+   "sec_title": "Discovery of thyroid cancer loci",
+   "text": "Two additional variants may implicate broader endocrine regulatory mechanisms in thyroid cancer susceptibility. For example, the association between rs2842870 (intronic) and thyroid cancer in PMF1 (beta-T = −0.085, p = 1.63 × 10−12) was previously also associated with mosaic loss of the Y chromosome (mLOY) (rs2842873 near PMF1: beta-T = −0.056, p = 1.5 × 10−36 in a cohort of 95,380 Japanese men)53. Prior studies have demonstrated that Y-chromosome alterations are linked to increased risk of a range of malignancies that include lung, bladder, and prostate cancers54. While thyroid cancer tends to be more aggressive in males55, our meta-analysis was not stratified by sex, and further investigation is needed to determine whether sex-specific tumorigenesis mechanisms contribute to risk at this locus. Another intronic variant that is associated with thyroid cancer, rs726686 (non-coding RNA intronic) in LINC02428 (beta-A = 0.082, p = 1.03 × 10−9, AF = 0.1812), was previously associated with sex hormone-binding globulin (SHBG) (beta-A = 0.008, p = 1.1 × 10−13)56. SHBG is a key regulator of circulating sex hormones and has been implicated in the etiology of multiple cancers56,57; however, its relationship to thyroid cancer risk remains unclear15,58,59. Given the pleiotropic nature of SHBG-associated variants60 and the lack of consistent directional effects on thyroid cancer risk, this association should be interpreted with caution. Together, these findings suggest broader involvement of endocrine regulatory axes, including thyroidal, gonadal, and adrenal pathways, in thyroid cancer susceptibility23.",
+   "printed": true
+  },
+  {
+   "para_id": 12,
+   "loc": "body",
+   "sec_title": "Mechanistic clusters of thyroid cancer index variants",
+   "text": "Clusters 1 (Thyroid Gland Dysfunction) and 2 (Thyroid Overactivity) reflect mechanisms related to thyroid function. Both clusters include decreased TSH and increased free triiodothyronine (FT3), indicating a hyperthyroid state. Consistent with this pattern, our Mendelian randomization analyses demonstrated an inverse causal association between genetically proxied TSH levels and thyroid cancer risk (βIVW = − 0.53, p = 4.79E-11; Supplementary Fig. 5, Supplementary Data 2, Table 19), in line with prior studies19, providing an independent line of evidence that the negative contribution of TSH within these clusters reflects biologically meaningful variation rather than reverse causation. Thyroid cancer risk alleles linked to Cluster 1 are positively associated with nontoxic multinodular goiter, whereas risk alleles linked to Cluster 2 show a negative association. Both clusters contain variants near VAV3 and FOXE1, genes with established roles in thyroid carcinogenesis via the MAPK and PI3K pathways61,62. Additionally, Cluster 1 includes variants near NRG1, INSR, and TGFB2, suggesting interactions between growth factor signaling and epithelial-mesenchymal transition (EMT) in thyroid tumor progression63,64. Interestingly, Cluster 1 is also characterized by shortened QRS duration, which may reflect electrocardiogram features associated with overt hyperthyroidism65–67. To evaluate whether these clusters reflect broader thyroid disease liability, we performed follow-up analyses using large-scale GWAS of hyperthyroidism (primarily Graves disease). Of 49 independent hyperthyroidism lead variants, 42 were present in our thyroid cancer meta-analysis, and 9 showed nominal replication (P < 0.05) with concordant direction of effect, indicating partial genetic overlap (Supplementary Fig. 6a). However, two-sample Mendelian randomization analyses provided no evidence for a causal effect of genetically predicted hyperthyroidism on thyroid cancer risk, with all estimators yielding non-significant results (βIVW = 0.06, p = 0.23; Supplementary Fig. 6b, Supplementary Data 2, Table 19).",
+   "printed": true
+  },
+  {
+   "para_id": 13,
+   "loc": "body",
+   "sec_title": "Mechanistic clusters of thyroid cancer index variants",
+   "text": "Thyroid cancer risk alleles linked to Clusters 3 (DNA Damage Response) and 4 (Telomere Maintenance) are strongly associated with cancers and tumorigenic pathways. Both clusters show a strong correlation with leiomyoma of the uterus, but they differ in other specific cancer associations. Cluster 3 is linked to all-cancer risk, prostate cancer, skin cancer, and breast cancer, while Cluster 4 is associated with higher IGF-1 levels, lower eosinophil percentage, and higher neutrophil count. Cluster 3 (DNA Damage Response) contains variants mapped to key tumor suppressors such as TP53, CHEK2, and ATM, all of which play central roles in DNA damage repair pathways47,68. CHEK2 germline mutations have been implicated in breast, colorectal, and thyroid cancers, and loss of function mutations in CHEK2 with compromised checkpoint-mediated DNA repair, increasing genomic instability48. Similarly, both germline and somatic mutations in ATM impair the cell cycle checkpoint response, leading to an increased risk of malignancy69. Cluster 4 (Telomere Maintenance) features germline variants near TERT and TERC/ACTRT3, genes previously linked to telomere length regulation in malignancies70. Somatic mutations in the TERT promoter are major determinants of increased telomerase activity, with variants linked to multiple cancers, including thyroid cancer71,72. Additionally, the cluster includes STN1, a component of the CST (CTC1-STN1-TEN1) complex, which is critical for telomere replication and stability73, further supporting the cluster’s role in telomere maintenance and oncogenesis.",
+   "printed": true
+  },
+  {
+   "para_id": 14,
+   "loc": "body",
+   "sec_title": "Mechanistic clusters of thyroid cancer index variants",
+   "text": "Thyroid cancer risk alleles linked to Cluster 5 (Mixed Function) are strongly associated with various sets of traits, including heel bone mineral density, QRS and P duration, alkaline phosphatase, triglycerides, and mean arterial pressure. Although this cluster includes variants near SMAD3, which is a key transcription factor in TGF-β signaling, with broad roles in development, fibrosis and cancer progression74, the lack of common biology with the other top-weighted genes, such as PRAG1 and CEP120, limits biological interpretation, and the cluster remains mechanistically uncharacterized.",
+   "printed": true
+  },
+  {
+   "para_id": 15,
+   "loc": "body",
+   "sec_title": "Regulatory processes underlying clusters",
+   "text": "To further assess the mechanistic associations with each cluster, we examined the epigenomic enrichment of top loci using cell-type-specific annotations (Fig. 2, Supplementary Data 2, Table 6). We assessed whether variants within each cluster show significant overlap with genes expressed in specific tissues or with chromatin accessibility markers specific to a particular tissue75 (Methods).",
+   "printed": true
+  },
+  {
+   "para_id": 16,
+   "loc": "body",
+   "sec_title": "Regulatory processes underlying clusters",
+   "text": "The Thyroid Gland Dysfunction cluster showed significant enrichment specifically in thyroid gland chromatin accessibility annotations from the EN-TEx dataset (P = 0.019 for Thyroid_gland_H3K27ac)76, although there was no significant corresponding enrichment in thyroid-specific gene expression datasets from Franke et al.77,78 or GTEx(Fig. 3a–c, Supplementary Data 2, Table 6). The Thyroid Overactivity cluster similarly demonstrated significant enrichment in thyroid gland chromatin features in EN-TEx (P < 0.001 for Thyroid_gland_H3K27ac and H3K4me1). Interestingly, while thyroid-specific gene expression enrichment was not observed, this cluster was significantly enriched across multiple non-thyroid tissues, including vagina, esophagus mucosa, and cervix in the GTEx dataset, and periodontal tissue, lung, and cervix uteri in the Franke dataset (Fig. 3a–c).Fig. 3Functional enrichment of cluster-specific thyroid cancer risk loci across tissues, cell types, and biological pathways.Heatmaps display enrichment patterns across top-weighted loci from each cluster across tissues or cell types. Only tissues or cell types with significant enrichment are displayed. For each dataset, the top 17 tissues or cell types are shown, selected based on their average enrichment across clusters with at least one cluster-level enrichment. Statistical significance was assessed using one-tailed permutation tests with 10,000 permutations. Multiple-testing correction was performed using Bonferroni correction within each dataset. a Selected tissues from 53 total in GTEx. b Selected tissues from 152 total in the Franke dataset. c Selected cell-type and histone mark combinations from EN-TEx. *q < 0.1; ***q < 0.001 after Bonferroni correction. Source data are provided as a Source Data file.",
+   "printed": true
+  },
+  {
+   "para_id": 17,
+   "loc": "body",
+   "sec_title": "Regulatory processes underlying clusters",
+   "text": "Pathway enrichment analysis of genes near index variants in each cluster identified relevant biological pathways (Supplementary Fig. 7, Supplementary Data 2, Table 7). In the Thyroid Gland Dysfunction cluster, key loci, including FOXE1, INSR, TGFB2, TG, and NRG1, were significantly enriched in pathways related to gland development (P = 6.00 × 10−4) and regulation of multicellular organismal development (P = 0.007). These findings recapitulate their established roles in thyroid proliferation and differentiation79. The Thyroid Overactivity cluster demonstrated enrichment for the pathway associated with decreased circulating thyroglobulin concentration, primarily driven by FOXE1 (P = 0.05), further supporting its functional relevance in thyroid hormone biology.",
+   "printed": true
+  },
+  {
+   "para_id": 18,
+   "loc": "body",
+   "sec_title": "Regulatory processes underlying clusters",
+   "text": "As expected, the DNA Damage Response cluster showed enrichment in pathways associated with DNA damage response, signal transduction by p53 class mediator resulting in cell cycle arrest (P = 5.00 × 10−5), cellular response to gamma radiation (P = 9.76 × 10−5), and intrinsic apoptotic signaling pathway (P = 0.007), primarily driven by TP53, CHEK2, and ATM47,68. Similarly, the Telomere Maintenance cluster was enriched for telomere cap complex (P = 0.001), telomeric DNA binding (P = 0.013), and TERT-RMRP complex (P = 0.05), reinforcing its role in maintaining telomere integrity in tumorigenesis71.",
+   "printed": true
+  },
+  {
+   "para_id": 19,
+   "loc": "body",
+   "sec_title": "Regulatory processes underlying clusters",
+   "text": "For the Mixed function cluster, nuclear mineralocorticoid receptor (MR) binding was the only significantly enriched pathway (P = 0.05), driven exclusively by SMAD3. Although MR signaling has been implicated in cancer biology, including cellular proliferation, EMT, and metabolic regulation across various cancer types80, the enrichment is based on a single gene, and the top-weighted genes in the cluster do not converge on a shared biological pathway. As such, we refrain from assigning a pathway-based label to this cluster. Instead, the cluster appears to be characterized by its leading phenotypic associations, heel bone mineral density, QRS duration, and alkaline phosphatase, without evidence for a shared underlying biological mechanism.",
+   "printed": true
+  },
+  {
+   "para_id": 20,
+   "loc": "body",
+   "sec_title": "Associations of partitioned polygenic scores (pPGSs) with outcomes",
+   "text": "To validate our findings, we examined whether partitioned polygenic scores (pPGS) derived from the top-weighted loci in each cluster were associated with a range of traits in an independent sample. We focused on thyroid cancer-related phenotypes available in the All of Us (AoU) Research Program81 (Fig. 5, Supplementary Fig. 11, Supplementary Data 2, Tables 8–9).Fig. 5Associations of cluster-specific partitioned polygenic score (pPGS) with thyroid cancer-related outcomes in AllofUs data.Summaries of the associations of each cluster-specific component of the pPGS with autoimmune disease, thyroid disease, cancer, and cardiometabolic traits. Points represent fixed-effects meta-analysis beta estimates per standard deviation increase in the pPGS across ancestry groups, and error bars represent 95% confidence intervals from two-sided association tests. Association testing was performed using logistic regression for binary traits and linear regression for continuous traits, adjusting for age, sex, and the first ten principal components within each ancestry group. Bonferroni correction was applied for the number of outcomes and clusters tested. See full results in Supplementary Fig. 11 and Supplementary Data 2, Tables 8–9. Source data are provided as a Source Data file.",
+   "printed": true
+  },
+  {
+   "para_id": 21,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "In this study, we conducted a meta-analysis of thyroid cancer GWASs across diverse ancestry groups, identifying 51 genome-wide significant loci, 21 (41%) of which were not previously reported. By increasing effective sample size and incorporating more diverse populations, we identified 57% more loci than the largest prior thyroid cancer GWAS from GBMI33. Using pleiotropy dissection, we classified 66 independent thyroid cancer-associated variants across 151 traits into five distinct genetic clusters, each representing biologically meaningful pathways. Our findings suggest that thyroid cancer susceptibility is driven by multiple independent mechanisms, including thyroid gland dysfunction, thyroid overactivity, DNA repair deficiency, telomere maintenance, and mixed physiological function.",
+   "printed": true
+  },
+  {
+   "para_id": 22,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Previous studies have demonstrated the utility of pleiotropy dissection in complex diseases by defining genetic subgroups associated with distinct biological mechanisms. Suzuki et al. aggregated T2D GWAS data from over 2.5 million individuals, including >400,000 cases across multiple ancestry groups (~40% non-European), identifying 1289 association signals across 611 loci, including 145 previously unreported loci28. Their use of k-means clustering on T2D and 37 cardiometabolic traits revealed eight genetic clusters, enriched in open chromatin regions of pancreatic islets and other cell types, highlighting key regulatory pathways underlying T2D subtypes. Complementary work by Smith et al. applied soft clustering to T2D meta-analysis of 228,000 cases (1.4 million total individuals), integrating 110 T2D-related traits, and identified 12 genetic clusters that largely overlapped with Suzuki et al. clusters and were enriched in specific single-cell regulatory regions27. By dissecting pleiotropy among thyroid cancer and related traits for the first time, our study demonstrates that distinct genetic clustering not only captures heterogeneity in thyroid function but also links to broader oncogenic, and metabolic pathways, thereby advancing our understanding of thyroid cancer subtypes and precision medicine approaches.",
+   "printed": true
+  },
+  {
+   "para_id": 23,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "The Thyroid Overactivity and Thyroid Gland Dysfunction clusters highlight how distinct axes of thyroid function may contribute to thyroid cancer susceptibility through different physiological mechanisms. Both clusters capture TSH-driven thyroid function-related pathways but diverge in their phenotypic associations, particularly with goiter. These clusters recapitulate the potential pleiotropic effects of TSH-associated variants, where Thyroid Overactivity cluster primarily reflects feedback regulation of thyroid hormones on the pituitary, while Thyroid Gland Dysfunction cluster is linked to thyroid growth and an increased risk of thyroid cancer and goiter19. Importantly, Mendelian randomization analyses demonstrated a robust inverse association between genetically proxied TSH levels and thyroid cancer risk, consistent with prior studies19. This finding provides orthogonal support that the negative loading of TSH within these clusters reflects biologically meaningful variation in thyroid hormone regulation rather than reverse causation driven by disease or treatment effects. In this context, the Thyroid Gland Dysfunction cluster may capture genetic perturbations that alter glandular homeostasis and proliferative signaling under conditions of suppressed TSH, potentially predisposing to neoplastic transformation.",
+   "printed": true
+  },
+  {
+   "para_id": 24,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Reeve et al. previously characterized the genetic architecture of AIHT, identifying both thyroid-specific and immune-mediated genetic contributors using linemodels82, an alternative method for dissecting pleiotropic effects across pairs of traits into variants that influence both traits from trait-specific effects30. Notably, FOXE1 and VAV3, present in both of our thyroid clusters, showed unique effects in AIHT that are absent in broader autoimmune disease in their analysis, consistent with our findings of their thyroid-specificity. In our subtype-specific analysis, FOXE1 demonstrated consistent associations with differentiated thyroid cancers (PTC and FTC), but not with MTC, whereas VAV3 was significantly associated only with MTC, likely reflecting limited statistical power. This subtype-specificity may reflect differences in cell-type-specific gene expression and signaling networks, with FOXE1 crucial for follicular epithelial cell differentiation and function83, while VAV3 is predominantly involved in RET-mediated signaling pathways characteristic of MTC61,84. However, further studies are needed to validate the role of these genes across cancer subtypes. Moreover, FOXE1 and TG, two key loci of the Thyroid Gland Dysfunction cluster, overlap with congenital hypothyroidism risk genes identified in the Genomics England clinical panel85, reinforcing their roles in thyroid development and thyroid hormone production. Moreover, several genes involved in both AIHT and TSH regulation (DIRC3, NRG1, INSR, and VAV3) in Reeve et al align with the Thyroid Gland Dysfunction cluster. These findings suggest that genetic variation in thyroid-related pathways may influence both autoimmune thyroid diseases and thyroid cancer susceptibility, providing insights into shared molecular mechanisms underlying thyroid dysfunction and tumorigenesis.",
+   "printed": true
+  },
+  {
+   "para_id": 25,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "The Thyroid Gland Dysfunction cluster is also characterized by associations with shortened QRS duration65–67. Although even mildly altered thyroid status can affect heart rhythm86 and rate87, the frequent occurrence of cardiac manifestations in hyperthyroid patients may result from thyrotoxicosis itself, pre-existing heart disease exacerbated by hyperthyroidism, or specific hyperthyroidism-induced cardiac abnormalities88. While QRS duration is less sensitive to heart rate than the QT interval89, these associations may suggest a potential influence of thyroid hormone dysregulation on cardiac conduction. However, as GWAS of these ECG traits used in this study are not adjusted for heart rate, the mechanisms underlying these associations remain unclear and warrant further investigation. In our evaluation of whether the thyroid-related clusters reflect liability to clinical hyperthyroidism, we observed partial overlap between hyperthyroidism risk loci and thyroid cancer–associated variants; however, Mendelian randomization analyses did not support a causal effect of genetically predicted hyperthyroidism on thyroid cancer risk. These findings suggest that the shared loci likely represent pleiotropic genetic architecture influencing thyroid hormone regulation and cancer susceptibility through partially independent biological pathways, rather than a direct etiologic effect of hyperthyroidism on malignancy.",
+   "printed": true
+  },
+  {
+   "para_id": 26,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Beyond TSH-related mechanisms, our discovery of cancer-related clusters (DNA Damage Response and Telomere Maintenance) suggests that thyroid cancer shares fundamental tumorigenic mechanisms with other malignancies. These clusters reflect biologically distinct processes, including genomic instability and replicative immortality, both hallmarks of cancer. The DNA Damage Response cluster includes top loci associated with DNA repair pathways, such as ATM, CHEK2, and TP53. ATM and ATR kinases phosphorylate p53 following DNA damage, regulating cell cycle arrest, DNA repair, and apoptosis; thus, mutations in this cluster may increase genomic instability and predispose individuals to aggressive thyroid cancer subtypes90. Similarly, the enrichment of TERT-associated loci in the Telomere Maintenance cluster underscores the role of telomere length regulation in thyroid tumorigenesis. Genetic predisposition to telomere maintenance is thought to facilitate continuous cell proliferation and the accumulation of oncogenic mutations, a well-established feature of aggressive thyroid cancers71. Notably, these mechanistic overlaps reflect epidemiological patterns of increased co-occurrence between thyroid cancer and other malignancies, particularly breast and kidney cancers, which can be explained by shared genetic and environmental risk factors and medical surveillance91,92. While these clusters may not immediately alter clinical management of thyroid cancer, they offer valuable insights into the underlying biological heterogeneity of the disease. Specifically, they may help identify subsets of patients at higher risk of aggressive disease, inform drug repurposing efforts targeting DNA repair or telomerase pathways, and guide future studies on common mechanisms across multiple cancer types. More broadly, these findings illustrate how pleiotropic clustering can reveal latent axes of dysregulation that contribute to disease pathogenesis and may eventually support precision oncology approaches.",
+   "printed": true
+  },
+  {
+   "para_id": 27,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "The Mixed Function was associated with several cardiometabolic and inflammatory markers, suggesting that pathways related to metabolic dysregulation and inflammation may contribute to thyroid cancer susceptibility. However, pathway enrichment for nuclear MR binding was largely driven by a single implicated gene, and therefore should be interpreted cautiously. MR is expressed in normal thyroid tissues and PTC cells, where its activation by aldosterone induces inflammatory responses such as interleukin-6 expression and modulates thyroid-specific genes93. Furthermore, MR expression progressively declines in more aggressive thyroid cancer histotypes, raising the possibility that MR-related signaling may be relevant to disease biology in some contexts80,93. Nonetheless, the extent to which this signal reflects a broader cluster-level mechanism versus a locus-specific effect remains unclear. Future work incorporating thyroid-relevant tissue and single-cell functional annotations will be important to determine whether the Mixed Function cluster reflects a shared cardiometabolic/inflammatory mechanism.",
+   "printed": true
+  },
+  {
+   "para_id": 28,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Our external validation analysis demonstrated that pPGSs from thyroid, cancer, and cardiometabolic genetic clusters were significantly associated with risks of thyroid disease, cancers, and cardiometabolic conditions, consistent with the key traits identified within each cluster. These findings suggest that genetic clustering may provide a framework for characterizing biological heterogeneity among individuals with genetic predisposition to thyroid cancer. For instance, somatic mutations in the TERT promoter are associated with poor prognosis and loss of radioiodine (RAI) avidity when co-occurring with BRAF V600E mutations94,95. However, it remains unclear whether germline TERT variations confer similar clinical implications. In cases of RAI-refractory differentiated thyroid cancer, multi-kinase inhibitors such as lenvatinib and sorafenib have been approved for treatment. These agents are typically employed in advanced RAI-refractory disease when other options are limited96–98. Similarly, TP53 mutations are frequently observed in ATC, the most aggressive thyroid cancer subtype99. While TP53 mutations are often linked to treatment-resistant cancers, they have also been proposed as potential biomarkers of immunotherapy responsiveness, as p53 loss has been linked to increased tumor mutational burden, which may enhance response to immune checkpoint inhibitors100–102. However, the predictive value of TP53 mutations for immunotherapy response in thyroid cancer remains uncertain103. Although our findings support the etiologic relevance of genetically informed subclassification, direct clinical utility for risk stratification, treatment selection, or precision oncology remains to be established. Future studies integrating germline genetic clustering with tumor molecular profiles, treatment exposures, and longitudinal clinical outcomes will be needed to determine whether patients stratified by genetic clusters exhibit differential prognosis or responses to targeted therapies.",
+   "printed": true
+  },
+  {
+   "para_id": 29,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "There are several limitations to this study. First, we were unable to assess the impact of genetic clusters across thyroid cancer histologic types or by stage at diagnosis, which are associated with prognosis and treatment response. Consequently, some observed associations may reflect vertical pleiotropy and reverse causation. For instance, thyroidectomy, a standard treatment for thyroid cancer, induces hypothyroidism, necessitating levothyroxine therapy to suppress TSH levels, potentially leading to iatrogenic hyperthyroidism. This clinical intervention could influence phenotypic associations captured by our thyroid-related clusters. Second, heterogeneity in screening practices and diagnostic criteria across countries, cohorts, and calendar years104,105 may contribute to variability in the direction and magnitude of observed associations. Our findings highlight subtype-specific genetic associations, underscoring the need for subtype-stratified studies to further elucidate these genetic relationships. Third, we did not account for prior thyroid disease diagnoses, hormone replacement therapy, or thyroid cancer treatments, all factors that could impact genetic associations22. While our results suggest that certain genetic clusters may inform differential outcomes or treatment strategies, their direct clinical application requires further validation. In parallel to our present study, the GBMI has explored the genetic architecture of thyroid diseases and developed clinically relevant polygenic risk score discriminating thyroid cancer and benign thyroid nodules, which may aid in improving diagnosis accuracy of thyroid cancer106. Fourth, results from matrix factorization approaches such as bNMF can be sensitive to analytic design choices, including trait selection, handling of missing data, and normalization of input summary statistics. To evaluate the robustness of our findings, we conducted several complementary sensitivity analyses. Specifically, we assessed (i) the impact of trait selection by repeating clustering using a restricted set of 73 expert-curated traits directly relevant to thyroid biology and cancer, which reproduced the primary thyroid-related, cancer-related, and mixed physiological clusters (Supplementary Data 2, Table 10); (ii) the influence of missing data handling—required because standard bNMF does not accommodate incomplete matrices—by implementing a proxy-based imputation strategy, which yielded highly consistent cluster architecture and locus assignments (Supplementary Data 2, Table 11); and (iii) the effect of alternative normalization procedures for the variant–trait association matrix, observing stable cluster structure across scaling approaches (Supplementary Data 2, Table 16, Supplementary Fig. 12). These analyses indicate that the inferred pleiotropic architecture is robust to key analytic decisions inherent to bNMF-based clustering. Fifth, we used bNMF for variant clustering; however, alternative methods such as independent component analysis107 or linemodels82 could yield different partitions of genetic signals. Further validation is needed to assess cluster robustness across analytical approaches.",
+   "printed": true
+  },
+  {
+   "para_id": 30,
+   "loc": "body",
+   "sec_title": "Meta-analysis of thyroid cancer",
+   "text": "Following analysis plans outlined previously33, each study conducted a GWAS of thyroid cancer using logistic mixed model with SAIGE108 or whole genome regression with REGENIE109 (Supplementary Data 2, Table 1). For the Korean Cancer Prevention Study-II Biobank (KCPS2), we performed GWAS using individual-level genotype and phenotype data. For the other contributing biobanks, we used publicly available GWAS summary statistics or summary statistics generated by the corresponding studies. Phenotype definitions for thyroid cancer varied across contributing biobanks, including diagnoses based on ICD-10 codes, phecodes, or self-reported data (Supplementary Data 2, Table 1). Thus, the analyses included both prevalent and incident thyroid cancer cases, and were not restricted to first cancer occurrences. We conducted a fixed-effect meta-analysis of thyroid cancer using inverse-variance weighting with METAL,110 combining GWAS summary statistics from two meta-analyses (the GBMI meta-analysis33 and a separate meta-analysis of FinnGen R12111 and MVP37) and four individual biobanks (KCPS2112,113, Latvian National Biobank114, Penn Medicine BioBank, and Genomic Health Initiative) (Supplementary Data 2, Table 1). The resulting effective sample size is approximately 64,240, which is more than double that of the next largest prior GWAS of thyroid cancer.33 All KCPS2 participants provided written informed consent approved from ethics committees of Yonsei University.",
+   "printed": true
+  },
+  {
+   "para_id": 31,
+   "loc": "body",
+   "sec_title": "Meta-analysis of thyroid cancer",
+   "text": "A locus was classified as previously reported if it contained a lead variant within a ± 500 kb flanking window of a known association for the same Experimental Factor Ontology (EFO) term in the Open Target Genetics database (release 22.09)115. Otherwise, it was categorized as previously unreported (Supplementary Data 2, Table 2). To comprehensively identify prior associations, we performed an exhaustive search in the GWAS Catalog and then excluded loci from the list of previously unreported hits if they were reported in the GWAS catalog but not in OpenTargets. Additionally, as FinnGen R12111 and MVP37 results were not available in the Open Target Genetics database or the GWAS Catalog at the time of evaluation for previously unreported associations, we additionally excluded loci where a ± 500 kb flanking window contained any previously reported associations from FinnGen or MVP.",
+   "printed": true
+  },
+  {
+   "para_id": 32,
+   "loc": "body",
+   "sec_title": "Meta-analysis of thyroid cancer",
+   "text": "To assess heterogeneity of germline risk across thyroid cancer subtypes, we used subtype-specific thyroid cancer GWAS summary statistics from FinnGen R12111 to compare effect sizes for 66 lead variants identified in the multi-ancestry meta-analysis. Subtype-specific summary statistics were available for papillary thyroid carcinoma (PTC), follicular thyroid carcinoma (FTC), and medullary thyroid carcinoma (MTC); summary statistics for anaplastic thyroid carcinoma (ATC) were not available, likely due to the small number of cases. Effect sizes (log-odds ratios) were compared across subtypes to evaluate concordance and heterogeneity of genetic associations. We quantified overlap in subtype diagnoses to characterize co-diagnosis across histologies. Given the observed co-diagnoses, we conducted sensitivity analyses restricting to histologically exclusive PTC (N = 2284) and FTC cases (N = 212), defined as individuals with only a single histological subtype diagnosis (Supplementary Fig. 2).",
+   "printed": true
+  },
+  {
+   "para_id": 33,
+   "loc": "body",
+   "sec_title": "Defining clusters of thyroid cancer index variants using bNMF",
+   "text": "To classify thyroid cancer-associated variants into biologically meaningful subgroups, we applied Bayesian non-negative matrix factorization (bNMF)26,116. The clustering was based on GWAS summary results for the independent thyroid-cancer index variants across 151 phenotypes, including 73 expert curated traits associated with risk of thyroid cancer (Thyroid disease, Autoimmune disease, Cancer, Cardiometabolic, Hormone measurement), alongside 78 additional traits linked to categories associated with thyroid cancer variants (Anthropometry, Lung, Mental disease, Biomarker, Hematological traits, Kidney, Reproductive system, Genomic measurement). We prioritized multi-ancestry GWAS for ancillary trait summary statistics; however, when unavailable for a given trait, European-based GWASs were used. Linkage disequilibrium score regression (LDSC)117 was applied to estimate cross-trait genetic correlations (rg) between our thyroid cancer meta-analysis and 151 clustering phenotypes.",
+   "printed": true
+  },
+  {
+   "para_id": 34,
+   "loc": "body",
+   "sec_title": "Defining clusters of thyroid cancer index variants using bNMF",
+   "text": "We applied a modified bNMF pipeline26,27,118. Detailed descriptions of the pipeline are provided in Supplementary Data 1. In the NMF literature118, latent components are often referred to as ‘features’; here, we use the term ‘cluster’ to reflect the biological interpretation of these components as groups of variants and traits with shared genetic associations. Traits were excluded if their median sample size was below 5000 or if their minimum P value for the final variant set did not meet Bonferroni significance (Pmin > 0.05/66 variants). Because the bNMF framework is designed to identify latent clusters representing distinct patterns of variant-trait associations, inclusion of highly correlated traits can introduce redundancy and effectively over-weight a single underlying biological signal, biasing the factorization. Accordingly, we removed highly correlated traits based on Pearson correlation coefficient (>0.80) calculated from GWAS summary statistics across index variants, retaining the trait with the strongest variant–trait association to preserve biological information, while minimizing redundancy-driven distortion of cluster weights. This resulted in a final set of 100 traits (Supplementary Data 2, Table 5). The cluster membership cutoff (1.057017) was determined using a long-tail (‘elbow’) analysis of clustering weight deltas and was applied consistently across cluster definition, enrichment analysis, and pPGS construction; this threshold affects interpretative labeling of strongly contributing variants but does not alter the underlying bNMF factorization or cluster inference (Supplementary Data 1).",
+   "printed": true
+  },
+  {
+   "para_id": 35,
+   "loc": "body",
+   "sec_title": "Defining clusters of thyroid cancer index variants using bNMF",
+   "text": "We generated standardized effect sizes for variant trait associations from GWAS by dividing the estimated regression coefficient beta by the standard error, which had been aligned to the thyroid cancer risk-increasing alleles. To account for differences in sample size across studies and enable a more uniform comparison of phenotypes across studies, we scaled the standardized effect sizes by the square root of the study size, as estimated by mean sample size across all SNPs, forming the variant-trait association matrix Z (66 variants × 100 traits). This standardization strategy follows established practice in the literature applying NMF to GWAS summary statistics, including the original bNMF application to multi-trait genetic data26,27, where sample-size-adjusted Z-scores were used to construct the variant-trait association matrix (Supplementary Data 1). To assess robustness to the choice of normalization, we performed a sensitivity analysis comparing raw Z-scores and sample-size-adjusted Z-scores (Supplementary Data 2, Table 16, Supplementary Fig. 12).",
+   "printed": true
+  },
+  {
+   "para_id": 36,
+   "loc": "body",
+   "sec_title": "Defining clusters of thyroid cancer index variants using bNMF",
+   "text": "The bNMF algorithm was implemented in RStudio and executed for 10,000 iterations with varying initial conditions. The most frequently observed K across 50 chains of 10,000 iterations was selected as the final model. To assess the robustness of the clustering results, we conducted a sensitivity analysis restricting the phenotypic input to the 73 expert-curated traits (reduced to 50 traits after filtering) (Supplementary Data 2, Table 10). Convergence of the bNMF algorithm was assessed by monitoring the objective function and automatic relevance determination (ARD) relevance weights across iterations. In the primary run, both quantities stabilized well before the pre-specified 10,000-iteration limit, consistent with prior ARD-NMF implementations116 (Supplementary Fig. 13a). Across all random initializations, convergence was achieved substantially earlier than the maximum iteration cap, indicating that the 10,000-iteration limit was conservative and sufficient (Supplementary Fig. 13b).",
+   "printed": true
+  },
+  {
+   "para_id": 37,
+   "loc": "body",
+   "sec_title": "Enrichment of thyroid cancer associations for cell-type-specific regions of open chromatin within clusters",
+   "text": "To assess whether cluster-specific variants exhibit significant overlap with cell-type-specific regulatory elements, we computed excess overlap as defined in a previous study119. Excess overlap quantifies whether two binary annotations co-occur more often than expected by chance. Specifically, for two binary annotation vectors (annot1 and annot2) across M variants, it is calculated as:\\documentclass[12pt]{minimal} \\usepackage{amsmath} \\usepackage{wasysym} \\usepackage{amsfonts} \\usepackage{amssymb} \\usepackage{amsbsy} \\usepackage{mathrsfs} \\usepackage{upgreek} \\setlength{\\oddsidemargin}{-69pt} \\begin{document}$${excess}\\,{overlap}({annot}1,{annot}2)=\\frac{\\frac{1}{M}{\\sum }_{j=1}^{M}{{annot}1}_{j}*{{annot}2}_{j}}{(\\frac{1}{M}{\\sum }_{j=1}^{M}{{annot}1}_{j})*(\\frac{1}{M}{\\sum }_{j=1}^{M}{annot}{2}_{j})}$$\\end{document}excessoverlap(annot1,annot2)=1M∑j=1Mannot1j*annot2j(1M∑j=1Mannot1j)*(1M∑j=1Mannot2j)",
+   "printed": false
+  },
+  {
+   "para_id": 38,
+   "loc": "body",
+   "sec_title": "Enrichment of thyroid cancer associations for cell-type-specific regions of open chromatin within clusters",
+   "text": "For each cell-type annotation, we define annot1 as a binary vector across the M variants, where each entry takes the value 1 if the corresponding variant is a thyroid cancer index variant for a given cluster, and 0 otherwise. Index variants were assigned to a cluster if their cluster weight was above 1.057, a threshold determined to maximize the signal-to-noise ratio, as previously described26. Similarly, annot2 is a binary vector indicating whether each of the M variants is annotated as enriched in the given cell-type (1) or not (0). This calculation is mathematically equivalent (up to a simple transformation) to computing the Pearson correlation between the two binary annotations.",
+   "printed": true
+  },
+  {
+   "para_id": 39,
+   "loc": "body",
+   "sec_title": "Enrichment of thyroid cancer associations for cell-type-specific regions of open chromatin within clusters",
+   "text": "We applied this metric to five binary cell-type annotation datasets used in LD Score regression with Specifically Expressed Genes (LDSC-SEG)75. Gene expression-based annotations (GTEx120, Franke77,78, ImmGen121) were generated by identifying genes with highly tissue- or cell-type-specific expressions (top 10% by specificity metrics) and defining SNP annotations as windows (±100 kb) around these genes. Chromatin-based annotations from Roadmap122,123 and EN-TEx datasets76 were defined using experimentally identified peaks for DNase I hypersensitivity and activating histone marks (H3K27ac, H3K4me3, H3K4me1, H3K9ac and H3K36me3). For each cluster of thyroid cancer index variants, we mapped them to the full set of M SNPs covered by each LDSC-SEG annotation dataset and computed the excess overlap with each cell-type-specific annotation.",
+   "printed": true
+  },
+  {
+   "para_id": 40,
+   "loc": "body",
+   "sec_title": "Pathway enrichment analysis",
+   "text": "The functional enrichment of the input gene list is evaluated using a cumulative hypergeometric test, evaluating multiple functional terms simultaneously for each gene list. To control for false positives, we applied g:SCS (Set Counts and Sizes) multiple testing correction, the default method in g:GOSt125. g:SCS accounts for overlapping functional terms, making it more conservative than Benjamini-Hochberg False Discovery Rate but less stringent than Bonferroni correction.",
+   "printed": true
+  },
+  {
+   "para_id": 41,
+   "loc": "body",
+   "sec_title": "Colocalization analysis of thyroid cancer GWAS loci with eQTLs",
+   "text": "For each risk locus identified in the thyroid cancer GWAS, we performed colocalization analyses to assess whether GWAS signals share causal variants with expression quantitative trait loci (eQTL) from GTEx tissues. Bayesian colocalization analyses were conducted using coloc126, integrating thyroid cancer GWAS summary statistics with cis-eQTL datasets from GTEx v10 across 50 human tissues. For each gene–tissue pair, we included all variants tested within the standard GTEx cis window, restricting analyses to variants located within ±1 Mb of the transcription start site.",
+   "printed": true
+  },
+  {
+   "para_id": 42,
+   "loc": "body",
+   "sec_title": "Cluster-specific partitioned polygenic score analyses in All of Us",
+   "text": "To validate the thyroid cancer genetic clusters, we constructed partitioned polygenic scores (pPS) and tested their associations with potential thyroid cancer-related traits in the All of Us Research Program (AoU) database81. Phenotypic data were derived from two primary domains in AoU: the conditions domain, which captures medical diagnoses and health outcomes based on standardized clinical codes (e.g., ICD, SNOMED), and the measurement domain, which includes quantitative clinical values resulting from examinations or tests. For the All of Us Research Program, informed consent was obtained for all the participants in person or through an eConsent platform. The protocol was reviewed by the Institutional Review Board of the All of Us Research Program.",
+   "printed": true
+  },
+  {
+   "para_id": 43,
+   "loc": "body",
+   "sec_title": "Cluster-specific partitioned polygenic score analyses in All of Us",
+   "text": "The pPGS were calculated as weighted sums of genetic variants within each cluster, with weights derived from the bNMF clustering results. No LD pruning or shrinkage methods were applied during pPGS construction because the goal of the pPGS was not prediction optimization but biological interpretation of cluster-specific genetic profiles. Only variants with cluster weights above 1.057017 were included in the pPGS26. The pPGS were standardized to have a mean of zero and unit variance and analyzed separately for four ancestry groups (AMR, AFR, EUR, and EAS) in AoU.",
+   "printed": true
+  },
+  {
+   "para_id": 44,
+   "loc": "body",
+   "sec_title": "Mendelian randomization analysis of TSH, hyperthyroidism, and thyroid cancer",
+   "text": "For circulating thyroid-stimulating hormone (TSH), genetic instruments were obtained from the ThyroidOmics consortium18, which provides genome-wide association summary statistics for TSH measured in individuals without diagnosed thyroid disease. Restricting to euthyroid individuals reduces potential bias related to disease status or treatment. For hyperthyroidism (E4_THYTOXGOITDIF; primarily Graves disease), summary statistics were obtained from a FinnGen-MVP-UK Biobank meta-analysis37,111,127. For both exposures, we used the conditionally independent genome-wide significant lead variants reported in the original GWAS publications as genetic instruments. Variants were harmonized with thyroid cancer summary statistics to ensure consistent allele alignment and effect direction.",
+   "printed": true
+  },
+  {
+   "para_id": 45,
+   "loc": "body",
+   "sec_title": "Mendelian randomization analysis of TSH, hyperthyroidism, and thyroid cancer",
+   "text": "Causal estimates were primarily obtained using the inverse-variance weighted (IVW) method under a multiplicative random-effects model. Sensitivity analyses were conducted using MR-Egger regression, weighted median, and weighted mode estimators to assess robustness to potential violations of instrumental variable assumptions. Heterogeneity across instruments was evaluated using Cochran’s Q statistic, and directional pleiotropy was assessed using the MR-Egger intercept test. To further detect and correct for horizontal pleiotropy, we applied the MR-PRESSO framework128 to identify outlier variants and repeated analyses after their exclusion. For hyperthyroidism, we additionally evaluated locus-level overlap with thyroid cancer by examining concordance of effect directions and nominal significance of lead variants. Full instrument details and sensitivity results are provided in Supplementary Fig. 5–6 and Supplementary Data 2, Table 19.",
+   "printed": true
+  }
+ ],
+ "links": [
+  {
+   "link_id": 1,
+   "url": "biit.cs.ut.ee/gprofiler/gost",
+   "url_raw": "https://biit.cs.ut.ee/gprofiler/gost",
+   "href_jats": "https://biit.cs.ut.ee/gprofiler/gost",
+   "repo_key": null,
+   "host_class": "other",
+   "loc": "body",
+   "sec_title": "Pathway enrichment analysis",
+   "source": "tagged",
+   "para_id": 1
+  },
+  {
+   "link_id": 2,
+   "url": "github.com/yonhojee/thyroid_cancer_bnmf",
+   "url_raw": "https://github.com/yonhojee/thyroid_cancer_bnmf",
+   "href_jats": "https://github.com/yonhojee/thyroid_cancer_bnmf",
+   "repo_key": "github:yonhojee/thyroid_cancer_bnmf",
+   "host_class": "github",
+   "loc": "back",
+   "sec_title": "",
+   "source": "tagged",
+   "para_id": 2
+  },
+  {
+   "link_id": 3,
+   "url": "github.com/finngen/autoreporting",
+   "url_raw": "https://github.com/FINNGEN/autoreporting",
+   "href_jats": "https://github.com/FINNGEN/autoreporting",
+   "repo_key": "github:finngen/autoreporting",
+   "host_class": "github",
+   "loc": "back",
+   "sec_title": "",
+   "source": "tagged",
+   "para_id": 2
+  },
+  {
+   "link_id": 4,
+   "url": "github.com/gwas-partitioning/bnmf-clustering",
+   "url_raw": "https://github.com/gwas-partitioning/bnmf-clustering",
+   "href_jats": "https://github.com/gwas-partitioning/bnmf-clustering",
+   "repo_key": "github:gwas-partitioning/bnmf-clustering",
+   "host_class": "github",
+   "loc": "back",
+   "sec_title": "",
+   "source": "tagged",
+   "para_id": 2
+  },
+  {
+   "link_id": 5,
+   "url": "zenodo.org/records/18932445",
+   "url_raw": "10.5281/zenodo.18932445.",
+   "href_jats": "",
+   "repo_key": "zenodo:18932445",
+   "host_class": "zenodo",
+   "loc": "back",
+   "sec_title": "",
+   "source": "regex",
+   "para_id": 3
+  },
+  {
+   "link_id": 6,
+   "url": "zenodo.org/records/20433102",
+   "url_raw": "10.5281/zenodo.20433102",
+   "href_jats": "",
+   "repo_key": "zenodo:20433102",
+   "host_class": "zenodo",
+   "loc": "back",
+   "sec_title": "",
+   "source": "regex",
+   "para_id": 4
+  }
+ ],
+ "links_optional": [
+  "creativecommons.org/licenses/by/4.0",
+  "doi:10.1001/jama.2017.2719",
+  "doi:10.1001/jama.2017.4011",
+  "doi:10.1001/jama.295.18.2164",
+  "doi:10.1001/jamanetworkopen.2022.46311",
+  "doi:10.1001/jamaoncol.2020.3362",
+  "doi:10.1002/ijc.10332",
+  "doi:10.1002/ijc.29251",
+  "doi:10.1002/ijc.29557",
+  "doi:10.1002/ijc.32988",
+  "doi:10.1002/ijc.33488",
+  "doi:10.1002/ijc.33555",
+  "doi:10.1002/ijc.34872",
+  "doi:10.1002/ijc.34974",
+  "doi:10.1016/j.ajhg.2019.03.020",
+  "doi:10.1016/j.cancergen.2022.01.006",
+  "doi:10.1016/j.cell.2017.05.038",
+  "doi:10.1016/j.cell.2023.02.018",
+  "doi:10.1016/j.clon.2010.03.013",
+  "doi:10.1016/j.ebiom.2018.05.019",
+  "doi:10.1016/j.ebiom.2025.105609",
+  "doi:10.1016/j.jsbmb.2024.106541",
+  "doi:10.1016/j.vph.2009.10.001",
+  "doi:10.1016/j.xgen.2022.100189",
+  "doi:10.1016/j.xgen.2022.100192",
+  "doi:10.1016/j.xhgg.2023.100201",
+  "doi:10.1016/s0140-6736(14)60421-9",
+  "doi:10.1016/s2213-8587(24)00223-7",
+  "doi:10.1038/363458a0",
+  "doi:10.1038/44565",
+  "doi:10.1038/nature11247",
+  "doi:10.1038/nature14248",
+  "doi:10.1038/ncb2641",
+  "doi:10.1038/ncomms14677",
+  "doi:10.1038/ncomms15966",
+  "doi:10.1038/ncomms6890",
+  "doi:10.1038/ncomms6893",
+  "doi:10.1038/ng.3173",
+  "doi:10.1038/ng.339",
+  "doi:10.1038/ng.3406",
+  "doi:10.1038/ng0492-10",
+  "doi:10.1038/ni1008-1091",
+  "doi:10.1038/nrg3461",
+  "doi:10.1038/nrm3434",
+  "doi:10.1038/s41467-017-01018-0",
+  "doi:10.1038/s41467-018-03033-1",
+  "doi:10.1038/s41467-019-12705-5",
+  "doi:10.1038/s41467-020-17718-z",
+  "doi:10.1038/s41467-020-18246-6",
+  "doi:10.1038/s41467-024-44701-9",
+  "doi:10.1038/s41467-025-56947-y",
+  "doi:10.1038/s41467-025-59950-5",
+  "doi:10.1038/s41467-026-75111-8",
+  "doi:10.1038/s41574-020-00448-z",
+  "doi:10.1038/s41574-023-00920-6",
+  "doi:10.1038/s41586-022-05473-8",
+  "doi:10.1038/s41586-023-06957-x",
+  "doi:10.1038/s41586-024-07019-6",
+  "doi:10.1038/s41588-018-0081-4",
+  "doi:10.1038/s41588-018-0099-7",
+  "doi:10.1038/s41588-018-0184-y",
+  "doi:10.1038/s41588-019-0528-2",
+  "doi:10.1038/s41588-021-00870-7",
+  "doi:10.1038/s41588-021-00931-x",
+  "doi:10.1038/s41588-023-01607-4",
+  "doi:10.1038/s41588-025-02335-7",
+  "doi:10.1038/s41588-025-02470-1",
+  "doi:10.1038/s41588-025-02483-w",
+  "doi:10.1038/s41591-020-0751-5",
+  "doi:10.1038/s41591-024-02865-3",
+  "doi:10.1046/j.1365-2265.2001.01295.x",
+  "doi:10.1056/nejm199411103311901",
+  "doi:10.1056/nejmoa1406470",
+  "doi:10.1056/nejmp1409841",
+  "doi:10.1056/nejmra1501993",
+  "doi:10.1086/426403",
+  "doi:10.1089/thy.2012.0269",
+  "doi:10.1089/thy.2015.0319",
+  "doi:10.1093/bioinformatics/btad115",
+  "doi:10.1093/bioinformatics/btq340",
+  "doi:10.1093/hmg/ddq123",
+  "doi:10.1093/ije/dyac036",
+  "doi:10.1093/ije/dyad172",
+  "doi:10.1093/ije/dyx226",
+  "doi:10.1093/jnci/dju097",
+  "doi:10.1093/nar/gkaa840",
+  "doi:10.1093/nar/gkm226",
+  "doi:10.1093/nar/gkz369",
+  "doi:10.1093/pcmedi/pbad015",
+  "doi:10.1101/2024.05.17.24307550",
+  "doi:10.1109/tpami.2012.240",
+  "doi:10.1111/j.1365-2265.1983.tb02881.x",
+  "doi:10.1126/science.1230062",
+  "doi:10.1126/science.1262110",
+  "doi:10.1126/science.adj1182",
+  "doi:10.1136/bmjopen-2018-023854",
+  "doi:10.1158/1055-9965.epi-21-1440",
+  "doi:10.1158/1078-0432.ccr-16-2554",
+  "doi:10.1158/1535-7163.mct-15-0945",
+  "doi:10.1158/1541-7786.mcr-24-0105",
+  "doi:10.1186/s12935-021-02396-8",
+  "doi:10.1186/s40425-019-0647-4",
+  "doi:10.1200/jco.21.02618",
+  "doi:10.1210/er.2003-0033",
+  "doi:10.1210/jc.2003-031167",
+  "doi:10.1210/jc.2013-1204",
+  "doi:10.1210/jc.2013-1941",
+  "doi:10.1210/jc.2013-2383",
+  "doi:10.1210/jc.2017-02599",
+  "doi:10.1371/journal.pgen.1000637",
+  "doi:10.1371/journal.pgen.1004383",
+  "doi:10.1371/journal.pmed.1002654",
+  "doi:10.1530/ec-20-0578",
+  "doi:10.1530/erc-23-0058",
+  "doi:10.1677/erc-07-0085",
+  "doi:10.2188/jea.je20170079",
+  "doi:10.2967/jnumed.119.227652",
+  "doi:10.3322/caac.21708",
+  "doi:10.3389/fendo.2020.00102",
+  "doi:10.3389/fendo.2024.1419913",
+  "doi:10.3389/fonc.2022.951976",
+  "doi:10.3390/cancers13143397",
+  "doi:10.3390/cancers14205117",
+  "doi:10.3390/ijms25020754"
+ ],
+ "own_doi": "doi:10.1038/s41467-026-75111-8",
+ "citations": [
+  {
+   "cite_id": 1,
+   "para_id": 5,
+   "bib_id": 1,
+   "marker": "1",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 2,
+   "para_id": 5,
+   "bib_id": 2,
+   "marker": "2",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 3,
+   "para_id": 5,
+   "bib_id": 3,
+   "marker": "3",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 4,
+   "para_id": 5,
+   "bib_id": 4,
+   "marker": "4",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 5,
+   "para_id": 5,
+   "bib_id": 5,
+   "marker": "5",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 6,
+   "para_id": 5,
+   "bib_id": 6,
+   "marker": "6",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 7,
+   "para_id": 5,
+   "bib_id": 7,
+   "marker": "7",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 8,
+   "para_id": 5,
+   "bib_id": 8,
+   "marker": "8",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 9,
+   "para_id": 5,
+   "bib_id": 9,
+   "marker": "9",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 10,
+   "para_id": 5,
+   "bib_id": 10,
+   "marker": "10",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 11,
+   "para_id": 5,
+   "bib_id": 11,
+   "marker": "11",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 12,
+   "para_id": 5,
+   "bib_id": 12,
+   "marker": "11–13",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 13,
+   "para_id": 5,
+   "bib_id": 13,
+   "marker": "13",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 14,
+   "para_id": 6,
+   "bib_id": 14,
+   "marker": "14",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 15,
+   "para_id": 6,
+   "bib_id": 15,
+   "marker": "15",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 16,
+   "para_id": 6,
+   "bib_id": 16,
+   "marker": "16",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 17,
+   "para_id": 6,
+   "bib_id": 17,
+   "marker": "17",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 18,
+   "para_id": 6,
+   "bib_id": 18,
+   "marker": "18",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 19,
+   "para_id": 6,
+   "bib_id": 19,
+   "marker": "19",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 20,
+   "para_id": 6,
+   "bib_id": 19,
+   "marker": "19",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 21,
+   "para_id": 6,
+   "bib_id": 20,
+   "marker": "19–21",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 22,
+   "para_id": 6,
+   "bib_id": 21,
+   "marker": "21",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 23,
+   "para_id": 6,
+   "bib_id": 22,
+   "marker": "22",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 24,
+   "para_id": 6,
+   "bib_id": 23,
+   "marker": "23",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 25,
+   "para_id": 7,
+   "bib_id": 24,
+   "marker": "24",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 26,
+   "para_id": 7,
+   "bib_id": 25,
+   "marker": "25",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 27,
+   "para_id": 7,
+   "bib_id": 26,
+   "marker": "26",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 28,
+   "para_id": 7,
+   "bib_id": 27,
+   "marker": "26–29",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 29,
+   "para_id": 7,
+   "bib_id": 28,
+   "marker": "26–29",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 30,
+   "para_id": 7,
+   "bib_id": 29,
+   "marker": "29",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 31,
+   "para_id": 7,
+   "bib_id": 30,
+   "marker": "30",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 32,
+   "para_id": 7,
+   "bib_id": 31,
+   "marker": "31",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 33,
+   "para_id": 7,
+   "bib_id": 32,
+   "marker": "32",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 34,
+   "para_id": 7,
+   "bib_id": 18,
+   "marker": "18",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 35,
+   "para_id": 8,
+   "bib_id": 17,
+   "marker": "17",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 36,
+   "para_id": 8,
+   "bib_id": 33,
+   "marker": "33",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 37,
+   "para_id": 8,
+   "bib_id": 34,
+   "marker": "33–44",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 38,
+   "para_id": 8,
+   "bib_id": 35,
+   "marker": "33–44",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 39,
+   "para_id": 8,
+   "bib_id": 36,
+   "marker": "33–44",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 40,
+   "para_id": 8,
+   "bib_id": 37,
+   "marker": "33–44",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 41,
+   "para_id": 8,
+   "bib_id": 38,
+   "marker": "33–44",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 42,
+   "para_id": 8,
+   "bib_id": 39,
+   "marker": "33–44",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 43,
+   "para_id": 8,
+   "bib_id": 40,
+   "marker": "33–44",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 44,
+   "para_id": 8,
+   "bib_id": 41,
+   "marker": "33–44",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 45,
+   "para_id": 8,
+   "bib_id": 42,
+   "marker": "33–44",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 46,
+   "para_id": 8,
+   "bib_id": 43,
+   "marker": "33–44",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 47,
+   "para_id": 8,
+   "bib_id": 44,
+   "marker": "44",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 48,
+   "para_id": 9,
+   "bib_id": 17,
+   "marker": "17",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 49,
+   "para_id": 9,
+   "bib_id": 45,
+   "marker": "45",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 50,
+   "para_id": 9,
+   "bib_id": 46,
+   "marker": "46",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 51,
+   "para_id": 9,
+   "bib_id": 18,
+   "marker": "18",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 52,
+   "para_id": 9,
+   "bib_id": 19,
+   "marker": "19",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 53,
+   "para_id": 9,
+   "bib_id": 34,
+   "marker": "34",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 54,
+   "para_id": 10,
+   "bib_id": 47,
+   "marker": "47",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 55,
+   "para_id": 10,
+   "bib_id": 48,
+   "marker": "47–51",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 56,
+   "para_id": 10,
+   "bib_id": 49,
+   "marker": "47–51",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 57,
+   "para_id": 10,
+   "bib_id": 50,
+   "marker": "47–51",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 58,
+   "para_id": 10,
+   "bib_id": 51,
+   "marker": "51",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 59,
+   "para_id": 10,
+   "bib_id": 52,
+   "marker": "52",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 60,
+   "para_id": 11,
+   "bib_id": 53,
+   "marker": "53",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 61,
+   "para_id": 11,
+   "bib_id": 54,
+   "marker": "54",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 62,
+   "para_id": 11,
+   "bib_id": 55,
+   "marker": "55",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 63,
+   "para_id": 11,
+   "bib_id": 56,
+   "marker": "56",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 64,
+   "para_id": 11,
+   "bib_id": 56,
+   "marker": "56",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 65,
+   "para_id": 11,
+   "bib_id": 57,
+   "marker": "57",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 66,
+   "para_id": 11,
+   "bib_id": 15,
+   "marker": "15",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 67,
+   "para_id": 11,
+   "bib_id": 58,
+   "marker": "58",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 68,
+   "para_id": 11,
+   "bib_id": 59,
+   "marker": "59",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 69,
+   "para_id": 11,
+   "bib_id": 60,
+   "marker": "60",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 70,
+   "para_id": 11,
+   "bib_id": 23,
+   "marker": "23",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 71,
+   "para_id": 12,
+   "bib_id": 19,
+   "marker": "19",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 72,
+   "para_id": 12,
+   "bib_id": 61,
+   "marker": "61",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 73,
+   "para_id": 12,
+   "bib_id": 62,
+   "marker": "62",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 74,
+   "para_id": 12,
+   "bib_id": 63,
+   "marker": "63",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 75,
+   "para_id": 12,
+   "bib_id": 64,
+   "marker": "64",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 76,
+   "para_id": 12,
+   "bib_id": 65,
+   "marker": "65",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 77,
+   "para_id": 12,
+   "bib_id": 66,
+   "marker": "65–67",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 78,
+   "para_id": 12,
+   "bib_id": 67,
+   "marker": "67",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 79,
+   "para_id": 13,
+   "bib_id": 47,
+   "marker": "47",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 80,
+   "para_id": 13,
+   "bib_id": 68,
+   "marker": "68",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 81,
+   "para_id": 13,
+   "bib_id": 48,
+   "marker": "48",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 82,
+   "para_id": 13,
+   "bib_id": 69,
+   "marker": "69",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 83,
+   "para_id": 13,
+   "bib_id": 70,
+   "marker": "70",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 84,
+   "para_id": 13,
+   "bib_id": 71,
+   "marker": "71",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 85,
+   "para_id": 13,
+   "bib_id": 72,
+   "marker": "72",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 86,
+   "para_id": 13,
+   "bib_id": 73,
+   "marker": "73",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 87,
+   "para_id": 14,
+   "bib_id": 74,
+   "marker": "74",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 88,
+   "para_id": 15,
+   "bib_id": 75,
+   "marker": "75",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 89,
+   "para_id": 16,
+   "bib_id": 76,
+   "marker": "76",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 90,
+   "para_id": 16,
+   "bib_id": 77,
+   "marker": "77",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 91,
+   "para_id": 16,
+   "bib_id": 78,
+   "marker": "78",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 92,
+   "para_id": 17,
+   "bib_id": 79,
+   "marker": "79",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 93,
+   "para_id": 18,
+   "bib_id": 47,
+   "marker": "47",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 94,
+   "para_id": 18,
+   "bib_id": 68,
+   "marker": "68",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 95,
+   "para_id": 18,
+   "bib_id": 71,
+   "marker": "71",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 96,
+   "para_id": 19,
+   "bib_id": 80,
+   "marker": "80",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 97,
+   "para_id": 20,
+   "bib_id": 81,
+   "marker": "81",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 98,
+   "para_id": 21,
+   "bib_id": 33,
+   "marker": "33",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 99,
+   "para_id": 22,
+   "bib_id": 28,
+   "marker": "28",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 100,
+   "para_id": 22,
+   "bib_id": 27,
+   "marker": "27",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 101,
+   "para_id": 23,
+   "bib_id": 19,
+   "marker": "19",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 102,
+   "para_id": 23,
+   "bib_id": 19,
+   "marker": "19",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 103,
+   "para_id": 24,
+   "bib_id": 82,
+   "marker": "82",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 104,
+   "para_id": 24,
+   "bib_id": 30,
+   "marker": "30",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 105,
+   "para_id": 24,
+   "bib_id": 83,
+   "marker": "83",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 106,
+   "para_id": 24,
+   "bib_id": 61,
+   "marker": "61",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 107,
+   "para_id": 24,
+   "bib_id": 84,
+   "marker": "84",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 108,
+   "para_id": 24,
+   "bib_id": 85,
+   "marker": "85",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 109,
+   "para_id": 25,
+   "bib_id": 65,
+   "marker": "65",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 110,
+   "para_id": 25,
+   "bib_id": 66,
+   "marker": "65–67",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 111,
+   "para_id": 25,
+   "bib_id": 67,
+   "marker": "67",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 112,
+   "para_id": 25,
+   "bib_id": 86,
+   "marker": "86",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 113,
+   "para_id": 25,
+   "bib_id": 87,
+   "marker": "87",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 114,
+   "para_id": 25,
+   "bib_id": 88,
+   "marker": "88",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 115,
+   "para_id": 25,
+   "bib_id": 89,
+   "marker": "89",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 116,
+   "para_id": 26,
+   "bib_id": 90,
+   "marker": "90",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 117,
+   "para_id": 26,
+   "bib_id": 71,
+   "marker": "71",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 118,
+   "para_id": 26,
+   "bib_id": 91,
+   "marker": "91",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 119,
+   "para_id": 26,
+   "bib_id": 92,
+   "marker": "92",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 120,
+   "para_id": 27,
+   "bib_id": 93,
+   "marker": "93",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 121,
+   "para_id": 27,
+   "bib_id": 80,
+   "marker": "80",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 122,
+   "para_id": 27,
+   "bib_id": 93,
+   "marker": "93",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 123,
+   "para_id": 28,
+   "bib_id": 94,
+   "marker": "94",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 124,
+   "para_id": 28,
+   "bib_id": 95,
+   "marker": "95",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 125,
+   "para_id": 28,
+   "bib_id": 96,
+   "marker": "96",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 126,
+   "para_id": 28,
+   "bib_id": 97,
+   "marker": "96–98",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 127,
+   "para_id": 28,
+   "bib_id": 98,
+   "marker": "98",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 128,
+   "para_id": 28,
+   "bib_id": 99,
+   "marker": "99",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 129,
+   "para_id": 28,
+   "bib_id": 100,
+   "marker": "100",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 130,
+   "para_id": 28,
+   "bib_id": 101,
+   "marker": "100–102",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 131,
+   "para_id": 28,
+   "bib_id": 102,
+   "marker": "102",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 132,
+   "para_id": 28,
+   "bib_id": 103,
+   "marker": "103",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 133,
+   "para_id": 29,
+   "bib_id": 104,
+   "marker": "104",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 134,
+   "para_id": 29,
+   "bib_id": 105,
+   "marker": "105",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 135,
+   "para_id": 29,
+   "bib_id": 22,
+   "marker": "22",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 136,
+   "para_id": 29,
+   "bib_id": 106,
+   "marker": "106",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 137,
+   "para_id": 29,
+   "bib_id": 107,
+   "marker": "107",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 138,
+   "para_id": 29,
+   "bib_id": 82,
+   "marker": "82",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 139,
+   "para_id": 30,
+   "bib_id": 33,
+   "marker": "33",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 140,
+   "para_id": 30,
+   "bib_id": 108,
+   "marker": "108",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 141,
+   "para_id": 30,
+   "bib_id": 109,
+   "marker": "109",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 142,
+   "para_id": 30,
+   "bib_id": 110,
+   "marker": "110",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 143,
+   "para_id": 30,
+   "bib_id": 33,
+   "marker": "33",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 144,
+   "para_id": 30,
+   "bib_id": 111,
+   "marker": "111",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 145,
+   "para_id": 30,
+   "bib_id": 37,
+   "marker": "37",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 146,
+   "para_id": 30,
+   "bib_id": 112,
+   "marker": "112",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 147,
+   "para_id": 30,
+   "bib_id": 113,
+   "marker": "113",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 148,
+   "para_id": 30,
+   "bib_id": 114,
+   "marker": "114",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 149,
+   "para_id": 30,
+   "bib_id": 33,
+   "marker": "33",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 150,
+   "para_id": 31,
+   "bib_id": 115,
+   "marker": "115",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 151,
+   "para_id": 31,
+   "bib_id": 111,
+   "marker": "111",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 152,
+   "para_id": 31,
+   "bib_id": 37,
+   "marker": "37",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 153,
+   "para_id": 32,
+   "bib_id": 111,
+   "marker": "111",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 154,
+   "para_id": 33,
+   "bib_id": 26,
+   "marker": "26",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 155,
+   "para_id": 33,
+   "bib_id": 116,
+   "marker": "116",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 156,
+   "para_id": 33,
+   "bib_id": 117,
+   "marker": "117",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 157,
+   "para_id": 34,
+   "bib_id": 26,
+   "marker": "26",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 158,
+   "para_id": 34,
+   "bib_id": 27,
+   "marker": "27",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 159,
+   "para_id": 34,
+   "bib_id": 118,
+   "marker": "118",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 160,
+   "para_id": 34,
+   "bib_id": 118,
+   "marker": "118",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 161,
+   "para_id": 35,
+   "bib_id": 26,
+   "marker": "26",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 162,
+   "para_id": 35,
+   "bib_id": 27,
+   "marker": "27",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 163,
+   "para_id": 36,
+   "bib_id": 116,
+   "marker": "116",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 164,
+   "para_id": 37,
+   "bib_id": 119,
+   "marker": "119",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 165,
+   "para_id": 38,
+   "bib_id": 26,
+   "marker": "26",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 166,
+   "para_id": 39,
+   "bib_id": 75,
+   "marker": "75",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 167,
+   "para_id": 39,
+   "bib_id": 120,
+   "marker": "120",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 168,
+   "para_id": 39,
+   "bib_id": 77,
+   "marker": "77",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 169,
+   "para_id": 39,
+   "bib_id": 78,
+   "marker": "78",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 170,
+   "para_id": 39,
+   "bib_id": 121,
+   "marker": "121",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 171,
+   "para_id": 39,
+   "bib_id": 122,
+   "marker": "122",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 172,
+   "para_id": 39,
+   "bib_id": 123,
+   "marker": "123",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 173,
+   "para_id": 39,
+   "bib_id": 76,
+   "marker": "76",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 174,
+   "para_id": 1,
+   "bib_id": 124,
+   "marker": "124",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 175,
+   "para_id": 40,
+   "bib_id": 125,
+   "marker": "125",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 176,
+   "para_id": 41,
+   "bib_id": 126,
+   "marker": "126",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 177,
+   "para_id": 42,
+   "bib_id": 81,
+   "marker": "81",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 178,
+   "para_id": 43,
+   "bib_id": 26,
+   "marker": "26",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 179,
+   "para_id": 44,
+   "bib_id": 18,
+   "marker": "18",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 180,
+   "para_id": 44,
+   "bib_id": 37,
+   "marker": "37",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 181,
+   "para_id": 44,
+   "bib_id": 111,
+   "marker": "111",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 182,
+   "para_id": 44,
+   "bib_id": 127,
+   "marker": "127",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 183,
+   "para_id": 45,
+   "bib_id": 128,
+   "marker": "128",
+   "expanded": false,
+   "scored": true
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-ext-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "v1_bib_count": 128
+ }
+}

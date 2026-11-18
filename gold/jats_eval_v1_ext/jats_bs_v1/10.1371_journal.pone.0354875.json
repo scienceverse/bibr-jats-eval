@@ -1,0 +1,444 @@
+{
+ "paper_id": "10.1371_journal.pone.0354875",
+ "paras": [
+  {
+   "para_id": 1,
+   "loc": "front",
+   "sec_title": "",
+   "text": "The RU-HSD-30K dataset used in this study is publicly available at: https://github.com/Bilal4209/RU-HSD-30K.",
+   "printed": true
+  },
+  {
+   "para_id": 2,
+   "loc": "body",
+   "sec_title": "1. Introduction",
+   "text": "The spread of toxic, abusive, and hateful materials on social media has become a serious challenge to online safety and user wellness, making automated hate speech detection an important task within the framework of Natural Language Processing (NLP). Although there are strong solutions to standardized and high resource languages, such as English, progress in low resource and informally written languages is limited. An example is Roman Urdu a non-standardized form of Urdu in the Latin script widely used throughout South Asia and by the global diaspora on social media platforms like Facebook, Twitter and YouTube [1,2].",
+   "printed": true
+  },
+  {
+   "para_id": 3,
+   "loc": "body",
+   "sec_title": "1. Introduction",
+   "text": "Detection of Hate speech in the Roman Urdu language poses a special linguistic challenge. The language has no standard orthography, has a high lexical and morphological variability, and is often code-mixed with English [1,3]. An example of this is where one concept is represented by several orthographical variants (e.g., “nai acha,” “nai achaaa,” “na achha”), thus seriously constraining the effectiveness of conventional tokenization and classification methods. Moreover, hate speech here is highly reliant on sociolinguistic overtones, sarcasm, and implicit slurs, which are incredibly hard to detect. The works by Azam et al. [1] and Bilal et al. [2] were the first to utilize augmented datasets (RUSOLD, RUT, and RU-HSD-30K) and attention-based Bi-LSTM models. More recent models, including BERT-RU [4] and Passion-Net [5], have shown that a combination of transformer architectures with deep learning models can result in major advancements. Moreover, Malik et al. [6] as well as others [7,8] investigated multilingual versions and paradigms that integrate MBERT with traditional classifiers (SVM, Random Forest) to increase the accuracy.",
+   "printed": true
+  },
+  {
+   "para_id": 4,
+   "loc": "body",
+   "sec_title": "1. Introduction",
+   "text": "Even with these developments, there remains a huge gap in research. Most current models consider contextual and lexical signals as separate entities, usually not considering sequence-level contingencies that are critical to effective culture-dependent hate detection [9–11]. Moreover, existing hybrid architectures generally use basic feature concatenation, which can frequently cause “feature dilution” where the low density but vital lexical signal is overwhelmed by high-dimensional deep representations [12–14]. Moreover, the specific features of linguistics (hate lexicon intensity) are seldom directly incorporated into the learning objective and do not provide interpretability and sensitivity to nuanced hate speech.",
+   "printed": true
+  },
+  {
+   "para_id": 5,
+   "loc": "body",
+   "sec_title": "2.1. Dataset development and preprocessing in Roman Urdu",
+   "text": "Research has also been conducted to augment Roman Urdu hate speech datasets to overcome the scarcity and noise of the data. Azam et al. [1] used generative augmentation with MT5 and mBERT-MLM models to augment the RUSOLD and RUT datasets, achieving a maximum of 86% F1-score. Bilal et al. [2] introduced the RU-HSD-30K dataset, containing 30,000 posts, with normalization and phonetic mapping using UrduPhone, and achieved a maximum of 88.5% F1-score using the Bi-LSTM model with attention. Other datasets include RU-PHS [7] with 5,002 geo-tagged tweets, and BERT-RU [4], pretrained on 173K messages, achieving 97.25% F1. Other related work, such as that of Atif et al. in [3], further added more fine-grained labeling for hate types, while PURUTT in [15] and ORUD-Detect [16] provided larger corpora, using hybrid models or fine-tuned LLMs to surpass 90% F1.",
+   "printed": true
+  },
+  {
+   "para_id": 6,
+   "loc": "body",
+   "sec_title": "2.2. Classical and deep learning approaches",
+   "text": "Earlier methods used SVMs, Random Forests, and TF-IDF features but were not effective in handling out-of-vocabulary words and their ambiguity. GRUs with attention have also been used to achieve competitive F1-scores on smaller datasets in research papers like [17]. Hybrid models such as Passion-Net [5] and MBERT-SVM pipelines have also been used to achieve better results than transformer-based models on Roman Urdu datasets. BERT-based models have also been used to achieve good results, i.e., 94% F1-score.",
+   "printed": true
+  },
+  {
+   "para_id": 7,
+   "loc": "body",
+   "sec_title": "2.3. Multilingual and transformer-based architectures",
+   "text": "The performance of multilingual transformers is impressive in low-resource hate speech detection. XLM-RoBERTa and MuRIL, fine-tuned models, have shown more than 90% accuracy in Urdu and Indic hate speech detection tasks [6,18]. RomanBERT, a model that uses fastText subword-level embeddings, obtained an F1-score of 0.95 in the Roman Urdu hate speech detection task, which proves the effectiveness of semantic representation. QLoRA allows memory-efficient fine-tuning of large language models using low-rank adapters and quantization, which retains the performance of models in low-resource settings [19]. This is a low-rank adaptation of multilingual transformers, which has shown effectiveness in hate speech detection. In addition, lightweight transformer models, such as DistilBERT, have shown impressive performance with lower complexity [20]. This proves the effectiveness of efficient transformer models. Interpretability techniques, such as LIME, are used to increase transparency by explaining category-level predictions [21].",
+   "printed": true
+  },
+  {
+   "para_id": 8,
+   "loc": "body",
+   "sec_title": "2.4. Cross-domain, multimodal and informal contexts",
+   "text": "Studies on code-mixing, cross-domain, and multimodal settings emphasize the significance of preprocessing. Bi-LSTM with EfficientNet [22], ELMo and LASER embeddings [23], and CMSA-mBERT on code-mixed Roman Urdu–Punjabi text [24] emphasize that the model’s performance is largely dependent on the preprocessing phase. Other associated tasks such as sarcasm detection [25], insult detection [26], and hate speech/offensive text detection [27] emphasize the significance of the joint effect of lexical and contextual features.",
+   "printed": true
+  },
+  {
+   "para_id": 9,
+   "loc": "body",
+   "sec_title": "3.1. Dataset description and statistics",
+   "text": "The category-wise distribution is presented in Table 2. This study operates the RU-HSD-30K dataset, consisting of 30,000 Roman Urdu tweets annotated into Hate (H) and Normal (N) categories [2]. The category-wise distribution is presented in Table 2.",
+   "printed": true
+  },
+  {
+   "para_id": 10,
+   "loc": "table",
+   "sec_title": "4.6. Comparison with state-of-the-art",
+   "text": "Jan et al. [2]",
+   "printed": true
+  },
+  {
+   "para_id": 11,
+   "loc": "body",
+   "sec_title": "4.6. Comparison with state-of-the-art",
+   "text": "On RU-HSD-30K, our model improves over Jan et al. [2] by +0.33% F1 (0.8883 vs. 0.885). Although the differences in the datasets, annotation schemes, and evaluation protocols make it difficult to draw any hard and fast comparisons, the overall trend in performance improvements in all ablations and baseline comparisons suggests that lexicon-based multi-task learning, along with the sequential and attention modules, is useful in Roman Urdu hate speech detection.",
+   "printed": true
+  }
+ ],
+ "links": [
+  {
+   "link_id": 1,
+   "url": "github.com/bilal4209/ru-hsd-30k",
+   "url_raw": "https://github.com/Bilal4209/RU-HSD-30K",
+   "href_jats": "https://github.com/Bilal4209/RU-HSD-30K",
+   "repo_key": "github:bilal4209/ru-hsd-30k",
+   "host_class": "github",
+   "loc": "front",
+   "sec_title": "",
+   "source": "tagged",
+   "para_id": 1
+  }
+ ],
+ "links_optional": [
+  "creativecommons.org/licenses/by/4.0",
+  "doi:10.1007/s00521-023-09169-6",
+  "doi:10.1007/s00530-021-00784-8",
+  "doi:10.1007/s10579-023-09642-7",
+  "doi:10.1016/j.jksuci.2023.101606",
+  "doi:10.1016/j.procs.2025.01.044",
+  "doi:10.1038/s41598-024-79106-7",
+  "doi:10.1038/s41598-025-26671-0",
+  "doi:10.1109/access.2022.3216375",
+  "doi:10.1109/access.2024.3445288",
+  "doi:10.1109/access.2024.3452987",
+  "doi:10.1109/fit63703.2024.10838452",
+  "doi:10.1109/icet63392.2024.10935087",
+  "doi:10.3390/ai6020033",
+  "doi:10.3390/math11040969",
+  "doi:10.3390/s23083909",
+  "doi:10.63317/528wesmg3iex",
+  "doi:10.7717/peerj-cs.2801"
+ ],
+ "own_doi": "doi:10.1371/journal.pone.0354875",
+ "citations": [
+  {
+   "cite_id": 1,
+   "para_id": 2,
+   "bib_id": 1,
+   "marker": "1",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 2,
+   "para_id": 2,
+   "bib_id": 2,
+   "marker": "2",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 3,
+   "para_id": 3,
+   "bib_id": 1,
+   "marker": "1",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 4,
+   "para_id": 3,
+   "bib_id": 3,
+   "marker": "3",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 5,
+   "para_id": 3,
+   "bib_id": 1,
+   "marker": "1",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 6,
+   "para_id": 3,
+   "bib_id": 2,
+   "marker": "2",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 7,
+   "para_id": 3,
+   "bib_id": 4,
+   "marker": "4",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 8,
+   "para_id": 3,
+   "bib_id": 5,
+   "marker": "5",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 9,
+   "para_id": 3,
+   "bib_id": 6,
+   "marker": "6",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 10,
+   "para_id": 3,
+   "bib_id": 7,
+   "marker": "7",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 11,
+   "para_id": 3,
+   "bib_id": 8,
+   "marker": "8",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 12,
+   "para_id": 4,
+   "bib_id": 9,
+   "marker": "9",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 13,
+   "para_id": 4,
+   "bib_id": 10,
+   "marker": "9–11",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 14,
+   "para_id": 4,
+   "bib_id": 11,
+   "marker": "11",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 15,
+   "para_id": 4,
+   "bib_id": 12,
+   "marker": "12",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 16,
+   "para_id": 4,
+   "bib_id": 13,
+   "marker": "12–14",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 17,
+   "para_id": 4,
+   "bib_id": 14,
+   "marker": "14",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 18,
+   "para_id": 5,
+   "bib_id": 1,
+   "marker": "1",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 19,
+   "para_id": 5,
+   "bib_id": 2,
+   "marker": "2",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 20,
+   "para_id": 5,
+   "bib_id": 7,
+   "marker": "7",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 21,
+   "para_id": 5,
+   "bib_id": 4,
+   "marker": "4",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 22,
+   "para_id": 5,
+   "bib_id": 3,
+   "marker": "3",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 23,
+   "para_id": 5,
+   "bib_id": 15,
+   "marker": "15",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 24,
+   "para_id": 5,
+   "bib_id": 16,
+   "marker": "16",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 25,
+   "para_id": 6,
+   "bib_id": 17,
+   "marker": "17",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 26,
+   "para_id": 6,
+   "bib_id": 5,
+   "marker": "5",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 27,
+   "para_id": 7,
+   "bib_id": 6,
+   "marker": "6",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 28,
+   "para_id": 7,
+   "bib_id": 18,
+   "marker": "18",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 29,
+   "para_id": 7,
+   "bib_id": 19,
+   "marker": "19",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 30,
+   "para_id": 7,
+   "bib_id": 20,
+   "marker": "20",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 31,
+   "para_id": 7,
+   "bib_id": 21,
+   "marker": "21",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 32,
+   "para_id": 8,
+   "bib_id": 22,
+   "marker": "22",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 33,
+   "para_id": 8,
+   "bib_id": 23,
+   "marker": "23",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 34,
+   "para_id": 8,
+   "bib_id": 24,
+   "marker": "24",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 35,
+   "para_id": 8,
+   "bib_id": 25,
+   "marker": "25",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 36,
+   "para_id": 8,
+   "bib_id": 26,
+   "marker": "26",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 37,
+   "para_id": 8,
+   "bib_id": 27,
+   "marker": "27",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 38,
+   "para_id": 9,
+   "bib_id": 2,
+   "marker": "2",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 39,
+   "para_id": 10,
+   "bib_id": 2,
+   "marker": "2",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 40,
+   "para_id": 11,
+   "bib_id": 2,
+   "marker": "2",
+   "expanded": false,
+   "scored": true
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-ext-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "v1_bib_count": 27
+ }
+}

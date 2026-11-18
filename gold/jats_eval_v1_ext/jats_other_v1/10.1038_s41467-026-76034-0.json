@@ -1,0 +1,1054 @@
+{
+ "paper_id": "10.1038_s41467-026-76034-0",
+ "paras": [
+  {
+   "para_id": 1,
+   "loc": "body",
+   "sec_title": "RIM",
+   "text": "Image reconstruction was performed using the RIM reconstruction workflow available on GitHub (https://github.com/teamRIM/tutoRIM) and described in ref. 56. Briefly, raw image stacks acquired under random illumination were processed to generate reconstructed 3D images with improved contrast and resolution. The following reconstruction parameters were used: prefiltering Wiener parameter, 0.08; inversion parameter, 0.08; equalization parameter, 0.1.",
+   "printed": true
+  },
+  {
+   "para_id": 2,
+   "loc": "back",
+   "sec_title": "",
+   "text": "Code availabilityCustom codes are deposited on Code Ocean (10.24433/CO.7420253.v1).",
+   "printed": true
+  },
+  {
+   "para_id": 3,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Epithelia are specialized tissue barriers, with a critical role in separating the internal and external environment and thus maintaining normal tissue function and homeostasis1. The intestinal epithelium functions as a protective barrier throughout adult life, shielding the organism from continuous environmental insults2, including extrinsic mechanical stresses from luminal contents and muscle-driven peristalsis3,4 as well as intrinsic mechanical stresses due to rapid epithelial turnover5. Adhesive cell junctions – including tight junctions (TJs), adherens junctions (AJs), and desmosomes – enable epithelial barrier, mechanical integrity, and collective cell migration5–7. TJs are continuous belt-like structures that encircle and seal the paracellular space and regulate the barrier permeability8. AJs, which lie just beneath the TJs, couple the cytoskeletons of neighboring cells by linking transmembrane E-cadherin belts to the cortical actomyosin network, which stabilizes E-cadherin complexes9–11. As a consequence, AJs are under tension and transmit subcellular forces exerted by actomyosin networks to the cortex12. Junctional complexes are mechanosensitive and mechanoadaptive, integrating subcellular and tissue-level forces, and modulating cell behavior – e.g., junctional reinforcement upon mechanical load to maintain barrier integrity and tissue cohesion10,11,13,14. Finally, desmosomal plaques are located basolaterally beneath the AJs and are associated with intermediate filaments. They were recently shown to passively respond to extrinsic forces by strain-stiffening, contributing to the mechanical resilience of epithelial tissues15,16.",
+   "printed": true
+  },
+  {
+   "para_id": 4,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "The intestinal epithelium consists of at least six different cell types, each with specialized functions and morphologies. Enterocytes, the main cell type, are absorptive cells with a columnar shape and a polygonal apical surface. Mucus-producing goblet cells (GCs), interspersed among enterocytes, are the second most abundant cell type and are characterized by their bulky, round-shaped bodies, due to the presence of large secretory granules17–19. While numerous studies have focused on the secretory function of GCs, the impact of their unique geometry and mechanical properties on their integration into the epithelial tissue and the intestinal barrier remains entirely unknown.",
+   "printed": true
+  },
+  {
+   "para_id": 5,
+   "loc": "body",
+   "sec_title": "Goblet cells are associated with tight-junction fractures",
+   "text": "We asked whether fractures could be the result of extrinsic forces (e.g., luminal shear stress due to digesta flow) or interaction with gut microbiota or immune cells. Remarkably, we found GC-associated fractures in murine embryonic villi (E16.5 embryos, early upon the emergence of villi) (Fig. 1f), where digesta, immune system, and microbiota are not yet present. To further investigate the influence of extrinsic cues, we turned to the murine small intestinal 2D organoids model, which comprises only epithelial cells with functional GCs and mucin granules, and whose accessible apical surface enables high-resolution imaging of the TJs20. Similar to what we observed in vivo, in the villus-like regions, 50% of goblet cells were associated with TJ fractures (Fig. 1g, h). Together, these findings suggest that GC-associated fracturing is epithelium-autonomous, arising from intrinsic properties of the epithelial monolayer. We termed this phenomenon “Goblet cell-Associated Fractures” (GAFs).",
+   "printed": true
+  },
+  {
+   "para_id": 6,
+   "loc": "body",
+   "sec_title": "Goblet cells are associated with tight-junction fractures",
+   "text": "Interestingly, we observed an increase in GAF area (five-fold increase) when GCs were in close proximity to each other, i.e., separated by only one row of neighboring cells (Fig. 1i–k); this suggests a cumulative effect. To determine whether GAFs represent a breach in the epithelial barrier, we assessed the luminal accessibility of E-cadherin, which is normally inaccessible to antibodies without prior permeabilization. Using a sequential staining approach, tissues were first incubated with an antibody targeting the extracellular domain of E-cadherin before permeabilization, followed by F-actin staining after permeabilization (Fig. 1l)21. The “accessible” E-cadherin signal was detected only in GC-adjacent E–E junctions, with over 80% of GCs associated with accessible E-cadherin staining (Fig. 1m, n), indicating that TJs around GCs are indeed breached. Taken together, these data suggest that GCs locally disrupt junctional integrity in the gut epithelium under homeostatic conditions.",
+   "printed": true
+  },
+  {
+   "para_id": 7,
+   "loc": "body",
+   "sec_title": "Goblet cells mechanically deform the neighboring enterocytes",
+   "text": "From a physical perspective, the stereotypical outward curvature of the G–E junction must arise from GCs having a higher pressure than enterocytes, and such pressure difference should be balanced by an interfacial tensile force at the G–E boundary (see Supplementary Method - Theoretical Modeling for details). The tensile state of the G–E boundary is also evident from its smoothness, which is notably different from the wiggliness displayed by E–E TJs (Supplementary Fig. 2b). Previous studies indicate that the G–E interfacial tension (i.e., the force at the G–E boundary) could act as a “peeling force” on the E–E interface, causing debonding22,23. Minimal physical modeling of the E–E interface mechanics indeed predicts junctional fracture above a critical G–E interfacial tension (see Supplementary Fig. 2c–f and Supplementary Method - Theoretical Modeling - Section 1 for details). Overall, this led us to hypothesize that GCs exert mechanical forces on their neighbors: the inner pressure within GCs induces a tensile force at the G–E boundary, peeling E–E junctions, and causing junctional fracture.",
+   "printed": true
+  },
+  {
+   "para_id": 8,
+   "loc": "body",
+   "sec_title": "Goblet cells mechanically deform the neighboring enterocytes",
+   "text": "To test this hypothesis directly, we manipulated GC pressure and the corresponding G–E interfacial force by treating mice with succinate, a microbial metabolite which has been proposed to induce GC hypertrophy (an increase in intracellular GC mucin volume) and hyperplasia (an increase in the number of GCs)24. We confirmed that the succinate treatment led to a significant increase in GC mucin volume (control: 317.04 µm3; succinate: 681.57 µm3) (Fig. 2b, c, Supplementary Movie 2, 3), but not GC hyperplasia, as GC numbers remained similar (Supplementary Fig. 2g, h). Hypertrophic GCs were associated with significantly increased fracturing in adjacent E–E tight junctions, showing a three-fold increase in GAF area (control: 0.42 µm2; succinate: 1.29 µm2) and a nearly two-fold increase in GAF frequency (control: 53%; succinate: 95%) (Fig. 2d, e). Despite the increase in fracturing, ZO-1 junctional intensity remained unchanged, suggesting that fractures arise from mechanical perturbations imposed by GC pressure rather than from an underlying structural fragility of the junctions due to decreased ZO-1 (Supplementary Fig. 2i). These results were recapitulated in organoid monolayers, where we induced GC hyperplasia and hypertrophy by inhibiting the Notch and Wnt pathways25 (Supplementary Fig. 3a–f).",
+   "printed": true
+  },
+  {
+   "para_id": 9,
+   "loc": "body",
+   "sec_title": "Active response of the tissue to goblet cell pressure",
+   "text": "Cellular junctions are mechanoresponsive. This response involves different junctional components at different levels6,26. E-cadherin, a key marker of AJs, is known to respond to mechanical stress by clustering11. Interestingly, we found a striking increase in E-cadherin junctional levels in GC-adjacent E–E AJs compared to non-adjacent AJs (Fig. 3a, b). Moreover, E-cadherin signal levels were heterogeneous along the junctions, progressively increasing toward the goblet cell (Fig. 3c), a pattern also observed in 2D organoids (Fig. 3d). This accumulation prompted us to investigate whether it indicated higher strain near GCs. To test this, we analyzed the distribution of tricellulin, a marker of tricellular junctions (TCJs), which are associated with tension hotspots and mechanical failure points27,28. Notably, tricellulin levels were elevated at G–E–E TCJs compared to E–E–E TCJs (Fig. 3e, f). Moreover, the tricellulin signal at the GAFs was disorganized, exhibiting multiple puncta, in contrast to the single puncta observed at unfractured TCJs (Fig. 3e, g), supporting the hypothesis that fractures initiate at the G–E–E TCJ and propagate toward the E–E bicellular junction (Supplementary Fig. 1c). At the level of desmosomes, we found a 2.8-fold increase in desmocollin – a desmosomal cadherin29 – in GC-adjacent E–E desmosomes (Fig. 3h, i), suggesting local mechanoadaptation of desmosomes.Fig. 3Active mechanoadaptation of the tissue to goblet cell pressure.a Representative en face image; boxed region shows higher magnification; MIP (Z range, 1.8 µm). Scale bars, 5 µm. b Bar chart showing average junctional intensity ± SD. Two-tailed Multiple t-test with FDR correction, ns non-significant, *p = 0.0108; n = 3 biological replicates. c Average line intensity profiles for junctional E-cadherin E–E1 (left) and E–E2 (right) along rescaled E–E junctions. d Representative images of 2D organoid monolayers; MIP (Z range, 2.7 µm). Scale bars, 10 µm. e Representative en face image; G–E–E are encircled in blue and E–E–E in red; MIP (Z range, 1.4 µm). Scale bars, 5 µm. f Bar charts showing average intensity in G–E–E or E–E–E TCJs ± SD. Two-tailed t-test. *p = 0.0100; n = 4 biological replicates. g Line intensity profiles for tricellulin at fractured (red) and unfractured (green) tricellular junctions, corresponding to e. h Representative en face image; MIP (Z range, 1.5 µm). Boxed region shows higher magnification. Scale bars, 5 µm. i Bar chart displaying average junctional intensity ± SD. Two-tailed Multiple t-test with FDR correction, **p = 0.0013; n = 4 biological replicates. j Representative confocal image of live tissue showing apical NMIIA-GFP signal. MIP (Z range, 1.2 µm). Scale bar, 5 µm. The boxed region shows higher magnification. Scale bar, 2 µm. k Bar chart displaying average junctional intensity ± SD. Two-tailed Mann–Whitney test, *p = 0.0286; n = 4 biological replicates. l Representative image showing apical pMLC signal. Scale bar, 5 µm. The boxed region shows higher magnification. Scale bar, 2 µm. m Left: pMLC line-intensity profiles corresponding to the blue G–E and red E–E lines shown in I. Right: Bar chart displaying average pMLC junctional intensity ± SD. Kruskal–Wallis test, ns non-significant; *p = 0.0175, n = 6 biological replicates. n Laser cut locations. o Vertex-vertex distance ε(t) plot in function of time for G–E (red), E–E1 (green), and E–E2 (blue) AJs; n = 3 biological replicates. p Bar chart showing average initial recoil speed ± SD for G–E, E–E1, and E–E2 AJs. Two-sided Multiple t-test with FDR correction, ns non-significant; **p = 0.0023; ***p = 0.0007; n = 3 biological replicates.",
+   "printed": true
+  },
+  {
+   "para_id": 10,
+   "loc": "body",
+   "sec_title": "Active response of the tissue to goblet cell pressure",
+   "text": "Because junctional fracturing often correlates with locally increased active stresses generated by actomyosin contractility30, and given the increased E-cadherin signal we observed (Fig. 3a), indicative of local mechanical strain, we next investigated whether and how actomyosin contractility contributes to GAFs.",
+   "printed": true
+  },
+  {
+   "para_id": 11,
+   "loc": "body",
+   "sec_title": "Active response of the tissue to goblet cell pressure",
+   "text": "To determine whether there are differences in contractility between GCs and their neighboring enterocytes, we first assessed the levels of non-muscle myosin IIA (NMIIA) in the apical actomyosin belts using live imaging of gut explants derived from mice expressing GFP-tagged endogenous NMIIA31. We found that GCs exhibited higher NMIIA levels in their apical belts compared to the myosin belts of enterocytes (Fig. 3j, k). However, phospho-myosin light chain (T18/S19) (pMLC) staining, a marker of active myosin, was not detectable in the apical belts of GCs compared to the junctions of neighboring enterocytes (Fig. 3l, m), suggesting lower contractility. To functionally assess tensile forces around goblet cells, we performed spatially resolved laser ablation of individual G–E junctions and surrounding first- and second-neighbor enterocyte–enterocyte junctions (E–E1 and E–E2) ex vivo in gut explants5 (Fig. 3n). Junctional recoil velocity was approximately 10-fold higher at E–E2 junctions than at either G–E or E–E1 junctions, while G–E and E–E1 did not differ significantly (Fig. 3o, p; Supplementary Movies 4–6). Because laser ablation preferentially reports the release of pre-existing tensile stress along junctions, these results indicate that G–E interfaces are not under elevated junctional tension, even though GCs exert local pressure on their neighbors. Consistent with this, pMLC levels were markedly lower at G–E junctions than at E–E1 and E–E2 junctions, supporting reduced myosin activity at G–E interfaces. Notably, E–E1 and E–E2 junctions exhibited comparable pMLC levels despite their strikingly different recoil velocities, indicating that differences in recoil cannot be fully explained by gradients in actomyosin-generated tension alone. Together, these observations suggest that tensile contractility is not the primary driver of GAF formation.",
+   "printed": true
+  },
+  {
+   "para_id": 12,
+   "loc": "body",
+   "sec_title": "Fracturing depends on the mechanical properties of neighboring cells",
+   "text": "Beyond its role in contractility, myosin II crosslinking of cortical actin filaments is critical for the mechanical properties of cells and junctions (e.g., rigidity), which influence cell shape and junctional strength32–34. Recent theoretical studies incorporating fracture into vertex models further support the idea that changes in tissue deformability modulate susceptibility to local fractures35,36.",
+   "printed": true
+  },
+  {
+   "para_id": 13,
+   "loc": "body",
+   "sec_title": "Fracturing depends on the mechanical properties of neighboring cells",
+   "text": "After NMIIA depletion, enterocytes no longer formed regular pentagonal or hexagonal arrays but became floppy and disorganized (Fig. 4b). Given previous work showing that cell shape metrics tightly correlate with tissue rheology37–39, we reasoned that junctional fracture may not be solely a local mechanical event, but may instead depend on tissue-scale mechanical properties. Consistent with theoretical studies35,36, if GC-adjacent enterocytes are floppy, GC-induced forces may be dissipated more effectively, thereby alleviating GAFs.",
+   "printed": true
+  },
+  {
+   "para_id": 14,
+   "loc": "body",
+   "sec_title": "Fracturing depends on the mechanical properties of neighboring cells",
+   "text": "To test this hypothesis, we first segmented control and NMIIA-KO tissues and quantified apical cell geometry. NMIIA-KO tissue exhibited increased apical cell area and a higher cell shape index compared to controls (control: 3.86; NMIIA-KO: 4.18) (Fig. 4b–e), consistent with a transition toward a more deformable epithelial state. We further corroborated this interpretation by directly measuring cytoplasmic viscoelastic properties using optical tweezers40, which revealed that NMIIA-KO tissue is mechanically softer than control tissue at the intracellular level (Fig. 4f, g). Optical tweezers–based tracking of endogenous intracellular lipid droplet displacement shows larger oscillatory amplitudes in NMIIA-KO tissue compared to control, as illustrated in the representative kymographs (Fig. 4f), consistent with reduced cytoplasmic mechanical confinement. Active microrheology using optical tweezers enabled reconstruction of the frequency-dependent storage (G′) and loss (G″) moduli (Fig. 4g), both of which were reduced in NMIIA-KO tissue, indicating a decrease in intracellular viscoelastic stiffness. These findings demonstrate altered cytoplasmic mechanical properties and increased deformability in NMIIA-KO tissue. Consistent with this mechanical shift, NMIIA depletion resulted in a significant reduction in GAF area (control: 0.64 µm2; NMIIA-KO: 0.33 µm2) (Fig. 4h), and decreased E-cadherin enrichment (Supplementary Fig. 5b, c), while GC mucin volume remained unchanged (Supplementary Fig. 5d).",
+   "printed": true
+  },
+  {
+   "para_id": 15,
+   "loc": "body",
+   "sec_title": "Fracturing depends on the mechanical properties of neighboring cells",
+   "text": "To explore this hypothesis, we developed an extended vertex model that retained the key physical components of the classical vertex model35,36,38,39,41,42 – namely, the existence of a preferred cell shape and area – while allowing for complex junctional deformations and ruptures, which were crucial for Modeling GC and GAF shapes (for more details, see Supplementary Method - Theoretical Modeling Section 2 and Supplementary Fig. 7a). We found that the presence of GAFs was governed by two key parameters (Fig. 5a): GC size/pressure \\documentclass[12pt]{minimal} \\usepackage{amsmath} \\usepackage{wasysym} \\usepackage{amsfonts} \\usepackage{amssymb} \\usepackage{amsbsy} \\usepackage{mathrsfs} \\usepackage{upgreek} \\setlength{\\oddsidemargin}{-69pt} \\begin{document}$${a}_{0}^{{{{\\rm{G}}}}}$$\\end{document}a0G, as in the previous model, and tissue rheology, which can be inferred from the “cell shape index” \\documentclass[12pt]{minimal} \\usepackage{amsmath} \\usepackage{wasysym} \\usepackage{amsfonts} \\usepackage{amssymb} \\usepackage{amsbsy} \\usepackage{mathrsfs} \\usepackage{upgreek} \\setlength{\\oddsidemargin}{-69pt} \\begin{document}$${p}_{0}$$\\end{document}p0 (i.e., the cellular perimeter-to-area ratio)37–39. Consistent with our experimental data, as the shape index increases, the tissue becomes more deformable41, which prevents the formation of GAFs (Fig. 5a, b).Fig. 5Increased enterocyte deformability prevents hypertrophy-induced fracturing.a Simulations of the tissue mechanics model with two main parameters: the goblet cell area \\documentclass[12pt]{minimal} \\usepackage{amsmath} \\usepackage{wasysym} \\usepackage{amsfonts} \\usepackage{amssymb} \\usepackage{amsbsy} \\usepackage{mathrsfs} \\usepackage{upgreek} \\setlength{\\oddsidemargin}{-69pt} \\begin{document}$${a}_{0}^{{{{\\rm{G}}}}}$$\\end{document}a0G and the shape index of enterocytes \\documentclass[12pt]{minimal} \\usepackage{amsmath} \\usepackage{wasysym} \\usepackage{amsfonts} \\usepackage{amssymb} \\usepackage{amsbsy} \\usepackage{mathrsfs} \\usepackage{upgreek} \\setlength{\\oddsidemargin}{-69pt} \\begin{document}$${p}_{0}$$\\end{document}p0 (relevant to tissue rheology). The model predicts that GAFs increase with the goblet cell area \\documentclass[12pt]{minimal} \\usepackage{amsmath} \\usepackage{wasysym} \\usepackage{amsfonts} \\usepackage{amssymb} \\usepackage{amsbsy} \\usepackage{mathrsfs} \\usepackage{upgreek} \\setlength{\\oddsidemargin}{-69pt} \\begin{document}$${a}_{0}^{{{{\\rm{G}}}}}$$\\end{document}a0G (cell shape index p0 = 3.7, top panel), but decrease with the shape index \\documentclass[12pt]{minimal} \\usepackage{amsmath} \\usepackage{wasysym} \\usepackage{amsfonts} \\usepackage{amssymb} \\usepackage{amsbsy} \\usepackage{mathrsfs} \\usepackage{upgreek} \\setlength{\\oddsidemargin}{-69pt} \\begin{document}$${p}_{0}$$\\end{document}p0 (goblet cell area \\documentclass[12pt]{minimal} \\usepackage{amsmath} \\usepackage{wasysym} \\usepackage{amsfonts} \\usepackage{amssymb} \\usepackage{amsbsy} \\usepackage{mathrsfs} \\usepackage{upgreek} \\setlength{\\oddsidemargin}{-69pt} \\begin{document}$${a}_{0}^{{{{\\rm{G}}}}}=0.5$$\\end{document}a0G=0.5, bottom panel). b Predicted fracture area as a function of goblet cell area \\documentclass[12pt]{minimal} \\usepackage{amsmath} \\usepackage{wasysym} \\usepackage{amsfonts} \\usepackage{amssymb} \\usepackage{amsbsy} \\usepackage{mathrsfs} \\usepackage{upgreek} \\setlength{\\oddsidemargin}{-69pt} \\begin{document}$$\\left({a}_{0}^{{{{\\rm{G}}}}}\\right)$$\\end{document}a0G and shape index of enterocytes \\documentclass[12pt]{minimal} \\usepackage{amsmath} \\usepackage{wasysym} \\usepackage{amsfonts} \\usepackage{amssymb} \\usepackage{amsbsy} \\usepackage{mathrsfs} \\usepackage{upgreek} \\setlength{\\oddsidemargin}{-69pt} \\begin{document}$$\\left({p}_{0}\\right)$$\\end{document}p0; mean ± SD from 3 independent simulations. c Schematic representation of succinate treatments in control (NMIIA+/+) or NMIIA-KO mice. d Representative en face images from control (NMIIA+/+) and NMIIA-KO mice, with and without succinate treatment. Scale bars, 10 µm. Boxed regions are shown in higher magnification. MIP (Z range, 3.0–4.5 µm). Scale bars, 5 µm. e Bar charts displaying average fracture area ± SD (left). Two-tailed Multiple t-test with FDR correction, ns non-significant; **p = 0.0031; and average percentage of GAFs ± SD (right), according to the conditions. Two-tailed Multiple t-test with FDR correction, ns non-significant, *p = 0.0477; ***p = 0.0008. n = 7 biological replicates. f Bar chart displaying average enterocyte shape index ± SD. Two-sided Multiple t-test with FDR correction. ***p = 0.0002; n = 3 biological replicates. g Bar chart showing average intestinal permeability ± SD. Two-sided Multiple t-test with FDR correction; ns non-significant, *p = 0.0477; **p = 0.0014; n = 7 biological replicates. Succ. succinate. h Goblet cells disrupt the intestinal barrier by inducing fractures in the tight junctions of neighboring enterocytes through a two-tiered mechanical process. Goblet cells exert compressive forces on adjacent enterocytes, leading to junctional fracturing that increases with goblet cell hypertrophy and results in elevated intestinal permeability. The susceptibility of enterocytes to fracturing depends on their rheological properties, which are controlled by myosin IIA: increased tissue deformability protects against junctional fracture and prevents hypertrophy-induced hyperpermeability.",
+   "printed": false
+  },
+  {
+   "para_id": 16,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "The integrity of the intestinal epithelial barrier is critical for maintaining homeostasis, and its disruption can trigger pathologies such as inflammatory diseases (IBD) and tumorigenesis43. The barrier function of the intestinal epithelium is maintained by adhesive junctional complexes, particularly TJs, which are the primary physical determinant of the epithelial barrier8, assumed to form a continuous, uninterrupted seal between adjacent cells, blocking the passage of bacterial toxins and pathogens into the underlying tissues43. However, most studies of epithelial cell junctions have focused predominantly on cell lines or single “main” cell types, such as enterocytes, using thin histology sections. In contrast, employing thick tissue sections and high-resolution 3D confocal microscopy, we found that approximately 50% of GCs are associated with fractures at the TJ level. This GC-associated junctional breaching is even more prevalent than what we can detect by imaging TJ markers, as revealed by the E-cadherin accessibility assay, which showed 80% of GC-adjacent enterocytes with breached TJs. Junctional fracturing in epithelial tissues has previously been observed in cultured monolayers subjected to extrinsic stretch15, in placozoans under high motile stress36, and during hydraulic fracturing of blastocysts44. However, goblet cell-associated fractures represent the first example of an adult epithelium undergoing self-induced rupture under homeostatic conditions.",
+   "printed": true
+  },
+  {
+   "para_id": 17,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "While the epithelial integrity and mechano-responsiveness of individual junction types have been relatively well studied, their comparative adhesive strength and resistance to mechanical stress in vivo remain unclear. Interestingly, we found that TJs fracture more frequently (50%) than AJs (18%), while no fractures were observed at the desmosome level under homeostatic conditions. This suggests that TJs are more fragile and less resistant to mechanical stress than the underlying junctions. Notably, fractures predominantly originate at tricellular junctions (TCJs) at the G–E–E interface, before propagating along the E–E bicellular junction. These results are consistent with observations that TCJs are points of high tension in the tissue and may represent “weak spots” in the epithelium that are more prone to fracturing27. Remarkably, we found that enterocytes accumulate transmembrane proteins E-cadherin and desmocollin in response to the presence of GCs, suggesting junctional reinforcement, a concept extensively reviewed previously11. This accumulation of junctional proteins may serve to increase junctional strength and prevent further rupture.",
+   "printed": true
+  },
+  {
+   "para_id": 18,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Junctional reinforcement has been described as a response to increased tension generated by intrinsic cellular contractility in developing embryos and cultured epithelial monolayers – as previously reviewed14, suggesting that GC contractility may play a role. However, the prominent apical myosin ring in GCs does not appear to be contractile, leading us to speculate that it has a more passive, scaffolding role in containing mucin granules within the cell. In addition, we found that GAFs depend on global tissue mechanical properties, which we manipulated by perturbing myosin II. Reduced myosin expression or activity resulted in a more deformable tissue that was less prone to rupture. Such mechanical softening could act by preventing stress accumulation in the tissue by allowing the cells to adjust their shape/size and position, and thus adapt to abnormal mechanical forces, protecting the tissue from physical damage. These findings are in line with recent in vitro experimental work15 and theoretical studies of rupture in epithelia35, which show that myosin and the associated mechanical state of the tissue play a critical role in fracturing processes.",
+   "printed": true
+  },
+  {
+   "para_id": 19,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "The presence of GCs is necessary for fractures to occur, as no fractures were detected in regions within the epithelium without GCs. Our results indicate that fractures are promoted by the volume of GCs and the pressure they exert on neighboring enterocytes. In our study, succinate treatment was used to mimic a physiological response to parasitic infection, a condition previously described as inducing GC hyperplasia and hypertrophy, leading to an increase in GC numbers and mucus hypersecretion. GC hyperplasia and hypertrophy were shown to promote parasite clearance through the “weep and sweep” response and thus “protect” the tissue24,45. While we did not observe GC hyperplasia in our experiments, possibly due to technical reasons, we observed prominent GC hypertrophy, characterized by a marked increase in intracellular mucin volume. Interestingly, GC hypertrophy was closely associated with a significant increase in fracture size (both area and depth) and number, ultimately leading to increased intestinal permeability, challenging the widely held view that GC hypertrophy is solely protective.",
+   "printed": true
+  },
+  {
+   "para_id": 20,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "GCs have been identified as entry points for Listeria monocytogenes invasion and infection21, a process that requires luminally accessible E-cadherin. This is consistent with our findings of GAFs and the associated barrier breach, which exposes E-cadherin and could thus facilitate bacterial adhesion and tissue infection. GCs have also been identified as mediators of interactions between the immune system and luminal content through transcytosis-based pathways – the goblet cell-associated antigen passages (GAPs) – that enable the sampling of luminal antigens and their delivery to underlying immune cells46. The junctional fractures (GAFs) described here may have a similar function, physically facilitating antigen sampling by immune cells. However, we have also observed GAFs in the embryonic mouse intestine, where the lumen is empty, and neither the immune system nor the microbiota is present. Remarkably, GAFs were observed in both mouse and human intestinal tissue, suggesting they may be conserved across species.",
+   "printed": true
+  },
+  {
+   "para_id": 21,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "What could be the biological significance of goblet cell-associated fractures under physiological conditions? Fracturing near the goblet–enterocyte interface may serve as a local mechanical dissipation mechanism – a controlled failure to mitigate the risk of larger-scale epithelial disruption. This concept parallels developmental processes, where local deformation and cellular rearrangement dissipate mechanical forces during morphogenesis7,9,39,47,48. Consistently, we observed an active tissue response to GC compression, characterized by mechanosensitive reinforcement of junctional adhesion in GC neighbors. Analogous stress-relief phenomena have been observed in a few other biological systems, such as the migratory fracturing in Trichoplax adhaerens36, where epithelial rupture is thought to prevent tissue failure under motile stress. At present, this interpretation remains speculative, and further work will be required to determine whether GAFs represent adaptive, repairable events or unavoidable mechanical trade-offs associated with goblet cell function. However, this compensatory response appears insufficient under conditions of GC hypertrophy, where elevated compressive forces exacerbate fracturing and compromise barrier integrity – highlighting the limits of epithelial plasticity under sustained mechanical stress.",
+   "printed": true
+  },
+  {
+   "para_id": 22,
+   "loc": "body",
+   "sec_title": "Mice",
+   "text": "All mouse husbandry and handling procedures were approved and conducted in accordance with European and national regulations (Protocol Authorization APAFIS #38994-2023062718345638). All mice were kept in the Specific and Opportunistic Pathogen-Free (SOPF) animal facility at the CBI. Comparisons were made between age-matched littermates (8–12 weeks old). As no phenotypic differences were observed between males and females, mice of both sexes were used in all experiments. Animals were monitored daily according to institutional animal welfare guidelines. Wild-type mice and transgenic mouse lines were maintained on a C57BL/6N background.Villin-CreERT2 mice49 were crossed with Myh9fl/fl mice50, obtained from the Mutant Mouse Resource and Research Center (MMRRC; stock 032096-UNC), to generate intestinal epithelial-specific NMIIA knockout mice. Myh9fl/fl were also crossed with Muc2-Cre-ERT2 mice51 (kindly provided by Dr. C. Lengner (University of Pennsylvania)) to generate Muc2-Cre-ERT2; Myh9fl/fl mice. Villin-CreERT2 and NMIIA-GFP31 mice were kindly provided by Dr. D. Matić Vignjević (Institut Curie). Mice were euthanized by cervical dislocation under isoflurane anesthesia in accordance with approved ethical protocols.",
+   "printed": true
+  },
+  {
+   "para_id": 23,
+   "loc": "body",
+   "sec_title": "Tamoxifen and drug treatments",
+   "text": "To induce intestinal epithelium-specific Myh9 (NMIIA) knockout, Villin-CreERT2; Myh9fl/fl and Myh9fl/fl (control) mice were intraperitoneally injected with 100 µL of tamoxifen (50 mg/kg; Euromedex SE-S1238) once a day for 5 consecutive days and culled 3 days after the last injection, as indicated. To induce goblet cell-specific Myh9 knockout, Muc2-Cre-ERT2; Myh9fl/fl mice were injected with 100 µL of tamoxifen once a day for 5 consecutive days and culled on the fifth day. For succinate treatment, mice received 100 mM succinate (Sigma, S9637) in drinking water for 7 days24, as indicated. For DSS treatment, mice received 3% DSS (Sigma, 42867) in drinking water for 7 days, after which they were culled.",
+   "printed": true
+  },
+  {
+   "para_id": 24,
+   "loc": "body",
+   "sec_title": "Laser ablations of cell junctions",
+   "text": "Laser cuts of cell-cell junctions were performed as previously described5. Briefly, NMIIAGFP mice31, where non-muscle myosin heavy chain II-A is endogenously tagged with GFP, allowing visualization of adherens junction-associated actomyosin, were used to conduct junctional laser cuts. Living intestinal tissue slices were hand-cut using a scalpel and placed into a 35-mm glass-bottom culture dish (Fluorodish) containing 200 µL of Leibovitz medium. A slice anchor (SHD-26GH/10; Harvard Apparatus) was placed on top of the tissue to minimize sample drift. To ensure consistency and maintain tissue viability and tension, imaging and laser ablations were conducted within 45 min following the dissection. The intestinal tissue was imaged using a two-photon laser-scanning microscope (LSM710, Carl Zeiss) in single-photon mode (488 line), at a resolution of 512 × 512 pixels (pixel size = 0.09 µm) with a bidirectional scan lasting 1 s. Cell junctions were ablated using a Chameleon Vision II laser set at 800 nm (three iterations), with laser power of 1–2 mW. The iteration number was optimized to efficiently ablate cell junctions without causing cavitations or additional cell damage. As tissue recoil typically plateaued around 50 s, images were acquired at 1 s intervals (δt = 1 s) for a total of 60 s. Multiple junctions were ablated per mouse for each junction class. Analyses were performed using a custom ImageJ macro as previously described52. Briefly, images were denoised using a filtering process to improve the signal-to-noise ratio. Recoil speed was determined by measuring the vertex-vertex distance dvv at each time frame, with each value subtracted from dvv (t0) to obtain the amount of strain or recoil (ε(t)) at each time point. As junctional strain exhibits a single exponential growth with a defined plateau after ablation, it can be modeled as a Kelvin–Voigt fiber, by fitting to the following equation1\\documentclass[12pt]{minimal} \\usepackage{amsmath} \\usepackage{wasysym} \\usepackage{amsfonts} \\usepackage{amssymb} \\usepackage{amsbsy} \\usepackage{mathrsfs} \\usepackage{upgreek} \\setlength{\\oddsidemargin}{-69pt} \\begin{document}$$\\varepsilon \\left(t\\right)=\\frac{F0}{E}{{{\\rm{x}}}}\\left(1-{e}^{-\\left[\\left(\\frac{E}{{{{\\rm{\\mu }}}}}\\right){{{\\rm{x}}}}t\\right]}\\right)$$\\end{document}εt=F0Ex1−e−Eμxtwhere F0 is the tensile force at the junction before ablation, E is the elasticity of the junction, and µ is the viscosity coefficient. The initial recoil parameter \\documentclass[12pt]{minimal} \\usepackage{amsmath} \\usepackage{wasysym} \\usepackage{amsfonts} \\usepackage{amssymb} \\usepackage{amsbsy} \\usepackage{mathrsfs} \\usepackage{upgreek} \\setlength{\\oddsidemargin}{-69pt} \\begin{document}$$\\frac{F0}{\\mu }$$\\end{document}F0μ can be extracted after fitting. The fitting and plotting of ε(t) and initial recoil values were done in GraphPad Prism. Statistical analyses were performed using individual mice as biological replicates.",
+   "printed": false
+  },
+  {
+   "para_id": 25,
+   "loc": "body",
+   "sec_title": "Optical tweezers setup",
+   "text": "A home-built setup was used for optical-trapping measurements40. The system combines a fluorescence microscope and an active optical-trapping system. This trapping system has two components: one to precisely control the position of the optical trap on the sample, and a back-focal-plane interferometric (BFPi) system to track the position of the trapped object relative to the center of the laser53,54. Furthermore, the use of back focal interferometry in tissue is also unaffected by the light’s scattering due to its position in the Fourier plane of the detector55. For calibration and the measurements described below, a steering mirror conjugated to the pupil plane of the microscope (Thorlabs FSM75-P01) is used to achieve nanometric laser deflection. A 3-axis piezoelectric stage (Piezo Concept BIO3) is also used to precisely focus on the trapped object. The optical-trapping system is implemented in a conventional inverted fluorescence microscope (Leica DMI6000 B). The objective lens used is a 100× magnification lens with a numerical aperture of 1.4 (Leica HCX PL APO). To optimize the fill factor of the infrared laser to 85% of the objective lens pupil plane, an X4 afocal telescope consisting of two relay lenses is used (Thorlabs ACA254-050-1064 and ACA254-200-1064). The focused diffraction spot at the objective exit has a width of 600 nm at mid-height, allowing for an efficient optical trap. Imaging and optical tweezers are controlled by combining a National Instruments acquisition card with the Inscoper synchronization box. The Inscoper software manages all synchronization steps.",
+   "printed": true
+  },
+  {
+   "para_id": 26,
+   "loc": "body",
+   "sec_title": "Calibration and viscoelastic modulus measurements",
+   "text": "Here, we briefly summarize our optical tweezers–based approach, recently described in detail by Merle et al.40. Using a home-built optical tweezers setup, the stiffness of the optical tweezers is estimated with an absolute error of 3% using the following expression derived from the fluctuation–dissipation theorem [9], which takes into account all harmonics of the square excitation:2\\documentclass[12pt]{minimal} \\usepackage{amsmath} \\usepackage{wasysym} \\usepackage{amsfonts} \\usepackage{amssymb} \\usepackage{amsbsy} \\usepackage{mathrsfs} \\usepackage{upgreek} \\setlength{\\oddsidemargin}{-69pt} \\begin{document}$${k}_{t}\\left(n{{{{\\rm{\\omega }}}}}_{d}\\right)={\\sum }_{n=1,3,5\\ldots }^{\\infty }-2{k}_{b}{TRe}\\left[\\frac{{P}_{{active}}}{{P}_{{passive}}}\\right]$$\\end{document}ktnωd=∑n=1,3,5…∞−2kbTRePactivePpassivewhere \\documentclass[12pt]{minimal} \\usepackage{amsmath} \\usepackage{wasysym} \\usepackage{amsfonts} \\usepackage{amssymb} \\usepackage{amsbsy} \\usepackage{mathrsfs} \\usepackage{upgreek} \\setlength{\\oddsidemargin}{-69pt} \\begin{document}$${P}_{{active}}$$\\end{document}Pactive is the active power spectrum and \\documentclass[12pt]{minimal} \\usepackage{amsmath} \\usepackage{wasysym} \\usepackage{amsfonts} \\usepackage{amssymb} \\usepackage{amsbsy} \\usepackage{mathrsfs} \\usepackage{upgreek} \\setlength{\\oddsidemargin}{-69pt} \\begin{document}$${P}_{{passive}}$$\\end{document}Ppassive is the passive power spectrum. The high-frequency analysis and the number of harmonics provide a highly robust estimation of \\documentclass[12pt]{minimal} \\usepackage{amsmath} \\usepackage{wasysym} \\usepackage{amsfonts} \\usepackage{amssymb} \\usepackage{amsbsy} \\usepackage{mathrsfs} \\usepackage{upgreek} \\setlength{\\oddsidemargin}{-69pt} \\begin{document}$${k}_{t}$$\\end{document}kt. The mechanical response of the medium can then be reconstructed independently at each harmonic frequency once \\documentclass[12pt]{minimal} \\usepackage{amsmath} \\usepackage{wasysym} \\usepackage{amsfonts} \\usepackage{amssymb} \\usepackage{amsbsy} \\usepackage{mathrsfs} \\usepackage{upgreek} \\setlength{\\oddsidemargin}{-69pt} \\begin{document}$${k}_{t}$$\\end{document}kt is known.",
+   "printed": false
+  },
+  {
+   "para_id": 27,
+   "loc": "body",
+   "sec_title": "Generation of 2D organoids",
+   "text": "To promote goblet cell differentiation, 3 µM DAPT (Tebu-bio, 28T6202) and IWP-2 (Tebu-bio, 28T2702) were added to fresh medium25.",
+   "printed": true
+  },
+  {
+   "para_id": 28,
+   "loc": "body",
+   "sec_title": "RIM",
+   "text": "The 3D images were acquired using an inverted microscope (TEi Nikon) equipped with a ×100 magnification, 1.49 NA objective (CFI SR APO 100XH ON 1.49 NIKON). A SCMOS camera (ORCA-Fusion, Hamamatsu) was used. Commercial acquisition software (INSCOPER SA) was used for 3D-RIM acquisition. A collimated beam with a diameter of 2.2 mm was generated using fast diode lasers (Oxxius) with wavelengths centered at 488 nm (LBX-488-200-CSB). The polarized beam was rotated at an angle of 5° before hitting an X10 beam expander (GBE04-A) and producing an 18 mm TEM00 beam through a spatial light modulator. A fast spatial light phase binary modulator (QXGA fourth dimension) was conjugated to the image plane to generate 200 random illuminations through each plane, as detailed in ref. 56.",
+   "printed": true
+  }
+ ],
+ "links": [
+  {
+   "link_id": 1,
+   "url": "github.com/teamrim/tutorim",
+   "url_raw": "https://github.com/teamRIM/tutoRIM",
+   "href_jats": "https://github.com/teamRIM/tutoRIM",
+   "repo_key": "github:teamrim/tutorim",
+   "host_class": "github",
+   "loc": "body",
+   "sec_title": "RIM",
+   "source": "tagged",
+   "para_id": 1
+  },
+  {
+   "link_id": 2,
+   "url": "doi:10.24433/co.7420253.v1",
+   "url_raw": "10.24433/CO.7420253.v1).",
+   "href_jats": "",
+   "repo_key": "doi:10.24433/co.7420253.v1",
+   "host_class": "doi",
+   "loc": "back",
+   "sec_title": "",
+   "source": "regex",
+   "para_id": 2
+  }
+ ],
+ "links_optional": [
+  "creativecommons.org/licenses/by/4.0",
+  "doi:10.1002/gene.20042",
+  "doi:10.1007/s12551-019-00582-7",
+  "doi:10.1016/j.ceb.2014.10.004",
+  "doi:10.1016/j.cellsig.2009.02.011",
+  "doi:10.1016/j.celrep.2025.116161",
+  "doi:10.1016/j.cub.2007.11.049",
+  "doi:10.1016/j.cub.2018.02.003",
+  "doi:10.1016/j.cub.2020.01.029",
+  "doi:10.1016/j.cub.2022.05.041",
+  "doi:10.1016/j.cub.2024.07.074",
+  "doi:10.1016/j.cub.2024.08.060",
+  "doi:10.1016/j.devcel.2018.10.021",
+  "doi:10.1016/j.jcmgh.2022.08.007",
+  "doi:10.1016/j.jmps.2013.04.001",
+  "doi:10.1016/j.tcb.2012.07.001",
+  "doi:10.1016/j.tcb.2015.09.008",
+  "doi:10.1016/j.tcb.2021.12.006",
+  "doi:10.1016/j.tcb.2022.01.005",
+  "doi:10.1016/s0006-3495(98)74031-7",
+  "doi:10.1016/s0091-679x(08)60406-9",
+  "doi:10.1038/nature10863",
+  "doi:10.1038/ncb3136",
+  "doi:10.1038/ni.1936",
+  "doi:10.1038/nmat4357",
+  "doi:10.1038/nmeth.2737",
+  "doi:10.1038/nphys3471",
+  "doi:10.1038/nrgastro.2016.169",
+  "doi:10.1038/nri2653",
+  "doi:10.1038/nrm.2017.98",
+  "doi:10.1038/s41377-024-01612-0",
+  "doi:10.1038/s41467-026-76034-0",
+  "doi:10.1038/s41556-021-00699-6",
+  "doi:10.1038/s41563-024-02027-3",
+  "doi:10.1038/s41567-020-01134-7",
+  "doi:10.1038/s41575-018-0081-y",
+  "doi:10.1038/s41575-022-00675-x",
+  "doi:10.1038/s41586-018-0479-2",
+  "doi:10.1073/pnas.1204390109",
+  "doi:10.1073/pnas.1720758115",
+  "doi:10.1084/jem.20110560",
+  "doi:10.1088/0022-3727/8/13/005",
+  "doi:10.1103/physrevlett.128.018101",
+  "doi:10.1103/physrevx.6.021011",
+  "doi:10.1111/pim.12517",
+  "doi:10.1126/science.1225399",
+  "doi:10.1126/science.1235249",
+  "doi:10.1126/science.aau3429",
+  "doi:10.1126/science.aaw7709",
+  "doi:10.1146/annurev.pathol.4.110807.092135",
+  "doi:10.1152/ajpcell.1991.260.2.c183",
+  "doi:10.1182/blood-2011-06-358853",
+  "doi:10.1242/dev.172577",
+  "doi:10.1242/jcs.186254",
+  "doi:10.1242/jcs.261776",
+  "doi:10.1242/jcs.261899",
+  "doi:10.7554/elife.07090"
+ ],
+ "own_doi": "doi:10.1038/s41467-026-76034-0",
+ "citations": [
+  {
+   "cite_id": 1,
+   "para_id": 3,
+   "bib_id": 1,
+   "marker": "1",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 2,
+   "para_id": 3,
+   "bib_id": 2,
+   "marker": "2",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 3,
+   "para_id": 3,
+   "bib_id": 3,
+   "marker": "3",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 4,
+   "para_id": 3,
+   "bib_id": 4,
+   "marker": "4",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 5,
+   "para_id": 3,
+   "bib_id": 5,
+   "marker": "5",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 6,
+   "para_id": 3,
+   "bib_id": 5,
+   "marker": "5",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 7,
+   "para_id": 3,
+   "bib_id": 6,
+   "marker": "5–7",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 8,
+   "para_id": 3,
+   "bib_id": 7,
+   "marker": "7",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 9,
+   "para_id": 3,
+   "bib_id": 8,
+   "marker": "8",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 10,
+   "para_id": 3,
+   "bib_id": 9,
+   "marker": "9",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 11,
+   "para_id": 3,
+   "bib_id": 10,
+   "marker": "9–11",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 12,
+   "para_id": 3,
+   "bib_id": 11,
+   "marker": "11",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 13,
+   "para_id": 3,
+   "bib_id": 12,
+   "marker": "12",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 14,
+   "para_id": 3,
+   "bib_id": 10,
+   "marker": "10",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 15,
+   "para_id": 3,
+   "bib_id": 11,
+   "marker": "11",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 16,
+   "para_id": 3,
+   "bib_id": 13,
+   "marker": "13",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 17,
+   "para_id": 3,
+   "bib_id": 14,
+   "marker": "14",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 18,
+   "para_id": 3,
+   "bib_id": 15,
+   "marker": "15",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 19,
+   "para_id": 3,
+   "bib_id": 16,
+   "marker": "16",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 20,
+   "para_id": 4,
+   "bib_id": 17,
+   "marker": "17",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 21,
+   "para_id": 4,
+   "bib_id": 18,
+   "marker": "17–19",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 22,
+   "para_id": 4,
+   "bib_id": 19,
+   "marker": "19",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 23,
+   "para_id": 5,
+   "bib_id": 20,
+   "marker": "20",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 24,
+   "para_id": 6,
+   "bib_id": 21,
+   "marker": "21",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 25,
+   "para_id": 7,
+   "bib_id": 22,
+   "marker": "22",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 26,
+   "para_id": 7,
+   "bib_id": 23,
+   "marker": "23",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 27,
+   "para_id": 8,
+   "bib_id": 24,
+   "marker": "24",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 28,
+   "para_id": 8,
+   "bib_id": 25,
+   "marker": "25",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 29,
+   "para_id": 9,
+   "bib_id": 6,
+   "marker": "6",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 30,
+   "para_id": 9,
+   "bib_id": 26,
+   "marker": "26",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 31,
+   "para_id": 9,
+   "bib_id": 11,
+   "marker": "11",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 32,
+   "para_id": 9,
+   "bib_id": 27,
+   "marker": "27",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 33,
+   "para_id": 9,
+   "bib_id": 28,
+   "marker": "28",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 34,
+   "para_id": 9,
+   "bib_id": 29,
+   "marker": "29",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 35,
+   "para_id": 10,
+   "bib_id": 30,
+   "marker": "30",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 36,
+   "para_id": 11,
+   "bib_id": 31,
+   "marker": "31",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 37,
+   "para_id": 11,
+   "bib_id": 5,
+   "marker": "5",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 38,
+   "para_id": 12,
+   "bib_id": 32,
+   "marker": "32",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 39,
+   "para_id": 12,
+   "bib_id": 33,
+   "marker": "32–34",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 40,
+   "para_id": 12,
+   "bib_id": 34,
+   "marker": "34",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 41,
+   "para_id": 12,
+   "bib_id": 35,
+   "marker": "35",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 42,
+   "para_id": 12,
+   "bib_id": 36,
+   "marker": "36",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 43,
+   "para_id": 13,
+   "bib_id": 37,
+   "marker": "37",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 44,
+   "para_id": 13,
+   "bib_id": 38,
+   "marker": "37–39",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 45,
+   "para_id": 13,
+   "bib_id": 39,
+   "marker": "39",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 46,
+   "para_id": 13,
+   "bib_id": 35,
+   "marker": "35",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 47,
+   "para_id": 13,
+   "bib_id": 36,
+   "marker": "36",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 48,
+   "para_id": 14,
+   "bib_id": 40,
+   "marker": "40",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 49,
+   "para_id": 15,
+   "bib_id": 35,
+   "marker": "35",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 50,
+   "para_id": 15,
+   "bib_id": 36,
+   "marker": "36",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 51,
+   "para_id": 15,
+   "bib_id": 38,
+   "marker": "38",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 52,
+   "para_id": 15,
+   "bib_id": 39,
+   "marker": "39",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 53,
+   "para_id": 15,
+   "bib_id": 41,
+   "marker": "41",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 54,
+   "para_id": 15,
+   "bib_id": 42,
+   "marker": "42",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 55,
+   "para_id": 15,
+   "bib_id": 37,
+   "marker": "37",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 56,
+   "para_id": 15,
+   "bib_id": 38,
+   "marker": "37–39",
+   "expanded": true,
+   "scored": false
+  },
+  {
+   "cite_id": 57,
+   "para_id": 15,
+   "bib_id": 39,
+   "marker": "39",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 58,
+   "para_id": 15,
+   "bib_id": 41,
+   "marker": "41",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 59,
+   "para_id": 16,
+   "bib_id": 43,
+   "marker": "43",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 60,
+   "para_id": 16,
+   "bib_id": 8,
+   "marker": "8",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 61,
+   "para_id": 16,
+   "bib_id": 43,
+   "marker": "43",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 62,
+   "para_id": 16,
+   "bib_id": 15,
+   "marker": "15",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 63,
+   "para_id": 16,
+   "bib_id": 36,
+   "marker": "36",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 64,
+   "para_id": 16,
+   "bib_id": 44,
+   "marker": "44",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 65,
+   "para_id": 17,
+   "bib_id": 27,
+   "marker": "27",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 66,
+   "para_id": 17,
+   "bib_id": 11,
+   "marker": "11",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 67,
+   "para_id": 18,
+   "bib_id": 14,
+   "marker": "14",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 68,
+   "para_id": 18,
+   "bib_id": 15,
+   "marker": "15",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 69,
+   "para_id": 18,
+   "bib_id": 35,
+   "marker": "35",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 70,
+   "para_id": 19,
+   "bib_id": 24,
+   "marker": "24",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 71,
+   "para_id": 19,
+   "bib_id": 45,
+   "marker": "45",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 72,
+   "para_id": 20,
+   "bib_id": 21,
+   "marker": "21",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 73,
+   "para_id": 20,
+   "bib_id": 46,
+   "marker": "46",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 74,
+   "para_id": 21,
+   "bib_id": 7,
+   "marker": "7",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 75,
+   "para_id": 21,
+   "bib_id": 9,
+   "marker": "9",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 76,
+   "para_id": 21,
+   "bib_id": 39,
+   "marker": "39",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 77,
+   "para_id": 21,
+   "bib_id": 47,
+   "marker": "47",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 78,
+   "para_id": 21,
+   "bib_id": 48,
+   "marker": "48",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 79,
+   "para_id": 21,
+   "bib_id": 36,
+   "marker": "36",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 80,
+   "para_id": 22,
+   "bib_id": 49,
+   "marker": "49",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 81,
+   "para_id": 22,
+   "bib_id": 50,
+   "marker": "50",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 82,
+   "para_id": 22,
+   "bib_id": 51,
+   "marker": "51",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 83,
+   "para_id": 22,
+   "bib_id": 31,
+   "marker": "31",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 84,
+   "para_id": 23,
+   "bib_id": 24,
+   "marker": "24",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 85,
+   "para_id": 24,
+   "bib_id": 5,
+   "marker": "5",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 86,
+   "para_id": 24,
+   "bib_id": 31,
+   "marker": "31",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 87,
+   "para_id": 24,
+   "bib_id": 52,
+   "marker": "52",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 88,
+   "para_id": 25,
+   "bib_id": 40,
+   "marker": "40",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 89,
+   "para_id": 25,
+   "bib_id": 53,
+   "marker": "53",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 90,
+   "para_id": 25,
+   "bib_id": 54,
+   "marker": "54",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 91,
+   "para_id": 25,
+   "bib_id": 55,
+   "marker": "55",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 92,
+   "para_id": 26,
+   "bib_id": 40,
+   "marker": "40",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 93,
+   "para_id": 27,
+   "bib_id": 25,
+   "marker": "25",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 94,
+   "para_id": 28,
+   "bib_id": 56,
+   "marker": "56",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 95,
+   "para_id": 1,
+   "bib_id": 56,
+   "marker": "56",
+   "expanded": false,
+   "scored": true
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-ext-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "v1_bib_count": 56
+ }
+}

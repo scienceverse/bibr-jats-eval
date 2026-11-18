@@ -1,0 +1,781 @@
+{
+ "paper_id": "10.1038_s41467-026-74999-6",
+ "paras": [
+  {
+   "para_id": 1,
+   "loc": "back",
+   "sec_title": "",
+   "text": "Access to CPRD data is granted only after approval of a study protocol through CPRD’s Research Data Governance Process (https://www.cprd.com/research-applications). These data cannot be shared directly by the authors.",
+   "printed": true
+  },
+  {
+   "para_id": 2,
+   "loc": "back",
+   "sec_title": "",
+   "text": "The code for data processing and statistical analysis is available at: https://github.com/Zhengxian-Fan/target-trial-emulation. The code used to train the deep learning model is available at: https://github.com/deepmedicine/Targeted-BEHRT.",
+   "printed": true
+  },
+  {
+   "para_id": 3,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "In clinical research, randomised controlled trials (RCTs) are considered the gold standard for evaluating the efficacy and safety of medical interventions. However, the substantial resources, ethical considerations, and extended durations required often make RCTs impractical for assessing every potential effect of interventions across diverse patient populations. Consequently, there is a growing interest in alternative methodologies capable of deriving reliable causal inferences from observational data, despite their inherent susceptibility to various biases1.",
+   "printed": true
+  },
+  {
+   "para_id": 4,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Target trial emulation (TTE) is an increasingly adopted framework designed to apply the principles of RCTs to observational data. This approach involves specifying a hypothetical trial protocol with eligibility criteria, treatment strategies, outcomes, and follow-up periods. By aligning the start of follow-up (‘time zero’) with the point at which eligibility is met, and treatment assignment is determined, the framework establishes a common baseline across comparison groups and mitigates design-related biases, such as immortal time bias2. The UK’s National Institute for Health and Care Excellence (NICE) highlights TTE in its Real-World Evidence Framework, advocating its use to enhance both the rigour and transparency of observational investigations3.",
+   "printed": true
+  },
+  {
+   "para_id": 5,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Despite growing adoption and regulatory endorsement as a complement to RCTs, the ability of TTE to reproduce RCT findings remains disputable. Studies that have sought to emulate multiple trials have found that only around half of the emulations achieved results concordant with those of the original RCTs, even when studies fully specified the target trial4,5. In practice, however, many TTE studies cannot fully avoid the biases inherent in observational analyses. In one systematic review of TTE, 28% of TTE studies were judged to be at serious risk of bias, and none were classified as having a low risk of bias due to confounding6. This may itself be an underestimate, as publication bias may favour the reporting of concordant benchmarking studies once the corresponding RCT findings are known. Prospective TTE evaluations undertaken before publication of the corresponding RCT are uncommon, and in a recent prominent case, the later RCT findings differed from those of the earlier TTE report7,8.",
+   "printed": true
+  },
+  {
+   "para_id": 6,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Cognisant of the persistent risk of confounding in observational analyses conducted within the TTE framework, researchers have adopted a range of methods for causal inference6. Common approaches to adjust for confounding include propensity score matching (PSM) and inverse probability of treatment weighting (IPTW). While simple and widely applied, these approaches may be insufficient in the presence of complex confounding structures9. More advanced analytical techniques, including “doubly robust” estimators such as targeted maximum likelihood estimation (TMLE) and emerging deep learning-based (DL) causal inference models, have the potential to yield less biased estimates, particularly in the presence of confounding by indication when rich longitudinal data are available10,11. However, a systematic evaluation of such approaches within the TTE framework has not been reported.",
+   "printed": true
+  },
+  {
+   "para_id": 7,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "In this study, we addressed this gap through a detailed evaluation of the TTE methodology in the context of heart failure (HF), a complex clinical condition marked by considerable heterogeneity in comorbidities, clinical presentations, and disease trajectories, making it particularly challenging to obtain unbiased treatment effect estimates from observational data12. To evaluate the reliability of the TTE framework, we utilised positive and negative controls to benchmark its ability to replicate established RCT outcomes in HF. Hypothesising that more complex adjustment methods are more likely to mirror RCT results, we employed a range of adjustment methods, including traditional statistical techniques, such as PSM, IPTW, and TMLE, which depend on manual covariate specification, alongside emerging DL approaches that leverage high-dimensional electronic health record (EHR) data without pre-specification of covariates11.",
+   "printed": true
+  },
+  {
+   "para_id": 8,
+   "loc": "body",
+   "sec_title": "Results",
+   "text": "This study used the TTE framework with observational data to estimate the effects of beta-blockers and digoxin, compared with usual care, on all-cause mortality in patients with heart failure with reduced ejection fraction (HFrEF). RCTs have shown that beta-blockers improve survival in HFrEF13, making them a suitable positive control. By contrast, the DIG trial, the only major RCT of digoxin in HFrEF, showed no reduction in mortality14, making digoxin a suitable negative control.",
+   "printed": true
+  },
+  {
+   "para_id": 9,
+   "loc": "body",
+   "sec_title": "Benchmarking observational estimates against randomised trial results",
+   "text": "We also applied TMLE using the same covariate set; as a doubly robust estimator, TMLE models treatment assignment and outcome jointly and can provide consistent estimates if either the treatment model or the outcome model is correctly specified15. In parallel, we evaluated a Transformer-based DL approach that leverages the full pre-baseline longitudinal EHR sequence to learn latent representations of patient trajectories for predicting treatment and outcome11. By incorporating high-dimensional longitudinal information beyond manually specified covariates, this approach is intended to account for more complex confounding structures captured in routine care data. The DL estimator was implemented within the same doubly robust estimation framework as TMLE. For weighting-based estimators (IPTW, TMLE and DL), we applied Stürmer trimming at the 1st and 99th percentiles of the propensity score distribution in the main analysis to reduce the influence of extreme weights16. Further implementation details are provided in the “Methods”.",
+   "printed": true
+  },
+  {
+   "para_id": 10,
+   "loc": "body",
+   "sec_title": "Sensitivity and subgroup analyses",
+   "text": "Because DL models can be sensitive to class imbalance, particularly when non-initiators substantially outnumber initiators17, we implemented 1:20 treatment-to-control subsampling in the primary analysis to facilitate model training. We verified that DL estimates were stable across a range of sampling ratios from 1:5 to 1:20 (Supplementary Table 3).",
+   "printed": true
+  },
+  {
+   "para_id": 11,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Our findings add to a growing body of work evaluating the generalisability of TTE. The framework has previously been shown to replicate certain RCT results. For instance, it was first applied to demonstrate the protective effects of statins in preventing coronary heart disease18, and subsequent applications reproduced RCT findings in contexts such as paclitaxel chemotherapy for breast cancer19, statins for cancer prevention20, and timing of dialysis initiation in chronic kidney disease21. However, these early successes each focused on a single treatment-outcome scenario, leaving it unclear whether they reflect true generalisability or simply selective reporting. When multiple trials are emulated, agreement is mixed. In the RCT-DUPLICATE Initiative, which emulated a mix of active-comparator and placebo-controlled trials, only 6 of 10 emulations aligned with RCT findings despite rigorous efforts to mirror trial design4. A subsequent analysis of 32 emulated trials, which used active-comparator new-user designs with propensity score matching throughout, reinforced this variability, with only 56% of the emulations concordant with the original RCTs5. Both efforts relied on PSM as the sole method for confounding adjustment. In our study, even after incorporating “doubly robust” methods like TMLE and DL22, we still could not fully replicate RCT estimates. This suggests that the challenge lies not just in the choice of adjustment method, but in the underlying biases inherent in observational settings.",
+   "printed": true
+  },
+  {
+   "para_id": 12,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "A key contribution of this study is the systematic evaluation of treatment effect estimates produced by both traditional statistical methods and DL approaches within the TTE framework, as applied to a complex, multimorbid HF population. By leveraging routine clinical data, we provide empirical insights into the challenges of estimating treatment effects in HF populations. Despite regulatory and methodological endorsements of TTE as a path to RCT-equivalent estimates3,23, our findings underscore the ongoing challenges in adequately addressing confounding by indication within the TTE framework. This pattern remained evident even when ‘doubly robust’ adjustment methods such as TMLE and DL were used. The inability to reproduce the neutral mortality signal for digoxin is particularly instructive when viewed alongside contemporary clinical evidence. Digoxin was selected as a negative control on the basis of prior randomised trial evidence indicating no effect on all-cause mortality. More recently, the DIGIT-HF trial evaluated digitoxin, a closely related cardiac glycoside, compared with placebo. The trial reported a reduction in the composite endpoint of death or first hospitalisation for worsening HF, but no clear reduction in all-cause mortality (HR 0.86, 95% CI 0.69–1.07)24. Taken together, these findings suggest that cardiac glycosides may reduce HF morbidity without clear evidence of harm with respect to mortality. In contrast, our observational analyses consistently yielded elevated mortality estimates for digoxin. The divergence between contemporary trial findings and routine-care estimates reinforces the importance of randomised evidence in this setting and highlights that, even with advanced adjustment methods and comprehensive longitudinal data, deriving reliable treatment effect estimates remains challenging in complex HF populations.",
+   "printed": true
+  },
+  {
+   "para_id": 13,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Our simulation results demonstrate that when all relevant confounders are fully observed or reliably inferable, data-driven models can closely approximate the effects seen in randomised trials without manual covariate specification. When applied to real-world EHR data, however, the same approaches did not reproduce the trial benchmarks. This discordance suggests that in complex clinical settings like HF, strong indication biases persist, and important confounders remain unrecorded or not inferable from routine EHR data25, limiting the ability of current methods to generate reliable estimates even under the TTE framework. These issues are especially pronounced when comparing initiators with non-initiators; active-comparator designs may help alleviate some of these imbalances. Although TTE can improve transparency and reduce design-related and selection biases in observational research, it does not by itself resolve confounding by indication. The practical importance of this challenge may be under-appreciated in current emulation studies, especially when routine data do not fully capture the clinical factors underlying treatment decisions. Consequently, even carefully implemented TTEs may struggle when confounding by indication is strong or cannot be adequately addressed26.",
+   "printed": true
+  },
+  {
+   "para_id": 14,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "This study has several limitations. First, although CPRD Aurum is a representative cohort covering approximately 20% of the UK population, most patients lack recorded ejection fraction data. We therefore identified HFrEF mainly through diagnostic codes explicitly indicating reduced ejection fraction, which capture only around 10% of the HF population27. Second, although CPRD contains rich clinical data, some structured indicators of HF severity, such as the New York Heart Association (NYHA) functional classification, are missing for over 95% of patients and were therefore not included as covariates. However, HF severity is likely to be proxied through other routinely documented factors in the EHR28. Third, we benchmarked against placebo-controlled trials only. Such emulations are especially vulnerable to confounding by indication and may be less robust than active-comparator designs, which compare patients initiating alternative therapies at a more similar point in the clinical decision process29. Fourth, we did not conduct extensive subgroup analyses because the primary emulations were not consistent with the benchmark RCT findings, which limited the value of further subgroup analyses. Finally, the estimands differ across methods. PSM restricts the analysis to treated patients and their matched control patients, IPTW and TMLE reweight individuals (with trimming), and the deep learning approach uses subsampling. Consequently, the effect estimates from these approaches are not directly comparable, as each method effectively targets a slightly different population. Differences in effect estimates across methods should therefore not be interpreted as differences in methodological performance, but may in part reflect variation in the underlying target population and potential effect heterogeneity.",
+   "printed": true
+  },
+  {
+   "para_id": 15,
+   "loc": "body",
+   "sec_title": "Data sources",
+   "text": "This research complies with all relevant ethical regulations. The observational data used in this study were sourced from the CPRD Aurum, a primary care database covering approximately 20% of the UK population30. CPRD contains comprehensive data on demographics, diagnoses, prescriptions, laboratory results, and lifestyle factors. It is linked to Hospital Episode Statistics (HES) and the Office for National Statistics (ONS), which provide secondary-care and mortality records, enhancing outcome ascertainment and cohort completeness31. The CPRD has ethical approval from the National Research Ethics Service Committee (research ethics committee reference 21/EM/0265) for observational research using anonymised CPRD data. This research was conducted using the CPRD Aurum resource under protocol number 20_095, approved by the CPRD Independent Scientific Advisory Committee. Data use complied with all requirements of the data provider. Informed consent was not required, as CPRD provides de-identified, routinely collected data approved for research use without individual consent.",
+   "printed": true
+  },
+  {
+   "para_id": 16,
+   "loc": "body",
+   "sec_title": "Target trial emulation protocol",
+   "text": "In this study, we specified the TTE protocol in accordance with the TARGET guideline32. We emulated a series of monthly hypothetical trials for beta-blockers and digoxin. A new round of participant recruitment was initiated at the beginning of each month over a 60-month period, from January 1, 2010, to January 1, 2015. Each monthly enrolment period was treated as an independent trial, and participants were assigned to treatment strategies based on their treatment initiation status during that specific month. We summarised the key components of the target-trial protocol (Supplementary Tables 1, 2) and described them in detail below.",
+   "printed": true
+  },
+  {
+   "para_id": 17,
+   "loc": "body",
+   "sec_title": "Eligibility criteria",
+   "text": "Participants were eligible if they had a recorded diagnosis of HFrEF in primary or secondary care before enrolment, identified through clinical codes or a most recent recorded left ventricular ejection fraction (LVEF) of <40%. The code list for identifying HFrEF was sourced from a population-based study of HF subtypes conducted within the CPRD27.",
+   "printed": true
+  },
+  {
+   "para_id": 18,
+   "loc": "body",
+   "sec_title": "Eligibility criteria",
+   "text": "To ensure adequate ascertainment of baseline covariates and to implement a one-year washout period for prior treatment exposure, we required at least one year of continuous registration with a general practice before enrolment. Individuals were excluded if they had received a prescription for the target drug during the 12 months preceding enrolment. To align the emulated cohorts with the selection criteria and age distribution of the corresponding benchmark RCTs13,14, age requirements were specified separately for each treatment. For the beta-blocker emulation, we restricted eligibility to individuals aged 40–80 years to match the benchmark trial criteria. For the digoxin emulation, although the original DIG trial enrolled adults aged 21 years and older, only a small proportion of participants were older than 80 years33. Because routine care includes a greater proportion of very elderly patients with HF than the trial population, directly applying the original age criterion would have produced a less comparable age distribution. We therefore applied an age restriction of 35–85 years for the digoxin emulation. Individuals could contribute to multiple trials if they met eligibility criteria at more than one enrolment period18,20. No statistical method was used to predetermine sample size; all individuals meeting the eligibility criteria during the enrolment window were included.",
+   "printed": true
+  },
+  {
+   "para_id": 19,
+   "loc": "body",
+   "sec_title": "Covariate selection and missing data",
+   "text": "For statistical approaches, confounding adjustment required pre-specification of baseline covariates. We included 39 variables encompassing demographic characteristics, clinical measurements, comorbidities and medication history as detailed in Table 1, together with geographical region and year of trial enrolment. Covariate selection was informed by prior observational studies in HF34.",
+   "printed": true
+  },
+  {
+   "para_id": 20,
+   "loc": "body",
+   "sec_title": "Covariate selection and missing data",
+   "text": "Missing data were handled using multivariate imputation by chained equations (MICE), generating five imputed datasets over ten iterations35. Imputation models included all observed covariates, the mortality outcome, and the logarithm of time-to-event. Treatment effect estimates were calculated separately within each imputed dataset and pooled using Rubin’s rules36.",
+   "printed": true
+  },
+  {
+   "para_id": 21,
+   "loc": "body",
+   "sec_title": "Covariate selection and missing data",
+   "text": "All effect estimates are reported with two-sided 95% confidence intervals. Because the sequential TTE framework allowed individuals to contribute to multiple monthly trials, confidence intervals were estimated using cluster-robust variance estimators clustered at the patient level to account for intra-individual correlation37.",
+   "printed": true
+  },
+  {
+   "para_id": 22,
+   "loc": "body",
+   "sec_title": "Propensity score matching",
+   "text": "Propensity score matching is a statistical technique commonly used in observational studies to reduce confounding bias when estimating treatment effects38. It involves matching treated and untreated individuals based on their propensity score, defined as the probability of receiving treatment conditional on observed baseline covariates. This approach creates a balanced cohort in terms of baseline covariates that mimics randomisation. However, PSM can lead to a reduction in the overall sample size, potentially diminishing the statistical power of the findings, and depending on matching stringency, may shift the target population and reduce generalisability39.",
+   "printed": true
+  },
+  {
+   "para_id": 23,
+   "loc": "body",
+   "sec_title": "Inverse probability of treatment weighting",
+   "text": "Inverse probability of treatment weighting adjusts for confounding by assigning weights to individuals based on the inverse of their probability of receiving the treatment they actually received40. This weighting creates a pseudo-population in which measured confounders are more balanced across groups, facilitating less biased estimation of treatment effects. A known limitation of IPTW is its sensitivity to extreme propensity scores (close to 0 or 1), which can result in large weights and thus produce unstable estimates with inflated variance.",
+   "printed": true
+  },
+  {
+   "para_id": 24,
+   "loc": "body",
+   "sec_title": "Inverse probability of treatment weighting",
+   "text": "We estimated the propensity scores via logistic regression, then calculated the IPTW weights. To enhance weight stability and reduce variance inflation, we applied stabilised IPTW, which multiplies the original IPTW weights by the marginal probability of receiving the observed treatment41. Additionally, we implemented Stürmer trimming to exclude individuals with propensity scores below the 1st percentile in the treated group or above the 99th percentile in the control group16. Hazard ratios were estimated by fitting a weighted Cox proportional hazards regression of mortality on treatment, with weights set to the stabilised IPTW weights.",
+   "printed": true
+  },
+  {
+   "para_id": 25,
+   "loc": "body",
+   "sec_title": "Targeted maximum likelihood estimation",
+   "text": "Targeted maximum likelihood estimation is a doubly robust method that generates treatment effect estimates by fitting both a treatment model and an outcome model, then applying a targeted update to the outcome estimates using the treatment estimates15. This targeted step reduces bias in the effect estimate while maintaining control over variance. TMLE is considered doubly robust because it yields consistent estimates if either the treatment model or the outcome model is correctly specified. TMLE’s performance can be compromised when both models are mis-specified.",
+   "printed": true
+  },
+  {
+   "para_id": 26,
+   "loc": "body",
+   "sec_title": "Deep learning with TMLE",
+   "text": "Transformer-based deep learning models can automatically learn rich, high-dimensional patient representations from raw EHR data42, capturing both measured covariates and latent patterns that may reflect unmeasured confounding. The Targeted Bidirectional Electronic Health Records Transformer (T-BEHRT) builds on the Transformer architecture and uses these representations to estimate propensity scores and outcome probabilities11. By combining DL-based estimations with TMLE, T-BEHRT eliminates the need for manual covariate selection and provides doubly robust causal estimates using EHR data. It has been applied to assess associations between antihypertensive treatments and cancer, and between paracetamol use and cardiovascular events43.",
+   "printed": true
+  },
+  {
+   "para_id": 27,
+   "loc": "body",
+   "sec_title": "Deep learning with TMLE",
+   "text": "In this study, T-BEHRT estimated treatment and outcome probabilities using health records up to each participant’s baseline date. We applied the same propensity score trimming approach as used for IPTW and utilised cross-validated TMLE to derive risk ratios. Because deep learning models often struggle with highly imbalanced datasets and tend to favour the majority class17, we implemented subsampling by randomly selecting 20 controls for each treated patient to improve model training and ensure fair comparisons. Details of model training are provided in Supplementary Methods: Deep learning.",
+   "printed": true
+  },
+  {
+   "para_id": 28,
+   "loc": "body",
+   "sec_title": "Sensitivity analysis",
+   "text": "We performed a range of sensitivity analyses to assess the robustness of our findings. First, we varied the trimming threshold (from the 1st to the 10th percentile) and experimented with different control subsampling ratios (1:5 to 1:20) to evaluate their impact on the effect estimates. Second, there is potential heterogeneity among individuals with and without AF44, so we performed stratified analyses by AF status for both drugs. In addition, we visualised the propensity score distributions from both the logistic regression and DL models in probability density plots and compared the covariate profiles before and after matching to aid interpretation.",
+   "printed": true
+  },
+  {
+   "para_id": 29,
+   "loc": "body",
+   "sec_title": "Semi-synthetic simulation",
+   "text": "To systematically evaluate the robustness of each adjustment method under varying levels of confounding, we performed a semi-synthetic simulation11 that generated treatment assignments and outcomes based on the empirical distribution of baseline covariates in the beta-blockers cohort. Five chronic conditions (hypertension, diabetes, ischaemic heart disease, thyroid disorder, and COPD) were specified as confounders. Details of the simulation procedure and the coefficients defining the degree of confounding for each condition are reported in Supplementary Methods: Simulation.",
+   "printed": true
+  }
+ ],
+ "links": [
+  {
+   "link_id": 1,
+   "url": "cprd.com/research-applications",
+   "url_raw": "https://www.cprd.com/research-applications",
+   "href_jats": "https://www.cprd.com/research-applications",
+   "repo_key": null,
+   "host_class": "other",
+   "loc": "back",
+   "sec_title": "",
+   "source": "tagged",
+   "para_id": 1
+  },
+  {
+   "link_id": 2,
+   "url": "github.com/zhengxian-fan/target-trial-emulation",
+   "url_raw": "https://github.com/Zhengxian-Fan/target-trial-emulation",
+   "href_jats": "https://github.com/Zhengxian-Fan/target-trial-emulation",
+   "repo_key": "github:zhengxian-fan/target-trial-emulation",
+   "host_class": "github",
+   "loc": "back",
+   "sec_title": "",
+   "source": "tagged",
+   "para_id": 2
+  },
+  {
+   "link_id": 3,
+   "url": "github.com/deepmedicine/targeted-behrt",
+   "url_raw": "https://github.com/deepmedicine/Targeted-BEHRT",
+   "href_jats": "https://github.com/deepmedicine/Targeted-BEHRT",
+   "repo_key": "github:deepmedicine/targeted-behrt",
+   "host_class": "github",
+   "loc": "back",
+   "sec_title": "",
+   "source": "tagged",
+   "para_id": 2
+  }
+ ],
+ "links_optional": [
+  "creativecommons.org/licenses/by/4.0",
+  "doi:10.1001/jama.2014.15241",
+  "doi:10.1001/jama.2023.4221",
+  "doi:10.1001/jama.2025.13350",
+  "doi:10.1002/pds.4325",
+  "doi:10.1002/pds.5135",
+  "doi:10.1002/sim.3697",
+  "doi:10.1007/s40471-015-0053-5",
+  "doi:10.1016/j.annepidem.2023.06.004",
+  "doi:10.1016/j.cjca.2015.05.015",
+  "doi:10.1016/j.ebiom.2025.105657",
+  "doi:10.1016/j.eclinm.2023.102164",
+  "doi:10.1016/j.jclinepi.2016.04.014",
+  "doi:10.1016/s0140-6736(14)61373-8",
+  "doi:10.1016/s0140-6736(20)30930-2",
+  "doi:10.1016/s0735-1097(01)01442-5",
+  "doi:10.1016/s0735-1097(97)00104-6",
+  "doi:10.1016/s2214-109x(23)00408-4",
+  "doi:10.1038/s41467-026-74999-6",
+  "doi:10.1038/s41591-019-0597-x",
+  "doi:10.1038/s41746-025-02296-5",
+  "doi:10.1056/nejm199702203360801",
+  "doi:10.1056/nejmoa2407791",
+  "doi:10.1056/nejmoa2415471",
+  "doi:10.1080/01621459.1989.10478874",
+  "doi:10.1093/aje/kwq198",
+  "doi:10.1093/aje/kwq439",
+  "doi:10.1093/aje/kwv254",
+  "doi:10.1093/biomet/70.1.41",
+  "doi:10.1093/ckj/sfab158",
+  "doi:10.1093/eurheartj/ehad535",
+  "doi:10.1093/eurheartj/ehz395",
+  "doi:10.1093/ije/dyz034",
+  "doi:10.1093/jnci/djad092",
+  "doi:10.1097/ede.0000000000001636",
+  "doi:10.1109/tnnls.2022.3183864",
+  "doi:10.1111/j.1524-4733.2009.00671.x",
+  "doi:10.1136/bmj-2021-066306",
+  "doi:10.1136/bmj-2022-071108",
+  "doi:10.1136/bmj.b2393",
+  "doi:10.1136/bmjopen-2024-086595",
+  "doi:10.1161/circulationaha.120.051718",
+  "doi:10.1177/0962280211403603",
+  "doi:10.1186/s40537-019-0192-5",
+  "doi:10.18637/jss.v045.i03"
+ ],
+ "own_doi": "doi:10.1038/s41467-026-74999-6",
+ "citations": [
+  {
+   "cite_id": 1,
+   "para_id": 3,
+   "bib_id": 1,
+   "marker": "1",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 2,
+   "para_id": 4,
+   "bib_id": 2,
+   "marker": "2",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 3,
+   "para_id": 4,
+   "bib_id": 3,
+   "marker": "3",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 4,
+   "para_id": 5,
+   "bib_id": 4,
+   "marker": "4",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 5,
+   "para_id": 5,
+   "bib_id": 5,
+   "marker": "5",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 6,
+   "para_id": 5,
+   "bib_id": 6,
+   "marker": "6",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 7,
+   "para_id": 5,
+   "bib_id": 7,
+   "marker": "7",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 8,
+   "para_id": 5,
+   "bib_id": 8,
+   "marker": "8",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 9,
+   "para_id": 6,
+   "bib_id": 6,
+   "marker": "6",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 10,
+   "para_id": 6,
+   "bib_id": 9,
+   "marker": "9",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 11,
+   "para_id": 6,
+   "bib_id": 10,
+   "marker": "10",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 12,
+   "para_id": 6,
+   "bib_id": 11,
+   "marker": "11",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 13,
+   "para_id": 7,
+   "bib_id": 12,
+   "marker": "12",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 14,
+   "para_id": 7,
+   "bib_id": 11,
+   "marker": "11",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 15,
+   "para_id": 8,
+   "bib_id": 13,
+   "marker": "13",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 16,
+   "para_id": 8,
+   "bib_id": 14,
+   "marker": "14",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 17,
+   "para_id": 9,
+   "bib_id": 15,
+   "marker": "15",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 18,
+   "para_id": 9,
+   "bib_id": 11,
+   "marker": "11",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 19,
+   "para_id": 9,
+   "bib_id": 16,
+   "marker": "16",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 20,
+   "para_id": 10,
+   "bib_id": 17,
+   "marker": "17",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 21,
+   "para_id": 11,
+   "bib_id": 18,
+   "marker": "18",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 22,
+   "para_id": 11,
+   "bib_id": 19,
+   "marker": "19",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 23,
+   "para_id": 11,
+   "bib_id": 20,
+   "marker": "20",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 24,
+   "para_id": 11,
+   "bib_id": 21,
+   "marker": "21",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 25,
+   "para_id": 11,
+   "bib_id": 4,
+   "marker": "4",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 26,
+   "para_id": 11,
+   "bib_id": 5,
+   "marker": "5",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 27,
+   "para_id": 11,
+   "bib_id": 22,
+   "marker": "22",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 28,
+   "para_id": 12,
+   "bib_id": 3,
+   "marker": "3",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 29,
+   "para_id": 12,
+   "bib_id": 23,
+   "marker": "23",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 30,
+   "para_id": 12,
+   "bib_id": 24,
+   "marker": "24",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 31,
+   "para_id": 13,
+   "bib_id": 25,
+   "marker": "25",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 32,
+   "para_id": 13,
+   "bib_id": 26,
+   "marker": "26",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 33,
+   "para_id": 14,
+   "bib_id": 27,
+   "marker": "27",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 34,
+   "para_id": 14,
+   "bib_id": 28,
+   "marker": "28",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 35,
+   "para_id": 14,
+   "bib_id": 29,
+   "marker": "29",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 36,
+   "para_id": 15,
+   "bib_id": 30,
+   "marker": "30",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 37,
+   "para_id": 15,
+   "bib_id": 31,
+   "marker": "31",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 38,
+   "para_id": 16,
+   "bib_id": 32,
+   "marker": "32",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 39,
+   "para_id": 17,
+   "bib_id": 27,
+   "marker": "27",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 40,
+   "para_id": 18,
+   "bib_id": 13,
+   "marker": "13",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 41,
+   "para_id": 18,
+   "bib_id": 14,
+   "marker": "14",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 42,
+   "para_id": 18,
+   "bib_id": 33,
+   "marker": "33",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 43,
+   "para_id": 18,
+   "bib_id": 18,
+   "marker": "18",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 44,
+   "para_id": 18,
+   "bib_id": 20,
+   "marker": "20",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 45,
+   "para_id": 19,
+   "bib_id": 34,
+   "marker": "34",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 46,
+   "para_id": 20,
+   "bib_id": 35,
+   "marker": "35",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 47,
+   "para_id": 20,
+   "bib_id": 36,
+   "marker": "36",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 48,
+   "para_id": 21,
+   "bib_id": 37,
+   "marker": "37",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 49,
+   "para_id": 22,
+   "bib_id": 38,
+   "marker": "38",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 50,
+   "para_id": 22,
+   "bib_id": 39,
+   "marker": "39",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 51,
+   "para_id": 23,
+   "bib_id": 40,
+   "marker": "40",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 52,
+   "para_id": 24,
+   "bib_id": 41,
+   "marker": "41",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 53,
+   "para_id": 24,
+   "bib_id": 16,
+   "marker": "16",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 54,
+   "para_id": 25,
+   "bib_id": 15,
+   "marker": "15",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 55,
+   "para_id": 26,
+   "bib_id": 42,
+   "marker": "42",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 56,
+   "para_id": 26,
+   "bib_id": 11,
+   "marker": "11",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 57,
+   "para_id": 26,
+   "bib_id": 43,
+   "marker": "43",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 58,
+   "para_id": 27,
+   "bib_id": 17,
+   "marker": "17",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 59,
+   "para_id": 28,
+   "bib_id": 44,
+   "marker": "44",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 60,
+   "para_id": 29,
+   "bib_id": 11,
+   "marker": "11",
+   "expanded": false,
+   "scored": true
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-ext-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "v1_bib_count": 44
+ }
+}

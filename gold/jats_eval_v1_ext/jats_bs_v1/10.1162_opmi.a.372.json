@@ -1,0 +1,2572 @@
+{
+ "paper_id": "10.1162_opmi.a.372",
+ "paras": [
+  {
+   "para_id": 1,
+   "loc": "body",
+   "sec_title": "Materials",
+   "text": "Additionally, to control the cloze predictability of experimental sentences as a potential confound of N400 signals (Frank et al., 2015; Michaelov et al., 2024), their surprisal values were calculated using a pretrained GPT-2 model from HuggingFace and a library provided by Remo Nitschke (University of Zurich; https://github.com/remo-help/surprisal_from_llm). We obtained the surprisal values of each word of our experimental sentences as the sentence unfolds. We compared the surprisal values of experimental sentences across the three conditions and found no notable differences among them either in the verb region (βˆAgent-Patient = −0.16, SE = 0.46, 95% CrI = [−1.05, 0.74]; βˆAgent-Experiencer = 0.41, SE = 0.46, 95% CrI = [−0.50, 1.32]; βˆExperiencer-Patient = −0.55, SE = 0.45, 95% CrI = [−1.44, 0.33]), or in the post-verb region (βˆAgent-Patient = −0.22, SE = 0.32, 95% CrI = [−0.85, 0.39]; βˆAgent-Experiencer = 0.27, SE = 0.32, 95% CrI = [−0.36, 0.90]; βˆExperiencer-Patient = −0.49, SE = 0.32, 95% CrI = [−1.11, 0.14]).",
+   "printed": true
+  },
+  {
+   "para_id": 2,
+   "loc": "body",
+   "sec_title": "DATA AVAILABILITY STATEMENT",
+   "text": "The data, analysis scripts, materials, and appendices can be accessed at the following OSF repository: https://osf.io/t9zer/overview?view_only=182b23f8871f4205ba256ac9b13cdc0c.",
+   "printed": true
+  },
+  {
+   "para_id": 3,
+   "loc": "body",
+   "sec_title": "",
+   "text": "FUNDING INFORMATIONThis work was supported by the University of the Basque Country (to Marta Sánchez-López) under Grant PIF21/263; by Grants PID2022-142167NB-I00 (to Marta Sánchez-López) and PID2024-156359NB-I00 (to Mikel Santesteban) funded by MICIU/AEI/10.13039/501100011033 and by ERDF A way of making Europe; and by the Basque Government (to Marta Sánchez-López and Mikel Santesteban) under Grants IT1439-22 and IT1962-26.",
+   "printed": true
+  },
+  {
+   "para_id": 4,
+   "loc": "body",
+   "sec_title": "INTRODUCTION",
+   "text": "Event roles describe the functions that participants fulfil within an event. For example, in the sentence “Mary danced,” Mary is categorized as an agent, whereas in “Mary stumbled,” it is identified as a patient. In “Mary had fun,” Mary is categorized as an experiencer, a role distinct from agent and patient (Levin, 1993). There is extensive psycholinguistic evidence for agent and patient roles as two distinct role categories with specific processing correlates (Rissman & Majid, 2019). However, there is no such evidence for the experiencer role. Here, we investigate the processing correlates of these types of arguments to specify whether they have distinct processing correlates from agents and patients.",
+   "printed": true
+  },
+  {
+   "para_id": 5,
+   "loc": "body",
+   "sec_title": "INTRODUCTION",
+   "text": "Many theoretical approaches have proposed a range of event roles (e.g., agent, experiencer, theme, patient, etc.) with no agreement on how many event roles there are or on their nature (Dowty, 1991; Levin & Rappaport Hovav, 2005; Newmeyer, 2010). Fillmore (1968) initially introduced a set of event roles including agentive, instrument, dative, factitive, locative, and objective. Later, he extended this list to include roles such as experiencer, source, goal, place, and time (Fillmore, 1971). Jackendoff (1990) proposed an alternative inventory comprising actor, patient, theme, goal, source, location, and benefactive, excluding the experiencer role, previously proposed. In contrast, Ramchand (2008) advocated for a smaller set with initiator, undergoer, and resultee. Dowty and Van Valin and collaborators opted for an even shorter set of event roles, proposing two: proto-agent and proto-patient (Dowty, 1991), or actor and undergoer (Van Valin, 1999, 2004; Van Valin & LaPolla, 1997).",
+   "printed": true
+  },
+  {
+   "para_id": 6,
+   "loc": "body",
+   "sec_title": "INTRODUCTION",
+   "text": "Regarding the nature of event roles, Fillmore (1968, 1971) argued that event roles are discrete and non-decomposable categories. As such, the different categories of event roles do not share properties, since they are not decomposed into smaller features. Other authors such as Reinhart (2000, 2002) or Rozwadowska (1988, 1989), however, claimed that event roles are decomposed into semantic features. For example, the agent role is characterized by the feature of cause change and mental state/sentience, whereas the experiencer is characterized by the feature of mental state/sentience. Dowty (1991) followed this line of reasoning claiming that proto-roles are decomposed into semantic entailments: proto-agents are characterized by the entailments of causation, sentience, volition, and movement, whereas proto-patients by the entailments of change of state, incremental theme, being causally affected, and stationary. Van Valin (1999, 2004) and Van Valin and LaPolla (1997) based the macrorole approach on decomposition of individual verbs, instead on event role decomposition. He proposed that the macroroles actor and undergoer are generalizations over verb-specific roles (i.e., agent, experiencer, theme, etc.). Overall, these differences reflect the lack of agreement on the number and nature of event roles, questioning the existence of the experiencer role within the event role repertoire.",
+   "printed": true
+  },
+  {
+   "para_id": 7,
+   "loc": "body",
+   "sec_title": "INTRODUCTION",
+   "text": "Psycholinguistic research has provided strong evidence that agent and patient roles are core knowledge categories, revealing a universal bias to distinguish both (Rissman & Majid, 2019). Numerous studies found a strong agent preference in language comprehension (Bornkessel-Schlesewsky & Schlesewsky, 2009; Frenzel et al., 2015; Gómez-Vidal et al., 2022; Isasi-Isasmendi et al., 2024), revealing an attentional preference toward agents (Gómez-Vidal et al., 2022), and a preference to transiently interpret the first unmarked noun in a sentence as an agent crosslinguistically (Bickel et al., 2015; Bisang et al., 2013; Bornkessel & Schlesewsky, 2006; Erdocia et al., 2009; Frenzel et al., 2015; Huang et al., 2013; Isasi-Isasmendi et al., 2024; Laka & Erdozia, 2012; Lamers, 2012; Sauppe et al., 2023; Vela-Plo et al., 2022). All these results align with the agent preference hypothesis which proposes a cognitive preference toward agents over patients (Bornkessel-Schlesewsky & Schlesewsky, 2009; Frenzel et al., 2015; Gómez-Vidal et al., 2022; Isasi-Isasmendi et al., 2023, 2024; Sauppe et al., 2023; Vela-Plo et al., 2022), potentially shared with non-human apes (Brocard et al., 2024, 2025; V. A. D. Wilson et al., 2022, 2024).",
+   "printed": true
+  },
+  {
+   "para_id": 8,
+   "loc": "body",
+   "sec_title": "INTRODUCTION",
+   "text": "Gómez-Vidal et al. (2022) tested the processing of sentences with either agent or patient subjects preceding the verb. They used the Visual World Paradigm, where Spanish native speakers were instructed to listen to sentences while looking at four different images on the screen. One of the images was semantically related to the subject of the sentence, while the others were distractors semantically unrelated. When listening to the verb and the post-verb regions of the sentence, participants produced more looks to semantically related images in the agent condition than in the patient condition. They interpreted this finding as a greater magnitude of reactivation of agents compared to patients, suggesting a larger attention paid to agents compared to patients. This result reflects an attentional preference to fixate agents compared to patients, aligning with the agent preference hypothesis.",
+   "printed": true
+  },
+  {
+   "para_id": 9,
+   "loc": "body",
+   "sec_title": "INTRODUCTION",
+   "text": "Different processing correlates between agents and patients have also been found in EEG reading tasks, particularly an N400 effect toward patient disambiguation when encountering ambiguous arguments. Haupt et al. (2008) investigated the reanalysis of arguments in verb-final transitive sentences in German. They included (1.a) agent-initial complement clauses and (1.b) patient-initial complement clauses:(1) a. … dass Bertram Surferinnen gratuliert hat. that Bertram surfersFEM.PL congratulated AuxSG “that Bertram congratulated surfers.” b. … dass Bertram Surferinnen gratuliert haben. that Bertram surfersFEM.PL congratulated AuxPL “that surfers congratulated Bertram.”The first noun of both sentence types (Bertram) was case marked ambiguously, being both agent and patient possible interpretations, until participants read the verb. Their results revealed an N400 component for disambiguation toward the patient at the verb region.",
+   "printed": true
+  },
+  {
+   "para_id": 10,
+   "loc": "body",
+   "sec_title": "INTRODUCTION",
+   "text": "In Basque, Isasi-Isasmendi et al. (2024) investigated the previously observed agent preference in intransitive sentences, ruling out confounds from transitivity and syntactic subject vs. object asymmetries. In an EEG reading task, Native Basque speakers were asked to read intransitive sentences presented word-by-word. The arguments could be either agent or patient, with ambiguous and unambiguous case making. They found that disambiguation toward patients compared to agents elicited an N400 component over central and posterior electrodes, along with a decrease in power in the alpha and low-beta bands. They interpreted this power decrease as revision of unexpected readings and the N400 component as a recategorization of the event role category due to the agent preference hypothesis. This N400 component linked to the agent preference is also found in languages that prefer to place patients before agents, as Äiwoo (Sauppe et al., 2023), and languages where patients typically occur without case-marking, as in Hindi (Bickel et al., 2015). A comparative re-analysis of the German, Basque, and Hindi observations showed that the N400 signal can only be well-predicted by models that include an explicit agent preference, in addition to the lexical surprisal estimates that are commonly associated with this signal (Huber et al., 2024).",
+   "printed": true
+  },
+  {
+   "para_id": 11,
+   "loc": "body",
+   "sec_title": "INTRODUCTION",
+   "text": "Furthermore, there is psycholinguistic evidence in favor of a semantic decomposition of event roles. Kako (2006) investigated whether event roles are decomposed into primitive elements. Through several experiments, participants were asked to rate proto-role entailments (Dowty, 1991) of subjects and objects using both real and nonsense verbs in English. With both verb types, participants rated subjects as more proto-agent-like than objects, and objects as more proto-patient-like than subjects. In addition, he also observed that English speakers relied more on proto-role entailments for subject and object identification than on other semantic properties, such as “can make noise”. Rissman and Lupyan (2022) also asked English speakers to induce agent and patient role categories, but from visual stimuli representing events. They found that the entailment of volition was the most reliable entailment for the identification of event roles. Using structural priming tasks during the production of Italian sentences, Vernice and Hartsuiker (2019) also found that proto-agent entailments were associated with subjects and proto-patient entailments with objects: participants produced more active structures when patients entailed more proto-patient entailments than proto-agent ones, and more passives when patients entailed more proto-agent entailments. Together, these findings provide evidence that proto-role entailments (Dowty, 1991) have a psychological reality contributing to the identification and assignment of subjects and objects.",
+   "printed": true
+  },
+  {
+   "para_id": 12,
+   "loc": "body",
+   "sec_title": "INTRODUCTION",
+   "text": "Despite the strong and reliable evidence for agent and patient roles, there is no evidence for the experiencer role as a specific role category within the event role repertoire. The majority of previous psycholinguistic research that investigated the processing of structures with experiencer role (Bidgood et al., 2020; Bornkessel et al., 2002, 2003; Brennan & Pylkkänen, 2010; Cupples, 2002; Do & Kaiser, 2022; Ferreira, 1994; Gattei, Dickey, et al., 2015; Gattei, Tabullo, et al., 2015; Gennari & MacDonald, 2009; Manouilidou et al., 2009; Manouilidou & de Almeida, 2013; Thompson & Lee, 2009; M. Wilson & Dillon, 2022) did not query whether the experiencer role is an independent category, different from agent and patient roles (Fillmore, 1971), or whether these argument types fit into the proto-agent category (Dowty, 1991). These studies focused on the processing correlates of frighten-type verbs due to their syntactic property of mapping the experiencer role onto the object position (e.g., Mary frightened KateEXPERIENCER). They found that frighten-type verbs involve higher processing cost than both fear-type verbs (e.g., KateEXPERIENCER feared Mary) (Do & Kaiser, 2022; M. Wilson & Dillon, 2022), and agent-patient verbs (e.g., KateAGENT hit Mary) (Bornkessel et al., 2002, 2003; Brennan & Pylkkänen, 2010; Ferreira, 1994; Gattei, Tabullo, et al., 2015). Interestingly, previous studies found no processing differences between fear-type and agent-patient verbs (Gennari & Poeppel, 2003; Katsika et al., 2012; Ma et al., 2023), with both verb types mapping experiencer and agent respectively onto the subject position.",
+   "printed": true
+  },
+  {
+   "para_id": 13,
+   "loc": "body",
+   "sec_title": "INTRODUCTION",
+   "text": "According to the proto-role approach (Dowty, 1991), there is no category of experiencer role, since event roles are categorized in two broad categories: proto-agent and proto-patient roles. This hypothesis aligns with previous psycholinguistic evidence. Arguments with proto-agent entailments (i.e., causation, sentience, volition, and movement) fit within the proto-agent category, and arguments with proto-patient entailments (i.e., change of state, incremental theme, being causally affected, and stationary) within the proto-patient category. Based on the Argument Selection Principle (Dowty, 1991, p. 576), the argument that exhibits the greatest number of proto-agent entailments becomes the subject. This principle entails that arguments may have different degrees of membership into a proto-role. For example, in Mary built the house, Mary exhibits all proto-agent entailments, whereas in Mary loved the house, Mary only has the proto-agent entailment of sentience. Hence, experiencer-arguments are proto-agents characterized exclusively by the proto-agent entailment of sentience; so that they are not prototypical proto-agents.",
+   "printed": true
+  },
+  {
+   "para_id": 14,
+   "loc": "body",
+   "sec_title": "INTRODUCTION",
+   "text": "Sánchez-López (2026) asked directly whether the experiencer role has similar processing correlates to agents and different correlates from patients due to their proto-agent entailment of sentience. She conducted an eye-tracking reading task where Spanish speakers were instructed to read transitive sentences with different argument structures: (i) experiencer-patient, (ii) agent-experiencer, and (iii) agent-patient. Results revealed that agent-experiencer structures involved longer fixation times than agent-patient and experiencer-patient structures at the verb and post-verb regions. This result was interpreted as evidence of the proto-role approach (Dowty, 1991): agent-experiencer structures have two arguments with proto-agent entailments causing a competition for subject assignment as both arguments are possible candidates for subjecthood.",
+   "printed": true
+  },
+  {
+   "para_id": 15,
+   "loc": "body",
+   "sec_title": "INTRODUCTION",
+   "text": "Here, we further investigate the processing correlates of experiencer arguments by asking whether they display specific processing correlates, as agents and patients do, or whether they show similar processing correlates to agents and different ones from patients due to their proto-agent entailment, based on the proto-role approach (Dowty, 1991). These comparisons are crucial for better understanding how broad the repertoire of event roles is, and for gaining deeper insight into the mechanisms underlying the syntax-semantics interface.",
+   "printed": true
+  },
+  {
+   "para_id": 16,
+   "loc": "body",
+   "sec_title": "INTRODUCTION",
+   "text": "In line with our previous study with transitive sentences (Sánchez-López, 2026), in Experiment 1, we conducted an eye-tracking reading task with intransitive sentences. The use of intransitive structures allowed us to directly compare the processing correlates of agents (2.a), experiencers (2.b), and patients (2.c) in the same subject position. To our knowledge, no previous eye-tracking study has investigated such event role processing differences. Next, based on previous EEG experiments on event role processing (Bickel et al., 2015; Haupt et al., 2008; Isasi-Isasmendi et al., 2024; Sauppe et al., 2023), in Experiment 2 we collected the electrophysiological responses of participants while reading the same intransitive sentences as those used in Experiment 1. The use of these two research methods with the same set of stimuli allowed us to provide a broader perspective on the processing of event roles. Furthermore, we chose Spanish as our target language because it allows minimal differentiation of the three roles without immediate consequences for surface syntax (in terms of case marking, expletive pronouns, reflexivization, word order, or agreement):(2) a. María bailó. MaryAGENT danced. b. María disfrutó. MaryEXPERIENCER had fun. c. María tropezó. MaryPATIENT stumbled.Since experiencers are characterized by the proto-agent entailment of sentience, we predicted that if experiencer arguments fit into the proto-agent role (Dowty, 1991), they would have parallel processing correlates to agents and different correlates from patients at the verb position. Otherwise, if the experiencer role constitutes a specific category within the event role repertoire (Fillmore, 1971), we predicted that the experiencer would show a specific processing pattern, different from both agents and patients.",
+   "printed": true
+  },
+  {
+   "para_id": 17,
+   "loc": "body",
+   "sec_title": "Materials",
+   "text": "Sixteen different verbs per condition were selected to create the different versions of experimental items (each verb was repeated six times to get ninety-six experimental items). Verbs were selected based on verb classifications found in Gramática descriptiva de la lengua española (Descriptive grammar of the Spanish language) (Bosque et al., 1999). For each condition, eight verbs had the se morpheme and eight without se, with no difference in meaning, used simultaneously within items. The length (in number of letters in the conjugated form used in the experimental sentences) and the frequency of verbs (in the infinitive form due to the lack of frequency of some verbs in their conjugated form) was controlled using the SUBTLEX-ESP corpus (Cuetos et al., 2011). Paired t-test analyses revealed no differences in either length or frequency among conditions (all posterior differences have a 95% credible interval closely around zero; see Appendix I (available in the OSF repository indicated in the Data Availability Statement section).",
+   "printed": true
+  },
+  {
+   "para_id": 18,
+   "loc": "body",
+   "sec_title": "Materials",
+   "text": "Experimental items were previously normed for naturalness. Forty-four native speakers of Spanish filled an online sentence naturalness questionnaire in PCIbex (Zehr & Schwarz, 2022), and they had to rate the naturalness of sentences on a 5-point Likert scale. All conditions were rated above 3.5 (Agent: mean = 3.92, SD = 1.16; Experiencer: mean = 3.74, SD = 1.23; Patient: mean = 3.80, SD = 1.23). We found acceptability rating differences between Agent and Experiencer condition (βˆAgent-Experiencer = −0.035, SE = 0.012, 95% CrI = [−0.58, −0.12]), but not between Agent and Patient (βˆAgent-Patient = −0.019, SE = 0.013, 95% CrI = [−0.45, 0.06]), or between Experiencer and Patient (βˆExperiencer-Patient = 0.015, SE = 0.011, 95% CrI = [−0.07, 0.37]).",
+   "printed": true
+  },
+  {
+   "para_id": 19,
+   "loc": "body",
+   "sec_title": "Data Analysis",
+   "text": "Early measures are associated with word recognition and lexical process and late measures with argument structure integration (Conklin et al., 2018). The Gaze Duration variable, an early measure, captures the time spent fixating the target region during the first pass, before leaving the region to look at any other region to the right or to the left. Re-reading Duration, and Regression Path Duration are intermediate measures. The Regression Path Duration variable reflects the time participants have fixated on the target region before having fixated any region on the right, but it may include regressions from the left. The Re-reading Duration is calculated as the difference between Regression Path Duration and Gaze Duration. The Regression Out Count variable measures the number of regressions from the target region to a region on the left before any rightward movement while the Regression In Count variable tracks entries into the target region from the right. The Total Duration variable, a late measure, includes the total time participants have been looking at the target region, including re-reading times from both sides (Conklin et al., 2018; SR Research, 2020). For an exemplification of the eye-tracking measures, see Appendix V.",
+   "printed": true
+  },
+  {
+   "para_id": 20,
+   "loc": "body",
+   "sec_title": "Data Analysis",
+   "text": "To our knowledge, no prior eye-tracking reading study has directly investigated event role specificities, so we did not have a specific connection between eye-tracking measures and the assignment of event roles. Hence, we decided to include standard measures used in previous studies (e.g., Gattei et al., 2018; Katsika et al., 2012; Ma et al., 2023). We hypothesized that early measures, such as Gaze Duration, would reflect more automatic stages of processing, including stimulus recognition and lexical access (Conklin et al., 2018). Hence, results found in this measure might reflect differences in the lexical access of verbs, showing semantic differences between them that would not be related with differences in the assignment of event roles. In contrast, we expected intermediate and late measures to index integrative processes (Conklin et al., 2018; Gattei et al., 2018), reflecting mechanisms underlying the syntax-semantics interface. Therefore, we predicted that differences in these intermediate and late eye-tracking measures would be related to event role assignment based on verb information.",
+   "printed": true
+  },
+  {
+   "para_id": 21,
+   "loc": "body",
+   "sec_title": "Data Analysis",
+   "text": "Experimental items were split into five regions: subject region, preverb region, verb region, post-verb region, and last-word region (see Table 1). The last-word region was included to avoid wrap-up effects (Warren et al., 2009). We expected to find effects in the verb and the post-verb regions, since, at these regions, participants would be able to confirm the event role assigned to the subject or to reassign a new role if the verb disconfirms the initial assignment.",
+   "printed": true
+  },
+  {
+   "para_id": 22,
+   "loc": "body",
+   "sec_title": "Data Analysis",
+   "text": "Fixations shorter than 80 ms and longer than 800 ms were removed using DataViewer software (SR Research Ltd., 2022). No participant was excluded due to accuracy criteria, since all participants showed accuracy rates over 80% in the comprehension questions.",
+   "printed": true
+  },
+  {
+   "para_id": 23,
+   "loc": "body",
+   "sec_title": "Data Analysis",
+   "text": "Data analysis was conducted in R (R Core Team, 2025), using Bayesian Mixed-Effects Models with brms function (Bürkner, 2017). For Gaze Duration, Regression Path Duration, Re-reading Duration and Total Duration measures, we created Bayesian Mixed-Effects Models with a Shifted-lognormal likelihood. For Regression Out Count and Regression In Count variables a Poisson likelihood was used.",
+   "printed": true
+  },
+  {
+   "para_id": 24,
+   "loc": "body",
+   "sec_title": "Data Analysis",
+   "text": "We specified uninformative normally distributed priors for intercepts and slopes to reflect plausible uncertainty while allowing the data to drive estimates (Kruschke, 2015; Nicenboim et al., 2025). To specify the prior distributions of the parameters of models with a Shifted log-normal likelihood, we chose normal distributions for the intercept (μ = 5, σ = 1 for Gaze Duration and Regression Path Duration; μ = 6, σ = 1 for Re-reading Duration; and μ = 6, σ = 1 for Total Durations) and for the slopes (μ = 0, σ = 2 for all measures). For models with a Poisson likelihood, we opted for normal distributions for the intercept (μ = −1, σ = 2 for Regression In Count; μ = −3, σ = 2 for Regression Out Count) and slopes (μ = 0, σ = 2) parameters due to convergence issues with the conjugate Gamma distribution.",
+   "printed": true
+  },
+  {
+   "para_id": 25,
+   "loc": "body",
+   "sec_title": "Data Analysis",
+   "text": "To account for sentence predictability, we included surprisal values as a predictor in the models (Huber et al., 2024). This ensured that any observed effects were not solely driven by difference in lexical predictability. We compared models using leave-one-out cross-validation (loo-cv) (McElreath, 2020; Vehtari et al., 2017), with the stacking technique for model weighting (Yao et al., 2018).",
+   "printed": true
+  },
+  {
+   "para_id": 26,
+   "loc": "body",
+   "sec_title": "Data Analysis",
+   "text": "For each region and dependent variable, we fitted and compared four models: a null model without predictors, a model with only surprisal, a model with only Event Role predictor, and a model with surprisal and Event Role predictors. The stacking weights derived from loo-cv reflect each model’s relative performance, based on how well it predicts left-out observations (Vehtari et al., 2017).",
+   "printed": true
+  },
+  {
+   "para_id": 27,
+   "loc": "body",
+   "sec_title": "Data Analysis",
+   "text": "We reported the marginal comparisons from the highest-weight model for each region and variable. These comparisons estimate the average difference in the predicted outcome between levels, averaging over the random effect structure (Arel-Bundock et al., 2024). When the highest-weight model was the null model, we did not report anything. Model comparisons are shown in Appendix II.",
+   "printed": true
+  },
+  {
+   "para_id": 28,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Although larger fixation times and higher regression counts have typically been associated with higher processing costs in eye-tracking (Conklin et al., 2018), more fixations have also been related to an attentional preference toward a stimulus (Cohn & Paczynski, 2013; Galazka & Nyström, 2016; Gómez-Vidal et al., 2022; Isasi-Isasmendi et al., 2023). In the present eye-tracking reading experiment, our findings support the latter interpretation: we found that agent and experiencer conditions elicited longer fixation times than the patient condition in the verb and post-verb region, as well as more regressions to the verb. These results are consistent with previous evidence that intransitive verbs with agents led to longer reaction times than those with patients in acceptability tasks (Martinez de la Hidalga et al., 2019), and to longer regression counts in eye-tracking reading tasks (Zeyrek & Acartürk, 2014). Furthermore, they align with prior evidence showing an attentional preference toward agents, both in language processing (Gómez-Vidal et al., 2022) and in event processing (Cohn & Paczynski, 2013; Isasi-Isasmendi et al., 2023).",
+   "printed": true
+  },
+  {
+   "para_id": 29,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "A detailed examination of the eye-movement patterns revealed that the experiencer condition involved longer gaze durations than agent and patient conditions in the preverbal region, but in the verb region, the experiencer condition showed shorter gaze durations than both agent and patient conditions. Since Gaze Duration is associated with early word recognition and lexical access processes (Conklin et al., 2018), this pattern suggests that the lexical access to verbs selecting prototypical event roles (i.e., agents and patients) differs from that to verbs selecting less prototypical event roles (i.e., experiencers). The fact that this effect appeared first in the preverbal region suggests a parafoveal effect, as participants had not seen yet the verb region (Schotter & Dillon, 2025). This initial relation between agents and patients in comparison to experiencers may be related to the prototypicality of the arguments. Agents and patients are the two prototypical event roles, whereas experiencers are less prototypical (Dowty, 1991; Levin & Rappaport Hovav, 2005; Li, 2020; Van Valin, 2004). Based on the proto-role approach and on the Argument Selection Principle (Dowty, 1991), both agents and experiencers are arguments characterized by proto-agent entailments, but experiencers are less prototypical than agents because they only exhibit the entailment of sentience.",
+   "printed": true
+  },
+  {
+   "para_id": 30,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "The next measure, Regression Path Duration, is an intermediate measure, between lexical access and integration processes (Conklin et al., 2018). We found that the agent condition involved larger regression path durations than both patient and experiencer conditions in the verb region. However, in the postverbal region, this pattern shifted and now both agent and experiencer conditions showed longer regression path durations than the patient condition. The delayed increase for experiencers may reflect a later categorization as proto-agents, due to their unique proto-agent entailment, the one of sentience (Dowty, 1991). This later activation of experiencers converges with Gómez-Vidal’s (2024) Visual World Paradigm results. In her PhD thesis, she statistically compared her data from different experiments, getting a comparison of the activation of agent, experiencer, and patient subjects in the post-verb region. She found that experiencers and agents in intransitive sentences elicited a larger proportion of fixations than patients, without differences between experiencers and agents. However, regarding the time course of the proportion of fixations to pictures semantically related to the subject (as compared to unrelated ones), both agents and patients involved first an increase of fixations, followed by a decrease, and ending with an increase, whereas experiencers displayed first a decrease, next an increase, and finally a decrease. These results align with our eye-tracking results showing that experiencers behave like agents but involve an activation delay.",
+   "printed": true
+  },
+  {
+   "para_id": 31,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "In Regression In Count, Regression Out Count, and Total Duration measures, all late measures linked to integration processes (Conklin et al., 2018), agent and experiencer conditions displayed larger regression counts and fixation times than the patient condition. Altogether, these results suggest that both agents and experiencers received greater attentional focus, evidenced by longer fixation durations and regression counts than patients, with experiencers showing a delayed attentional effect consistent with their non-prototypical status as proto-agents.",
+   "printed": true
+  },
+  {
+   "para_id": 32,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "In Experiment 2, we recorded the EEG responses elicited while different participants read the same materials as in Experiment 1. This methodology allowed us to measure the transient interpretation of ambiguous arguments and their recategorization. In Experiment 1, we obtained results related to the attentional preference of event roles. By contrast, in Experiment 2, we aimed to report the N400 component previously found in the literature associated with a recategorization toward patients (Bickel et al., 2015; Haupt et al., 2008; Isasi-Isasmendi et al., 2024; Sauppe et al., 2023), as well as the decrease in power in alpha and low-beta bands (Isasi-Isasmendi et al., 2024), to see whether this recategorization also emerges toward experiencers or not.",
+   "printed": true
+  },
+  {
+   "para_id": 33,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "A power decrease in alpha band has been related with a release of inhibition of the patient category due to the activation of the agent category (Isasi-Isasmendi et al., 2024). A power decrease in low-beta band has been proposed to appear with changes in the current cognitive set activated (Isasi-Isasmendi et al., 2024; Lewis & Bastiaansen, 2015; Meyer, 2018), reflecting a power decrease with verbs selecting patient role (Isasi-Isasmendi et al., 2024). Furthermore, we also analyzed the theta band, where a power increase has been proposed to be related with unexpected words (Klimesch, 1999; Mellem et al., 2013; Rommers et al., 2017; Weiss et al., 2000). Hence, the recategorization effect in Experiment 2 should also be reflected in a theta power increase, and in an alpha and low-beta power decrease.",
+   "printed": true
+  },
+  {
+   "para_id": 34,
+   "loc": "body",
+   "sec_title": "Procedure",
+   "text": "Stimuli were presented on a PC using E-prime 3.0 (version 3.0.3.80) (W. Schneider et al., 2012). The sentences were displayed word by word at the centre of the screen in Arial Bold font type, size 40. For verbs with se (e.g., se despertó), both words were shown together. Each word was presented for 450 ms, followed by a 350 ms inter-stimulus interval. A fixation cross lasting 1000 ms indicated the beginning of each sentence trial. As in the eye-tracking experiment, participants saw comprehension questions after thirty-three percent of the sentences. They pressed 1 on the keyboard to respond yes, and 2 to respond no.",
+   "printed": true
+  },
+  {
+   "para_id": 35,
+   "loc": "body",
+   "sec_title": "Data Processing and Analyses",
+   "text": "EEG data were preprocessed using EEGLAB (Delorme & Makeig, 2004), FieldTrip (Oostenveld et al., 2011) and R (R Core Team, 2025). Continuous EEG signals were band-pass filtered between 0.1 and 30 Hz, down-sampled to 250 Hz, and re-referenced offline to the average of the left and right mastoids. Artifactual channels were automatically excluded if their kurtosis or probability deviated by more than five standard deviations from the mean of all channels. Independent components were computed on a 1 Hz high-pass filtered copy of the data.",
+   "printed": true
+  },
+  {
+   "para_id": 36,
+   "loc": "body",
+   "sec_title": "Data Processing and Analyses",
+   "text": "Artifactual independent components were identified using the SASICA algorithm (Semi-Automated Selection of Independent Components of the electroencephalogram for Artifact correction) (Chaumon et al., 2015; Nolan et al., 2010) and excluded if they were spatially limited to single electrodes or showed high correlation with the activity of EOG electrodes. Previously rejected channels were spherically interpolated after removal of the artifactual components from the EEG data.",
+   "printed": true
+  },
+  {
+   "para_id": 37,
+   "loc": "body",
+   "sec_title": "Data Processing and Analyses",
+   "text": "For the ERP analyses, EEG data were epoched from −200 to 900 ms relative to the critical word (the verb). For event-related power analyses, epochs ranged from −1500 to 1200 ms relative to the critical word. In both analyses, epoch-level artifact detection and trial-wise interpolation were performed to clean the data of temporary artifacts, using the Trial-By-Trial (TBT) interpolation method. For time-frequency analysis, single-trial data were transformed into time-frequency representations in 0.5 Hz steps using wavelet decomposition via the multi-taper method convolution with Hanning-tapered time-windows. Each window had a length of 3 cycles and advanced in steps of 50 ms. Power spectra were transformed into decibel (dB) values relative to the median power in a baseline period of −800 −500 ms before the critical word, allowing for direct comparison across frequencies (Cohen, 2014). To reduce data dimensionality, power was then averaged within predefined frequency bands.",
+   "printed": true
+  },
+  {
+   "para_id": 38,
+   "loc": "body",
+   "sec_title": "Data Processing and Analyses",
+   "text": "Frequency bands were defined for each participant (Klimesch, 1999) according to their individual peak alpha frequency (IAF), following the method proposed by Corcoran et al. (2018), which estimates IAFs from resting-state EEG data. The theta band was set from IAF-6 Hz to IAF-4 Hz, alpha band from IAF-4 Hz to IAF+2 Hz (Klimesch, 1999), and the lower beta band from IAF+2 Hz to IAF+10 Hz (Bice et al., 2020). We selected these three frequency bands based on the study of Isasi-Isasmendi et al. (2024) investigating the agent preference with intransitive structures.",
+   "printed": true
+  },
+  {
+   "para_id": 39,
+   "loc": "body",
+   "sec_title": "Data Processing and Analyses",
+   "text": "Statistical analyses were conducted in R using the packages brms (Bürkner, 2017) and mgcv (Wood, 2004, 2011) for modelling, and the ggplot2 (Wickham et al., 2007) and itsadug packages (van Rij et al., 2020) for plotting. We analyzed the topographies of event-related potentials and event-related power changes using single-trial generalized additive mixed models (GAMMs). These models extend generalized linear models by enabling the modelling of non-linear relations between variables. In our analyses, GAMMs were used to model amplitude or power differences between experimental conditions as a function of electrode position on the scalp, represented by x and y coordinates. For event-related potentials, we used Bayesian GAMMs. However, for event-related power changes, we employed Frequentist GAMMs, as the Bayesian models faced exceedingly high computing times due to the large data volume.",
+   "printed": true
+  },
+  {
+   "para_id": 40,
+   "loc": "body",
+   "sec_title": "Data Processing and Analyses",
+   "text": "For ERP analyses, the mean amplitude was modelled within a 300–500 ms time-window after the critical word onset. An additional analysis was conducted for a later window, 600–800 ms time-window after the critical word. These time-windows were selected based on prior literature (Aurnhammer et al., 2021; Bornkessel et al., 2003; Frenzel et al., 2015; Isasi-Isasmendi et al., 2024; Sauppe et al., 2023) and supported by a supplementary time-course analysis (see Appendix III). The statistical modelling approach was identical for both time-windows. The amplitude during a baseline period (averaged from −100 to 0 ms before critical word; Alday, 2019) was included as a parametric predictor. To account for potential non-linear relations between variables, a smooth term was added to model amplitude differences between conditions across the x and y scalp coordinates. Random slopes for electrode coordinates were included by participant and by item.",
+   "printed": true
+  },
+  {
+   "para_id": 41,
+   "loc": "body",
+   "sec_title": "Data Processing and Analyses",
+   "text": "As in Experiment 1, we compared Bayesian models using leave-one-out cross-validation (McElreath, 2020; Vehtari et al., 2017), applying the stacking technique for model weighting (Yao et al., 2018). Each model comparison involved four versions: a null model without predictors, a model including only the Event Role predictor, a model including only the predictor of surprisal values, and a model including both Event Role and surprisal value predictors. For Frequentist models, we used the Akaike information criterion (AIC) for model comparison (Akaike, 1974). See Appendix VI for both ERP and TFA model comparison.",
+   "printed": true
+  },
+  {
+   "para_id": 42,
+   "loc": "body",
+   "sec_title": "Data Processing and Analyses",
+   "text": "For both ERP and event-related power models, statistical significance was assessed by inspecting non-overlapping confidence intervals in the (smooth) difference surfaces. Because GAMMs model non-linear effects that cannot be captured by a single summary statistic, we followed standard procedure (Wood, 2004) and report effect sizes graphically, as model-fitted response values. Effects are reported in terms of 95% intervals (credible intervals in Bayesian models, confidence intervals in Frequentist models) around the fitted differences between critical conditions (i.e., ΔμV and ΔdB) visualized across the spatially smoothed electrode array.",
+   "printed": true
+  },
+  {
+   "para_id": 43,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "In the early time-window (300–500 ms), we found that patients elicited a larger negativity compared to both agents and experiencers over posterior electrodes. In previous studies, this N400 component has been associated with a recategorization of the event role category (Bickel et al., 2015; Haupt et al., 2008; Isasi-Isasmendi et al., 2024; Sauppe et al., 2023): since the first argument was transiently interpreted as an agent, when the verb assigns the patient role, the argument needs to be recategorized as a patient. In this work, we replicated the previous N400 effect found between agents and patients, and interestingly, we found the same effect between experiencers and patients. We also found a sustained negativity elicited by patients compared to both agents and experiencers in the 600–800 ms time-window. This negativity was previously reported in event role processing studies (Isasi-Isasmendi et al., 2024; Sauppe et al., 2023), and in other studies of sentence processing (J. M. Schneider & Maguire, 2018; Wang et al., 2012), revealing that N400 effects are not necessarily restricted to the 300–500 ms time-window. This provides evidence that agents and experiencers are processed similarly in the integration of event roles into the syntactic structure. Moreover, this finding aligns with the proto-role approach, which holds that both agents and experiencers are arguments with proto-agent entailments, and they are thus grouped within the proto-agent role category, avoiding the need for reanalysis.",
+   "printed": true
+  },
+  {
+   "para_id": 44,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "We also found that experiencers elicited a frontal ERP positivity compared to agents in the early time-window. Since experiencers did not elicit the posterior negativity associated with event role recategorization, this frontal positivity may correspond to another processing mechanism, probably due to the lower prototypicality of experiencers compared to agents (Dowty, 1991; Levin & Rappaport Hovav, 2005; Li, 2020; Van Valin, 2004), given that this specific pattern only appears between these two conditions.",
+   "printed": true
+  },
+  {
+   "para_id": 45,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Furthermore, in the time-frequency analysis, in the theta band, we found that patients elicited a power increase compared to both agents and experiencers in central electrodes in the early time-window. This increase was stronger and highly widespread in the late time-window. An increase in theta band has been associated with unexpected words and with semantic processing demands (Klimesch, 1999; Mellem et al., 2013; Rommers et al., 2017; Weiss et al., 2000). This result in the theta band can be linked to a reanalysis when encountering a verb selecting a patient role, as the same pattern is found when comparing patients with both agents and experiencers. The processing of verbs assigning a patient role elicited a power increase compared to those selecting agent or experiencer, since these verbs did not match the expectation to assign an argument with proto-agent entailments.",
+   "printed": true
+  },
+  {
+   "para_id": 46,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "In the alpha band, patients showed a power decrease over right-posterior electrodes in comparison to agents and experiencers, in the early time-window. Additionally, agents and patients elicited a power decrease over more central sites in comparison to experiencers. This effect was more pronounced in the late time-window than in the early time-window. The alpha band has been related to inhibition (Klimesch, 2012; Meyer, 2018), and a power decrease in this band is associated with a release from inhibiting alternative and competing interpretations (Isasi-Isasmendi et al., 2024). According to our results, two types of inhibition could be reflected in the alpha band. On one hand, the elicitation of a power decrease for the patient would be related to the reanalysis previously mentioned. Isasi-Isasmendi et al. (2024) particularly found the same power decrease elicited by ambiguous patients compared to ambiguous agents. They related this result to a release from inhibiting the patient category. On the other hand, the power increase shown by experiencers would align with the inhibition of the prototypical representation of event roles (i.e., agents and patients) (Dowty, 1991; Levin & Rappaport Hovav, 2005; Li, 2020; Van Valin, 2004). Since no previous studies have investigated the power elicitation associated with experiencers, the explanation we offer for this unexpected pattern should be considered tentative.",
+   "printed": true
+  },
+  {
+   "para_id": 47,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "In the low-beta band, we found that patients elicited a power decrease compared to agents and experiencers over central electrodes, in the early time-window. This pattern did not appear when comparing agents and experiencers. A power decrease in this frequency band has been linked to a change in the current cognitive set to upcoming words that do not match the predicted word, or to semantic violations (Isasi-Isasmendi et al., 2024; Lewis & Bastiaansen, 2015; Meyer, 2018). Moreover, beta oscillations have been related to the N400 component during language processing (Wang et al., 2012). Our findings in this band replicate the same power decrease in the same time-window found in Isasi-Isasmendi et al. (2024), which they associate with a recategorization of the event role category. This power decrease suggests that the processing of patients involves a change in the current active set compared to both agents and experiencers, as it does not fit within the category of proto-agent.",
+   "printed": true
+  },
+  {
+   "para_id": 48,
+   "loc": "body",
+   "sec_title": "GENERAL DISCUSSION",
+   "text": "In this study, we replicated the N400 effect associated with the agent preference (Bickel et al., 2015; Haupt et al., 2008; Isasi-Isasmendi et al., 2024; Sauppe et al., 2023), as well as the power decrease in alpha and low-beta, also linked with event role recategorization (Isasi-Isasmendi et al., 2024). Importantly, we found evidence that this agent preference extends to experiencer-arguments, since patients elicited an N400 component and a power decrease in alpha and low-beta bands compared to both agents and experiencers.",
+   "printed": true
+  },
+  {
+   "para_id": 49,
+   "loc": "body",
+   "sec_title": "GENERAL DISCUSSION",
+   "text": "The patterns of results reported in the eye-tracking experiment fit well with the ones reported in the EEG experiment. In the eye-tracking experiment, we found an attentional preference toward both agents and experiencers compared to patients, reflected in intermediate and late eye-tracking measures. Interestingly, this methodology did not capture the event role recategorization mechanism found in EEG, instead, it reflected attentional preference mechanisms. Previous literature has largely found that agents are attentionally preferred over patients (Cohn & Paczynski, 2013; Gómez-Vidal et al., 2022; Isasi-Isasmendi et al., 2023), even in non-human apes (Brocard et al., 2024, 2025; V. A. D. Wilson et al., 2022, 2024). We observed this attentional preference in Experiment 1, and we found that it extends to experiencers.",
+   "printed": true
+  },
+  {
+   "para_id": 50,
+   "loc": "body",
+   "sec_title": "GENERAL DISCUSSION",
+   "text": "Regarding event role approaches, our results align with the proto-role approach (Dowty, 1991), since both arguments with proto-agent entailments (i.e., agents and experiencers) are attentionally preferred compared to arguments without proto-agent entailments (i.e., patients). Furthermore, we observed that the proto-agent role is assigned to the first ambiguous noun phrase, involving a recategorization when the argument ends up being a proto-patient. The proto-role approach can also explain the prototypicality effect found based on the Argument Selection Principle that arguments may exhibit distinct degrees of membership into a proto-role. Hence, arguments with only one proto-agent entailment display distinct processing correlates than arguments with all proto-role entailments in early eye-tracking measures and in alpha band.",
+   "printed": true
+  },
+  {
+   "para_id": 51,
+   "loc": "body",
+   "sec_title": "GENERAL DISCUSSION",
+   "text": "The proto-role approach (Dowty, 1991) is not the only linguistic approach that can account for these results. For example, the macrorole approach (Foley & Van Valin, 1984; Van Valin, 2004; Van Valin & LaPolla, 1997) also proposes two broad categories of event roles, actor and undergoer. Agents and experiencers are grouped within the actor role and patients under the undergoer category. Hence, this approach can also account for our results related to the attentional preference for both agents and experiencers compared to patients, since both agents and experiencers are considered to be actors. It can also account for the recategorization effect found toward patients, as they are considered undergoers, not actors. Hence, there is an attentional preference toward actors and a preference to assign the actor macrorole to the first ambiguous noun phrase. This approach can also account for the prototypicality effect, since agents and patients are the best exemplifications of actor and undergoer respectively, being experiencers less prototypical actors (Van Valin, 2006; Van Valin & LaPolla, 1997).",
+   "printed": true
+  },
+  {
+   "para_id": 52,
+   "loc": "body",
+   "sec_title": "GENERAL DISCUSSION",
+   "text": "However, we still argue that the proto-role approach fits better with evidence that proto-role entailments have psychological reality (Kako, 2006; Rissman & Lupyan, 2022; Vernice & Hartsuiker, 2019). In the macrorole approach, instead, event roles are not decomposed into semantic entailments, rather the event itself is decomposed, with macroroles characterized as “generalizations across classes of specific argument positions in logical structure” (Van Valin & LaPolla, 1997, p. 142).",
+   "printed": true
+  },
+  {
+   "para_id": 53,
+   "loc": "body",
+   "sec_title": "GENERAL DISCUSSION",
+   "text": "In the theta system (Reinhart, 2000, 2002, 2016) event roles are also decomposed into semantic features, as in the proto-role approach (Dowty, 1991). But, contrary to the proto-role approach, the theta system proposes an extensive list of event roles, where agents, experiencers, and patients constitute three different role categories. Hence, this approach can account for the processing similarities found between agents and experiencers, since both roles share the [+mental state] semantic feature (i.e., agents–[+cause, +mental state], experiencers–[+mental state]). The theta system can also account for the prototypicality effect: agents are more prototypical arguments for subjecthood than experiencers, because they are characterized by the two semantic features instead of only by one. Nevertheless, this approach cannot account for the recategorization effect, since both agents and experiencers are considered to be two distinct event role categories, and, therefore, a recategorization should be expected when encountering experiencers, as it happens with patients.",
+   "printed": true
+  },
+  {
+   "para_id": 54,
+   "loc": "body",
+   "sec_title": "GENERAL DISCUSSION",
+   "text": "Thematic role list approaches (Fillmore, 1968, 1971) differ from the approaches discussed above in the characterization of event roles. In this view, event roles are treated as discrete, non-decomposable categories, with agents and experiencers posited as two distinct role categories. These approaches do not account for the processing similarities we observed between agents and experiencers, because under this view the two roles are treated as distinct, non-decomposable categories, and therefore, they are not predicted to share underlying semantic properties.",
+   "printed": true
+  },
+  {
+   "para_id": 55,
+   "loc": "body",
+   "sec_title": "GENERAL DISCUSSION",
+   "text": "Based on our results and on previous psycholinguistic evidence, we consider that event role categories are better understood as broad non-discrete categories decomposed into semantic properties. Hence, although results of Experiments 1 and 2 can also be partially explained by other event role approaches, we consider the proto-role approach to fit better with our results and with previous psychologistic evidence that agents and patients are two core knowledge categories (Rissman & Majid, 2019), and that proto-role entailments have a psychological reality (Kako, 2006; Rissman & Lupyan, 2022; Vernice & Hartsuiker, 2019).",
+   "printed": true
+  },
+  {
+   "para_id": 56,
+   "loc": "body",
+   "sec_title": "GENERAL DISCUSSION",
+   "text": "This evidence is consistent with the proto-role approach (Dowty, 1991). In the syntax-semantics interface, two broad categories of proto-roles are needed, proto-agent and proto-patient. Arguments with proto-agent entailments fit within the proto-agent role; hence, both agents and experiencers are categorized as proto-agents in the interaction with syntax. This evidence broadens the agent preference hypothesis to less prototypical proto-agents, those with the proto-agent entailment of sentience – experiencers.",
+   "printed": true
+  },
+  {
+   "para_id": 57,
+   "loc": "body",
+   "sec_title": "CONCLUSION",
+   "text": "Our findings from Experiment 1 revealed that agents and experiencers elicited an attentional preference compared to patients. Furthermore, in Experiment 2, we found that patients elicited a recategorization of the event role category due to the agent preference; this recategorization did not appear for experiencers. This suggests that agents and experiencers are grouped under the category of proto-agent as both argument types have proto-agent entailments (Dowty, 1991).",
+   "printed": true
+  }
+ ],
+ "links": [
+  {
+   "link_id": 1,
+   "url": "github.com/remo-help/surprisal_from_llm",
+   "url_raw": "https://github.com/remo-help/surprisal_from_llm",
+   "href_jats": "https://github.com/remo-help/surprisal_from_llm",
+   "repo_key": "github:remo-help/surprisal_from_llm",
+   "host_class": "github",
+   "loc": "body",
+   "sec_title": "Materials",
+   "source": "tagged",
+   "para_id": 1
+  },
+  {
+   "link_id": 2,
+   "url": "osf.io/t9zer/overview?view_only=182b23f8871f4205ba256ac9b13cdc0c",
+   "url_raw": "https://osf.io/t9zer/overview?view_only=182b23f8871f4205ba256ac9b13cdc0c",
+   "href_jats": "https://osf.io/t9zer/overview?view_only=182b23f8871f4205ba256ac9b13cdc0c",
+   "repo_key": "osf:t9zer",
+   "host_class": "osf",
+   "loc": "body",
+   "sec_title": "DATA AVAILABILITY STATEMENT",
+   "source": "tagged",
+   "para_id": 2
+  },
+  {
+   "link_id": 3,
+   "url": "doi:10.13039/501100011033",
+   "url_raw": "10.13039/501100011033",
+   "href_jats": "",
+   "repo_key": "doi:10.13039/501100011033",
+   "host_class": "doi",
+   "loc": "body",
+   "sec_title": "FUNDING INFORMATION",
+   "source": "regex",
+   "para_id": 3
+  }
+ ],
+ "links_optional": [
+  "cran.r-project.org/package=itsadug",
+  "creativecommons.org/licenses/by/4.0",
+  "doi:10.1002/hbm.21410",
+  "doi:10.1006/jmla.1994.1034",
+  "doi:10.1007/978-94-007-1463-2_6",
+  "doi:10.1007/s10936-022-09846-y",
+  "doi:10.1007/s11222-016-9696-4",
+  "doi:10.1007/s41809-019-00044-2",
+  "doi:10.1016/j.bandl.2008.12.003",
+  "doi:10.1016/j.bandl.2013.09.003",
+  "doi:10.1016/j.bandl.2014.10.006",
+  "doi:10.1016/j.bandl.2015.08.001",
+  "doi:10.1016/j.cognition.2005.08.002",
+  "doi:10.1016/j.cognition.2008.12.006",
+  "doi:10.1016/j.cognition.2008.12.011",
+  "doi:10.1016/j.cogpsych.2013.07.002",
+  "doi:10.1016/j.cortex.2015.02.014",
+  "doi:10.1016/j.ijpsycho.2018.07.002",
+  "doi:10.1016/j.isci.2024.109996",
+  "doi:10.1016/j.jecp.2016.02.010",
+  "doi:10.1016/j.jml.2008.02.003",
+  "doi:10.1016/j.jml.2013.08.002",
+  "doi:10.1016/j.jneumeth.2003.10.009",
+  "doi:10.1016/j.jneumeth.2010.07.015",
+  "doi:10.1016/j.jneumeth.2015.02.025",
+  "doi:10.1016/j.jneuroling.2008.10.002",
+  "doi:10.1016/j.jneuroling.2008.11.003",
+  "doi:10.1016/j.tics.2012.10.007",
+  "doi:10.1016/s0010-0277(03)00069-6",
+  "doi:10.1016/s0165-0173(98)00056-3",
+  "doi:10.1017/9781108233279",
+  "doi:10.1017/cbo9780511486319",
+  "doi:10.1017/cbo9780511610479",
+  "doi:10.1017/cbo9781139166799",
+  "doi:10.1017/s1470542706000018",
+  "doi:10.1037/xge0001146",
+  "doi:10.1075/cilt.61.09roz",
+  "doi:10.1075/lali.00072.li",
+  "doi:10.1075/lfab.8.09lak",
+  "doi:10.1075/ml.7.1.03kat",
+  "doi:10.1075/scld.2.02bis",
+  "doi:10.1080/01690960143000001",
+  "doi:10.1080/01690960244000018",
+  "doi:10.1080/01690961003616840",
+  "doi:10.1080/17470218.2014.1000345",
+  "doi:10.1080/23273798.2016.1183799",
+  "doi:10.1080/23273798.2017.1397278",
+  "doi:10.1080/23273798.2021.2008458",
+  "doi:10.1080/23273798.2023.2250023",
+  "doi:10.1097/00001756-200008030-00005",
+  "doi:10.1097/00001756-200203040-00022",
+  "doi:10.1109/tac.1974.1100705",
+  "doi:10.1111/cogs.12892",
+  "doi:10.1111/cogs.13340",
+  "doi:10.1111/ejn.13748",
+  "doi:10.1111/j.1467-9868.2010.00749.x",
+  "doi:10.1111/j.1749-818x.2008.00099.x",
+  "doi:10.1111/psyp.13064",
+  "doi:10.1111/psyp.13451",
+  "doi:10.1126/sciadv.abn8464",
+  "doi:10.1155/2011/156869",
+  "doi:10.1162/nol_a_00014",
+  "doi:10.1162/nol_a_00105",
+  "doi:10.1162/nol_a_00121",
+  "doi:10.1162/opmi.a.372",
+  "doi:10.1162/opmi_a_00083",
+  "doi:10.1162/opmi_a_00202",
+  "doi:10.1163/9789004373211_010",
+  "doi:10.1198/016214504000000980",
+  "doi:10.1201/9780429029608",
+  "doi:10.1201/9780429342646",
+  "doi:10.1214/17-ba1091",
+  "doi:10.1353/lan.1991.0021",
+  "doi:10.1353/lan.2010.0000",
+  "doi:10.1371/journal.pbio.3002857",
+  "doi:10.1371/journal.pone.0132819",
+  "doi:10.1371/journal.pone.0257430",
+  "doi:10.1371/journal.pone.0272211",
+  "doi:10.1515/9783110219272.263",
+  "doi:10.1515/ling-2013-0026",
+  "doi:10.1515/thli.28.3.229",
+  "doi:10.18637/jss.v080.i01",
+  "doi:10.18637/jss.v111.i09",
+  "doi:10.2139/ssrn.4235952",
+  "doi:10.32614/cran.package.ggplot2",
+  "doi:10.3389/fpsyg.2015.00001",
+  "doi:10.3758/s13423-019-01634-5",
+  "doi:10.3758/s13428-024-02572-4",
+  "doi:10.5334/gjgl.829",
+  "doi:10.7551/mitpress/8496.003.0003",
+  "doi:10.7551/mitpress/9609.001.0001",
+  "osf.io/md832",
+  "osf.io/wnar8/overview?view_only=fda96c2cf9244181baffce94f1c03c54",
+  "r-project.org",
+  "sr-research.com/data-viewer",
+  "sr-research.com/support/thread-336.html"
+ ],
+ "own_doi": "doi:10.1162/opmi.a.372",
+ "citations": [
+  {
+   "cite_id": 1,
+   "para_id": 4,
+   "bib_id": 56,
+   "marker": "1993",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 2,
+   "para_id": 4,
+   "bib_id": 78,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 3,
+   "para_id": 5,
+   "bib_id": 27,
+   "marker": "1991",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 4,
+   "para_id": 5,
+   "bib_id": 57,
+   "marker": "2005",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 5,
+   "para_id": 5,
+   "bib_id": 68,
+   "marker": "2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 6,
+   "para_id": 5,
+   "bib_id": 30,
+   "marker": "1968",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 7,
+   "para_id": 5,
+   "bib_id": 31,
+   "marker": "1971",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 8,
+   "para_id": 5,
+   "bib_id": 48,
+   "marker": "1990",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 9,
+   "para_id": 5,
+   "bib_id": 73,
+   "marker": "2008",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 10,
+   "para_id": 5,
+   "bib_id": 27,
+   "marker": "1991",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 11,
+   "para_id": 5,
+   "bib_id": 91,
+   "marker": "1999",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 12,
+   "para_id": 5,
+   "bib_id": 92,
+   "marker": "2004",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 13,
+   "para_id": 5,
+   "bib_id": 94,
+   "marker": "1997",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 14,
+   "para_id": 6,
+   "bib_id": 30,
+   "marker": "1968",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 15,
+   "para_id": 6,
+   "bib_id": 31,
+   "marker": "1971",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 16,
+   "para_id": 6,
+   "bib_id": 74,
+   "marker": "2000",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 17,
+   "para_id": 6,
+   "bib_id": 75,
+   "marker": "2002",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 18,
+   "para_id": 6,
+   "bib_id": 80,
+   "marker": "1988",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 19,
+   "para_id": 6,
+   "bib_id": 81,
+   "marker": "1989",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 20,
+   "para_id": 6,
+   "bib_id": 27,
+   "marker": "1991",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 21,
+   "para_id": 6,
+   "bib_id": 91,
+   "marker": "1999",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 22,
+   "para_id": 6,
+   "bib_id": 92,
+   "marker": "2004",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 23,
+   "para_id": 6,
+   "bib_id": 94,
+   "marker": "1997",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 24,
+   "para_id": 7,
+   "bib_id": 78,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 25,
+   "para_id": 7,
+   "bib_id": 12,
+   "marker": "2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 26,
+   "para_id": 7,
+   "bib_id": 34,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 27,
+   "para_id": 7,
+   "bib_id": 42,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 28,
+   "para_id": 7,
+   "bib_id": 47,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 29,
+   "para_id": 7,
+   "bib_id": 42,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 30,
+   "para_id": 7,
+   "bib_id": 6,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 31,
+   "para_id": 7,
+   "bib_id": 8,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 32,
+   "para_id": 7,
+   "bib_id": 9,
+   "marker": "2006",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 33,
+   "para_id": 7,
+   "bib_id": 28,
+   "marker": "2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 34,
+   "para_id": 7,
+   "bib_id": 34,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 35,
+   "para_id": 7,
+   "bib_id": 44,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 36,
+   "para_id": 7,
+   "bib_id": 47,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 37,
+   "para_id": 7,
+   "bib_id": 54,
+   "marker": "2012",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 38,
+   "para_id": 7,
+   "bib_id": 55,
+   "marker": "2012",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 39,
+   "para_id": 7,
+   "bib_id": 83,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 40,
+   "para_id": 7,
+   "bib_id": 96,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 41,
+   "para_id": 7,
+   "bib_id": 12,
+   "marker": "2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 42,
+   "para_id": 7,
+   "bib_id": 34,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 43,
+   "para_id": 7,
+   "bib_id": 42,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 44,
+   "para_id": 7,
+   "bib_id": 46,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 45,
+   "para_id": 7,
+   "bib_id": 47,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 46,
+   "para_id": 7,
+   "bib_id": 83,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 47,
+   "para_id": 7,
+   "bib_id": 96,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 48,
+   "para_id": 7,
+   "bib_id": 16,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 49,
+   "para_id": 7,
+   "bib_id": 15,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 50,
+   "para_id": 7,
+   "bib_id": 104,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 51,
+   "para_id": 7,
+   "bib_id": 103,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 52,
+   "para_id": 8,
+   "bib_id": 42,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 53,
+   "para_id": 9,
+   "bib_id": 43,
+   "marker": "2008",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 54,
+   "para_id": 10,
+   "bib_id": 47,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 55,
+   "para_id": 10,
+   "bib_id": 83,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 56,
+   "para_id": 10,
+   "bib_id": 6,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 57,
+   "para_id": 10,
+   "bib_id": 45,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 58,
+   "para_id": 11,
+   "bib_id": 49,
+   "marker": "2006",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 59,
+   "para_id": 11,
+   "bib_id": 27,
+   "marker": "1991",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 60,
+   "para_id": 11,
+   "bib_id": 77,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 61,
+   "para_id": 11,
+   "bib_id": 97,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 62,
+   "para_id": 11,
+   "bib_id": 27,
+   "marker": "1991",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 63,
+   "para_id": 12,
+   "bib_id": 7,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 64,
+   "para_id": 12,
+   "bib_id": 10,
+   "marker": "2002",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 65,
+   "para_id": 12,
+   "bib_id": 11,
+   "marker": "2003",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 66,
+   "para_id": 12,
+   "bib_id": 14,
+   "marker": "2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 67,
+   "para_id": 12,
+   "bib_id": 24,
+   "marker": "2002",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 68,
+   "para_id": 12,
+   "bib_id": 26,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 69,
+   "para_id": 12,
+   "bib_id": 29,
+   "marker": "1994",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 70,
+   "para_id": 12,
+   "bib_id": 36,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 71,
+   "para_id": 12,
+   "bib_id": 38,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 72,
+   "para_id": 12,
+   "bib_id": 39,
+   "marker": "2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 73,
+   "para_id": 12,
+   "bib_id": 62,
+   "marker": "2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 74,
+   "para_id": 12,
+   "bib_id": 61,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 75,
+   "para_id": 12,
+   "bib_id": 89,
+   "marker": "2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 76,
+   "para_id": 12,
+   "bib_id": 102,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 77,
+   "para_id": 12,
+   "bib_id": 31,
+   "marker": "1971",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 78,
+   "para_id": 12,
+   "bib_id": 27,
+   "marker": "1991",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 79,
+   "para_id": 12,
+   "bib_id": 26,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 80,
+   "para_id": 12,
+   "bib_id": 102,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 81,
+   "para_id": 12,
+   "bib_id": 10,
+   "marker": "2002",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 82,
+   "para_id": 12,
+   "bib_id": 11,
+   "marker": "2003",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 83,
+   "para_id": 12,
+   "bib_id": 14,
+   "marker": "2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 84,
+   "para_id": 12,
+   "bib_id": 29,
+   "marker": "1994",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 85,
+   "para_id": 12,
+   "bib_id": 38,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 86,
+   "para_id": 12,
+   "bib_id": 40,
+   "marker": "2003",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 87,
+   "para_id": 12,
+   "bib_id": 50,
+   "marker": "2012",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 88,
+   "para_id": 12,
+   "bib_id": 60,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 89,
+   "para_id": 13,
+   "bib_id": 27,
+   "marker": "1991",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 90,
+   "para_id": 13,
+   "bib_id": 27,
+   "marker": "1991",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 91,
+   "para_id": 14,
+   "bib_id": 82,
+   "marker": "2026",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 92,
+   "para_id": 14,
+   "bib_id": 27,
+   "marker": "1991",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 93,
+   "para_id": 15,
+   "bib_id": 27,
+   "marker": "1991",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 94,
+   "para_id": 16,
+   "bib_id": 82,
+   "marker": "2026",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 95,
+   "para_id": 16,
+   "bib_id": 6,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 96,
+   "para_id": 16,
+   "bib_id": 43,
+   "marker": "2008",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 97,
+   "para_id": 16,
+   "bib_id": 47,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 98,
+   "para_id": 16,
+   "bib_id": 83,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 99,
+   "para_id": 16,
+   "bib_id": 27,
+   "marker": "1991",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 100,
+   "para_id": 16,
+   "bib_id": 31,
+   "marker": "1971",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 101,
+   "para_id": 17,
+   "bib_id": 13,
+   "marker": "1999",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 102,
+   "para_id": 17,
+   "bib_id": 23,
+   "marker": "2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 103,
+   "para_id": 18,
+   "bib_id": 108,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 104,
+   "para_id": 1,
+   "bib_id": 33,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 105,
+   "para_id": 1,
+   "bib_id": 67,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 106,
+   "para_id": 19,
+   "bib_id": 21,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 107,
+   "para_id": 19,
+   "bib_id": 21,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 108,
+   "para_id": 19,
+   "bib_id": 87,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 109,
+   "para_id": 20,
+   "bib_id": 37,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 110,
+   "para_id": 20,
+   "bib_id": 50,
+   "marker": "2012",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 111,
+   "para_id": 20,
+   "bib_id": 60,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 112,
+   "para_id": 20,
+   "bib_id": 21,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 113,
+   "para_id": 20,
+   "bib_id": 21,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 114,
+   "para_id": 20,
+   "bib_id": 37,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 115,
+   "para_id": 21,
+   "bib_id": 99,
+   "marker": "2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 116,
+   "para_id": 22,
+   "bib_id": 88,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 117,
+   "para_id": 23,
+   "bib_id": 72,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 118,
+   "para_id": 23,
+   "bib_id": 17,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 119,
+   "para_id": 24,
+   "bib_id": 53,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 120,
+   "para_id": 24,
+   "bib_id": 69,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 121,
+   "para_id": 25,
+   "bib_id": 45,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 122,
+   "para_id": 25,
+   "bib_id": 64,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 123,
+   "para_id": 25,
+   "bib_id": 95,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 124,
+   "para_id": 25,
+   "bib_id": 107,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 125,
+   "para_id": 26,
+   "bib_id": 95,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 126,
+   "para_id": 27,
+   "bib_id": 3,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 127,
+   "para_id": 28,
+   "bib_id": 21,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 128,
+   "para_id": 28,
+   "bib_id": 20,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 129,
+   "para_id": 28,
+   "bib_id": 35,
+   "marker": "2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 130,
+   "para_id": 28,
+   "bib_id": 42,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 131,
+   "para_id": 28,
+   "bib_id": 46,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 132,
+   "para_id": 28,
+   "bib_id": 63,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 133,
+   "para_id": 28,
+   "bib_id": 109,
+   "marker": "2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 134,
+   "para_id": 28,
+   "bib_id": 42,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 135,
+   "para_id": 28,
+   "bib_id": 20,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 136,
+   "para_id": 28,
+   "bib_id": 46,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 137,
+   "para_id": 29,
+   "bib_id": 21,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 138,
+   "para_id": 29,
+   "bib_id": 86,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 139,
+   "para_id": 29,
+   "bib_id": 27,
+   "marker": "1991",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 140,
+   "para_id": 29,
+   "bib_id": 57,
+   "marker": "2005",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 141,
+   "para_id": 29,
+   "bib_id": 59,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 142,
+   "para_id": 29,
+   "bib_id": 92,
+   "marker": "2004",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 143,
+   "para_id": 29,
+   "bib_id": 27,
+   "marker": "1991",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 144,
+   "para_id": 30,
+   "bib_id": 21,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 145,
+   "para_id": 30,
+   "bib_id": 27,
+   "marker": "1991",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 146,
+   "para_id": 30,
+   "bib_id": 41,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 147,
+   "para_id": 31,
+   "bib_id": 21,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 148,
+   "para_id": 32,
+   "bib_id": 6,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 149,
+   "para_id": 32,
+   "bib_id": 43,
+   "marker": "2008",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 150,
+   "para_id": 32,
+   "bib_id": 47,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 151,
+   "para_id": 32,
+   "bib_id": 83,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 152,
+   "para_id": 32,
+   "bib_id": 47,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 153,
+   "para_id": 33,
+   "bib_id": 47,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 154,
+   "para_id": 33,
+   "bib_id": 47,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 155,
+   "para_id": 33,
+   "bib_id": 58,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 156,
+   "para_id": 33,
+   "bib_id": 66,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 157,
+   "para_id": 33,
+   "bib_id": 47,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 158,
+   "para_id": 33,
+   "bib_id": 51,
+   "marker": "1999",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 159,
+   "para_id": 33,
+   "bib_id": 65,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 160,
+   "para_id": 33,
+   "bib_id": 79,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 161,
+   "para_id": 33,
+   "bib_id": 100,
+   "marker": "2000",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 162,
+   "para_id": 34,
+   "bib_id": 85,
+   "marker": "2012",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 163,
+   "para_id": 35,
+   "bib_id": 25,
+   "marker": "2004",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 164,
+   "para_id": 35,
+   "bib_id": 71,
+   "marker": "2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 165,
+   "para_id": 35,
+   "bib_id": 72,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 166,
+   "para_id": 36,
+   "bib_id": 18,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 167,
+   "para_id": 36,
+   "bib_id": 70,
+   "marker": "2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 168,
+   "para_id": 37,
+   "bib_id": 19,
+   "marker": "2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 169,
+   "para_id": 38,
+   "bib_id": 51,
+   "marker": "1999",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 170,
+   "para_id": 38,
+   "bib_id": 22,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 171,
+   "para_id": 38,
+   "bib_id": 51,
+   "marker": "1999",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 172,
+   "para_id": 38,
+   "bib_id": 5,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 173,
+   "para_id": 38,
+   "bib_id": 47,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 174,
+   "para_id": 39,
+   "bib_id": 17,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 175,
+   "para_id": 39,
+   "bib_id": 105,
+   "marker": "2004",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 176,
+   "para_id": 39,
+   "bib_id": 106,
+   "marker": "2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 177,
+   "para_id": 39,
+   "bib_id": 101,
+   "marker": "2007",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 178,
+   "para_id": 39,
+   "bib_id": 90,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 179,
+   "para_id": 40,
+   "bib_id": 4,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 180,
+   "para_id": 40,
+   "bib_id": 11,
+   "marker": "2003",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 181,
+   "para_id": 40,
+   "bib_id": 34,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 182,
+   "para_id": 40,
+   "bib_id": 47,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 183,
+   "para_id": 40,
+   "bib_id": 83,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 184,
+   "para_id": 40,
+   "bib_id": 2,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 185,
+   "para_id": 41,
+   "bib_id": 64,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 186,
+   "para_id": 41,
+   "bib_id": 95,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 187,
+   "para_id": 41,
+   "bib_id": 107,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 188,
+   "para_id": 41,
+   "bib_id": 1,
+   "marker": "1974",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 189,
+   "para_id": 42,
+   "bib_id": 105,
+   "marker": "2004",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 190,
+   "para_id": 43,
+   "bib_id": 6,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 191,
+   "para_id": 43,
+   "bib_id": 43,
+   "marker": "2008",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 192,
+   "para_id": 43,
+   "bib_id": 47,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 193,
+   "para_id": 43,
+   "bib_id": 83,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 194,
+   "para_id": 43,
+   "bib_id": 47,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 195,
+   "para_id": 43,
+   "bib_id": 83,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 196,
+   "para_id": 43,
+   "bib_id": 84,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 197,
+   "para_id": 43,
+   "bib_id": 98,
+   "marker": "2012",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 198,
+   "para_id": 44,
+   "bib_id": 27,
+   "marker": "1991",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 199,
+   "para_id": 44,
+   "bib_id": 57,
+   "marker": "2005",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 200,
+   "para_id": 44,
+   "bib_id": 59,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 201,
+   "para_id": 44,
+   "bib_id": 92,
+   "marker": "2004",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 202,
+   "para_id": 45,
+   "bib_id": 51,
+   "marker": "1999",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 203,
+   "para_id": 45,
+   "bib_id": 65,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 204,
+   "para_id": 45,
+   "bib_id": 79,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 205,
+   "para_id": 45,
+   "bib_id": 100,
+   "marker": "2000",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 206,
+   "para_id": 46,
+   "bib_id": 52,
+   "marker": "2012",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 207,
+   "para_id": 46,
+   "bib_id": 66,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 208,
+   "para_id": 46,
+   "bib_id": 47,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 209,
+   "para_id": 46,
+   "bib_id": 47,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 210,
+   "para_id": 46,
+   "bib_id": 27,
+   "marker": "1991",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 211,
+   "para_id": 46,
+   "bib_id": 57,
+   "marker": "2005",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 212,
+   "para_id": 46,
+   "bib_id": 59,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 213,
+   "para_id": 46,
+   "bib_id": 92,
+   "marker": "2004",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 214,
+   "para_id": 47,
+   "bib_id": 47,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 215,
+   "para_id": 47,
+   "bib_id": 58,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 216,
+   "para_id": 47,
+   "bib_id": 66,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 217,
+   "para_id": 47,
+   "bib_id": 98,
+   "marker": "2012",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 218,
+   "para_id": 47,
+   "bib_id": 47,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 219,
+   "para_id": 48,
+   "bib_id": 6,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 220,
+   "para_id": 48,
+   "bib_id": 43,
+   "marker": "2008",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 221,
+   "para_id": 48,
+   "bib_id": 47,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 222,
+   "para_id": 48,
+   "bib_id": 83,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 223,
+   "para_id": 48,
+   "bib_id": 47,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 224,
+   "para_id": 49,
+   "bib_id": 20,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 225,
+   "para_id": 49,
+   "bib_id": 42,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 226,
+   "para_id": 49,
+   "bib_id": 46,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 227,
+   "para_id": 49,
+   "bib_id": 16,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 228,
+   "para_id": 49,
+   "bib_id": 15,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 229,
+   "para_id": 49,
+   "bib_id": 104,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 230,
+   "para_id": 49,
+   "bib_id": 103,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 231,
+   "para_id": 50,
+   "bib_id": 27,
+   "marker": "1991",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 232,
+   "para_id": 51,
+   "bib_id": 27,
+   "marker": "1991",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 233,
+   "para_id": 51,
+   "bib_id": 32,
+   "marker": "1984",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 234,
+   "para_id": 51,
+   "bib_id": 92,
+   "marker": "2004",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 235,
+   "para_id": 51,
+   "bib_id": 94,
+   "marker": "1997",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 236,
+   "para_id": 51,
+   "bib_id": 93,
+   "marker": "2006",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 237,
+   "para_id": 51,
+   "bib_id": 94,
+   "marker": "1997",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 238,
+   "para_id": 52,
+   "bib_id": 49,
+   "marker": "2006",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 239,
+   "para_id": 52,
+   "bib_id": 77,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 240,
+   "para_id": 52,
+   "bib_id": 97,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 241,
+   "para_id": 52,
+   "bib_id": 94,
+   "marker": "1997",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 242,
+   "para_id": 53,
+   "bib_id": 74,
+   "marker": "2000",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 243,
+   "para_id": 53,
+   "bib_id": 75,
+   "marker": "2002",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 244,
+   "para_id": 53,
+   "bib_id": 76,
+   "marker": "2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 245,
+   "para_id": 53,
+   "bib_id": 27,
+   "marker": "1991",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 246,
+   "para_id": 54,
+   "bib_id": 30,
+   "marker": "1968",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 247,
+   "para_id": 54,
+   "bib_id": 31,
+   "marker": "1971",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 248,
+   "para_id": 55,
+   "bib_id": 78,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 249,
+   "para_id": 55,
+   "bib_id": 49,
+   "marker": "2006",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 250,
+   "para_id": 55,
+   "bib_id": 77,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 251,
+   "para_id": 55,
+   "bib_id": 97,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 252,
+   "para_id": 56,
+   "bib_id": 27,
+   "marker": "1991",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 253,
+   "para_id": 57,
+   "bib_id": 27,
+   "marker": "1991",
+   "expanded": false,
+   "scored": true
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-ext-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "v1_bib_count": 109
+ }
+}

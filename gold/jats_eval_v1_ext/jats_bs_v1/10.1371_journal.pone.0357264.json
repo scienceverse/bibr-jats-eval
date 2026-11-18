@@ -1,0 +1,374 @@
+{
+ "paper_id": "10.1371_journal.pone.0357264",
+ "paras": [
+  {
+   "para_id": 1,
+   "loc": "body",
+   "sec_title": "1. Introduction",
+   "text": "Intelligent vehicles have emerged as a transformative technology within modern transportation systems, offering substantial potential to enhance traffic safety, operational efficiency, and environmental sustainability [1–3]. As a cornerstone enabling technology for autonomous driving, path tracking control (PTC) is instrumental in governing a vehicle’s ability to precisely adhere to a prescribed reference trajectory while maintaining dynamic stability [4]. The accuracy of PTC critically influences driving safety and ride comfort, especially in complex and rapidly changing road environments. Despite considerable research efforts, achieving high-performance path tracking for intelligent vehicles remains a persistent challenge, primarily owing to the intrinsic complexity of vehicle dynamics—which are strongly coupled, inherently nonlinear, and subject to a broad spectrum of uncertainties [5].",
+   "printed": true
+  },
+  {
+   "para_id": 2,
+   "loc": "body",
+   "sec_title": "1. Introduction",
+   "text": "The challenges in PTC primarily arise from multiple sources of uncertainties, including parametric perturbations, unmodeled dynamics, and external disturbances [6–8]. These uncertainties can significantly degrade tracking accuracy and even compromise vehicle stability, necessitating the development of robust control strategies capable of handling such complexities while maintaining satisfactory transient and steady-state performance [9]. Various control methodologies have been proposed to address the path tracking problem of intelligent vehicles [10–12]. Model predictive control (MPC) has gained substantial popularity due to its ability to handle constraints and predict future system behavior [13]. In [14], Sun et al. tackle the issue of insufficient adaptability of conventional MPC to varying driving scenarios in autonomous vehicle path tracking. In [15], Nascimento et al. address the challenges of MPC design for nonholonomic mobile robot trajectory tracking by providing a comprehensive survey that covers modeling, constraint handling, stability analysis, and computational considerations. However, MPC typically relies on accurate system models and may suffer from substantial computational burden, limiting its applicability in real-time implementations [16]. Linear quadratic regulator (LQR) and PID based methods are simple [17–19]. In [20], Sun et al. address the challenge of coordinating lateral and longitudinal control for intelligent vehicles in the presence of varying road curvatures and future path changes by proposing a LQR based control method that incorporates preview information to optimize tracking performance. Jiang and Palaoag address the trajectory tracking problem for autonomous systems by proposing a hybrid algorithm that integrates MPC with LQR, leveraging MPC’s constraint handling capability and LQR’s optimality for enhanced tracking performance [21]. However, they often lack robustness to significant uncertainties and disturbances.",
+   "printed": true
+  },
+  {
+   "para_id": 3,
+   "loc": "body",
+   "sec_title": "1. Introduction",
+   "text": "Recent years have witnessed a surge of interest in sliding mode control (SMC) for vehicle path tracking, as evidenced by several comprehensive survey papers [22,23]. These reviews systematically categorize various SMC methodologies—including terminal sliding mode, adaptive sliding mode, and disturbance-observer-based sliding mode—and identify their respective merits and limitations when applied to ground vehicles. Notably, [22] highlights that while SMC offers inherent robustness against matched uncertainties, its application to vehicle path tracking is often hindered by chattering, singularity, and the stringent persistent excitation (PE) condition required for adaptive parameter convergence. These challenges motivate the development of integrated solutions that combine nonlinear control techniques with advanced learning mechanisms. SMC has emerged as a powerful robust control technique for nonlinear systems with uncertainties, owing to its insensitivity to matched disturbances and its capability to enforce desired system behavior through discontinuous control actions [24–26]. In [27], Ansari et al. address the load frequency control problem in power systems subject to parameter uncertainties and external disturbances by proposing a robust backstepping SMC that integrates the systematic design of backstepping with the robustness of sliding mode control to ensure frequency stability. In [5], Zhang et al. address the trajectory tracking control problem of permanent magnet synchronous motors subject to parameter uncertainties, load disturbances, and sliding mode chattering by proposing a non-singular fast terminal SMC scheme with disturbance compensation. In [28], Zhang et al. tackle the challenges of finite-time convergence and disturbance sensitivity in robotic manipulator control. They propose a fixed-time SMC integrated with a disturbance observer, which guarantees global fast tracking convergence with a convergent time upper bound independent of initial states, while effectively estimating and compensating for lumped disturbances. In [29], Tan et al. address the spacecraft reorientation control problem under multiple attitude constraints and actuator resource limitations by proposing an event-triggered sliding mode control scheme, which achieves robust attitude tracking while significantly reducing actuator updates and ensuring the avoidance of Zeno behavior. More recently, several studies have specifically explored SMC for autonomous vehicle applications. In [30], Wang et al. proposes an adaptive sliding mode approach for vehicle lateral control under uncertain tire-road friction conditions. In [31], Li et al. develops a finite-time terminal sliding mode controller for path tracking of autonomous vehicles, demonstrating improved transient performance. However, these methods either require stringent PE conditions for parameter convergence or lack a systematic mechanism for disturbance estimation and compensation, leaving room for further improvement.",
+   "printed": true
+  },
+  {
+   "para_id": 4,
+   "loc": "body",
+   "sec_title": "1. Introduction",
+   "text": "Conventional adaptive controllers rely on the persistent excitation (PE) condition for parameter convergence, which is seldom satisfied in real driving scenarios. Consequently, tracking-error-driven controllers such as AFNTSMC fail to ensure parameter convergence [32], degrading model fidelity and tracking accuracy. The composite learning mechanism overcomes this by achieving reliable estimation under interval excitation—a weaker and more practical condition than PE. Motivated by the aforementioned discussions, this paper proposes a composite learning-based finite-time nonsingular terminal sliding mode control (CL-FNTSMC) strategy for intelligent vehicle path tracking. The main contributions are threefold:",
+   "printed": true
+  },
+  {
+   "para_id": 5,
+   "loc": "table",
+   "sec_title": "4.1. Simulation environment and parameter settings",
+   "text": "AFNTSMC [33]",
+   "printed": true
+  }
+ ],
+ "links": [],
+ "links_optional": [
+  "creativecommons.org/licenses/by/4.0",
+  "doi:10.1002/rnc.7896",
+  "doi:10.1007/s11071-019-04826-9",
+  "doi:10.1007/s12239-014-0120-9",
+  "doi:10.1007/s12239-025-00343-4",
+  "doi:10.1016/j.egyr.2023.08.008",
+  "doi:10.1016/j.energy.2023.128054",
+  "doi:10.1016/j.isatra.2021.12.044",
+  "doi:10.1016/j.ymssp.2019.106548",
+  "doi:10.1017/s0263574717000637",
+  "doi:10.1088/1361-6501/ad8023",
+  "doi:10.1088/1742-6596/1039/1/012042",
+  "doi:10.1109/access.2019.2912094",
+  "doi:10.1109/aiea62095.2024.10692994",
+  "doi:10.1109/jas.2023.123948",
+  "doi:10.1109/tac.1971.1099830",
+  "doi:10.1109/tac.2023.3317505",
+  "doi:10.1109/taes.2023.3270391",
+  "doi:10.1109/tiv.2022.3157049",
+  "doi:10.1109/tiv.2022.3195635",
+  "doi:10.1109/tpel.2018.2803760",
+  "doi:10.1109/tsmc.2020.2966631",
+  "doi:10.1109/tte.2024.3471771",
+  "doi:10.1109/tvt.2016.2555853",
+  "doi:10.1109/tvt.2026.3667709",
+  "doi:10.1631/jzus.c1100379",
+  "doi:10.3389/fbioe.2022.905983",
+  "doi:10.3390/electronics11223703",
+  "editorialmanager.com/pone",
+  "explore.plos.org/phishing",
+  "journals.plos.org/plosone/s/data-availability",
+  "journals.plos.org/plosone/s/editorial-and-peer-review-process",
+  "journals.plos.org/plosone/s/figures",
+  "journals.plos.org/plosone/s/file?id=ba62/plosone_formatting_sample_title_authors_affiliations.pdf",
+  "journals.plos.org/plosone/s/file?id=wjvg/plosone_formatting_sample_main_body.pdf",
+  "journals.plos.org/plosone/s/latex",
+  "journals.plos.org/plosone/s/materials-and-software-sharing",
+  "journals.plos.org/plosone/s/recommended-repositories",
+  "journals.plos.org/plosone/s/submission-guidelines",
+  "plos.my.site.com/s",
+  "plos.org/privacy-policy",
+  "plos.org/protocols?utm_medium=editorial-email&utm_source=authorletters&utm_campaign=protocols",
+  "plosone.org/static/policies.action"
+ ],
+ "own_doi": "doi:10.1371/journal.pone.0357264",
+ "citations": [
+  {
+   "cite_id": 1,
+   "para_id": 1,
+   "bib_id": 1,
+   "marker": "1",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 2,
+   "para_id": 1,
+   "bib_id": 2,
+   "marker": "1–3",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 3,
+   "para_id": 1,
+   "bib_id": 3,
+   "marker": "3",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 4,
+   "para_id": 1,
+   "bib_id": 4,
+   "marker": "4",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 5,
+   "para_id": 1,
+   "bib_id": 5,
+   "marker": "5",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 6,
+   "para_id": 2,
+   "bib_id": 6,
+   "marker": "6",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 7,
+   "para_id": 2,
+   "bib_id": 7,
+   "marker": "6–8",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 8,
+   "para_id": 2,
+   "bib_id": 8,
+   "marker": "8",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 9,
+   "para_id": 2,
+   "bib_id": 9,
+   "marker": "9",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 10,
+   "para_id": 2,
+   "bib_id": 10,
+   "marker": "10",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 11,
+   "para_id": 2,
+   "bib_id": 11,
+   "marker": "10–12",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 12,
+   "para_id": 2,
+   "bib_id": 12,
+   "marker": "12",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 13,
+   "para_id": 2,
+   "bib_id": 13,
+   "marker": "13",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 14,
+   "para_id": 2,
+   "bib_id": 14,
+   "marker": "14",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 15,
+   "para_id": 2,
+   "bib_id": 15,
+   "marker": "15",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 16,
+   "para_id": 2,
+   "bib_id": 16,
+   "marker": "16",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 17,
+   "para_id": 2,
+   "bib_id": 17,
+   "marker": "17",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 18,
+   "para_id": 2,
+   "bib_id": 18,
+   "marker": "17–19",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 19,
+   "para_id": 2,
+   "bib_id": 19,
+   "marker": "19",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 20,
+   "para_id": 2,
+   "bib_id": 20,
+   "marker": "20",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 21,
+   "para_id": 2,
+   "bib_id": 21,
+   "marker": "21",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 22,
+   "para_id": 3,
+   "bib_id": 22,
+   "marker": "22",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 23,
+   "para_id": 3,
+   "bib_id": 23,
+   "marker": "23",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 24,
+   "para_id": 3,
+   "bib_id": 22,
+   "marker": "22",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 25,
+   "para_id": 3,
+   "bib_id": 24,
+   "marker": "24",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 26,
+   "para_id": 3,
+   "bib_id": 25,
+   "marker": "24–26",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 27,
+   "para_id": 3,
+   "bib_id": 26,
+   "marker": "26",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 28,
+   "para_id": 3,
+   "bib_id": 27,
+   "marker": "27",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 29,
+   "para_id": 3,
+   "bib_id": 5,
+   "marker": "5",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 30,
+   "para_id": 3,
+   "bib_id": 28,
+   "marker": "28",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 31,
+   "para_id": 3,
+   "bib_id": 29,
+   "marker": "29",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 32,
+   "para_id": 3,
+   "bib_id": 30,
+   "marker": "30",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 33,
+   "para_id": 3,
+   "bib_id": 31,
+   "marker": "31",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 34,
+   "para_id": 4,
+   "bib_id": 32,
+   "marker": "32",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 35,
+   "para_id": 5,
+   "bib_id": 33,
+   "marker": "33",
+   "expanded": false,
+   "scored": false
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-ext-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "v1_bib_count": 33
+ }
+}

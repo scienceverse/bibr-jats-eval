@@ -1,0 +1,1330 @@
+{
+ "paper_id": "10.1017_s0033291726105480",
+ "paras": [
+  {
+   "para_id": 1,
+   "loc": "body",
+   "sec_title": "Participants",
+   "text": "Participants were English-speaking adults (18–65) in the United States seeking treatment for anxiety and/or depression via a digital mental health therapy platform (www.talkspace.com). Access to this platform is available through employee assistance programs, direct self-enrollment, and coverage under individual insurance behavioral health benefits. All participants received a depression and/or anxiety diagnosis from their assigned licensed mental health provider and completed a self-report measure of anxiety and depression at baseline. Exclusion criteria consisted of current or past diagnoses of bipolar disorder, any schizophrenia spectrum and psychotic disorder, substance use disorder, a medical or neurological condition that would better account for the symptoms, and suicidal thoughts with method or any suicidal behavior, as measured by the Columbia Suicide Severity Rating Scale Lifetime-Recent Screen (Posner et al., 2011), which would require a more intensive level of care.",
+   "printed": true
+  },
+  {
+   "para_id": 2,
+   "loc": "back",
+   "sec_title": "Data availability statement",
+   "text": "Requests for raw data can be made by written request to the corresponding author and require a separate Data Use Agreement. Code may be found at: https://osf.io/w58qs/overview?view_only=9b362fa1366047d8a7757f16d15de8af",
+   "printed": true
+  },
+  {
+   "para_id": 3,
+   "loc": "body",
+   "sec_title": "",
+   "text": "Research and clinical practice have historically relied on a categorical taxonomies of mental health disorders that is based on expert consensus (Kendler, 2009; Widiger & Clark, 2000), yet growing evidence suggests these taxonomies do not fully capture the underlying structure of symptom data. This concern is especially relevant for anxiety and depression, which are highly prevalent and frequently co-occur (Saha et al., 2021; World Health Organization, 2022). A recent meta-analysis of 171 studies found that individuals with a mood disorder are six times more likely to experience an anxiety disorder than those without (Saha et al., 2021). At the same time, there is substantial heterogeneity within these disorders, where individuals sharing the same diagnosis may display very different symptom profiles (Dalgleish, Black, Johnston, & Bevan, 2020; Fried, 2015). These observations suggest that traditional categories may not fully represent how symptoms are organized (Dalgleish et al., 2020; Kotov, Krueger, & Watson, 2018). This mismatch has practical consequences: comorbidity and heterogeneity can complicate clinical outcomes, obscuring individual symptom patterns and making it difficult to determine which patients will benefit from which interventions (Coplan, Aaronson, Panthangi, & Kim, 2015; Hirschfeld, 2001; Olatunji, Cisler, & Tolin, 2010; Zhiguo & Yiru, 2014).",
+   "printed": true
+  },
+  {
+   "para_id": 4,
+   "loc": "body",
+   "sec_title": "",
+   "text": "Prior research has used factor-analytic and person-centered approaches to characterize heterogeneity in anxiety and depression. Factor-analytic methods have identified underlying dimensions such as somatic and affective symptom components (Clark, Steer, & Beck, 1994; Clark & Watson, 1991; Dunbar, Ford, Hunt, & Der, 2000; Snyder et al., 2023), whereas latent class and latent profile analyses have identified groups of individuals with different symptom patterns, severity levels, or comorbidity profiles (Carragher, Adamson, Bunting, & McCann, 2009; Chen et al., 2019; Sullivan, Kessler, & Kendler, 1998; Ten Have et al., 2024; Ulbricht, Chrysanthopoulou, Levin, & Lapane, 2018). However, person-centered profiles may reflect both symptom configuration and overall severity, making it difficult to separate the prognostic relevance of a particular pattern from baseline symptom burden.",
+   "printed": true
+  },
+  {
+   "para_id": 5,
+   "loc": "body",
+   "sec_title": "",
+   "text": "Network approaches complement these methods by offering a symptom-level view of psychopathology, in which clusters emerge from observed symptom co-occurrence rather than being imposed a priori (Borsboom, 2017; Borsboom & Cramer, 2013; Epskamp, Borsboom, & Fried, 2018; Fried, 2015). Recent studies have applied network methods to anxiety and depression, examining the disorders individually (Moriana et al., 2022; Park et al., 2021; Wu et al., 2023) and together (Bai et al., 2021; Contreras et al., 2024; Jurado-González et al., 2024; Kaiser, Herzog, Voderholzer, & Brakemeier, 2021; Tundo et al., 2021). Worry and depressed mood emerged as influential symptoms across studies (Bai et al., 2021; Cai et al., 2024; Jurado-González et al., 2024; Kaiser et al., 2021), while nervousness (Bai et al., 2021; Park & Kim, 2020) and psychomotor symptoms (Beard et al., 2016; Cai et al., 2024; Kaiser et al., 2021) served as bridge symptoms across conditions.",
+   "printed": true
+  },
+  {
+   "para_id": 6,
+   "loc": "body",
+   "sec_title": "",
+   "text": "Despite the promise of these findings, they have yet to produce a clear consensus on the symptom-level subtypes of anxiety and depression. Although meta-analytic investigations have begun to identify robust symptom associations across anxiety and depression (Belli et al., 2026; Cai et al., 2024; Malgaroli, Calderon, & Bonanno, 2021), comparatively less attention has been devoted to identifying symptom clusters that span anxiety and depression, and findings continue to vary across samples and populations. Several studies used modest sample sizes recruited from specialized populations, including nurses (Bai et al., 2021; Ren et al., 2021), disabled older adults (Zhang et al., 2023), or inpatients (Beard et al., 2016; Kaiser et al., 2021). Because symptom–symptom associations are sample-dependent, larger national samples are crucial for producing reliable network structures and generalizable findings. Moreover, few studies have applied sophisticated clustering techniques. Some artificially split networks into predefined symptoms of anxiety or depression, rather than deriving clusters from observed network structure (Bai et al., 2021; Beard et al., 2016; Ren et al., 2021; Su, Li, & Meng, 2024). Others used clustering algorithms that force each node to belong to only one community (Contreras et al., 2024; Jurado-González et al., 2024; Malgaroli et al., 2021), which is not ideal for psychological networks where symptoms may naturally be present in different psychopathological profiles. Even when studies used methods such as clique percolation, allowing overlapping communities, these algorithms have been shown to underperform compared to modern alternatives (Kaiser et al., 2021; Ribeiro Santiago, Soares, Quintero, & Jamieson, 2024).",
+   "printed": true
+  },
+  {
+   "para_id": 7,
+   "loc": "body",
+   "sec_title": "Participants",
+   "text": "The final sample consisted of 33,675 patients who completed questionnaires at baseline and a subset of 10,718 patients who completed questionnaires for a full 12 weeks of treatment. The longitudinal sub-sample was limited to individuals who met established clinical thresholds (GAD and/or PHQ ≥10; Kroenke et al., 2007; Plummer, Manea, Trepel, & McMillan, 2016), while the baseline-only sample was not restricted. This cutoff was applied to ensure that longitudinal trajectories could reflect clinically meaningful change during treatment, including the possibility of recovery relative to standard symptom severity cutoffs, and to reduce floor effects among participants with minimal baseline symptoms.",
+   "printed": true
+  },
+  {
+   "para_id": 8,
+   "loc": "body",
+   "sec_title": "Procedure",
+   "text": "Study procedures were approved by the NYU School of Medicine IRB (i23–00345). Before using the platform, all patients and clinicians provided written consent to the use of their deidentified data in an aggregate format for research purposes. Participants completed depression and anxiety assessments at baseline, and every three weeks during treatment. Treatment was delivered through a commercial digital mental health platform using asynchronous, message-based psychotherapy. Licensed therapists in the current study (n = 1,599) were predominantly female (88.1%) with a mean age of 40.3 years (SD 10.0). Most had at least 5 years of practice, with 697 (43.7%) reporting 5 to 10 years and 582 (36.5%) more than 10 years of practice, while 315 (19.8%) had under 5 years of experience. The most common licenses were Licensed Clinical Social Worker (n = 376, 24.5%), Licensed Professional Counselor (n = 374, 24.3%), Licensed Marriage and Family Therapist (n = 241, 15.7%), and Licensed Mental Health Counselor (n = 182, 11.8%). Treatment involved asynchronous text, audio, and video messaging between clinicians and patients on a HIPAA-compliant platform, with clinicians responding at least once per day, five days per week offering cognitive-behavioral, mindfulness-based, psychodynamic, and relational interventions according to their therapeutic orientation (Hull et al., 2020). Randomized control trial evidence indicates no significant outcome difference between traditional weekly video sessions compared to message-based delivery (Pullmann et al., 2025). Further details of the treatment protocol are reported elsewhere (Hull et al., 2020; Pullmann et al., 2025).",
+   "printed": true
+  },
+  {
+   "para_id": 9,
+   "loc": "body",
+   "sec_title": "GAD-7",
+   "text": "Symptoms of anxiety were assessed with the Generalized Anxiety Disorder Questionnaire (GAD-7), which asks patients to rate how often they had experienced each symptom from 0 (Not at all) to 3 (Nearly every day) (Spitzer, Kroenke, Williams, & Löwe, 2006). Scores of 10 or greater indicate moderate anxiety (Kroenke et al., 2007; Plummer et al., 2016; Spitzer et al., 2006).",
+   "printed": true
+  },
+  {
+   "para_id": 10,
+   "loc": "body",
+   "sec_title": "PHQ-9",
+   "text": "Symptoms of depression were assessed with the Patient Health Questionnaire (PHQ-9), which asks patients to rate how often they had experienced each symptom from 0 (Not at all) to 3 (Nearly every day) (Kroenke & Spitzer, 2002). Scores of 10 or greater indicate moderate depression (Kroenke, Spitzer, & Williams, 2001; Levis et al., 2019). The PHQ-9 item about suicidal ideation was available only for a subset of participants (n = 7,288). As mentioned previously, individuals who met a clinical threshold of suicidality were referred for more intensive care. The sample was restricted to only include individuals at low suicide risk, resulting in infrequent endorsement of the PHQ-9 suicidality item, consistent with endorsement rates observed in digital mental health platforms (Nelson, Forman-Hoffman, & Peiper, 2024; Pardes et al., 2022). Missing suicidality data were imputed using the MissForest algorithm (Stekhoven & Bühlmann, 2012). We retained the imputed item to preserve the full nine-item PHQ symptom set, but also examined descriptive PHQ-8 scores, excluding Item 9, to evaluate the extent to which inclusion of the imputed item affected overall depression severity.",
+   "printed": true
+  },
+  {
+   "para_id": 11,
+   "loc": "body",
+   "sec_title": "Network structure",
+   "text": "The data analysis was conducted in R (version 4.5.1). We estimated a Gaussian Graphical Model using the graphical LASSO with EBICglasso (γ = .5) (Foygel & Drton, 2010), in the qgraph package (Epskamp et al., 2012). We computed z-standardized expected influence (sum of signed edge weights). As a sensitivity analysis, we estimated the network in the longitudinal subsample and compared it to the full network (see Supplementary Figure S5 and Table S8). Accuracy of edge estimates was assessed via nonparametric bootstrapping (10,000 samples) and stability of node centrality and edge weights via case-dropping bootstrapping (10,000 resamples).",
+   "printed": true
+  },
+  {
+   "para_id": 12,
+   "loc": "body",
+   "sec_title": "Symptom clusters",
+   "text": "To determine symptom clusters, we used the Walktrap algorithm modified to consider overlap, implemented via Exploratory Graph Analysis in the EGAnet package (Golino & Christensen, 2025; Pons & Latapy, 2006; Ribeiro Santiago et al., 2024). The method assumes that random walks tend to stay within densely connected regions, so nodes in the same community exhibit similar transition probability distributions. It defines a random-walk-based distance between nodes and applies agglomerative hierarchical clustering. Beginning with each node as its own community, the algorithm iteratively merges the pair of communities with the smallest random-walk distance, producing a dendrogram that represents the hierarchical structure of the network. The final set of communities is determined by selecting the dendrogram level that maximizes modularity. While the Walktrap algorithm traditionally does not allow overlap, we implemented a version of Walktrap that allows for nodes to belong to multiple communities (Ribeiro Santiago et al., 2024). The algorithm identifies nodes with substantial cross-loadings across multiple communities (loadings ≥0.15). To explore relationships between symptom clusters, we calculated bridge expected influence using the networktools package (Jones, 2025).",
+   "printed": true
+  },
+  {
+   "para_id": 13,
+   "loc": "body",
+   "sec_title": "Outcomes trajectories",
+   "text": "To investigate treatment outcomes, we analyzed data from a subset of patients who completed 12 weeks of treatment. Longitudinal symptom trajectories were estimated using parallel process latent growth mixture modeling (LGMM) of PHQ-9 and GAD-7 scores across five assessment points (baseline, weeks 3, 6, 9, and 12; Hull et al., 2020). Unlike approaches that classify outcomes using a single endpoint criterion, LGMM identifies subgroups of patients who share similar patterns of symptom levels and symptom change.",
+   "printed": true
+  },
+  {
+   "para_id": 14,
+   "loc": "body",
+   "sec_title": "Outcomes trajectories",
+   "text": "In the original analysis, six latent trajectory classes were identified (Hull et al., 2020). For the present study, these classes were consolidated into three outcome categories to enhance interpretability. Patients’ categorical membership to an LGMM trajectory was used as the treatment outcome. We tested the association of therapist experience and licensure type with primary symptom cluster and trajectory membership using chi-squared tests.",
+   "printed": true
+  },
+  {
+   "para_id": 15,
+   "loc": "body",
+   "sec_title": "Outcome trajectories",
+   "text": "Parallel-process LGMM identified six latent classes, capturing distinct trajectories of change in depression and anxiety symptoms (Hull et al., 2020). These trajectories were grouped into three outcome categories: Recovery, Partial Improvement, and Non-response. Recovery was characterized by symptom remission to subclinical levels (PHQ-9/GAD-7 < 10). The Partial Improvement trajectory had substantial symptom reduction without reaching subclinical levels. Non-Response trajectory by persistently elevated symptoms. Therapist experience and licensure type were not significantly associated with patients’ primary symptom cluster (experience: X2(6) = 7.89, p = .246; licensure: X2(81) = 84.37, p = .377) or outcome trajectory (experience: X2(4) = 3.57, p = .467; licensure: X2 (54) = 54.16, p = .468). The trajectories are shown in Figure 3.Figure 3.Longitudinal treatment trajectories. Note: Points represent the means, and error bars denote 95% confidence intervals (CI). Figure 3. long description.Three-panel line graph showing longitudinal score trajectories for G A D-7 and P H Q-9 across Partial Improvement, Non-Response, and Recovery groups over 12 weeks. See long description.",
+   "printed": false
+  },
+  {
+   "para_id": 16,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Four symptom clusters emerged: Affective Dysregulation, Worries, Neurovegetative, and Hyperarousal. These clusters map onto cognitive, affective, and somatic dimensions described in factor-analytic and hierarchical models (Clark et al., 1994; Dunbar et al., 2000; Snyder et al., 2023) and parallel structures in prior network studies (Kaiser et al., 2021; Malgaroli et al., 2021). Importantly, the clusters were not simply reflections of anxiety or depression diagnoses; instead, they represent configurational phenotypes, distinct patterns of symptom interdependence that cross disorder boundaries. Several bridge symptoms linked clusters: inability to relax connected Hyperarousal and Worries, while depressed mood linked Neurovegetative and Affective Dysregulation. Although direct comparison with prior bridge research is limited by methodological differences, the overlap with previously identified bridges, such as mood, restlessness, irritability, and nervousness (Beard et al., 2016; Cai et al., 2024; Ren et al., 2021), suggests that somatic hyperarousal may play a central role in the comorbidity between anxiety and depression.",
+   "printed": true
+  },
+  {
+   "para_id": 17,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "We assigned patients to clusters based on their baseline symptom profiles. Most patients aligned with the Worries cluster, while smaller proportions aligned with the other three. This distribution differs from national prevalence estimates, showing comparable rates of anxiety and depressive symptoms in the general population (Terlizzi & Zablotsky, 2024), suggesting that individuals with worry-dominant profiles may be particularly likely to seek digital psychotherapy. Prior work indicates that those who engage in telehealth differ systematically from those who seek in-person care (Adwi et al., 2025; Olfson, McClellan, Zuvekas, & Blanco, 2025; Vakkalanka et al., 2024), underscoring that symptom configurations may shape both outcomes and pathways into care.",
+   "printed": true
+  },
+  {
+   "para_id": 18,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Notably, the clusters align with distinct therapeutic targets. Individuals characterized by Affective Dysregulation symptoms may benefit from interventions that directly target mood and emotional engagement, such as behavioral activation and emotion-focused strategies (Craske et al., 2019; Pugh et al., 2025). Those with Worries symptoms may respond preferentially to cognitive and metacognitive interventions that reduce excessive worry and intolerance of uncertainty (Andersson et al., 2021; Topper, Emmelkamp, Watkins, & Ehring, 2017; Wahlund et al., 2025). Neurovegetative presentations may benefit from interventions that directly target sleep and somatic regulation, such as cognitive behavioral therapy for insomnia (Furukawa et al., 2024; Hertenstein et al., 2022; Irwin et al., 2022; Tamm et al., 2025), and may also indicate the need for pharmacological evaluation, given evidence that antidepressants reduce somatic depressive symptoms (Denninger et al., 2006; Detke et al., 2002; Fava, 2002; Liu, Zhao, Fan, & Guo, 2019). Hyperarousal profiles, which showed the highest likelihood of recovery, may reflect fear-conditioning or threat-response systems that are particularly responsive to exposure-based or physiological regulation strategies. Together, these findings suggest that targeting clusters rather than diagnoses may allow clinicians to disrupt multiple symptom pathways simultaneously, improving both efficiency and outcomes.",
+   "printed": true
+  },
+  {
+   "para_id": 19,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Sample selection may have shaped the observed network structure and treatment trajectories. The longitudinal subsample only included participants meeting clinical thresholds for anxiety and/or depression. Conversely, individuals endorsing suicidal thoughts with method or any suicidal behavior were referred to a higher level of care. These restrictions may introduce selection bias and limit generalizability, particularly because selecting participants based on symptom severity can distort estimated symptom associations in psychological networks (De Ron, Fried, & Epskamp, 2021; Hernán, Hernández-Díaz, & Robins, 2004). Future studies should replicate these findings across the full severity continuum.",
+   "printed": true
+  },
+  {
+   "para_id": 20,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "The PHQ-9 suicidality item was unavailable for most participants, limiting inferences about suicidal ideation as a symptom node. However, several factors reduce concern that this item substantially influenced overall depression severity estimates: high-risk individuals were referred off the platform; baseline PHQ-8 and PHQ-9 scores were highly similar, consistent with evidence that PHQ-8 and PHQ-9 scores yield nearly identical total scores (Wu et al., 2020); and prior studies suggest that suicidality is infrequently endorsed on the PHQ-9 in both digital mental health and general population samples (Nelson et al., 2024; Pardes et al., 2022; Tomitaka et al., 2018). Nevertheless, the imputed suicidality item should not be interpreted as providing a direct estimate of suicidal ideation.",
+   "printed": true
+  },
+  {
+   "para_id": 21,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "The conditional associations underlying the network also require cautious interpretation. Because each edge represents the association between two symptoms after conditioning on all remaining symptoms, partialing may remove meaningful shared variance, attenuating or distorting the estimated edges (Hoyle, Lynam, Miller, & Pek, 2023). As the symptom communities were derived from this conditional edge structure, any such distortion could likewise affect community composition. The communities should therefore be interpreted as descriptive summaries of symptom organization, rather than definitive representations of underlying psychopathological structure.",
+   "printed": true
+  },
+  {
+   "para_id": 22,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Symptom assessments occurred every three weeks, which may obscure short-term dynamics relevant to treatment response (Hehlmann et al., 2024; Husen et al., 2016; Peeters, Berkhof, Rottenberg, & Nicolson, 2010; Wichers et al., 2012). Participants received message-based psychotherapy, which differs from traditional weekly face-to-face psychotherapy in its flexible timing, use of text/audio/video messaging, and lack of a fixed session structure. Although prior work suggests that message-based psychotherapy outcomes are equivalent to video-based psychotherapy (Pullmann et al., 2025), future studies should further examine how present findings generalize to traditional synchronous psychotherapy protocols. Therapist experience and licensure type were not associated with symptom-cluster membership or recovery class. We could not, however, capture other dyadic interactions, such as therapeutic alliance, which may have influenced treatment outcomes (Wampold, 2015). Finally, the cross-sectional network design precludes causal inference. Experimental and longitudinal network studies are needed to test whether directly targeting influential and bridge symptoms produces downstream effects across the symptom system.",
+   "printed": true
+  },
+  {
+   "para_id": 23,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Broader methodological challenges remain at the field level. As most psychological measures, including those used here, were developed from a latent trait perspective, items with cross-loadings were typically excluded during scale development, meaning that symptoms that naturally overlap between communities may be underrepresented in the present network (Fried, 2017; Kroenke et al., 2001; Spitzer et al., 2006). Future research would benefit from the development of measures designed from a network perspective, which retain rather than exclude such overlapping items (Borsboom & Cramer, 2013). Furthermore, while overlapping community detection may more accurately reflect the fuzzy boundaries that characterize psychological symptom networks, the application of such methods in psychology remains in its early stages. Although the modified Walktrap algorithm has demonstrated superior performance relative to alternative methods in simulations, its generalizability remains unknown, and its accuracy could still be improved (Ribeiro Santiago et al., 2024). Additionally, the appropriateness of metrics used to evaluate overlapping community detection, such as fuzzy modularity, should be explored within the context of psychological research. Future research should prioritize the continued development of overlapping community detection algorithms, which hold promise for advancing our understanding of psychopathology.",
+   "printed": true
+  }
+ ],
+ "links": [
+  {
+   "link_id": 1,
+   "url": "talkspace.com",
+   "url_raw": "www.talkspace.com",
+   "href_jats": "http://www.talkspace.com",
+   "repo_key": null,
+   "host_class": "other",
+   "loc": "body",
+   "sec_title": "Participants",
+   "source": "tagged",
+   "para_id": 1
+  },
+  {
+   "link_id": 2,
+   "url": "osf.io/w58qs/overview?view_only=9b362fa1366047d8a7757f16d15de8af",
+   "url_raw": "https://osf.io/w58qs/overview?view_only=9b362fa1366047d8a7757f16d15de8af",
+   "href_jats": "https://osf.io/w58qs/overview?view_only=9b362fa1366047d8a7757f16d15de8af",
+   "repo_key": "osf:w58qs",
+   "host_class": "osf",
+   "loc": "back",
+   "sec_title": "Data availability statement",
+   "source": "tagged",
+   "para_id": 2
+  }
+ ],
+ "links_optional": [
+  "cran.r-project.org/package=networktools",
+  "creativecommons.org/licenses/by/4.0",
+  "doi:10.1001/archinte.166.10.1092",
+  "doi:10.1001/jamanetworkopen.2024.61502",
+  "doi:10.1001/jamanetworkopen.2025.40065",
+  "doi:10.1001/jamapsychiatry.2021.3422",
+  "doi:10.1001/jamapsychiatry.2025.3575",
+  "doi:10.1002/da.23113",
+  "doi:10.1002/da.23136",
+  "doi:10.1002/jclp.23217",
+  "doi:10.1002/jts.22988",
+  "doi:10.1002/wps.20238",
+  "doi:10.1002/wps.20375",
+  "doi:10.1002/wps.20478",
+  "doi:10.1002/wps.21018",
+  "doi:10.1007/s12144-023-04657-3",
+  "doi:10.1016/j.brat.2010.04.008",
+  "doi:10.1016/j.brat.2016.12.015",
+  "doi:10.1016/j.cpr.2010.04.008",
+  "doi:10.1016/j.cpr.2021.102000",
+  "doi:10.1016/j.genhosppsych.2015.11.005",
+  "doi:10.1016/j.jad.2008.05.015",
+  "doi:10.1016/j.jad.2016.08.025",
+  "doi:10.1016/j.jad.2016.10.019",
+  "doi:10.1016/j.jad.2018.09.053",
+  "doi:10.1016/j.jad.2020.03.078",
+  "doi:10.1016/j.jad.2021.07.072",
+  "doi:10.1016/j.jad.2023.04.065",
+  "doi:10.1016/j.jad.2024.01.266",
+  "doi:10.1016/j.jad.2024.09.017",
+  "doi:10.1016/j.jad.2025.120165",
+  "doi:10.1016/j.psychres.2018.03.003",
+  "doi:10.1016/j.smrv.2022.101597",
+  "doi:10.1017/s0033291709005753",
+  "doi:10.1017/s0033291716002300",
+  "doi:10.1017/s0033291719001314",
+  "doi:10.1017/s0033291719003209",
+  "doi:10.1017/s0033291720000781",
+  "doi:10.1017/s0033291724001740",
+  "doi:10.1017/s0033291726105480",
+  "doi:10.1017/s1092852920000085",
+  "doi:10.1037/0021-843x.100.3.316",
+  "doi:10.1037/0021-843x.103.4.645",
+  "doi:10.1037/0033-2909.126.6.946",
+  "doi:10.1037/ccp0000396",
+  "doi:10.1037/ccp0000482",
+  "doi:10.1037/ccp0000862",
+  "doi:10.1038/s41380-023-02369-5",
+  "doi:10.1046/j.1525-1497.2001.016009606.x",
+  "doi:10.1080/13811118.2023.2262540",
+  "doi:10.1080/16506073.2025.2515196",
+  "doi:10.1089/tmj.2023.0588",
+  "doi:10.1093/bioinformatics/btr597",
+  "doi:10.1097/01.ede.0000135174.63482.43",
+  "doi:10.1111/j.2044-8260.2011.02021.x",
+  "doi:10.1136/bmj.l1476",
+  "doi:10.1146/annurev-clinpsy-050212-185608",
+  "doi:10.1146/annurev-clinpsy-071720-015436",
+  "doi:10.1176/ajp.155.10.1398",
+  "doi:10.1176/appi.ajp.2011.10111704",
+  "doi:10.1176/appi.psy.47.4.348",
+  "doi:10.1177/21677026221119483",
+  "doi:10.1186/s12888-018-1696-9",
+  "doi:10.1186/s12888-020-02721-x",
+  "doi:10.1186/s12888-021-03276-1",
+  "doi:10.1348/014466500163121",
+  "doi:10.15620/cdc/64018",
+  "doi:10.18637/jss.v048.i04",
+  "doi:10.2196/69305",
+  "doi:10.30773/pi.2020.0367",
+  "doi:10.31234/osf.io/cvqd6_v1",
+  "doi:10.3389/fpsyg.2015.00309",
+  "doi:10.3389/fpsyt.2019.00286",
+  "doi:10.3390/brainsci13081155",
+  "doi:10.36401/iddb-21-03",
+  "doi:10.3758/s13428-017-0862-1",
+  "doi:10.3758/s13428-024-02415-2",
+  "doi:10.3928/0048-5713-20020901-06",
+  "doi:10.3969/j.issn.1002-0829.2014.04.006",
+  "doi:10.4088/jcp.v63n0406",
+  "doi:10.4088/jcp.v63n0407",
+  "doi:10.4088/pcc.v03n0609",
+  "doi:10.5498/wjp.v5.i4.366",
+  "doi:10.7155/jgaa.00124",
+  "doi:10.7326/0003-4819-146-5-200703060-00004",
+  "ncbi.nlm.nih.gov/books/nbk609621",
+  "proceedings.neurips.cc/paper/2010/hash/072b030ba126b2f4b2374f342be9ed44-abstract.html",
+  "r-ega.net"
+ ],
+ "own_doi": "doi:10.1017/s0033291726105480",
+ "citations": [
+  {
+   "cite_id": 1,
+   "para_id": 3,
+   "bib_id": 40,
+   "marker": "2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 2,
+   "para_id": 3,
+   "bib_id": 80,
+   "marker": "2000",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 3,
+   "para_id": 3,
+   "bib_id": 63,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 4,
+   "para_id": 3,
+   "bib_id": 81,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 5,
+   "para_id": 3,
+   "bib_id": 63,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 6,
+   "para_id": 3,
+   "bib_id": 16,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 7,
+   "para_id": 3,
+   "bib_id": 25,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 8,
+   "para_id": 3,
+   "bib_id": 16,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 9,
+   "para_id": 3,
+   "bib_id": 41,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 10,
+   "para_id": 3,
+   "bib_id": 14,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 11,
+   "para_id": 3,
+   "bib_id": 32,
+   "marker": "2001",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 12,
+   "para_id": 3,
+   "bib_id": 50,
+   "marker": "2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 13,
+   "para_id": 3,
+   "bib_id": 85,
+   "marker": "2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 14,
+   "para_id": 4,
+   "bib_id": 11,
+   "marker": "1994",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 15,
+   "para_id": 4,
+   "bib_id": 12,
+   "marker": "1991",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 16,
+   "para_id": 4,
+   "bib_id": 20,
+   "marker": "2000",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 17,
+   "para_id": 4,
+   "bib_id": 64,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 18,
+   "para_id": 4,
+   "bib_id": 9,
+   "marker": "2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 19,
+   "para_id": 4,
+   "bib_id": 10,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 20,
+   "para_id": 4,
+   "bib_id": 68,
+   "marker": "1998",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 21,
+   "para_id": 4,
+   "bib_id": 70,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 22,
+   "para_id": 4,
+   "bib_id": 75,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 23,
+   "para_id": 5,
+   "bib_id": 6,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 24,
+   "para_id": 5,
+   "bib_id": 7,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 25,
+   "para_id": 5,
+   "bib_id": 21,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 26,
+   "para_id": 5,
+   "bib_id": 25,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 27,
+   "para_id": 5,
+   "bib_id": 48,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 28,
+   "para_id": 5,
+   "bib_id": 54,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 29,
+   "para_id": 5,
+   "bib_id": 82,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 30,
+   "para_id": 5,
+   "bib_id": 3,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 31,
+   "para_id": 5,
+   "bib_id": 13,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 32,
+   "para_id": 5,
+   "bib_id": 38,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 33,
+   "para_id": 5,
+   "bib_id": 39,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 34,
+   "para_id": 5,
+   "bib_id": 74,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 35,
+   "para_id": 5,
+   "bib_id": 3,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 36,
+   "para_id": 5,
+   "bib_id": 8,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 37,
+   "para_id": 5,
+   "bib_id": 38,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 38,
+   "para_id": 5,
+   "bib_id": 39,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 39,
+   "para_id": 5,
+   "bib_id": 3,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 40,
+   "para_id": 5,
+   "bib_id": 53,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 41,
+   "para_id": 5,
+   "bib_id": 4,
+   "marker": "2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 42,
+   "para_id": 5,
+   "bib_id": 8,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 43,
+   "para_id": 5,
+   "bib_id": 39,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 44,
+   "para_id": 6,
+   "bib_id": 5,
+   "marker": "2026",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 45,
+   "para_id": 6,
+   "bib_id": 8,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 46,
+   "para_id": 6,
+   "bib_id": 47,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 47,
+   "para_id": 6,
+   "bib_id": 3,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 48,
+   "para_id": 6,
+   "bib_id": 61,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 49,
+   "para_id": 6,
+   "bib_id": 84,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 50,
+   "para_id": 6,
+   "bib_id": 4,
+   "marker": "2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 51,
+   "para_id": 6,
+   "bib_id": 39,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 52,
+   "para_id": 6,
+   "bib_id": 3,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 53,
+   "para_id": 6,
+   "bib_id": 4,
+   "marker": "2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 54,
+   "para_id": 6,
+   "bib_id": 61,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 55,
+   "para_id": 6,
+   "bib_id": 67,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 56,
+   "para_id": 6,
+   "bib_id": 13,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 57,
+   "para_id": 6,
+   "bib_id": 38,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 58,
+   "para_id": 6,
+   "bib_id": 47,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 59,
+   "para_id": 6,
+   "bib_id": 39,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 60,
+   "para_id": 6,
+   "bib_id": 62,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 61,
+   "para_id": 1,
+   "bib_id": 58,
+   "marker": "2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 62,
+   "para_id": 7,
+   "bib_id": 44,
+   "marker": "2007",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 63,
+   "para_id": 7,
+   "bib_id": 56,
+   "marker": "2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 64,
+   "para_id": 8,
+   "bib_id": 34,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 65,
+   "para_id": 8,
+   "bib_id": 60,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 66,
+   "para_id": 8,
+   "bib_id": 34,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 67,
+   "para_id": 8,
+   "bib_id": 60,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 68,
+   "para_id": 9,
+   "bib_id": 65,
+   "marker": "2006",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 69,
+   "para_id": 9,
+   "bib_id": 44,
+   "marker": "2007",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 70,
+   "para_id": 9,
+   "bib_id": 56,
+   "marker": "2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 71,
+   "para_id": 9,
+   "bib_id": 65,
+   "marker": "2006",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 72,
+   "para_id": 10,
+   "bib_id": 42,
+   "marker": "2002",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 73,
+   "para_id": 10,
+   "bib_id": 43,
+   "marker": "2001",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 74,
+   "para_id": 10,
+   "bib_id": 45,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 75,
+   "para_id": 10,
+   "bib_id": 49,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 76,
+   "para_id": 10,
+   "bib_id": 52,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 77,
+   "para_id": 10,
+   "bib_id": 66,
+   "marker": "2012",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 78,
+   "para_id": 11,
+   "bib_id": 24,
+   "marker": "2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 79,
+   "para_id": 11,
+   "bib_id": 22,
+   "marker": "2012",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 80,
+   "para_id": 12,
+   "bib_id": 28,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 81,
+   "para_id": 12,
+   "bib_id": 57,
+   "marker": "2006",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 82,
+   "para_id": 12,
+   "bib_id": 62,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 83,
+   "para_id": 12,
+   "bib_id": 62,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 84,
+   "para_id": 12,
+   "bib_id": 37,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 85,
+   "para_id": 13,
+   "bib_id": 34,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 86,
+   "para_id": 14,
+   "bib_id": 34,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 87,
+   "para_id": 15,
+   "bib_id": 34,
+   "marker": "2020",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 88,
+   "para_id": 16,
+   "bib_id": 11,
+   "marker": "1994",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 89,
+   "para_id": 16,
+   "bib_id": 20,
+   "marker": "2000",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 90,
+   "para_id": 16,
+   "bib_id": 64,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 91,
+   "para_id": 16,
+   "bib_id": 39,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 92,
+   "para_id": 16,
+   "bib_id": 47,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 93,
+   "para_id": 16,
+   "bib_id": 4,
+   "marker": "2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 94,
+   "para_id": 16,
+   "bib_id": 8,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 95,
+   "para_id": 16,
+   "bib_id": 61,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 96,
+   "para_id": 17,
+   "bib_id": 71,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 97,
+   "para_id": 17,
+   "bib_id": 1,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 98,
+   "para_id": 17,
+   "bib_id": 51,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 99,
+   "para_id": 17,
+   "bib_id": 76,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 100,
+   "para_id": 18,
+   "bib_id": 15,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 101,
+   "para_id": 18,
+   "bib_id": 59,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 102,
+   "para_id": 18,
+   "bib_id": 2,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 103,
+   "para_id": 18,
+   "bib_id": 73,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 104,
+   "para_id": 18,
+   "bib_id": 77,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 105,
+   "para_id": 18,
+   "bib_id": 27,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 106,
+   "para_id": 18,
+   "bib_id": 31,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 107,
+   "para_id": 18,
+   "bib_id": 36,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 108,
+   "para_id": 18,
+   "bib_id": 69,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 109,
+   "para_id": 18,
+   "bib_id": 18,
+   "marker": "2006",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 110,
+   "para_id": 18,
+   "bib_id": 19,
+   "marker": "2002",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 111,
+   "para_id": 18,
+   "bib_id": 23,
+   "marker": "2002",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 112,
+   "para_id": 18,
+   "bib_id": 46,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 113,
+   "para_id": 19,
+   "bib_id": 17,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 114,
+   "para_id": 19,
+   "bib_id": 30,
+   "marker": "2004",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 115,
+   "para_id": 20,
+   "bib_id": 83,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 116,
+   "para_id": 20,
+   "bib_id": 49,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 117,
+   "para_id": 20,
+   "bib_id": 52,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 118,
+   "para_id": 20,
+   "bib_id": 72,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 119,
+   "para_id": 21,
+   "bib_id": 33,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 120,
+   "para_id": 22,
+   "bib_id": 29,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 121,
+   "para_id": 22,
+   "bib_id": 35,
+   "marker": "2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 122,
+   "para_id": 22,
+   "bib_id": 55,
+   "marker": "2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 123,
+   "para_id": 22,
+   "bib_id": 79,
+   "marker": "2012",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 124,
+   "para_id": 22,
+   "bib_id": 60,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 125,
+   "para_id": 22,
+   "bib_id": 78,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 126,
+   "para_id": 23,
+   "bib_id": 26,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 127,
+   "para_id": 23,
+   "bib_id": 43,
+   "marker": "2001",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 128,
+   "para_id": 23,
+   "bib_id": 65,
+   "marker": "2006",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 129,
+   "para_id": 23,
+   "bib_id": 7,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 130,
+   "para_id": 23,
+   "bib_id": 62,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-ext-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "v1_bib_count": 85
+ }
+}

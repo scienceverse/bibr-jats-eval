@@ -1,0 +1,656 @@
+{
+ "paper_id": "10.7717_peerj.21526",
+ "paras": [
+  {
+   "para_id": 1,
+   "loc": "body",
+   "sec_title": "Study design",
+   "text": "This study was conducted using quantitative methods and a correlational survey model. To ensure the transparency of the research data, the study has been registered via the Open Science Framework (OSF) and the analysis materials, raw dataset and analysis code are openly available in the Zenodo repository at https://doi.org/10.5281/zenodo.19953132 under a CC-NY licens license. The relationships between participants’ isokinetic lumbar muscle strength, body composition, and anaerobic power levels were tested using regularized regression analysis (Least Absolute Shrinkage and Selection Operator, LASSO) with leave-one-out cross-validation (LOOCV). The study has a cross-sectional design, and measurements were collected at a single time point. Separate models were created by considering both low angular velocity (60°/s) and high angular velocity (240°/s) isokinetic test data in the analyses. Intermediate velocities were excluded due to practical constraints: (1) each additional velocity requires separate test protocols and recovery periods, which would substantially increase testing duration and participant fatigue given our sample size (n = 30); and (2) 60°/s and 240°/s represent the most frequently reported velocities in lumbar isokinetic literature, enabling direct comparison with existing studies (Song, Chun & Lee, 2021; Yoon & Kim, 2021). Thus, the effect of different muscle activation characteristics on predicting short-term high-intensity physical performance could be evaluated.",
+   "printed": true
+  },
+  {
+   "para_id": 2,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Anaerobic power is defined as a fundamental physiological capacity for the successful performance of physical activities that require high-intensity energy production in a short period of time (Støa et al., 2025). Although the focus is usually on lower extremity muscles (Dong et al., 2025), the stabilization and strength production capacity of trunk muscles, especially lumbar region muscles, may be associated with anaerobic performance (Lee et al., 2021). The dynamic and isometric endurance of these muscles supports neuromuscular integrity and power transmission in sports involving sprinting, changing direction, and repeated high-intensity efforts (Fujita et al., 2019). Therefore, anaerobic power relates not only to peripheral muscles but also to central postural support systems (Zemková, 2022).",
+   "printed": true
+  },
+  {
+   "para_id": 3,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Isokinetic performance measurements offer an objective and reliable method for evaluating force production in different regions at varying angular velocities (Schindler et al., 2023). These tests calculate values such as peak torque, total work, and average power (Dvir, 2025). Each angular velocity represents distinct biomechanical and physiological conditions (Parrino et al., 2023); for instance, lower velocities reflect maximum force production (Hong, Woo & Jeon, 2024), while higher ones indicate fast-twitch motor unit activation, dynamic force production, and muscle endurance (Andrade et al., 2012). This directly mirrors physiological characteristics of muscle types and the viscoelastic structure of the muscle–tendon unit (Taylor et al., 1990).",
+   "printed": true
+  },
+  {
+   "para_id": 4,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Body composition is a key factor in muscle function and anaerobic performance (Maciejczyk et al., 2015). Fat-free mass, primarily skeletal muscle, underpins mechanical potential via actin–myosin interactions and phosphagen-based energy production (Stubbs et al., 2018; Tallis, James & Seebacher, 2018). Higher body fat percentage reduces functional efficiency through passive musculoskeletal loading and impairs thermoregulation and oxygen diffusion, negatively affecting anaerobic performance (Knechtle & Nikolaidis, 2018). Although body mass index (BMI) provides a general body composition indicator, it falls short for sport-specific muscle-fat distribution assessments. Isokinetic measurements precisely capture mechanical muscle capacity (De Ste Croix, Deighan & Armstrong, 2003) but neglect underlying metabolic sources, muscle volume, fiber type distribution, and energy efficiency (Baltzopoulos & Brodie, 1989), which may limit their independent explanatory power when used alone in predictive models. For example, individuals with similar torque may differ in sustainment: higher fat-free mass (FFM) enables lower energy expenditure, whereas higher fat demands greater metabolic effort (Kim et al., 2022).",
+   "printed": true
+  },
+  {
+   "para_id": 5,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Adding body composition to other variables, such as muscle mass, energy stores, muscle fiber activity, and passive loading, increases the explanatory ability of the regression model and gives a better understanding of the expenses related to generating force. Previous studies have focused mainly on the muscles of the lower extremities for predicting anaerobic performance; there are just three articles examining the trunk muscles’ isokinetic strength (Park et al., 2019; Song, Chun & Lee, 2021; Yoon & Kim, 2021), with no research including lumbar strength and body composition in multiple regressions. It is very important since the muscles of the trunk comprise around 40% of body weight and link up the kinetic chain in high-intensity exercise (Lee et al., 2021).",
+   "printed": true
+  },
+  {
+   "para_id": 6,
+   "loc": "body",
+   "sec_title": "Anaerobic power measurement",
+   "text": "The Wingate Anaerobic Test (WAnT) protocol was used to assess participants’ anaerobic performance levels. This test is one of the most widely used and well-established methods for assessing anaerobic power during short-term, high-intensity exercise (Zupan et al., 2009). Measurements were performed using a Monark 894E (Monark Exercise AB, Vansbro, Sweden) mechanical brake system bicycle ergometer. Each participant underwent a 5-minute light warm-up protocol prior to the test, which included several short sprints (2–3 s) during the warm-up period.",
+   "printed": true
+  },
+  {
+   "para_id": 7,
+   "loc": "body",
+   "sec_title": "Isokinetic test measurement",
+   "text": "Isokinetic dynamometry was used to evaluate the muscle strength, work, and power output of the participants’ lumbar muscle groups. Measurements were performed using the Humac Norm Cybex CSMi® (Computer Sports Medicine Inc., Stoughton, MA, USA) isokinetic dynamometer device. This device enables the precise and repeatable measurement of biomechanical variables such as torque, work, and power produced by muscles during movement at constant angular velocities (Habets et al., 2018; Roth et al., 2017). Prior to the test procedure, the device was calibrated daily in accordance with the manufacturer’s guidelines, and its accuracy and reliability were verified.",
+   "printed": true
+  },
+  {
+   "para_id": 8,
+   "loc": "body",
+   "sec_title": "Body composition measurements",
+   "text": "Participants’ body composition assessments were conducted using the bioelectrical impedance analysis (BIA) method in conjunction with anthropometric measurements. Measurements were taken using the Tanita MC-780 MA P Segmental Body Composition Analyzer® device. This device provides a multi-segmental analysis of body composition using 8-electrode segmental BIA technology and has been reported to provide acceptable validity and reliability for segmental body composition assessment under standardized measurement conditions (Mecherques-Carini et al., 2025). Measurements were taken in accordance with the protocols of the International Society for the Advancement of Kinanthropometry (ISAK) in the morning, in a fasting state (at least 3 h of fasting) and after urination. Participants were instructed to avoid intense physical activity for 12 h prior to the test (Silva & Vieira, 2020). However, BIA-derived estimates are sensitive to hydration status, recent food intake, and acute physical activity, and therefore should be interpreted as field-based estimates rather than criterion-standard measures.",
+   "printed": true
+  },
+  {
+   "para_id": 9,
+   "loc": "body",
+   "sec_title": "Statistical analyses",
+   "text": "The statistical analyses of the data obtained in the study were performed in the R Studio (version 2023.06.1+524; RStudio, Inc., 2023) environment. The significance level was set at p < 0.05 for all analyses. Before starting the data analysis, missing data checks and outlier analyses were performed to ensure data integrity. The normality assumption of continuous variables was evaluated using the Kolmogorov–Smirnov and Shapiro–Wilk tests; the distribution was considered normal if the skewness and kurtosis coefficients were within the ±2.0 limits (George & Mallery, 2024). Accordingly, parametric statistical methods were applied.",
+   "printed": true
+  },
+  {
+   "para_id": 10,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "The present study explores the associative framework between lumbar isokinetic parameters, body composition, and anaerobic power. While core relationships between muscle function and performance are well-established in lower-limb models (Michalik et al., 2023), this investigation refines the methodology by operationalizing the lumbar region’s specific contribution through a multi-speed, multivariate approach. Previous studies established bivariate correlations between trunk strength and anaerobic power (Song, Chun & Lee, 2021); this study extends that literature by employing multivariate modelling to explore the relative contribution of lumbar parameters in the presence of body composition variables, examining speed-specific relationships that may reflect distinct physiological demands, and demonstrating the dominant role of FFM alongside more limited and less stable contributions of isokinetic parameters—a pattern that has not been consistently examined in previous lumbar-focused studies. These findings highlight that lumbar musculature may contribute to anaerobic performance in a more context-dependent and indirect manner compared to lower-limb-focused models.",
+   "printed": true
+  },
+  {
+   "para_id": 11,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "While previous studies, including Song, Chun & Lee (2021), who reported significant bivariate correlations (e.g., r = 0.629 between trunk extension strength and WAnT peak power, r = 0.507 between trunk flexion strength and WAnT peak power) in college male soccer players players, Park et al. (2019), who linked isokinetic trunk strength profiles to pedaling power in elite cyclists, Yoon & Kim (2021), who identified associations between trunk extension/flexion strength and WAnT peak/mean power in snowboarders, as well as cross-sectional analyses reviewed in the systematic literature (Gao et al., 2025) on instability core training effects on trunk strength and sprint performance, primarily established bivariate correlations between trunk/core strength and anaerobic or sprint performance, the present study extends this literature by applying a regularized multivariate modelling approach to lumbar isokinetic parameters and body composition variables. Specifically, this study examined whether lumbar isokinetic variables measured at different angular velocities retain explanatory value when body composition is considered within the same model. Rather than demonstrating an independent or causal contribution of lumbar strength, the present findings suggest that lumbar isokinetic variables show limited and context-dependent associations with anaerobic power, whereas body composition variables, particularly FFM, provide more stable explanatory information. These findings indicate that lumbar musculature may contribute to anaerobic performance indirectly through stabilization and kinetic chain support, but its isolated predictive value appears weaker than that of body composition.",
+   "printed": true
+  },
+  {
+   "para_id": 12,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "The use of isokinetic measures, especially when collected through trunk extension and trunk flexion tests, indicates not only the physical capacity of the muscles in terms of mechanical structure using PT, TW, and AP but also the physiological attributes in relation to motor unit synchronization, fiber type, and energy production. In one study, Song, Chun & Lee (2021) found high correlations between trunk extension PT and WAnT Peak Power (r = 0.629, p < 0.001) and between trunk flexion power and WAnT Average Power (r = 0.720, p < 0.001). However, despite this evidence, the current multivariate analysis indicates that these correlations weaken when analyzed together with body composition variables.",
+   "printed": true
+  },
+  {
+   "para_id": 13,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "According to the power-speed relationship model proposed by Dvir (2025), at low speeds (60°/s), PT/TW parameters are considered indicators of maximal muscle strength, whereas at high speeds (240°/s), parameters such as AP/TW reflect energy transfer capacity associated with fast-twitch muscle fibre activation (Dvir, 2025). In the present study, however, isokinetic parameters measured at 240°/s did not demonstrate stable or meaningful explanatory power in the absence of body composition variables, indicating that theoretical expectations may not fully translate into predictive models within small-sample multivariate contexts. Park et al. (2019) demonstrated a significant relationship between trunk strength and pedaling power in racing cyclist candidates, and Yoon & Kim (2021) reported associations between trunk strength and WAnT-derived parameters in snowboarders. Consistent with these studies, our findings suggest a general association between trunk function and anaerobic performance; however, this relationship appears to be weaker and more model-dependent when examined within a multivariate framework. These associations may reflect underlying mechanisms such as muscle fiber distribution and neuromuscular coordination. However, given the cross-sectional design, we cannot establish whether these mechanisms causally link lumbar function to anaerobic performance. Longitudinal and experimental studies are needed to test these mechanistic hypotheses. In this context, the application of isokinetic PT/TW/AP parameters at different angular velocities provides a distinct assessment framework compared to lower limb evaluations: while lower extremity tests primarily predict propulsive capacity, lumbar assessments capture stabilization efficiency and kinetic chain integrity that may complement lower limb metrics in comprehensive performance analysis (Gao et al., 2025).",
+   "printed": true
+  },
+  {
+   "para_id": 14,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Body composition is a fundamental physiological variable associated with anaerobic performance parameters. In particular, in high-intensity, short-duration exercise protocols such as WAnT, an individual’s FFM shows associations with anaerobic power production capacity (Lilić et al., 2020). Since muscle tissue is the primary component of rapid energy production via the phosphocreatine system and glycolytic pathway, numerous studies have demonstrated that individuals with higher FFM exhibit advantages in both PP and AP values (Bar-Or, 1987; Sahlin, 2014). On the other hand, high body fat percentage, which is considered passive mass not involved in energy production, is associated with lower movement efficiency and negatively related to the power-to-weight ratio (Nikolaidis, 2013; França et al., 2024). This situation suggests that normalized values relative to body weight may be more meaningful than absolute values of total anaerobic power production, especially in tests like WAnT.",
+   "printed": true
+  },
+  {
+   "para_id": 15,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Actually, in the context of our study, FFM turned out to be the most stable predictor for models with body composition-related factors included, implying that, besides power output capacity, body composition might be linked to the anaerobic performance. At the same time, inclusion of body composition parameters lowered the effect of isokinetic measures on the models in question, thus suggesting that some of the previously observed associations may have been confounded by, or reflected, underlying structural features rather than independent lumbar muscle function. While body composition parameters were relevant for all models regardless of the angular velocity used, different patterns in models’ behavior were found, which may somewhat contradict previous research dedicated to lower limb muscles (Maciejczyk et al., 2015). The latter does not mean, however, that there is any physiological velocity-dependent mechanism behind those differences, as they might just reflect specificities in model behavior and individual sample characteristics. Thus, the present finding suggest that in addition to local muscle function, one should also pay attention to systemic structural factors, namely FFM, in relation to power production mechanisms. Moreover, taking into account the criteria adopted during the process of isokinetic assessment (TW, PT, AP), one might also suggest that these tests are highly dependent not only on muscle performance capability but also on muscle volume and component structure, meaning that the interpretation of results obtained should include FFM measurements as well (Cataldi et al., 2023; Schindler et al., 2023).",
+   "printed": true
+  },
+  {
+   "para_id": 16,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "The regression approach used in this study allows for the identification of meaningful relationships by simplifying the interaction between variables in biological systems where numerous potential variables, such as isokinetic performance and body composition, are evaluated together (Kipp & Warmenhoven, 2025). In the literature, standard multiple regression models or correlation analyses are often preferred in similar studies (Limberg, Gnilka & Broda, 2021; Sun et al., 2023), but these approaches increase the risk of multicollinearity and complicate interpretation by including all variables in the model at the same time (Bayman & Dexter, 2021; Kyriazos & Poga, 2023). In contrast, the present study employed LASSO, which improves model stability by shrinking less informative coefficients and reducing overfitting, particularly in small samples with multiple predictors (Qian et al., 2024). This approach enables a more parsimonious representation of the data by retaining only the most relevant predictors. Sattler et al. (2016) examined the relationship between isokinetic knee strength and vertical jump performance using regression models, highlighting the importance of appropriate modelling strategies in performance research. Consistent with these recommendations, cross-validation procedures were applied in the present study to evaluate model generalizability and reduce optimism bias (Sattler et al., 2016). Additionally, when isokinetic parameters and body composition variables are analysed together, this approach provides a more robust and interpretable framework for identifying key contributors, offering descriptive information for training planning and performance monitoring. In this regard, the present study applies a regularized multivariate modelling approach to an underexamined anatomical context, providing a complementary perspective to traditional correlation-based analyses.",
+   "printed": true
+  }
+ ],
+ "links": [
+  {
+   "link_id": 1,
+   "url": "zenodo.org/records/19953132",
+   "url_raw": "https://doi.org/10.5281/zenodo.19953132",
+   "href_jats": "https://doi.org/10.5281/zenodo.19953132",
+   "repo_key": "zenodo:19953132",
+   "host_class": "zenodo",
+   "loc": "body",
+   "sec_title": "Study design",
+   "source": "tagged",
+   "para_id": 1
+  }
+ ],
+ "links_optional": [
+  "creativecommons.org/licenses/by/4.0",
+  "doi:10.1002/jcad.12362",
+  "doi:10.1007/s40279-014-0256-9",
+  "doi:10.1016/j.ptsp.2016.11.005",
+  "doi:10.1038/s41430-018-0146-6",
+  "doi:10.1038/s41598-021-92831-7",
+  "doi:10.1080/02640414.2011.644249",
+  "doi:10.1080/14763141.2022.2151932",
+  "doi:10.1101/2023.05.17.23288849",
+  "doi:10.1177/03000605241262186",
+  "doi:10.1177/036354659001800314",
+  "doi:10.1177/19417381221146258",
+  "doi:10.1177/23259671231201832",
+  "doi:10.1186/s12967-024-06062-1",
+  "doi:10.1186/s13102-025-01072-y",
+  "doi:10.1186/s13104-018-3128-9",
+  "doi:10.1213/ane.0000000000005593",
+  "doi:10.1242/jeb.163840",
+  "doi:10.12965/jer.1938180.090",
+  "doi:10.1371/journal.pone.0303199",
+  "doi:10.1519/jsc.0000000000000727",
+  "doi:10.1519/jsc.0b013e3181b1b21b",
+  "doi:10.1590/1980-0037.2020v22e70517",
+  "doi:10.17309/tmfv.2020.4.09",
+  "doi:10.2165/00007256-198704060-00001",
+  "doi:10.2165/00007256-198908020-00003",
+  "doi:10.2165/00007256-200333100-00002",
+  "doi:10.24985/ijass.2021.33.2.151",
+  "doi:10.31083/jomh.v17i1.335",
+  "doi:10.3389/fphys.2018.00634",
+  "doi:10.3389/fphys.2022.861582",
+  "doi:10.3389/fphys.2023.1146076",
+  "doi:10.3389/fphys.2024.1536874",
+  "doi:10.3389/fspor.2019.00032",
+  "doi:10.3390/ijerph192114554",
+  "doi:10.3390/sports12050135",
+  "doi:10.4236/ojs.2023.133020",
+  "doi:10.4324/9781003380719",
+  "doi:10.4324/9781032622156",
+  "doi:10.54097/hset.v49i.8611",
+  "doi:10.7717/peerj.20212",
+  "peerj.com/articles/21526",
+  "rstudio.com"
+ ],
+ "own_doi": "doi:10.7717/peerj.21526",
+ "citations": [
+  {
+   "cite_id": 1,
+   "para_id": 2,
+   "bib_id": 36,
+   "marker": "Støa et al., 2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 2,
+   "para_id": 2,
+   "bib_id": 7,
+   "marker": "Dong et al., 2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 3,
+   "para_id": 2,
+   "bib_id": 19,
+   "marker": "Lee et al., 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 4,
+   "para_id": 2,
+   "bib_id": 10,
+   "marker": "Fujita et al., 2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 5,
+   "para_id": 2,
+   "bib_id": 42,
+   "marker": "Zemková, 2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 6,
+   "para_id": 3,
+   "bib_id": 33,
+   "marker": "Schindler et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 7,
+   "para_id": 3,
+   "bib_id": 8,
+   "marker": "Dvir, 2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 8,
+   "para_id": 3,
+   "bib_id": 26,
+   "marker": "Parrino et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 9,
+   "para_id": 3,
+   "bib_id": 14,
+   "marker": "Hong, Woo & Jeon, 2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 10,
+   "para_id": 3,
+   "bib_id": 1,
+   "marker": "Andrade et al., 2012",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 11,
+   "para_id": 3,
+   "bib_id": 40,
+   "marker": "Taylor et al., 1990",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 12,
+   "para_id": 4,
+   "bib_id": 22,
+   "marker": "Maciejczyk et al., 2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 13,
+   "para_id": 4,
+   "bib_id": 37,
+   "marker": "Stubbs et al., 2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 14,
+   "para_id": 4,
+   "bib_id": 39,
+   "marker": "Tallis, James & Seebacher, 2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 15,
+   "para_id": 4,
+   "bib_id": 17,
+   "marker": "Knechtle & Nikolaidis, 2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 16,
+   "para_id": 4,
+   "bib_id": 6,
+   "marker": "De Ste Croix, Deighan & Armstrong, 2003",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 17,
+   "para_id": 4,
+   "bib_id": 2,
+   "marker": "Baltzopoulos & Brodie, 1989",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 18,
+   "para_id": 4,
+   "bib_id": 15,
+   "marker": "Kim et al., 2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 19,
+   "para_id": 5,
+   "bib_id": 27,
+   "marker": "Park et al., 2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 20,
+   "para_id": 5,
+   "bib_id": 35,
+   "marker": "Song, Chun & Lee, 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 21,
+   "para_id": 5,
+   "bib_id": 41,
+   "marker": "Yoon & Kim, 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 22,
+   "para_id": 5,
+   "bib_id": 19,
+   "marker": "Lee et al., 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 23,
+   "para_id": 1,
+   "bib_id": 35,
+   "marker": "Song, Chun & Lee, 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 24,
+   "para_id": 1,
+   "bib_id": 41,
+   "marker": "Yoon & Kim, 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 25,
+   "para_id": 6,
+   "bib_id": 43,
+   "marker": "Zupan et al., 2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 26,
+   "para_id": 7,
+   "bib_id": 13,
+   "marker": "Habets et al., 2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 27,
+   "para_id": 7,
+   "bib_id": 29,
+   "marker": "Roth et al., 2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 28,
+   "para_id": 8,
+   "bib_id": 23,
+   "marker": "Mecherques-Carini et al., 2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 29,
+   "para_id": 8,
+   "bib_id": 34,
+   "marker": "Silva & Vieira, 2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 30,
+   "para_id": 9,
+   "bib_id": 30,
+   "marker": "RStudio, Inc., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 31,
+   "para_id": 9,
+   "bib_id": 12,
+   "marker": "George & Mallery, 2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 32,
+   "para_id": 10,
+   "bib_id": 24,
+   "marker": "Michalik et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 33,
+   "para_id": 10,
+   "bib_id": 35,
+   "marker": "Song, Chun & Lee, 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 34,
+   "para_id": 11,
+   "bib_id": 35,
+   "marker": "Song, Chun & Lee (2021)",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 35,
+   "para_id": 11,
+   "bib_id": 27,
+   "marker": "Park et al. (2019)",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 36,
+   "para_id": 11,
+   "bib_id": 41,
+   "marker": "Yoon & Kim (2021)",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 37,
+   "para_id": 11,
+   "bib_id": 11,
+   "marker": "Gao et al., 2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 38,
+   "para_id": 12,
+   "bib_id": 35,
+   "marker": "Song, Chun & Lee (2021)",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 39,
+   "para_id": 13,
+   "bib_id": 8,
+   "marker": "Dvir (2025)",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 40,
+   "para_id": 13,
+   "bib_id": 8,
+   "marker": "Dvir, 2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 41,
+   "para_id": 13,
+   "bib_id": 27,
+   "marker": "Park et al. (2019)",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 42,
+   "para_id": 13,
+   "bib_id": 41,
+   "marker": "Yoon & Kim (2021)",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 43,
+   "para_id": 13,
+   "bib_id": 11,
+   "marker": "Gao et al., 2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 44,
+   "para_id": 14,
+   "bib_id": 20,
+   "marker": "Lilić et al., 2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 45,
+   "para_id": 14,
+   "bib_id": 3,
+   "marker": "Bar-Or, 1987",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 46,
+   "para_id": 14,
+   "bib_id": 31,
+   "marker": "Sahlin, 2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 47,
+   "para_id": 14,
+   "bib_id": 25,
+   "marker": "Nikolaidis, 2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 48,
+   "para_id": 14,
+   "bib_id": 9,
+   "marker": "França et al., 2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 49,
+   "para_id": 15,
+   "bib_id": 22,
+   "marker": "Maciejczyk et al., 2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 50,
+   "para_id": 15,
+   "bib_id": 5,
+   "marker": "Cataldi et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 51,
+   "para_id": 15,
+   "bib_id": 33,
+   "marker": "Schindler et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 52,
+   "para_id": 16,
+   "bib_id": 16,
+   "marker": "Kipp & Warmenhoven, 2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 53,
+   "para_id": 16,
+   "bib_id": 21,
+   "marker": "Limberg, Gnilka & Broda, 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 54,
+   "para_id": 16,
+   "bib_id": 38,
+   "marker": "Sun et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 55,
+   "para_id": 16,
+   "bib_id": 4,
+   "marker": "Bayman & Dexter, 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 56,
+   "para_id": 16,
+   "bib_id": 18,
+   "marker": "Kyriazos & Poga, 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 57,
+   "para_id": 16,
+   "bib_id": 28,
+   "marker": "Qian et al., 2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 58,
+   "para_id": 16,
+   "bib_id": 32,
+   "marker": "Sattler et al. (2016)",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 59,
+   "para_id": 16,
+   "bib_id": 32,
+   "marker": "Sattler et al., 2016",
+   "expanded": false,
+   "scored": true
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-ext-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "v1_bib_count": 43
+ }
+}

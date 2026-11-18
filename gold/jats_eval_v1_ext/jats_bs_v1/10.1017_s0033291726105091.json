@@ -1,0 +1,1043 @@
+{
+ "paper_id": "10.1017_s0033291726105091",
+ "paras": [
+  {
+   "para_id": 1,
+   "loc": "body",
+   "sec_title": "Data source for brain structural IDPs",
+   "text": "We used GWAS summary statistics of structural IDPs generated from a cohort of 33,224 European-descent participants in the UK Biobank (Smith et al., 2021). These IDPs included two measurements: sMRI and diffusion MRI (dMRI). sMRI captures variations in brain structure processed with FreeSurfer, such as cortical area, thickness, and volume, while dMRI measures structural connectivity, which reflects the physical connections of neural fibers between different regions of the brain using the diffusion tensor imaging (DTI) fitting tool DTIFIT and neurite orientation dispersion and density imaging (NODDI) tool AMICO (Accelerated Microstructure Imaging via Convex Optimization) (Smith et al., 2021). dMRI reported six types of measurements within multiple tract regions, comprising fractional anisotropy (FA), mean diffusivity (MD), diffusion tensor mode (MO), intracellular volume fraction (ICVF), isotropic or free water volume fraction (ISOVF), and orientation dispersion index (OD). For our analysis, we selected 587 brain structural IDPs with reliable segmentation and meaningful measurement from the 3,913 original releases, based on previous studies (Guo et al., 2022; Yu et al., 2023). Additionally, these IDPs were organized into 13 regional categories: 8 for brain anatomy and 5 for structural connectivity. GWAS summary statistics for structural IDPs were accessed through the Oxford Brain Imaging Genetics (BIG40) web browser (https://open.win.ox.ac.uk/ukbiobank/big40/). Additional summary information for these IDPs is presented in Supplementary Table S2, and a more detailed description of the GWAS can be found in the original GWAS paper (Smith et al., 2021).",
+   "printed": true
+  },
+  {
+   "para_id": 2,
+   "loc": "fig",
+   "sec_title": "Pain-related phenotypes and structural IDPs",
+   "text": "The bidirectional MR analysis results for the effects of pain-related phenotypes and structural IDPs with FDR-adjusted P-values < 0.05. The forest plot shows significant MR results based on the FDR-adjusted P-value estimated from either the inverse variance weighted method or the Wald ratio method from 1,107 tests conducted in both directions. The main analysis included all IVs retained from the primary IV selection procedures. In the analysis removing pleiotropic IVs, the IVs associated with possible confounders such as smoking, drinking, socioeconomic status, education, and various psychiatric disorders in the PhenoScanner database of P-value <1 × 10−5 were excluded. The bottom panel shows the anatomical regions of the brain for the corresponding IDPs bilaterally. Brain regions were overlaid on the ch2better template using Anatomical Automatic Labeling (AAL) or JHU DTI-based white-matter atlases in MRIcron software v1.0 (https://www.nitrc.org/projects/mricron/).",
+   "printed": true
+  },
+  {
+   "para_id": 3,
+   "loc": "back",
+   "sec_title": "Data availability statement",
+   "text": "The datasets supporting the conclusions of this article are publicly available. Summary statistics for structural IDPs were publicly available from the Oxford Brain Imaging Genetics (BIG40) web browser (https://open.win.ox.ac.uk/ukbiobank/big40/). Summary statistics for functional IDPs can be obtained via the Zenodo platform (https://zenodo.org/records/5775047). Summary statistics for pain phenotypes were obtained from the FinnGen Consortium and can be downloaded from https://www.finngen.fi/en/access_results. Summary statistics for multivariable MR analysis were available from the OpenGWAS project (GWAS ID: ukb-b-7408, ebi-a-GCST90029028, ebi-a-GCST90029013, ieu-a-1283, ukb-b-19953, ieu-b-4877, and ukb-b-18336). Summary statistics for replication analysis between headache and structural IDPs in the Asian population can be obtained from the OpenGWAS project (GWAS ID: ukb-e-3799_CSA) and the GWAS Catalog (https://www.ebi.ac.uk/gwas/publications/38811844). All data needed to evaluate the conclusions in the paper are present in the paper and/or the Supplementary Material.",
+   "printed": true
+  },
+  {
+   "para_id": 4,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Pain represents a complex sensory and emotional phenomenon related to actual or potential tissue injury (Raja et al., 2020). It is one of the most common neurological conditions and a significant source of disability and suffering globally, imposing substantial personal and social burdens (Disease, Injury, & Prevalence, 2018). Pain patterns and severity can vary widely among individuals. Despite similar levels of tissue damage or neuropathy, different individuals may perceive pain differently, complicating pain management and treatment (Meng et al., 2023; Ploner, Bingel, & Wiech, 2015). Therefore, universally accepted objective indicators and further advancements in its fundamental mechanisms are critically needed.",
+   "printed": true
+  },
+  {
+   "para_id": 5,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "The rapid development of neuroimaging techniques, exemplified by magnetic resonance imaging (MRI), has demonstrated the potential for objective measurements of brain anatomical structures and activity patterns that underlie perceptual experiences (Davis et al., 2017, 2020). Compelling structural MRI (sMRI) studies indicate that gray matter (GM) and white matter (WM) morphology are altered across various pain conditions, including migraine, low back pain, joint pain, and other chronic disorders. These alterations occur in multiple brain regions involved in sensory processing, affective modulation, and cognitive control, such as the somatosensory cortex, prefrontal cortex, cingulate cortex, insula, amygdala, hippocampus, and thalamus (Bhatt et al., 2024; Seifert et al., 2016; Selvarajah et al., 2023). Additionally, functional MRI (fMRI) analyses, a technique to capture changes in functional activity and connectivity within brain regions, have indicated that intrinsic connectivity within and between brain networks involved in pain processing and regulation is disrupted (Galambos et al., 2019; Mayr et al., 2022). As such, brain imaging-derived phenotypes (IDPs) provide a valuable framework for elucidating whether alterations in brain structure and function arise as a result of pain or contribute to its development (Messina, Rocca, Goadsby, & Filippi, 2023; Wang et al., 2023). This understanding could advance knowledge of the underlying neurobiological mechanisms and facilitate the application of neuroimaging in early prediction, diagnostic categorization, and therapeutic intervention strategies for pain. However, observational studies often face challenges with unmeasured and residual confounding factors that impede the establishment of causal relationships. First, most neuroimaging studies in pain research rely on relatively small, clinically ascertained samples, limiting generalizability and precluding causal inference. Second, conclusions across studies are often heterogeneous, with region-specific alterations varying by pain subtype, duration, and comorbidity profile (Kollenburg et al., 2026). Moreover, structural and functional imaging markers are frequently examined in isolation, and few studies have systematically integrated multimodal imaging phenotypes within a unified genetic framework. These uncertainties underscore the need for genetically informed approaches capable of disentangling shared genetic liability from directional causal effects across multimodal brain imaging traits and pain phenotypes.",
+   "printed": true
+  },
+  {
+   "para_id": 6,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "To address these challenges, Linkage Disequilibrium Score (LDSC) regression and Mendelian randomization (MR) leverage genome-wide association study (GWAS) summary data to investigate associations between phenotypes. LDSC regression provides an estimate of shared genetic architecture between two phenotypes (B. K. Bulik-Sullivan et al., 2015). MR analyses strengthen causal inference regarding exposure-outcome associations by minimizing confounding and reverse causality (Burgess, Butterworth, & Thompson, 2013). Leveraging data from large-scale IDPs GWAS, researchers have uncovered substantial evidence of shared genetic architecture and potential causal relationships between brain imaging features and neuropsychiatric, neurodegenerative, and cardiovascular diseases (Guo et al., 2022; May-Wilson et al., 2022; Seyedsalehi et al., 2023; Yu et al., 2023). However, such work is still absent for IDPs and pain-related phenotypes.",
+   "printed": true
+  },
+  {
+   "para_id": 7,
+   "loc": "body",
+   "sec_title": "Data source for pain-related phenotypes",
+   "text": "We collected genetic summary data for 13 pain-related phenotypes from the FinnGen study, which includes overall pain in major body parts (limbs, back, neck, head, and abdomen) and pain at specific sites (joint pain, limb pain, low back pain, female reproductive organ– and menstrual cycle–related pain, abdominal and pelvic pain, throat and chest pain, sciatica, headache, migraine, other headache syndromes including cluster headaches, ocular pain, and temporomandibular disorders [TMDs] muscular pain linked with fibromyalgia). These pain-related phenotypes were defined based on the International Classification of Diseases (ICD) codes (Supplementary Table S1) with data from the Finnish national registers. The number of cases for these 13 pain-related phenotypes ranged from 2,341 for ocular pain to 189,683 for overall pain (Kurki et al., 2023).",
+   "printed": true
+  },
+  {
+   "para_id": 8,
+   "loc": "body",
+   "sec_title": "Data source for brain functional IDPs",
+   "text": "For the pain-related phenotypes found to be associated with structural IDPs in either direction, we further investigated their relationships with functional network connections in various brain regions to better understand the potential neurological pathways linking pain and brain structure. To achieve this, we retrieved the available genetic summary statistics for 191 resting-state functional MRI (rsfMRI) measures generated by Zhao et al. (2022). The rsfMRI traits represent intrinsic functional connectivity measures derived from blood-oxygen-level-dependent (BOLD) signal correlations between predefined brain regions and major functional networks, including default mode, central executive, salience, somatomotor, attention, limbic, and visual networks from 47,276 UK Biobank participants (Supplementary Table S3). We then conducted bidirectional MR analyses for each pair of rsfMRI measures and pain-related phenotypes.",
+   "printed": true
+  },
+  {
+   "para_id": 9,
+   "loc": "body",
+   "sec_title": "Statistical analysis",
+   "text": "First, we performed a genetic correlation analysis using the LDSC software to investigate the shared genetic basis that underlies each pair of structural IDP and pain-related phenotype (B. Bulik-Sullivan et al., 2015; B. K. Bulik-Sullivan et al., 2015). The pairs that showed statistically significant evidence of genetic correlation (P < 0.05) were then chosen for bidirectional MR analysis.",
+   "printed": true
+  },
+  {
+   "para_id": 10,
+   "loc": "body",
+   "sec_title": "Statistical analysis",
+   "text": "For the MR analysis, the same criteria were applied for IV selection when using either IDP or pain-related phenotype as the exposure. First, we excluded all palindromic single-nucleotide polymorphisms (SNPs) to prevent incorrect strand inference during data harmonization. Next, we performed clumping on the genetic summary data using the 1000 Genome European reference to select independent SNPs as IVs for each exposure. The clumping criteria included a significance threshold of P < 5 × 10−8, a linkage disequilibrium threshold of r2 < 0.01, and a clumping window size of 500 kb. For IVs absent from the outcome dataset, proxy SNPs were identified based on strong linkage disequilibrium (r2 > 0.80) and genome-wide significant associations with the exposure (P < 5 × 10−8). When multiple proxy SNPs were available, the one with the lowest P-value associated with the exposure was chosen for the analysis. The F statistic was estimated for each set of independent IVs to test their strength in representing the exposure, and a value typically less than 10 indicates weak IVs (Burgess &Thompson, 2011). We also conducted a sensitivity analysis by applying a stricter clumping window size of 10 Mb to minimize potential influence from related SNPs.",
+   "printed": true
+  },
+  {
+   "para_id": 11,
+   "loc": "body",
+   "sec_title": "Statistical analysis",
+   "text": "We used two-sample MR analyses to estimate the association between IDPs and pain-related phenotypes. When multiple IVs were available, causal inference was primarily performed using the inverse variance weighted (IVW) approach with a multiplicative random effects model (Burgess et al., 2013). In cases where only one IV was available, estimates were assessed using the Wald ratio method (Boehm & Zhou, 2022). The P-values from these two methods were used to identify significant MR results after a false discovery rate (FDR) correction for 1,107 tests conducted in both directions (FDR-adjusted P < 0.05). We also conducted sensitivity analyses using the weighted median method and the MR-Egger method (Boehm & Zhou, 2022). The weighted median method generates consistent causal estimates even if up to half of the IVs used are invalid. The MR-Egger method is robust even if all variants are invalid, and its intercept provides a test for unbalanced pleiotropy that violates the MR estimates (P for pleiotropy <0.05). We also tested the heterogeneity within the IVs using Cochran’s Q test (P for heterogeneity <0.05), which is a weaker indicator than the MR-Egger intercept for potential unbalanced pleiotropy (Boehm & Zhou, 2022). Mendelian randomization pleiotropy residual sum and outlier (MR-PRESSO) test was performed to identify potential outlying IVs and obtain estimates after removing the outliers (Verbanck, Chen, Neale, & Do, 2018). The same bidirectional MR analysis was applied to functional IDPs and pain-related phenotypes, and significant estimates with FDR-adjusted P < 0.05 were retained from the 2,292 tests conducted in both directions. To evaluate the robustness and generalizability of the identified associations, we performed a cross-population validation analysis using summary statistics from Asian populations (Fu et al., 2024; Karczewski et al., 2025). Specifically, MR analyses were conducted using headache as the exposure and the corresponding structural IDPs as outcomes, applying the same analytical framework as in the European dataset.",
+   "printed": true
+  },
+  {
+   "para_id": 12,
+   "loc": "body",
+   "sec_title": "Statistical analysis",
+   "text": "Since behavioral, sociocultural, and psychiatric factors can potentially complicate the association between brain structural alterations and pain phenotypes, we further examined each independent IV and its proxies (with R2 ≥ 0.8) for the IDP–pain pairs that showed significant associations in the PhenoScanner GWAS database with P for association <1 × 10−5 (Kamat et al., 2019; Staley et al., 2016). We assessed potential associations with smoking, drinking, socioeconomic status, educational attainment, and various psychiatric traits, including anorexia nervosa, anxiety, attention deficit hyperactivity disorder, autism spectrum disorder, bipolar disorder, major depressive disorder, neuroticism, and schizophrenia. We conducted a sensitivity analysis excluding these pleiotropic IVs to avoid the observed associations being driven by potential pleiotropic effects. In addition, multivariable MR analyses were conducted to estimate the direct effect of structural IDPs on pain, accounting for potential confounders or mediators (Clarke et al., 2017; Hemani et al., 2018; Liu et al., 2019; Loh et al., 2018). All of these analyses were implemented in R 4.3.1 using the TwoSampleMR R package (Hemani et al., 2018).",
+   "printed": true
+  },
+  {
+   "para_id": 13,
+   "loc": "body",
+   "sec_title": "Overview of the study",
+   "text": "The study design is illustrated in Figure 1. We first selected 587 reliably measured brain structural IDPs from a sample size of up to 33,224 UK Biobank participants (Smith et al., 2021). These measurements involved the cerebral cortex, subcortical regions, and WM tracts. GWAS summary data for 13 pain-related phenotypes from the FinnGen study were collected, which were conducted among approximately 500,000 participants from Finland (Kurki et al., 2023). We examined the pairwise genetic correlations between the 587 structural IDPs and the 13 pain-related phenotypes and found that 559 structural IDP–pain pairs with a nominal P-value of less than 0.05 (Figure 2 and Supplementary Table S4). We then conducted a bidirectional two-sample MR analysis to further examine the causality of these identified pairs of brain structural changes and pain. The MR analyses suggested a total of 20 pairs of significant causal associations for six different pain-related phenotypes in both forward and reverse analyses. For those six pain-related phenotypes, we further conducted MR analyses to examine their associations with 191 functional IDPs and identified 22 significant associations. Lastly, we summarized available corresponding observational evidence for identified associations between IDPs and pain-related phenotypes.Figure 1.Illustration of the study design. Abbreviations: UKB, UK Biobank; IDP, brain imaging-derived phenotype; sMRI, structural magnetic resonance imaging; DTI, diffusion tensor imaging; LDSC, linkage disequilibrium score; IV, instrumental variable; IVW, inverse variance weighted; MR, Mendelian randomization. Figure 1. long description.A four-panel flowchart illustrating a research study design linking brain imaging-derived phenotypes to pain phenotypes using genetic data and Mendelian randomization. See long description. Figure 2.The genetic correlation between brain structure and pain. Figure 2. long description.A stacked bar chart showing the number of genetically correlated IDPs across eleven pain-related phenotypes, categorized by brain regions. See long description.",
+   "printed": false
+  },
+  {
+   "para_id": 14,
+   "loc": "body",
+   "sec_title": "Observational evidence of the MR findings",
+   "text": "Table 1 provides a summary of previous literature on associations between IDPs and pain-related phenotypes, supporting our findings. Out of 1702 studies identified in PubMed, 520 unique studies were screened, and 15 met the inclusion criteria. Prior research, primarily observational, has focused on associations between cortical thickness and surface area with pain phenotypes, with no studies on IDPs like MO, ICVF, or OD. Most studies examined headache, migraine, and sciatica, with limited brain imaging research on other pain types. Participants included both genders across a wide age range, with sample sizes from 26 to 819. Observed associations in these studies generally show directional consistency with our MR findings. Although fMRI is commonly reported in pain research, reproducibility issues of modality results (e.g. predefined hypotheses, data accessibility, and region of interest-based analysis) limit the comparability with our MR findings of functional connectivity; thus, we focused on structural-related associations for consistency (Botvinik-Nezer et al., 2020).Table 1.Literature review of observational evidence relating to current MR findings Table 1. long description.PainIDPsMR effecta Ref. (PMID)Sample sizeConclusionHeadacheThickness of LING.L(+)3714416135 migraineurs (20 with exclusively visual aura, 15 with complex neurological aura), 19 HCsMigraineurs with exclusively visual aura < HCs29360944166 female patients with migraine with aura, 137 HCsFemale patients > HCsHeadacheThickness of PCL.L(+)29809228Seven patients with migraine with aura and 12 patients with migraine without aura, 19 HCsPatients > HCsHeadacheThickness of SFG.L(+)3586113013 NDPH patients, 13 age- and sex-matched HCsNDPH patients < controls3714416120 migraineurs with exclusively visual aura, 15 migraine patients with complex neurological aura, 19 HCsPatients of migraine with complex neurological aura < HCs2883177628 patients with persistent PTH, 28 individuals with migraine, 28 HCsPTH patients < HCs2913913033 patients with PTH, 33 HCsPTH patients < HCs4165233226 patients with episodic cluster headache, 20 HCsCluster headache patients < HCsHeadacheThickness of SMG.L(+)30525946131 migraineurs (38 with and 93 without aura), 115 HCsPatients without aura < HCs2353328663 migraine patients (32 with and 31 without aura), 18 HCsMigraine patients with aura > HCs and migraine patients without aura3429404872 pediatric patients affected by migraine without aura, 82 HCsPatients < HCsHeadacheThickness of left total hemisphere(+)2481203420 patients with aura symptoms, 13 patients with regard to headacheHeadache side < non-headache sideHeadacheThickness of INS.R(+)2873394132 migraineurs without aura, 32 HCsMigraineurs < HCs3714416120 migraineurs with exclusively visual aura, 15 migraineurs with complex neurological aura, 19 HCsMigraineurs with exclusively visual aura < HCs2353328663 migraineurs, 18 HCsMigraineurs with aura < HCs and migraine patients without auraHeadacheThickness of SFG.R(+)3714416120 migraineurs with exclusively visual aura, 15 migraineurs with complex neurological aura, 19 HCsMigraineurs with exclusively visual aura < HCs2353328663 migraine patients (24 with and 39 without WMHs), 18 HCsPatients with WMHs < HCs41168693415 children with multisite pain, 404 HCsPatients with multisite pain < HCsHeadacheThickness of right total hemisphere(+)2481203420 patients with aura symptoms, 13 patients with regard to headacheHeadache side < non-headache sideHeadacheThickness of SMG.L(−)3429404872 pediatric migraineurs without aura, 82 HCsPatients < HCs30525946131 migraineurs (38 with and 93 without aura), 115 HCsPatients without aura < HCs2353328663 migraine patients (32 with and 31 without aura), 18 HCsMigraineurs with aura > HCsPainCortical surface area of STG.R(−)3304014957 episodic migraineurs, 57 chronic migraineurs, and 52 HCsChronic migraineurs < HCs2353328663 migraine patients (32 with and 31 without aura), 18 HCsMigraineurs > HCsSciaticaCortical surface area of STG.R(−)3653227634 chronic sciatica patients, 36 HCsChronic sciatica patients > HCsA table summarizing literature review evidence for observational studies relating to MR findings on pain and brain structure. See long description.aThe notations ‘+’ and ‘–’ refer to positive and negative causal associations in MR analyses.Abbreviations: LING.L, left lingual gyrus; HC, healthy controls; PCL.L, left paracentral lobule; SFG.L, left superior frontal gyrus; NDPH, new daily persistent headache; PTH, post-traumatic headache; SMG.L, left supramarginal gyrus; INS.R, right insula; SFG.R, right superior frontal gyrus; WMH, white matter hyperintensity; STG.R, right superior temporal gyrus.",
+   "printed": true
+  },
+  {
+   "para_id": 15,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "In the forward structural MR analysis of pain on structural IDPs, we identified significant associations between headache, migraine, joint pain, sciatica, and structural alterations in multiple brain regions. Previous observational studies have shown significant structural differences between pain patients and healthy controls, with chronic pain linked to reductions in cortical and subcortical GM areas associated with pain processing (Gustin et al., 2011; Winkler et al., 2018). Among the pain phenotypes analyzed, headache exhibited the most consistent associations, particularly with higher cortical thickness in several brain regions, aligned with previous observational studies of changes in the left lingual gyrus, left paracentral lobule, and left supramarginal gyrus (Amaral et al., 2018; Gaist et al., 2018; Messina et al., 2013). Some studies also indicated that there is a significant thinning of the left hemisphere (lingual gyrus, superior frontal gyrus, supramarginal gyrus) and the right hemisphere (insula and superior frontal gyrus) in patients with headaches (Abagnale et al., 2023; Chong et al., 2018; Guarnera et al., 2021; Magon et al., 2019; Schwedt et al., 2017; Szabo et al., 2022; J. Zhang et al., 2017). A feasible explanation is that MR captures the effect of lifelong genetic predisposition, whereas observational studies typically measure brain structure after disease onset and progression, capturing downstream consequences of chronic pain (Swanson, Tiemeier, Ikram, & Hernan, 2017). The increased cortical thickness observed in our MR analysis may represent a predisposing neuroanatomical feature, potentially reflecting heightened sensory sensitivity, increased synaptic or dendritic complexity, or altered neurodevelopmental trajectories in pain-related regions. In contrast, cortical thinning observed in patients may arise as a consequence of prolonged pain exposure, neuroplastic changes, or stress-related neurodegeneration (Chong, Dodick, Schlaggar, & Schwedt, 2014). These findings also suggest that headache attacks may induce progressive structural changes in key areas involved in pain perception (lingual gyrus and insula), pain modulation (insula), and cognitive functions (superior frontal gyrus and supramarginal gyrus) (Biggs et al., 2020; Khera & Rangasamy, 2021; la Fougere et al., 2011; May, 2008; Zhang et al., 2020). As a clinically defined subtype of headache, migraine demonstrated fewer significant associations compared to the broader headache phenotype. The broader headache category likely captures shared genetic liability across recurrent headache disorders, potentially explaining the generalized associations observed (Headache Classification Committee of the International Headache Society (IHS), The International Classification of Headache Disorders, 3rd edition, 2018). Migraine was uniquely associated with decreased cortical thickness in the left supramarginal gyrus, consistent with prior evidence indicating cortical thinning in individuals (Magon et al., 2019; Zharova et al., 2026). However, cortical thickness changes during the headache phase of migraine suggest dynamic, reversible cortical alterations in pain-related areas. The observed decrease in cortical thickness on the side of pain during attacks, accompanied by increased cortical thickness in the contralateral hemisphere, highlights the importance of interpreting these findings in the context of the complex pathophysiological and clinical characteristics (Chaudhry et al., 2025). Beyond GM morphology, pain phenotypes also influenced WM microstructure. Joint pain was linked to higher ICVF in the left superior fronto-occipital fasciculus, a region integral to sensory processing and motor control, suggesting increased myelinated neurite density and intracellular water content (Tu, Wang, Xiong, & Gao, 2022; Zhang, Schneider, Wheeler-Kingshott, & Alexander, 2012). Sciatica was positively associated with OD in the right sagittal stratum, indicative of higher dendritic and axonal complexity (Mioduszewski et al., 2020; Zhang et al., 2012).",
+   "printed": true
+  },
+  {
+   "para_id": 16,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "In the reverse structural MR analysis, we identified negative associations between increased surface area in the left middle temporal gyrus, left posterior cingulate cortex, and right superior temporal gyrus with sciatica, low back pain, and overall pain. Importantly, after adjusting for a range of potential confounders in multivariable MR analyses, the associations remained statistically significant and directionally consistent, supporting the notion that these effects are not driven by shared genetic influences and may represent independent causal contributions of structural IDPs to pain. Surface area, which reflects the density of cortical columns, may serve as a sensitive metric for disease-related changes (Christensen et al., 2024). These regions play critical roles in pain processing and regulation, with their decreased surface area potentially indicating suppression. Specifically, the superior and middle temporal gyri are implicated in sensory integration, the middle temporal gyrus in expectation localization, and the posterior cingulate cortex in nonemotional responses to harmful stimuli (Goossens et al., 2018; Lin, Lee, & Weng, 2016; Wei et al., 2022). Overall, bidirectional interactions between structural IDPs and pain suggest distinct underlying mechanisms, where cortical surface features reflect susceptibility to specific pain phenotypes, whereas pain-related structural alterations represent potential targets for intervention.",
+   "printed": true
+  },
+  {
+   "para_id": 17,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Structural traits primarily reflected relatively stable neuroanatomical alterations, such as changes in cortical thickness and regional morphology, which may represent long-term vulnerability and biomarkers of pain-related processes. In contrast, functional IDPs capture dynamic network-level processes of brain activity and connectivity, reflecting more flexible and state-dependent neural responses (Parsaei, Taebi, Arvin, & Moghaddam, 2024). This structural–functional coupling supports the notion that chronic or recurrent pain conditions may arise from the interaction between pre-existing anatomical predispositions and ongoing functional reorganization. Our functional analyses identified significant associations with three core cognitive networks – the salience network, central executive network, and default mode network – emphasizing their critical roles in pain processing (Menon, 2011). These networks are not independent modules but dynamically interact to regulate attention, self-referential processing, and executive control in response to salient stimuli such as pain. The salience network, responsible for detecting salient stimuli such as pain, reallocates attentional resources from the default mode network to the central executive network, enabling more effective responses to pain (De Ridder, Vanneste, Smith, & Adhia, 2022). These networks further interact with higher-order systems that mediate the cognitive, emotional, and contextual dimensions of pain processing. According to network science, different dimensions of pain are mediated by specific connectivity patterns within resting-state networks: the salience network (suffering), default mode network (self-representation), central executive network (cognitive processing), attention and visual networks (context and focus), motor network (coping responses), and subcortical-cerebellar systems (emotion and control) (De Ridder et al., 2022). This interconnected network framework provides a holistic explanation for the multifaceted pain experience, spanning sensory perception, emotional regulation, and behavioral responses and aligns with the MR associations observed between functional network changes and pain phenotypes in our study.",
+   "printed": true
+  },
+  {
+   "para_id": 18,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "A key finding of this study is the identification of three brain regions – the superior frontal gyrus, lingual gyrus, and paracentral lobule – in headache, as reflected by both structural differences and alterations in functional connectivity. Headache was associated with increased cortical thickness across all three regions, accompanied by distinct patterns of neural activity: lower activity in the superior frontal gyrus and increased activity in both the lingual gyrus and paracentral lobule. As a key region of the default mode network, the superior frontal gyrus plays an essential role in self-regulation, adapting behavior in response to pain, and eliciting positive emotions (Briggs et al., 2020). Meanwhile, the projections from the superior frontal gyrus to the thalamus and periaqueductal gray constitute the descending inhibitory pain control system and participate in the modulation of autonomic responses to pain (Dirupo et al., 2025). The dissociation of increased cortical thickness and reduced intrinsic activity in this region may reflect a compensatory structural adaptation in response to persistent nociceptive input, coupled with functional suppression due to maladaptive network regulation. Consistent with these findings, previous studies have demonstrated decreased functional activity in this region among individuals with medication-overuse headache and migraine without aura (Feng et al., 2022; Li et al., 2023). In contrast, the lingual gyrus, a key component of the visual network, showed both increased cortical thickness and elevated intrinsic activity. Previous evidence has linked this region to emotional regulation of nociception and situational processing (Cui et al., 2021; Wen et al., 2023). The concurrent structural and functional enhancement observed here may indicate experience-dependent plasticity driven by repeated nociceptive stimulation, particularly given the well-established link between visual processing abnormalities and headache disorders such as migraine. Enhanced activity in the lingual gyrus may therefore represent an adaptive or sensitized response to persistent sensory input. Similarly, the paracentral lobule, part of the sensorimotor network, demonstrated increased cortical thickness alongside heightened intrinsic activity. This region serves as a crucial part of the sensorimotor network and is centrally involved in pain perception and sensorimotor integration (Kim, Kim, & Nabekura, 2017; Wei et al., 2022). Previous studies have indicated that its activity is elevated during migraine attacks and positively correlates with attack frequency (Joppekova et al., 2025). In addition, the activation of the paracentral lobule will affect the connections between the sensorimotor network and other networks, which may influence the subsequent outcome of migraines, as well as whether it will develop into a chronic migraine and the remodeling of the brain (Lei & Zhang, 2021; Liu et al., 2021). Collectively, these findings suggest that structural and functional alterations in headache are not uniformly aligned but instead exhibit region-specific patterns of coupling and dissociation. This highlights a complex interplay in which structural remodeling interacts with dynamic network activity to shape the overall neural phenotype of pain.",
+   "printed": true
+  },
+  {
+   "para_id": 19,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "This study also has some limitations. First, while the FinnGen consortium leverages the advantage of large sample sizes by defining pain phenotypes through clinical diagnoses, it must be acknowledged that reported symptoms may introduce potential inaccuracies. In particular, ICD-based definitions do not explicitly distinguish between acute and chronic pain, potentially encompassing both transient and persistent manifestations. Moreover, the broad headache phenotype may include multiple subtypes, including migraine, which could not be explicitly separated in the summary-level data, limiting the ability to determine whether specific headache subtypes drive the observed associations. Therefore, our findings should be interpreted as reflecting genetic relationships with clinically ascertained pain conditions. Second, the main analysis restricted its included samples to individuals of European ancestry only, and the limited evidence related to headaches suggests differences among different ethnicities. Therefore, future multiancestry genetic studies will be critical for cross-population discovery and replication. Third, MR results reflect the lifetime effects of exposure factors on outcome traits. This is not equivalent to an exposure occurring at a specific point in time or over a short period (Swanson et al., 2017). Therefore, the estimated MR effect sizes should be interpreted with caution and not treated as the effect of traditional real-world exposure. Moreover, the limited number of IVs for some IDPs may have constrained the statistical power underlying causal inference, and future large-scale GWAS are warranted to identify additional instruments and further strengthen causal analyses. Lastly, given the weaker genetic effects on functional brain networks than on structures, this part of the MR analysis was conducted as a complementary exploration on top of the structural IDP results. Therefore, further clinical evaluation with large-scale multimodal neuroimaging studies and associated genetic statistics is warranted for validation.",
+   "printed": true
+  }
+ ],
+ "links": [
+  {
+   "link_id": 1,
+   "url": "open.win.ox.ac.uk/ukbiobank/big40",
+   "url_raw": "https://open.win.ox.ac.uk/ukbiobank/big40/",
+   "href_jats": "https://open.win.ox.ac.uk/ukbiobank/big40/",
+   "repo_key": null,
+   "host_class": "other",
+   "loc": "body",
+   "sec_title": "Data source for brain structural IDPs",
+   "source": "tagged",
+   "para_id": 1
+  },
+  {
+   "link_id": 2,
+   "url": "nitrc.org/projects/mricron",
+   "url_raw": "https://www.nitrc.org/projects/mricron/",
+   "href_jats": "https://www.nitrc.org/projects/mricron/",
+   "repo_key": null,
+   "host_class": "other",
+   "loc": "fig",
+   "sec_title": "Pain-related phenotypes and structural IDPs",
+   "source": "tagged",
+   "para_id": 2
+  },
+  {
+   "link_id": 3,
+   "url": "zenodo.org/records/5775047",
+   "url_raw": "https://zenodo.org/records/5775047",
+   "href_jats": "https://zenodo.org/records/5775047",
+   "repo_key": "zenodo:5775047",
+   "host_class": "zenodo",
+   "loc": "back",
+   "sec_title": "Data availability statement",
+   "source": "tagged",
+   "para_id": 3
+  },
+  {
+   "link_id": 4,
+   "url": "finngen.fi/en/access_results",
+   "url_raw": "https://www.finngen.fi/en/access_results",
+   "href_jats": "https://www.finngen.fi/en/access_results",
+   "repo_key": null,
+   "host_class": "other",
+   "loc": "back",
+   "sec_title": "Data availability statement",
+   "source": "tagged",
+   "para_id": 3
+  },
+  {
+   "link_id": 5,
+   "url": "ebi.ac.uk/gwas/publications/38811844",
+   "url_raw": "https://www.ebi.ac.uk/gwas/publications/38811844",
+   "href_jats": "https://www.ebi.ac.uk/gwas/publications/38811844",
+   "repo_key": null,
+   "host_class": "other",
+   "loc": "back",
+   "sec_title": "Data availability statement",
+   "source": "tagged",
+   "para_id": 3
+  }
+ ],
+ "links_optional": [
+  "creativecommons.org/licenses/by/4.0",
+  "doi:10.1002/ca.23523",
+  "doi:10.1002/gepi.21758",
+  "doi:10.1002/jnr.25191",
+  "doi:10.1002/jnr.25294",
+  "doi:10.1007/s11764-020-00903-w",
+  "doi:10.1007/s43657-022-00078-7",
+  "doi:10.1007/s43657-022-00083-w",
+  "doi:10.1016/j.bbr.2026.116071",
+  "doi:10.1016/j.biopsych.2023.07.016",
+  "doi:10.1016/j.csbj.2022.05.015",
+  "doi:10.1016/j.neubiorev.2020.09.016",
+  "doi:10.1016/j.neuroimage.2010.11.015",
+  "doi:10.1016/j.neuroimage.2012.03.072",
+  "doi:10.1016/j.pain.2008.02.034",
+  "doi:10.1016/j.tics.2011.08.003",
+  "doi:10.1016/j.tics.2015.02.007",
+  "doi:10.1016/s0140-6736(18)32279-7",
+  "doi:10.1016/s1474-4422(23)00152-7",
+  "doi:10.1017/s0033291726105091",
+  "doi:10.1038/mp.2017.153",
+  "doi:10.1038/ng.3211",
+  "doi:10.1038/ng.3406",
+  "doi:10.1038/nrneurol.2017.122",
+  "doi:10.1038/s41467-022-30187-w",
+  "doi:10.1038/s41582-020-0362-2",
+  "doi:10.1038/s41586-020-2314-9",
+  "doi:10.1038/s41586-022-05473-8",
+  "doi:10.1038/s41588-018-0099-7",
+  "doi:10.1038/s41588-018-0144-6",
+  "doi:10.1038/s41588-018-0307-5",
+  "doi:10.1038/s41588-022-01039-6",
+  "doi:10.1038/s41588-024-01766-y",
+  "doi:10.1038/s41588-025-02335-7",
+  "doi:10.1038/s41593-021-00826-4",
+  "doi:10.1038/s41593-022-01174-7",
+  "doi:10.1093/bioinformatics/btw373",
+  "doi:10.1093/bioinformatics/btz469",
+  "doi:10.1093/brain/awac392",
+  "doi:10.1093/brain/awaf361",
+  "doi:10.1093/brain/awv333",
+  "doi:10.1093/brain/awx382",
+  "doi:10.1093/cercor/bhx308",
+  "doi:10.1093/ije/dyr036",
+  "doi:10.1097/ede.0000000000000699",
+  "doi:10.1097/j.pain.0000000000001939",
+  "doi:10.1097/j.pain.0000000000002594",
+  "doi:10.1097/phm.0000000000000859",
+  "doi:10.1111/head.13223",
+  "doi:10.1111/head.14360",
+  "doi:10.1111/jnc.14012",
+  "doi:10.1148/radiol.13122004",
+  "doi:10.1155/2016/7296125",
+  "doi:10.1177/0333102414531157",
+  "doi:10.1177/0333102417738202",
+  "doi:10.1177/0333102418795163",
+  "doi:10.1177/03331024251341204",
+  "doi:10.1186/s10194-017-0783-5",
+  "doi:10.1186/s10194-017-0796-0",
+  "doi:10.1186/s10194-020-01086-6",
+  "doi:10.1186/s10194-021-01290-y",
+  "doi:10.1186/s10194-025-02080-6",
+  "doi:10.1186/s12916-023-02982-9",
+  "doi:10.1212/wnl.0000000000209305",
+  "doi:10.1523/jneurosci.2233-23.2024",
+  "doi:10.1523/jneurosci.5980-10.2011",
+  "doi:10.1590/0004-282x20180004",
+  "doi:10.21037/atm-21-2097",
+  "doi:10.2147/jpr.s192246",
+  "doi:10.2147/ndt.s341667",
+  "doi:10.2337/dc22-1123",
+  "doi:10.3389/fneur.2022.757241",
+  "doi:10.3389/fneur.2022.792695",
+  "doi:10.3389/fnhum.2023.1146302",
+  "doi:10.3389/fnins.2021.674852",
+  "doi:10.3389/fnins.2022.1036487",
+  "doi:10.3389/fnins.2023.1139086",
+  "doi:10.3389/fnmol.2022.778139",
+  "doi:10.3389/fpsyg.2021.673962",
+  "doi:10.7554/elife.34408",
+  "ncbi.nlm.nih.gov/pubmed/36375204"
+ ],
+ "own_doi": "doi:10.1017/s0033291726105091",
+ "citations": [
+  {
+   "cite_id": 1,
+   "para_id": 4,
+   "bib_id": 58,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 2,
+   "para_id": 4,
+   "bib_id": 22,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 3,
+   "para_id": 4,
+   "bib_id": 51,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 4,
+   "para_id": 4,
+   "bib_id": 57,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 5,
+   "para_id": 5,
+   "bib_id": 19,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 6,
+   "para_id": 5,
+   "bib_id": 18,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 7,
+   "para_id": 5,
+   "bib_id": 3,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 8,
+   "para_id": 5,
+   "bib_id": 60,
+   "marker": "2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 9,
+   "para_id": 5,
+   "bib_id": 61,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 10,
+   "para_id": 5,
+   "bib_id": 26,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 11,
+   "para_id": 5,
+   "bib_id": 49,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 12,
+   "para_id": 5,
+   "bib_id": 54,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 13,
+   "para_id": 5,
+   "bib_id": 69,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 14,
+   "para_id": 5,
+   "bib_id": 38,
+   "marker": "2026",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 15,
+   "para_id": 6,
+   "bib_id": 9,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 16,
+   "para_id": 6,
+   "bib_id": 10,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 17,
+   "para_id": 6,
+   "bib_id": 29,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 18,
+   "para_id": 6,
+   "bib_id": 50,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 19,
+   "para_id": 6,
+   "bib_id": 62,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 20,
+   "para_id": 6,
+   "bib_id": 74,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 21,
+   "para_id": 7,
+   "bib_id": 39,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 22,
+   "para_id": 1,
+   "bib_id": 63,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 23,
+   "para_id": 1,
+   "bib_id": 63,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 24,
+   "para_id": 1,
+   "bib_id": 29,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 25,
+   "para_id": 1,
+   "bib_id": 74,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 26,
+   "para_id": 1,
+   "bib_id": 63,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 27,
+   "para_id": 8,
+   "bib_id": 78,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 28,
+   "para_id": 9,
+   "bib_id": 8,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 29,
+   "para_id": 9,
+   "bib_id": 9,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 30,
+   "para_id": 10,
+   "bib_id": 11,
+   "marker": "2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 31,
+   "para_id": 11,
+   "bib_id": 10,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 32,
+   "para_id": 11,
+   "bib_id": 5,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 33,
+   "para_id": 11,
+   "bib_id": 5,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 34,
+   "para_id": 11,
+   "bib_id": 5,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 35,
+   "para_id": 11,
+   "bib_id": 68,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 36,
+   "para_id": 11,
+   "bib_id": 24,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 37,
+   "para_id": 11,
+   "bib_id": 35,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 38,
+   "para_id": 12,
+   "bib_id": 34,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 39,
+   "para_id": 12,
+   "bib_id": 64,
+   "marker": "2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 40,
+   "para_id": 12,
+   "bib_id": 16,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 41,
+   "para_id": 12,
+   "bib_id": 32,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 42,
+   "para_id": 12,
+   "bib_id": 45,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 43,
+   "para_id": 12,
+   "bib_id": 46,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 44,
+   "para_id": 12,
+   "bib_id": 32,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 45,
+   "para_id": 13,
+   "bib_id": 63,
+   "marker": "2021",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 46,
+   "para_id": 13,
+   "bib_id": 39,
+   "marker": "2023",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 47,
+   "para_id": 14,
+   "bib_id": 6,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 48,
+   "para_id": 15,
+   "bib_id": 30,
+   "marker": "2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 49,
+   "para_id": 15,
+   "bib_id": 73,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 50,
+   "para_id": 15,
+   "bib_id": 2,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 51,
+   "para_id": 15,
+   "bib_id": 25,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 52,
+   "para_id": 15,
+   "bib_id": 53,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 53,
+   "para_id": 15,
+   "bib_id": 1,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 54,
+   "para_id": 15,
+   "bib_id": 13,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 55,
+   "para_id": 15,
+   "bib_id": 28,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 56,
+   "para_id": 15,
+   "bib_id": 47,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 57,
+   "para_id": 15,
+   "bib_id": 59,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 58,
+   "para_id": 15,
+   "bib_id": 66,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 59,
+   "para_id": 15,
+   "bib_id": 77,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 60,
+   "para_id": 15,
+   "bib_id": 65,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 61,
+   "para_id": 15,
+   "bib_id": 14,
+   "marker": "2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 62,
+   "para_id": 15,
+   "bib_id": 4,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 63,
+   "para_id": 15,
+   "bib_id": 36,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 64,
+   "para_id": 15,
+   "bib_id": 40,
+   "marker": "2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 65,
+   "para_id": 15,
+   "bib_id": 48,
+   "marker": "2008",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 66,
+   "para_id": 15,
+   "bib_id": 75,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 67,
+   "para_id": 15,
+   "bib_id": 31,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 68,
+   "para_id": 15,
+   "bib_id": 47,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 69,
+   "para_id": 15,
+   "bib_id": 79,
+   "marker": "2026",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 70,
+   "para_id": 15,
+   "bib_id": 12,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 71,
+   "para_id": 15,
+   "bib_id": 67,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 72,
+   "para_id": 15,
+   "bib_id": 76,
+   "marker": "2012",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 73,
+   "para_id": 15,
+   "bib_id": 55,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 74,
+   "para_id": 15,
+   "bib_id": 76,
+   "marker": "2012",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 75,
+   "para_id": 16,
+   "bib_id": 15,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 76,
+   "para_id": 16,
+   "bib_id": 27,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 77,
+   "para_id": 16,
+   "bib_id": 43,
+   "marker": "2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 78,
+   "para_id": 16,
+   "bib_id": 71,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 79,
+   "para_id": 17,
+   "bib_id": 56,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 80,
+   "para_id": 17,
+   "bib_id": 52,
+   "marker": "2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 81,
+   "para_id": 17,
+   "bib_id": 20,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 82,
+   "para_id": 17,
+   "bib_id": 20,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 83,
+   "para_id": 18,
+   "bib_id": 7,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 84,
+   "para_id": 18,
+   "bib_id": 21,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 85,
+   "para_id": 18,
+   "bib_id": 23,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 86,
+   "para_id": 18,
+   "bib_id": 42,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 87,
+   "para_id": 18,
+   "bib_id": 17,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 88,
+   "para_id": 18,
+   "bib_id": 72,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 89,
+   "para_id": 18,
+   "bib_id": 37,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 90,
+   "para_id": 18,
+   "bib_id": 70,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 91,
+   "para_id": 18,
+   "bib_id": 33,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 92,
+   "para_id": 18,
+   "bib_id": 41,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 93,
+   "para_id": 18,
+   "bib_id": 44,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 94,
+   "para_id": 19,
+   "bib_id": 65,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-ext-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "v1_bib_count": 79
+ }
+}

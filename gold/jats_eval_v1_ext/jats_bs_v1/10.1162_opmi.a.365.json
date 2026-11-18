@@ -1,0 +1,2027 @@
+{
+ "paper_id": "10.1162_opmi.a.365",
+ "paras": [
+  {
+   "para_id": 1,
+   "loc": "body",
+   "sec_title": "Evaluating Representational Similarities.",
+   "text": "For each layer in each LM, we extracted a representation of each sentence. A sentence representation consists of a distributed pattern of activity across hidden units (the residual stream). Specifically, these activities were extracted for the [CLS] token in BERT, and the ‘.’ token in GPT2, Llama2, and Persimmon (Devlin et al., 2019; May et al., 2019; Schrimpf et al., 2021). We also investigated mean pooled activations (averaging across tokens), as well as the verb token in BERT (unlike BERT, in unidirectional LMs the representations of tokens other than the final one cannot capture information about the entire sentence). The results for these analyses, reported in the Supplementary Materials, do not qualitatively differ from our main analyses.",
+   "printed": true
+  },
+  {
+   "para_id": 2,
+   "loc": "body",
+   "sec_title": "INTRODUCTION",
+   "text": "Language Models (LMs) have achieved unprecedented success at natural language processing. Their success demonstrates the power of statistical learning over strings of linguistic forms (Contreras Kallens et al., 2023; Piantadosi, 2023): by merely learning to predict the next word (or a missing word) in a text, LMs develop the ability to produce texts that conform to the syntactic rules of a language (e.g., McCoy et al., 2023). Indeed, the internal representations and next-word predictions of LMs suggest that these systems have acquired many complex grammatical generalizations (for reviews, see Chang & Bergen, 2024; Futrell & Mahowald, 2026; Linzen & Baroni, 2021). As a result, LMs have been proposed as models of human language processing (Blank, 2023) and are being used to predict both behavioral and neuroimaging data (Antonello et al., 2021; Caucheteux & King, 2022; Evanson et al., 2023; Hosseini et al., 2022; Merkx & Frank, 2020; Oh & Schuler, 2022; Schrimpf et al., 2021; Tang et al., 2023; Tuckute et al., 2024; Wilcox et al., 2020). Nonetheless, humans do not use grammar as an end in itself, but rather as an intermediate step in mapping linguistic input forms (e.g., phonological or orthographic information) onto meaning (semantics; Jackendoff & Wittenberg, 2017). Therefore, a key question is whether LMs can extract meaning from their textual input. More specifically: what kinds of meaning can be acquired merely from learning to predict the next (or a missing) word?",
+   "printed": true
+  },
+  {
+   "para_id": 3,
+   "loc": "body",
+   "sec_title": "INTRODUCTION",
+   "text": "The general question of semantics in LMs is hotly debated. Whereas the behavior and internal activity of LMs exhibit some signatures of semantic representations (for a review, see Chang & Bergen, 2024; Pavlick, 2022), these models are often criticized for not truly “understanding” language (e.g., Bender & Koller, 2020). The critiques use various definitions of “understanding”. Some critics claim that LMs do not have “grounded” knowledge that links linguistic meaning to non-linguistic experience (Bender & Koller, 2020; Bisk et al., 2020; Merrill et al., 2021); others claim that LMs lack common sense, i.e., intuitive theories about how the world works (Sinha et al., 2019; Ullman, 2023); yet others claim that LMs do not reason logically (Ettinger, 2020; Wu et al., 2023). All such criticisms conclude that LMs do not understand language like humans do.",
+   "printed": true
+  },
+  {
+   "para_id": 4,
+   "loc": "body",
+   "sec_title": "INTRODUCTION",
+   "text": "However, these critiques are valid only to the extent that they rely on accurate notions of language comprehension in humans. Humans are, of course, able to relate linguistic input to non-linguistic experiences, evaluate such input against their common sense and prior knowledge, and use it for logical inferences. But these capacities are kinds of “thinking”, not language (Mahowald et al., 2024): in the human mind, the cognitive systems that support sensorimotor or affective processes, common sense reasoning, and logical inferences are functionally distinct from the system that analyzes linguistic input (Fedorenko et al., 2024; Fedorenko & Varley, 2016). Whereas linguistic processing is a prerequisite for, e.g., evaluating whether a sentence is consistent with common sense, these two processes are dissociable, and a failure to carry out the latter does not demonstrate a failure to carry out the former (by analogy, if a human fails to paint a copy of a picture, that does not mean they failed to visually perceive that picture). Given that the mind appears to dedicate a system to linguistic processing per se, a fair yet critical bar for LMs to pass is semantic processing that is “language-internal” (e.g., Piantadosi & Hill, 2022, but see Jackendoff, 2012).",
+   "printed": true
+  },
+  {
+   "para_id": 5,
+   "loc": "body",
+   "sec_title": "INTRODUCTION",
+   "text": "Specifically, we test whether LMs can use the structure of a sentence that describes a simple event to figure out “who did what to whom”, a process called “thematic role assignment” (Dryer, 2002; Fenk-Oczlon & Fenk, 2008; Fillmore, 1968; Greenberg, 1963; Jackendoff, 1972; Kiparsky, 1997; Koplenig et al., 2017; Levin & Hovav, 2005; Levshina, 2020, 2021; Nakamura et al., 2024; Sinnemäki, 2008; for a review, see Rissman & Majid, 2019). We focus on the mapping from grammatical positions to the thematic roles of an action’s “agent” and “patient” (we use “patient” loosely to refer to themes, goals, and recipients, depending on the stimulus, because they share conceptual similarities and cluster under a “proto-patient” role; Dowty, 1991). This mapping is variable across syntactic structures: in an active sentence like “the poet quoted the diplomat”, the grammatical subject (poet) is the agent, and the grammatical object (diplomat) is the patient; however, in a passive sentence, like “the diplomat was quoted by the poet”, the mapping is different: the diplomat is still the patient, but it is not the grammatical subject, whereas the poet–still the agent, as in the previous, active sentence–is now inside the adjunct. As this example demonstrates, two sentences with different grammatical constructions (active vs. passive) can have the same thematic role assignments. Alternatively, two sentences with the same grammatical construction can have opposite thematic role assignments, e.g., “the poet quoted the diplomat” vs. “the diplomat quoted the poet”. Inferring who did what to whom requires combining several types of syntactic information (linear order, construction), at least in the absence of prior semantic information about which noun is a more plausible agent (Caramazza & Zurif, 1976; Mahowald et al., 2023).",
+   "printed": true
+  },
+  {
+   "para_id": 6,
+   "loc": "body",
+   "sec_title": "INTRODUCTION",
+   "text": "Thematic role assignment is often invoked as an important component of language processing in psycholinguistic theories (for a review, see: Rissman & Majid, 2019), unlike many other tasks used to test LMs, such as logical entailment or common-sense reasoning (e.g., Srivastava et al., 2022; Wang et al., 2018). It is central to the syntax-semantics interface (Goldberg, 1995, 2019) and becomes available rapidly to guide incremental comprehension (Altmann, 1999; Gennari & MacDonald, 2008; Lee & Phillips, 2025). However, it appears to be dissociable from syntactic processing as such (Caramazza & Miceli, 1991; Chatterjee et al., 1995; Ziegler & Snedeker, 2018), and thus the evidence for syntactic representations in LMs does not trivially predict that thematic role assignment would be successful.",
+   "printed": true
+  },
+  {
+   "para_id": 7,
+   "loc": "body",
+   "sec_title": "INTRODUCTION",
+   "text": "In the human brain, thematic role assignment engages the Core Language Network (Ivanova et al., 2021), a system selective for high-level language processing (Fedorenko et al., 2011, 2024), including the extraction of meaning from sentences (Fedorenko et al., 2016; Regev et al., 2024). Whereas thematic role assignment also recruits a-modal regions located outside the Core Language Network, this recruitment critically relies on task demands beyond role assignment itself: unlike the Core Language Network, these other regions are overall not sensitive to linguistic meaning (Ivanova et al., 2025; see also Frankland & Greene, 2020; Wang et al., 2016). Thus, understanding “who did what to whom” in a sentence appears to predominately (or, at least, heavily) rely on computations that are linguistic in nature, and thus provides an appropriate test for LMs.",
+   "printed": true
+  },
+  {
+   "para_id": 8,
+   "loc": "body",
+   "sec_title": "INTRODUCTION",
+   "text": "Second, larger and more recent LMs, like ChatGPT (OpenAI, 2022) or GPT5 (Singh et al., 2026), are not only (pre)trained on word prediction but are also fine-tuned using “reinforcement learning from human feedback” (RLHF; Christiano et al., 2017; Ouyang et al., 2022) or similar methods. In RLHF, an LM receives input about human preferences and learns a policy for generating text that is maximally aligned with those preferences. Such “evaluative” input—information about how humans would like the LM to respond to their queries—constitutes non-linguistic information according to our construal of the distinction between language and thought. LMs trained with RLHF are therefore outside the scope of the current work, given that we are asking whether meaning can be learned just from information about the distribution of words and sentence structures.",
+   "printed": true
+  },
+  {
+   "para_id": 9,
+   "loc": "body",
+   "sec_title": "INTRODUCTION",
+   "text": "Third, prior work has demonstrated that the internal representations of LMs contain information about thematic roles (e.g., Proietti et al., 2022, 2024; Tenney, Das, & Pavlick, 2019; Tenney, Xia, et al., 2019). However, the presence of such information is often tested using corpora derived from natural text (e.g., Carreras & Màrquez, 2005; Pradhan et al., 2013), which likely contains few challenging examples: in many sentences, thematic roles might be assigned based on heuristics or shortcuts (Mahowald et al., 2023). Our study instead relies on stimuli that are specifically designed to be less susceptible to such heuristics: both experiments use “reversible” sentences in which both agent and patient are equally likely to produce the action, and Experiment 2 uses a wide range of grammatical constructions. We chose this approach because other linguistic capacities that appear robust when tested on corpora “from the wild” can break down when tested on carefully crafted stimuli, like those used in controlled psycholinguistic experiments conducted with humans (e.g., Chaves & Richter, 2021; Glockner et al., 2018; McCoy et al., 2019; Rosenman et al., 2020; Sinha et al., 2021).",
+   "printed": true
+  },
+  {
+   "para_id": 10,
+   "loc": "body",
+   "sec_title": "INTRODUCTION",
+   "text": "Fourth, testing whether LMs map syntax onto thematic roles assumes that a representation of syntactic structure is available to LMs. However, syntactic processing in LMs still falls short of humans (Aina & Linzen, 2021; Diego-Simón et al., 2025; Huang et al., 2024; Marvin & Linzen, 2018; van Schijndel & Linzen, 2021; Warstadt & Bowman, 2020; Warstadt et al., 2020; but see Hu et al., 2025); and even when LMs do capture the structure of sentences, they might rely on “tricks” that differ from the rich, systematic linguistic principles guiding humans (Chaves & Richter, 2021; McCoy et al., 2019; Sinha et al., 2021). Still, such characterizations of LMs are often based on sentences with quite complex structures. There is wide implicit agreement that LMs do capture the structure of simple sentences like “the poet quoted the diplomat”, which are the stimuli used in Experiment 1. Additionally, by using controlled stimuli where relying on heuristics vs. syntactic information would lead to distinct representations, some experiments have demonstrated that the internal activity patterns of LMs robustly encode syntactic information such as grammatical roles (Papadimitriou et al., 2022).",
+   "printed": true
+  },
+  {
+   "para_id": 11,
+   "loc": "body",
+   "sec_title": "INTRODUCTION",
+   "text": "Fifth, and finally, our approach involves investigating the internal representations of LMs rather than prompting them (e.g., directly asking the models “what is the agent of this sentence?” or “do these sentences have the same thematic roles?” see Ettinger et al., 2016, 2018). We use this probing approach because a prompting task would require that these models not only assign thematic roles, but also that they understand the question being asked of them and understand what words like “agent” or “thematic roles” mean (meta-linguistic abilities). Probing the models directly allows us to get around these task demands, and previous work shows that these distinct approaches can lead to differing results (Hu & Frank, 2024; Hu & Levy, 2023; Hu et al., 2024). Even if an LM can answer an explicit prompt correctly, such accuracy does not demonstrate that the model has a robust and generalizable internal encoding of thematic roles. Instead, the LM might “simulate” understanding via shallow heuristics, memorization of templates, or other distributional patterns in its training corpora. Moreover, prompts measure performance in a specific task context. Studying LM knowledge across sufficiently many contexts and prompt variations is practically challenging and, moreover, performance that is not stable across such variations would be difficult to interpret (are some prompts “bad” or is the LM brittle?). Rather than quantifying performance via LM outputs, internal representations quantify something closer to the underlying “capacity”: abstract latent structure that is apparent even when not explicitly prompted.",
+   "printed": true
+  },
+  {
+   "para_id": 12,
+   "loc": "body",
+   "sec_title": "INTRODUCTION",
+   "text": "Our approach is therefore appropriate for testing whether LMs implicitly assign roles like “agent” and “patient” to event participants in a sentence. Our main analyses rely on the following paradigm: we feed different sentences to these LMs, extract the resulting sentence representations—in the form of patterns of activity in hidden layers—and quantitatively characterize to what extent they are influenced by thematic role information. Specifically, we generate sentences that either (i) share thematic role assignments but differ in syntax (e.g., “the poet quoted the diplomat” and “the diplomat was quoted by the poet”), or (ii) have opposite thematic role assignments but share syntax (e.g., “the poet quoted the diplomat” and “the diplomat quoted the poet”). We test whether sentence pairs of type (i) are more similar to one another than pairs of type (ii), which would be expected if word prediction suffices for LMs to learn something akin to thematic roles, and if this aspect of meaning plays a larger role than syntax in internal representations (Figures 1, 2). This is a simple analogue to representational similarity analyses in fMRI (Kriegeskorte et al., 2008; it is perhaps most similar to the fMRI method “multi-voxel pattern analysis”, Norman et al., 2006, see other work that uses a similar method: Cong, 2024; Nicolas & Caliskan, 2024).",
+   "printed": true
+  },
+  {
+   "para_id": 13,
+   "loc": "body",
+   "sec_title": "INTRODUCTION",
+   "text": "The test above is stringent: it not only requires that LMs extract thematic role information, but also that this information exerts a stronger influence than syntactic form on the overall organization of representations in a given layer of the LM. Such a test is important insofar as language is a tool for communicating meaning, so any model of human language processing should be expected to give more weight to semantics than to syntax (the latter not being an end in itself). This point can be further clarified with an analogy to static (context-less) word embeddings: such representational spaces implement the “distributional hypothesis” whereby the meaning of a word is influenced by the contexts in which that word occurs (de Saussure, 2011; Firth, 1962; Harris, 1954); therefore, the overall organization of vectors in a static word embedding is generally expected to be governed more strongly by meaning than by aspects of form (e.g., part of speech). Similarly, we may expect that in some layers of a LM, the representational space of sentences would reflect the meaning of those sentences—including thematic role information—more strongly than their form.",
+   "printed": true
+  },
+  {
+   "para_id": 14,
+   "loc": "body",
+   "sec_title": "Stimuli.",
+   "text": "Stimuli were based on a fMRI experiment by Fedorenko et al. (2020) and generated in two steps: First, we created 94 “base” active, transitive sentences describing a two participant event, such as “the lawyer saved the author”. Then, we edited each base sentence to create four versions that changed its thematic role assignments (and hence the semantics) and/or its syntax, as outlined in Table 1: (A) same semantics, same syntax (SEMS-SYNTS): a “control” version where nouns and verbs are replaced by near-synonyms (extracted using the static word embedding GloVe; Pennington et al., 2014), maintaining the active structure and the thematic role assignments (“the attorney rescued the writer”); (B) same semantics, different syntax (SEMS-SYNTD): a critical condition where the sentence is converted to passive voice while maintaining its base words and thematic role assignments (“the author was saved by the lawyer”); (C) different semantics, same syntax (SEMD-SYNTS): the other critical condition where the agent and the patient are swapped, thus changing thematic role assignments while maintaining its base words and active structure (“the author saved the lawyer”); and (D) different semantics, different syntax (SEMD-SYNTD): another “control” version where nouns and verbs are replaced with near-synonyms, the agent and patient are swapped, and the sentence is converted to passive voice, resulting in a sentence that is maximally different from the base (“the attorney was rescued by the writer”).",
+   "printed": true
+  },
+  {
+   "para_id": 15,
+   "loc": "body",
+   "sec_title": "Language Models.",
+   "text": "We studied sentence representations in BERT (110 M parameters; Devlin et al., 2019), GPT2-Small (117 M parameters; Radford et al., 2019), Llama 2 (7 B parameter version; Touvron et al., 2023), and Persimmon (8 B parameter version; Elsen et al., 2023) as implemented in HuggingFace. BERT and GPT2-Small have 12 layers, each with 768 hidden units and 12 attention heads. Llama2 has 32 layers, each with 4096 hidden units; and Persimmon has 36 layers each with 4096 hidden units. BERT is different from the other 3 LMs in that it (1) is bidirectional (the other LMs are unidirectional), and (2) was trained on both missing word prediction and next-sentence prediction (the other LMs were trained on next-word prediction).",
+   "printed": true
+  },
+  {
+   "para_id": 16,
+   "loc": "body",
+   "sec_title": "Evaluating Representational Similarities.",
+   "text": "For each sentence set, we compared the representation of the base sentence and each other condition via the cosine similarity measure (Cassani et al., 2023). Because such similarities might be influenced by a small subset of hidden units with, e.g., very high activations across all sentences (Timkey & van Schijndel, 2021), prior to computing similarities we normalized each hidden unit’s activations relative to that unit’s average and standard deviation across a large set of sentences (COCA; Davies, 2009). Cosine similarities were Fisher-transformed to render their distribution closer to Gaussian and ameliorate bias in averaging them across stimuli (Silver & Dunlap, 1987). We contrasted the four conditions in terms of their similarity to the base sentence using a non-parametric, one-way repeated-measures ANOVA (Friedman test). Significant results were followed by pairwise post-hoc, two-tailed Wilcoxon signed rank tests (Bonferroni corrected).",
+   "printed": true
+  },
+  {
+   "para_id": 17,
+   "loc": "body",
+   "sec_title": "Human Judgments.",
+   "text": "Humans can identify who did what to whom, even based on grammatical cues alone (without, e.g., plausibility information), upon careful contemplation. For example, identifying the agent and patient in “the ball was kicked by the boy” is not difficult, as common sense makes it much more plausible that the boy is the agent and the ball is the patient. But it is also possible, with some contemplation, to identify the agent and patient in sentences that do not contain such plausibility information, as “the chef was pushed by the painter”. Even though either a chef or a painter can push one another, we can rely on the syntax to identify that the painter is the agent and the chef is the patient. Still, it remains unclear how automatically and accurately we infer thematic roles based on grammatical cues alone (versus plausibility cues) and without explicit instructions to closely attend to sentence structure (Ferreira & Lowder, 2016).",
+   "printed": true
+  },
+  {
+   "para_id": 18,
+   "loc": "body",
+   "sec_title": "Human Judgments.",
+   "text": "We do not explicitly compare human and LM data, because the former are based on explicit ratings in response to prompts whereas the latter quantify internal representations (although such comparisons have been carried out in previous studies comparing LMs and humans, e.g., Hu et al., 2024; Iaia et al., 2025; Kodali et al., 2025; Lau et al., 2020; Lu et al., 2024; they are also common in studies of visual processing, e.g., Hebart et al., 2020; Jozwik et al., 2017; Mahner et al., 2025; Muttenthaler et al., 2023; Takahashi et al., 2025; Tarigopula et al., 2023). Nonetheless, the behavioral data provide some validation of our stimuli, and demonstrate that thematic role information is psychologically salient for human comprehenders even in the absence of plausibility cues and task demands.",
+   "printed": true
+  },
+  {
+   "para_id": 19,
+   "loc": "body",
+   "sec_title": "EXPERIMENT 2",
+   "text": "A cognitively plausible representation of sentences should feature thematic roles as a main component (Rissman & Majid, 2019; Ziegler & Snedeker, 2018); for this reason, Experiment 1 quantified LM representations as distributed activity patterns across all hidden units in a given layer. However, thematic roles might instead be encoded by a low-dimensional subspace (for instance, a small subset of units, with other units representing unrelated information, e.g., syntax or lexical semantics). Thus, even if LMs do not emphasize thematic roles—as evidenced in Experiment 1—perhaps they still extract this information, i.e., they have the capacity for representing this information, like humans do (Figure 4).",
+   "printed": true
+  },
+  {
+   "para_id": 20,
+   "loc": "body",
+   "sec_title": "LMs: Hidden Units.",
+   "text": "For our main analysis, for each layer in each LM, we trained a support vector machine (SVM) algorithm to distinguish between “same meaning” vs. “different meaning” sentence pairs (i.e., pairs with matching vs. opposite thematic role assignments; see also our Supplementary Materials for a logistic regression analysis with similar results). We use a linear classifier, consistent with previous research that has found conceptual information in hidden layers with this approach (Lee et al., 2024; Nanda et al., 2023; Ramezani et al., 2025; Seyffarth et al., 2021; also see Discussion). To this end, for each pair of sentences, their respective distributed representations were subtracted and the absolute value of the difference was submitted as a training instance to the algorithm (we also attempted to train the algorithm on the concatenated representations of two sentences in a pair; results were similar or weaker). In a 66-fold cross-validation, a separate SVM was trained on each possible subset of 10 of the 12 sentence structures and tested on the remaining two held-out structures.",
+   "printed": true
+  },
+  {
+   "para_id": 21,
+   "loc": "body",
+   "sec_title": "SVM: Hidden Units.",
+   "text": "The overall low classification accuracy across models and layers might, in part, reflect the difficulty of processing sentences with cleft structures, which constitute two thirds of our stimuli. Indeed, classification accuracy for held-out sentences that included clefts tended to be lower than accuracy on held-out sentences that did not include those structures. However, we note that previous work has demonstrated that even our smaller LMs (i.e., BERT and GPT2) are able to process clefted sentences, as evidenced in their next-word predictions (Da Costa & Chaves, 2020; see also Hu et al., 2020; Warstadt & Bowman, 2020).",
+   "printed": true
+  },
+  {
+   "para_id": 22,
+   "loc": "body",
+   "sec_title": "DISCUSSION",
+   "text": "These results provide an important characterization of the ability of LMs to understand language: thematic roles are tightly linked to understanding linguistic input as such, in contrast to aspects of comprehension such as common-sense reasoning or logical inference which reflect non-linguistic aspects of thinking (Mahowald et al., 2024). Even in our relatively simple semantic task of mapping sentence structure onto thematic roles, LMs do not give meaning a prominent role—at least not in their hidden units—despite possessing the ability to extract this information. If we take the distributed patterns of activity across hidden units to be a representation of a sentence, as is often done in studies comparing LMs to human data (Antonello et al., 2021; Caucheteux & King, 2022; Schrimpf et al., 2021; Tang et al., 2023; Tuckute et al., 2024), then our findings suggest that training LMs on word prediction is sufficient for learning what thematic roles are, but perhaps not for representing them in a human-like way.",
+   "printed": true
+  },
+  {
+   "para_id": 23,
+   "loc": "body",
+   "sec_title": "DISCUSSION",
+   "text": "As stated in the introduction, LMs can perform thematic role assignment if they are directly fine-tuned on this task. However, our study asked whether robust representations of thematic roles could result from training on word prediction exclusively, in order to understand how a general linguistic objective affects LM semantic capabilities. Our work thus adds to the existing endeavor of characterizing models that lack fine-tuning (for a review, see: Chang & Bergen, 2024). Probing such models is crucial as they are the ones that are commonly compared to human behavior and brain activity. For instance, one important interpretation of our findings is that whatever brain activity can be predicted from the hidden activations of LMs, it likely does not reflect thematic roles (because such information is not reliably represented in hidden activations).",
+   "printed": true
+  },
+  {
+   "para_id": 24,
+   "loc": "body",
+   "sec_title": "DISCUSSION",
+   "text": "Can we interpret the relationship between the (pre-)training objective of LMs and thematic role assignment with reference to theories of human language acquisition? Apart from strongly nativist theories which claim that infants have innate linguistic knowledge of possible mappings between syntactic positions and thematic roles (e.g., Pinker, 2009), most contemporary theories assume that this mapping is learned from linguistic input via some form of distributional learning. One instantiation of a distributional learning mechanism is prediction of upcoming linguistic input, which is not only the basis of LM pre-training but also a fundamental process in the human mind (e.g., Ryskin & Nieuwland, 2023).",
+   "printed": true
+  },
+  {
+   "para_id": 25,
+   "loc": "body",
+   "sec_title": "DISCUSSION",
+   "text": "However, humans and LMs are critically different in their starting state. Most acquisition theories posit that infants start out with abstract, non-linguistic knowledge of concepts like “agent” and “patient”, which is either innate or quickly learned pre-linguistically (Rissman & Majid, 2019), and which is used to construct mental representations of events in the world. This knowledge supports and constrains the acquisition of syntax and of the mapping rules between syntax and semantics. For example, infants observe events, mentally represent them, and infer how the linguistic strings that they are exposed to relate to those conceptual representations (theories disagree on what additional types of knowledge constitute the starting state, and on how learning proceeds; for a review and a recent proposal, see Hartshorne & Snedeker, 2026). In contrast to humans, LMs do not have preexisting concepts; in fact, their learning trajectory is opposite to that of humans: they begin from forms, not from meanings.",
+   "printed": true
+  },
+  {
+   "para_id": 26,
+   "loc": "body",
+   "sec_title": "DISCUSSION",
+   "text": "In this sense, the LMs we study are not models of acquisition. Nonetheless, one can still ask if they are good models of the adult state of the linguistic mind—the question that guides studies comparing LMs to behavioral and neural data. Could LMs develop the same linguistic abilities that humans have (or, at least, a non-trivial subset of them), but get there through a different route? This question is intriguing given the unexpected power of distributional learning (Contreras Kallens et al., 2023; Piantadosi, 2023). Even prior to LMs, models of contextless word meanings (“static” word embeddings) have demonstrated how much (lexical) semantic knowledge is implicitly embedded in linguistic strings (e.g., Grand et al., 2022; Liu et al., 2025; Utsumi, 2020). LMs then showed that a large amount of syntactic information can be learned from word prediction alone. How far can domain-general distributional learning go, in terms of providing a system with human-like linguistic abilities? A critical component in this research program moves from sentence structure to sentence meaning, and our study belongs to this burgeoning line of work.",
+   "printed": true
+  },
+  {
+   "para_id": 27,
+   "loc": "body",
+   "sec_title": "DISCUSSION",
+   "text": "Our findings are consistent with the broader claim that the success of LMs in syntactic processing does not guarantee similar success in semantic processing (Weissweiler et al., 2022). Indeed, despite the impressive syntactic capabilities of LMs (e.g., Manning et al., 2020; McCoy et al., 2023; Wilcox et al., 2021, for reviews, see: Chang & Bergen, 2024; Futrell & Mahowald, 2026; Linzen & Baroni, 2021), prior work has demonstrated that LMs trained on word prediction alone have limited understanding (though this has often been evaluated on non-linguistic aspects of understanding): LMs struggle with tracking the state of entities in a text (Kim & Schuster, 2023), sometimes refer to entities that do not exist (Schuster & Linzen, 2022), and make predictions that are only weakly sensitive to event roles (Ettinger, 2020).",
+   "printed": true
+  },
+  {
+   "para_id": 28,
+   "loc": "body",
+   "sec_title": "DISCUSSION",
+   "text": "At the same time, this study adds to a growing literature suggesting that attention heads—a critical component of LMs that is distinct from hidden units—contain important linguistic information. Previous work has found that attention heads and circuits of attention can identify parts of speech and syntactic dependencies (Clark et al., 2019; Manning et al., 2020; Wang et al., 2022) and, moreover, that those computations are influenced by semantic information (McGee et al., 2026). Here, we demonstrate that thematic role information is also reliably captured by attention heads. The relationship between heads that identify syntactic relations and those that identify semantic relations remains an open question for future studies. Other work, focusing on BERT’s attention heads, has shown that they tend to be “overparametrized”, with many heads attending to the same information (e.g., noun-pronoun or verb-subject links), and that disabling some heads can even improve performance (Kovaleva et al., 2019). Our findings are consistent with these claims, as we found many attention heads that appear to be sensitive to thematic roles. Whereas our attention head analysis focused on BERT, because our evaluation method required a model with bidirectional attention, future work may test whether heads in unidirectional models also extract thematic role information. Future work may also consider the causal influence of thematic role information in attention heads (or circuits of attention; Wang et al., 2022) on next word prediction and LM behavior more broadly.",
+   "printed": true
+  },
+  {
+   "para_id": 29,
+   "loc": "body",
+   "sec_title": "DISCUSSION",
+   "text": "A second, related possibility is that even though thematic role information in attention heads is abstract—i.e., an agent role is detected regardless of the nouns and verbs in the sentence—this information modulates hidden activations in a more lexically-specific way (e.g., Diego-Simón et al., 2026). If LMs manipulate representations in the service of next-word prediction, and such predictions heavily depend on fine-grained meaning, then hidden activations may distinguish between fine-grained, or verb-specific, roles: they may reliably distinguish between the agent vs. patient of a pulling action (the “puller” vs. the “pulled”), but this distinction would not share representational resources with another reliable distinction, e.g., between the agent vs. patient of a rescuing action (“rescuer” vs. “rescued”). Such verb-specific distinctions between agent and patient could not be detected by our SVM analysis, which required generalization across verbs (for discussions about the relationship between item-specific and abstract linguistic knowledge in humans, see Ambridge, 2020a, 2020b; Tomasello, 1992, 2003).",
+   "printed": true
+  },
+  {
+   "para_id": 30,
+   "loc": "body",
+   "sec_title": "DISCUSSION",
+   "text": "A third possibility is that, in an LM’s training corpus, thematic role information interacts with other constraints that support word prediction, such as plausibility cues and world knowledge. Previous work has indeed demonstrated that LMs can distinguish plausible vs. implausible events (Kauf et al., 2023). When such constraints are missing—as in our controlled stimuli—thematic role information is no longer strongly represented in the hidden activations. In other words, the interaction between multiple constraints is necessary to “elevate” thematic role information and allow it to play a prominent role in the hidden activations.",
+   "printed": true
+  },
+  {
+   "para_id": 31,
+   "loc": "body",
+   "sec_title": "DISCUSSION",
+   "text": "A fourth possibility is that thematic role information is coded in the hidden layers in a non-linear way, such that our linear probe could not identify it. That is, we used a specific similarity metric (cosine) and rather simple classifiers (linear SVMs). It is possible that thematic role information is present non-linearly within the hidden representations of LMs (see Hernandez et al., 2023; Lampinen et al., 2025). Previous research, however, has demonstrated that much conceptual information is linearly represented in hidden representations of LMs, an idea known as the “linear subspace hypothesis” (Bolukbasi et al., 2016; Vargas & Cotterell, 2020). Indeed, previous work has found that several complex concepts are present linearly in the space of hidden activations, including gender bias (Bolukbasi et al., 2016; Vargas & Cotterell, 2020), truthfulness (Li et al., 2023; Marks & Tegmark, 2023), space and time (Gurnee & Tegmark, 2023), sentiment (Tigges et al., 2023), world states (Nanda et al., 2023), and—perhaps most relevant to our study—plausibility (Kauf et al., 2023; Lee et al., 2024). Therefore, if thematic role information is available in hidden layers, it would have to differ in its representational format from these other semantic features.",
+   "printed": true
+  },
+  {
+   "para_id": 32,
+   "loc": "body",
+   "sec_title": "DISCUSSION",
+   "text": "A final possibility is that our study focused on the “wrong” sentence representations. We evaluated sentence representations from one token (extracting activations at [CLS] for BERT, or ‘.’ for the other LMs; but see Supplementary Materials for similar results using pooled activations across tokens in all LMs, and the representation of the verb in BERT). It is possible that thematic role information may be present in other tokens, and we leave such investigations for future work. However, we emphasize that most LMs use unidirectional attention, so the representation of any token other than the last one cannot capture the entire sentence; this leads to problems when studying structurally diverse materials such as those we used in Experiment 2, where different thematic roles can appear very early or very late in the sentence. Moreover, previous work has found that conceptual information is present in sentence representation tokens like [CLS] (e.g., Ramezani et al., 2025; Seyffarth et al., 2021).",
+   "printed": true
+  },
+  {
+   "para_id": 33,
+   "loc": "body",
+   "sec_title": "DISCUSSION",
+   "text": "Our study relies on probing the internal representations of LMs as a means to reveal what they know. Probing internal representations is a different approach from studying the behavior of LMs by prompting them with questions and characterizing their output. One may simply feed LMs a sentence and ask “who is the agent?”, or feed two sentences and ask whether they have matching vs. opposite thematic roles. However, such prompting makes several undesirable assumptions about LMs: that they understand the meaning of words like “agent”, that they understand how the question being asked of them relates to the sentences asked about, etc. Studying internal representations circumvents these additional “task demands” (Hu & Frank, 2024; Hu & Levy, 2023; Hu et al., 2024). In the Introduction, we further justify our use of probing instead of prompting, and we believe that our study of internal representations provides a more informative and detailed characterization of LMs than any results that would be obtained with prompting.",
+   "printed": true
+  },
+  {
+   "para_id": 34,
+   "loc": "body",
+   "sec_title": "DISCUSSION",
+   "text": "Unlike our characterization of LMs based on internal activity patterns, our behavioral data are based on explicit similarity ratings. Therefore, caution is warranted when descriptively comparing the two. Human data that are more easily comparable to the internal activity patterns of LMs could come from neuroimaging studies. Previous work has shown that thematic role information is indeed present in human neural representations, and meaning can be classified based on patterns of brain activity using linear classifiers similar to the ones we used here (Frankland & Greene, 2015; Wang et al., 2016).",
+   "printed": true
+  },
+  {
+   "para_id": 35,
+   "loc": "body",
+   "sec_title": "DISCUSSION",
+   "text": "Nonetheless, our findings emphasize that it is vital to test the ability of LMs to process the meaning of language “per se” (in addition to their ability to exhibit non-linguistic thinking), and to do so using carefully designed and controlled materials inspired by psycholinguistics. Such studies are required for ensuring that the seemingly meaningful behavior of LMs reflects comprehension rather than non-linguistic “tricks” that have little to do with human language processing (McCoy et al., 2019). In the case of thematic roles, this approach is important because, in natural texts, these roles might be assigned based on heuristics such as plausibility (Mahowald et al., 2023). Whereas humans can use such information, in some cases they can also process thematic roles based on sentence structure alone, as suggested by our behavioral data. Our findings demonstrate that LMs can extract such information via their attention heads, but when it comes to their hidden units—commonly studied as the “ultimate” internal representation of LMs that are compared to human cognitive representations—thematic role information exerts a relatively weak influence.",
+   "printed": true
+  }
+ ],
+ "links": [
+  {
+   "link_id": 1,
+   "url": "osf.io/t4raz",
+   "url_raw": "https://osf.io/t4raz/",
+   "href_jats": "https://osf.io/t4raz/",
+   "repo_key": "osf:t4raz",
+   "host_class": "osf",
+   "loc": "body",
+   "sec_title": "Evaluating Representational Similarities.",
+   "source": "tagged",
+   "para_id": 1
+  }
+ ],
+ "links_optional": [
+  "adept.ai/blog/persimmon-8b",
+  "cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf",
+  "creativecommons.org/licenses/by/4.0",
+  "doi:10.1006/brln.1995.1024",
+  "doi:10.1006/jmla.1999.2640",
+  "doi:10.1016/0093-934x(76)90048-1",
+  "doi:10.1016/0093-934x(91)90164-v",
+  "doi:10.1016/bs.plm.2016.04.002",
+  "doi:10.1016/j.cognition.2018.06.019",
+  "doi:10.1016/j.cognition.2020.104348",
+  "doi:10.1016/j.cognition.2023.105543",
+  "doi:10.1016/j.cognition.2025.106255",
+  "doi:10.1016/j.jml.2007.07.004",
+  "doi:10.1016/j.jml.2024.104510",
+  "doi:10.1016/j.neunet.2023.08.049",
+  "doi:10.1016/j.tics.2006.07.005",
+  "doi:10.1016/j.tics.2023.08.003",
+  "doi:10.1016/j.tics.2023.08.006",
+  "doi:10.1016/j.tics.2024.01.011",
+  "doi:10.1017/cbo9780511527678",
+  "doi:10.1017/cbo9780511610479",
+  "doi:10.1017/s0140525x2510112x",
+  "doi:10.1037/0021-9010.72.1.146",
+  "doi:10.1038/s41562-020-00951-3",
+  "doi:10.1038/s41562-022-01316-8",
+  "doi:10.1038/s41562-023-01783-7",
+  "doi:10.1038/s41562-024-01944-2",
+  "doi:10.1038/s41583-024-00802-4",
+  "doi:10.1038/s41598-024-80571-3",
+  "doi:10.1038/s42003-022-03036-1",
+  "doi:10.1038/s42256-025-01041-7",
+  "doi:10.1038/s44271-025-00230-9",
+  "doi:10.1073/pnas.1112937108",
+  "doi:10.1073/pnas.1421236112",
+  "doi:10.1073/pnas.1612132113",
+  "doi:10.1073/pnas.1907367117",
+  "doi:10.1073/pnas.2105646118",
+  "doi:10.1073/pnas.2400917121",
+  "doi:10.1075/ijcl.14.2.02dav",
+  "doi:10.1075/slcs.94.05fen",
+  "doi:10.1075/slcs.94.06sin",
+  "doi:10.1080/00437956.1954.11659520",
+  "doi:10.1080/02643294.2016.1182480",
+  "doi:10.1093/cercor/bhaa001",
+  "doi:10.1093/pnasnexus/pgae493",
+  "doi:10.1101/2022.10.04.510681",
+  "doi:10.1111/cogs.12844",
+  "doi:10.1111/cogs.12988",
+  "doi:10.1111/cogs.13256",
+  "doi:10.1111/cogs.13386",
+  "doi:10.1111/cogs.70023",
+  "doi:10.1111/cogs.70187",
+  "doi:10.1111/nyas.13046",
+  "doi:10.1145/3748312",
+  "doi:10.1146/annurev-linguistics-031120-122924",
+  "doi:10.1146/annurev-linguistics-032020-051035",
+  "doi:10.1162/coli_a_00492",
+  "doi:10.1162/nol_a_00030",
+  "doi:10.1162/opmi.a.365",
+  "doi:10.1162/tacl_a_00298",
+  "doi:10.1162/tacl_a_00315",
+  "doi:10.1162/tacl_a_00321",
+  "doi:10.1162/tacl_a_00412",
+  "doi:10.1162/tacl_a_00567",
+  "doi:10.1177/0142723719869731",
+  "doi:10.1177/0142723720949723",
+  "doi:10.1353/lan.1991.0021",
+  "doi:10.1371/journal.pone.0173614",
+  "doi:10.1418/113930",
+  "doi:10.1515/9780691183954",
+  "doi:10.1515/thli.2002.28.2.151",
+  "doi:10.18653/v1/2020.acl-main.463",
+  "doi:10.18653/v1/2021.acl-long.76",
+  "doi:10.18653/v1/2021.blackboxnlp-1.4",
+  "doi:10.18653/v1/2023.emnlp-main.306",
+  "doi:10.18653/v1/n19-1423",
+  "doi:10.18653/v1/w16-2524",
+  "doi:10.2307/j.ctv26070v8",
+  "doi:10.25189/rabralin.v19i3.1728",
+  "doi:10.3115/v1/d14-1162",
+  "doi:10.31234/osf.io/b45ys",
+  "doi:10.31234/osf.io/ur3gj_v1",
+  "doi:10.3389/fpsyg.2017.01726",
+  "doi:10.3389/fpsyg.2021.648200",
+  "doi:10.3389/frai.2025.1477246",
+  "doi:10.3389/neuro.06.004.2008",
+  "doi:10.3758/s13423-016-1073-y",
+  "doi:10.3758/s13423-019-01634-5",
+  "doi:10.4159/9780674042179",
+  "doi:10.48550/arxiv.1804.07461",
+  "doi:10.48550/arxiv.1805.02266",
+  "doi:10.48550/arxiv.1808.09031",
+  "doi:10.48550/arxiv.1901.03438",
+  "doi:10.48550/arxiv.1902.01007",
+  "doi:10.48550/arxiv.1903.10561",
+  "doi:10.48550/arxiv.1905.05950",
+  "doi:10.48550/arxiv.1905.06316",
+  "doi:10.48550/arxiv.1906.04341",
+  "doi:10.48550/arxiv.1908.06177",
+  "doi:10.48550/arxiv.1908.08593",
+  "doi:10.48550/arxiv.2004.10151",
+  "doi:10.48550/arxiv.2005.03692",
+  "doi:10.48550/arxiv.2005.09471",
+  "doi:10.48550/arxiv.2006.01912",
+  "doi:10.48550/arxiv.2009.09435",
+  "doi:10.48550/arxiv.2010.03656",
+  "doi:10.48550/arxiv.2104.06644",
+  "doi:10.48550/arxiv.2109.04404",
+  "doi:10.48550/arxiv.2203.06204",
+  "doi:10.48550/arxiv.2205.03472",
+  "doi:10.48550/arxiv.2206.04615",
+  "doi:10.48550/arxiv.2208.02957",
+  "doi:10.48550/arxiv.2210.13181",
+  "doi:10.48550/arxiv.2211.00593",
+  "doi:10.48550/arxiv.2212.11185",
+  "doi:10.48550/arxiv.2302.08399",
+  "doi:10.48550/arxiv.2305.02363",
+  "doi:10.48550/arxiv.2306.03586",
+  "doi:10.48550/arxiv.2307.02477",
+  "doi:10.48550/arxiv.2307.09288",
+  "doi:10.48550/arxiv.2308.09124",
+  "doi:10.48550/arxiv.2309.00941",
+  "doi:10.48550/arxiv.2310.02207",
+  "doi:10.48550/arxiv.2310.06824",
+  "doi:10.48550/arxiv.2310.15154",
+  "doi:10.48550/arxiv.2404.02418",
+  "doi:10.48550/arxiv.2410.16139",
+  "doi:10.48550/arxiv.2505.15682",
+  "doi:10.48550/arxiv.2505.16419",
+  "doi:10.48550/arxiv.2507.22216",
+  "doi:10.48550/arxiv.2508.03211",
+  "doi:10.48550/arxiv.2510.16227",
+  "doi:10.48550/arxiv.2601.03267",
+  "doi:10.48550/arxiv.2605.14125",
+  "doi:10.64898/2025.12.07.692873",
+  "lingbuzz.net/lingbuzz/007180",
+  "openai.com/index/chatgpt"
+ ],
+ "own_doi": "doi:10.1162/opmi.a.365",
+ "citations": [
+  {
+   "cite_id": 1,
+   "para_id": 2,
+   "bib_id": 21,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 2,
+   "para_id": 2,
+   "bib_id": 113,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 3,
+   "para_id": 2,
+   "bib_id": 98,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 4,
+   "para_id": 2,
+   "bib_id": 15,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 5,
+   "para_id": 2,
+   "bib_id": 46,
+   "marker": "2026",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 6,
+   "para_id": 2,
+   "bib_id": 87,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 7,
+   "para_id": 2,
+   "bib_id": 8,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 8,
+   "para_id": 2,
+   "bib_id": 5,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 9,
+   "para_id": 2,
+   "bib_id": 14,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 10,
+   "para_id": 2,
+   "bib_id": 34,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 11,
+   "para_id": 2,
+   "bib_id": 58,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 12,
+   "para_id": 2,
+   "bib_id": 100,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 13,
+   "para_id": 2,
+   "bib_id": 107,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 14,
+   "para_id": 2,
+   "bib_id": 125,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 15,
+   "para_id": 2,
+   "bib_id": 135,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 16,
+   "para_id": 2,
+   "bib_id": 144,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 17,
+   "para_id": 2,
+   "bib_id": 155,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 18,
+   "para_id": 2,
+   "bib_id": 69,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 19,
+   "para_id": 3,
+   "bib_id": 15,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 20,
+   "para_id": 3,
+   "bib_id": 111,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 21,
+   "para_id": 3,
+   "bib_id": 6,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 22,
+   "para_id": 3,
+   "bib_id": 6,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 23,
+   "para_id": 3,
+   "bib_id": 7,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 24,
+   "para_id": 3,
+   "bib_id": 101,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 25,
+   "para_id": 3,
+   "bib_id": 131,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 26,
+   "para_id": 3,
+   "bib_id": 145,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 27,
+   "para_id": 3,
+   "bib_id": 31,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 28,
+   "para_id": 3,
+   "bib_id": 157,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 29,
+   "para_id": 4,
+   "bib_id": 92,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 30,
+   "para_id": 4,
+   "bib_id": 37,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 31,
+   "para_id": 4,
+   "bib_id": 39,
+   "marker": "2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 32,
+   "para_id": 4,
+   "bib_id": 114,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 33,
+   "para_id": 4,
+   "bib_id": 68,
+   "marker": "2012",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 34,
+   "para_id": 5,
+   "bib_id": 29,
+   "marker": "2002",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 35,
+   "para_id": 5,
+   "bib_id": 40,
+   "marker": "2008",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 36,
+   "para_id": 5,
+   "bib_id": 42,
+   "marker": "1968",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 37,
+   "para_id": 5,
+   "bib_id": 52,
+   "marker": "1963",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 38,
+   "para_id": 5,
+   "bib_id": 70,
+   "marker": "1972",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 39,
+   "para_id": 5,
+   "bib_id": 74,
+   "marker": "1997",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 40,
+   "para_id": 5,
+   "bib_id": 76,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 41,
+   "para_id": 5,
+   "bib_id": 83,
+   "marker": "2005",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 42,
+   "para_id": 5,
+   "bib_id": 84,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 43,
+   "para_id": 5,
+   "bib_id": 85,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 44,
+   "para_id": 5,
+   "bib_id": 103,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 45,
+   "para_id": 5,
+   "bib_id": 132,
+   "marker": "2008",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 46,
+   "para_id": 5,
+   "bib_id": 122,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 47,
+   "para_id": 5,
+   "bib_id": 28,
+   "marker": "1991",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 48,
+   "para_id": 5,
+   "bib_id": 11,
+   "marker": "1976",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 49,
+   "para_id": 5,
+   "bib_id": 91,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 50,
+   "para_id": 6,
+   "bib_id": 122,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 51,
+   "para_id": 6,
+   "bib_id": 133,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 52,
+   "para_id": 6,
+   "bib_id": 149,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 53,
+   "para_id": 6,
+   "bib_id": 49,
+   "marker": "1995",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 54,
+   "para_id": 6,
+   "bib_id": 50,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 55,
+   "para_id": 6,
+   "bib_id": 2,
+   "marker": "1999",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 56,
+   "para_id": 6,
+   "bib_id": 47,
+   "marker": "2008",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 57,
+   "para_id": 6,
+   "bib_id": 82,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 58,
+   "para_id": 6,
+   "bib_id": 10,
+   "marker": "1991",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 59,
+   "para_id": 6,
+   "bib_id": 16,
+   "marker": "1995",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 60,
+   "para_id": 6,
+   "bib_id": 158,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 61,
+   "para_id": 7,
+   "bib_id": 67,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 62,
+   "para_id": 7,
+   "bib_id": 35,
+   "marker": "2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 63,
+   "para_id": 7,
+   "bib_id": 37,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 64,
+   "para_id": 7,
+   "bib_id": 38,
+   "marker": "2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 65,
+   "para_id": 7,
+   "bib_id": 121,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 66,
+   "para_id": 7,
+   "bib_id": 66,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 67,
+   "para_id": 7,
+   "bib_id": 45,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 68,
+   "para_id": 7,
+   "bib_id": 150,
+   "marker": "2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 69,
+   "para_id": 8,
+   "bib_id": 108,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 70,
+   "para_id": 8,
+   "bib_id": 129,
+   "marker": "2026",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 71,
+   "para_id": 8,
+   "bib_id": 18,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 72,
+   "para_id": 8,
+   "bib_id": 109,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 73,
+   "para_id": 9,
+   "bib_id": 118,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 74,
+   "para_id": 9,
+   "bib_id": 117,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 75,
+   "para_id": 9,
+   "bib_id": 137,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 76,
+   "para_id": 9,
+   "bib_id": 138,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 77,
+   "para_id": 9,
+   "bib_id": 12,
+   "marker": "2005",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 78,
+   "para_id": 9,
+   "bib_id": 116,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 79,
+   "para_id": 9,
+   "bib_id": 91,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 80,
+   "para_id": 9,
+   "bib_id": 17,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 81,
+   "para_id": 9,
+   "bib_id": 48,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 82,
+   "para_id": 9,
+   "bib_id": 97,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 83,
+   "para_id": 9,
+   "bib_id": 123,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 84,
+   "para_id": 9,
+   "bib_id": 130,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 85,
+   "para_id": 10,
+   "bib_id": 1,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 86,
+   "para_id": 10,
+   "bib_id": 26,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 87,
+   "para_id": 10,
+   "bib_id": 64,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 88,
+   "para_id": 10,
+   "bib_id": 95,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 89,
+   "para_id": 10,
+   "bib_id": 147,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 90,
+   "para_id": 10,
+   "bib_id": 152,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 91,
+   "para_id": 10,
+   "bib_id": 153,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 92,
+   "para_id": 10,
+   "bib_id": 63,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 93,
+   "para_id": 10,
+   "bib_id": 17,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 94,
+   "para_id": 10,
+   "bib_id": 97,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 95,
+   "para_id": 10,
+   "bib_id": 130,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 96,
+   "para_id": 10,
+   "bib_id": 110,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 97,
+   "para_id": 11,
+   "bib_id": 33,
+   "marker": "2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 98,
+   "para_id": 11,
+   "bib_id": 32,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 99,
+   "para_id": 11,
+   "bib_id": 59,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 100,
+   "para_id": 11,
+   "bib_id": 61,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 101,
+   "para_id": 11,
+   "bib_id": 62,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 102,
+   "para_id": 12,
+   "bib_id": 78,
+   "marker": "2008",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 103,
+   "para_id": 12,
+   "bib_id": 106,
+   "marker": "2006",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 104,
+   "para_id": 12,
+   "bib_id": 20,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 105,
+   "para_id": 12,
+   "bib_id": 105,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 106,
+   "para_id": 13,
+   "bib_id": 24,
+   "marker": "2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 107,
+   "para_id": 13,
+   "bib_id": 43,
+   "marker": "1962",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 108,
+   "para_id": 13,
+   "bib_id": 54,
+   "marker": "1954",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 109,
+   "para_id": 14,
+   "bib_id": 36,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 110,
+   "para_id": 14,
+   "bib_id": 112,
+   "marker": "2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 111,
+   "para_id": 15,
+   "bib_id": 25,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 112,
+   "para_id": 15,
+   "bib_id": 119,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 113,
+   "para_id": 15,
+   "bib_id": 143,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 114,
+   "para_id": 15,
+   "bib_id": 30,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 115,
+   "para_id": 1,
+   "bib_id": 25,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 116,
+   "para_id": 1,
+   "bib_id": 96,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 117,
+   "para_id": 1,
+   "bib_id": 125,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 118,
+   "para_id": 16,
+   "bib_id": 13,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 119,
+   "para_id": 16,
+   "bib_id": 140,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 120,
+   "para_id": 16,
+   "bib_id": 23,
+   "marker": "2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 121,
+   "para_id": 16,
+   "bib_id": 128,
+   "marker": "1987",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 122,
+   "para_id": 17,
+   "bib_id": 41,
+   "marker": "2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 123,
+   "para_id": 18,
+   "bib_id": 62,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 124,
+   "para_id": 18,
+   "bib_id": 65,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 125,
+   "para_id": 18,
+   "bib_id": 75,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 126,
+   "para_id": 18,
+   "bib_id": 80,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 127,
+   "para_id": 18,
+   "bib_id": 89,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 128,
+   "para_id": 18,
+   "bib_id": 56,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 129,
+   "para_id": 18,
+   "bib_id": 71,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 130,
+   "para_id": 18,
+   "bib_id": 90,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 131,
+   "para_id": 18,
+   "bib_id": 102,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 132,
+   "para_id": 18,
+   "bib_id": 134,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 133,
+   "para_id": 18,
+   "bib_id": 136,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 134,
+   "para_id": 19,
+   "bib_id": 122,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 135,
+   "para_id": 19,
+   "bib_id": 158,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 136,
+   "para_id": 20,
+   "bib_id": 81,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 137,
+   "para_id": 20,
+   "bib_id": 104,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 138,
+   "para_id": 20,
+   "bib_id": 120,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 139,
+   "para_id": 20,
+   "bib_id": 127,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 140,
+   "para_id": 21,
+   "bib_id": 22,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 141,
+   "para_id": 21,
+   "bib_id": 60,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 142,
+   "para_id": 21,
+   "bib_id": 152,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 143,
+   "para_id": 22,
+   "bib_id": 92,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 144,
+   "para_id": 22,
+   "bib_id": 5,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 145,
+   "para_id": 22,
+   "bib_id": 14,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 146,
+   "para_id": 22,
+   "bib_id": 125,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 147,
+   "para_id": 22,
+   "bib_id": 135,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 148,
+   "para_id": 22,
+   "bib_id": 144,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 149,
+   "para_id": 23,
+   "bib_id": 15,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 150,
+   "para_id": 24,
+   "bib_id": 115,
+   "marker": "2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 151,
+   "para_id": 24,
+   "bib_id": 124,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 152,
+   "para_id": 25,
+   "bib_id": 122,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 153,
+   "para_id": 25,
+   "bib_id": 55,
+   "marker": "2026",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 154,
+   "para_id": 26,
+   "bib_id": 21,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 155,
+   "para_id": 26,
+   "bib_id": 113,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 156,
+   "para_id": 26,
+   "bib_id": 51,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 157,
+   "para_id": 26,
+   "bib_id": 88,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 158,
+   "para_id": 26,
+   "bib_id": 146,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 159,
+   "para_id": 27,
+   "bib_id": 154,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 160,
+   "para_id": 27,
+   "bib_id": 93,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 161,
+   "para_id": 27,
+   "bib_id": 98,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 162,
+   "para_id": 27,
+   "bib_id": 156,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 163,
+   "para_id": 27,
+   "bib_id": 15,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 164,
+   "para_id": 27,
+   "bib_id": 46,
+   "marker": "2026",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 165,
+   "para_id": 27,
+   "bib_id": 87,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 166,
+   "para_id": 27,
+   "bib_id": 73,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 167,
+   "para_id": 27,
+   "bib_id": 126,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 168,
+   "para_id": 27,
+   "bib_id": 31,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 169,
+   "para_id": 28,
+   "bib_id": 19,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 170,
+   "para_id": 28,
+   "bib_id": 93,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 171,
+   "para_id": 28,
+   "bib_id": 151,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 172,
+   "para_id": 28,
+   "bib_id": 99,
+   "marker": "2026",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 173,
+   "para_id": 28,
+   "bib_id": 77,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 174,
+   "para_id": 28,
+   "bib_id": 151,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 175,
+   "para_id": 29,
+   "bib_id": 27,
+   "marker": "2026",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 176,
+   "para_id": 29,
+   "bib_id": 3,
+   "marker": "2020a",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 177,
+   "para_id": 29,
+   "bib_id": 4,
+   "marker": "2020b",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 178,
+   "para_id": 29,
+   "bib_id": 141,
+   "marker": "1992",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 179,
+   "para_id": 29,
+   "bib_id": 142,
+   "marker": "2003",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 180,
+   "para_id": 30,
+   "bib_id": 72,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 181,
+   "para_id": 31,
+   "bib_id": 57,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 182,
+   "para_id": 31,
+   "bib_id": 79,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 183,
+   "para_id": 31,
+   "bib_id": 9,
+   "marker": "2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 184,
+   "para_id": 31,
+   "bib_id": 148,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 185,
+   "para_id": 31,
+   "bib_id": 9,
+   "marker": "2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 186,
+   "para_id": 31,
+   "bib_id": 148,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 187,
+   "para_id": 31,
+   "bib_id": 86,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 188,
+   "para_id": 31,
+   "bib_id": 94,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 189,
+   "para_id": 31,
+   "bib_id": 53,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 190,
+   "para_id": 31,
+   "bib_id": 139,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 191,
+   "para_id": 31,
+   "bib_id": 104,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 192,
+   "para_id": 31,
+   "bib_id": 72,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 193,
+   "para_id": 31,
+   "bib_id": 81,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 194,
+   "para_id": 32,
+   "bib_id": 120,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 195,
+   "para_id": 32,
+   "bib_id": 127,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 196,
+   "para_id": 33,
+   "bib_id": 59,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 197,
+   "para_id": 33,
+   "bib_id": 61,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 198,
+   "para_id": 33,
+   "bib_id": 62,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 199,
+   "para_id": 34,
+   "bib_id": 44,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 200,
+   "para_id": 34,
+   "bib_id": 150,
+   "marker": "2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 201,
+   "para_id": 35,
+   "bib_id": 97,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 202,
+   "para_id": 35,
+   "bib_id": 91,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-ext-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "v1_bib_count": 158
+ }
+}

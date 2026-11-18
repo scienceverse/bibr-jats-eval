@@ -1,0 +1,1431 @@
+{
+ "paper_id": "10.2196_96835",
+ "paras": [
+  {
+   "para_id": 1,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Mental health conditions represent a globally rising public health challenge [1]. Developing scalable and effective interventions to address central barriers to treatment within mental health service delivery remains paramount [1-3]. The 21st century has seen a gradually accelerating rate of digital innovation within mental health care delivery [2]. Among these, internet-based cognitive behavioral therapy (iCBT) has emerged as a new therapeutic modality. Here, patients access information and therapeutic exercises relevant to their mental health condition online while a therapist supports them via telephone or video consultations and text messages [4]. iCBT has been shown to be a more accessible treatment alternative to face-to-face treatment [5], resulting in large-scale implementations in several countries [6].",
+   "printed": true
+  },
+  {
+   "para_id": 2,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "The emergence of large language models (LLMs) has opened a potentially new chapter in the delivery of digital mental health services where every individual could have 24/7 access to their own personalized digital therapist at a fraction of the cost of face-to-face psychotherapy [7-11]. Several experimental studies comparing human and LLM-generated responses in text-based counseling and advisory contexts find that LLM responses are rated as comparable to human responses on overall quality and helpfulness, and are in certain cases rated better than human responses [12-15]. LLMs especially tend to generate text responses that convey more empathy or compassion than human responses [14,16,17]. Certain studies further indicate that raters struggle to reliably distinguish LLM-generated responses from human-written ones [12,16].",
+   "printed": true
+  },
+  {
+   "para_id": 3,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Evidence from clinical testing of the therapeutic capacities of LLMs, however, remains limited [18]. The application of LLMs in mental health contexts further raises substantial safety concerns [10,19,20]. Individuals seeking help may be in a vulnerable state and thus particularly sensitive to suggestions from therapists. Yet, LLMs are inherently probabilistic and are known to hallucinate and have sycophantic tendencies, potentially reinforcing users’ beliefs and preferences [21]. Consequently, LLMs may at times generate inappropriate responses, reinforce avoidance behavior, validate psychotic beliefs, or encourage suicidal ideation [22]. In addition, LLMs may reproduce biases present in training data, perpetuating stigma and disparities in mental health care [10]. These risks raise important ethical and legal concerns and complicate the implementation of direct patient-LLM interaction in clinical settings. In a European context, for example, LLM-based health interventions are classified as high-risk applications under the European Union Artificial Intelligence Act, thereby requiring human oversight [23].",
+   "printed": true
+  },
+  {
+   "para_id": 4,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "To facilitate integration of LLMs into clinical contexts, a gradual stepwise implementation strategy has been suggested [7,8,11,24]. LLMs may initially be deployed for narrowly defined tasks within highly controlled settings supporting human therapists. This would allow for the gradual accumulation of systematic evidence on the effectiveness and risk profile of LLM technologies, enabling responsible implementation and scaling while minimizing undue risks to patients.",
+   "printed": true
+  },
+  {
+   "para_id": 5,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "iCBT as a treatment format is particularly well suited for the implementation of LLM technologies. The therapist workflow in iCBT is almost entirely digital, and manually drafting text responses to patients represents a major portion of the workload [4,25]. Given previous studies indicating that LLMs are capable of generating empathic and helpful responses within a therapeutic context, LLMs may be able to assist therapists by generating responses that human therapists could then review and edit before sending [26,27]. This could drastically reduce clinicians’ time per patient, thus enabling a reallocation of resources to patients that may need more intense assistance. It could also allow the provision of much closer support, potentially facilitating stronger patient engagement in iCBT without having to devote additional therapeutic resources [28,29]. LLMs could also help improve the quality of iCBT responses by helping therapists consider alternative intervention strategies or by providing suggestions for how therapists can convey more empathy for patients [30,31]. Framed in this way, the value of LLM-based therapist support does not lie in automating care, but in enhancing and extending professional capacity.",
+   "printed": true
+  },
+  {
+   "para_id": 6,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Existing work has primarily focused on whether LLMs can generate clinically meaningful responses. However, these studies have largely been conducted in generic or simulated settings, including responses to general life problems [14,17,32], mental health-related questions in advice-column formats [12,16], or textbook examples of therapeutic interactions [13]. In addition, several studies rely on convenience-sampled raters from online platforms (eg, Prolific) to evaluate response quality rather than clinically trained mental health professionals. Thus, while prior work has examined the extent to which LLMs can provide relevant therapeutic support, their application within a clinical iCBT context has not yet been investigated.",
+   "printed": true
+  },
+  {
+   "para_id": 7,
+   "loc": "body",
+   "sec_title": "Study Design",
+   "text": "To examine whether LLMs can be meaningfully integrated into iCBT workflows for drafting therapist responses to patient messages, a blinded clinician rating experiment was conducted [24]. The experiment consisted of recruiting experienced clinicians to rate pairs of fictitious patient messages and therapist responses on selected quality dimensions. Each message/response pair was designed to emulate treatment interactions within iCBT for functional somatic disorder (FSD), a condition characterized by persistent and impairing somatic symptoms that are not better explained by other psychiatric or somatic diagnoses [33]. One half of the responses were generated by a relevantly prompted LLM and the other half of the responses were written by an experienced human therapist (further detailed in the “Materials” section). Raters were blind to who formulated the responses (human/LLM), allowing for comparison between the LLM and human therapist responses. For an illustration of the design, see Figure 1.",
+   "printed": true
+  },
+  {
+   "para_id": 8,
+   "loc": "body",
+   "sec_title": "Study Design",
+   "text": "The study was preregistered on May 20, 2025, at Open Science Framework (OSF) [34], where the full study protocol is accessible. Minor adjustments to the preregistration were made regarding (1) the number of patient-therapist correspondences included in the experiment and (2) the wording of one question relating to protocol adherence. The recruitment window was also postponed. All changes were made prior to data collection and are documented in the OSF preregistration.",
+   "printed": true
+  },
+  {
+   "para_id": 9,
+   "loc": "body",
+   "sec_title": "Overview",
+   "text": "As LLMs exhibit constrained problem-solving capabilities in low-resource languages (eg, Danish) [35-37], the experiment was conducted in English. The researchers and clinicians who were available for generating therapist responses were, however, all Danish and only had clinical experience working with Danish patients. As such, the fictitious patient messages and the human-generated responses were all initially generated in Danish and then translated into English before the messages and responses were included in the final stimulus material.",
+   "printed": true
+  },
+  {
+   "para_id": 10,
+   "loc": "body",
+   "sec_title": "Fictitious Patient Messages",
+   "text": "The fictitious patient messages were written by 3 of the authors (TTL, LF, and HFP), who were all experienced with both face-to-face cognitive behavioral therapy and iCBT for FSD. The messages were designed to resemble the type of messages encountered within an ongoing randomized controlled trial (RCT), testing the iCBT treatment “One Step at a Time” for FSD [38]. First, authors constructed 5 fictitious patient profiles detailing central demographic and FSD characteristics. They then wrote 5 fictitious messages based on these profiles. Messages were written as authentically as possible, leaving in typing errors, abbreviations, idioms, and idiosyncratic language, and were aligned with the treatment principles of “One Step at a Time.” Messages had to be between 400 and 800 characters to ensure they aligned with the average length of patient messages observed in the RCT and were not excessively long [38].",
+   "printed": true
+  },
+  {
+   "para_id": 11,
+   "loc": "body",
+   "sec_title": "Human Therapist–Generated Responses",
+   "text": "To generate human therapist responses, 4 clinical psychologists at the Department of Functional Disorders, Aarhus University Hospital, all with experience as iCBT therapists in “One Step at a Time” [38], were invited to individually write responses to the fictitious patient messages. The group comprised 2 senior therapists, who were authorized clinical psychologists in Denmark with several years of experience treating FSD, and 2 junior therapists, who had treated patients with FSD within “One Step at a Time” but had less experience in other therapeutic contexts and were not yet authorized. Across the group, therapists had a median of 12 (range 4-13) years of clinical experience. The 10 messages were randomly distributed among the 4 therapists, with 2 therapists writing 3 responses each and 2 writing 2 each. Each therapist was provided with a brief instruction and an abbreviated overview of the treatment content of “One Step at a Time,” identical to the material used to prompt the LLM. They were instructed to write responses of about 800-1200 characters, emulating the average length of therapist responses in the RCT, and were allowed a maximum of 30 minutes per message, emulating the time pressure that characterizes routine clinical iCBT. In practice, the therapists used a median of 18 (range 15-25) minutes per message and produced responses with a median length of 1587 (range 1153-1968) characters.",
+   "printed": true
+  },
+  {
+   "para_id": 12,
+   "loc": "body",
+   "sec_title": "Measures",
+   "text": "The quality of iCBT responses was rated on a set of 5 quality dimensions. These were informed by the items used in previous studies [12,13,17] and frameworks for assessing treatment fidelity and good clinical practice in iCBT [38,39] (for items, see Section 4 in Multimedia Appendix 1).",
+   "printed": true
+  },
+  {
+   "para_id": 13,
+   "loc": "body",
+   "sec_title": "Procedure",
+   "text": "The messages and responses were compiled into a digital survey on Aarhus University’s version of REDCap (version 15.5.36; Vanderbilt University) [40]. The survey presented 1 message/response pair per page, followed by the rating items in a single randomly generated order that was held constant across all participants. Preceding the message/response pairs, a brief introduction to the experiment was provided.",
+   "printed": true
+  },
+  {
+   "para_id": 14,
+   "loc": "body",
+   "sec_title": "Analysis of Open-Ended Text Responses",
+   "text": "To provide further context for the interpretation of the quantitative data, open-ended text responses were analyzed using descriptive thematic content analysis [41]. Analysis involved iterative cycles of familiarization, coding, generation of themes, reviewing themes, elaborating themes, and reporting findings.",
+   "printed": true
+  },
+  {
+   "para_id": 15,
+   "loc": "body",
+   "sec_title": "Analysis of Open-Ended Text Responses",
+   "text": "For coding, the free QDAcity (version 1.4.4 software [42]) was used. In a single shared document with a shared pool of codes, each message/response pair was set up with all associated open-ended text responses below. Two researchers (TTL and ORC) independently coded the material. In the initial phase, each researcher coded half of the correspondence prima vista. In a subsequent phase, the researchers switched over to review each other’s coding. In the third phase, each coder reviewed the entire dataset, iteratively revising the codes until a sufficiently comprehensive coding structure was attained. All open-ended text responses were analyzed in the language they were written in.",
+   "printed": true
+  },
+  {
+   "para_id": 16,
+   "loc": "body",
+   "sec_title": "Analysis of Open-Ended Text Responses",
+   "text": "Both coding researchers were naive to the dataset but had deep knowledge of the study and surrounding scientific field. Qualitative analysis was characterized by ongoing reflexive processes with iterative discussions on positionality, prior knowledge, and assumptions [43]. TTL has a background within research and clinical psychology with expertise in the clinical treatment of FSD and iCBT. ORC has a background in technoanthropology, working with iCBT as an IT consultant and project manager.",
+   "printed": true
+  },
+  {
+   "para_id": 17,
+   "loc": "body",
+   "sec_title": "Ethical Considerations",
+   "text": "The study was assessed by the Ethics Committee of Central Denmark Region and found exempt from requiring ethical approval (case number 1-10-72-9-25). All raters provided informed consent prior to participation after being informed about the study’s purpose and legal basis. No patients were involved in the study. All rater data were collected and stored in accordance with institutional data protection guidelines using Aarhus University’s REDCap platform [40]. Rater identities are not disclosed in any published materials. Raters received no compensation for their participation.",
+   "printed": true
+  },
+  {
+   "para_id": 18,
+   "loc": "body",
+   "sec_title": "Principal Findings",
+   "text": "Results are largely in line with previous studies using similar experimental rating designs, where models have been found to be comparable to human therapist responses, in certain cases, conveying more empathy and compassion [12-17,32]. This study extends this literature by being among the first to evaluate LLM-generated responses within an iCBT setting where a concrete pathway to clinical implementation exists. It further strengthens the evidence base by relying on raters with domain-specific clinical expertise. Given the deliberately constrained experimental rating design, however, the findings do not speak directly to clinical practice, but provide an initial feasibility check and represent a first step toward more naturalistic, clinically embedded studies.",
+   "printed": true
+  },
+  {
+   "para_id": 19,
+   "loc": "body",
+   "sec_title": "Principal Findings",
+   "text": "Given the risks and legal constraints involved in LLM integration into mental health care, the most immediately viable use case for LLM technology may be as a support tool for therapists [20,22,23]. This, however, does not diminish the potential of LLMs within iCBT. Lack of qualified mental health care professionals is a central driver of unmet mental health treatment needs worldwide [1-3]. This is also the case in iCBT, where the reliance on human therapists limits scalability. In this study, for instance, therapists indicated using upwards of 15-25 minutes per message. With multiple active patients, the cumulative workload becomes substantial.",
+   "printed": true
+  },
+  {
+   "para_id": 20,
+   "loc": "body",
+   "sec_title": "Principal Findings",
+   "text": "In the most favorable framing, LLM implementation could markedly improve clinician workflow efficiency, without compromising clinical outcomes. One experimental study of professional writing tasks suggests that LLM assistance can substantially reduce task completion time [44]. If similar gains extend to iCBT, this could improve scalability, letting each therapist support more patients without compromising outcomes, or, alternatively, reduce the workload per message so therapists can support patients more closely, potentially strengthening adherence and thereby outcomes.",
+   "printed": true
+  },
+  {
+   "para_id": 21,
+   "loc": "body",
+   "sec_title": "Principal Findings",
+   "text": "Implementing LLM-based automation is no simple task, however, and whether these technologies deliver on their promise in a complex clinical reality remains unclear [45]. Few studies exist on this topic [46], but one clinical implementation study, examining implementation of LLM drafting in a medical context, found no reduction in time spent per message [47]. This may reflect the complexity of automation and decision support tools: while a digital tool may solve a problem efficiently (eg, drafting an iCBT response), it can also generate other types of tasks (eg, writing prompts and reading and revising drafts) which offset initial efficiency gains [45,48,49]. This dynamic makes actual efficiency gains of LLM technologies difficult to predict and underscores that investments in automation tools should rest on careful analysis of how digital tools interact with existing workflows.",
+   "printed": true
+  },
+  {
+   "para_id": 22,
+   "loc": "body",
+   "sec_title": "Principal Findings",
+   "text": "Furthermore, it is unclear how the implementation would affect the experience of therapists. Automating message drafting may be experienced as a relief, reducing cognitive load and freeing therapists to focus on more meaningful clinical tasks. Emerging evidence on AI support tool implementation, for instance, indicates that it may improve the feeling of autonomy, reduce cognitive load and burnout [47,50,51]. However, gains in therapist efficiency could also raise management expectations about patient caseloads, potentially offsetting positive effects on the occupational health of therapists [49]. At the same time, it could create the impression among therapists that core professional competencies are being outsourced, reducing therapists to peripheral auditors rather than central actors in the therapeutic process [49]. This could negatively affect iCBT therapists’ willingness to adopt LLM-based tools and lead to shifts in their work satisfaction, commitment, and professional identity. Prolonged use of LLM-based tools may also put clinicians at risk of automation bias, where LLM-generated suggestions are accepted without sufficient critical evaluation [52,53], and may lead to deskilling, where clinicians’ capacity to independently formulate therapeutic responses gradually deteriorates [49,54]. Over time, this could shift therapists’ sense of what constitutes good clinical practice and erode the distinctly human dimensions of therapeutic work.",
+   "printed": true
+  },
+  {
+   "para_id": 23,
+   "loc": "body",
+   "sec_title": "Principal Findings",
+   "text": "Realizing the potential of LLMs in iCBT will therefore require a carefully researched approach to implementation that accounts for these subtle but consequential effects on clinical practice. Central to this may be framing LLM tools as a means of supporting and enhancing clinical competencies rather than replacing them, since research suggests that passively relying on AI-generated content erodes workers’ self-efficacy, ownership, and sense of meaning, whereas actively engaging with and revising output largely preserves them [55]. Practically, this could mean enabling clinicians to prompt the model themselves rather than only receiving drafts, so that clinical judgment is actively applied. It may also be central to provide them with sufficient LLM literacy, establishing local guidelines for how to use LLM systems and providing access to regular supervision to understand and safely use the systems they work with [49]. Developing these systems in collaboration with clinicians and facilitating local configurability may also ensure they optimally support real workflows and foster a sense of shared ownership among users.",
+   "printed": true
+  },
+  {
+   "para_id": 24,
+   "loc": "body",
+   "sec_title": "Principal Findings",
+   "text": "Another important aspect of LLM implementation is the experience of patients receiving LLM-augmented therapist guidance. The therapeutic relationship is often considered a central ingredient of change in psychotherapy [56], including digital interventions [57,58]. If patients are aware that therapist responses are partially generated with LLM assistance, the empathy conveyed in iCBT communication may risk being perceived as less genuine or credible [59]. This is supported by certain studies indicating that AI-labeled responses are viewed as less trustworthy and of lower quality than human-labeled responses [16,32,60]. Within mental health service delivery, users also generally report a preference for a human-in-the-loop approach to AI integration [61]. Careful integration of LLM features into iCBT workflows may therefore be important to preserve the core relational elements of therapist guidance.",
+   "printed": true
+  },
+  {
+   "para_id": 25,
+   "loc": "body",
+   "sec_title": "Principal Findings",
+   "text": "Beyond the various challenges relating to clinical implementation, integrating LLM support into iCBT also poses a technical challenge. It is possible to imagine several different specific functions that could be supported by an LLM in iCBT: summarizing courses of treatment, drafting responses, and providing intervention suggestions. Most pertinent for this paper is drafting support. This would entail installing a feature in existing iCBT platforms which, when prompted by a therapist, would package relevant clinical context (eg, treatment program details and patient data), send it to the LLM with an instruction prompt, and return a draft for the therapist to review and send. Such systems would also require operational oversight, such as automated monitoring of LLM outputs to sustain acceptable performance and guard against model drift [62].",
+   "printed": true
+  },
+  {
+   "para_id": 26,
+   "loc": "body",
+   "sec_title": "Principal Findings",
+   "text": "Given the sensitive, clinical nature of iCBT correspondences, LLMs would most likely require local hosting to ensure full control over dataflows. LLMs, however, require substantial computational resources, creating potential cost barriers for many clinical organizations [63,64]. Notably, within this study, a 70B parameter LLM was used with long but simple prompt instructions, yet still seems to generate response drafts that appear relevant and feasible in the context. This is interesting given the common assumption that LLMs require context-specific optimization (eg, fine-tuning or retrieval-augmented generation) to function effectively in specialized domains [8,64]. While some studies suggest that fine-tuning to mental health contexts can improve performance [65,66], others indicate that it may not yield consistent gains and can even degrade output quality, with performance depending more on base model scale and architecture [67]. A related consideration regards cultural and linguistic optimization. LLMs generally perform best in high-resource languages such as English and may have impaired performance in smaller languages (eg, Danish) [35,36], which has also been indicated in a mental health context [37]. Linguistic and cultural performance in low-resource languages could potentially be improved by using language-adapted foundational models [68].",
+   "printed": true
+  },
+  {
+   "para_id": 27,
+   "loc": "body",
+   "sec_title": "Limitations",
+   "text": "First, this study was conducted as a highly controlled clinician rating pilot experiment that had to balance ecological validity and generalizability to real iCBT contexts against the need to generate rigorous, standardized data on response quality. It also had to accommodate the need to recruit from a highly limited population of qualified clinicians, each with limited time to allocate to responding to surveys. These constraints required methodological compromises that limit generalizability to real-world iCBT workflows: ratings of both human- and LLM-generated responses were based only on simulated single-turn iCBT exchanges and basic demographic information. This should be considered quite different from routine iCBT, where a therapist typically has access to patient records, prior platform interactions, and video or telephone consultations, and where exchanges unfold over multiple turns rather than one. The use of single-turn exchanges is a particularly important limitation, given the tendency for LLM performance to degrade substantially over multiturn exchanges [62]. Nevertheless, this approach is consistent with previously conducted comparable studies [12,16,17] and was the only feasible option given the study’s exploratory scope.",
+   "printed": true
+  },
+  {
+   "para_id": 28,
+   "loc": "body",
+   "sec_title": "Limitations",
+   "text": "Third, the choice to include only qualified clinician raters meant that the population that could be sampled from was small. This gave rise to a relatively small sample size, barring adequate use of inferential statistics. The sample size was nevertheless not much different from other studies using qualified raters [13,16,17] and compared to similar studies using medical domain expert raters [69,70]. The use of experienced clinician raters also means that no patients were included, which means it remains unclear whether patients would perceive the LLM-generated messages similarly to the experienced clinician raters. Further, raters were recruited primarily through the authors’ professional networks, which may have introduced selection bias. Clinicians reached this way may hold similar attitudes toward digital technologies or LLMs, whether explicit or implicit, that are not representative of the broader population, potentially affecting their ratings and limiting the diversity of perspectives in the sample. Relatedly, rater attitudes toward AI were not measured in this study, making it difficult to discern whether they moderated the ratings.",
+   "printed": true
+  },
+  {
+   "para_id": 29,
+   "loc": "body",
+   "sec_title": "Limitations",
+   "text": "Fourth, each of the 5 quality dimensions was assessed with a single item rather than a validated multi-item scale. This was a deliberate decision to keep the survey short enough for time-constrained clinicians to complete, and a consistent approach used in comparable rating studies [13,16,17]. Single items nevertheless capture each construct more coarsely than multi-item scales and provide no estimate of internal consistency, which limits the measurement validity and reliability of the ratings.",
+   "printed": true
+  },
+  {
+   "para_id": 30,
+   "loc": "body",
+   "sec_title": "Limitations",
+   "text": "Fifth, the need to limit survey length meant only 5 patient messages, each paired with 1 human- and 1 LLM-generated response, were evaluated. As a pilot aimed at establishing the direction and magnitude of effects rather than a definitive estimate, detailed ratings from a sufficient number of raters were prioritized over a broad stimulus set, consistent with previous similar studies [13,16]. Five messages, however, cannot capture the range of clinical situations, registers, and communicative challenges encountered in iCBT, and the messages sampled may be ones the model handles relatively well. Larger, more varied stimulus sets are therefore needed and could reveal weaker or less reliable performance.",
+   "printed": true
+  },
+  {
+   "para_id": 31,
+   "loc": "body",
+   "sec_title": "Implications and Future Studies",
+   "text": "Findings from this study indicate that LLMs could potentially be implemented as a useful support tool for therapists in iCBT. However, further studies, gradually moving from small-scale experiments to clinical studies, are needed before responsible implementation can be realized [24].",
+   "printed": true
+  },
+  {
+   "para_id": 32,
+   "loc": "back",
+   "sec_title": "",
+   "text": "We are very grateful to all the clinicians who took the time to complete the survey, as well as everyone who helped spread the word about the study. A major thanks to all the therapists who helped develop the stimulus material: Line Sørensen, Katrine Ingeman Beck, Marie-Louise Obermann, Mie Wiklund. Much appreciation to Chloe Hope Saunders, who, as a native English speaker, reviewed and revised all English translations. We furthermore thank Helle Obenhausen Andersen, who helped during translation. Finally, we extend our thanks to Mikkel Berg Thøgersen who helped set up a local version of the Llama model. Figures 1 and 2 use icons from Flaticon [71], Magnific (formerly Freepik) [72], SVG Repo [73], and Icons8 [74].",
+   "printed": true
+  }
+ ],
+ "links": [],
+ "links_optional": [
+  "bmcmedicine.biomedcentral.com/articles/10.1186/s12916-020-1505-4",
+  "creativecommons.org/licenses/by/4.0",
+  "doi:10.1001/jamainternmed.2023.1838",
+  "doi:10.1001/jamanetworkopen.2024.38573",
+  "doi:10.1001/jamanetworkopen.2024.6565",
+  "doi:10.1001/jamanetworkopen.2025.34976",
+  "doi:10.1002/jcpy.1393",
+  "doi:10.1002/wps.21088",
+  "doi:10.1002/wps.70002",
+  "doi:10.1007/s00146-025-02814-9",
+  "doi:10.1016/j.chbah.2024.100077",
+  "doi:10.1016/j.conctc.2023.101069",
+  "doi:10.1016/j.invent.2018.07.006",
+  "doi:10.1016/j.invent.2025.100841",
+  "doi:10.1016/j.invent.2025.100875",
+  "doi:10.1016/j.invent.2026.100927",
+  "doi:10.1016/j.jbi.2019.103208",
+  "doi:10.1016/j.procs.2024.10.356",
+  "doi:10.1016/s0140-6736(26)00204-7",
+  "doi:10.1017/gmh.2024.94",
+  "doi:10.1038/s41591-024-03180-7",
+  "doi:10.1038/s41591-026-04278-w",
+  "doi:10.1038/s41598-026-42312-6",
+  "doi:10.1038/s41746-024-01232-3",
+  "doi:10.1038/s42256-022-00593-2",
+  "doi:10.1038/s44184-024-00056-z",
+  "doi:10.1038/s44220-026-00595-8",
+  "doi:10.1038/s44271-024-00182-6",
+  "doi:10.1038/s44401-025-00032-5",
+  "doi:10.1073/pnas.2319112121",
+  "doi:10.1080/10447318.2024.2385001",
+  "doi:10.1080/10503307.2015.1119908",
+  "doi:10.1080/10503307.2024.2325510",
+  "doi:10.1080/16506073.2018.1457079",
+  "doi:10.1080/29974100.2025.2590495",
+  "doi:10.1097/yco.0000000000001048",
+  "doi:10.1126/science.adh2586",
+  "doi:10.1126/science.aec8352",
+  "doi:10.1145/3589334.3645643",
+  "doi:10.1145/3589334.3648137",
+  "doi:10.1145/3710993",
+  "doi:10.1145/3803795",
+  "doi:10.1146/annurev-clinpsy-021815-093006",
+  "doi:10.1177/09637214251386047",
+  "doi:10.1186/s12916-020-1505-4",
+  "doi:10.1186/s44247-024-00105-9",
+  "doi:10.18653/v1/2020.acl-main.560",
+  "doi:10.2196/59479",
+  "doi:10.2196/69857",
+  "doi:10.2196/80739",
+  "doi:10.2196/82369",
+  "doi:10.2196/91746",
+  "doi:10.3126/dsaj.v18i01.67553",
+  "doi:10.3389/fdgth.2025.1659134",
+  "doi:10.3389/fdgth.2026.1755085",
+  "doi:10.3389/fmed.2024.1359073",
+  "doi:10.3389/fpsyg.2023.1281255",
+  "doi:10.3389/fpsyt.2024.1505024",
+  "doi:10.36227/techrxiv.23589741.v1",
+  "doi:10.48550/arxiv.2311.07264",
+  "doi:10.48550/arxiv.2408.09205",
+  "doi:10.48550/arxiv.2503.24307",
+  "doi:10.48550/arxiv.2505.06120",
+  "doi:10.6092/issn.2038-3460/19964",
+  "doi:10.64898/2026.01.02.25343289",
+  "europepmc.org/abstract/med/37115527",
+  "europepmc.org/abstract/med/37159350",
+  "europepmc.org/abstract/med/38078232",
+  "europepmc.org/abstract/med/38619840",
+  "flaticon.com",
+  "icons8.com",
+  "jamanetwork.com/journals/jamanetworkopen/fullarticle/10.1001/jamanetworkopen.2024.38573",
+  "jamanetwork.com/journals/jamanetworkopen/fullarticle/10.1001/jamanetworkopen.2025.34976",
+  "jmir.org/2025//e69857",
+  "linkinghub.elsevier.com/retrieve/pii/s1532-0464(19)30126-1",
+  "linkinghub.elsevier.com/retrieve/pii/s2214-7829(18)30037-x",
+  "linkinghub.elsevier.com/retrieve/pii/s2214-7829(25)00042-9",
+  "linkinghub.elsevier.com/retrieve/pii/s2214-7829(25)00076-4",
+  "linkinghub.elsevier.com/retrieve/pii/s2214-7829(26)00026-6",
+  "linkinghub.elsevier.com/retrieve/pii/s2451-8654(23)00015-7",
+  "magnific.com",
+  "mental.jmir.org",
+  "mental.jmir.org/2024//e59479",
+  "mental.jmir.org/2025//e80739",
+  "mental.jmir.org/2025//e82369",
+  "mental.jmir.org/2026//e91746",
+  "mental.jmir.org/2026/1/e96835",
+  "onlinelibrary.wiley.com/doi/10.1002/wps.70002",
+  "osf.io/yxncv",
+  "papers.ssrn.com/sol3/papers.cfm?abstract_id=6097646",
+  "qdacity.com",
+  "svgrepo.com",
+  "tandfonline.com/doi/10.1080/10503307.2024.2325510?url_ver=z39.88-2003&rfr_id=ori:rid:crossref.org&rfr_dat=cr_pub0pubmed",
+  "tandfonline.com/doi/10.1080/16506073.2018.1457079?url_ver=z39.88-2003&rfr_id=ori:rid:crossref.org&rfr_dat=cr_pub0pubmed",
+  "who.int/publications/i/item/9789240113817"
+ ],
+ "own_doi": "doi:10.2196/96835",
+ "citations": [
+  {
+   "cite_id": 1,
+   "para_id": 1,
+   "bib_id": 1,
+   "marker": "1",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 2,
+   "para_id": 1,
+   "bib_id": 1,
+   "marker": "1",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 3,
+   "para_id": 1,
+   "bib_id": 2,
+   "marker": "1–3",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 4,
+   "para_id": 1,
+   "bib_id": 3,
+   "marker": "3",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 5,
+   "para_id": 1,
+   "bib_id": 2,
+   "marker": "2",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 6,
+   "para_id": 1,
+   "bib_id": 4,
+   "marker": "4",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 7,
+   "para_id": 1,
+   "bib_id": 5,
+   "marker": "5",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 8,
+   "para_id": 1,
+   "bib_id": 6,
+   "marker": "6",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 9,
+   "para_id": 2,
+   "bib_id": 7,
+   "marker": "7",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 10,
+   "para_id": 2,
+   "bib_id": 8,
+   "marker": "7–11",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 11,
+   "para_id": 2,
+   "bib_id": 9,
+   "marker": "7–11",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 12,
+   "para_id": 2,
+   "bib_id": 10,
+   "marker": "7–11",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 13,
+   "para_id": 2,
+   "bib_id": 11,
+   "marker": "11",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 14,
+   "para_id": 2,
+   "bib_id": 12,
+   "marker": "12",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 15,
+   "para_id": 2,
+   "bib_id": 13,
+   "marker": "12–15",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 16,
+   "para_id": 2,
+   "bib_id": 14,
+   "marker": "12–15",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 17,
+   "para_id": 2,
+   "bib_id": 15,
+   "marker": "15",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 18,
+   "para_id": 2,
+   "bib_id": 14,
+   "marker": "14",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 19,
+   "para_id": 2,
+   "bib_id": 16,
+   "marker": "16",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 20,
+   "para_id": 2,
+   "bib_id": 17,
+   "marker": "17",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 21,
+   "para_id": 2,
+   "bib_id": 12,
+   "marker": "12",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 22,
+   "para_id": 2,
+   "bib_id": 16,
+   "marker": "16",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 23,
+   "para_id": 3,
+   "bib_id": 18,
+   "marker": "18",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 24,
+   "para_id": 3,
+   "bib_id": 10,
+   "marker": "10",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 25,
+   "para_id": 3,
+   "bib_id": 19,
+   "marker": "19",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 26,
+   "para_id": 3,
+   "bib_id": 20,
+   "marker": "20",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 27,
+   "para_id": 3,
+   "bib_id": 21,
+   "marker": "21",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 28,
+   "para_id": 3,
+   "bib_id": 22,
+   "marker": "22",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 29,
+   "para_id": 3,
+   "bib_id": 10,
+   "marker": "10",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 30,
+   "para_id": 3,
+   "bib_id": 23,
+   "marker": "23",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 31,
+   "para_id": 4,
+   "bib_id": 7,
+   "marker": "7",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 32,
+   "para_id": 4,
+   "bib_id": 8,
+   "marker": "8",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 33,
+   "para_id": 4,
+   "bib_id": 11,
+   "marker": "11",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 34,
+   "para_id": 4,
+   "bib_id": 24,
+   "marker": "24",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 35,
+   "para_id": 5,
+   "bib_id": 4,
+   "marker": "4",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 36,
+   "para_id": 5,
+   "bib_id": 25,
+   "marker": "25",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 37,
+   "para_id": 5,
+   "bib_id": 26,
+   "marker": "26",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 38,
+   "para_id": 5,
+   "bib_id": 27,
+   "marker": "27",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 39,
+   "para_id": 5,
+   "bib_id": 28,
+   "marker": "28",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 40,
+   "para_id": 5,
+   "bib_id": 29,
+   "marker": "29",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 41,
+   "para_id": 5,
+   "bib_id": 30,
+   "marker": "30",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 42,
+   "para_id": 5,
+   "bib_id": 31,
+   "marker": "31",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 43,
+   "para_id": 6,
+   "bib_id": 14,
+   "marker": "14",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 44,
+   "para_id": 6,
+   "bib_id": 17,
+   "marker": "17",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 45,
+   "para_id": 6,
+   "bib_id": 32,
+   "marker": "32",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 46,
+   "para_id": 6,
+   "bib_id": 12,
+   "marker": "12",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 47,
+   "para_id": 6,
+   "bib_id": 16,
+   "marker": "16",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 48,
+   "para_id": 6,
+   "bib_id": 13,
+   "marker": "13",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 49,
+   "para_id": 7,
+   "bib_id": 24,
+   "marker": "24",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 50,
+   "para_id": 7,
+   "bib_id": 33,
+   "marker": "33",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 51,
+   "para_id": 8,
+   "bib_id": 34,
+   "marker": "34",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 52,
+   "para_id": 9,
+   "bib_id": 35,
+   "marker": "35",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 53,
+   "para_id": 9,
+   "bib_id": 36,
+   "marker": "35–37",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 54,
+   "para_id": 9,
+   "bib_id": 37,
+   "marker": "37",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 55,
+   "para_id": 10,
+   "bib_id": 38,
+   "marker": "38",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 56,
+   "para_id": 10,
+   "bib_id": 38,
+   "marker": "38",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 57,
+   "para_id": 11,
+   "bib_id": 38,
+   "marker": "38",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 58,
+   "para_id": 12,
+   "bib_id": 12,
+   "marker": "12",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 59,
+   "para_id": 12,
+   "bib_id": 13,
+   "marker": "13",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 60,
+   "para_id": 12,
+   "bib_id": 17,
+   "marker": "17",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 61,
+   "para_id": 12,
+   "bib_id": 38,
+   "marker": "38",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 62,
+   "para_id": 12,
+   "bib_id": 39,
+   "marker": "39",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 63,
+   "para_id": 13,
+   "bib_id": 40,
+   "marker": "40",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 64,
+   "para_id": 14,
+   "bib_id": 41,
+   "marker": "41",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 65,
+   "para_id": 15,
+   "bib_id": 42,
+   "marker": "42",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 66,
+   "para_id": 16,
+   "bib_id": 43,
+   "marker": "43",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 67,
+   "para_id": 17,
+   "bib_id": 40,
+   "marker": "40",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 68,
+   "para_id": 18,
+   "bib_id": 12,
+   "marker": "12",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 69,
+   "para_id": 18,
+   "bib_id": 13,
+   "marker": "12–17",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 70,
+   "para_id": 18,
+   "bib_id": 14,
+   "marker": "12–17",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 71,
+   "para_id": 18,
+   "bib_id": 15,
+   "marker": "12–17",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 72,
+   "para_id": 18,
+   "bib_id": 16,
+   "marker": "12–17",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 73,
+   "para_id": 18,
+   "bib_id": 17,
+   "marker": "17",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 74,
+   "para_id": 18,
+   "bib_id": 32,
+   "marker": "32",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 75,
+   "para_id": 19,
+   "bib_id": 20,
+   "marker": "20",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 76,
+   "para_id": 19,
+   "bib_id": 22,
+   "marker": "22",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 77,
+   "para_id": 19,
+   "bib_id": 23,
+   "marker": "23",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 78,
+   "para_id": 19,
+   "bib_id": 1,
+   "marker": "1",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 79,
+   "para_id": 19,
+   "bib_id": 2,
+   "marker": "1–3",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 80,
+   "para_id": 19,
+   "bib_id": 3,
+   "marker": "3",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 81,
+   "para_id": 20,
+   "bib_id": 44,
+   "marker": "44",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 82,
+   "para_id": 21,
+   "bib_id": 45,
+   "marker": "45",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 83,
+   "para_id": 21,
+   "bib_id": 46,
+   "marker": "46",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 84,
+   "para_id": 21,
+   "bib_id": 47,
+   "marker": "47",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 85,
+   "para_id": 21,
+   "bib_id": 45,
+   "marker": "45",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 86,
+   "para_id": 21,
+   "bib_id": 48,
+   "marker": "48",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 87,
+   "para_id": 21,
+   "bib_id": 49,
+   "marker": "49",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 88,
+   "para_id": 22,
+   "bib_id": 47,
+   "marker": "47",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 89,
+   "para_id": 22,
+   "bib_id": 50,
+   "marker": "50",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 90,
+   "para_id": 22,
+   "bib_id": 51,
+   "marker": "51",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 91,
+   "para_id": 22,
+   "bib_id": 49,
+   "marker": "49",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 92,
+   "para_id": 22,
+   "bib_id": 49,
+   "marker": "49",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 93,
+   "para_id": 22,
+   "bib_id": 52,
+   "marker": "52",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 94,
+   "para_id": 22,
+   "bib_id": 53,
+   "marker": "53",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 95,
+   "para_id": 22,
+   "bib_id": 49,
+   "marker": "49",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 96,
+   "para_id": 22,
+   "bib_id": 54,
+   "marker": "54",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 97,
+   "para_id": 23,
+   "bib_id": 55,
+   "marker": "55",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 98,
+   "para_id": 23,
+   "bib_id": 49,
+   "marker": "49",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 99,
+   "para_id": 24,
+   "bib_id": 56,
+   "marker": "56",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 100,
+   "para_id": 24,
+   "bib_id": 57,
+   "marker": "57",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 101,
+   "para_id": 24,
+   "bib_id": 58,
+   "marker": "58",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 102,
+   "para_id": 24,
+   "bib_id": 59,
+   "marker": "59",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 103,
+   "para_id": 24,
+   "bib_id": 16,
+   "marker": "16",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 104,
+   "para_id": 24,
+   "bib_id": 32,
+   "marker": "32",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 105,
+   "para_id": 24,
+   "bib_id": 60,
+   "marker": "60",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 106,
+   "para_id": 24,
+   "bib_id": 61,
+   "marker": "61",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 107,
+   "para_id": 25,
+   "bib_id": 62,
+   "marker": "62",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 108,
+   "para_id": 26,
+   "bib_id": 63,
+   "marker": "63",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 109,
+   "para_id": 26,
+   "bib_id": 64,
+   "marker": "64",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 110,
+   "para_id": 26,
+   "bib_id": 8,
+   "marker": "8",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 111,
+   "para_id": 26,
+   "bib_id": 64,
+   "marker": "64",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 112,
+   "para_id": 26,
+   "bib_id": 65,
+   "marker": "65",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 113,
+   "para_id": 26,
+   "bib_id": 66,
+   "marker": "66",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 114,
+   "para_id": 26,
+   "bib_id": 67,
+   "marker": "67",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 115,
+   "para_id": 26,
+   "bib_id": 35,
+   "marker": "35",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 116,
+   "para_id": 26,
+   "bib_id": 36,
+   "marker": "36",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 117,
+   "para_id": 26,
+   "bib_id": 37,
+   "marker": "37",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 118,
+   "para_id": 26,
+   "bib_id": 68,
+   "marker": "68",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 119,
+   "para_id": 27,
+   "bib_id": 62,
+   "marker": "62",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 120,
+   "para_id": 27,
+   "bib_id": 12,
+   "marker": "12",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 121,
+   "para_id": 27,
+   "bib_id": 16,
+   "marker": "16",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 122,
+   "para_id": 27,
+   "bib_id": 17,
+   "marker": "17",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 123,
+   "para_id": 28,
+   "bib_id": 13,
+   "marker": "13",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 124,
+   "para_id": 28,
+   "bib_id": 16,
+   "marker": "16",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 125,
+   "para_id": 28,
+   "bib_id": 17,
+   "marker": "17",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 126,
+   "para_id": 28,
+   "bib_id": 69,
+   "marker": "69",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 127,
+   "para_id": 28,
+   "bib_id": 70,
+   "marker": "70",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 128,
+   "para_id": 29,
+   "bib_id": 13,
+   "marker": "13",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 129,
+   "para_id": 29,
+   "bib_id": 16,
+   "marker": "16",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 130,
+   "para_id": 29,
+   "bib_id": 17,
+   "marker": "17",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 131,
+   "para_id": 30,
+   "bib_id": 13,
+   "marker": "13",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 132,
+   "para_id": 30,
+   "bib_id": 16,
+   "marker": "16",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 133,
+   "para_id": 31,
+   "bib_id": 24,
+   "marker": "24",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 134,
+   "para_id": 32,
+   "bib_id": 71,
+   "marker": "71",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 135,
+   "para_id": 32,
+   "bib_id": 72,
+   "marker": "72",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 136,
+   "para_id": 32,
+   "bib_id": 73,
+   "marker": "73",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 137,
+   "para_id": 32,
+   "bib_id": 74,
+   "marker": "74",
+   "expanded": false,
+   "scored": true
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-ext-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "v1_bib_count": 74
+ }
+}

@@ -1,0 +1,1166 @@
+{
+ "paper_id": "10.1371_journal.pcbi.1014069",
+ "paras": [
+  {
+   "para_id": 1,
+   "loc": "front",
+   "sec_title": "",
+   "text": "All the data and code employed in this study are available publicly at https://doi.org/10.5281/zenodo.18728550.",
+   "printed": true
+  },
+  {
+   "para_id": 2,
+   "loc": "body",
+   "sec_title": "Ant motion as a run-and-tumble process",
+   "text": "Equations 4 and 5 can be used to simulate individual trajectories, allowing us to create an ensemble of simulated data. This simulation is done by defining a discrete timestep dt and evolving from a random initial condition for the desired amount of time. While the waiting function H(t) could be implemented using Heaviside functions as defined above, it is easier to use programmatic conditional statements to ignore the appropriate terms during each waiting time. The full simulation code in Python, along with all analysis methods used in this study, can be found in the data repository [40] as well as on Github (https://github.com/Jfeatherstone/tracker).",
+   "printed": true
+  },
+  {
+   "para_id": 3,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Movement is central to just about every facet of life for organisms spanning from the smallest bacteria to the largest mammals. The path an animal or other organism follows is affected by a wide range of internal and external factors including anatomy [1,2], sensory capabilities [3], hunger [4], the presence of other individuals [5,6], and environmental structure [7]. Quantifications of an organism’s motion, typically involving analyses of trajectories or movement statistics, are crucial to understanding their ecology, biology, and behavior — altogether referred to as their movement ecology [8]. This plays a role in how and why we find populations distributed across continents, though also how an individual explores its local surroundings.",
+   "printed": true
+  },
+  {
+   "para_id": 4,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Ants are particularly well-studied when it comes to movement and foraging behavior [9], primarily because of their rich collective interactions [10,11]. This wealth of work includes experiments conducted in natural environments [12,13] and in the laboratory [14,15], and across a wide range of species. Indeed, these collective interactions are often so rich that the movement ecology of individuals has been understudied in comparison, leaving many questions about foraging and navigation on the single specimen scale unanswered. We explore the structure and statistics of motion on this individual specimen scale here, focusing on one particular species, the long-legged ant, Anoplolepis gracilipes [16]. This species is chosen not only for its convenience and availability, but also its international (invasive) presence, and the fact that it has been shown to demonstrate particularly efficient foraging and recruitment behavior [10]. This efficient social behavior has led to these ants establishing overwhelming dominance in non-native areas [12]. While the communication and synchronization methods using pheromones play a large role in this dominance, the relatively microscopic behavior of individuals also plays an important role in building up this collective interaction.",
+   "printed": true
+  },
+  {
+   "para_id": 5,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Owed to both their invasive capabilities and ongoing urbanization of previously wooded areas, the contexts in which these ants are found are becoming more and more synthetic — in what resources are available, what potential shelters are made from, and how open or confined their foraging grounds are [17]. Previous work has demonstrated that, even in confined spaces, various insects, including locusts [18] and Myrmica ants [15] display rich behavior when it comes to locomotion. The biggest effect of such artificial confined spaces often has to do with the edges or boundaries. Many different types of ants are known to demonstrate thigmotactic or other wall-following behavior both in natural [19] and laboratory settings [3,20,21]. This observation can reveal important information about the behavioural responses of the organism [20,21], and even about the capabilities of their sensory systems [3]. Other studies have described how different ants’ locomotion is affected by external sensory stimuli including visual and olfactory stimuli [22,23]",
+   "printed": true
+  },
+  {
+   "para_id": 6,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Beyond a descriptive approach of an organism’s motion, we are often interested in understanding how that motion arises, which stimuli influence it, and what interactions might arise in different environments. One particularly useful tool in this regard is stochastic modeling [8], which allows us to construct probabilistic models from relatively simple building blocks. These building blocks are synthesized from statistics observed in real locomotion data, for example that the step sizes or waiting times of an organism seem to follow a particular probability distribution [18,24].",
+   "printed": true
+  },
+  {
+   "para_id": 7,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Regardless of which particular building blocks we use, having a model that reflects the statistics of real motion data affords many advantages. In the best case, one can actually describe the internal neural mechanisms of an animal using the very same stochastic mechanisms that characterize the resulting trajectories [25]. Otherwise, modeling motion in this way allows us to explore how the organism might interact with some external environment, especially relating to searching or foraging behavior [26]. For example, one can predict how well a searcher/predator would fare given a specific distribution of rewards/prey [27], and use that to extrapolate information about the ecology of the organism in a real environment [28]. Similarly, many studies on chemotaxis and olfactory searching illuminate what strategies work well when navigating in (potentially weak) gradient fields [29–32]. Finally, beyond understanding the statistical properties of motion, having a model of an organism’s motion allows us to simulate individual trajectories. This is useful for a wide variety of purposes, with applications ranging all the way from simulating stimuli for real specimens [33], to creating video games [34], to planning roads [35], to invasive species dispersal predictions [36].",
+   "printed": true
+  },
+  {
+   "para_id": 8,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Reference [37] proposes a simulation technique for ant motion, but it focuses on one-dimensional step-size distributions. Previous work has proposed models for (non-ant specific) motion in confined spaces, though this typically makes use of separate modeling approaches near the walls and in the open bulk [38]. In contrast, we look to capture the full range (in an information sparse environment) of motion by first modeling the unbounded motion, and then introducing appropriate boundary conditions that correct this motion near the wall. The advantage here is that this allows a more typical treatment of the problem using the tools of stochastic physics, since the posited model has well-defined (and somewhat common) governing equations. From this we look to understand how the motion of an individual ant is shaped by both intrinsic and extrinsic factors.",
+   "printed": true
+  },
+  {
+   "para_id": 9,
+   "loc": "body",
+   "sec_title": "Ant tracking experiments",
+   "text": "We performed ant tracking experiments using Anoplolepis gracilipes (“yellow crazy ant” or “long-legged ant” [39]) worker specimens (approx. 5mm long) collected from around the campus of the Okinawa Institute of Science and Technology Graduate University, in Okinawa, Japan. After being collected manually, specimens were placed in a small container (approx. 5x5x10cm) potentially with conspecifics from the same area, for up to a few hours. One-by-one, specimens were placed alone in an acrylic, rectangular arena of size 15x21x16.5cm (Fig 1a), where they were recorded using a Nikon D800E camera at 60 Hz for roughly 20 minutes. This arena size is typical of works interested in the confined behavior of insects on the scale of A. gracilipes [15]. Experiments were performed over several weeks between May 2024 and July 2024. Each ant was used only once.",
+   "printed": true
+  },
+  {
+   "para_id": 10,
+   "loc": "body",
+   "sec_title": "Ant tracking experiments",
+   "text": "Control trials were also performed in which the enclosure was sanitized — washed with soap and water, then cleaned with 70% ethanol [38] — between each experiment, or left as is. Long-legged ants are known to produce several types of pheromones for navigation and orientation [10,39], so these trials were intended to determine if there were stimuli induced from previous ants in the otherwise static environment.",
+   "printed": true
+  },
+  {
+   "para_id": 11,
+   "loc": "body",
+   "sec_title": "Ant tracking experiments",
+   "text": "Finally, all trials were performed during either the morning (08:00–12:00) or afternoon (12:00–17:00). It has been suggested that these ants tend to be more active in the morning [16], so we looked to compare if the time of day of the experiment affected the statistics.",
+   "printed": true
+  },
+  {
+   "para_id": 12,
+   "loc": "body",
+   "sec_title": "Ant tracking experiments",
+   "text": "A limited set of experiments was performed with a different camera (Phantom v641 high-speed camera) that is capable of shooting at a much higher framerate and resolution (120 and 300 Hz, 2560x1600 pixels), in order to characterize the scale of temporal and spatial discretization artifacts in the trajectories. This dataset generally shows similar statistics to the main dataset, suggesting that the principal statistical properties are not discretization artifacts. While one can intuitively predict the scale of such artifacts a priori in other cases, the neural network tracking approach (and its uncertainty) makes this more difficult. No analysis of this dataset is included here, though it is available, alongside the rest of the data and code, in the online repository [40].",
+   "printed": true
+  },
+  {
+   "para_id": 13,
+   "loc": "body",
+   "sec_title": "Ant tracking experiments",
+   "text": "Other factors of collection and treatment were kept constant where possible. Temperature and humidity were kept roughly constant around 22° C and 50% relative humidity by the climate control in the laboratory for the duration of experiments. This is towards the lower end of, though still within, the temperature range for which these ants forage [16,39,41]. Overhead fluorescent lights were kept on for all experiments, though lighting is suspected not to affect these ants’ activity [16].",
+   "printed": true
+  },
+  {
+   "para_id": 14,
+   "loc": "body",
+   "sec_title": "Trajectory analysis",
+   "text": "Following experiments, the video data was consolidated and used to train a deep convolutional neural network to track the posture of the ants using SLEAP [42]. A multi-animal (top down) model is used (Fig 1b), composed of two U-net neural networks [43], one which identifies the rough location of the ant (“centroid model”), and the second which identifies specific keypoints in a limited region around the identified location (“centered instance”). This latter network tracks three keypoints on the ants: the tip of the head, the center of the thorax, and the rear tip of the abdomen. This structure is preferred to a single-animal model since the ant is so small compared to overall arena size. The parameters of these networks are described in S1 Table.",
+   "printed": true
+  },
+  {
+   "para_id": 15,
+   "loc": "body",
+   "sec_title": "Trajectory analysis",
+   "text": "We mark 15 trials as outliers due to various experimental differences to the rest of the data, which are summarized in S2 Table. Excluding these trials results in an ensemble of ant segments representing more than 24 hours of footage capturing the motion of nearly 100 individual specimens. Some example segments are shown in Fig 1c. All data is available in the online repository [40].",
+   "printed": true
+  },
+  {
+   "para_id": 16,
+   "loc": "body",
+   "sec_title": "Ant motion as a run-and-tumble process",
+   "text": "We propose that the run-and-tumble [44–46] framework qualitatively matches the typical movement patterns of these ants. This stochastic process involves short time-scale ballistic motion, punctuated by discrete reorientation events. Given an ant (or particle) with position x→ and orientation θ, the most basic Langevin equation for this process in two dimensions looks like:",
+   "printed": true
+  },
+  {
+   "para_id": 17,
+   "loc": "body",
+   "sec_title": "Ant motion as a run-and-tumble process",
+   "text": "Other studies have proposed piecewise models that evolve according to different governing equations in the bulk and near the walls [38]. Here, we propose to model our data with a more unified approach: using the same fundamental dynamics across the entire space, though with a local boundary force/torque at the edge of the arena. The fundamental difference is that the piecewise approach introduces non-local effects of the boundaries, invoking some assumptions about the sensory system of the specimen (i.e., how does the insect “know” that it is at the boundary?). Such assumptions can be very helpful, though our approach provides a more minimal (and therefore, hopefully more widely applicable) model, which might be expanded based on the anatomy and behavior of a specific organism.",
+   "printed": true
+  },
+  {
+   "para_id": 18,
+   "loc": "body",
+   "sec_title": "Ant motion as a run-and-tumble process",
+   "text": "Finally, we introduce waiting times at each tumble, a phenomenon that is repeatedly observed both in our data and in that for other insects [18]. This is implemented via a “waiting function“ H(t) that is zero during waiting times of length γi, and 1 otherwise,",
+   "printed": true
+  },
+  {
+   "para_id": 19,
+   "loc": "body",
+   "sec_title": "Ant motion as a run-and-tumble process",
+   "text": "On top of the Langevin formulation above, we can also write a Fokker-Planck equation to describe how the probability of being in a particular state evolves [30,32]. This is particularly useful in deriving the expectation values of various quantities, for example, the persistence time (full derivation in S1 Appendix),",
+   "printed": true
+  },
+  {
+   "para_id": 20,
+   "loc": "body",
+   "sec_title": "Ant motion as a run-and-tumble process",
+   "text": "We can make further use of this Fokker-Planck formulation by considering the run-and-tumble model as an active Brownian process with stochastic resetting [47]. This allows us to calculate the typical velocity from the short time scale mean squared displacement (MSD,see S1 Appendix for more details),",
+   "printed": true
+  },
+  {
+   "para_id": 21,
+   "loc": "body",
+   "sec_title": "Trajectory discretization",
+   "text": "In order to compare the experimental data with the stochastic model described in the previous section, we have to identify discrete run events, as well as the tumbling events that punctuate them (Fig 2) in this trajectory data. The idea of discretizing a continuous trajectory has been both applied and discussed at length in the movement ecology literature [8,48–50]. Such an analysis can reveal important information about the structure of movement [51], or the typical transitions made while moving [52]. The technical application of this method is usually relatively simple, and involves breaking up the trajectory at points when the animal turns more than some critical angle, θc and/or the speed is less than some threshold, vc. That being said, the justification for selection of parameter values for this technique is often not straightforward, and, in particular, the inherent subjectivity of this analysis is often criticized [53]: it is often the case that many different conclusions can be drawn from the same dataset by choosing different discretization parameter(s), all of which might seem reasonable at first glance.",
+   "printed": true
+  },
+  {
+   "para_id": 22,
+   "loc": "body",
+   "sec_title": "Trajectory discretization",
+   "text": "This isn’t an issue when one can choose the discretization parameters a priori based on properties of the system being investigated, or when there is no ambiguity as to the different phases of behavior. For example when the behavior of the animal is strongly intermittent and/or when the motion is considered in only one dimension, it becomes very obvious when the organism is “running” and when the animal is “tumbling” [18,54]. Unfortunately, most animal behavior doesn’t demonstrate such a dichotomy, and we often have to determine the scale at which we discretize a posteriori. In this case, we may still apply this technique to a trajectory, though we should confirm several pieces of information to minimize the amount of subjectivity in the results. First, that it is reasonable to assume that there even exists a scale at which discretizing the trajectory gives relevant information about the underlying continuous process. In other words, does it, both qualitatively and quantitatively, make sense to model this process as having discrete phases? Second, that the discretization process is able to reliably extract the desired statistics from trajectories with known properties. And third, that the results are not especially sensitive to the choice of discretization parameter(s).",
+   "printed": true
+  },
+  {
+   "para_id": 23,
+   "loc": "body",
+   "sec_title": "Trajectory discretization",
+   "text": "We use an accumulator discretization method (sometimes called “non-local” [49]) in which the moving average of the current run direction is computed, and when the angle between that average direction and the next position is greater than some threshold value θc, a new run is defined. We also segment the trajectory by times when the velocity falls below a threshold vc, even if the ant continues moving in the same direction after resting. This combination allows for detection of runs punctuated either by changes in direction or waiting times (Fig 2). From this discretized trajectory, we extract the distribution of turn angles Δθi, run times τi, and waiting times γi. As discussed in the previous section, we also compute the rotational diffusion coefficient Dr and velocity v using expressions derived from the model in the short time limit. All of these analyses are tested on synthetic run-and-tumble data generated using Eqs 4, 5, shown in S2 Fig; in general, the technique does a reasonable job of estimating the underlying parameters, including for data generated in the exact geometry used in the experiments.",
+   "printed": true
+  },
+  {
+   "para_id": 24,
+   "loc": "body",
+   "sec_title": "Trajectory discretization",
+   "text": "All fitting is performed with either the powerlaw [55] or scipy [56] packages in Python. When a centrality measure is needed to characterize statistics below, the median is preferred over the mean, since some of the analyses that involve curve fitting can yield unrealistic values when there are few data, which heavily skew the mean.",
+   "printed": true
+  },
+  {
+   "para_id": 25,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Interestingly, our distribution of wait times for A. gracilipes is very similar to the wait time distribution for locusts in similar experiments [18]. Both experiments yield power law distributions in the domain 10−1s−102s, with exponents in the range 1.5−1.7 (ours) and 1.67 (theirs). This type of intermittent behavior has been suggested to indicate a searching paradigm where the agent is generally less reactive/perceptive during motion, and more so during pauses and rests [57,58]. If we are to take these wait times as opportunities for the ant to sense and think about its surroundings, the power law form of the wait time distribution could suggest a (positive) relationship between the time invested and the volume of information in the sensory response. If the sensory response were relatively independent of the time invested, we would instead expect a wait time distribution with some typical scale, e.g., an exponential or Gaussian. On the other hand, it is also possible that these pauses originate because of other considerations, for example, that the ant is conserving or recovering energy.",
+   "printed": true
+  },
+  {
+   "para_id": 26,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "The binary approach to speed (either a constant velocity or zero) in the ant model results in a relatively accurate estimate of the typical speed, shown in Fig 6b, though allowing for speed variation would certainly make the simulated motion more realistic. Particularly around boundaries or upon encountering external stimuli, ants are known to modulate their speed [59], which may shape the duration for which those stimuli are relevant. Treating the speed as a stochastic quantity might provide enough variation to explore the effect of this in a more stimulating environment.",
+   "printed": true
+  },
+  {
+   "para_id": 27,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "We don’t see any evidence that the movement statistics of A. gracilipes are scale-free, i.e., that the run time distribution has a power law form, P(τi)~τi−β. Such a form has been proposed principally in connection to the Levy Foraging Hypothesis [27], for which many studies have expressed support [28,37] or dissent [53,58,60,61]. Reference [37] shares results that seem to support this theory for Japanese carpenter ants (Camponotus japonicus) in a featureless (circular) arena, though only when multiple ants are present, and only when considering the angular coordinate.",
+   "printed": true
+  },
+  {
+   "para_id": 28,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "The majority of past work that applies run-and-tumble-like modeling to locomotion focuses on microscopic bacteria [2,52,62] or eukaryotic cells [63]. These cells typically use whip-like appendages called flagella to propel themselves forward, giving the run-and-tumble modeling approach a very straightforward, physical explanation. On the other hand, there is no obvious anatomical reason why much larger organisms like ants would adapt a locomotion strategy composed of straight runs punctuated by reorientations and pauses. That being said, other insects like walking Drosophila have been observed to have discrete phases of motion similar to run-and-tumble [64]. Reference [65] demonstrates that in certain information-sparse environments, discrete turning strategies are more efficient at traversing olfactory gradients compared to continuous turning strategies. As such, these locomotion strategies could arise in insects and larger organisms because of their efficiency, as opposed to the anatomical basis in many microorganisms.",
+   "printed": true
+  },
+  {
+   "para_id": 29,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Other works have suggested that the turn angle distribution of a foraging or searching animal may be composed of a flat “reorientation” distribution, and a peaked (von Mises, wrapped Cauchy distribution, etc.) “scanning” distribution [66]. This decomposition may be seen as analogous to our decomposition of persistence into discrete tumbles and runs with continuous rotational diffusion, as both approaches look to make a qualitative distinction between small and large angle changes. These are both useful ways to understand trajectory data, though one should be careful not to read too deeply into the behavioral implications of choosing one technique over the other. For example, while the applicability of the run-and-tumble model to the experimental data here allows for useful analysis of the trajectory statistics, we have no evidence that the ant’s internal generation of this motion has any such discrete or continuous concepts. It is very possible that, to use the language previously introduced, the building blocks of the motion within an ant are vastly different from those presented here — or potentially this generation mechanism can’t even be said to be decomposable. Nonetheless, presenting different possible ways to generate these statistics gives us more ideas to eventually test against neural or other internally-recorded measurements that may be able to illuminate generative mechanisms [23].",
+   "printed": true
+  },
+  {
+   "para_id": 30,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "An analytic expression for the persistence time near the boundaries is difficult to obtain for an arbitrary choice of boundary conditions. For simple, elastic reflecting boundary conditions (obtained by applying only half of the torque in Eq 7) we can expect that the persistence time will become limited by a term of the form ~L/v, where L is the characteristic size of the arena [46]. In contrast, the aligning boundary conditions used here actually promote persistence, instead of limiting it. It may be possible to derive an appropriate expression by considering a piecewise Fokker-Planck equation for a bounded domain [67], though that is beyond the scope of this work.",
+   "printed": true
+  },
+  {
+   "para_id": 31,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "The choice of boundary conditions in this work assumes that the ant does not sense the boundary until it makes direct contact. This seems well justified given that the boundary layer (Fig 3, ~1cm) is roughly the same size as the ant itself, though in other cases it may make more sense to use a more biologically-inspired approach. Some ant species are thought to prefer navigating using visual cues over tactile ones [68], which could be encoded in the model by using a softer potential around the boundaries. For species or individuals that spend a disproportionate amount of time near the boundary, a boundary potential with both long-range attraction and short-range repulsion (for example, a Lennard-Jones potential) might make more sense.",
+   "printed": true
+  }
+ ],
+ "links": [
+  {
+   "link_id": 1,
+   "url": "zenodo.org/records/18728550",
+   "url_raw": "https://doi.org/10.5281/zenodo.18728550",
+   "href_jats": "https://doi.org/10.5281/zenodo.18728550",
+   "repo_key": "zenodo:18728550",
+   "host_class": "zenodo",
+   "loc": "front",
+   "sec_title": "",
+   "source": "tagged",
+   "para_id": 1
+  },
+  {
+   "link_id": 2,
+   "url": "github.com/jfeatherstone/tracker",
+   "url_raw": "https://github.com/Jfeatherstone/tracker",
+   "href_jats": "https://github.com/Jfeatherstone/tracker",
+   "repo_key": "github:jfeatherstone/tracker",
+   "host_class": "github",
+   "loc": "body",
+   "sec_title": "Ant motion as a run-and-tumble process",
+   "source": "tagged",
+   "para_id": 2
+  }
+ ],
+ "links_optional": [
+  "arrs.si/en",
+  "arxiv.org/abs/3884407",
+  "creativecommons.org/licenses/by/4.0",
+  "doi:10.1007/978-3-0348-8878-3_2",
+  "doi:10.1007/978-3-642-39010-4",
+  "doi:10.1007/bf01338835",
+  "doi:10.1007/bf02573958",
+  "doi:10.1007/s00040-005-0800-6",
+  "doi:10.1007/s000400300001",
+  "doi:10.1007/s00265-019-2717-5",
+  "doi:10.1007/s10164-018-0558-8",
+  "doi:10.1007/s10530-010-9750-7",
+  "doi:10.1007/s10955-021-02760-y",
+  "doi:10.1007/s11252-020-01007-0",
+  "doi:10.1016/j.anbehav.2011.05.019",
+  "doi:10.1016/j.bpj.2009.09.044",
+  "doi:10.1016/j.cub.2022.11.059",
+  "doi:10.1016/j.cub.2024.12.034",
+  "doi:10.1016/j.ecocom.2016.02.003",
+  "doi:10.1016/j.ecolmodel.2010.05.012",
+  "doi:10.1016/j.physa.2017.12.137",
+  "doi:10.1016/s0022-5193(03)00277-7",
+  "doi:10.1038/44831",
+  "doi:10.1038/nature06199",
+  "doi:10.1038/nature06518",
+  "doi:10.1038/s41567-018-0107-y",
+  "doi:10.1038/s41592-019-0686-2",
+  "doi:10.1038/s41592-022-01426-1",
+  "doi:10.1046/j.1439-0310.2001.00749.x",
+  "doi:10.1063/5.0221781",
+  "doi:10.1073/pnas.0801926105",
+  "doi:10.1073/pnas.0909673107",
+  "doi:10.1093/cz/zoab063",
+  "doi:10.1093/cz/zow104",
+  "doi:10.1093/ee/23.5.1171",
+  "doi:10.1093/imamat/hxy013",
+  "doi:10.1098/rspa.2011.0665",
+  "doi:10.1098/rspb.2009.1235",
+  "doi:10.1103/physreve.74.020102",
+  "doi:10.1103/physreve.96.022407",
+  "doi:10.1103/physrevlett.128.248101",
+  "doi:10.1103/physrevx.4.041015",
+  "doi:10.1103/revmodphys.83.81",
+  "doi:10.1109/eurcon.2005.1629898",
+  "doi:10.1111/2041-210x.12298",
+  "doi:10.1111/brv.13044",
+  "doi:10.1111/j.1365-2656.2006.01208.x",
+  "doi:10.1126/science.1125142",
+  "doi:10.1126/science.1172667",
+  "doi:10.1140/epjst/e2015-50264-4",
+  "doi:10.1146/annurev-ento-033121-102332",
+  "doi:10.1146/annurev.en.34.010189.001203",
+  "doi:10.1186/s40462-016-0086-5",
+  "doi:10.1242/jeb.002246",
+  "doi:10.1371/journal.pcbi.1002498",
+  "doi:10.1371/journal.pone.0085777",
+  "doi:10.1523/jneurosci.19-21-09557.1999",
+  "doi:10.1890/04-1806",
+  "doi:10.1890/06-1916.1",
+  "doi:10.3389/fphy.2022.789097",
+  "doi:10.48550/arxiv.1505.04597",
+  "doi:10.48550/arxiv.2401.03161",
+  "doi:10.48550/arxiv.2602.23324",
+  "doi:10.7554/elife.57524",
+  "doi:10.7554/elife.76577",
+  "kitp.ucsb.edu",
+  "nsf.gov",
+  "oist.jp"
+ ],
+ "own_doi": "doi:10.1371/journal.pcbi.1014069",
+ "citations": [
+  {
+   "cite_id": 1,
+   "para_id": 3,
+   "bib_id": 1,
+   "marker": "1",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 2,
+   "para_id": 3,
+   "bib_id": 2,
+   "marker": "2",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 3,
+   "para_id": 3,
+   "bib_id": 3,
+   "marker": "3",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 4,
+   "para_id": 3,
+   "bib_id": 4,
+   "marker": "4",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 5,
+   "para_id": 3,
+   "bib_id": 5,
+   "marker": "5",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 6,
+   "para_id": 3,
+   "bib_id": 6,
+   "marker": "6",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 7,
+   "para_id": 3,
+   "bib_id": 7,
+   "marker": "7",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 8,
+   "para_id": 3,
+   "bib_id": 8,
+   "marker": "8",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 9,
+   "para_id": 4,
+   "bib_id": 9,
+   "marker": "9",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 10,
+   "para_id": 4,
+   "bib_id": 10,
+   "marker": "10",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 11,
+   "para_id": 4,
+   "bib_id": 11,
+   "marker": "11",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 12,
+   "para_id": 4,
+   "bib_id": 12,
+   "marker": "12",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 13,
+   "para_id": 4,
+   "bib_id": 13,
+   "marker": "13",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 14,
+   "para_id": 4,
+   "bib_id": 14,
+   "marker": "14",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 15,
+   "para_id": 4,
+   "bib_id": 15,
+   "marker": "15",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 16,
+   "para_id": 4,
+   "bib_id": 16,
+   "marker": "16",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 17,
+   "para_id": 4,
+   "bib_id": 10,
+   "marker": "10",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 18,
+   "para_id": 4,
+   "bib_id": 12,
+   "marker": "12",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 19,
+   "para_id": 5,
+   "bib_id": 17,
+   "marker": "17",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 20,
+   "para_id": 5,
+   "bib_id": 18,
+   "marker": "18",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 21,
+   "para_id": 5,
+   "bib_id": 15,
+   "marker": "15",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 22,
+   "para_id": 5,
+   "bib_id": 19,
+   "marker": "19",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 23,
+   "para_id": 5,
+   "bib_id": 3,
+   "marker": "3",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 24,
+   "para_id": 5,
+   "bib_id": 20,
+   "marker": "20",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 25,
+   "para_id": 5,
+   "bib_id": 21,
+   "marker": "21",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 26,
+   "para_id": 5,
+   "bib_id": 20,
+   "marker": "20",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 27,
+   "para_id": 5,
+   "bib_id": 21,
+   "marker": "21",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 28,
+   "para_id": 5,
+   "bib_id": 3,
+   "marker": "3",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 29,
+   "para_id": 5,
+   "bib_id": 22,
+   "marker": "22",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 30,
+   "para_id": 5,
+   "bib_id": 23,
+   "marker": "23",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 31,
+   "para_id": 6,
+   "bib_id": 8,
+   "marker": "8",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 32,
+   "para_id": 6,
+   "bib_id": 18,
+   "marker": "18",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 33,
+   "para_id": 6,
+   "bib_id": 24,
+   "marker": "24",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 34,
+   "para_id": 7,
+   "bib_id": 25,
+   "marker": "25",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 35,
+   "para_id": 7,
+   "bib_id": 26,
+   "marker": "26",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 36,
+   "para_id": 7,
+   "bib_id": 27,
+   "marker": "27",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 37,
+   "para_id": 7,
+   "bib_id": 28,
+   "marker": "28",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 38,
+   "para_id": 7,
+   "bib_id": 29,
+   "marker": "29",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 39,
+   "para_id": 7,
+   "bib_id": 30,
+   "marker": "29–32",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 40,
+   "para_id": 7,
+   "bib_id": 31,
+   "marker": "29–32",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 41,
+   "para_id": 7,
+   "bib_id": 32,
+   "marker": "32",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 42,
+   "para_id": 7,
+   "bib_id": 33,
+   "marker": "33",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 43,
+   "para_id": 7,
+   "bib_id": 34,
+   "marker": "34",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 44,
+   "para_id": 7,
+   "bib_id": 35,
+   "marker": "35",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 45,
+   "para_id": 7,
+   "bib_id": 36,
+   "marker": "36",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 46,
+   "para_id": 8,
+   "bib_id": 37,
+   "marker": "37",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 47,
+   "para_id": 8,
+   "bib_id": 38,
+   "marker": "38",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 48,
+   "para_id": 9,
+   "bib_id": 39,
+   "marker": "39",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 49,
+   "para_id": 9,
+   "bib_id": 15,
+   "marker": "15",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 50,
+   "para_id": 10,
+   "bib_id": 38,
+   "marker": "38",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 51,
+   "para_id": 10,
+   "bib_id": 10,
+   "marker": "10",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 52,
+   "para_id": 10,
+   "bib_id": 39,
+   "marker": "39",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 53,
+   "para_id": 11,
+   "bib_id": 16,
+   "marker": "16",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 54,
+   "para_id": 12,
+   "bib_id": 40,
+   "marker": "40",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 55,
+   "para_id": 13,
+   "bib_id": 16,
+   "marker": "16",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 56,
+   "para_id": 13,
+   "bib_id": 39,
+   "marker": "39",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 57,
+   "para_id": 13,
+   "bib_id": 41,
+   "marker": "41",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 58,
+   "para_id": 13,
+   "bib_id": 16,
+   "marker": "16",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 59,
+   "para_id": 14,
+   "bib_id": 42,
+   "marker": "42",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 60,
+   "para_id": 14,
+   "bib_id": 43,
+   "marker": "43",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 61,
+   "para_id": 15,
+   "bib_id": 40,
+   "marker": "40",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 62,
+   "para_id": 16,
+   "bib_id": 44,
+   "marker": "44",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 63,
+   "para_id": 16,
+   "bib_id": 45,
+   "marker": "44–46",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 64,
+   "para_id": 16,
+   "bib_id": 46,
+   "marker": "46",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 65,
+   "para_id": 17,
+   "bib_id": 38,
+   "marker": "38",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 66,
+   "para_id": 18,
+   "bib_id": 18,
+   "marker": "18",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 67,
+   "para_id": 2,
+   "bib_id": 40,
+   "marker": "40",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 68,
+   "para_id": 19,
+   "bib_id": 30,
+   "marker": "30",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 69,
+   "para_id": 19,
+   "bib_id": 32,
+   "marker": "32",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 70,
+   "para_id": 20,
+   "bib_id": 47,
+   "marker": "47",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 71,
+   "para_id": 21,
+   "bib_id": 8,
+   "marker": "8",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 72,
+   "para_id": 21,
+   "bib_id": 48,
+   "marker": "48",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 73,
+   "para_id": 21,
+   "bib_id": 49,
+   "marker": "48–50",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 74,
+   "para_id": 21,
+   "bib_id": 50,
+   "marker": "50",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 75,
+   "para_id": 21,
+   "bib_id": 51,
+   "marker": "51",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 76,
+   "para_id": 21,
+   "bib_id": 52,
+   "marker": "52",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 77,
+   "para_id": 21,
+   "bib_id": 53,
+   "marker": "53",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 78,
+   "para_id": 22,
+   "bib_id": 18,
+   "marker": "18",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 79,
+   "para_id": 22,
+   "bib_id": 54,
+   "marker": "54",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 80,
+   "para_id": 23,
+   "bib_id": 49,
+   "marker": "49",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 81,
+   "para_id": 24,
+   "bib_id": 55,
+   "marker": "55",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 82,
+   "para_id": 24,
+   "bib_id": 56,
+   "marker": "56",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 83,
+   "para_id": 25,
+   "bib_id": 18,
+   "marker": "18",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 84,
+   "para_id": 25,
+   "bib_id": 57,
+   "marker": "57",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 85,
+   "para_id": 25,
+   "bib_id": 58,
+   "marker": "58",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 86,
+   "para_id": 26,
+   "bib_id": 59,
+   "marker": "59",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 87,
+   "para_id": 27,
+   "bib_id": 27,
+   "marker": "27",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 88,
+   "para_id": 27,
+   "bib_id": 28,
+   "marker": "28",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 89,
+   "para_id": 27,
+   "bib_id": 37,
+   "marker": "37",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 90,
+   "para_id": 27,
+   "bib_id": 53,
+   "marker": "53",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 91,
+   "para_id": 27,
+   "bib_id": 58,
+   "marker": "58",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 92,
+   "para_id": 27,
+   "bib_id": 60,
+   "marker": "60",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 93,
+   "para_id": 27,
+   "bib_id": 61,
+   "marker": "61",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 94,
+   "para_id": 27,
+   "bib_id": 37,
+   "marker": "37",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 95,
+   "para_id": 28,
+   "bib_id": 2,
+   "marker": "2",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 96,
+   "para_id": 28,
+   "bib_id": 52,
+   "marker": "52",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 97,
+   "para_id": 28,
+   "bib_id": 62,
+   "marker": "62",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 98,
+   "para_id": 28,
+   "bib_id": 63,
+   "marker": "63",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 99,
+   "para_id": 28,
+   "bib_id": 64,
+   "marker": "64",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 100,
+   "para_id": 28,
+   "bib_id": 65,
+   "marker": "65",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 101,
+   "para_id": 29,
+   "bib_id": 66,
+   "marker": "66",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 102,
+   "para_id": 29,
+   "bib_id": 23,
+   "marker": "23",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 103,
+   "para_id": 30,
+   "bib_id": 46,
+   "marker": "46",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 104,
+   "para_id": 30,
+   "bib_id": 67,
+   "marker": "67",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 105,
+   "para_id": 31,
+   "bib_id": 68,
+   "marker": "68",
+   "expanded": false,
+   "scored": true
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-ext-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "v1_bib_count": 68
+ }
+}

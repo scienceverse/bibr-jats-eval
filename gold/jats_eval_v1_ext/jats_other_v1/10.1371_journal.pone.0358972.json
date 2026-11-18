@@ -1,0 +1,977 @@
+{
+ "paper_id": "10.1371_journal.pone.0358972",
+ "paras": [
+  {
+   "para_id": 1,
+   "loc": "front",
+   "sec_title": "",
+   "text": "The minimal processed dataset required to replicate all statistical analyses in this paper is available at figshare: https://doi.org/10.6084/m9.figshare.31959735. The raw Ethereum blockchain transaction data are publicly available from the XBlock-ETH dataset at https://xblock.pro/xblock-eth.html for the block ranges listed in Table 7.",
+   "printed": true
+  },
+  {
+   "para_id": 2,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Blockchain technology has revolutionized the structure of financial systems by enabling decentralized, trustless transactions through distributed ledgers. The rapid growth in cryptocurrencies has significantly reshaped the global financial landscape. Since the launch of Bitcoin in 2009 [1], the number of cryptocurrencies has expanded dramatically [2–5]. As of April 2025, there are approximately 25,000 active cryptocurrencies, including both coins and tokens across various blockchain platforms. Together, they hold a total market capitalization of around USD 2.96 trillion [6]. Cryptocurrencies have gained widespread attention due to their decentralized nature, lower transaction costs compared to traditional fiat currencies, and the transparency they offer [7–9]. At the core of cryptocurrencies lies blockchain technology, a distributed append-only ledger that securely records transactions [9,10]. Blockchains often operate with native cryptocurrencies, which can be traded for traditional money through exchanges like Binance [11]. The ability to freely exchange cryptocurrencies has significantly fueled their market growth. It has also enabled new fundraising methods, such as Initial Coin Offerings (ICOs), where blockchain-based digital tokens are sold directly to participants [12,13].",
+   "printed": true
+  },
+  {
+   "para_id": 3,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Among various blockchain platforms, Ethereum has emerged as a dominant platform, supporting programmable smart contracts and the proliferation of ERC20 tokens that underpin a wide range of decentralized financial applications [12]. To facilitate token development and exchange, the Ethereum community introduced the ERC20 token standard in November 2015 [14]. Although it is not mandatory, the ERC20 standard has been adopted widely, with the majority of Ethereum-based tokens being ERC20 compatible [13]. One of the unique features of Ethereum is its dual-account model, consisting of Externally Owned Accounts (EOAs), which are controlled by private keys [12], and smart contracts (SCs), which are autonomous programs executing predefined logic [15,16]. This structure creates two different types of interactions on the Ethereum network: externally initiated (EOA-driven) and SC-driven (contract-based) transactions. These distinct modes of operation give rise to heterogeneous behavioral patterns across the network. As the volume and complexity of blockchain activity continue to grow, understanding the underlying transactional dynamics, particularly the differences between EOA-driven and SC-driven, becomes increasingly essential for ensuring transparency.",
+   "printed": true
+  },
+  {
+   "para_id": 4,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Several studies have explored ERC20 token transactions from various angles. For instance, Victor et al. [8] analyzed the wash trading activity on decentralized exchanges like IDEX and EtherDelta and found that over 30% of the tokens traded were involved in wash trading, indicating manipulative behavior. Pradeep et al. [17] examined the behavior of ERC20 token traders during the 2018 crypto crash and the COVID-19 pandemic, revealing that trader interactions became more diverse in response to these market shocks, reflecting increased adoption of ERC20 tokens. Chen et al. [12] investigated the broader ERC20 ecosystem, raising important concerns about market manipulation and token price dynamics. In addition, Victor et al. [13] identified hub-and-spoke patterns in token transaction networks and observed that many tokens were primarily sold rather than circulated, highlighting imbalances in token flow. While these studies provide valuable insights into the ERC20 ecosystem, they generally treat token transactions as a unified whole, without explicitly differentiating between EOA-based and SC-based interactions. However, such a distinction is crucial for understanding how EOAs and SCs operate differently, which could unveil deeper structural and behavioral patterns in token transactions. Despite the dual-account model of Ethereum being central to its design, there remains a significant research gap in developing robust frameworks that systematically distinguish between these account types to better interpret the heterogeneous dynamics of ERC20 token activity.",
+   "printed": true
+  },
+  {
+   "para_id": 5,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Earlier blockchain studies have identified power-law patterns in transaction networks, reflecting scalable and heterogeneous interactions [18–20]. Somin et al. [19] demonstrated that transaction volumes in ERC20 networks follow power-law distributions, akin to those observed in social [21] and biological networks [22]. Wu et al. [20] further showed that the market capitalizations of coins and tokens also exhibit power-law behavior. While power laws describe scalable transaction patterns, another canonical scaling law, Taylor’s law (TL), measures fluctuation stability. Originally introduced to describe the relationship between the mean and variance of population sizes in ecological systems [23], TL has since been applied across a range of domains. In particular, it has gained prominence in economic and financial contexts as a tool for quantifying volatility and dynamic fluctuations in market activity [24,25]. Despite the relevance of both scaling laws, no prior study has combined these frameworks to dissect the behavioral signatures of EOA-driven and SC–driven interactions in blockchain ecosystems. Our study bridges this gap by integrating power-law analysis with TL to investigate ERC20 token transactions. While power-law exponents help reveal whether transactional dynamics are dominated by different account types, Taylor’s law provides insight into the stability of these interactions over time. Together, these methods offer a unified framework for distinguishing behavioral modes in decentralized systems, enabling a more granular understanding of ERC20 transaction types.",
+   "printed": true
+  },
+  {
+   "para_id": 6,
+   "loc": "body",
+   "sec_title": "ERC20 transaction dataset",
+   "text": "We utilized nine months of historical ERC20 token transaction data from the Ethereum blockchain [26,27]. The dataset includes a total of 44,858,196 token transfer records spanning the period from July 2017 to March 2018. To assess the robustness of our findings, we additionally analyzed an out-of-sample validation dataset comprising 36,692,530 ERC20 token transfer records from December 2019 to February 2020. This validation period captures the early DeFi ecosystem, representing fundamentally different market conditions from the primary dataset. In total, this study analyzes over 81 million ERC20 token transfer records across two independent time windows. The corresponding XBlock-ETH dataset sections and block ranges used in this study are summarized in Table 1. Each record represents a token transfer between two addresses, identified by the columns from (sender) and to (receiver). Every transaction also contains a timestamp recorded in UTC format [28]. For instance, a timestamp such as 1512086400 corresponds to the date 2017-12-01, using the Unix epoch base time of 1970-01-01 00:00:00 UTC. These timestamps were converted into a human-readable format (YYYY-MM-DD) for temporal segmentation and trend analysis.",
+   "printed": true
+  },
+  {
+   "para_id": 7,
+   "loc": "table",
+   "sec_title": "ERC20 transaction dataset",
+   "text": "ERC20 Transactions [27]",
+   "printed": true
+  },
+  {
+   "para_id": 8,
+   "loc": "table",
+   "sec_title": "ERC20 transaction dataset",
+   "text": "ERC20 Transactions [27]",
+   "printed": true
+  },
+  {
+   "para_id": 9,
+   "loc": "table",
+   "sec_title": "ERC20 transaction dataset",
+   "text": "Block Transactions [27]",
+   "printed": true
+  },
+  {
+   "para_id": 10,
+   "loc": "table",
+   "sec_title": "ERC20 transaction dataset",
+   "text": "Block Transactions [27]",
+   "printed": true
+  },
+  {
+   "para_id": 11,
+   "loc": "body",
+   "sec_title": "ERC20 transaction dataset",
+   "text": "There are two types of accounts available in ERC20: one is EOAs, which are controlled by individuals using public-private key pairs [12]. The other is SCs, which are governed by executable code stored within the account itself [15,16]. We categorize the ERC20 transaction data based on whether the sender and receiver are EOAs or SCs using the columns fromIsContract and toIsContract, as shown in Table 2. Transactions between two EOAs are indicated by fromIsContract = 0 and toIsContract = 0. The four possible transaction categories based on sender and receiver types are categorically defined in Table 2. Further, we divided the total nine-month ERC20 transaction data into three equal periods: Period 1, Period 2, and Period 3, each spanning three months. Period 1 consists of July–September 2017, Period 2 consists of October–December 2017, and Period 3 consists of January–March 2018. Additionally, Period 4 covers data from December 2019 to February 2020 and serves as an out-of-sample validation period to assess the robustness of the reported findings. In this study, the analysis is conducted at the level of individual Ethereum addresses using a pooled framework across tokens rather than a per-token approach. All ERC-20 transfer events associated with an address within a given period are combined before analysis.",
+   "printed": true
+  },
+  {
+   "para_id": 12,
+   "loc": "body",
+   "sec_title": "Block transaction dataset",
+   "text": "To analyze transaction gas fees on the Ethereum blockchain, we used block transaction data corresponding to the same four time periods defined in Section(ERC20 Transaction Dataset) [27]. The analysis spans Period 1 (July–September 2017), Period 2 (October–December 2017), and Period 3 (January–March 2018), which together constitute the primary dataset, while Period 4 (December 2019–February 2020) serves as an out-of-sample validation period. The dataset includes transaction-level information such as gasUsed and gasPrice, which are used to compute the gas fee associated with each transaction. The gas fee (in Gwei) is calculated as [29]:",
+   "printed": true
+  },
+  {
+   "para_id": 13,
+   "loc": "body",
+   "sec_title": "Scaling law",
+   "text": "To understand how individual trading activity relates to ERC20 transaction interactions, we examine the relationship between the number of unique trade partners and the total number of transactions for each trader. For every sender i, we calculate two quantities: the total number of transactions, denoted as Vi=∑jvij, and the number of distinct receivers, denoted as Ni=|{j}|, where vij represents the number of times trader i sent tokens to partner j. Both Vi and Ni are calculated by aggregating transactions across all ERC-20 tokens within the given period. We investigate whether these quantities exhibit a power-law relationship, a pattern frequently observed across various complex systems [30–33]. This relationship is typically expressed in the form:",
+   "printed": true
+  },
+  {
+   "para_id": 14,
+   "loc": "body",
+   "sec_title": "Power law distribution",
+   "text": "Power-law distributions are characterized by heavy tails, where the probability of large events decays as a power of the event size [34]. This property makes them well-suited for modeling a wide range of real-world phenomena [35]. Their scale-invariant nature implies a form of universality, suggesting that similar statistical patterns can emerge across different systems, regardless of their underlying mechanisms [36–39]. The probability density function of the power-law distribution [34] is mathematically expressed as:",
+   "printed": true
+  },
+  {
+   "para_id": 15,
+   "loc": "body",
+   "sec_title": "Maximum likelihood estimation (MLE) for power law fit.",
+   "text": "To estimate the power-law parameters, we employed the maximum likelihood estimation (MLE) method [40,41]. The parameter values are estimated by maximizing the likelihood function, representing the probability that the assumed power-law model generated the observed data. In essence, MLE identifies the parameter values that make the observed data most probable under the model.",
+   "printed": true
+  },
+  {
+   "para_id": 16,
+   "loc": "body",
+   "sec_title": "Maximum likelihood estimation (MLE) for power law fit.",
+   "text": "The MLE provides an unbiased approach to parameter estimation, avoiding potential distortions that might occur when using log-log plots to fit a power-law. The MLE offers an accurate estimation of the parameters [42] and is complemented by the Kolmogorov-Smirnov (KS) test to evaluate the goodness-of-fit. All these combinations make the MLE a robust tool for estimating parameters for a power-law fit in complex systems.",
+   "printed": true
+  },
+  {
+   "para_id": 17,
+   "loc": "body",
+   "sec_title": "Determining threshold and model evaluation.",
+   "text": "We determined the threshold value (xmin) for the power-law behavior using an algorithm that minimizes the Kolmogorov–Smirnov (KS) distance between empirical and theoretical cumulative distribution functions (CDFs) [43–45]. The KS distance is a widely adopted metric in power-law analysis, as it quantifies the maximum deviation between the observed data and the fitted model. This makes it particularly effective for selecting an appropriate xmin. Formally, the KS distance is defined as:",
+   "printed": true
+  },
+  {
+   "para_id": 18,
+   "loc": "body",
+   "sec_title": "Log-likelihood ratio (LLR) test.",
+   "text": "The scaling exponent γ in Eq. 4 is estimated using the MLE method, identifying the parameter value that makes the observed data most likely under the assumed power-law model. The uncertainty in this estimate is captured by the standard error σγ, where larger values of σγ indicate higher estimation variability, typically resulting from limited data or weak adherence to the power-law form. To compare the power-law model against alternative distributions, such as an exponential distribution, we employed the log-likelihood ratio (LLR) test [46,47], defined as:",
+   "printed": true
+  },
+  {
+   "para_id": 19,
+   "loc": "body",
+   "sec_title": "Stationarity test",
+   "text": "Time series analysis often begins with determining whether the data is stationary, a key property that influences model selection and interpretation. One of the most common approaches to assess stationarity is unit root testing. Several statistical tests have been developed to detect the presence of unit roots in time series data [48–53].",
+   "printed": true
+  },
+  {
+   "para_id": 20,
+   "loc": "body",
+   "sec_title": "Stationarity test",
+   "text": "We applied the Kwiatkowski-Phillips-Schmidt-Shin (KPSS) test, a widely used method for testing stationarity in time series analysis, particularly in econometrics [54–57]. Unlike traditional unit root tests that assume non-stationarity as the null hypothesis, the KPSS test takes stationarity as the null hypothesis. The test is specified as:",
+   "printed": true
+  },
+  {
+   "para_id": 21,
+   "loc": "body",
+   "sec_title": "Stationarity test",
+   "text": "where w(s,l)=1−(sl+1) are the Bartlett weights used to smooth the autocovariance terms. The lag truncation parameter l is selected using the Newey-West automatic bandwidth method [58]. To interpret the KPSS results, the LM statistic is compared against critical values, and a corresponding p-value is computed. If the p-value is greater than 0.05, we fail to reject the null hypothesis of stationarity, suggesting that the time series is stationary. Conversely, a p-value less than 0.05 leads to the rejection of the null hypothesis, indicating that the series is non-stationary.",
+   "printed": true
+  },
+  {
+   "para_id": 22,
+   "loc": "body",
+   "sec_title": "Temporal Taylor’s law",
+   "text": "Taylor’s law (TL) or fluctuation scaling is a widely observed empirical pattern that relates the variance to the mean of groups of measurements or other non-negative quantities via a power law [23,59,60]. Originally discovered in ecological studies, it has since been observed across diverse disciplines including physics, finance, network science, and social systems [24,60]. In this study, we have used temporal TL to examine how the variance of transaction activity relates to the mean activity over time for each account. To analyze this, we bin the transaction data into 1-hour time windows, counting the number of transactions each account makes in each period. For each account, we calculate the mean and variance of these hourly transaction counts. In ecology, Taylor’s power law [23] states that the variance of a population is related to its mean through a power-law relationship, where the variance increases as a power of the mean, expressed as:",
+   "printed": true
+  },
+  {
+   "para_id": 23,
+   "loc": "body",
+   "sec_title": "Temporal Taylor’s law",
+   "text": "where μ is the mean of the measured quantity, σ2 is the variance, a is a positive constant, and b is the TL exponent. The slope b characterizes the degree of heterogeneity in the spatial or temporal patterns of the system [23,61,62]. Depending on the value of b, the system behavior can be interpreted as follows:",
+   "printed": true
+  },
+  {
+   "para_id": 24,
+   "loc": "body",
+   "sec_title": "Temporal Taylor’s law",
+   "text": "This linear relationship allows the exponent b to be easily estimated using methods, e.g., least-squares linear regression fit. The consistent manifestation of this linear relationship across numerous systems has prompted researchers to propose it as a potential universal law in complex systems [24]. Temporal TL analysis enables us to distinguish EOA-based and SC–based interaction patterns, revealing differences in variability and activity dynamics over time.",
+   "printed": true
+  },
+  {
+   "para_id": 25,
+   "loc": "body",
+   "sec_title": "Ethics statement",
+   "text": "This study uses only publicly available, anonymized blockchain transaction data obtained from the XBlock-ETH dataset [27]. The dataset does not contain any personally identifiable information, and no human subjects were involved in this research. Accordingly, ethical approval from an institutional review board (IRB) and informed consent were not required.",
+   "printed": true
+  }
+ ],
+ "links": [
+  {
+   "link_id": 1,
+   "url": "doi:10.6084/m9.figshare.31959735",
+   "url_raw": "https://doi.org/10.6084/m9.figshare.31959735",
+   "href_jats": "https://doi.org/10.6084/m9.figshare.31959735",
+   "repo_key": "doi:10.6084/m9.figshare.31959735",
+   "host_class": "doi",
+   "loc": "front",
+   "sec_title": "",
+   "source": "tagged",
+   "para_id": 1
+  },
+  {
+   "link_id": 2,
+   "url": "xblock.pro/xblock-eth.html",
+   "url_raw": "https://xblock.pro/xblock-eth.html",
+   "href_jats": "https://xblock.pro/xblock-eth.html",
+   "repo_key": null,
+   "host_class": "other",
+   "loc": "front",
+   "sec_title": "",
+   "source": "tagged",
+   "para_id": 1
+  }
+ ],
+ "links_optional": [
+  "binance.com",
+  "coinmarketcap.com",
+  "creativecommons.org/licenses/by/4.0",
+  "doi:10.1007/978-3-030-32101-7_8",
+  "doi:10.1007/978-3-319-26896-5_7",
+  "doi:10.1007/978-3-319-96661-8_45",
+  "doi:10.1007/s42521-019-00008-9",
+  "doi:10.1016/0165-1765(92)90023-r",
+  "doi:10.1016/0165-1765(94)00561-f",
+  "doi:10.1016/j.irfa.2018.12.002",
+  "doi:10.1016/j.jeconom.2022.12.013",
+  "doi:10.1016/j.physa.2024.130095",
+  "doi:10.1016/j.physa.2024.130129",
+  "doi:10.1016/j.ribaf.2018.01.002",
+  "doi:10.1016/s0165-1765(97)00066-9",
+  "doi:10.1016/s0378-4371(99)00081-3",
+  "doi:10.1038/189732a0",
+  "doi:10.1038/s41567-018-0409-0",
+  "doi:10.1038/s41598-022-16924-7",
+  "doi:10.1039/b908681a",
+  "doi:10.1063/5.0270403",
+  "doi:10.1073/pnas.0610172104",
+  "doi:10.1073/pnas.1503824112",
+  "doi:10.1080/00018730801893043",
+  "doi:10.1080/00107510500052444",
+  "doi:10.1080/01621459.1951.10500769",
+  "doi:10.1080/07350015.1992.10509904",
+  "doi:10.1080/08898480.2017.1289049",
+  "doi:10.1080/15427951.2004.10129088",
+  "doi:10.1093/biomet/75.2.335",
+  "doi:10.1098/rsif.2013.0789",
+  "doi:10.1098/rsos.180381",
+  "doi:10.1098/rspa.2020.0610",
+  "doi:10.1103/physreve.102.052307",
+  "doi:10.1103/physreve.81.066112",
+  "doi:10.1109/access.2022.3218631",
+  "doi:10.1109/ojcs.2020.2990458",
+  "doi:10.1111/j.1365-2656.2008.01428.x",
+  "doi:10.1111/j.1467-9574.2004.00272.x",
+  "doi:10.1126/science.1235823",
+  "doi:10.1126/science.286.5439.509",
+  "doi:10.1137/070710111",
+  "doi:10.1140/epjb/e2004-00316-5",
+  "doi:10.1142/s0219477516500292",
+  "doi:10.1145/3366423.3380215",
+  "doi:10.1145/3442381.3449824",
+  "doi:10.1177/0022002706296157",
+  "doi:10.1371/journal.pone.0019779",
+  "doi:10.1504/ijwgs.2018.095647",
+  "doi:10.2307/1392187",
+  "doi:10.2307/2286348",
+  "doi:10.2307/3318417",
+  "doi:10.3390/jrfm15110513",
+  "editorialmanager.com/pone",
+  "en.wikipedia.org/wiki/unix_time",
+  "explore.plos.org/phishing",
+  "journals.plos.org/plosone/s/editorial-and-peer-review-process",
+  "journals.plos.org/plosone/s/figures",
+  "journals.plos.org/plosone/s/file?id=ba62/plosone_formatting_sample_title_authors_affiliations.pdf",
+  "journals.plos.org/plosone/s/file?id=wjvg/plosone_formatting_sample_main_body.pdf",
+  "journals.plos.org/plosone/s/submission-guidelines",
+  "plos.my.site.com/s",
+  "plos.org/privacy-policy",
+  "plos.org/protocols?utm_medium=editorial-email&utm_source=authorletters&utm_campaign=protocols",
+  "plosone.org/static/policies.action"
+ ],
+ "own_doi": "doi:10.1371/journal.pone.0358972",
+ "citations": [
+  {
+   "cite_id": 1,
+   "para_id": 2,
+   "bib_id": 1,
+   "marker": "1",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 2,
+   "para_id": 2,
+   "bib_id": 2,
+   "marker": "2",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 3,
+   "para_id": 2,
+   "bib_id": 3,
+   "marker": "2–5",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 4,
+   "para_id": 2,
+   "bib_id": 4,
+   "marker": "2–5",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 5,
+   "para_id": 2,
+   "bib_id": 5,
+   "marker": "5",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 6,
+   "para_id": 2,
+   "bib_id": 6,
+   "marker": "6",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 7,
+   "para_id": 2,
+   "bib_id": 7,
+   "marker": "7",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 8,
+   "para_id": 2,
+   "bib_id": 8,
+   "marker": "7–9",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 9,
+   "para_id": 2,
+   "bib_id": 9,
+   "marker": "9",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 10,
+   "para_id": 2,
+   "bib_id": 9,
+   "marker": "9",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 11,
+   "para_id": 2,
+   "bib_id": 10,
+   "marker": "10",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 12,
+   "para_id": 2,
+   "bib_id": 11,
+   "marker": "11",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 13,
+   "para_id": 2,
+   "bib_id": 12,
+   "marker": "12",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 14,
+   "para_id": 2,
+   "bib_id": 13,
+   "marker": "13",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 15,
+   "para_id": 3,
+   "bib_id": 12,
+   "marker": "12",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 16,
+   "para_id": 3,
+   "bib_id": 14,
+   "marker": "14",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 17,
+   "para_id": 3,
+   "bib_id": 13,
+   "marker": "13",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 18,
+   "para_id": 3,
+   "bib_id": 12,
+   "marker": "12",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 19,
+   "para_id": 3,
+   "bib_id": 15,
+   "marker": "15",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 20,
+   "para_id": 3,
+   "bib_id": 16,
+   "marker": "16",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 21,
+   "para_id": 4,
+   "bib_id": 8,
+   "marker": "8",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 22,
+   "para_id": 4,
+   "bib_id": 17,
+   "marker": "17",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 23,
+   "para_id": 4,
+   "bib_id": 12,
+   "marker": "12",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 24,
+   "para_id": 4,
+   "bib_id": 13,
+   "marker": "13",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 25,
+   "para_id": 5,
+   "bib_id": 18,
+   "marker": "18",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 26,
+   "para_id": 5,
+   "bib_id": 19,
+   "marker": "18–20",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 27,
+   "para_id": 5,
+   "bib_id": 20,
+   "marker": "20",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 28,
+   "para_id": 5,
+   "bib_id": 19,
+   "marker": "19",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 29,
+   "para_id": 5,
+   "bib_id": 21,
+   "marker": "21",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 30,
+   "para_id": 5,
+   "bib_id": 22,
+   "marker": "22",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 31,
+   "para_id": 5,
+   "bib_id": 20,
+   "marker": "20",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 32,
+   "para_id": 5,
+   "bib_id": 23,
+   "marker": "23",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 33,
+   "para_id": 5,
+   "bib_id": 24,
+   "marker": "24",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 34,
+   "para_id": 5,
+   "bib_id": 25,
+   "marker": "25",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 35,
+   "para_id": 6,
+   "bib_id": 26,
+   "marker": "26",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 36,
+   "para_id": 6,
+   "bib_id": 27,
+   "marker": "27",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 37,
+   "para_id": 6,
+   "bib_id": 28,
+   "marker": "28",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 38,
+   "para_id": 7,
+   "bib_id": 27,
+   "marker": "27",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 39,
+   "para_id": 8,
+   "bib_id": 27,
+   "marker": "27",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 40,
+   "para_id": 9,
+   "bib_id": 27,
+   "marker": "27",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 41,
+   "para_id": 10,
+   "bib_id": 27,
+   "marker": "27",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 42,
+   "para_id": 11,
+   "bib_id": 12,
+   "marker": "12",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 43,
+   "para_id": 11,
+   "bib_id": 15,
+   "marker": "15",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 44,
+   "para_id": 11,
+   "bib_id": 16,
+   "marker": "16",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 45,
+   "para_id": 12,
+   "bib_id": 27,
+   "marker": "27",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 46,
+   "para_id": 12,
+   "bib_id": 29,
+   "marker": "29",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 47,
+   "para_id": 13,
+   "bib_id": 30,
+   "marker": "30",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 48,
+   "para_id": 13,
+   "bib_id": 31,
+   "marker": "30–33",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 49,
+   "para_id": 13,
+   "bib_id": 32,
+   "marker": "30–33",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 50,
+   "para_id": 13,
+   "bib_id": 33,
+   "marker": "33",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 51,
+   "para_id": 14,
+   "bib_id": 34,
+   "marker": "34",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 52,
+   "para_id": 14,
+   "bib_id": 35,
+   "marker": "35",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 53,
+   "para_id": 14,
+   "bib_id": 36,
+   "marker": "36",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 54,
+   "para_id": 14,
+   "bib_id": 37,
+   "marker": "36–39",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 55,
+   "para_id": 14,
+   "bib_id": 38,
+   "marker": "36–39",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 56,
+   "para_id": 14,
+   "bib_id": 39,
+   "marker": "39",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 57,
+   "para_id": 14,
+   "bib_id": 34,
+   "marker": "34",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 58,
+   "para_id": 15,
+   "bib_id": 40,
+   "marker": "40",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 59,
+   "para_id": 15,
+   "bib_id": 41,
+   "marker": "41",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 60,
+   "para_id": 16,
+   "bib_id": 42,
+   "marker": "42",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 61,
+   "para_id": 17,
+   "bib_id": 43,
+   "marker": "43",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 62,
+   "para_id": 17,
+   "bib_id": 44,
+   "marker": "43–45",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 63,
+   "para_id": 17,
+   "bib_id": 45,
+   "marker": "45",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 64,
+   "para_id": 18,
+   "bib_id": 46,
+   "marker": "46",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 65,
+   "para_id": 18,
+   "bib_id": 47,
+   "marker": "47",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 66,
+   "para_id": 19,
+   "bib_id": 48,
+   "marker": "48",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 67,
+   "para_id": 19,
+   "bib_id": 49,
+   "marker": "48–53",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 68,
+   "para_id": 19,
+   "bib_id": 50,
+   "marker": "48–53",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 69,
+   "para_id": 19,
+   "bib_id": 51,
+   "marker": "48–53",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 70,
+   "para_id": 19,
+   "bib_id": 52,
+   "marker": "48–53",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 71,
+   "para_id": 19,
+   "bib_id": 53,
+   "marker": "53",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 72,
+   "para_id": 20,
+   "bib_id": 54,
+   "marker": "54",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 73,
+   "para_id": 20,
+   "bib_id": 55,
+   "marker": "54–57",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 74,
+   "para_id": 20,
+   "bib_id": 56,
+   "marker": "54–57",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 75,
+   "para_id": 20,
+   "bib_id": 57,
+   "marker": "57",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 76,
+   "para_id": 21,
+   "bib_id": 58,
+   "marker": "58",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 77,
+   "para_id": 22,
+   "bib_id": 23,
+   "marker": "23",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 78,
+   "para_id": 22,
+   "bib_id": 59,
+   "marker": "59",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 79,
+   "para_id": 22,
+   "bib_id": 60,
+   "marker": "60",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 80,
+   "para_id": 22,
+   "bib_id": 24,
+   "marker": "24",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 81,
+   "para_id": 22,
+   "bib_id": 60,
+   "marker": "60",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 82,
+   "para_id": 22,
+   "bib_id": 23,
+   "marker": "23",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 83,
+   "para_id": 23,
+   "bib_id": 23,
+   "marker": "23",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 84,
+   "para_id": 23,
+   "bib_id": 61,
+   "marker": "61",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 85,
+   "para_id": 23,
+   "bib_id": 62,
+   "marker": "62",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 86,
+   "para_id": 24,
+   "bib_id": 24,
+   "marker": "24",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 87,
+   "para_id": 25,
+   "bib_id": 27,
+   "marker": "27",
+   "expanded": false,
+   "scored": true
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-ext-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "v1_bib_count": 62
+ }
+}

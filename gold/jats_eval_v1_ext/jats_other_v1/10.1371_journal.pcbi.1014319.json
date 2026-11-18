@@ -1,0 +1,560 @@
+{
+ "paper_id": "10.1371_journal.pcbi.1014319",
+ "paras": [
+  {
+   "para_id": 1,
+   "loc": "front",
+   "sec_title": "",
+   "text": "The computing code used to perform the analyses in this article is available at https://github.com/abbie-evans/korea-outbreak-risks. All code was written in Python v. 3.13.1.",
+   "printed": true
+  },
+  {
+   "para_id": 2,
+   "loc": "body",
+   "sec_title": "1 Introduction",
+   "text": "Population ageing is a defining demographic trend in many countries in the 21st century [1]. Falling fertility rates and increasing life expectancy have led to a rise in the median age in most countries, with a growing proportion of older adults and a shrinking proportion of younger individuals [2]. These demographic changes have wide-ranging implications for public health, including as a result of altered infectious disease dynamics. Transmission of many pathogens (e.g., SARS-CoV-2, influenza virus and respiratory syncytial virus) is driven by interactions between individuals. Since contact patterns vary with age [3], shifts in population age structures affect transmission dynamics. In addition, the impact of demographic change is further modulated by behavioural responses to varying population structures, as well as by age-specific biological characteristics that differ between pathogens (such as host susceptibility and infectiousness).",
+   "printed": true
+  },
+  {
+   "para_id": 3,
+   "loc": "body",
+   "sec_title": "1 Introduction",
+   "text": "Mathematical models provide a framework for analysing how demographic and epidemiological processes interact. Previous epidemiological modelling studies have incorporated demographic context, demonstrating that changes in age structure can influence pathogen transmission dynamics and the resulting disease burden of outbreaks. For example, Møgelmose et al. [4] used an individual-based model to investigate the influence of demographic change on transmission of SARS-CoV-2 and influenza virus in Belgium, demonstrating that ageing populations may experience smaller outbreaks that cause larger numbers of deaths. Similarly, Geard et al. [5] analysed the Australian population from 1910 to 2010, showing that demographic transitions modify infection dynamics and the impacts of vaccination programmes.",
+   "printed": true
+  },
+  {
+   "para_id": 4,
+   "loc": "body",
+   "sec_title": "1 Introduction",
+   "text": "Beyond disease burden, recent work has explored how population structures influence the risk that initial cases of disease in a host population lead to sustained local transmission, as opposed to an outbreak that fades out with few cases (Fig 1A). The “probability of a major outbreak” [6–8] has been estimated to quantify this risk, accounting for various types of population structure, including host populations stratified according to individuals’ immune status [9,10] or spatial location [11]. In the context of age-structured populations, Nishiura et al. [12] demonstrated that the probability of a major outbreak differs depending on whether the index case is a child or adult, reflecting different social activity levels between these population groups. Extending this, Lovell-Read et al. [13] presented a framework for quantifying the probability of a major outbreak in age-structured populations in the context of non-pharmaceutical interventions against COVID-19 in the UK. Their work highlighted the importance of differences in contact rates and infectivity patterns between age groups when assessing outbreak risks, and demonstrated that the effectiveness of interventions depends on the age groups that are targeted.",
+   "printed": true
+  },
+  {
+   "para_id": 5,
+   "loc": "fig",
+   "sec_title": "1 Introduction",
+   "text": "A. Schematic illustrating that, when an index case arrives in a host population, there are two possibilities for the outbreak that follows: either sustained transmission occurs (a major outbreak) or the outbreak fades out with few cases (a minor outbreak). B. The contact matrix in South Korea in 2020 (Cij(2020)), representing the expected daily number of unique contacts that an individual in the age group shown on the x-axis has with individuals in the age group shown on the y-axis. The graph shown on top represents the total expected daily number of unique contacts that an individual in the age group shown on the x-axis has (i.e., the sum down each column of the heatmap). C. Age distribution of the population of South Korea in 2000, 2025 and 2050, based on United Nations estimates in 2000 and 2025 and projections for 2050 [18]. The values at the top of this panel indicate the estimated total population sizes in those years.",
+   "printed": true
+  },
+  {
+   "para_id": 6,
+   "loc": "body",
+   "sec_title": "1 Introduction",
+   "text": "Despite increasing recognition that population structures influence outbreak risks, the effects of long-term demographic transitions and associated behavioural adaptations on these risks remain poorly understood. To address this gap, we develop an age-structured branching process transmission model and investigate how shifts in population age structure affect the probability of a major outbreak, considering pathogens with different age-specific patterns of susceptibility and infectiousness but comparable current transmission potential. As a case study, we focus on demographic changes in the Republic of Korea (hereafter, “South Korea”), which is one of the fastest ageing societies globally with fertility well below replacement and life expectancy continuing to rise [14,15]. Our aim is not to generate precise country-specific projections of the probability of a major outbreak, but rather to use South Korea as an illustrative example to explore how demographic shifts associated with population ageing may qualitatively affect the probability of a major outbreak going forwards. We compare projections of the probability of a major outbreak in South Korea with analogous projections in the context of Nigeria; the latter was chosen as an illustrative example of a contrasting location where the population is generally younger and the current age structure is expected to remain similar in future. We further consider a scenario involving a behavioural response to population ageing; specifically, the extension of workforce participation to older adults. This reflects the possibility that individuals may live longer, healthier lives and remain socially and economically active. Through this approach, we explore how the interplay between population ageing and socio-behavioural adaptation affects the probability of a major outbreak, providing insights into future outbreak risks in a changing demographic landscape.",
+   "printed": true
+  },
+  {
+   "para_id": 7,
+   "loc": "body",
+   "sec_title": "2.1 Mathematical model",
+   "text": "We consider a population stratified into five-year age groups, with individuals aged 75 and over combined into a single age group. Hence, there are 16 age groups in total, made up of individuals aged 0–4, 5–9, and so on, up to 70–74, and 75 and over. Based on contact patterns in the year y, the expected number of infections in age group j generated by a single infected individual in age group i is βij(y)=βCij(y)σjτi, where Cij(y) is the expected daily number of contacts that a single individual in age group i has with individuals in age group j (i.e., the relevant entry of the contact matrix in year y), σj reflects the susceptibility to infection of susceptible individuals in age group j and τi reflects the infectiousness of infected individuals in age group i. The basic reproduction number in the year y, R0(y), is the largest eigenvalue of the next generation matrix that has entries βij(y) [16]. The parameter β (which is a composite parameter reflecting factors such as the probability of transmission per contact and the expected infectious period duration) determines the overall transmissibility of the pathogen, and is chosen to set a specified value of R0(2025) (see below).",
+   "printed": false
+  },
+  {
+   "para_id": 8,
+   "loc": "body",
+   "sec_title": "2.1 Mathematical model",
+   "text": "To calculate the probability of a major outbreak in the year y, we follow the probability generating function method described by Southall et al. [6]. Specifically, we derive a system of non-linear simultaneous equations from which the probability of a major outbreak starting from a single infected individual in any given age group can be calculated, as explained below.",
+   "printed": true
+  },
+  {
+   "para_id": 9,
+   "loc": "body",
+   "sec_title": "2.1 Mathematical model",
+   "text": "This equation holds for i=1,2,...,16, giving a system of 16 equations that can be solved simultaneously using a numerical solver (in our analyses, we use the fsolve method from the scipy.optimize library in Python). The probability that a major outbreak does not occur starting from a single infected individual in age group i is the minimum non-negative solution for qi(y) [6], and the probability of a major outbreak starting from a single infected individual in age group i is then pi(y)=1−qi(y).",
+   "printed": true
+  },
+  {
+   "para_id": 10,
+   "loc": "body",
+   "sec_title": "2.1 Mathematical model",
+   "text": "In all of our analyses, except where stated, we assume that k = 1 so that the number of infections generated by a single infected individual follows a geometric distribution. However, we also investigate the robustness of our results to this choice, including considering scenarios in which k < 1 (which is representative of substantial super-spreading [10,17]).",
+   "printed": true
+  },
+  {
+   "para_id": 11,
+   "loc": "body",
+   "sec_title": "2.2.1 Demographic parameters.",
+   "text": "The number of individuals in age group i in year y, Ni(y), is chosen according to United Nations age demographic estimates and future projections for South Korea [18]. The expected daily number of contacts that an individual in age group i has with individuals in age group j in the year y, Cij(y), is estimated as follows. First, we consider the pre-COVID contact matrix for South Korea estimated by Prem et al. [3] with entries Cij. We then apply a pairwise correction to that contact matrix so that the expected total number of daily contacts that all individuals in age group i have with individuals in age group j is equal to the expected total number of daily contacts that all individuals in age group j have with individuals in age group i, as must be the case in reality [19]. We assume that the resulting contact matrix represents contact patterns in 2020 (given that the source data [3] correspond to the beginning of 2020, we assume that the contact patterns had not yet been affected by the COVID-19 pandemic). We therefore set",
+   "printed": true
+  },
+  {
+   "para_id": 12,
+   "loc": "body",
+   "sec_title": "2.2.1 Demographic parameters.",
+   "text": "In order to evaluate the probability of a major outbreak in different years, we first estimate the contact matrix in year y (where we consider estimates for y = {2000, 2025, 2050}). To do this, we consider two alternative contact matrix projection methods (and we use the first of these methods throughout except where stated). The first method is the commonly applied density correction method [19–24]. This method preserves assortativity (i.e., the relative preference of individuals in age group i for contacts with individuals in age group j compared to that expected under homogeneous mixing between individuals) and adjusts the contact matrix based on the ratio of the projected population density of individuals in the contact age group in year y and the density of individuals in the contact age group in the reference year (2020),",
+   "printed": true
+  },
+  {
+   "para_id": 13,
+   "loc": "body",
+   "sec_title": "2.2.2 Transmission parameters.",
+   "text": "Linearly increasing. Susceptibility or infectiousness is assumed to increase linearly with age. Such a scenario is consistent with observations early in the COVID-19 pandemic that fewer cases were occurring among children than adults [25].",
+   "printed": true
+  },
+  {
+   "para_id": 14,
+   "loc": "body",
+   "sec_title": "2.2.2 Transmission parameters.",
+   "text": "Linearly decreasing. Susceptibility or infectiousness is assumed to decrease linearly with age, so that a disproportionate number of infections occur in younger age groups. This is representative of outbreak scenarios in which older cohorts have acquired partial immunity through prior exposure, as estimated during the 2009 influenza A (H1N1) pandemic [26].",
+   "printed": true
+  },
+  {
+   "para_id": 15,
+   "loc": "body",
+   "sec_title": "2.2.2 Transmission parameters.",
+   "text": "U-shaped. Both the youngest and oldest age groups are assumed to have elevated susceptibility or infectiousness, as seen for pathogens such as respiratory syncytial virus [27].",
+   "printed": true
+  },
+  {
+   "para_id": 16,
+   "loc": "body",
+   "sec_title": "2.3 Behavioural responses to demographic changes",
+   "text": "To analyse the effect of this possible behavioural response on the probability of a major outbreak, we model a scenario in which the retirement age increases from 60 in 2025 [28] to 75 in 2050. This adjustment is implemented in the contact matrix in 2050 by scaling entries corresponding to the expected daily number of contacts between an individual aged 60–74 and individuals aged 20–59, and entries corresponding to the expected daily number of contacts between an individual aged 20–59 and individuals aged 60–74. Specifically, these entries are scaled by multiplicative factor ν, yielding an increase in mixing between individuals aged 60–74 and individuals who are currently of working age. We set ν to be the ratio of the expected total daily number of contacts made by an individual aged 45–59 with individuals aged 20–59 in 2050 to the expected total daily number of contacts made by an individual aged 60–74 with individuals aged 20–59 in 2050 (before the retirement age adjustment is applied). This ensures that, after scaling, individuals aged 60–74 have similar numbers of contacts to those aged 45–59 in 2050.",
+   "printed": true
+  },
+  {
+   "para_id": 17,
+   "loc": "body",
+   "sec_title": "2.4 Cross-country comparison",
+   "text": "While our main focus in this article is demographic change in a country such as South Korea with an ageing population, we also generate analogous results under a contrasting demographic scenario. Specifically, we consider population age structure projections for Nigeria, which is a country with a younger population and an age structure that is projected to remain roughly stable in future. To analyse outbreak risks in 2000, 2025 and 2050 in that context, we apply the same methods as described above, but using United Nations age-specific population estimates and future projections for Nigeria [18], as well as the country-specific contact matrix for Nigeria in 2020 from the study by Prem et al. [3]. The impact of behavioural responses is not assessed in a Nigerian context, as its expected demographic stability (with a relatively high proportion of younger individuals) is likely to preclude the need to account for adaptations specific to an ageing society.",
+   "printed": true
+  },
+  {
+   "para_id": 18,
+   "loc": "fig",
+   "sec_title": "3.4 Cross-country comparison",
+   "text": "A. Age distribution of the population of Nigeria in 2000, 2025 and 2050, based on United Nations estimates in 2000 and 2025 and projections for 2050 [18]. The values at the top of this panel indicate the estimated total population sizes in those years. B. The probability of a major outbreak starting from a single infected individual in the specified age group (orange bars) in the year 2000. The population average probability of a major outbreak (black) and the contact-weighted average probability of a major outbreak (red dashed) are also shown. C. Analogous figure to panel B, but for 2025. D. Analogous figure to panel B, but for 2050.",
+   "printed": true
+  },
+  {
+   "para_id": 19,
+   "loc": "body",
+   "sec_title": "4 Discussion",
+   "text": "Emerging and re-emerging pathogens pose a substantial threat to public health [29]. Understanding the circumstances in which pathogen introductions are likely to initiate sustained local transmission remains a fundamental challenge [30–32]. In this study, we used an age-structured branching process model to quantify how transmission risks are affected by the interactions between shifting demographics, pathogen characteristics and socio-behavioural adaptation in evolving societal landscapes.",
+   "printed": true
+  },
+  {
+   "para_id": 20,
+   "loc": "body",
+   "sec_title": "4 Discussion",
+   "text": "It should be noted that a reduction in the probability of a major outbreak does not necessarily translate into lower disease burden if an outbreak occurs. If the risk of severe outcomes associated with infection increases with age, as observed during the COVID-19 pandemic [33], demographic transitions towards older populations may lead to less frequent and smaller, but potentially more severe, outbreaks (e.g., outbreaks with larger numbers of hospitalisations and deaths). This may require ageing societies to prioritise enhancing healthcare capacity to manage the high burden associated with outbreaks, as well as the development and deployment of vaccines and other pharmaceutical interventions to reduce the prevalence of severe infection outcomes. Consequently, from a public health policy perspective, potentially reduced outbreak risks due to ageing populations should not lead to complacency, as they may coincide with increased vulnerability to healthcare system strain when major outbreaks occur. We note that a similar result has previously been observed in the context of outbreaks with substantial transmission heterogeneity between individuals (super-spreading); this phenomenon leads to less frequent but more explosive outbreaks [17].",
+   "printed": true
+  }
+ ],
+ "links": [
+  {
+   "link_id": 1,
+   "url": "github.com/abbie-evans/korea-outbreak-risks",
+   "url_raw": "https://github.com/abbie-evans/korea-outbreak-risks",
+   "href_jats": "https://github.com/abbie-evans/korea-outbreak-risks",
+   "repo_key": "github:abbie-evans/korea-outbreak-risks",
+   "host_class": "github",
+   "loc": "front",
+   "sec_title": "",
+   "source": "tagged",
+   "para_id": 1
+  }
+ ],
+ "links_optional": [
+  "creativecommons.org/licenses/by/4.0",
+  "doi:10.1007/bf00178324",
+  "doi:10.1007/s11538-013-9848-z",
+  "doi:10.1007/s40980-020-00061-8",
+  "doi:10.1016/j.epidem.2011.11.001",
+  "doi:10.1016/j.epidem.2015.08.002",
+  "doi:10.1016/j.epidem.2021.100516",
+  "doi:10.1016/j.jtbi.2021.110983",
+  "doi:10.1016/j.jtbi.2023.111417",
+  "doi:10.1016/s0140-6736(09)61460-4",
+  "doi:10.1038/nature02759",
+  "doi:10.1038/nature04153",
+  "doi:10.1038/s41467-023-43002-x",
+  "doi:10.1038/s41467-025-63375-5",
+  "doi:10.1038/s41591-020-0962-9",
+  "doi:10.1073/pnas.1522597113",
+  "doi:10.1080/03601277.2024.2370190",
+  "doi:10.1098/rsif.2024.0765",
+  "doi:10.1098/rsos.240550",
+  "doi:10.1111/j.1728-4457.2012.00490.x",
+  "doi:10.1136/bmjgh-2021-006434",
+  "doi:10.1155/2011/194507",
+  "doi:10.1186/s12879-023-08657-3",
+  "doi:10.1186/s13362-024-00162-9",
+  "doi:10.1371/journal.pcbi.1004836",
+  "doi:10.1371/journal.pcbi.1006638",
+  "doi:10.1371/journal.pcbi.1009098",
+  "doi:10.1371/journal.pcbi.1010002",
+  "doi:10.1371/journal.pcbi.1012364",
+  "doi:10.1371/journal.pone.0057878",
+  "doi:10.3389/fimmu.2022.1049458",
+  "doi:10.3390/v12070708",
+  "editorialmanager.com/pcompbiol",
+  "explore.plos.org/phishing",
+  "journals.plos.org/ploscompbiol/s/editorial-and-peer-review-process",
+  "journals.plos.org/ploscompbiol/s/figures",
+  "journals.plos.org/ploscompbiol/s/materials-and-software-sharing",
+  "plos.org/privacy-policy",
+  "population.un.org/wpp"
+ ],
+ "own_doi": "doi:10.1371/journal.pcbi.1014319",
+ "citations": [
+  {
+   "cite_id": 1,
+   "para_id": 2,
+   "bib_id": 1,
+   "marker": "1",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 2,
+   "para_id": 2,
+   "bib_id": 2,
+   "marker": "2",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 3,
+   "para_id": 2,
+   "bib_id": 3,
+   "marker": "3",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 4,
+   "para_id": 3,
+   "bib_id": 4,
+   "marker": "4",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 5,
+   "para_id": 3,
+   "bib_id": 5,
+   "marker": "5",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 6,
+   "para_id": 4,
+   "bib_id": 6,
+   "marker": "6",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 7,
+   "para_id": 4,
+   "bib_id": 7,
+   "marker": "6–8",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 8,
+   "para_id": 4,
+   "bib_id": 8,
+   "marker": "8",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 9,
+   "para_id": 4,
+   "bib_id": 9,
+   "marker": "9",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 10,
+   "para_id": 4,
+   "bib_id": 10,
+   "marker": "10",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 11,
+   "para_id": 4,
+   "bib_id": 11,
+   "marker": "11",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 12,
+   "para_id": 4,
+   "bib_id": 12,
+   "marker": "12",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 13,
+   "para_id": 4,
+   "bib_id": 13,
+   "marker": "13",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 14,
+   "para_id": 5,
+   "bib_id": 18,
+   "marker": "18",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 15,
+   "para_id": 6,
+   "bib_id": 14,
+   "marker": "14",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 16,
+   "para_id": 6,
+   "bib_id": 15,
+   "marker": "15",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 17,
+   "para_id": 7,
+   "bib_id": 16,
+   "marker": "16",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 18,
+   "para_id": 8,
+   "bib_id": 6,
+   "marker": "6",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 19,
+   "para_id": 9,
+   "bib_id": 6,
+   "marker": "6",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 20,
+   "para_id": 10,
+   "bib_id": 10,
+   "marker": "10",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 21,
+   "para_id": 10,
+   "bib_id": 17,
+   "marker": "17",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 22,
+   "para_id": 11,
+   "bib_id": 18,
+   "marker": "18",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 23,
+   "para_id": 11,
+   "bib_id": 3,
+   "marker": "3",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 24,
+   "para_id": 11,
+   "bib_id": 19,
+   "marker": "19",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 25,
+   "para_id": 11,
+   "bib_id": 3,
+   "marker": "3",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 26,
+   "para_id": 12,
+   "bib_id": 19,
+   "marker": "19",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 27,
+   "para_id": 12,
+   "bib_id": 20,
+   "marker": "19–24",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 28,
+   "para_id": 12,
+   "bib_id": 21,
+   "marker": "19–24",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 29,
+   "para_id": 12,
+   "bib_id": 22,
+   "marker": "19–24",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 30,
+   "para_id": 12,
+   "bib_id": 23,
+   "marker": "19–24",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 31,
+   "para_id": 12,
+   "bib_id": 24,
+   "marker": "24",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 32,
+   "para_id": 13,
+   "bib_id": 25,
+   "marker": "25",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 33,
+   "para_id": 14,
+   "bib_id": 26,
+   "marker": "26",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 34,
+   "para_id": 15,
+   "bib_id": 27,
+   "marker": "27",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 35,
+   "para_id": 16,
+   "bib_id": 28,
+   "marker": "28",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 36,
+   "para_id": 17,
+   "bib_id": 18,
+   "marker": "18",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 37,
+   "para_id": 17,
+   "bib_id": 3,
+   "marker": "3",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 38,
+   "para_id": 18,
+   "bib_id": 18,
+   "marker": "18",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 39,
+   "para_id": 19,
+   "bib_id": 29,
+   "marker": "29",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 40,
+   "para_id": 19,
+   "bib_id": 30,
+   "marker": "30",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 41,
+   "para_id": 19,
+   "bib_id": 31,
+   "marker": "30–32",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 42,
+   "para_id": 19,
+   "bib_id": 32,
+   "marker": "32",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 43,
+   "para_id": 20,
+   "bib_id": 33,
+   "marker": "33",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 44,
+   "para_id": 20,
+   "bib_id": 17,
+   "marker": "17",
+   "expanded": false,
+   "scored": true
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-ext-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "v1_bib_count": 33
+ }
+}

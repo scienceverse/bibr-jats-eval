@@ -1,0 +1,437 @@
+{
+ "paper_id": "10.1186_s40359-026-05332-5",
+ "paras": [
+  {
+   "para_id": 1,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Depression ranks among the leading causes of disability worldwide, imposing a burden that rivals cardiovascular disease and cancer in years of productive life lost [1]. Among young adults, the transition from late adolescence to early adulthood coincides with elevated vulnerability: identity formation, the onset of serious romantic relationships, and the assumption of adult economic responsibilities converge at a life stage when psychiatric illness incidence peaks. University students occupy a particularly precarious position within this window. Meta-analytic evidence places the global prevalence of depressive symptoms among university students between 20% and 35%, depending on measurement instrument, diagnostic threshold, and regional setting [1, 2]. Medical students appear especially at risk. Rotenstein and colleagues’ landmark JAMA synthesis of 195 studies documented a depression prevalence of 27.2% among medical trainees globally, markedly exceeding rates in the general population and in age-matched peers [2]; a subsequent meta-analysis of anxiety in medical students reported similarly elevated rates, reinforcing the pattern [3]. The stressors are distinctive: prolonged contact with human suffering, the moral demands of clinical decision-making, exposure to death and dying, and the relentlessly competitive structure of medical education compound the ordinary developmental pressures of young adulthood [4, 5].",
+   "printed": true
+  },
+  {
+   "para_id": 2,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Yet the assumption that medical students uniformly experience worse mental health outcomes than their non-medical counterparts has not held up under scrutiny. Some studies report comparable or even higher symptom levels among students enrolled in engineering, business, and humanities programmes [6, 7]. The divergence is not surprising. Non-medical students face a qualitatively different but equally taxing constellation of stressors: anxiety about post-graduation underemployment, financial strain without the prospect of the relatively secure career trajectory that medical training affords, and in many settings, reduced access to campus-based mental health services. The problem of mixed findings is compounded by limited evidence from South Asia, where sociocultural context, family expectations, and academic pressure structures differ substantially from Western settings. In Pakistan specifically, a recent meta-analysis estimated depression prevalence among students at approximately 51%, with female students and those in clinical years reporting the highest symptom severity [8]. High depression rates have also been documented among Pakistani university students more broadly [1] and among secondary school populations [9], with depression linked to health-risk behaviours including physical inactivity and social isolation [10]. Critically, however, most of these studies have examined medical students in isolation or sampled from a single institution, making robust cross-disciplinary comparisons virtually absent from the Pakistani literature. Regional work from neighbouring South Asian countries has called attention to the need for context-specific mental health screening in academic settings, noting that Western-derived instruments may function differently when exported to culturally distinct student populations [11, 12]. This matters. If depression etiology and symptom expression differ between medical and non-medical trainees as their divergent stressor profiles would suggest then discipline-blind screening and uniform intervention protocols may misallocate scarce mental health resources. Without direct comparisons grounded in the local context, Pakistani universities risk deploying one-size-fits-all mental health policies that miss the specific needs of large student populations.",
+   "printed": true
+  },
+  {
+   "para_id": 3,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Accurate screening sits at the foundation of any intervention. The Patient Health Questionnaire-9 (PHQ-9) and the Depression Anxiety Stress Scales-21 (DASS-21) are the two most widely administered self-report instruments in student mental health research globally, and both have been used in Pakistani samples [13, 14]. The PHQ-9 maps directly onto the nine diagnostic criteria of DSM-5 major depressive disorder, and its ninth item assessing thoughts of self-harm or suicidality performs a function that shorter variants (PHQ-8, PHQ-4, PHQ-2) cannot replicate. This item has particular relevance in South Asian student populations, where suicide rates among young adults are disproportionately high and stigma around help-seeking often delays disclosure. The PHQ-9 also assesses sleep disturbance, a symptom dimension not captured by the DASS-21 depression subscale, which draws its items from a dimensional model of psychological distress rather than diagnostic criteria [14]. The DASS-21, for its part, offers the advantage of simultaneous anxiety and stress measurement alongside depression, permitting examination of comorbidity patterns that single-domain instruments miss. The two scales overlap in their depression content but diverge in their theoretical grounding, item content, and intended clinical use. Administering them concurrently rather than selecting one instrument in isolation creates an opportunity to examine item-level correspondence, differential symptom coverage, and cross-scale symptom networks that no prior Pakistani study has attempted.",
+   "printed": true
+  },
+  {
+   "para_id": 4,
+   "loc": "body",
+   "sec_title": "Confirmatory factor analysis (CFA)",
+   "text": "The three-factor structure of the DASS-21 (Depression, Anxiety, Stress) was tested using the lavaan package [15] with robust maximum likelihood estimation (MLR) and Satorra–Bentler scaled test statistics. Model fit was evaluated using the robust Comparative Fit Index (CFI), robust Tucker–Lewis Index (TLI), robust Root Mean Square Error of Approximation (RMSEA) with 90% confidence intervals, and the Standardized Root Mean Square Residual (SRMR). Thresholds for adequate fit were CFI/TLI ≥ 0.90, RMSEA ≤ 0.08, and SRMR ≤ 0.08; good fit was defined as CFI/TLI ≥ 0.95 and RMSEA ≤ 0.06.",
+   "printed": true
+  },
+  {
+   "para_id": 5,
+   "loc": "body",
+   "sec_title": "Item response theory (IRT)",
+   "text": "A graded response model was fitted to the nine PHQ-9 items [16] using the mirt package to estimate discrimination (a) and threshold (b1, b2, b3) parameters for each item. Item information curves were plotted to visualise the contribution of each item across the latent depression continuum. Model fit was assessed using the M2 statistic and associated RMSEA. Item characteristic curves for selected items are presented in the main text; complete IRT output is provided as supplementary material.",
+   "printed": true
+  },
+  {
+   "para_id": 6,
+   "loc": "body",
+   "sec_title": "Symptom network analysis",
+   "text": "A Gaussian graphical model of the pooled PHQ-9 and DASS-21 items (30 nodes total) was estimated using the qgraph package [17] with the graphical lasso (glasso) regularisation algorithm and extended Bayesian information criterion (EBIC) for model selection (γ = 0.5). Edge weights represent zero-order partial correlations controlling for all other nodes in the network. Network structure was visualised using a spring layout. To assess network robustness, the goldbricker function from the networktools package was applied to identify redundant item pairs (correlation > 0.50); no redundant pairs were detected. Centrality indicesstrength, betweenness, and closenesswere computed for all nodes and ordered by magnitude to identify the most structurally influential symptoms. Network stability was evaluated via bootstrapped edge weights (nBoots = 300) and case-dropping bootstrap for correlation stability coefficients; stability was deemed adequate if the correlation stability coefficient exceeded 0.25.",
+   "printed": true
+  },
+  {
+   "para_id": 7,
+   "loc": "body",
+   "sec_title": "Gender and sleep as correlates of depression",
+   "text": "Female students scored higher across all domains. This replicates a robust cross-national pattern: meta-analytic evidence from representative samples confirms a consistent female-male gap in depressive symptoms beginning in adolescence and persisting through midlife [10]. The magnitude here (β ≈ 1.7–2.2) is somewhat smaller than estimates from some Western samples, possibly reflecting cultural variation in symptom reporting or gendered help-seeking patterns in Pakistan. The consistency of the effect across depression, anxiety, and stress not its magnitude is what matters for practice: it supports targeted prevention and early outreach toward female students regardless of discipline.",
+   "printed": true
+  },
+  {
+   "para_id": 8,
+   "loc": "body",
+   "sec_title": "Gender and sleep as correlates of depression",
+   "text": "Each additional hour of sleep was associated with a 0.37-point reduction in PHQ-9 score. A three-hour sleep difference maps onto roughly one severity category shift clinically meaningful at the population level. Cohort meta-analyses linking short sleep to incident depression support the plausibility of a directional effect [18, 19]. Reverse causation is equally plausible: depression fragments sleep architecture and prolongs sleep onset latency. The relationship is almost certainly bidirectional, and cross-sectional data cannot adjudicate directionality. Sleep duration nonetheless represents a modifiable, low-risk target hygiene programmes, scheduling adjustments during examination periods, and targeted outreach carry minimal downside and align with a growing evidence base for sleep-focused prevention [18, 19].",
+   "printed": true
+  },
+  {
+   "para_id": 9,
+   "loc": "body",
+   "sec_title": "Psychometric properties of the PHQ-9 and DASS-21",
+   "text": "The PHQ-9 demonstrated acceptable internal consistency (α = 0.823), though this falls at the lower end of typical validation reports, where α commonly ranges from 0.86 to 0.89 [13, 20]. Whether this reflects genuine cultural variation in item interpretation for instance, differential attribution of somatic symptoms to physical illness versus depression or stems from sampling characteristics cannot be determined here. The instrument nonetheless supported valid group comparisons, and its brevity and DSM-concordant structure remain pragmatic advantages.",
+   "printed": true
+  },
+  {
+   "para_id": 10,
+   "loc": "body",
+   "sec_title": "Psychometric properties of the PHQ-9 and DASS-21",
+   "text": "IRT analysis revealed marked heterogeneity in item discrimination. Self-worth, concentration difficulties, low mood, and appetite disturbance items showed the highest discrimination (a = 1.783–1.991), indicating these symptoms carry the most measurement information across the latent depression continuum. This aligns with prior graded response model studies showing cognitive and self-critical symptoms as the most informative indicators of depression severity [13, 21]. By contrast, the interest item (anhedonia) discriminated poorly (a = 0.468). Anhedonia may function differently in South Asian student populations, where reduced interest in activities can be attributed to contextual pressures examination schedules, family obligations, economic constraints rather than to depression per se [20]. Screening protocols that weight anhedonia heavily may underdetect cases in this population. Two items self-worth and self-harm showed statistically significant misfit under the GRM (both S-X² p < 0.05), likely reflecting their severe symptom content and floor effects in a non-clinical sample. This pattern is consistent with prior IRT studies of the PHQ-9 in analogue populations, where severe items often show poorer fit due to sparse endorsement at the highest response categories. The misfit does not invalidate the scale but suggests that brief screeners relying heavily on these items may perform less reliably at the severe end of the continuum in student samples.",
+   "printed": true
+  },
+  {
+   "para_id": 11,
+   "loc": "body",
+   "sec_title": "Psychometric properties of the PHQ-9 and DASS-21",
+   "text": "The DASS-21 three-factor model achieved acceptable fit (CFI = 0.954; TLI = 0.948; RMSEA = 0.052), consistent with prior validations across diverse cultures [20, 22, 23]. However, the latent correlations demand scrutiny. Depression-Stress r = 0.939 and Anxiety-Stress r = 0.949 values approaching the reliability ceilings of the subscales. At this magnitude, the factors are not empirically distinguishable; a subscale cannot claim to measure a distinct construct when it shares over 88% of true-score variance with another. This pattern is consistent with validation studies in diverse cultural settings that have reported acceptable fit for bifactor and higher-order alternatives alongside the standard correlated-factors model [20, 22, 23], and it raises practical questions about whether the three DASS-21 subscales should be interpreted separately in Pakistani student samples. Researchers in this context should consider reporting a total score alongside subscales, or fitting a bifactor model to partition general distress from domain-specific variance. Against this backdrop, measurement invariance across academic discipline represents a genuine contribution: it supports valid comparison of medical and non-medical students on the DASS-21, even if the meaning of the subscale scores warrants cautious interpretation.",
+   "printed": true
+  },
+  {
+   "para_id": 12,
+   "loc": "body",
+   "sec_title": "Symptom network structure",
+   "text": "Network analysis complemented the factor-analytic and IRT findings by identifying which symptoms occupy structurally central positions. Self-worth, concentration, and downheartedness showed the highest strength centrality, while self-worth, meaninglessness, and sleep problems exhibited the greatest betweenness serving as bridges across symptom domains. This supports the “centrality of cognitive symptoms” hypothesis that has emerged across multiple network studies of depression [24, 25]. Somatic items sleep, appetite, energy connected the mood/cognitive cluster with anxiety and stress, consistent with theoretical models positioning somatic symptoms as the interface between psychological distress and physiological dysregulation. Interest remained peripheral, suggesting anhedonia may operate as a downstream consequence rather than a core driver.",
+   "printed": true
+  }
+ ],
+ "links": [],
+ "links_optional": [
+  "creativecommons.org/licenses/by/4.0",
+  "doi:10.1001/jama.2016.17324",
+  "doi:10.1002/da.22386",
+  "doi:10.1002/jclp.21908",
+  "doi:10.1007/s00127-016-1319-z",
+  "doi:10.1016/0005-7967(94)00075-u",
+  "doi:10.1016/j.jad.2020.07.135",
+  "doi:10.1016/j.jadohealth.2009.06.016",
+  "doi:10.1016/j.jpsychires.2012.11.015",
+  "doi:10.1017/gmh.2025.10125",
+  "doi:10.1037/bul0000102",
+  "doi:10.1046/j.1525-1497.2001.016009606.x",
+  "doi:10.1111/medu.12962",
+  "doi:10.1186/s12909-016-0794-y",
+  "doi:10.1186/s40359-026-05332-5",
+  "doi:10.12669/pjms.38.4.5093",
+  "doi:10.1348/014466505x29657",
+  "doi:10.18637/jss.v048.i02",
+  "doi:10.18637/jss.v048.i04",
+  "doi:10.18637/jss.v048.i06",
+  "doi:10.3389/fpsyt.2021.770532",
+  "doi:10.3390/ijerph16152735",
+  "doi:10.3758/s13428-017-0862-1",
+  "doi:10.4065/80.12.1613",
+  "doi:10.7759/cureus.4257"
+ ],
+ "own_doi": "doi:10.1186/s40359-026-05332-5",
+ "citations": [
+  {
+   "cite_id": 1,
+   "para_id": 1,
+   "bib_id": 1,
+   "marker": "1",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 2,
+   "para_id": 1,
+   "bib_id": 1,
+   "marker": "1",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 3,
+   "para_id": 1,
+   "bib_id": 2,
+   "marker": "2",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 4,
+   "para_id": 1,
+   "bib_id": 2,
+   "marker": "2",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 5,
+   "para_id": 1,
+   "bib_id": 3,
+   "marker": "3",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 6,
+   "para_id": 1,
+   "bib_id": 4,
+   "marker": "4",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 7,
+   "para_id": 1,
+   "bib_id": 5,
+   "marker": "5",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 8,
+   "para_id": 2,
+   "bib_id": 6,
+   "marker": "6",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 9,
+   "para_id": 2,
+   "bib_id": 7,
+   "marker": "7",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 10,
+   "para_id": 2,
+   "bib_id": 8,
+   "marker": "8",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 11,
+   "para_id": 2,
+   "bib_id": 1,
+   "marker": "1",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 12,
+   "para_id": 2,
+   "bib_id": 9,
+   "marker": "9",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 13,
+   "para_id": 2,
+   "bib_id": 10,
+   "marker": "10",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 14,
+   "para_id": 2,
+   "bib_id": 11,
+   "marker": "11",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 15,
+   "para_id": 2,
+   "bib_id": 12,
+   "marker": "12",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 16,
+   "para_id": 3,
+   "bib_id": 13,
+   "marker": "13",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 17,
+   "para_id": 3,
+   "bib_id": 14,
+   "marker": "14",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 18,
+   "para_id": 3,
+   "bib_id": 14,
+   "marker": "14",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 19,
+   "para_id": 4,
+   "bib_id": 15,
+   "marker": "15",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 20,
+   "para_id": 5,
+   "bib_id": 16,
+   "marker": "16",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 21,
+   "para_id": 6,
+   "bib_id": 17,
+   "marker": "17",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 22,
+   "para_id": 7,
+   "bib_id": 10,
+   "marker": "10",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 23,
+   "para_id": 8,
+   "bib_id": 18,
+   "marker": "18",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 24,
+   "para_id": 8,
+   "bib_id": 19,
+   "marker": "19",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 25,
+   "para_id": 8,
+   "bib_id": 18,
+   "marker": "18",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 26,
+   "para_id": 8,
+   "bib_id": 19,
+   "marker": "19",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 27,
+   "para_id": 9,
+   "bib_id": 13,
+   "marker": "13",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 28,
+   "para_id": 9,
+   "bib_id": 20,
+   "marker": "20",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 29,
+   "para_id": 10,
+   "bib_id": 13,
+   "marker": "13",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 30,
+   "para_id": 10,
+   "bib_id": 21,
+   "marker": "21",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 31,
+   "para_id": 10,
+   "bib_id": 20,
+   "marker": "20",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 32,
+   "para_id": 11,
+   "bib_id": 20,
+   "marker": "20",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 33,
+   "para_id": 11,
+   "bib_id": 22,
+   "marker": "22",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 34,
+   "para_id": 11,
+   "bib_id": 23,
+   "marker": "23",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 35,
+   "para_id": 11,
+   "bib_id": 20,
+   "marker": "20",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 36,
+   "para_id": 11,
+   "bib_id": 22,
+   "marker": "22",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 37,
+   "para_id": 11,
+   "bib_id": 23,
+   "marker": "23",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 38,
+   "para_id": 12,
+   "bib_id": 24,
+   "marker": "24",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 39,
+   "para_id": 12,
+   "bib_id": 25,
+   "marker": "25",
+   "expanded": false,
+   "scored": true
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-ext-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "v1_bib_count": 25
+ }
+}

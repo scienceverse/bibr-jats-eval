@@ -1,0 +1,902 @@
+{
+ "paper_id": "10.1017_s0033291726105042",
+ "paras": [
+  {
+   "para_id": 1,
+   "loc": "back",
+   "sec_title": "Data availability statement",
+   "text": "This study used publicly archived secondary data. CHARLS data are available from the Peking University CHARLS data portal (http://charls.pku.edu.cn) subject to a data-use agreement; HRS data from the University of Michigan Health and Retirement Study (https://hrs.isr.umich.edu) under their conditions of use; and ELSA data from the UK Data Service (https://www.elsa-project.ac.uk). Analysis code and processed datasets are available from the corresponding author upon reasonable request.",
+   "printed": true
+  },
+  {
+   "para_id": 2,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Depression in later life is a major source of suffering and excess disability, with pooled population-based surveys placing the prevalence of clinically significant depressive symptoms at approximately 35.1% (95% CI 30.2%–40.4%) among community-dwelling adults aged 60 years and older (Cai et al., 2023). The Global Burden of Disease Study 2021 documented a substantial and rising global burden of late-life depression, with marked inequities across countries and sociodemographic strata and a heavier burden in women than in men (Sun et al., 2025), and the broader 2019 study reported a global rise in mental disorder disability‑adjusted life years (DALYs) from 80.8 million in 1990 to 125.3 million in 2019 (GBD, 2022 Mental Disorders Collaborators, 2022). Late-life depression is closely associated with functional decline, social withdrawal, and elevated mortality. Although it has historically been studied as an individual-level disorder, depressive symptoms in older adults are deeply embedded in the marital relationship. Married and cohabiting partners show systematic similarities in depressive symptoms, a phenomenon termed spousal concordance (Meyler, Stimpson, & Peek, 2007), and recent large-scale evidence indicates that having a depressed partner substantially elevates an older adult’s own risk of depression (Han et al., 2023). These observations have motivated growing interest in late-life depression as a fundamentally dyadic phenomenon (Kiecolt-Glaser & Wilson, 2017).",
+   "printed": true
+  },
+  {
+   "para_id": 3,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Three mechanisms have been proposed to account for spousal concordance in depressive symptoms: assortative mating on shared dispositional and socioeconomic characteristics (Horwitz, Balbona, Paulich, & Keller, 2023); cumulative joint exposure to common environments and life stressors; and dynamic interpersonal influence on mood through empathy, daily interaction, and emotional contagion. A factor that operates within all three is physical functioning. At the individual level, depressive symptoms predict subsequent decline in activities of daily living (ADL) and instrumental ADL (IADL) (Penninx et al., 1998), and the reverse direction has been documented in large Chinese longitudinal cohorts (Liu et al., 2023; Zhou, Wang, & Ma, 2024; Zhu et al., 2024). Whether this individual-level bidirectional pattern persists in a dyadic specification that partials out stable between-couple similarity, however, remains to be tested. Within couples, one partner’s functional decline can also increase caregiving demands on the other, a mechanism formalized by the stress-process model as a contributor to elevated depressive symptoms in the caregiving spouse (Pearlin, Mullan, Semple, & Skaff, 1990).",
+   "printed": true
+  },
+  {
+   "para_id": 4,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "The magnitude of spousal interdependence may vary across cultural contexts. China, the United States, and England offer informative contrasts in family structure and caregiving norms: spouses are the principal caregivers of disabled older adults in the United States and Europe, whereas adult children continue to provide most long-term care in China (Pinquart & Sörensen, 2011). One of the few harmonized cross-national comparisons of older couples to date reported stronger spousal concordance in depressive symptoms in China than in the United States or England (Lu & Shelley, 2019); a recent three-cohort analysis of China Health and Retirement Longitudinal Study (CHARLS), Health and Retirement Study (HRS), and SHARE similarly found that adverse-childhood-experience–depression spousal concordance is stronger in China than in Western settings (Sun et al., 2023). Most existing dyadic studies of late-life depression have relied on the actor–partner interdependence model (APIM), which does not separate stable between-couple similarity from prospective within-person change (Cook & Kenny, 2005; Hamaker, Kuiper, & Grasman, 2015; Kenny, Kashy, & Cook, 2006). A two-wave APIM analysis of 1,245 spousal caregiving dyads in CHARLS (Liu et al., 2023) reported gender-asymmetric partner effects, but its generalizability beyond a Chinese caregiving subsample remains untested. Recent extensions of the random-intercept cross-lagged panel model to dyadic data (Mund, Park, & Nestler, 2024) provide a means to disentangle between-couple stability from prospective within-person change in mixed-sex couples, but applications to late-life depression across socioculturally distinct cohorts remain scarce. Whether the prospective coupling between depressive symptoms and functional limitations operates consistently within and across spouses in different sociocultural settings, and whether observed concordance reflects dynamic interpersonal influence or stable shared characteristics, therefore remains unresolved.",
+   "printed": true
+  },
+  {
+   "para_id": 5,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Building on these gaps, we examined the dyadic interdependence of depressive symptoms and functional limitations in older couples using harmonized longitudinal data from CHARLS, HRS, and English Longitudinal Study of Ageing (ELSA) (Sonnega et al., 2014; Steptoe, Breeze, Banks, & Nazroo, 2013; Zhao et al., 2014). We applied complementary APIM and random-intercept cross-lagged panel models to characterize within-couple depressive concordance, prospective within-person cross-spouse associations, and bidirectional within- and cross-spouse coupling between depressive symptoms and ADL/IADL limitations across three socioculturally and demographically distinct cohorts.",
+   "printed": true
+  },
+  {
+   "para_id": 6,
+   "loc": "body",
+   "sec_title": "Study design and data sources",
+   "text": "This longitudinal dyadic study examined the prospective interdependence of depressive symptoms and functional limitations in older couples using harmonized data from three population-representative aging cohorts: CHARLS, HRS, and ELSA (Sonnega et al., 2014; Steptoe et al., 2013; Zhao et al., 2014). The three cohorts share comparable two-stage probability sampling, biennial or triennial follow-up, and harmonized core measures of mental and physical health, enabling cross-national dyadic analysis. We analyzed five CHARLS waves (2011, 2013, 2015, 2018, 2020), eight HRS waves (2006–2020), and nine ELSA waves (2002–2018).",
+   "printed": true
+  },
+  {
+   "para_id": 7,
+   "loc": "body",
+   "sec_title": "Measures",
+   "text": "Depressive symptoms were assessed with two well-validated short forms of the Center for Epidemiologic Studies Depression Scale: the 10-item form (CES-D-10) in CHARLS (Andresen, Malmgren, Carter, & Patrick, 1994; Boey, 1999) and the 8-item form (CES-D-8) in HRS and ELSA (Kohout, Berkman, Evans, & Cornoni-Huntley, 1993). Each cohort’s score was standardized using the baseline-pooled mean and standard deviation across both spouses, and depressive symptoms were additionally dichotomized at the conventional clinical thresholds (CES-D-10 ≥ 10; CES-D-8 ≥ 3) so that core models could be re-estimated with linear-probability and logistic specifications as a clinically interpretable bridge across the two short forms.",
+   "printed": true
+  },
+  {
+   "para_id": 8,
+   "loc": "body",
+   "sec_title": "Statistical analysis",
+   "text": "We applied a complementary analytic framework combining the APIM, the bivariate RI-CLPM, and a four-variable RI-CLPM that jointly modeled both spouses’ depression and functional limitations (Cook & Kenny, 2005; Hamaker et al., 2015; Mulder & Hamaker, 2021; Mund et al., 2024). The APIM yields wave-by-wave actor and partner effects on the within-cohort z-score scale and supports dyadic-pattern classification through the Kenny–Ledermann k parameter and the partner-to-actor effect ratio with a delta-method 95% confidence interval (Kenny & Ledermann, 2010). The RI-CLPM decomposes each repeated score into a person-specific random intercept and a wave-specific within-person residual, restricting all cross-lagged paths to the within-person residuals and thereby separating stable between-couple similarity from dynamic within-person change (Hamaker et al., 2015). Reporting followed the STROBE guidelines for observational studies; the completed checklist is provided as Supplementary File S1.",
+   "printed": true
+  },
+  {
+   "para_id": 9,
+   "loc": "body",
+   "sec_title": "Statistical analysis",
+   "text": "The RI-CLPM was specified in two nested forms: a bivariate two-variable model containing both spouses’ depression at all waves, and a multivariate four-variable model jointly including both spouses’ depression and functional status. The substantive focus comprised eight pre-specified within-person cross-construct cross-lags linking each spouse’s own and partner’s depression and functional status across consecutive waves (Penninx et al., 1998; Zhu et al., 2024). The four-variable model was fitted with ADL as the primary functional indicator and re-fitted with IADL as a sensitivity check; nested model comparisons used the Satorra–Bentler scaled-difference chi-squared test (Satorra & Bentler, 2010). To address state-dependent reporting bias in self-reported function, each model was re-estimated under a specification fixing all four depression-to-function paths at zero, and the resulting function-to-depression paths were compared with the bidirectional estimates. All RI-CLPMs were estimated in lavaan with robust maximum likelihood and FIML for missingness (Rosseel, 2012). Sex symmetry at the structural level was assessed using joint Wald tests on the eight key cross-lags.",
+   "printed": true
+  },
+  {
+   "para_id": 10,
+   "loc": "body",
+   "sec_title": "Statistical analysis",
+   "text": "Longitudinal mediation followed Cole and Maxwell’s (2003) three-wave half-longitudinal framework, with predictor at wave t, mediator at wave t + 1, and outcome at wave t + 2, adjusting for the outcome spouse’s baseline depression and both spouses’ baseline functional status, age, education, and actor self-rated health. Four primary a priori pathways (each spouse’s depression to own ADL or IADL to the other spouse’s depression) were tested with bias-corrected and percentile bootstrap 95% confidence intervals (1,000 replicates; Preacher & Hayes, 2008); partner-mediator and cross-construct pathways were treated as exploratory.",
+   "printed": true
+  },
+  {
+   "para_id": 11,
+   "loc": "body",
+   "sec_title": "Statistical analysis",
+   "text": "In parallel with FIML, we generated m = 20 multiple imputations in Python with a Bayesian-ridge IterativeImputer and pooled estimates by Rubin’s rules, reporting the fraction of missing information for each pooled coefficient (van Buuren & Groothuis-Oudshoorn, 2011). The missing-data mechanism was examined before model fitting: Little’s test rejected the missing-completely-at-random null in all three cohorts, and logistic regressions of final-wave dropout on both spouses’ baseline depressive symptoms, functional limitations, self-rated health, age, and education showed that attrition was systematically related to observed baseline characteristics, consistent with a missing-at-random mechanism (Supplementary Table S9). Multiplicity was controlled within hypothesis families: Holm correction for primary hypotheses (Holm, 1979) and Benjamini–Hochberg false discovery rate (FDR) control for secondary hypotheses (Benjamini & Hochberg, 1995). The two-sided alpha level was 0.05 throughout.",
+   "printed": true
+  },
+  {
+   "para_id": 12,
+   "loc": "body",
+   "sec_title": "Statistical analysis",
+   "text": "As a psychometric supplement, we assessed cross-cohort measurement invariance of the CES-D by multigroup confirmatory factor analysis (MGCFA) on the six items administered in common across CHARLS, HRS, and ELSA, fitted in lavaan with the WLSMV estimator for binary indicators (Rosseel, 2012). Configural, full metric, and partial metric models were compared using the Cheung–Rensvold criteria (Cheung & Rensvold, 2002), with the CHARLS Likert responses dichotomized at two thresholds (≥3 and ≥2) to verify robustness.",
+   "printed": true
+  },
+  {
+   "para_id": 13,
+   "loc": "fig",
+   "sec_title": "Bivariate random-intercept cross-lagged panel model",
+   "text": "Time-invariant within-person cross-lagged paths from the bivariate random-intercept cross-lagged panel model, by cohort. Note: Forest plot of the four time-invariant within-person paths estimated by the Hamaker et al. (2015) bivariate random-intercept cross-lagged panel model, separately by cohort. cM = within-person component of the male partner’s standardized CES-D score; cF = the analogous female component. The two autoregressive paths (Male AR: cM → cM; Female AR: cF → cF) and two cross-spouse cross-lagged paths (Male → Female: cM → cF; Female → Male: cF → cM) are reported as unstandardized estimates with 95% confidence intervals. Estimates were obtained by full-information maximum likelihood with robust (MLR) standard errors; the figure displays the FIML estimates, and the multiple-imputation-pooled estimates pooled by Rubin’s rules are reported in Supplementary Table S6. The cross-spouse paths are statistically distinguishable from zero only in ELSA (Male → Female β = 0.064, p < 0.001; Female → Male β = 0.026, p = 0.030); they are not distinguishable from zero in CHARLS or HRS under FIML. Full model parameters appear in Supplementary Table S5.",
+   "printed": true
+  },
+  {
+   "para_id": 14,
+   "loc": "table",
+   "sec_title": "Four-variable random-intercept cross-lagged panel model and reporting-bias robustness",
+   "text": "Note: Time-invariant within-person paths from the four-variable RI-CLPM jointly modelling depressive symptoms and ADL functional limitations within the same Hamaker et al. (2015) random-intercept structure, with cross-spouse symmetry assumed (indistinguishable-dyad specification, justified by Supplementary Table S7). β, unstandardized regression coefficient (with cluster-robust SE) on the within-cohort z-standardized depression metric and the raw 0–6 ADL count; Std. β, completely standardized solution; Sig.: *p < 0.05; **p < 0.01; ***p < 0.001 (within-model, unadjusted). d, depression; f, function (ADL); F, female partner; M, male partner. The eight key cross-construct paths comprise four function-to-depression paths (bMdMf, bMdFf, bFdMf, bFdFf) and four depression-to-function paths (bMfMd, bMfFd, bFfMd, bFfFd). Per-path comparison of bidirectional and forward-only specifications and IADL sensitivity model results are reported in Supplementary Table S8.",
+   "printed": true
+  },
+  {
+   "para_id": 15,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Where the present study departs from much of the prior literature on dyadic depressive concordance (Han et al., 2023; Hoppmann, Gerstorf, & Hibbert, 2011; Lu & Shelley, 2019; Meyler et al., 2007) is not in confirming the existence of concordance but in interrogating its causal interpretation. The Hamaker random-intercept specification (Hamaker et al., 2015; Mund et al., 2024) offers a more conservative test than traditional APIM. In CHARLS, once stable couple-level differences were accounted for, the depressive symptoms of one spouse at one wave were not distinguishably associated with subsequent within-person changes in the other spouse’s symptoms; in ELSA, a modest within-person cross-spouse coupling persisted; and in HRS, this coupling reached significance only in the multiple imputation-pooled estimates. This pattern is consistent with methodological work showing that traditional cross-lagged models routinely overstate interpersonal influence by absorbing trait-level similarity into the lagged paths (Berry & Willoughby, 2017; Lucas, 2023; Orth, Clark, Donnellan, & Robins, 2021). It also qualifies the closest CHARLS precedent (Liu et al., 2023): the gender-asymmetric partner effects reported in that two-wave APIM were not detected once between-couple stability was partialled out, suggesting that asymmetries observed in conventional APIM may reflect uncontrolled trait-level similarity rather than directional influence.",
+   "printed": true
+  },
+  {
+   "para_id": 16,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "These results extend Lu and Shelley’s (2019) ‘shared resource’ hypothesis. Rather than depressing each other in real time, older couples may have come to share depressive states over years and decades, through assortative mating on temperament and socioeconomic position (Horwitz et al., 2023) and through cumulative joint exposure to financial, residential, and health-related stressors. What APIM captured as a ‘partner effect’ is, in the most plausible reading, the cumulative effect of these long-shared circumstances rather than a contemporaneous transfer of mood between two people. This reframing does not deny the existence of dyadic depression: concordance in our data is real and substantial in every cohort. It does, however, locate the origin of that concordance in the couple’s shared history rather than in real-time emotional contagion.",
+   "printed": true
+  },
+  {
+   "para_id": 17,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "The most consistent finding at the within-person level concerns the reciprocal coupling of depressive symptoms and physical function in the two Western cohorts, reproducing at the dyadic level the depression–disability association long documented in older adults at the individual level (Penninx et al., 1998, 1999) and in recent CHARLS-based individual-level analyses (Zhou et al., 2024; Zhu et al., 2024). In our CHARLS dyadic analysis, by contrast, the same reciprocity emerged only partially: the function-to-depression direction was supported for husbands but did not reach conventional significance for wives (β = 0.025, p = 0.068), and the depression-to-function direction did not survive joint testing under the IADL specification. This partial attenuation may reflect both the more stringent within-person residual specification of the RI-CLPM, which removes the trait-level depression–disability covariation present in marginal-score designs, and documented spousal concordance in functional decline among married Chinese adults (Wang et al., 2021), which would inflate trait-level couple similarity in disability. More substantively novel is the cross-spouse leg of this association in HRS and ELSA: one spouse’s deteriorating functional status prospectively predicted the other spouse’s subsequent depressive symptoms, reproducing the cross-spouse stress-process pathway demonstrated in older Mexican-American couples (Monserud & Peek, 2014) and in HRS (Han, Kim, & Burr, 2021a, 2021b). This is conceptually distinct from depression ‘transmission’: one spouse’s worsening functional status plausibly raises the other’s depressive risk through tangible mechanisms theorized by the stress-process model (Pearlin et al., 1990), including rising caregiving demand and erosion of reciprocal emotional support. The corresponding cross-spouse association was not detected in CHARLS, where extended-family caregiving structures may attenuate the cross-spousal stress-process pathway compared with Western settings in which spouses are the modal caregivers (Pinquart & Sörensen, 2011).",
+   "printed": true
+  },
+  {
+   "para_id": 18,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "The cross-national gradient in concordance is best read as an invitation to caution rather than a clean cultural signal. Although filial piety, multigenerational household structure, and collectivist family norms are commonly invoked to explain stronger spousal concordance in East Asian populations (Han et al., 2023; Lu & Shelley, 2019), the present design does not measure these constructs, and the same gradient is largely consistent with at least two non-cultural alternatives. Our cross-cohort MGCFA established partial metric invariance for the six common CES-D items, with the loading of the positively keyed ‘Happy’ item differing meaningfully across cohorts, while the remaining five items showed closely matched loadings; full scalar (threshold) invariance was not achieved, so quantitative comparison of latent means across cohorts is bounded even though prospective associations remain interpretable as comparable. This pattern is consistent with prior psychometric work indicating that full invariance of the CES-D often fails between Chinese and Western elderly samples, and that positively keyed items are a recurring source of noninvariance in this scale (Van de Velde, Bracke, Levecque, & Meuleman, 2010; Zhang et al., 2011). Equally important, CHARLS couples were substantially younger than HRS or ELSA couples and carried a higher baseline functional burden, so the cross-national gradient is partly confounded with cohort age and disability composition. Quantitative comparison of effect sizes across cohorts should therefore be interpreted with appropriate restraint.",
+   "printed": true
+  },
+  {
+   "para_id": 19,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Several negative findings warrant brief comment. The failure of sex-distinguishability tests to support sex-asymmetric dyadic structures stands somewhat in tension with previous within-couple analyses reporting gendered patterns of depressive concordance (Townsend, Miller, & Guo, 2001), although mixed findings are common (Ayotte, Yang, & Jones, 2010); previously reported asymmetries may partly reflect uncontrolled between-couple variance that the random-intercept specification absorbs into shared trait variance. The largely nonsignificant care-receipt moderation similarly suggests that being a care recipient is not a clean structural moderator of cross-spouse depression dynamics in these cohorts. This is consistent with population-based reappraisals indicating that informal caregiving has more heterogeneous and sometimes protective effects on caregiver health than the classical caregiver-burden literature implied (Roth, Fredman, & Haley, 2015) and with the moderation pattern reported by Han, Kim, and Burr (2021a) in HRS. The absence of formal half-longitudinal mediation through ADL or IADL despite robust bidirectional couplings in the four-variable RI-CLPM is best read methodologically; under realistic conditions of small partner-effect coefficients and age-related drift in symptom severity, the product-of-coefficients indirect effect can be vanishingly small even when each leg of the pathway is substantively meaningful (Cole & Maxwell, 2003; Maxwell, Cole, & Mitchell, 2011).",
+   "printed": true
+  },
+  {
+   "para_id": 20,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Late-life depressive concordance among married couples is robust and replicable across three large nationally representative aging cohorts, yet our findings indicate that it is shaped primarily by stable between-couple similarity rather than by dynamic within-person transmission. The most replicable within-person signal is the bidirectional coupling between depressive symptoms and functional limitations, observed both within and across spouses in the two Western cohorts. Clinically, these findings imply that combining depression management with functional rehabilitation and structured caregiver support represents a more coherent strategy for older couples than depression management alone, and that couple-based and family-oriented interventions for late-life depression (Belle et al., 2006; Stahl et al., 2016) offer a natural delivery framework for such combined care.",
+   "printed": true
+  }
+ ],
+ "links": [
+  {
+   "link_id": 1,
+   "url": "charls.pku.edu.cn",
+   "url_raw": "http://charls.pku.edu.cn",
+   "href_jats": "http://charls.pku.edu.cn",
+   "repo_key": null,
+   "host_class": "other",
+   "loc": "back",
+   "sec_title": "Data availability statement",
+   "source": "tagged",
+   "para_id": 1
+  },
+  {
+   "link_id": 2,
+   "url": "hrs.isr.umich.edu",
+   "url_raw": "https://hrs.isr.umich.edu",
+   "href_jats": "https://hrs.isr.umich.edu",
+   "repo_key": null,
+   "host_class": "other",
+   "loc": "back",
+   "sec_title": "Data availability statement",
+   "source": "tagged",
+   "para_id": 1
+  },
+  {
+   "link_id": 3,
+   "url": "elsa-project.ac.uk",
+   "url_raw": "https://www.elsa-project.ac.uk",
+   "href_jats": "https://www.elsa-project.ac.uk",
+   "repo_key": null,
+   "host_class": "other",
+   "loc": "back",
+   "sec_title": "Data availability statement",
+   "source": "tagged",
+   "para_id": 1
+  }
+ ],
+ "links_optional": [
+  "creativecommons.org/licenses/by/4.0",
+  "doi:10.1001/jama.279.21.1720",
+  "doi:10.1001/jamanetworkopen.2021.25577",
+  "doi:10.1001/jamanetworkopen.2023.8263",
+  "doi:10.1002/(sici)1099-1166(199908)14:8<608::aid-gps991>3.0.co;2-z",
+  "doi:10.1002/gps.4434",
+  "doi:10.1007/s11336-009-9135-y",
+  "doi:10.1016/j.ajp.2022.103417",
+  "doi:10.1016/j.archger.2025.105758",
+  "doi:10.1016/j.socscimed.2007.02.007",
+  "doi:10.1016/j.socscimed.2021.114081",
+  "doi:10.1016/j.ssresearch.2010.01.002",
+  "doi:10.1016/s0749-3797(18)30622-6",
+  "doi:10.1016/s2215-0366(21)00395-3",
+  "doi:10.1017/s0033291726105042",
+  "doi:10.1037/0021-843x.112.4.558",
+  "doi:10.1037/a0019651",
+  "doi:10.1037/a0021863",
+  "doi:10.1037/a0022094",
+  "doi:10.1037/a0038889",
+  "doi:10.1037/pspp0000358",
+  "doi:10.1038/s41562-023-01672-z",
+  "doi:10.1080/00273171.2011.606716",
+  "doi:10.1080/01650250444000405",
+  "doi:10.1080/10705511.2020.1784738",
+  "doi:10.1080/13607863.2022.2087212",
+  "doi:10.1093/geronb/56.6.s352",
+  "doi:10.1093/geronb/gbq033",
+  "doi:10.1093/geronb/gbu039",
+  "doi:10.1093/geronb/gbz161",
+  "doi:10.1093/geront/30.5.583",
+  "doi:10.1093/geront/gnu177",
+  "doi:10.1093/ije/dys168",
+  "doi:10.1093/ije/dys203",
+  "doi:10.1093/ije/dyu067",
+  "doi:10.1111/aswp.12183",
+  "doi:10.1111/cdev.12660",
+  "doi:10.1111/j.2517-6161.1995.tb02031.x",
+  "doi:10.1111/jomf.12999",
+  "doi:10.1146/annurev-clinpsy-032816-045111",
+  "doi:10.1177/089826439300500202",
+  "doi:10.1177/25152459231158378",
+  "doi:10.1186/1471-2288-11-74",
+  "doi:10.1186/s12877-024-05248-y",
+  "doi:10.1186/s12889-024-19421-w",
+  "doi:10.1207/s15328007sem0902_5",
+  "doi:10.18637/jss.v045.i03",
+  "doi:10.18637/jss.v048.i02",
+  "doi:10.2105/ajph.89.9.1346",
+  "doi:10.3389/fpubh.2023.1158590",
+  "doi:10.3389/fpubh.2023.1249208",
+  "doi:10.3758/brm.40.3.879",
+  "doi:10.7326/0003-4819-145-10-200611210-00005"
+ ],
+ "own_doi": "doi:10.1017/s0033291726105042",
+ "citations": [
+  {
+   "cite_id": 1,
+   "para_id": 2,
+   "bib_id": 7,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 2,
+   "para_id": 2,
+   "bib_id": 44,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 3,
+   "para_id": 2,
+   "bib_id": 11,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 4,
+   "para_id": 2,
+   "bib_id": 28,
+   "marker": "2007",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 5,
+   "para_id": 2,
+   "bib_id": 13,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 6,
+   "para_id": 2,
+   "bib_id": 21,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 7,
+   "para_id": 3,
+   "bib_id": 18,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 8,
+   "para_id": 3,
+   "bib_id": 34,
+   "marker": "1998",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 9,
+   "para_id": 3,
+   "bib_id": 23,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 10,
+   "para_id": 3,
+   "bib_id": 52,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 11,
+   "para_id": 3,
+   "bib_id": 53,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 12,
+   "para_id": 3,
+   "bib_id": 33,
+   "marker": "1990",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 13,
+   "para_id": 4,
+   "bib_id": 36,
+   "marker": "2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 14,
+   "para_id": 4,
+   "bib_id": 25,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 15,
+   "para_id": 4,
+   "bib_id": 45,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 16,
+   "para_id": 4,
+   "bib_id": 10,
+   "marker": "2005",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 17,
+   "para_id": 4,
+   "bib_id": 12,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 18,
+   "para_id": 4,
+   "bib_id": 19,
+   "marker": "2006",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 19,
+   "para_id": 4,
+   "bib_id": 24,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 20,
+   "para_id": 4,
+   "bib_id": 31,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 21,
+   "para_id": 5,
+   "bib_id": 41,
+   "marker": "2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 22,
+   "para_id": 5,
+   "bib_id": 43,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 23,
+   "para_id": 5,
+   "bib_id": 51,
+   "marker": "2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 24,
+   "para_id": 6,
+   "bib_id": 41,
+   "marker": "2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 25,
+   "para_id": 6,
+   "bib_id": 43,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 26,
+   "para_id": 6,
+   "bib_id": 51,
+   "marker": "2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 27,
+   "para_id": 7,
+   "bib_id": 1,
+   "marker": "1994",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 28,
+   "para_id": 7,
+   "bib_id": 6,
+   "marker": "1999",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 29,
+   "para_id": 7,
+   "bib_id": 22,
+   "marker": "1993",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 30,
+   "para_id": 8,
+   "bib_id": 10,
+   "marker": "2005",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 31,
+   "para_id": 8,
+   "bib_id": 12,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 32,
+   "para_id": 8,
+   "bib_id": 30,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 33,
+   "para_id": 8,
+   "bib_id": 31,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 34,
+   "para_id": 8,
+   "bib_id": 20,
+   "marker": "2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 35,
+   "para_id": 8,
+   "bib_id": 12,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 36,
+   "para_id": 9,
+   "bib_id": 34,
+   "marker": "1998",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 37,
+   "para_id": 9,
+   "bib_id": 53,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 38,
+   "para_id": 9,
+   "bib_id": 40,
+   "marker": "2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 39,
+   "para_id": 9,
+   "bib_id": 38,
+   "marker": "2012",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 40,
+   "para_id": 10,
+   "bib_id": 9,
+   "marker": "2003",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 41,
+   "para_id": 10,
+   "bib_id": 37,
+   "marker": "2008",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 42,
+   "para_id": 11,
+   "bib_id": 47,
+   "marker": "2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 43,
+   "para_id": 11,
+   "bib_id": 16,
+   "marker": "1979",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 44,
+   "para_id": 11,
+   "bib_id": 4,
+   "marker": "1995",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 45,
+   "para_id": 12,
+   "bib_id": 38,
+   "marker": "2012",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 46,
+   "para_id": 12,
+   "bib_id": 8,
+   "marker": "2002",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 47,
+   "para_id": 13,
+   "bib_id": 12,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 48,
+   "para_id": 14,
+   "bib_id": 12,
+   "marker": "2015",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 49,
+   "para_id": 15,
+   "bib_id": 13,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 50,
+   "para_id": 15,
+   "bib_id": 17,
+   "marker": "2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 51,
+   "para_id": 15,
+   "bib_id": 25,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 52,
+   "para_id": 15,
+   "bib_id": 28,
+   "marker": "2007",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 53,
+   "para_id": 15,
+   "bib_id": 12,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 54,
+   "para_id": 15,
+   "bib_id": 31,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 55,
+   "para_id": 15,
+   "bib_id": 5,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 56,
+   "para_id": 15,
+   "bib_id": 26,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 57,
+   "para_id": 15,
+   "bib_id": 32,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 58,
+   "para_id": 15,
+   "bib_id": 23,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 59,
+   "para_id": 16,
+   "bib_id": 25,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 60,
+   "para_id": 16,
+   "bib_id": 18,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 61,
+   "para_id": 17,
+   "bib_id": 34,
+   "marker": "1998",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 62,
+   "para_id": 17,
+   "bib_id": 35,
+   "marker": "1999",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 63,
+   "para_id": 17,
+   "bib_id": 52,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 64,
+   "para_id": 17,
+   "bib_id": 53,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 65,
+   "para_id": 17,
+   "bib_id": 49,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 66,
+   "para_id": 17,
+   "bib_id": 29,
+   "marker": "2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 67,
+   "para_id": 17,
+   "bib_id": 14,
+   "marker": "2021a",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 68,
+   "para_id": 17,
+   "bib_id": 15,
+   "marker": "2021b",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 69,
+   "para_id": 17,
+   "bib_id": 33,
+   "marker": "1990",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 70,
+   "para_id": 17,
+   "bib_id": 36,
+   "marker": "2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 71,
+   "para_id": 18,
+   "bib_id": 13,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 72,
+   "para_id": 18,
+   "bib_id": 25,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 73,
+   "para_id": 18,
+   "bib_id": 48,
+   "marker": "2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 74,
+   "para_id": 18,
+   "bib_id": 50,
+   "marker": "2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 75,
+   "para_id": 19,
+   "bib_id": 46,
+   "marker": "2001",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 76,
+   "para_id": 19,
+   "bib_id": 2,
+   "marker": "2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 77,
+   "para_id": 19,
+   "bib_id": 39,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 78,
+   "para_id": 19,
+   "bib_id": 14,
+   "marker": "2021a",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 79,
+   "para_id": 19,
+   "bib_id": 9,
+   "marker": "2003",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 80,
+   "para_id": 19,
+   "bib_id": 27,
+   "marker": "2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 81,
+   "para_id": 20,
+   "bib_id": 3,
+   "marker": "2006",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 82,
+   "para_id": 20,
+   "bib_id": 42,
+   "marker": "2016",
+   "expanded": false,
+   "scored": true
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-ext-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "v1_bib_count": 53
+ }
+}

@@ -1,0 +1,851 @@
+{
+ "paper_id": "10.1371_journal.pone.0355299",
+ "paras": [
+  {
+   "para_id": 1,
+   "loc": "front",
+   "sec_title": "",
+   "text": "All datasets used in this study are publicly available without restriction. The CODrone dataset is available from https://github.com/AHideoKuzeA/CODrone-A-Comprehensive-Oriented-Object-Detection-benchmark-for-UAV. The VisDrone2019 dataset is available from https://github.com/VisDrone/VisDrone-Dataset. The self-constructed PV-DV dataset generated and used in this study is publicly available in Figshare at https://doi.org/10.6084/m9.figshare.32855822. These datasets include the images and annotations used for training, validation, and evaluation in this study.",
+   "printed": true
+  },
+  {
+   "para_id": 2,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "With superior air mobility and omni-directional viewing angle, UAV aerial images have become an important means to obtain ground information. The significant impact of UAVs stems primarily from their unique aerial perspective, which enables the collection of extensive visual data and provides comprehensive environmental awareness [1]. With the rapid development of smart cities and the emerging low-altitude economy, unmanned aerial vehicles (UAVs) have seen widespread applications in urban traffic surveillance, public safety inspection, and emergency response [2]. Driven by the rapid expansion of the global unmanned aerial vehicle (UAV) market, the field is undergoing a profound transformation from traditional approaches toward more intelligent, lightweight, and multimodal solutions. The explosion of UAV technology has resulted in an increasing demand for effective and high-performance solutions for online object detection on aerial images [3]. However, the arbitrary orientation of objects caused by the overhead view is the main difference between natural images and aerial images, and it complicates the object detection task in two ways [4]. Due to the imaging altitude in UAV aerial photography, tiny objects occupy very few pixels in images, causing key features such as texture and edges to become indistinct. In addition, complex scenes often contain numerous similar textures, which are easily confused with tiny objects. Therefore, developing effective UAV-based models for tiny-object detection is of great importance. In practical UAV-based traffic and urban monitoring scenarios, tiny-object detection is strongly affected by observation geometry and scene density. Variations in flight altitude change the apparent object scale, while oblique camera angles may introduce perspective distortion and partial occlusion. In dense intersections or crowded urban areas, vehicles and pedestrians often appear in compact groups, leading to severe overlap and low inter-object spacing. Moreover, low contrast between vehicles and road surfaces, shadows from buildings or trees, and cluttered roadside textures further increase background interference. These challenges require UAV detectors to preserve fine-grained local details, capture broader contextual information, and adapt query allocation to different scene densities.",
+   "printed": true
+  },
+  {
+   "para_id": 3,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "In UAV object detection, the YOLO series is widely favored for its single-stage detection architecture, which significantly reduces computational cost and satisfies the real-time requirements of UAV platforms. To improve detection accuracy in UAV aerial imagery, many researchers worldwide have conducted extensive studies on enhancing YOLO-based methods. Liu et al optimized the YOLOv3 architecture by connecting ResNet units of the same size and introducing additional convolutional operations in the initial layers, thereby enlarging the receptive field and improving small-object detection performance [5]. MFP-YOLO [6] adopts a multi-channel inverted residual module in combination with the Convolutional Block Attention Module (CBAM), effectively enhancing the discriminative capability and localization accuracy for small objects. UAV-YOLOv8 [7] introduces the BiFormer attention mechanism to optimize the backbone network, designs a feature processing module termed the Focal FasterNet block, and incorporates two detection scales based on this module, significantly improving detection performance and reducing the miss-detection rate of small objects. LD-YOLOv10 [8] employs a lightweight feature extraction structure, RGELAN, and constructs a DR-PAN neck to alleviate the computational burden of feature extraction while capturing weak object features with lower computational cost. Although these improved YOLO-based methods have enhanced UAV small-object detection performance to some extent, the inherently local receptive fields of convolutional neural networks (CNNs) still limit their ability to capture fine-grained details of tiny objects.",
+   "printed": true
+  },
+  {
+   "para_id": 4,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "DETR, which is built upon the Transformer architecture, overcomes the limitation of the local receptive fields of CNNs by leveraging a global self-attention mechanism [9]. Its end-to-end design, together with the anchor-free formulation and the elimination of non-maximum suppression (NMS), further simplifies the training pipeline and improves generalization capability. In recent years, Transformer-based detection heads derived from DETR have become a mainstream paradigm in object detection. However, the attention mechanism in DETR is computationally expensive, leading to high computational overhead, slow convergence, and the loss of fine-grained details during deep feature extraction. To address these issues, extensive research has been conducted on DETR variants. Lite-DETR [10] introduces a key-aware deformable attention mechanism and designs an efficient encoder structure that interleaves the updating of high-level and low-level features, thereby enabling more effective multi-scale feature fusion. Its lightweight framework reduces computational cost while maintaining competitive performance; however, Lite-DETR does not explicitly optimize inference speed. DINO-DETR [11] employs contrastive denoising training, a hybrid query selection strategy for anchor initialization, and a look-ahead optimization mechanism for bounding box prediction. These designs alleviate several limitations of DETR-based models, including slow convergence, ambiguous queries, and weak small-object detection performance. However, DINO-DETR is not designed for real-time detection and therefore cannot readily satisfy the requirements of real-time applications. RT-DETR [12] adopts an efficient hybrid encoder and introduces IoU-aware query selection, significantly improving both detection accuracy and inference speed, thus providing a reliable solution for real-time UAV vision tasks. Nevertheless, its ability to detect small objects remains limited. Drone-DETR [13] improves the neck network of RT-DETR by introducing an enhanced dual-path feature fusion attention module and further integrates the P2 layer from the Effective Small Object Detection Network (ESDNet) into the original architecture. This design strengthens the model’s capability to extract and fuse small-object features, thereby improving detection accuracy; however, its performance may still degrade in challenging environments. Overall, although these Transformer-based DETR variants have achieved substantial progress in global modeling and end-to-end detection, they still face several challenges in high-resolution UAV aerial scenarios with densely distributed tiny objects, including the rapid growth of computational complexity with increasing resolution, insufficient multi-scale and fine-grained feature representation, and limited adaptability of query mechanisms. These limitations hinder further improvements in both computational efficiency and tiny-object detection performance.",
+   "printed": true
+  },
+  {
+   "para_id": 5,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Recent studies have further explored the DETR framework from the perspectives of training supervision and matching mechanisms. Built upon the RT-DETR architecture, D-FINE [14] strengthens localization supervision and training stability through strategies such as Fine-Grained Distribution Refinement (FDR) and Global Optimal Localization Self-Distillation (GO-LSD), effectively alleviating issues including sparse supervision signals, unstable convergence, and limited localization accuracy during the early stages of training. Although D-FINE has demonstrated strong performance on datasets such as COCO and Objects365, its effectiveness on other datasets remains to be further validated.",
+   "printed": true
+  },
+  {
+   "para_id": 6,
+   "loc": "body",
+   "sec_title": "Tiny object detection.",
+   "text": "Tiny-object detection has long been regarded as one of the most challenging problems in object detection. In UAV aerial scenarios, conventional detectors tend to lose critical information during feature downsampling and semantic aggregation because of the high imaging altitude and top-down perspective. TOD-CNN [15] is designed for tiny object detection in microscopic video data. It adopts a one-stage CNN detection framework together with feature fusion to improve localization and recognition performance; however, both the method and the data distribution are highly dependent on specific scenarios, resulting in limited generalization capability. LE-YOLO [16] introduces a lightweight redesign based on YOLOv8n and enhances the representation of tiny objects in UAV aerial imagery by improving feature extraction and multi-scale fusion, thereby achieving higher detection accuracy with fewer parameters. FSANet [17] proposes a Feature-Aware Alignment Module (FA2M) to learn the spatial transformation offsets between adjacent feature levels during pyramid fusion, thereby alleviating feature misalignment. It also designs a Spatial-Aware Guidance Head (SAGH), which leverages geometric information to perform coarse-to-fine progressive regression, further improving the representation and localization accuracy of tiny objects. SETR-Net [18] introduces a Subtle Context Enhancement (SCE) module to enhance the receptive field and feature representation, thereby avoiding complex multi-scale fusion. It also designs a Saliency Attention Transfer (SAT) mechanism to incorporate temporal recurrence into video saliency prediction. This design improves long-range cross-frame information capture and prediction accuracy, while enhancing the recognition of small-scale or sparse targets in complex scenes. MFFSODNet [19] enhances tiny-object perception while reducing the number of parameters by replacing the large-object prediction head with a tiny-object prediction head. It further introduces a Multi-Branch Multi-Scale Feature Extraction Module (MSFEM) and a Bidirectional Dense Feature Pyramid Network (BDFPN) to enhance fine-grained feature extraction and cross-layer multi-scale fusion, thereby improving tiny-object detection performance on datasets such as VisDrone and UAVDT. However, feature modeling in these methods still relies largely on local convolution operations or fixed-scale structures. As a result, their capabilities for receptive field expansion and multi-scale feature fusion remain limited, making it difficult to simultaneously ensure the discriminability and robustness of tiny objects in complex backgrounds.",
+   "printed": true
+  },
+  {
+   "para_id": 7,
+   "loc": "body",
+   "sec_title": "Tiny object detection.",
+   "text": "To further improve contextual modeling for tiny objects, recent studies have increasingly focused on feature enhancement modules centered on efficient receptive field expansion and multi-scale information fusion. RGCSPELAN [20] enhances gradient flow and feature representation through lightweight cross-stage partial connections. CSSC [21] expands the effective receptive field while maintaining computational efficiency by employing strip and sparse convolution structures. CFBlock [22] approximates the contextual modeling capability of Transformers in a convolutional form, enabling efficient fusion of local and global information. FCM [23] strengthens the interaction between shallow spatial information and deep semantic features through a complementary mapping mechanism, whereas FMB [24] enhances feature representation by integrating high- and low-frequency features at different scales from a frequency-domain perspective. In addition, the InceptionNeXt Block [25] enables more flexible receptive field modeling while preserving computational efficiency through a multi-branch large-kernel decomposition structure. However, these modules are only weakly coupled with end-to-end query matching mechanisms, and their adaptability to scenarios with varying object densities and uneven scale distributions remains limited. Nevertheless, these modules provide a useful design paradigm for improving tiny-object perception under lightweight constraints and also lay the methodological foundation for the proposed LREA module.",
+   "printed": true
+  },
+  {
+   "para_id": 8,
+   "loc": "body",
+   "sec_title": "Tiny object detection.",
+   "text": "Within the DETR family, DQ-DETR [26] introduces a density estimation module to dynamically adjust the number and spatial positions of queries while injecting density-enhanced features into the decoder. This design effectively improves the recall and localization accuracy of tiny objects and achieves considerable performance gains in aerial scenarios. Nevertheless, such methods still have several limitations. First, density maps are typically derived from low-resolution features, which makes it difficult to fully characterize the fine-grained structural information of extremely tiny objects. Second, the coupling between density estimation and query generation increases training complexity, and the efficiency and stability of this paradigm under high-resolution inputs or resource-constrained settings still require further improvement.",
+   "printed": true
+  },
+  {
+   "para_id": 9,
+   "loc": "body",
+   "sec_title": "D-FINE Framework",
+   "text": "At present, extensions of D-FINE have mainly focused on specific application scenarios, and this line of research is still at an early stage. SAR-D-FINE [27] is designed for detecting small and densely distributed ships in synthetic aperture radar (SAR) imagery. Built upon the D-FINE framework, it introduces a context-aware feature extraction strategy and enhances multi-scale feature fusion, thereby improving the capture of contextual information and the representation of small objects. As a result, the model achieves favorable performance in dense ship detection tasks. However, this method still relies heavily on the characteristics of SAR imagery and the distribution of specific datasets, which may limit its generalization capability in more complex or diverse remote sensing scenarios. IW-D-FINE [28] is developed for ocean internal wave detection in SAR images. Based on the D-FINE architecture, it adopts an anchor-free one-stage detection framework and incorporates several improved modules, including the SimAM attention mechanism, the MultiScalePCA feature fusion module, and a MetaFormer-based encoder structure. These components enhance multi-scale feature extraction and achieve a better balance between local and global feature modeling. Experimental results show that IW-D-FINE attains high detection accuracy while maintaining real-time inference efficiency. HF-D-FINE [29] is a D-FINE-based method for tiny-object detection in UAV imagery. It enhances high-resolution feature representation through the HF Hybrid Encoder, performs cross-scale feature fusion using the CAF module, and introduces the Outer-SNWD loss to improve bounding box regression accuracy for tiny objects. These designs significantly improve detection performance on UAV datasets. However, the method still increases computational complexity to some extent, and its performance gains depend on the trade-off between richer high-resolution feature representations and inference efficiency.",
+   "printed": true
+  },
+  {
+   "para_id": 10,
+   "loc": "body",
+   "sec_title": "Large-Receptive-Field Enhancement (LREA)",
+   "text": "In UAV tiny-object detection, it is crucial to efficiently capture long-range contextual dependencies while preserving sensitivity to fine-grained features. Although existing architectures have made progress in long-range dependency modeling and receptive field expansion, several challenges remain. First, Vision Transformers [30] usually incur high computational cost, making them difficult to apply to efficient real-time processing. Second, efficient attention mechanisms such as SeaFormer [31] have reduced computational overhead to some extent, but they still face limitations in further performance optimization. In addition, large-kernel attention methods, such as SLaK [32] and LSKA [33], remain insufficient in terms of multi-scale feature fusion and dynamic receptive field adaptation. To address these issues, we propose a Large-Receptive-Field Enhancement (LREA) module, as illustrated in Fig 3. The design of LREA follows the mainstream attention-feedforward paradigm and mainly consists of two components: a Large Kernel Attention (LKA) mechanism and a Convolutional Feed-Forward Network (CFFN) [34]. Through the synergy of these two components, LREA expands the receptive field and captures global semantic information while effectively preserving fine details and boundary information, thereby improving both model accuracy and efficiency in UAV tiny-object detection.",
+   "printed": true
+  },
+  {
+   "para_id": 11,
+   "loc": "body",
+   "sec_title": "Adaptive query modeling strategy",
+   "text": "In the decoding stage, the D-FINE Transformer still adopts a fixed upper bound K on the number of queries for query selection and decoding. This design exhibits notable limitations in scenarios where the number of objects varies significantly across images. In sparse scenes, a fixed number of queries may introduce redundant predictions, leading to increased false positives and unnecessary computational overhead. In contrast, in dense scenes, the detection recall can be constrained by the upper bound K. To address these issues in a systematic manner, we introduce an adaptive query modeling strategy within the AQF-Net framework. Inspired by the concept of Dynamic Query Selection [26], this strategy leverages predicted object count information to adaptively determine the number of queries required by the decoder, thereby enabling dynamic alignment between query allocation and scene complexity.",
+   "printed": true
+  },
+  {
+   "para_id": 12,
+   "loc": "body",
+   "sec_title": "Adaptive query modeling strategy",
+   "text": "The overall architecture of the adaptive query modeling strategy is illustrated in Fig 6, which consists of three key components: the Categorical Counting Module (CCM), the Counting-Guided Feature Enhancement (CGFE) module, and the Dynamic Query Selection module. In particular, the PKIBlock from PKINet [35] is incorporated into the CCM to enhance multi-scale feature extraction and improve the robustness of object counting. The processing pipeline is as follows. First, the input features are processed through Projection and Flatten operations and then fed into the dynamic query mechanism. The CCM predicts the number of objects in the image and uses this information to estimate the number of queries required by the decoder. The predicted count is subsequently mapped to a specific query number through the dynamic query mapping process, which determines the actual number of queries used during decoding. Meanwhile, the CGFE module performs multi-scale weighted fusion on the density map generated by the CCM to further enhance feature representation. Finally, by dynamically adjusting the number of queries, the model adaptively allocates computational resources across different scenarios, thereby improving both detection performance and efficiency.",
+   "printed": true
+  },
+  {
+   "para_id": 13,
+   "loc": "body",
+   "sec_title": "Dataset description.",
+   "text": "CODrone [36] is released by Xiamen University and is designed for oriented object detection in UAV aerial imagery under real-world flight conditions. It contains 10,004 images with annotations covering 12 categories of typical urban and traffic-related objects, including vehicles, traffic facilities, pedestrians, light transportation tools, and vessels. The dataset is split into training, validation, and test sets with a ratio of 5:2:3. Sample images and annotation statistics are illustrated in Fig 9(a).",
+   "printed": true
+  },
+  {
+   "para_id": 14,
+   "loc": "body",
+   "sec_title": "Dataset description.",
+   "text": "VisDrone2019 [37], constructed by the AISKYEYE team from Tianjin University, is a large-scale UAV-based benchmark dataset. All images are collected from 14 cities in China and cover diverse scenarios such as traffic intersections, urban environments, and crowded areas. The dataset contains 8,629 images, which are divided into 6,471 training images, 548 validation images, and 1,610 test images. It includes 10 object categories, such as pedestrians, cars, bicycles, tricycles, and buses. In addition to object locations and categories, annotations also include attributes such as occlusion levels and lighting conditions. Sample images and annotation statistics are shown in Fig 9(b).",
+   "printed": true
+  },
+  {
+   "para_id": 15,
+   "loc": "table",
+   "sec_title": "Comparative experiments",
+   "text": "YOLOv8-S [38]",
+   "printed": true
+  },
+  {
+   "para_id": 16,
+   "loc": "table",
+   "sec_title": "Comparative experiments",
+   "text": "YOLOv8-M [38]",
+   "printed": true
+  },
+  {
+   "para_id": 17,
+   "loc": "table",
+   "sec_title": "Comparative experiments",
+   "text": "YOLOv9-S [39]",
+   "printed": true
+  },
+  {
+   "para_id": 18,
+   "loc": "table",
+   "sec_title": "Comparative experiments",
+   "text": "YOLOv9-M [39]",
+   "printed": true
+  },
+  {
+   "para_id": 19,
+   "loc": "table",
+   "sec_title": "Comparative experiments",
+   "text": "YOLOv10-S [40]",
+   "printed": true
+  },
+  {
+   "para_id": 20,
+   "loc": "table",
+   "sec_title": "Comparative experiments",
+   "text": "YOLOv10-M [40]",
+   "printed": true
+  },
+  {
+   "para_id": 21,
+   "loc": "table",
+   "sec_title": "Comparative experiments",
+   "text": "YOLOv11-S [41]",
+   "printed": true
+  },
+  {
+   "para_id": 22,
+   "loc": "table",
+   "sec_title": "Comparative experiments",
+   "text": "YOLOv11-M [41]",
+   "printed": true
+  },
+  {
+   "para_id": 23,
+   "loc": "table",
+   "sec_title": "Comparative experiments",
+   "text": "RTDETR-R18 [12]",
+   "printed": true
+  },
+  {
+   "para_id": 24,
+   "loc": "table",
+   "sec_title": "Comparative experiments",
+   "text": "Deformable DETR [42]",
+   "printed": true
+  },
+  {
+   "para_id": 25,
+   "loc": "table",
+   "sec_title": "Comparative experiments",
+   "text": "QueryDet [43]",
+   "printed": true
+  },
+  {
+   "para_id": 26,
+   "loc": "table",
+   "sec_title": "Comparative experiments",
+   "text": "SINextNet [44]",
+   "printed": true
+  },
+  {
+   "para_id": 27,
+   "loc": "table",
+   "sec_title": "Comparative experiments",
+   "text": "FBRT-YOLO-X [23]",
+   "printed": true
+  },
+  {
+   "para_id": 28,
+   "loc": "table",
+   "sec_title": "Comparative experiments",
+   "text": "YOLC [45]",
+   "printed": true
+  },
+  {
+   "para_id": 29,
+   "loc": "table",
+   "sec_title": "Comparative experiments",
+   "text": "CEASC [46]",
+   "printed": true
+  },
+  {
+   "para_id": 30,
+   "loc": "table",
+   "sec_title": "Comparative experiments",
+   "text": "SOD-YOLO [47]",
+   "printed": true
+  },
+  {
+   "para_id": 31,
+   "loc": "table",
+   "sec_title": "Comparative experiments",
+   "text": "UAV-DETR [48]",
+   "printed": true
+  },
+  {
+   "para_id": 32,
+   "loc": "table",
+   "sec_title": "Comparative experiments",
+   "text": "SO-DETR [49]",
+   "printed": true
+  },
+  {
+   "para_id": 33,
+   "loc": "table",
+   "sec_title": "Comparative experiments",
+   "text": "D-FINE-S [14]",
+   "printed": true
+  },
+  {
+   "para_id": 34,
+   "loc": "table",
+   "sec_title": "Comparative experiments",
+   "text": "D-FINE-M [14]",
+   "printed": true
+  },
+  {
+   "para_id": 35,
+   "loc": "table",
+   "sec_title": "Comparative experiments",
+   "text": "DEIM-D-FINE-S [50]",
+   "printed": true
+  },
+  {
+   "para_id": 36,
+   "loc": "table",
+   "sec_title": "Comparative experiments",
+   "text": "DEIM-D-FINE-M [50]",
+   "printed": true
+  },
+  {
+   "para_id": 37,
+   "loc": "table",
+   "sec_title": "Effect of LREA",
+   "text": "Baseline with CNCM [21]",
+   "printed": true
+  }
+ ],
+ "links": [
+  {
+   "link_id": 1,
+   "url": "github.com/ahideokuzea/codrone-a-comprehensive-oriented-object-detection-benchmark-for-uav",
+   "url_raw": "https://github.com/AHideoKuzeA/CODrone-A-Comprehensive-Oriented-Object-Detection-benchmark-for-UAV",
+   "href_jats": "https://github.com/AHideoKuzeA/CODrone-A-Comprehensive-Oriented-Object-Detection-benchmark-for-UAV",
+   "repo_key": "github:ahideokuzea/codrone-a-comprehensive-oriented-object-detection-benchmark-for-uav",
+   "host_class": "github",
+   "loc": "front",
+   "sec_title": "",
+   "source": "tagged",
+   "para_id": 1
+  },
+  {
+   "link_id": 2,
+   "url": "github.com/visdrone/visdrone-dataset",
+   "url_raw": "https://github.com/VisDrone/VisDrone-Dataset",
+   "href_jats": "https://github.com/VisDrone/VisDrone-Dataset",
+   "repo_key": "github:visdrone/visdrone-dataset",
+   "host_class": "github",
+   "loc": "front",
+   "sec_title": "",
+   "source": "tagged",
+   "para_id": 1
+  },
+  {
+   "link_id": 3,
+   "url": "doi:10.6084/m9.figshare.32855822",
+   "url_raw": "https://doi.org/10.6084/m9.figshare.32855822",
+   "href_jats": "https://doi.org/10.6084/m9.figshare.32855822",
+   "repo_key": "doi:10.6084/m9.figshare.32855822",
+   "host_class": "doi",
+   "loc": "front",
+   "sec_title": "",
+   "source": "tagged",
+   "para_id": 1
+  }
+ ],
+ "links_optional": [
+  "arxiv.org/abs/2207.03620",
+  "creativecommons.org/licenses/by/4.0",
+  "doi:10.1007/978-3-031-72973-7_21",
+  "doi:10.1007/s11554-025-01822-8",
+  "doi:10.1016/j.compbiomed.2022.105543",
+  "doi:10.1016/j.engappai.2025.111840",
+  "doi:10.1016/j.eswa.2023.121352",
+  "doi:10.1016/j.imavis.2025.105834",
+  "doi:10.1109/cvpr52688.2022.01330",
+  "doi:10.1109/cvpr52729.2023.01291",
+  "doi:10.1109/cvpr52729.2023.01780",
+  "doi:10.1109/cvpr52733.2024.00542",
+  "doi:10.1109/cvpr52733.2024.01605",
+  "doi:10.1109/cvpr52733.2024.02617",
+  "doi:10.1109/cvpr52734.2025.01412",
+  "doi:10.1109/iccvw54120.2021.00319",
+  "doi:10.1109/ijcnn64981.2025.11229240",
+  "doi:10.1109/iros60139.2025.11246176",
+  "doi:10.1109/lgrs.2025.3640683",
+  "doi:10.1109/tgrs.2022.3205052",
+  "doi:10.1109/tgrs.2025.3534838",
+  "doi:10.1109/tim.2024.3381272",
+  "doi:10.1109/tits.2024.3386928",
+  "doi:10.1109/tpami.2021.3117983",
+  "doi:10.1609/aaai.v38i6.28457",
+  "doi:10.1609/aaai.v39i8.32937",
+  "doi:10.2478/jaiscr-2024-0014",
+  "doi:10.3390/app152211966",
+  "doi:10.3390/drones9080557",
+  "doi:10.3390/electronics13163269",
+  "doi:10.3390/jmse14040388",
+  "doi:10.3390/s20082238",
+  "doi:10.3390/s23135786",
+  "doi:10.3390/s23167190",
+  "doi:10.3390/s24175496",
+  "doi:10.3390/s24186112",
+  "doi:10.3390/s26051557",
+  "doi:10.48550/arxiv.1706.03762",
+  "doi:10.48550/arxiv.2010.11929",
+  "doi:10.48550/arxiv.2203.03605",
+  "doi:10.48550/arxiv.2301.13156",
+  "doi:10.48550/arxiv.2309.05674",
+  "doi:10.48550/arxiv.2402.13616",
+  "doi:10.48550/arxiv.2404.03507",
+  "doi:10.48550/arxiv.2410.13842",
+  "doi:10.48550/arxiv.2410.17725",
+  "doi:10.48550/arxiv.2504.20032",
+  "doi:10.48550/arxiv.2507.12727",
+  "doi:10.48550/arxiv:2010.04159",
+  "doi:10.52202/079017-3429",
+  "github.com/ultralytics/ultralytics"
+ ],
+ "own_doi": "doi:10.1371/journal.pone.0355299",
+ "citations": [
+  {
+   "cite_id": 1,
+   "para_id": 2,
+   "bib_id": 1,
+   "marker": "1",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 2,
+   "para_id": 2,
+   "bib_id": 2,
+   "marker": "2",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 3,
+   "para_id": 2,
+   "bib_id": 3,
+   "marker": "3",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 4,
+   "para_id": 2,
+   "bib_id": 4,
+   "marker": "4",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 5,
+   "para_id": 3,
+   "bib_id": 5,
+   "marker": "5",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 6,
+   "para_id": 3,
+   "bib_id": 6,
+   "marker": "6",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 7,
+   "para_id": 3,
+   "bib_id": 7,
+   "marker": "7",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 8,
+   "para_id": 3,
+   "bib_id": 8,
+   "marker": "8",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 9,
+   "para_id": 4,
+   "bib_id": 9,
+   "marker": "9",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 10,
+   "para_id": 4,
+   "bib_id": 10,
+   "marker": "10",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 11,
+   "para_id": 4,
+   "bib_id": 11,
+   "marker": "11",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 12,
+   "para_id": 4,
+   "bib_id": 12,
+   "marker": "12",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 13,
+   "para_id": 4,
+   "bib_id": 13,
+   "marker": "13",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 14,
+   "para_id": 5,
+   "bib_id": 14,
+   "marker": "14",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 15,
+   "para_id": 6,
+   "bib_id": 15,
+   "marker": "15",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 16,
+   "para_id": 6,
+   "bib_id": 16,
+   "marker": "16",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 17,
+   "para_id": 6,
+   "bib_id": 17,
+   "marker": "17",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 18,
+   "para_id": 6,
+   "bib_id": 18,
+   "marker": "18",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 19,
+   "para_id": 6,
+   "bib_id": 19,
+   "marker": "19",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 20,
+   "para_id": 7,
+   "bib_id": 20,
+   "marker": "20",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 21,
+   "para_id": 7,
+   "bib_id": 21,
+   "marker": "21",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 22,
+   "para_id": 7,
+   "bib_id": 22,
+   "marker": "22",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 23,
+   "para_id": 7,
+   "bib_id": 23,
+   "marker": "23",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 24,
+   "para_id": 7,
+   "bib_id": 24,
+   "marker": "24",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 25,
+   "para_id": 7,
+   "bib_id": 25,
+   "marker": "25",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 26,
+   "para_id": 8,
+   "bib_id": 26,
+   "marker": "26",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 27,
+   "para_id": 9,
+   "bib_id": 27,
+   "marker": "27",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 28,
+   "para_id": 9,
+   "bib_id": 28,
+   "marker": "28",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 29,
+   "para_id": 9,
+   "bib_id": 29,
+   "marker": "29",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 30,
+   "para_id": 10,
+   "bib_id": 30,
+   "marker": "30",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 31,
+   "para_id": 10,
+   "bib_id": 31,
+   "marker": "31",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 32,
+   "para_id": 10,
+   "bib_id": 32,
+   "marker": "32",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 33,
+   "para_id": 10,
+   "bib_id": 33,
+   "marker": "33",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 34,
+   "para_id": 10,
+   "bib_id": 34,
+   "marker": "34",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 35,
+   "para_id": 11,
+   "bib_id": 26,
+   "marker": "26",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 36,
+   "para_id": 12,
+   "bib_id": 35,
+   "marker": "35",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 37,
+   "para_id": 13,
+   "bib_id": 36,
+   "marker": "36",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 38,
+   "para_id": 14,
+   "bib_id": 37,
+   "marker": "37",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 39,
+   "para_id": 15,
+   "bib_id": 38,
+   "marker": "38",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 40,
+   "para_id": 16,
+   "bib_id": 38,
+   "marker": "38",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 41,
+   "para_id": 17,
+   "bib_id": 39,
+   "marker": "39",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 42,
+   "para_id": 18,
+   "bib_id": 39,
+   "marker": "39",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 43,
+   "para_id": 19,
+   "bib_id": 40,
+   "marker": "40",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 44,
+   "para_id": 20,
+   "bib_id": 40,
+   "marker": "40",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 45,
+   "para_id": 21,
+   "bib_id": 41,
+   "marker": "41",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 46,
+   "para_id": 22,
+   "bib_id": 41,
+   "marker": "41",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 47,
+   "para_id": 23,
+   "bib_id": 12,
+   "marker": "12",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 48,
+   "para_id": 24,
+   "bib_id": 42,
+   "marker": "42",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 49,
+   "para_id": 25,
+   "bib_id": 43,
+   "marker": "43",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 50,
+   "para_id": 26,
+   "bib_id": 44,
+   "marker": "44",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 51,
+   "para_id": 27,
+   "bib_id": 23,
+   "marker": "23",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 52,
+   "para_id": 28,
+   "bib_id": 45,
+   "marker": "45",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 53,
+   "para_id": 29,
+   "bib_id": 46,
+   "marker": "46",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 54,
+   "para_id": 30,
+   "bib_id": 47,
+   "marker": "47",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 55,
+   "para_id": 31,
+   "bib_id": 48,
+   "marker": "48",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 56,
+   "para_id": 32,
+   "bib_id": 49,
+   "marker": "49",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 57,
+   "para_id": 33,
+   "bib_id": 14,
+   "marker": "14",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 58,
+   "para_id": 34,
+   "bib_id": 14,
+   "marker": "14",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 59,
+   "para_id": 35,
+   "bib_id": 50,
+   "marker": "50",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 60,
+   "para_id": 36,
+   "bib_id": 50,
+   "marker": "50",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 61,
+   "para_id": 37,
+   "bib_id": 21,
+   "marker": "21",
+   "expanded": false,
+   "scored": false
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-ext-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "v1_bib_count": 50
+ }
+}

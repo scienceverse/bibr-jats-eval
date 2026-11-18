@@ -1,0 +1,1229 @@
+{
+ "paper_id": "10.7717_peerj.21654",
+ "paras": [
+  {
+   "para_id": 1,
+   "loc": "fn",
+   "sec_title": "Data Availability",
+   "text": "The code and data are available at Zenodo: Anthony Caravaggi. (2025). arcaravaggi/2024_smammal_cts: v1.0.0 (Versions 2024_smammal_cts_1) (Computer software). Zenodo. https://doi.org/10.5281/zenodo.16355322",
+   "printed": true
+  },
+  {
+   "para_id": 2,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Small mammals play essential roles in ecosystem functioning (e.g., Michel, Burel & Butet, 2006; Kaufman, Kaufman & Brillhart, 2010; McCleery et al., 2014) and can be important indicators of change (Macdonald & Tattersall, 2001; Rowe & Terry, 2014). Multiple syntheses show a persistent taxonomic bias in biodiversity data and conservation research, however, with a heavy skew toward birds, plants and charismatic large vertebrates. Hence many small-bodied or less-charismatic groups are systematically under-represented (Boakes et al., 2010; Amano, Lamming & Sutherland, 2016; Di Marco et al., 2017; Troudet et al., 2017; Christie et al., 2020). This includes small mammals (i.e., non-volant terrestrial mammals with an adult body mass of less than around 5 kg and typically comprise rodents, insectivores, and lagomorphs; Brown & Nicoletto, 1991; Wilson & Reeder, 2005; Merritt, 2010; Stoddart, 2012; Lim & Pacheco, 2016) as their diminutive size and often cryptic behaviour (Barros et al., 2024), make them challenging to study (Littlewood et al., 2021).",
+   "printed": true
+  },
+  {
+   "para_id": 3,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "The UK is home to fifteen species of terrestrial small mammals. These include the bank vole Myodes glareolus, the field vole Microtus agrestis, common Sorex araneus, pygmy Sorex minutus, and water Neomys fodiens shrews, and wood Apodemus sylvaticus, and yellow-necked Apodemus flavicollis mice. A recent study suggested that small mammal populations are declining in the UK (Coomber et al., 2021), however many species are considered data-deficient (Mathews et al., 2018). For example, population trends for S. araneus and S. minutus are unknown (Battersby, 2005; Mathews et al., 2018), despite the species being important bioindicators (Sánchez-Chardi & López-Fuster, 2009) or vulnerable to displacement by invasive species (Browett et al., 2023). Effective survey methods are therefore required to fill important knowledge gaps (Marsh & Trenham, 2008).",
+   "printed": true
+  },
+  {
+   "para_id": 4,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Monitoring small mammals typically involves live trapping. This method often delivers high-quality data (McCain et al., 2018; Toms, Siriwardena & Greenwood, 1999) at the risk of inducing stress (Sikes et al., 2016), mortality (Do, Shonfield & McAdam, 2013), and potentially promoting behavioural change (Johnstone, Garvey & Hickling, 2023). As such, non-invasive methods such as footprint tunnels (Ellenbroek, 1980), hair tubes (Baker et al., 2003), and camera traps (Steenweg et al., 2016; Wearn & Glover-Kapfer, 2019; Fennell, Beirne & Burton, 2022; but see Caravaggi et al., 2017) are increasingly used.",
+   "printed": true
+  },
+  {
+   "para_id": 5,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "The application of camera traps to the detection of small mammals has increased over time (e.g., Meek, Vernes & Falzon, 2013; Burns et al., 2018; Dundas et al., 2019) yet the efficacy of camera traps to accurately detect small mammals has not been sufficiently assessed (Thomas et al., 2020) and several challenges remain. For example, the size and speed of small mammals make them difficult to detect and identify (Glen et al., 2013). Smaller mammals may also be less likely to trigger camera trap sensors (Klemens, Tripepi & McFoy, 2021) and identification can be challenging, particularly with morphologically similar species (Meek, Vernes & Falzon, 2013; McKibben & Frey, 2021). In camera trap studies of small mammals, species are typically distinguished using a combination of gross morphological traits including relative body size, tail-to-body length ratios, pelage coloration, and general body shape, often inferred from posture and movement within the field of view. However, these traits can be difficult to assess reliably in conventional camera trap setups where animals are partially obscured, captured at oblique angles, or recorded at distance against complex backgrounds. Advances in the optimisation of camera traps for the study of small mammals (e.g., Glen et al., 2013; Hobbs & Brehme, 2017; Gracanin, Gracanin & Mikac, 2018; Fink & Jachowski, 2025) are yielding new opportunities for research to help close knowledge gaps. These advancements include the development of boxed camera traps that aim to mitigate these limitations by intervening in each stage of this detection process (e.g., Littlewood et al., 2021; Soininen et al., 2015; Dueser, Porter & Moncrief, 2025). By providing a confined and baited micro-environment, boxed systems may increase the likelihood that animals enter the sensor detection zone at close range, thereby overcoming distance-related detection failure and improving trigger reliability. The presence of bait within a restricted and partially enclosed space further increases residence time, reducing the likelihood that individuals pass rapidly through the field of view before capture. In addition, confinement within the box or tunnel promotes stationary or slow-moving behaviour and positions individuals centrally within the frame, improving image quality and the likelihood of diagnostic feature capture. Boxed cameras also offer distinct advantages in that they can be adapted to suit different camera models, and they do not require technical manipulation that may void warranties or make cameras inoperable. In addition, their enclosed structure may provide a sheltered environment for small mammals (e.g., Littlewood et al., 2021; Fink & Jachowski, 2025).",
+   "printed": true
+  },
+  {
+   "para_id": 6,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Here we compared the efficacy of three different camera trap designs—a camera trap without a box (‘no box’; NCT), an open box camera trap (OCT; Littlewood et al., 2021), and a closed camera trap box with tube entry (TCT; adapted from Mos & Hofmeester, 2020)—for the detection and study of small mammals. We hypothesized that the TCT would yield the greatest number of small mammal detections as their constrained field-of-view and funnel-like structure increase the probability that individuals enter the detection zone and are successfully recorded. We also explored the potential applicability of the camera trap data gathered to analyse small mammal activity patterns.",
+   "printed": true
+  },
+  {
+   "para_id": 7,
+   "loc": "body",
+   "sec_title": "Materials and Methods",
+   "text": "The study was undertaken at Silent Valley Nature Reserve, South Wales (51°44′57.48″ N, 003°10′42.59″W; Fig. 1). The reserve comprises approximately 50 ha that includes beech Fagus sylvatica woodland, upland heath, and unimproved rough grassland. Part of the reserve, Cwm Merddog Woodlands, is designated a Site of Special Scientific Interest (SSSI) (NRW, 1994). Through the reserve runs Nant Merddog, a tributary of the river Afon Ebbw Fawr. Six survey locations were identified based on focal species ecologies and field signs, and in areas away from high footfall. All locations were in F. sylvatica woodland. Each survey station was comprised of three camera traps, one each of NCT, OCT, and TCT. Traps within each survey station were spaced approximately 5 m apart and positioned to increase the chance of encountering small mammals (e.g., by placing traps alongside logs, runways, or possible sites for shelter; Cunningham et al., 2005). Camera traps were a mixture of six Bushnell 119440 Nature View HD Max (NCTs), and twelve Victure HC200 Hunting Cameras (OCTs and TCTs; 73° perspective, 0.5 s trigger speed), all of which used infra-red (850 nm) for illumination. The variation in camera traps used was due to the relative availability of equipment, and time restrictions to complete the study. Cameras were tested via paired trials to ensure comparable detection and image quality prior to deployment. Any potential model effects were accounted for by including camera type as a covariate in subsequent analyses (Rovero et al., 2013).",
+   "printed": true
+  },
+  {
+   "para_id": 8,
+   "loc": "body",
+   "sec_title": "Materials and Methods",
+   "text": "Camera traps were set to record 15-second videos at each trigger, with a delay of five minutes between triggers (Littlewood et al., 2021). Videos were recorded to provide continuous temporal context (i.e., movement trajectories, behaviour) for further study, along with clearer identifications of cryptic species. The camera trap sensitivity was set to automatic. NCTs were mounted so that the sensor and lens were 30 cm from the ground (Glen et al., 2013) and at an angle of approximately −15 degrees from horizontal. OCTs were housed in a wooden box that was open on one end. TCTs were housed in a closed box with a 25 cm-long uPVC tube (diameter = 6.8 cm) serving as a double-ended entrance/exit, adapted from Mos & Hofmeester (2020) (Fig. 2). All boxes measured 40 cm × 15 cm × 15 cm and were made with oriented strand board, with camera traps attached to the end of each tunnel using wire. The camera sensor was positioned just above the floor of the tunnel, oriented horizontally, with the distal half of the tunnel in focus. All camera trap deployments were baited to standardise detection probability across designs and to increase encounter rates of small mammals within the field of view. Baiting is widely used in camera trap studies to increase detection rates and reduce zero inflation, particularly for small or cryptic species where unassisted encounter rates may be low (Meek et al., 2014; Rovero et al., 2013; O’Connell, Nichols & Karanth, 2011). While enclosed or semi-enclosed structures such as boxed or tunnel traps may be used by small mammals as natural cover or movement corridors in the absence of bait, unbaited deployments typically yield lower detection probabilities and reduced analytical efficiency for comparative inference (O’Connell, Nichols & Karanth, 2011; Burton et al., 2015). In this study, baiting therefore functioned primarily as a means of standardising detectability across camera trap types rather than eliciting fundamentally different behavioural responses among treatments. Bait was placed into the distal third of the boxes. At NCT deployments, bait was placed on the ground surface approximately 30 cm from the camera lens and was fully exposed to ambient environmental conditions. Unlike boxed and tunnel deployments, bait at NCTs was not physically protected from removal by non-target species or environmental degradation. However, no systematic evidence of complete bait depletion by large mammals was observed. Bait was placed into the distal third of the boxes. This composed approximately 20 ml of a standard garden bird seed mix which included dried mealworms (Littlewood et al., 2021). A pilot study was used to identify appropriate bait placement and consider whether image quality was sufficient to detect and discriminate between small mammal species. Survey stations were active between the 11th of July and the 6th of September 2021. Some vegetation clearance was attempted when cameras were deployed but this was limited to mitigate impacts on small mammal behaviour (Apps & McNutt, 2018).",
+   "printed": true
+  },
+  {
+   "para_id": 9,
+   "loc": "fig",
+   "sec_title": "Materials and Methods",
+   "text": "The tube box was an adaptation of the mostela by Mos & Hofmeester (2020). Light grey rectangle = camera trap. Dark grey rectangle/circle = UPVC pipe.",
+   "printed": true
+  },
+  {
+   "para_id": 10,
+   "loc": "body",
+   "sec_title": "Materials and Methods",
+   "text": "All statistical analyses were undertaken in R v. 4.3.3 (R Core Team, 2024). generalised additive models (GAMs, via the mgcv package; Wood, 2025) were used as a diagnostic tool to assess whether detection rates were temporally constant across the sampling period. The data were hierarchically structured, with three camera traps deployed within each of six survey stations, resulting in spatial clustering of sampling locations at approximately five m intervals. To account for this non-independence, station identity was included as a random effect in all models, thereby controlling for shared environmental conditions and spatial clustering within stations. In addition, an observation-level random effect was included to account for residual overdispersion and repeated detections. While a fully nested structure (camera within station) was considered, this was not implemented due to the limited number of stations (n = 6), which constrained model identifiability and risked overparameterisation. Consequently, inference is made at the level of treatment (camera trap design), with cameras treated as repeated sampling units within stations rather than fully independent spatial replicates. Count was fitted as the dependent variable and week was fitted as the smoothed explanatory variable. We used a thin plate smooth with the default number of knots. We compared three candidate models representing (i) no temporal structure, (ii) a shared temporal trend across treatments, and (iii) treatment-specific temporal trends. Model comparison (AIC) supported the shared-trend model, with only weak support for treatment-specific temporal variation.",
+   "printed": true
+  },
+  {
+   "para_id": 11,
+   "loc": "body",
+   "sec_title": "Materials and Methods",
+   "text": "Activity patterns were explored according to the number of detections of each species group per hour, beginning at HH:00:00 and ending at HH:59:59. Overlap metrics were used to examine apparent differences between camera trap types for each species, using the overlap package (Meredith & Ridout, 2014). Data were resampled to 1,000 iterations to produce 95% confidence intervals (CIs). Low overlap was defined as Δ ≤ 0.50, moderate overlap as 0.50 < Δ ≤ 0.75, and high overlap as Δ > 0.75 (Monterroso, Alves & Ferreras, 2014).",
+   "printed": false
+  },
+  {
+   "para_id": 12,
+   "loc": "body",
+   "sec_title": "Ethical statement",
+   "text": "In line with taxon-specific ethical standards, we followed the guidelines of Sikes et al. (2016) for the use of wild mammals in research and education. We also considered welfare-focused recommendations (Nogues, Arends & von Keyserlingk, 2025) regarding the deployment and potential impacts of camera traps in ecological research. Footage showed no signs of distress or avoidance in detected animals that frequently engaged in natural behaviours, including feeding at bait stations. This ethics statement was prepared in accordance with the ARRIVE 2.0 guidelines for transparent reporting of animal research Du Sert et al. (2020a), Du Sert et al. (2020b).",
+   "printed": true
+  },
+  {
+   "para_id": 13,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Camera trap studies of small mammals promise to reveal important insights into species ecologies. In this study we demonstrate that going beyond simple camera adjustments and instead providing species-appropriate structures can improve detection performance (also see Caravaggi et al., 2020; Mos & Hofmeester, 2020; Fink & Jachowski, 2025; Dueser, Porter & Moncrief, 2025). Both boxed camera types were recorded more detections than NCTs, and OCTs were generally detected more small mammals (n = 868), particularly mice (n = 416) and voles (n = 265). TCTs performed similarly (n = 777) and detected more shrews (n = 196) while also recording the highest number of field vole detections (n = 60).",
+   "printed": true
+  },
+  {
+   "para_id": 14,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Previous studies have shown that mice are largely nocturnal (e.g., Wolton, 1983; Caravaggi et al., 2018), a pattern consistently observed in our data. Vole activity differed between NCT (nocturnal) and boxed (cathemeral, consistent with previous research; (Eppley & Donati, 2019; Halle, 2006) camera trap types. Only 12 vole detections were recorded from NCTs, however, which is insufficient for the reasonable estimation of activity (Rowcliffe et al., 2014), but see (Frey et al., 2014). Similar inconsistencies between boxed and NCT designs were observed in the shrew data. Boxed camera traps showed that shrews exhibited greater levels of activity during the night and early hours of the morning. In contrast, data from NCTs suggested that shrews are strongly nocturnal. Shrews often display ultradian rhythms (i.e., where periodicity can range from minutes to hours; (Rychlik, 2005) with seasonal (Pernetta, 1977) and temperature-induced variance (Churchfield, 1982). NCTs do not provide shelter like boxed camera traps and movement of small mammals across open space may be less likely than in sheltered areas or along runways (Dickman & Doncaster, 1987). However, NCTs detected the highest number of non-focal species. Disturbance by other animals may have impacted small mammal behaviour at NCTs, reducing the likelihood of detection (McCleery et al., 2014).",
+   "printed": true
+  },
+  {
+   "para_id": 15,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "NCTs recorded the greatest proportion of false triggers, with 55% of detections not recording an animal. False triggers were likely caused by moving vegetation, or movement of an animal on the periphery of or rapidly transiting through the zone of detection. Such instances may lead to underestimates of animal presence (Jumeau, Petrod & Handrich, 2017) and consequently may impact the accuracy of population metrics (Foster & Harmsen, 2012) or the appropriate spatial allocation of conservation efforts (Gu & Swihart, 2004). False triggers also increase battery drain, reduce SD card capacity (Newey et al., 2015), and result in increased effort in terms of data processing. Boxed cameras were less prone to disturbances resulting in fewer false triggers (38% for OCTs and 20% for TCTs). With vegetation movement or light fluctuations most probably responsible for false triggers in OCTs (Wei et al., 2020). The enclosed nature of TCTs likely reduced exposure to these sources of interference, with false triggers more likely due to individuals passing rapidly through the tube without being captured or remaining just outside of the camera’s field of view. Because bait may attract small mammals to camera-trap stations (e.g., Mills, Godley & Hodgson, 2016; Littlewood et al., 2021), maintaining bait availability could potentially increase detections; however, the effect of re-baiting frequency remains uncertain (e.g., Sharpe et al., 2026). More frequent re-baiting would increase the number of human visits, however, disturbing surrounding vegetation and creating obvious pathways to camera trap locations which may result in camera theft (Meek, Ballard & Falzon, 2016) and data loss (Caravaggi et al., 2017).",
+   "printed": true
+  },
+  {
+   "para_id": 16,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Although the no-box camera trap was the least effective method, it was the only survey method that recorded water shrew. It is unclear why the species was not detected on boxed cameras as the species is of comparable size (i.e., up 10 cm in length and 20 g in weight) to others detected in this study. While environmental covariates were not considered in this study, temporal variation in detection rates (as identified in the GAMs) provides evidence that detection probability and/or local activity was not constant over the survey period. This is relevant because differences in camera trap design may interact with temporal shifts in behaviour (e.g., changes in foraging activity or resource use), potentially influencing apparent relative performance among trap types. Indeed, GAM outputs indicate non-linear variation in detections through time, suggesting that sampling was not temporally uniform and that peak detection periods may differ between camera designs. This implies that comparisons of total detections between trap types should be interpreted cautiously, as differences may partially reflect temporal variation in detectability rather than only structural differences among trap designs. Other factors that should also be considered include phenology (e.g., breeding period, Wilson, Montgomery & Elwood, 1993; Churchfield, Hollier & Brown, 1995), predation risk (Ylonen & Ronkainen, 1994; Korpimaki et al., 2002), and climate (Santoro et al., 2017).",
+   "printed": true
+  },
+  {
+   "para_id": 17,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "The effective use of camera traps for small mammal surveys hinges on the capacity of the observer to confidently identify individuals to species level and, for population metrics, distinguish individuals (Thomas et al., 2020). Traits such as relative tail and body length are often used but are difficult to quantify within the wide field of view of a traditional camera trap setup and with poor contrast between the animal and the background (DeBondi et al., 2010). The design of TCTs—that returned the fewest unidentifiable detections (n = 16)—ensured that individuals entered the box in profile, providing the opportunity to gauge relative tail and body length. The black tubes also provided contrast between individuals and the background in most instances, though some difficulties remained. White tubes with scale bars (Mos & Hofmeester, 2020) are therefore suggested for future studies.",
+   "printed": true
+  },
+  {
+   "para_id": 18,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Previous studies suggest that small-scale habitat features, and feature quality are important considerations (Williams, Marsh & Winter, 2002; Kolowski & Forrester, 2017; McCarthy et al., 2021). This study deliberately selected stations in good-quality habitat, aligned with notable field signs of the target species, as is common for small mammal surveys (Flowerdew et al., 2004). Traps were also baited to keep individuals in front of the camera long enough to support species identification (Littlewood et al., 2021). This increased detection probabilities across camera trap stations but can also result in incorrect estimates of detection and occupancy (Fidino et al., 2020). Consequently, temporal variation captured in the GAM analyses should be interpreted as a combination of true variation in activity and variation in bait-mediated detection probability. However, as baiting was applied consistently across all camera trap types, any systematic bias introduced by bait is expected to be comparable among treatments, allowing robust relative comparisons of temporal patterns and trap performance.",
+   "printed": true
+  },
+  {
+   "para_id": 19,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Further, identification may have been inhibited using black and white imagery, obscuring diagnostic features such as the distinctive yellow band on the neck of A. flavicollis, absent in A. sylvaticus. White flashes are not recommended for camera trap studies as they can impact behaviour in detected individuals (Caravaggi et al., 2017). Moreover, both boxed designs highlighted issues regarding the proximity of focal animals to the camera, where only parts of individuals were visible and/or clarity (i.e., focal length) was compromised. Low-cost adaptations such as the use of close-focus filters (Klemens, Tripepi & McFoy, 2021) or additional lenses (e.g., as accompany the Wilsus Juxta Close-Focus model) may mitigate this issue. Complementary methods, like further adaptation of TCTs to collect hair samples (McKelvey & Pearson, 2001) could aid in identification and the application of capture-mark-recapture models (Kery et al., 2010; Croose et al., 2019), though this would incur further cost and analytical effort. Finally, novel camera trapping designs could also be used in conjunction with the traditional boxed and unboxed traps to enhance small mammal monitoring (Fink & Jachowski, 2025; Dueser, Porter & Moncrief, 2025).",
+   "printed": true
+  }
+ ],
+ "links": [
+  {
+   "link_id": 1,
+   "url": "zenodo.org/records/16355322",
+   "url_raw": "https://doi.org/10.5281/zenodo.16355322",
+   "href_jats": "https://doi.org/10.5281/zenodo.16355322",
+   "repo_key": "zenodo:16355322",
+   "host_class": "zenodo",
+   "loc": "fn",
+   "sec_title": "Data Availability",
+   "source": "tagged",
+   "para_id": 1
+  }
+ ],
+ "links_optional": [
+  "bto.org/sites/default/files/shared_documents/publications/research-reports/1999/rr223.pdf",
+  "cran.r-project.org/package=overlap",
+  "creativecommons.org/licenses/by/4.0",
+  "data.jncc.gov.uk/data/dccc3cfa-46c7-4ea9-97da-e8dc9002d8bc/tracking-mammals-partnership-first-report-2005.pdf",
+  "doi:10.1002/ece3.3149",
+  "doi:10.1002/ece3.5972",
+  "doi:10.1002/ece3.7801",
+  "doi:10.1002/fee.1448",
+  "doi:10.1002/jwmg.275",
+  "doi:10.1002/rse2.2",
+  "doi:10.1002/rse2.28",
+  "doi:10.1002/rse2.48",
+  "doi:10.1002/rse2.60",
+  "doi:10.1002/wsb.1122",
+  "doi:10.1002/wsb.1506",
+  "doi:10.1002/wsb.447",
+  "doi:10.1007/bf01237848",
+  "doi:10.1007/bf03194481",
+  "doi:10.1007/s00265-014-1748-1",
+  "doi:10.1007/s10344-019-1282-6",
+  "doi:10.1007/s10344-020-01449-z",
+  "doi:10.1007/s10344-021-01459-5",
+  "doi:10.1007/s10344-026-02052-4",
+  "doi:10.1007/s10530-023-03191-4",
+  "doi:10.1007/s13280-015-0713-1",
+  "doi:10.1007/s13364-020-00513-y",
+  "doi:10.1007/s13364-025-00780-7",
+  "doi:10.1016/j.actao.2005.12.006",
+  "doi:10.1016/j.biocon.2020.108666",
+  "doi:10.1016/j.biocon.2021.109362",
+  "doi:10.1016/j.ecoinf.2019.101021",
+  "doi:10.1016/j.envpol.2008.11.047",
+  "doi:10.1016/j.gecco.2017.01.008",
+  "doi:10.1016/j.gecco.2022.e02104",
+  "doi:10.1016/s0006-3207(03)00190-3",
+  "doi:10.1017/awf.2025.10014",
+  "doi:10.1038/s41598-017-09084-6",
+  "doi:10.1046/j.0305-1838.2003.00025.x",
+  "doi:10.1046/j.1365-2907.2003.00003.x",
+  "doi:10.1071/am17016",
+  "doi:10.1071/wr04069",
+  "doi:10.1071/wr10046",
+  "doi:10.1071/wr18074",
+  "doi:10.1086/285297",
+  "doi:10.1093/biosci/biw022",
+  "doi:10.1093/cz/zow109",
+  "doi:10.1093/jmammal/gyw078",
+  "doi:10.1098/rsos.181748",
+  "doi:10.1098/rspb.2002.1972",
+  "doi:10.1111/1365-2656.13855",
+  "doi:10.1111/1365-2664.12432",
+  "doi:10.1111/2041-210x.12278",
+  "doi:10.1111/2041-210x.13607",
+  "doi:10.1111/aje.12563",
+  "doi:10.1111/csp2.239",
+  "doi:10.1111/emr.12345",
+  "doi:10.1111/j.1365-2907.1993.tb00418.x",
+  "doi:10.1111/j.1469-7998.1980.tb04223.x",
+  "doi:10.1111/j.1523-1739.2008.00927.x",
+  "doi:10.1111/j.1523-1739.2010.01616.x",
+  "doi:10.1111/jbi.13432",
+  "doi:10.1139/z01-139",
+  "doi:10.1146/annurev-statistics-112723-034249",
+  "doi:10.1159/000089693",
+  "doi:10.1371/journal.pbio.1000385",
+  "doi:10.1371/journal.pbio.3000410",
+  "doi:10.1371/journal.pbio.3000411",
+  "doi:10.1371/journal.pone.0067940",
+  "doi:10.1371/journal.pone.0110832",
+  "doi:10.1371/journal.pone.0146142",
+  "doi:10.1371/journal.pone.0185026",
+  "doi:10.1371/journal.pone.0186679",
+  "doi:10.1371/journal.pone.0309252",
+  "doi:10.15560/12.2.1873",
+  "doi:10.1644/12-mamm-a-242.1",
+  "doi:10.1644/13-mamm-s-079",
+  "doi:10.1660/062.113.0309",
+  "doi:10.1890/0012-9658(2002)083[1317:sssdah]2.0.co;2",
+  "doi:10.2307/4453",
+  "doi:10.2307/5073",
+  "doi:10.2461/wbp.2013.9.4",
+  "doi:10.4098/at.arch.77-25",
+  "doi:10.4098/at.arch.82-26",
+  "doi:10.4098/at.arch.95-7",
+  "doi:10.4404/hystrix-24.2-8789",
+  "doi:10.56021/9780801879500",
+  "doi:10.7717/peerj.5827",
+  "naturalresources.wales/media/635059/sssi_0092_citation_en001f17d.pdf",
+  "peerj.com/articles/21654",
+  "r-project.org",
+  "zenodo.org/records/7316535"
+ ],
+ "own_doi": "doi:10.7717/peerj.21654",
+ "citations": [
+  {
+   "cite_id": 1,
+   "para_id": 2,
+   "bib_id": 63,
+   "marker": "Michel, Burel & Butet, 2006",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 2,
+   "para_id": 2,
+   "bib_id": 43,
+   "marker": "Kaufman, Kaufman & Brillhart, 2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 3,
+   "para_id": 2,
+   "bib_id": 55,
+   "marker": "McCleery et al., 2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 4,
+   "para_id": 2,
+   "bib_id": 50,
+   "marker": "Macdonald & Tattersall, 2001",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 5,
+   "para_id": 2,
+   "bib_id": 75,
+   "marker": "Rowe & Terry, 2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 6,
+   "para_id": 2,
+   "bib_id": 6,
+   "marker": "Boakes et al., 2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 7,
+   "para_id": 2,
+   "bib_id": 1,
+   "marker": "Amano, Lamming & Sutherland, 2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 8,
+   "para_id": 2,
+   "bib_id": 22,
+   "marker": "Di Marco et al., 2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 9,
+   "para_id": 2,
+   "bib_id": 86,
+   "marker": "Troudet et al., 2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 10,
+   "para_id": 2,
+   "bib_id": 14,
+   "marker": "Christie et al., 2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 11,
+   "para_id": 2,
+   "bib_id": 8,
+   "marker": "Brown & Nicoletto, 1991",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 12,
+   "para_id": 2,
+   "bib_id": 91,
+   "marker": "Wilson & Reeder, 2005",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 13,
+   "para_id": 2,
+   "bib_id": 62,
+   "marker": "Merritt, 2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 14,
+   "para_id": 2,
+   "bib_id": 83,
+   "marker": "Stoddart, 2012",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 15,
+   "para_id": 2,
+   "bib_id": 48,
+   "marker": "Lim & Pacheco, 2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 16,
+   "para_id": 2,
+   "bib_id": 4,
+   "marker": "Barros et al., 2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 17,
+   "para_id": 2,
+   "bib_id": 49,
+   "marker": "Littlewood et al., 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 18,
+   "para_id": 3,
+   "bib_id": 17,
+   "marker": "Coomber et al., 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 19,
+   "para_id": 3,
+   "bib_id": 52,
+   "marker": "Mathews et al., 2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 20,
+   "para_id": 3,
+   "bib_id": 5,
+   "marker": "Battersby, 2005",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 21,
+   "para_id": 3,
+   "bib_id": 52,
+   "marker": "Mathews et al., 2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 22,
+   "para_id": 3,
+   "bib_id": 77,
+   "marker": "Sánchez-Chardi & López-Fuster, 2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 23,
+   "para_id": 3,
+   "bib_id": 7,
+   "marker": "Browett et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 24,
+   "para_id": 3,
+   "bib_id": 51,
+   "marker": "Marsh & Trenham, 2008",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 25,
+   "para_id": 4,
+   "bib_id": 53,
+   "marker": "McCain et al., 2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 26,
+   "para_id": 4,
+   "bib_id": 85,
+   "marker": "Toms, Siriwardena & Greenwood, 1999",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 27,
+   "para_id": 4,
+   "bib_id": 80,
+   "marker": "Sikes et al., 2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 28,
+   "para_id": 4,
+   "bib_id": 23,
+   "marker": "Do, Shonfield & McAdam, 2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 29,
+   "para_id": 4,
+   "bib_id": 41,
+   "marker": "Johnstone, Garvey & Hickling, 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 30,
+   "para_id": 4,
+   "bib_id": 28,
+   "marker": "Ellenbroek, 1980",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 31,
+   "para_id": 4,
+   "bib_id": 3,
+   "marker": "Baker et al., 2003",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 32,
+   "para_id": 4,
+   "bib_id": 82,
+   "marker": "Steenweg et al., 2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 33,
+   "para_id": 4,
+   "bib_id": 87,
+   "marker": "Wearn & Glover-Kapfer, 2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 34,
+   "para_id": 4,
+   "bib_id": 30,
+   "marker": "Fennell, Beirne & Burton, 2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 35,
+   "para_id": 4,
+   "bib_id": 11,
+   "marker": "Caravaggi et al., 2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 36,
+   "para_id": 5,
+   "bib_id": 59,
+   "marker": "Meek, Vernes & Falzon, 2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 37,
+   "para_id": 5,
+   "bib_id": 9,
+   "marker": "Burns et al., 2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 38,
+   "para_id": 5,
+   "bib_id": 25,
+   "marker": "Dundas et al., 2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 39,
+   "para_id": 5,
+   "bib_id": 84,
+   "marker": "Thomas et al., 2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 40,
+   "para_id": 5,
+   "bib_id": 36,
+   "marker": "Glen et al., 2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 41,
+   "para_id": 5,
+   "bib_id": 45,
+   "marker": "Klemens, Tripepi & McFoy, 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 42,
+   "para_id": 5,
+   "bib_id": 59,
+   "marker": "Meek, Vernes & Falzon, 2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 43,
+   "para_id": 5,
+   "bib_id": 57,
+   "marker": "McKibben & Frey, 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 44,
+   "para_id": 5,
+   "bib_id": 36,
+   "marker": "Glen et al., 2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 45,
+   "para_id": 5,
+   "bib_id": 40,
+   "marker": "Hobbs & Brehme, 2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 46,
+   "para_id": 5,
+   "bib_id": 37,
+   "marker": "Gracanin, Gracanin & Mikac, 2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 47,
+   "para_id": 5,
+   "bib_id": 32,
+   "marker": "Fink & Jachowski, 2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 48,
+   "para_id": 5,
+   "bib_id": 49,
+   "marker": "Littlewood et al., 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 49,
+   "para_id": 5,
+   "bib_id": 81,
+   "marker": "Soininen et al., 2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 50,
+   "para_id": 5,
+   "bib_id": 24,
+   "marker": "Dueser, Porter & Moncrief, 2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 51,
+   "para_id": 5,
+   "bib_id": 49,
+   "marker": "Littlewood et al., 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 52,
+   "para_id": 5,
+   "bib_id": 32,
+   "marker": "Fink & Jachowski, 2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 53,
+   "para_id": 6,
+   "bib_id": 49,
+   "marker": "Littlewood et al., 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 54,
+   "para_id": 6,
+   "bib_id": 65,
+   "marker": "Mos & Hofmeester, 2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 55,
+   "para_id": 7,
+   "bib_id": 67,
+   "marker": "NRW, 1994",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 56,
+   "para_id": 7,
+   "bib_id": 19,
+   "marker": "Cunningham et al., 2005",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 57,
+   "para_id": 7,
+   "bib_id": 73,
+   "marker": "Rovero et al., 2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 58,
+   "para_id": 8,
+   "bib_id": 49,
+   "marker": "Littlewood et al., 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 59,
+   "para_id": 8,
+   "bib_id": 36,
+   "marker": "Glen et al., 2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 60,
+   "para_id": 8,
+   "bib_id": 65,
+   "marker": "Mos & Hofmeester (2020)",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 61,
+   "para_id": 8,
+   "bib_id": 60,
+   "marker": "Meek et al., 2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 62,
+   "para_id": 8,
+   "bib_id": 73,
+   "marker": "Rovero et al., 2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 63,
+   "para_id": 8,
+   "bib_id": 70,
+   "marker": "O’Connell, Nichols & Karanth, 2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 64,
+   "para_id": 8,
+   "bib_id": 70,
+   "marker": "O’Connell, Nichols & Karanth, 2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 65,
+   "para_id": 8,
+   "bib_id": 10,
+   "marker": "Burton et al., 2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 66,
+   "para_id": 8,
+   "bib_id": 49,
+   "marker": "Littlewood et al., 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 67,
+   "para_id": 8,
+   "bib_id": 2,
+   "marker": "Apps & McNutt, 2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 68,
+   "para_id": 9,
+   "bib_id": 65,
+   "marker": "Mos & Hofmeester (2020)",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 69,
+   "para_id": 10,
+   "bib_id": 72,
+   "marker": "R Core Team, 2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 70,
+   "para_id": 10,
+   "bib_id": 93,
+   "marker": "Wood, 2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 71,
+   "para_id": 11,
+   "bib_id": 61,
+   "marker": "Meredith & Ridout, 2014",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 72,
+   "para_id": 11,
+   "bib_id": 66,
+   "marker": "Monterroso, Alves & Ferreras, 2014",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 73,
+   "para_id": 12,
+   "bib_id": 80,
+   "marker": "Sikes et al. (2016)",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 74,
+   "para_id": 12,
+   "bib_id": 69,
+   "marker": "Nogues, Arends & von Keyserlingk, 2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 75,
+   "para_id": 12,
+   "bib_id": 26,
+   "marker": "Du Sert et al. (2020a)",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 76,
+   "para_id": 12,
+   "bib_id": 27,
+   "marker": "Du Sert et al. (2020b)",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 77,
+   "para_id": 13,
+   "bib_id": 12,
+   "marker": "Caravaggi et al., 2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 78,
+   "para_id": 13,
+   "bib_id": 65,
+   "marker": "Mos & Hofmeester, 2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 79,
+   "para_id": 13,
+   "bib_id": 32,
+   "marker": "Fink & Jachowski, 2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 80,
+   "para_id": 13,
+   "bib_id": 24,
+   "marker": "Dueser, Porter & Moncrief, 2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 81,
+   "para_id": 14,
+   "bib_id": 92,
+   "marker": "Wolton, 1983",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 82,
+   "para_id": 14,
+   "bib_id": 13,
+   "marker": "Caravaggi et al., 2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 83,
+   "para_id": 14,
+   "bib_id": 29,
+   "marker": "Eppley & Donati, 2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 84,
+   "para_id": 14,
+   "bib_id": 39,
+   "marker": "Halle, 2006",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 85,
+   "para_id": 14,
+   "bib_id": 74,
+   "marker": "Rowcliffe et al., 2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 86,
+   "para_id": 14,
+   "bib_id": 35,
+   "marker": "Frey et al., 2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 87,
+   "para_id": 14,
+   "bib_id": 76,
+   "marker": "Rychlik, 2005",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 88,
+   "para_id": 14,
+   "bib_id": 71,
+   "marker": "Pernetta, 1977",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 89,
+   "para_id": 14,
+   "bib_id": 15,
+   "marker": "Churchfield, 1982",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 90,
+   "para_id": 14,
+   "bib_id": 21,
+   "marker": "Dickman & Doncaster, 1987",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 91,
+   "para_id": 14,
+   "bib_id": 55,
+   "marker": "McCleery et al., 2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 92,
+   "para_id": 15,
+   "bib_id": 42,
+   "marker": "Jumeau, Petrod & Handrich, 2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 93,
+   "para_id": 15,
+   "bib_id": 34,
+   "marker": "Foster & Harmsen, 2012",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 94,
+   "para_id": 15,
+   "bib_id": 38,
+   "marker": "Gu & Swihart, 2004",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 95,
+   "para_id": 15,
+   "bib_id": 68,
+   "marker": "Newey et al., 2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 96,
+   "para_id": 15,
+   "bib_id": 88,
+   "marker": "Wei et al., 2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 97,
+   "para_id": 15,
+   "bib_id": 64,
+   "marker": "Mills, Godley & Hodgson, 2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 98,
+   "para_id": 15,
+   "bib_id": 49,
+   "marker": "Littlewood et al., 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 99,
+   "para_id": 15,
+   "bib_id": 79,
+   "marker": "Sharpe et al., 2026",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 100,
+   "para_id": 15,
+   "bib_id": 58,
+   "marker": "Meek, Ballard & Falzon, 2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 101,
+   "para_id": 15,
+   "bib_id": 11,
+   "marker": "Caravaggi et al., 2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 102,
+   "para_id": 16,
+   "bib_id": 90,
+   "marker": "Wilson, Montgomery & Elwood, 1993",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 103,
+   "para_id": 16,
+   "bib_id": 16,
+   "marker": "Churchfield, Hollier & Brown, 1995",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 104,
+   "para_id": 16,
+   "bib_id": 94,
+   "marker": "Ylonen & Ronkainen, 1994",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 105,
+   "para_id": 16,
+   "bib_id": 47,
+   "marker": "Korpimaki et al., 2002",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 106,
+   "para_id": 16,
+   "bib_id": 78,
+   "marker": "Santoro et al., 2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 107,
+   "para_id": 17,
+   "bib_id": 84,
+   "marker": "Thomas et al., 2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 108,
+   "para_id": 17,
+   "bib_id": 20,
+   "marker": "DeBondi et al., 2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 109,
+   "para_id": 17,
+   "bib_id": 65,
+   "marker": "Mos & Hofmeester, 2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 110,
+   "para_id": 18,
+   "bib_id": 89,
+   "marker": "Williams, Marsh & Winter, 2002",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 111,
+   "para_id": 18,
+   "bib_id": 46,
+   "marker": "Kolowski & Forrester, 2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 112,
+   "para_id": 18,
+   "bib_id": 54,
+   "marker": "McCarthy et al., 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 113,
+   "para_id": 18,
+   "bib_id": 33,
+   "marker": "Flowerdew et al., 2004",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 114,
+   "para_id": 18,
+   "bib_id": 49,
+   "marker": "Littlewood et al., 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 115,
+   "para_id": 18,
+   "bib_id": 31,
+   "marker": "Fidino et al., 2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 116,
+   "para_id": 19,
+   "bib_id": 11,
+   "marker": "Caravaggi et al., 2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 117,
+   "para_id": 19,
+   "bib_id": 45,
+   "marker": "Klemens, Tripepi & McFoy, 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 118,
+   "para_id": 19,
+   "bib_id": 56,
+   "marker": "McKelvey & Pearson, 2001",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 119,
+   "para_id": 19,
+   "bib_id": 44,
+   "marker": "Kery et al., 2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 120,
+   "para_id": 19,
+   "bib_id": 18,
+   "marker": "Croose et al., 2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 121,
+   "para_id": 19,
+   "bib_id": 32,
+   "marker": "Fink & Jachowski, 2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 122,
+   "para_id": 19,
+   "bib_id": 24,
+   "marker": "Dueser, Porter & Moncrief, 2025",
+   "expanded": false,
+   "scored": true
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-ext-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "v1_bib_count": 94
+ }
+}

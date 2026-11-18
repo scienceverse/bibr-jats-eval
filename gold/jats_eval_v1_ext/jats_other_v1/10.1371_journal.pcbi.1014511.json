@@ -1,0 +1,1845 @@
+{
+ "paper_id": "10.1371_journal.pcbi.1014511",
+ "paras": [
+  {
+   "para_id": 1,
+   "loc": "body",
+   "sec_title": "1 Introduction",
+   "text": "Cell migration is a fundamental biological process that underpins critical aspects of life, including embryonic development, immune responses, wound healing, and pathological conditions such as tumor invasion [1–3]. In both in vivo and in vitro settings, cells respond to various external cues to navigate their environment [4,5]. Moreover, the capacity to guide cellular movement using external stimuli is gaining traction in medicine—aiming to halt tumor invasion, enhance tissue repair, or accelerate wound healing [1,6,7]. In tissue engineering, this control over migration supports the spatial arrangement of cells within engineered constructs, enabling the formation of biomimetic tissues with functional architectures [8,9].",
+   "printed": true
+  },
+  {
+   "para_id": 2,
+   "loc": "body",
+   "sec_title": "1 Introduction",
+   "text": "Chemotaxis is among the most well-studied mechanisms governing directed migration, where cells move in response to gradients of soluble biochemical signals [10]. These gradients activate membrane-bound receptors and initiate downstream signaling cascades. Central to this process are the Rho family of GTPases, including RhoA, Rac1, and Cdc42, which regulate myosin and actin cytoskeleton dynamics, as the key drivers of the forces underlying cell migration [11,12]. Specifically, RhoA promotes actomyosin contractility [13–15], Rac1 drives lamellipodia formation [16–19]—aiding in spreading—and Cdc42 controls filopodia formation, essential for environmental sensing and directional probing [20–22]. Cross-talk among these GTPases allows for the spatial coordination of adhesion dynamics, with Rac1 and Cdc42 activity concentrated at the leading edge and RhoA predominantly active at the rear of migrating cells [23,24].",
+   "printed": true
+  },
+  {
+   "para_id": 3,
+   "loc": "body",
+   "sec_title": "1 Introduction",
+   "text": "In addition to biochemical cues, mechanical signals are now well recognized as pivotal regulators of cell migration. For instance, cells migrate along gradients of substrate stiffness and adhesion ligand density—phenomena known as durotaxis and haptotaxis, respectively [25–27]. These processes involve asymmetric adhesion forces. Similarly, during frictiotaxis—the migration toward regions of higher extracellular friction—mechanical friction is transduced into intracellular cues that induce polarization of the actomyosin network in integrin-independent migration [28]. Although all these mechanical cues differ in nature, they also share one fundamental aspect: they all induce a front-rear differential friction in the retrograde flow of the cell, which eventually induces a directed cell migration. We will hereafter refer to “mechanotaxis” to encompass durotaxis, haptotaxis, frictiotaxis, and other external cues that create a polarized effective friction transmitted to the retrograde actin flow. Notably, effective friction has been shown to underlie both positive and negative durotaxis, suggesting that friction alone, whether in mesenchymal or amoeboid migration, can drive directed cell movement [29].",
+   "printed": true
+  },
+  {
+   "para_id": 4,
+   "loc": "body",
+   "sec_title": "1 Introduction",
+   "text": "While often approached from a mechanical perspective, where cell motility is explained by the balance of forces alone [29–33], durotaxis also engages intracellular signaling pathways similar to those activated in chemotaxis, which directly modify crucial motile forces of the cell for both homeostasis and pathological conditions. Integrin activation, for example, stimulates Rho GTPases, coordinating the organization of adhesion complexes and cytoskeletal remodeling [11,12] and enabling cells to sense and adapt to mechanical forces.",
+   "printed": true
+  },
+  {
+   "para_id": 5,
+   "loc": "body",
+   "sec_title": "1 Introduction",
+   "text": "Electrotaxis—the directed migration of cells in response to electric fields (EFs)—is another guidance mechanism observed in physiological contexts such as embryonic development [34] and wound healing [35], and it is present across a wide range of cell types [36–39], and even whole tissues [40,41]. Charged Membrane Proteins (CMPs) such as Epidermal Growth Factor Receptor (EGFR), membrane lipids, and Vascular Endothelial Growth Factor (VEGF) receptors, among others, have been shown to polarize during electrotaxis. Moreover, some of these polarized components may contribute to the asymmetric activation of Rho GTPases, aligning electrotaxis with the same intracellular machinery involved in chemotaxis and durotaxis. Indeed, one of the most fundamental questions in electrotaxis is what specific CMPs are actually responsible for the downstream polarization of GTPases.",
+   "printed": true
+  },
+  {
+   "para_id": 6,
+   "loc": "body",
+   "sec_title": "2.1 Cell adhesion based on the clutch model",
+   "text": "We adopt clutch models to describe how cell adhesion responds to the mechanical properties of the extracellular matrix (ECM). The mathematical formulation, summarized below, follows previous work [42,43]. In this framework, each molecular clutch connects the ECM on one side to the adaptor protein talin on the other. Talin, in turn, links to actin filaments, which are pulled by myosin motors. The actomyosin network generates contractile forces that act through these clutches at adhesion sites.",
+   "printed": true
+  },
+  {
+   "para_id": 7,
+   "loc": "body",
+   "sec_title": "2.1 Cell adhesion based on the clutch model",
+   "text": "where κc is the stiffness of an individual molecular clutch [43], zc,i is the displacement of the i-th clutch, and zsub is the substrate displacement. Once the force on each clutch, Fc,i, is determined, we compute the corresponding binding and unbinding dynamics. The attachment of the nc clutches to the ECM, representing integrin–ECM interactions, is governed by catch-bond kinetics [44,45]. Clutches bind at a constant rate kon and unbind at a force-dependent dissociation rate koff. Mechanosensitivity arises through talin unfolding, which promotes vinculin recruitment and integrin clustering [45]—a process known as adhesion reinforcement. For further details on catch-bond behavior, mechanosensitivity modeling, and parameter values, see [43]. Once the total force F is computed, the cell traction is obtained as",
+   "printed": true
+  },
+  {
+   "para_id": 8,
+   "loc": "body",
+   "sec_title": "2.1 Cell adhesion based on the clutch model",
+   "text": "To compute the dynamics of the clutch model, we perform Monte Carlo (MC) simulations involving repeated stochastic sampling of clutch engagement and disengagement events. These cycles of adhesion formation and rupture are simulated using a constant time step Δt=0.005 s over a total duration of tf=100 s, as validated in [43]. The displacement of engaged clutches during each time step is given by Δz=v^Δt. The substrate displacement at the next time step, zn+1, is obtained by solving the force balance between the neng engaged clutches and the substrate, thereby updating the total force F. Simulation outputs are averaged over time to capture the behavior under specific ECM mechanical properties.",
+   "printed": true
+  },
+  {
+   "para_id": 9,
+   "loc": "body",
+   "sec_title": "2.1 Cell adhesion based on the clutch model",
+   "text": "Instead of computing the clutch model at each integration point of the Finite Element Model and at each time step (see Section 2.7), we precompute the traction P and velocity v^ for each possible value of nc and ECM stiffness. Then, we assume that the effective friction between the cell and the ECM is given by [29,46]",
+   "printed": true
+  },
+  {
+   "para_id": 10,
+   "loc": "body",
+   "sec_title": "2.2 Electromotility of charged membrane components",
+   "text": "The electro-motility of CMPs arises from the interplay between two opposing forces. When a cell is immersed in an electrolyte solution, its negatively charged membrane attracts nearby positive ions, forming a structured region known as the electrical double layer (EDL). Upon the application of an electric field (EF), this EDL is also subjected to the field, generating a fluid movement known as electro-osmotic flow (EOF). CMPs embedded in the cell membrane are dragged by this EOF, enabling their migration along the membrane surface. In addition to being influenced by the global EOF, the charged nature of CMPs causes them to experience local EOF as well as electrostatic interactions. These combined effects constitute electrophoresis, which leads to an asymmetric redistribution of CMPs along the cell membrane [47–49].",
+   "printed": true
+  },
+  {
+   "para_id": 11,
+   "loc": "body",
+   "sec_title": "2.2 Electromotility of charged membrane components",
+   "text": "To quantify the rate and magnitude of this redistribution—which ultimately drives the downstream polarization of intracellular signaling pathways—we adopted previously established mathematical models [47–50]. In summary, the total electro-motility velocity can be expressed as",
+   "printed": true
+  },
+  {
+   "para_id": 12,
+   "loc": "body",
+   "sec_title": "2.3 Polarization of signaling cues by a GTPases model",
+   "text": "To incorporate the complex interactions between Rho GTPase, specifically active and inactive forms of Rac1, Cdc42, and RhoA, as well as key phosphoinositides such as PIP (P1), PIP2 (P2), and PIP3 (P3), we take a model described in our previous publication on electrotaxis [50], which was based on several previously proposed models [51–56].",
+   "printed": true
+  },
+  {
+   "para_id": 13,
+   "loc": "body",
+   "sec_title": "2.3 Polarization of signaling cues by a GTPases model",
+   "text": "respectively. The Ctot, Rtot, ρtotA are the total concentrations of the Cdc42, Rac and Rho. Ic,IR and IρA are activation rates, which we describe below. The values a1 and a2 are the Rho and Cdc42 concentrations that elicit a half-maximal drop of Cdc42 and Rho activation, respectively. The value α determines the rate of Cdc42-enhanced activation of Rac, and β determines the rate of Rac-enhanced Rho activation. P3b is the baseline concentration of PIP3 found in a resting cell. dR, dC, and dρA are the decay rates of activated Rac1, Cdc42 and Rho, respectively. Dm is the diffusion constant of the active form. f1 and f2 are feedback from PIP3 to Cdc42 and Rac, respectively, which we assume differs from the original model [52], and they are bounded such that 0≤f1,f2,≤1. This allows us to analyze different feedback strengths from PIP3 to Rac1 and Cdc42.",
+   "printed": true
+  },
+  {
+   "para_id": 14,
+   "loc": "body",
+   "sec_title": "2.3 Polarization of signaling cues by a GTPases model",
+   "text": "for Cdc42, Rac1, and PI3K activation, respectively. Here, the activation scales with the baseline conversion rates IC*, IR*, and kpi3k* defined in the base model [52].",
+   "printed": true
+  },
+  {
+   "para_id": 15,
+   "loc": "body",
+   "sec_title": "2.4 Mechanical model of the actomyosin network",
+   "text": "To describe the mechanics of the actomyosin network, we adopt an active gel model [57,58], formulated as",
+   "printed": true
+  },
+  {
+   "para_id": 16,
+   "loc": "body",
+   "sec_title": "2.4 Mechanical model of the actomyosin network",
+   "text": "which accounts for both the viscous resistance of the actin cortex and the active contractility generated by the actomyosin system. In this expression, ρF and ρM represent the concentrations of F-actin and bound myosin motors, respectively, as detailed in the next section. The velocity vF corresponds to the actin network (or retrograde flow) measured in the laboratory frame. The parameter μ denotes the shear viscosity of the network, while ζ characterizes the active contractile stress generated by myosin motors. This contractility is further modulated by the local concentration of RhoA, thereby enhancing contractility in regions with elevated RhoA activity. Zero Neumann boundary conditions are imposed at both ends of the domain. The right-hand-side term in Eq. (17) represents the frictional interaction between the moving cortex and its surrounding environment. We assume this friction to be linearly proportional to the cortex velocity, with coefficient η [29,58], as defined above.",
+   "printed": true
+  },
+  {
+   "para_id": 17,
+   "loc": "body",
+   "sec_title": "2.5 Kinetics of the cell fronts",
+   "text": "The polymerization velocity of actin filaments at the cell front is biochemically regulated by the activity of Rac1 and Cdc42, which modulate Arp2/3 complex activation and filament nucleation [22]. In the absence of opposing forces, the polymerization velocity is defined as",
+   "printed": true
+  },
+  {
+   "para_id": 18,
+   "loc": "body",
+   "sec_title": "2.5 Kinetics of the cell fronts",
+   "text": "To describe the dependence of polymerization on membrane tension, we adopt a well-established model introduced by [59], in which the polymerization velocity decreases with increasing tension according to",
+   "printed": true
+  },
+  {
+   "para_id": 19,
+   "loc": "body",
+   "sec_title": "2.6 Transport of the actomyosin network",
+   "text": "Finally, to model the density dynamics of the actomyosin network, we employ a coupled convection–diffusion framework to describe the spatiotemporal evolution of filamentous (F-actin), ρF(x,t), and globular (G-actin), ρG(x,t), actin species within the cell (see [58] and references therein):",
+   "printed": true
+  },
+  {
+   "para_id": 20,
+   "loc": "body",
+   "sec_title": "2.7 Numerical solution of the problem and model parameters",
+   "text": "We numerically solve all coupled PDE systems using a staggered approach. Spatial discretization is performed using the Finite Element Method (FEM), while temporal discretization of the parabolic equations is carried out using the implicit, second-order Crank–Nicolson scheme [60]. Nonlinear equations are solved iteratively via the Newton–Raphson method. Unless otherwise specified in the main text, all simulation parameters are adopted from previously published studies [29,50,58].",
+   "printed": true
+  },
+  {
+   "para_id": 21,
+   "loc": "body",
+   "sec_title": "3 Results",
+   "text": "To investigate how simultaneous mechanical and electrical stimulation influences cell migration, we largely follow the approach presented in our previous publications [29,50,58], which uses a minimal active gel model to characterize the dynamics of the actomyosin network by solving the transport equations for actomyosin density in conjunction with the momentum balance equation for the retrograde flow. To model the cascade of events leading to mechanotaxis and electrotaxis, we consider the primary cellular sensors involved, integrins and CMPs, respectively, and their activation of intracellular signaling networks [29,50]. In short, we consider a one-dimensional computational model, represented as a continuous segment with moving boundaries x(t)∈[ll(t),lr(t)], where ll(t) and lr(t) denote the positions of the left and right edges of the cell, respectively. The model computes the retrograde velocity v and the polymerization velocity against the cell membrane vp, from which we calculate the motion of the cell boundaries as a combination of inward retrograde flow and outward protrusion such that the velocities of the front and rear edges are given by l˙f(t)=vf+vfp and l˙b(t)=vb+vbp, respectively. Then, the migration velocity of the cell is given as v=(l˙f(t)+l˙b(t))/2 (see Fig 1A).",
+   "printed": true
+  },
+  {
+   "para_id": 22,
+   "loc": "fig",
+   "sec_title": "3 Results",
+   "text": "(a) Schematic of the main mechanisms involved in mechanotaxis, including integrin activation, downstream signaling, and actomyosin polarization. (b) Key variables in the physical model: retrograde flow velocity v (blue), indicated at the front and rear of the cell (subscripts f and r, respectively), and actin polymerization velocity (black). (c-d) Traction forces (c) and corresponding effective friction (d) in response to gradients in ECM stiffness and anchoring point density. Red and black lines represent traction and friction gradients of similar magnitude for haptotaxis and durotaxis, respectively. (e) A representative traction and friction profile used in the simulations. (f) Time evolution of cell center position (black line) and migration velocity (red line) in two conditions: (1) when mechanotaxis is driven solely by a friction gradient (dashed lines), as described in [29], and (2) when integrin activation also triggers downstream activation of PI3K and subsequently Rho GTPases (solid lines). Incorporating biochemical signaling results in faster cell migration, due to increased actin polymerization at the front and enhanced retrograde flow at the rear of the cell. (g) Schematic of the Rho GTPase signaling network included in the mathematical model. Arrows indicate positive feedback (activation) from one component to another, and tails indicate negative feedback (inactivation) of one component by another. f1 and f2 are the magnitudes of feedback for activating Cdc42 and Rac1 by PIP3. (h-j) Kymographs of variables along the normalized cell length (Y-axis) over time (X-axis) when mechanical activation of GTPases is included in the mechanotactic model: Rac1 (h), RhoA (i), and retrograde flow velocity (j). In all kymographs, the positions of the cell front and rear are indicated.",
+   "printed": true
+  },
+  {
+   "para_id": 23,
+   "loc": "body",
+   "sec_title": "3 Results",
+   "text": "If no symmetry-breaking is induced, the cell will show symmetric flows and actomyosin densities, and, consequently, cell spreading [61–63]. This non-migrating, static cell mode has been reproduced using such active gel models [58] and also used to describe the transmission of forces between different cellular networks and adhesion structures [64].",
+   "printed": true
+  },
+  {
+   "para_id": 24,
+   "loc": "body",
+   "sec_title": "3 Results",
+   "text": "During mechanotaxis, gradients in mechanical cues of the ECM induce asymmetric expression of cell adhesions, highly dynamic structures primarily mediated by transmembrane receptors such as integrins, which play a crucial role in guiding directed migration. The clutch model [42] has been instrumental in explaining and predicting cell adhesion behavior across various ECM conditions, including elastic [45,65], viscoelastic [66,67], and ligand density [68] (see [43] for a detailed overview). By coupling an active gel model of cell migration with a stochastic clutch framework, it is possible to describe how the active forces of the cell are transmitted asymmetrically outside the cell, inducing cell movement. This mathematical approach has been used, for example, to describe both positive and negative durotaxis across different cell types [29]. To develop our current model, we begin with a simplified version of this previous durotactic model [29].",
+   "printed": true
+  },
+  {
+   "para_id": 25,
+   "loc": "body",
+   "sec_title": "3 Results",
+   "text": "As previously demonstrated, cells migrate along friction gradients (Fig 1F) [29], rather than stiffness gradients alone—challenging earlier assumptions and offering a theoretical rationale for previously observed phenomena described as positive and negative durotaxis. However, this durotactic model predicts a lower migration velocity compared to experimental observations [69,70]. One possible explanation is that the model accounts solely for the mechanical interactions mediated by cell adhesions, while neglecting the fact that, as discussed above, integrin activation also initiates Rho GTPase signaling, which could enhance the cell’s migration speed.",
+   "printed": true
+  },
+  {
+   "para_id": 26,
+   "loc": "body",
+   "sec_title": "3 Results",
+   "text": "Integrin activation involves a conformational transition from a low-affinity (inactive) state to a high-affinity (active) state, regulated by intracellular adaptor proteins such as talin and kindlin. This process is controlled by bidirectional signaling: intracellular cues regulate integrin activation (inside-out signaling), while integrin–ECM interactions transmit signals back into the cell (outside-in signaling), influencing cytoskeletal organization and downstream signaling pathways. Notably, integrin engagement activates PI3K [71–74]. In fibroblasts, adhesion to fibronectin has also been shown to promote transient Rac activation and sustained Rho activation [75–79]. Other studies have reported that integrin-mediated adhesion activates both Cdc42 and Rac1 [77,80], while some suggest that Cdc42 is activated first and subsequently triggers Rac activation [78].",
+   "printed": true
+  },
+  {
+   "para_id": 27,
+   "loc": "body",
+   "sec_title": "3 Results",
+   "text": "To incorporate these activation mechanisms, we coupled our mechanotactic model with a well-established Rho GTPase signaling model [51–53] This model includes both active and inactive forms of Rac1, Cdc42, and RhoA, as well as key phosphoinositides: PIP (P1), PIP2 (P2), and PIP3 (P3) (see Fig 1G). To account for the activation of Rho GTPases by integrins, we follow a previous model [50] and consider that the conversion of PIP2 to PIP3 via PI3K depends on integrin activation, which we assume to be proportional to friction. Following experimental insights [71–74], we assumed that higher frictional forces—indicative of greater integrin engagement and traction—lead to increased PI3K activation rates.",
+   "printed": true
+  },
+  {
+   "para_id": 28,
+   "loc": "body",
+   "sec_title": "3 Results",
+   "text": "This signaling pathway influences the actomyosin network in two ways. First, the force generated by myosin motors, ξ, is made linearly dependent on the local concentration of active RhoA, such that regions with high RhoA exhibit stronger contractile forces, while areas with low RhoA show weaker myosin activity [13–15]. Second, the tension-free actin polymerization velocity at the leading edges of the cell, vp, is assumed to vary linearly with Rac1 density, meaning that actin polymerization is enhanced in regions where Rac1 accumulates [16–19].",
+   "printed": true
+  },
+  {
+   "para_id": 29,
+   "loc": "body",
+   "sec_title": "3 Results",
+   "text": "Next, we extend this successful mechanotactic model to examine the interplay between electrical and mechanical cues and how they compete to direct cell migration (Fig 2A). Specifically, our goal is to determine which cue—mechanical or electrical—is more effective in guiding cell migration. During electrotaxis, the electromigration of CMPs, from both electrophoretic and electroosmotic effects, leads to a polarized and enhanced activation of GTPases [36,39,81–85]. Therefore, both mechanotaxis and electrotaxis rely on the polarization of intracellular signaling pathways that regulate the cell’s motility machinery (Fig 2A–2B). To address this interplay, we integrated the GTPase-based mechanotactic model described above, which is driven by mechanical stimulation, with our previously developed electrotaxis model (see section 2 and [50] for details), also employing the same GTPase signaling framework. Among the various possible downstream activations by CMPs, we first assume activation of PI3K by the electrically polarized CMPs [83,84].",
+   "printed": true
+  },
+  {
+   "para_id": 30,
+   "loc": "body",
+   "sec_title": "3 Results",
+   "text": "There are also data indicating that activation by CMPs may directly stimulate the activation of Rac1 and Cdc42 [86–89]. To analyze these possibilities, we first recompute the previous simulation with the direct activation of Cdc42 by CMPs instead of PI3K (Fig 3A–3F). Results are similar to the PI3K-based activation. However, we observe a re-polarization of Rac1 and RhoA (Fig 3B–3C), instead of the uniform distribution obtained for the PI3K-based activation, because the effect of the electric stimuli is larger than the PI3K-based activation. This polarization also creates a re-polarization of the retrograde flow (Fig 3D), which is, in part, responsible for the reversal in migration direction (Fig 3E). The cell reaches a steady migration velocity toward the cathode (Fig 3F).",
+   "printed": true
+  },
+  {
+   "para_id": 31,
+   "loc": "body",
+   "sec_title": "3 Results",
+   "text": "Because our model depends on the coupling between cell adhesion and PI3K activation, as well as on the polarization of CMPs and the activation of downstream signaling pathways, we performed a parametric analysis of these feedback strengths (Fig 4). A detailed parametric analysis of the signaling model and the active gel model independently can be found elsewhere [50,58]. Here, we focus on the three cases presented in Figs 2–3.",
+   "printed": true
+  },
+  {
+   "para_id": 32,
+   "loc": "body",
+   "sec_title": "4 Discussion",
+   "text": "As we discussed, central to both types of stimuli is the GTPase signaling network, which serves as a convergence point for upstream cues and downstream effects [11,12]. In this work, we have adopted a well-established signaling framework that captures the interactions between GTPases and their regulators [51–53]. However, variations in feedback strengths, activation-deactivation kinetics, and receptor coupling are expected across different cell types. Fortunately, these aspects are readily available through mathematical modeling, and our model can provide predictions at minimal cost that can be later explored experimentally.",
+   "printed": true
+  },
+  {
+   "para_id": 33,
+   "loc": "body",
+   "sec_title": "4 Discussion",
+   "text": "The first step in dissecting mechanotactic and electrotactic behavior should thus focus on characterizing the signaling profile of the cell under study, specifically on integrin forms and all membrane components responsible for the GTPases signaling [11,90,91]. Indeed, different integrin subunits have been demonstrated to have significant regulatory roles in basal motility of cells, durotaxis and haptotaxis, and electrotaxis, albeit separately [92–94]. Selective expression of integrin subunits and membrane components could determine the migration direction of cells in an electric field, mediated by PI3 kinase signaling [94]. Thus, to test directly the role of integrin subunits and membrane proteins that regulate PI3K and GTPases to mechanical and electrical cues, one can manipulate the expression of these key membrane proteins with tunable CRISPR-interference (CRISPRi) or photoactivatable cas-13 [95]. This would allow for a precise spatio-temporal perturbation while assessing semi-quantitatively the contribution of each particular integrin subunit and membrane protein. These datasets would help in the experimental design of targeted perturbations and identify the upstream components most relevant for a given context. In the context of electrotaxis, preliminary screening of CMPs [49,50] and integrins [94] has been attempted, but must be more closely investigated.",
+   "printed": true
+  },
+  {
+   "para_id": 34,
+   "loc": "body",
+   "sec_title": "4 Discussion",
+   "text": "One global approach would require the tracking of membrane microdomains (rafts), which are composed of specific lipid environments and CMPs such as receptors and ion channels. Note that in a multicellular system, the connection between cells can create regions of local barriers, which could limit the movement of CMPs. Even if we do not know what proteins comprise these rafts at first, the indication that the lipid rafts have a compound nominal charge, because they have many identical proteins together, means that the raft can easily be “more positive” or “negative” and thus be responsive to the electric field [96]. Moreover, rafts have specific lipids like cholesterol that are uncharged, which can make the membrane more fluid-like because there’s less electrostatic interaction with lipid tails and thus less compaction. Markers for lipid rafts like Filipin III and CTxB can be used to understand whether polarization of CMPs is dependent on protein-lipid complexes or whether individual components are sensing the EF and responding through electrophoresis and electro-osmotic flows. Other candidate molecules, such as EGFR or VEGFR, could be labeled for single-molecule microscopy, to be tracked during EF activation and determine which CMPs respond and repolarize to an EF. Another approach would be to knock down electrosensors such as VSP1, Galvanin (TMEM154), and PTEN and study the effect on electrotaxis direction [38,97–99].",
+   "printed": true
+  },
+  {
+   "para_id": 35,
+   "loc": "body",
+   "sec_title": "4 Discussion",
+   "text": "To further test our models regarding PI3K, an optogenetically controlled PI3K can be used to control its activity and that way, create an opposing signal to either mechanotaxis or electrotaxis [100]. Another way to test how determinant PI3K is for polarity and onset of migration is to use cell lines depleted for PI3K or use inhibitors, and check whether directionality is maintained with the biasing cues.",
+   "printed": true
+  },
+  {
+   "para_id": 36,
+   "loc": "body",
+   "sec_title": "4 Discussion",
+   "text": "One outstanding question is whether PIPs are passively displaced by membrane flows upon EF activation. Therefore, tracking PIP2 or PIP3 fluorescent markers during EF activation could reveal whether PIPs are physically drifted or synthesized de novo at emerging polarity sites, and potentially whether the EF directly mobilizes the enzymatic machinery responsible for PIP phosphorylation and dephosphorylation. Since GTPases have a complex affinity to bind PIP kinases, PIP2, or even require PIP2 to activate their effectors, GTPases and PIP dynamics should be tracked in parallel to understand these relationships at the onset of cell repolarization. Many of these experiments or experimental strategies have already been applied in chemotaxis, hence a great inspiration and set of toolboxes can be easily adapted from there [101]. Besides these ideas, if one truly aims to understand how multimodal cues work in additive, synergistic, or confronting manners, a key direction is to characterize the environment in which cells migrate. This will deeply benefit theory and experimental design as it will report on the native scenarios in which cells move. For example, one can design experiments in which orthogonal, parallel, or antiparallel mechanical and electrical gradients, similar to those presented above, are applied while monitoring the parameters described above.",
+   "printed": true
+  },
+  {
+   "para_id": 37,
+   "loc": "body",
+   "sec_title": "4 Discussion",
+   "text": "In the case of mechanical inputs, traction force microscopy paired with controlled substrate stiffness or micropatterned substrates [93] can be used to quantify how specific integrins modulate GTPase activation dynamics. Furthermore, to determine what integrins and CMPs, and at what strength and timing, activate which layers of the GTPase cascade, time-resolved imaging of integrin and CMPs clustering and associated GEF/GAP activity would be essential. This can be approached by live-cell FRET biosensing to monitor activities of Rac1, Cdc42 and Rho in real time during durotaxis/haptotaxis and upon the onset of an EF [102,103], which can be combined with genetic perturbation (e.g., CRISPR-Cas9-mediated knockout or overexpression of specific integrins/CMPs). The onset of an EF can be controlled in direction and magnitude of the applied EF in an electrotaxis chamber, which allows direct test and validation of the modelling results as shown in Figs 1–3. These experiments will directly compare the model dynamics of GTPase dynamics and the changes upon an EF being switched on.",
+   "printed": true
+  },
+  {
+   "para_id": 38,
+   "loc": "body",
+   "sec_title": "4 Discussion",
+   "text": "Finally, how each Rho GTPase quantitatively influences actomyosin contractility has been much further investigated. For example, a common implementation consists of the use of myosin II fluorescent reporters (e.g., MRLC-GFP), in conjunction with pharmacological modulation of individual GTPases (using inhibitors or constitutively active mutants) and time-lapse confocal microscopy [104,105]. Quantitative image analysis would then reveal how each GTPase contributes to cytoskeletal contractility in a stimulus-dependent manner. More importantly, and going back to the idea of synergy, addition or competition, the contribution of piezo electric membrane channels, such as TRPs or Piezos, which can rapidly deliver calcium influxes due to changes in membrane voltage and stretch, will also contribute to dissecting the molecular mechanism by which cells sense and translate electromechanical stimuli into a cellular pattern of actomyosin contractility.",
+   "printed": true
+  },
+  {
+   "para_id": 39,
+   "loc": "body",
+   "sec_title": "4 Discussion",
+   "text": "We must also mention that the present framework is restricted to a one-dimensional description of migration, which necessarily limits its ability to capture the full extent of stochasticity observed in experimental systems [4,106]. A 2D formulation including sources of stochasticity would restore these degrees of freedom, allowing stochasticity to emerge through variability in directionality and spatial exploration, and thereby provide a more faithful representation of single-cell migration dynamics. Understanding the combined effect of external cues should also be investigated in the context of multicellular systems [40,70,107].",
+   "printed": true
+  }
+ ],
+ "links": [],
+ "links_optional": [
+  "creativecommons.org/licenses/by/4.0",
+  "doi:10.1002/0470013826",
+  "doi:10.1002/jcp.26109",
+  "doi:10.1006/dbio.1994.1357",
+  "doi:10.1016/j.bios.2021.113289",
+  "doi:10.1016/j.bpj.2009.07.020",
+  "doi:10.1016/j.bpj.2014.10.041",
+  "doi:10.1016/j.bpj.2020.09.037",
+  "doi:10.1016/j.ceb.2021.04.002",
+  "doi:10.1016/j.cub.2013.02.047",
+  "doi:10.1016/j.cub.2020.03.051",
+  "doi:10.1016/j.devcel.2020.11.019",
+  "doi:10.1016/j.expneurol.2010.11.002",
+  "doi:10.1016/j.isci.2022.105136",
+  "doi:10.1016/j.isci.2025.112329",
+  "doi:10.1016/j.jbior.2015.06.001",
+  "doi:10.1016/j.jmps.2023.105390",
+  "doi:10.1016/j.jtbi.2019.06.015",
+  "doi:10.1016/j.semcdb.2008.12.009",
+  "doi:10.1016/j.semcdb.2009.04.013",
+  "doi:10.1016/j.semcdb.2024.12.001",
+  "doi:10.1016/j.ydbio.2003.06.003",
+  "doi:10.1016/s0006-3495(02)75373-3",
+  "doi:10.1016/s0006-3495(03)74969-8",
+  "doi:10.1016/s0006-3495(81)84838-2",
+  "doi:10.1016/s0092-8674(00)80486-9",
+  "doi:10.1016/s0960-9822(02)01334-9",
+  "doi:10.1016/s0968-0004(00)01605-4",
+  "doi:10.1038/10042",
+  "doi:10.1038/213256a0",
+  "doi:10.1038/bjc.2012.107",
+  "doi:10.1038/nature02388",
+  "doi:10.1038/nature04925",
+  "doi:10.1038/nature24662",
+  "doi:10.1038/ncb3336",
+  "doi:10.1038/ncomms10664",
+  "doi:10.1038/nmat3891",
+  "doi:10.1038/nmat4089",
+  "doi:10.1038/nphys3224",
+  "doi:10.1038/nrc2544",
+  "doi:10.1038/nrm.2015.14",
+  "doi:10.1038/nrm1435",
+  "doi:10.1038/nrm2720",
+  "doi:10.1038/nrm3153",
+  "doi:10.1038/s41413-020-00126-w",
+  "doi:10.1038/s41467-018-07286-8",
+  "doi:10.1038/s41467-024-44867-2",
+  "doi:10.1038/s41467-025-58912-1",
+  "doi:10.1038/s41556-017-0012-0",
+  "doi:10.1038/s41563-022-01294-2",
+  "doi:10.1038/s41563-023-01657-3",
+  "doi:10.1038/s41563-024-02060-2",
+  "doi:10.1038/s41580-021-00366-6",
+  "doi:10.1039/d2sm01326f",
+  "doi:10.1073/pnas.0705889104",
+  "doi:10.1073/pnas.0804702105",
+  "doi:10.1073/pnas.1312540110",
+  "doi:10.1073/pnas.1409667112",
+  "doi:10.1073/pnas.1411785111",
+  "doi:10.1073/pnas.1618239114",
+  "doi:10.1073/pnas.1716620115",
+  "doi:10.1083/jcb.142.2.573",
+  "doi:10.1083/jcb.149.4.775",
+  "doi:10.1083/jcb.200810002",
+  "doi:10.1083/jcb.201604113",
+  "doi:10.1088/1478-3975/13/4/046001",
+  "doi:10.1091/mbc.10.4.1259",
+  "doi:10.1091/mbc.9.7.1863",
+  "doi:10.1093/emboj/18.3.578",
+  "doi:10.1093/emboj/19.9.2008",
+  "doi:10.1093/nar/gku1131",
+  "doi:10.1096/fj.01-0811fje",
+  "doi:10.1096/fj.201802657r",
+  "doi:10.1101/2024.09.23.614580",
+  "doi:10.1101/cshperspect.a005959",
+  "doi:10.1101/cshperspect.a041745",
+  "doi:10.1101/sqb.2016.81.030817",
+  "doi:10.1103/physrevlett.118.078103",
+  "doi:10.1103/physrevlett.126.118101",
+  "doi:10.1111/febs.15862",
+  "doi:10.1126/sciadv.adf9758",
+  "doi:10.1126/science.1092053",
+  "doi:10.1126/science.1100367",
+  "doi:10.1126/science.1163595",
+  "doi:10.1126/science.1175862",
+  "doi:10.1126/science.273.5272.245",
+  "doi:10.1126/science.290.5490.333",
+  "doi:10.1126/science.aaf7119",
+  "doi:10.1128/mcb.22.18.6582-6591.2002",
+  "doi:10.1146/annurev-cellbio-100616-060739",
+  "doi:10.1146/annurev-cellbio-101323-032747",
+  "doi:10.1242/jcs.002774",
+  "doi:10.1242/jcs.00663",
+  "doi:10.1242/jcs.00868",
+  "doi:10.1242/jcs.028647",
+  "doi:10.1242/jcs.064345",
+  "doi:10.1242/jcs.112.12.1967",
+  "doi:10.1242/jcs.114.15.2713",
+  "doi:10.1371/journal.pcbi.1001121",
+  "doi:10.1371/journal.pcbi.1002402",
+  "doi:10.1371/journal.pcbi.1011250",
+  "doi:10.1529/biophysj.106.090514",
+  "doi:10.22203/ecm.v022a26",
+  "doi:10.3109/15419069709004456",
+  "doi:10.4161/cam.5.2.14403",
+  "doi:10.7554/elife.91012.1",
+  "es.mathworks.com/matlabcentral/fileexchange/183177-electrotaxis_durotaxis_simulator",
+  "ncbi.nlm.nih.gov/pmc/articles/pmc1221060"
+ ],
+ "own_doi": "doi:10.1371/journal.pcbi.1014511",
+ "citations": [
+  {
+   "cite_id": 1,
+   "para_id": 1,
+   "bib_id": 1,
+   "marker": "1",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 2,
+   "para_id": 1,
+   "bib_id": 2,
+   "marker": "1–3",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 3,
+   "para_id": 1,
+   "bib_id": 3,
+   "marker": "3",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 4,
+   "para_id": 1,
+   "bib_id": 4,
+   "marker": "4",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 5,
+   "para_id": 1,
+   "bib_id": 5,
+   "marker": "5",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 6,
+   "para_id": 1,
+   "bib_id": 1,
+   "marker": "1",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 7,
+   "para_id": 1,
+   "bib_id": 6,
+   "marker": "6",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 8,
+   "para_id": 1,
+   "bib_id": 7,
+   "marker": "7",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 9,
+   "para_id": 1,
+   "bib_id": 8,
+   "marker": "8",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 10,
+   "para_id": 1,
+   "bib_id": 9,
+   "marker": "9",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 11,
+   "para_id": 2,
+   "bib_id": 10,
+   "marker": "10",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 12,
+   "para_id": 2,
+   "bib_id": 11,
+   "marker": "11",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 13,
+   "para_id": 2,
+   "bib_id": 12,
+   "marker": "12",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 14,
+   "para_id": 2,
+   "bib_id": 13,
+   "marker": "13",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 15,
+   "para_id": 2,
+   "bib_id": 14,
+   "marker": "13–15",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 16,
+   "para_id": 2,
+   "bib_id": 15,
+   "marker": "15",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 17,
+   "para_id": 2,
+   "bib_id": 16,
+   "marker": "16",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 18,
+   "para_id": 2,
+   "bib_id": 17,
+   "marker": "16–19",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 19,
+   "para_id": 2,
+   "bib_id": 18,
+   "marker": "16–19",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 20,
+   "para_id": 2,
+   "bib_id": 19,
+   "marker": "19",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 21,
+   "para_id": 2,
+   "bib_id": 20,
+   "marker": "20",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 22,
+   "para_id": 2,
+   "bib_id": 21,
+   "marker": "20–22",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 23,
+   "para_id": 2,
+   "bib_id": 22,
+   "marker": "22",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 24,
+   "para_id": 2,
+   "bib_id": 23,
+   "marker": "23",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 25,
+   "para_id": 2,
+   "bib_id": 24,
+   "marker": "24",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 26,
+   "para_id": 3,
+   "bib_id": 25,
+   "marker": "25",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 27,
+   "para_id": 3,
+   "bib_id": 26,
+   "marker": "25–27",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 28,
+   "para_id": 3,
+   "bib_id": 27,
+   "marker": "27",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 29,
+   "para_id": 3,
+   "bib_id": 28,
+   "marker": "28",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 30,
+   "para_id": 3,
+   "bib_id": 29,
+   "marker": "29",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 31,
+   "para_id": 4,
+   "bib_id": 29,
+   "marker": "29",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 32,
+   "para_id": 4,
+   "bib_id": 30,
+   "marker": "29–33",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 33,
+   "para_id": 4,
+   "bib_id": 31,
+   "marker": "29–33",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 34,
+   "para_id": 4,
+   "bib_id": 32,
+   "marker": "29–33",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 35,
+   "para_id": 4,
+   "bib_id": 33,
+   "marker": "33",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 36,
+   "para_id": 4,
+   "bib_id": 11,
+   "marker": "11",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 37,
+   "para_id": 4,
+   "bib_id": 12,
+   "marker": "12",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 38,
+   "para_id": 5,
+   "bib_id": 34,
+   "marker": "34",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 39,
+   "para_id": 5,
+   "bib_id": 35,
+   "marker": "35",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 40,
+   "para_id": 5,
+   "bib_id": 36,
+   "marker": "36",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 41,
+   "para_id": 5,
+   "bib_id": 37,
+   "marker": "36–39",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 42,
+   "para_id": 5,
+   "bib_id": 38,
+   "marker": "36–39",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 43,
+   "para_id": 5,
+   "bib_id": 39,
+   "marker": "39",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 44,
+   "para_id": 5,
+   "bib_id": 40,
+   "marker": "40",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 45,
+   "para_id": 5,
+   "bib_id": 41,
+   "marker": "41",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 46,
+   "para_id": 6,
+   "bib_id": 42,
+   "marker": "42",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 47,
+   "para_id": 6,
+   "bib_id": 43,
+   "marker": "43",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 48,
+   "para_id": 7,
+   "bib_id": 43,
+   "marker": "43",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 49,
+   "para_id": 7,
+   "bib_id": 44,
+   "marker": "44",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 50,
+   "para_id": 7,
+   "bib_id": 45,
+   "marker": "45",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 51,
+   "para_id": 7,
+   "bib_id": 45,
+   "marker": "45",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 52,
+   "para_id": 7,
+   "bib_id": 43,
+   "marker": "43",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 53,
+   "para_id": 8,
+   "bib_id": 43,
+   "marker": "43",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 54,
+   "para_id": 9,
+   "bib_id": 29,
+   "marker": "29",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 55,
+   "para_id": 9,
+   "bib_id": 46,
+   "marker": "46",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 56,
+   "para_id": 10,
+   "bib_id": 47,
+   "marker": "47",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 57,
+   "para_id": 10,
+   "bib_id": 48,
+   "marker": "47–49",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 58,
+   "para_id": 10,
+   "bib_id": 49,
+   "marker": "49",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 59,
+   "para_id": 11,
+   "bib_id": 47,
+   "marker": "47",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 60,
+   "para_id": 11,
+   "bib_id": 48,
+   "marker": "47–50",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 61,
+   "para_id": 11,
+   "bib_id": 49,
+   "marker": "47–50",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 62,
+   "para_id": 11,
+   "bib_id": 50,
+   "marker": "50",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 63,
+   "para_id": 12,
+   "bib_id": 50,
+   "marker": "50",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 64,
+   "para_id": 12,
+   "bib_id": 51,
+   "marker": "51",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 65,
+   "para_id": 12,
+   "bib_id": 52,
+   "marker": "51–56",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 66,
+   "para_id": 12,
+   "bib_id": 53,
+   "marker": "51–56",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 67,
+   "para_id": 12,
+   "bib_id": 54,
+   "marker": "51–56",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 68,
+   "para_id": 12,
+   "bib_id": 55,
+   "marker": "51–56",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 69,
+   "para_id": 12,
+   "bib_id": 56,
+   "marker": "56",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 70,
+   "para_id": 13,
+   "bib_id": 52,
+   "marker": "52",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 71,
+   "para_id": 14,
+   "bib_id": 52,
+   "marker": "52",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 72,
+   "para_id": 15,
+   "bib_id": 57,
+   "marker": "57",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 73,
+   "para_id": 15,
+   "bib_id": 58,
+   "marker": "58",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 74,
+   "para_id": 16,
+   "bib_id": 29,
+   "marker": "29",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 75,
+   "para_id": 16,
+   "bib_id": 58,
+   "marker": "58",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 76,
+   "para_id": 17,
+   "bib_id": 22,
+   "marker": "22",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 77,
+   "para_id": 18,
+   "bib_id": 59,
+   "marker": "59",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 78,
+   "para_id": 19,
+   "bib_id": 58,
+   "marker": "58",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 79,
+   "para_id": 20,
+   "bib_id": 60,
+   "marker": "60",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 80,
+   "para_id": 20,
+   "bib_id": 29,
+   "marker": "29",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 81,
+   "para_id": 20,
+   "bib_id": 50,
+   "marker": "50",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 82,
+   "para_id": 20,
+   "bib_id": 58,
+   "marker": "58",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 83,
+   "para_id": 21,
+   "bib_id": 29,
+   "marker": "29",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 84,
+   "para_id": 21,
+   "bib_id": 50,
+   "marker": "50",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 85,
+   "para_id": 21,
+   "bib_id": 58,
+   "marker": "58",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 86,
+   "para_id": 21,
+   "bib_id": 29,
+   "marker": "29",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 87,
+   "para_id": 21,
+   "bib_id": 50,
+   "marker": "50",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 88,
+   "para_id": 22,
+   "bib_id": 29,
+   "marker": "29",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 89,
+   "para_id": 23,
+   "bib_id": 61,
+   "marker": "61",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 90,
+   "para_id": 23,
+   "bib_id": 62,
+   "marker": "61–63",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 91,
+   "para_id": 23,
+   "bib_id": 63,
+   "marker": "63",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 92,
+   "para_id": 23,
+   "bib_id": 58,
+   "marker": "58",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 93,
+   "para_id": 23,
+   "bib_id": 64,
+   "marker": "64",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 94,
+   "para_id": 24,
+   "bib_id": 42,
+   "marker": "42",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 95,
+   "para_id": 24,
+   "bib_id": 45,
+   "marker": "45",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 96,
+   "para_id": 24,
+   "bib_id": 65,
+   "marker": "65",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 97,
+   "para_id": 24,
+   "bib_id": 66,
+   "marker": "66",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 98,
+   "para_id": 24,
+   "bib_id": 67,
+   "marker": "67",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 99,
+   "para_id": 24,
+   "bib_id": 68,
+   "marker": "68",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 100,
+   "para_id": 24,
+   "bib_id": 43,
+   "marker": "43",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 101,
+   "para_id": 24,
+   "bib_id": 29,
+   "marker": "29",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 102,
+   "para_id": 24,
+   "bib_id": 29,
+   "marker": "29",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 103,
+   "para_id": 25,
+   "bib_id": 29,
+   "marker": "29",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 104,
+   "para_id": 25,
+   "bib_id": 69,
+   "marker": "69",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 105,
+   "para_id": 25,
+   "bib_id": 70,
+   "marker": "70",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 106,
+   "para_id": 26,
+   "bib_id": 71,
+   "marker": "71",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 107,
+   "para_id": 26,
+   "bib_id": 72,
+   "marker": "71–74",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 108,
+   "para_id": 26,
+   "bib_id": 73,
+   "marker": "71–74",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 109,
+   "para_id": 26,
+   "bib_id": 74,
+   "marker": "74",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 110,
+   "para_id": 26,
+   "bib_id": 75,
+   "marker": "75",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 111,
+   "para_id": 26,
+   "bib_id": 76,
+   "marker": "75–79",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 112,
+   "para_id": 26,
+   "bib_id": 77,
+   "marker": "75–79",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 113,
+   "para_id": 26,
+   "bib_id": 78,
+   "marker": "75–79",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 114,
+   "para_id": 26,
+   "bib_id": 79,
+   "marker": "79",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 115,
+   "para_id": 26,
+   "bib_id": 77,
+   "marker": "77",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 116,
+   "para_id": 26,
+   "bib_id": 80,
+   "marker": "80",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 117,
+   "para_id": 26,
+   "bib_id": 78,
+   "marker": "78",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 118,
+   "para_id": 27,
+   "bib_id": 51,
+   "marker": "51",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 119,
+   "para_id": 27,
+   "bib_id": 52,
+   "marker": "51–53",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 120,
+   "para_id": 27,
+   "bib_id": 53,
+   "marker": "53",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 121,
+   "para_id": 27,
+   "bib_id": 50,
+   "marker": "50",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 122,
+   "para_id": 27,
+   "bib_id": 71,
+   "marker": "71",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 123,
+   "para_id": 27,
+   "bib_id": 72,
+   "marker": "71–74",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 124,
+   "para_id": 27,
+   "bib_id": 73,
+   "marker": "71–74",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 125,
+   "para_id": 27,
+   "bib_id": 74,
+   "marker": "74",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 126,
+   "para_id": 28,
+   "bib_id": 13,
+   "marker": "13",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 127,
+   "para_id": 28,
+   "bib_id": 14,
+   "marker": "13–15",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 128,
+   "para_id": 28,
+   "bib_id": 15,
+   "marker": "15",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 129,
+   "para_id": 28,
+   "bib_id": 16,
+   "marker": "16",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 130,
+   "para_id": 28,
+   "bib_id": 17,
+   "marker": "16–19",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 131,
+   "para_id": 28,
+   "bib_id": 18,
+   "marker": "16–19",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 132,
+   "para_id": 28,
+   "bib_id": 19,
+   "marker": "19",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 133,
+   "para_id": 29,
+   "bib_id": 36,
+   "marker": "36",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 134,
+   "para_id": 29,
+   "bib_id": 39,
+   "marker": "39",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 135,
+   "para_id": 29,
+   "bib_id": 81,
+   "marker": "81",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 136,
+   "para_id": 29,
+   "bib_id": 82,
+   "marker": "81–85",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 137,
+   "para_id": 29,
+   "bib_id": 83,
+   "marker": "81–85",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 138,
+   "para_id": 29,
+   "bib_id": 84,
+   "marker": "81–85",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 139,
+   "para_id": 29,
+   "bib_id": 85,
+   "marker": "85",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 140,
+   "para_id": 29,
+   "bib_id": 50,
+   "marker": "50",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 141,
+   "para_id": 29,
+   "bib_id": 83,
+   "marker": "83",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 142,
+   "para_id": 29,
+   "bib_id": 84,
+   "marker": "84",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 143,
+   "para_id": 30,
+   "bib_id": 86,
+   "marker": "86",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 144,
+   "para_id": 30,
+   "bib_id": 87,
+   "marker": "86–89",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 145,
+   "para_id": 30,
+   "bib_id": 88,
+   "marker": "86–89",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 146,
+   "para_id": 30,
+   "bib_id": 89,
+   "marker": "89",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 147,
+   "para_id": 31,
+   "bib_id": 50,
+   "marker": "50",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 148,
+   "para_id": 31,
+   "bib_id": 58,
+   "marker": "58",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 149,
+   "para_id": 32,
+   "bib_id": 11,
+   "marker": "11",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 150,
+   "para_id": 32,
+   "bib_id": 12,
+   "marker": "12",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 151,
+   "para_id": 32,
+   "bib_id": 51,
+   "marker": "51",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 152,
+   "para_id": 32,
+   "bib_id": 52,
+   "marker": "51–53",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 153,
+   "para_id": 32,
+   "bib_id": 53,
+   "marker": "53",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 154,
+   "para_id": 33,
+   "bib_id": 11,
+   "marker": "11",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 155,
+   "para_id": 33,
+   "bib_id": 90,
+   "marker": "90",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 156,
+   "para_id": 33,
+   "bib_id": 91,
+   "marker": "91",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 157,
+   "para_id": 33,
+   "bib_id": 92,
+   "marker": "92",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 158,
+   "para_id": 33,
+   "bib_id": 93,
+   "marker": "92–94",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 159,
+   "para_id": 33,
+   "bib_id": 94,
+   "marker": "94",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 160,
+   "para_id": 33,
+   "bib_id": 94,
+   "marker": "94",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 161,
+   "para_id": 33,
+   "bib_id": 95,
+   "marker": "95",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 162,
+   "para_id": 33,
+   "bib_id": 49,
+   "marker": "49",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 163,
+   "para_id": 33,
+   "bib_id": 50,
+   "marker": "50",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 164,
+   "para_id": 33,
+   "bib_id": 94,
+   "marker": "94",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 165,
+   "para_id": 34,
+   "bib_id": 96,
+   "marker": "96",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 166,
+   "para_id": 34,
+   "bib_id": 38,
+   "marker": "38",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 167,
+   "para_id": 34,
+   "bib_id": 97,
+   "marker": "97",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 168,
+   "para_id": 34,
+   "bib_id": 98,
+   "marker": "97–99",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 169,
+   "para_id": 34,
+   "bib_id": 99,
+   "marker": "99",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 170,
+   "para_id": 35,
+   "bib_id": 100,
+   "marker": "100",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 171,
+   "para_id": 36,
+   "bib_id": 101,
+   "marker": "101",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 172,
+   "para_id": 37,
+   "bib_id": 93,
+   "marker": "93",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 173,
+   "para_id": 37,
+   "bib_id": 102,
+   "marker": "102",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 174,
+   "para_id": 37,
+   "bib_id": 103,
+   "marker": "103",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 175,
+   "para_id": 38,
+   "bib_id": 104,
+   "marker": "104",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 176,
+   "para_id": 38,
+   "bib_id": 105,
+   "marker": "105",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 177,
+   "para_id": 39,
+   "bib_id": 4,
+   "marker": "4",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 178,
+   "para_id": 39,
+   "bib_id": 106,
+   "marker": "106",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 179,
+   "para_id": 39,
+   "bib_id": 40,
+   "marker": "40",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 180,
+   "para_id": 39,
+   "bib_id": 70,
+   "marker": "70",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 181,
+   "para_id": 39,
+   "bib_id": 107,
+   "marker": "107",
+   "expanded": false,
+   "scored": true
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-ext-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "v1_bib_count": 107
+ }
+}

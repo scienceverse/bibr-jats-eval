@@ -1,0 +1,1083 @@
+{
+ "paper_id": "10.1017_s0033291726104899",
+ "paras": [
+  {
+   "para_id": 1,
+   "loc": "body",
+   "sec_title": "Materials and methods",
+   "text": "MRI processingStructural and resting-state data were preprocessed using the Nottingham BRC pipeline (v1.5.5; github.com/SPMIC-UoN/BRC_Pipeline), which integrates SPM12, FSL, and FreeSurfer tools. Structural processing comprised bias-field correction, brain extraction, tissue segmentation, and nonlinear registration to MNI152 space. Whole brain, gray matter (GM), cerebrospinal fluid (CSF), and white matter (WM) masks were extracted and warped to standard space. WM and CSF images were binarized at 99% tissue-probability threshold, and GM images at 25%. Functional processing comprised distortion correction, motion correction, intensity normalization, slice-timing correction, spatial smoothing (5-mm FWHM), ICA-AROMA physiological noise removal, temporal filtering (0.01 Hz high-pass), and registration to standard space. Mean WM and CSF time courses were regressed from voxel time series; in exploratory analyses, the whole-brain mean signal was also regressed out of time series (global signal regression).We extracted time series (first principal component) from each of six, 6-mm radius, spherical regions-of-interest (ROIs; Figure 1). Two ROIs represented ECN (left dorsolateral prefrontal cortex [DLPFC], centroid at x = −44, y = 22, z = 36; left intraparietal sulcus [IPS], x = −43, y = −50, z = 46; we focused on left-sided ECN nodes as the BRIGhTMIND trial targeted left DLPFC, given planned future analyses of changes in connectivity and cognition following rTMS). Two represented DMN (left dorsomedial prefrontal cortex [DMPFC], x = −7, y = 49, z = 18; left precuneus [PCUN], x = −10, y = −57, z = 35). Two represented SN (right anterior insula [AI], x = 38, y = 19, z = 2; right dorsal anterior cingulate cortex [DACC], x = 10, y = 13, z = 40; the SN, particularly its ECN-DMN switching function, is considered right dominant, e.g. Sridharan et al., 2008). The IPS, DMPFC, PCUN, and DACC centroids were taken from seeds used by Yeo et al. (2011) in their seven-network parcellation of the cortex. The DLPFC and AI centroids were taken from Fair et al. (2009) after conversion from Talairach to MNI152-space BioImage Suite (Papademetris et al., 2006). All centroids lay within the appropriate network on the Yeo et al. atlas, and the nearest node in the Power et al. (2011) atlas to each centroid was also assigned to the correct network.Figure 1.Regions of interest (ROIs) displayed using BrainNet Viewer (Xia, Wang, & He, 2013) on the ICBM-152 template brain (Mazziotta et al., 2001). Two ROIs in each of the executive control (red, lDLPFC: left dorsolateral prefrontal cortex and lIPS: left intra-parietal sulcus), default mode (blue, lDMPFC: left dorsomedial prefrontal cortex and lPCUN: left precuneus), and salience networks (pink, rAI: right anterior insula and rDACC: right dorsal anterior cingulate cortex). Figure 1. long description.A five-panel anatomical visualization of the human brain showing six regions of interest color-coded by functional network. See long description.After discarding the first five volumes and band-pass filtering (0.01–0.1 Hz), zero-lag Pearson correlations between time series from ROI pairs were computed, partialing 24 head motion parameters (current and prior six rigid-body parameters and their squares). Correlations were Fisher r-to-z transformed. Between-network connectivity was calculated as the mean of these values across pairs of ROIs.",
+   "printed": true
+  },
+  {
+   "para_id": 2,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "As many as 85–94% of people with major depressive disorder (MDD) report cognitive difficulties during depressive episodes (Conradi, Ormel, & De Jonge, 2011). Neurocognitive deficits are wide ranging (Hammar, Ronold, & Rekkedal, 2022; McDermott & Ebmeier, 2009; Perini et al., 2019; Rock, Roiser, Riedel, & Blackwell, 2014), often persist during periods of euthymia (Huang, 2009; Semkovska et al., 2019), and strongly predict psychosocial and occupational dysfunction (Knight, Air, & Baune, 2018; Matcham et al., 2023; McIntyre et al., 2013). While broad in nature, the cognitive deficits in MDD are driven by impairments in attention, executive function, working memory, and psychomotor speed (Schandorff et al., 2025). Understanding the neural basis of attentional deficits could guide the development of augmentation approaches to better target cognitive difficulties in MDD (Colwell et al., 2022; Zuckerman et al., 2018). If there are changes at the brain network level, noninvasive brain stimulation (neuromodulation) techniques that modify brain networks (To, De Ridder, Hart, & Vanneste, 2018), such as repetitive transcranial magnetic stimulation (rTMS), could play an important role.",
+   "printed": true
+  },
+  {
+   "para_id": 3,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "The triple network model hypothesizes that abnormal connectivity within and between three core brain networks underpins cognitive deficits, emotional dysfunction, and other key symptoms of MDD (Menon, 2019). These are: the executive control network (ECN) – involved in working memory, attention, and goal-directed behavior (Dosenbach et al., 2008); the default mode network (DMN) – involved in internally-directed mental activity, including rumination (Raichle, 2015); and the salience network (SN) – involved in identifying the most important internal and external stimuli or processes (Seeley et al., 2007). One of the most robust findings in the literature on MDD is increased direct coupling of network activity (functional connectivity, ‘FC’) between the ECN and DMN (Kaiser, Andrews-Hanna, Wager, & Pizzagalli, 2015). Based on findings that lesser coupling of activity (i.e. lower FC) between the ECN and DMN is associated with better cognitive performance in healthy volunteers (Keller et al., 2013; Kelly et al., 2008), it might be expected that stronger ECN-DMN connectivity underlies cognitive impairments in MDD. Such abnormal connectivity might represent intrusion of DMN-related internal world processing or rumination on ECN-related attention and task performance (Viola et al., 2025). Since the SN plays an important role in regulating the relative activities of the ECN and DMN (Goulden et al., 2014; Sridharan, Levitin, & Menon, 2008), SN-ECN or SN-DMN connectivity might represent a more proximal cause of cognitive impairments. A recent meta-analysis demonstrated hypoconnectivity between the SN and both the ECN and DMN across psychiatric disorders (Sha, Wager, Mechelli, & He, 2019).",
+   "printed": true
+  },
+  {
+   "para_id": 4,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Impairment in sustained attention is reflected in increased intra-individual variability (IIV) in response times during cognitive tasks, due to trial-by-trial fluctuations in performance. IIV is considered a sensitive measure of attention and cognitive control (Klein et al., 2006) and increased IIV may be a core feature of the cognitive impairment seen in mood disorders (Gallagher et al., 2015; Viola et al., 2025). The distribution of reaction times across trials of an attentional task for a given individual can be well-characterized with an exponentially modified Gaussian (‘ex-Gaussian’) distribution, which consists of (i) a Gaussian component – with parameters ‘MU’, equivalent to the mean of the Gaussian component reflecting the average reaction time of the participant, and ‘SIGMA’, equivalent to the standard deviation of the Gaussian component reflecting reaction time variability; and (ii) an exponential component – with parameter ‘TAU’, which describes unusually slow responses or ‘attentional lapses’ (Gallagher et al., 2015; Schmiedek et al., 2007; Silvia et al., 2020). It may be that each component is differentially related to brain connectivity changes in MDD.",
+   "printed": true
+  },
+  {
+   "para_id": 5,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Here, we use baseline brain imaging and cognitive task data from 209 participants with treatment-resistant, moderate-to-severe MDD who took part in the BRIGhTMIND clinical trial of rTMS (Morriss et al., 2024) to test four hypotheses on relationships between brain connectivity and IIV, based on the above rationale. Importantly, given concerns around analytic flexibility in imaging studies (Briley et al., 2024a; Kang et al., 2024; Marek & Laumann, 2024), these hypotheses, and associated analysis steps, were prespecified in a published analytic protocol, before connecting the imaging and cognitive datasets (Briley et al., 2024b). These are: (1) ECN-DMN FC will be positively correlated with IIV; (2) ECN-DMN FC will be positively correlated with subjective cognitive difficulties (self-reported difficulties are highly correlated with mood symptoms, but poorly correlated with objective measures, suggesting they capture different aspects of impairment; Serra-Blasco et al., 2019); (3) ECN-DMN FC will be predicted by FC between the SN and the ECN and DMN (reflecting the modulatory or network-switching role of the SN); and (4) IIV will be related to occupational and social functioning in MDD (Lam, Kennedy, McIntyre, & Khullar, 2014). After examining the above hypotheses, we conduct a path analysis to synthesize our findings.",
+   "printed": true
+  },
+  {
+   "para_id": 6,
+   "loc": "body",
+   "sec_title": "Materials and methods",
+   "text": "We analyzed baseline resting-state fMRI, THINC-it cognitive task, and demographic/clinical questionnaire data from the BRIGhTMIND trial (Morriss et al., 2020, 2024). We tested four hypotheses (plus related exploratory analyses) following a prespecified analytic protocol (Briley et al., 2024b), which was built on protocols for processing the fMRI (Briley et al., 2022; Pszczolkowski et al., 2022) and THINC-it (Hall et al., 2024) datasets. We then synthesize these findings using path analysis.",
+   "printed": true
+  },
+  {
+   "para_id": 7,
+   "loc": "table",
+   "sec_title": "Participants",
+   "text": "χ2 (1)=0.349, p = 0.555",
+   "printed": true
+  },
+  {
+   "para_id": 8,
+   "loc": "table",
+   "sec_title": "Participants",
+   "text": "χ2 (1)=0.072, p = 0.789",
+   "printed": true
+  },
+  {
+   "para_id": 9,
+   "loc": "table",
+   "sec_title": "Participants",
+   "text": "χ2 (2)=0.850, p = 0.654",
+   "printed": true
+  },
+  {
+   "para_id": 10,
+   "loc": "table",
+   "sec_title": "Participants",
+   "text": "Medium (4–6)",
+   "printed": true
+  },
+  {
+   "para_id": 11,
+   "loc": "body",
+   "sec_title": "Questionnaire and cognitive measures",
+   "text": "At baseline, participants completed self-reported measures, including the GAD-7 (anxiety severity; Spitzer, Kroenke, Williams, & Löwe, 2006) and the WSAS (social/occupational functioning; Mundt, Marks, Shear, & Greist, 2002). The observer-rated HAMD was also completed to assess depression severity (Hamilton, 1967). Cognitive testing used the THINC-it battery of tests (McIntyre et al., 2017) presented on a touch screen tablet. Analyses of the THINC-it dataset alone are reported in Morriss et al. (2025). This is the first manuscript to combine the THINC-it and imaging datasets. Analyses here focus on the Choice Reaction Time (CRT) task of sustained attention, and the five-item PDQ-5-D measure of subjective cognitive difficulties (findings for the other tasks are in Supplementary Material 1). The CRT presents a series of arrows with a variable inter-trial interval. Participants are asked to press a key as fast as they can to indicate the direction to which each arrow points (left or right). Forty trials are collected per run, and the task was run twice. The distribution of reaction times (RTs) across both runs for correctly-responded-to trials was fitted with an ex-Gaussian distribution (Gallagher et al., 2015; Schmiedek et al., 2007).",
+   "printed": true
+  },
+  {
+   "para_id": 12,
+   "loc": "body",
+   "sec_title": "Questionnaire and cognitive measures",
+   "text": "Quality control: Any task was excluded if derived variables >4 SD from the mean across participants (Dalby et al., 2022), CRT was excluded if only one run was completed or if ex-Gaussian fitting failed, and the participant was removed if <3 objective THINC-it tasks met QC criteria. As per the prepublished protocol, due to marked right skew in the IIV variables, the natural logarithm transform was applied to MU and SIGMA values, and the cube root transform to TAU values (this brought skewness and kurtosis for these variables within ±1). All analyses were conducted on the transformed variables.",
+   "printed": true
+  },
+  {
+   "para_id": 13,
+   "loc": "body",
+   "sec_title": "MRI measurements",
+   "text": "Quality control: T1 structural images with whole head coverage without significant incidental findings or appreciable image artefacts; BOLD images with mean and maximum framewise displacement below 1 and 3 mm, respectively. Participants were excluded with outlying DVARS_STD (third quartile plus 1.5 times interquartile range; standardized measure of image intensity change between consecutive time points; MRIQC toolbox; Esteban et al., 2017), or outlying SNR or TSNR (first quartile minus 1.5 times interquartile range; signal-to-noise and temporal signal-to-noise ratios).",
+   "printed": true
+  },
+  {
+   "para_id": 14,
+   "loc": "body",
+   "sec_title": "MRI processing",
+   "text": "We extracted time series (first principal component) from each of six, 6-mm radius, spherical regions-of-interest (ROIs; Figure 1). Two ROIs represented ECN (left dorsolateral prefrontal cortex [DLPFC], centroid at x = −44, y = 22, z = 36; left intraparietal sulcus [IPS], x = −43, y = −50, z = 46; we focused on left-sided ECN nodes as the BRIGhTMIND trial targeted left DLPFC, given planned future analyses of changes in connectivity and cognition following rTMS). Two represented DMN (left dorsomedial prefrontal cortex [DMPFC], x = −7, y = 49, z = 18; left precuneus [PCUN], x = −10, y = −57, z = 35). Two represented SN (right anterior insula [AI], x = 38, y = 19, z = 2; right dorsal anterior cingulate cortex [DACC], x = 10, y = 13, z = 40; the SN, particularly its ECN-DMN switching function, is considered right dominant, e.g. Sridharan et al., 2008). The IPS, DMPFC, PCUN, and DACC centroids were taken from seeds used by Yeo et al. (2011) in their seven-network parcellation of the cortex. The DLPFC and AI centroids were taken from Fair et al. (2009) after conversion from Talairach to MNI152-space BioImage Suite (Papademetris et al., 2006). All centroids lay within the appropriate network on the Yeo et al. atlas, and the nearest node in the Power et al. (2011) atlas to each centroid was also assigned to the correct network.Figure 1.Regions of interest (ROIs) displayed using BrainNet Viewer (Xia, Wang, & He, 2013) on the ICBM-152 template brain (Mazziotta et al., 2001). Two ROIs in each of the executive control (red, lDLPFC: left dorsolateral prefrontal cortex and lIPS: left intra-parietal sulcus), default mode (blue, lDMPFC: left dorsomedial prefrontal cortex and lPCUN: left precuneus), and salience networks (pink, rAI: right anterior insula and rDACC: right dorsal anterior cingulate cortex). Figure 1. long description.A five-panel anatomical visualization of the human brain showing six regions of interest color-coded by functional network. See long description.",
+   "printed": true
+  },
+  {
+   "para_id": 15,
+   "loc": "fig",
+   "sec_title": "MRI processing",
+   "text": "Regions of interest (ROIs) displayed using BrainNet Viewer (Xia, Wang, & He, 2013) on the ICBM-152 template brain (Mazziotta et al., 2001). Two ROIs in each of the executive control (red, lDLPFC: left dorsolateral prefrontal cortex and lIPS: left intra-parietal sulcus), default mode (blue, lDMPFC: left dorsomedial prefrontal cortex and lPCUN: left precuneus), and salience networks (pink, rAI: right anterior insula and rDACC: right dorsal anterior cingulate cortex).",
+   "printed": true
+  },
+  {
+   "para_id": 16,
+   "loc": "body",
+   "sec_title": "Prespecified statistical analyses",
+   "text": "Analyses were conducted in StataNow SE 18.5 using multiple linear regression. Models included age, sex, MGH treatment-resistance group (low 2–3.5/medium 4–6/high 6.5+ as per trial cutoffs; Morriss et al., 2024), and site/scanner (six levels). Model diagnostics showed no need for additional transforms; variance inflation factors <5 indicated no multicollinearity concerns.",
+   "printed": true
+  },
+  {
+   "para_id": 17,
+   "loc": "body",
+   "sec_title": "Prespecified statistical analyses",
+   "text": "For the primary hypothesis, we tested whether DMN-ECN FC predicted IIV. DMN-ECN was the independent variable of interest. In separate analyses, MU, SIGMA, or TAU served as the dependent variable. Given the use of three dependent variables, false discovery rate correction [FDR] (Benjamini & Hochberg, 1995; Benjamini & Yekutieli, 2001) was applied across the three p-values for each predictor. Exploratory analyses used DMN-SN and SN-ECN FC as independent variables in place of, or alongside, DMN-ECN FC.",
+   "printed": true
+  },
+  {
+   "para_id": 18,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "In a meta-analysis of 26 resting-state FC datasets, Kaiser et al. (2015) found increased coupling between ECN and DMN regions in MDD (N = 556) compared to healthy controls (N = 518). This was confirmed in a later meta-analysis by Sha et al. (2019), incorporating 63 MDD datasets (N = 2023 patients, N = 1839 controls), which also found decreased coupling between the SN and ECN, and evidence of shared network changes across a range of psychiatric conditions. Here, we show that, in people with moderate–severe treatment-resistant MDD, both features are associated with cognitive performance, specifically reaction times on an attention-based task. Our data suggest that greater ECN-DMN FC drives up reaction time variability, whereas greater SN-ECN FC drives down average reaction time and exerts a suppressive influence on ECN-DMN FC.",
+   "printed": true
+  },
+  {
+   "para_id": 19,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "The relationship between SN-ECN and ECN-DMN FC is consistent with the key role of the SN in inter-network regulation (Goulden et al., 2014; Sridharan et al., 2008). There is increasing evidence for the centrality of the SN to the pathophysiology of MDD (Lynch et al., 2024). The BRIGhTMIND trial itself found that connectivity between the (typically ECN) DLPFC target and the anterior insula (SN) predicted treatment outcomes (Morriss et al., 2024). Greater SN-ECN FC may lead to reduced average reaction times through greater ECN engagement and task focus.",
+   "printed": true
+  },
+  {
+   "para_id": 20,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "It may be that prolonged average reaction time, with low reaction time variability, reflects a type of slowed, inflexible responding that is poorly suited to social and occupational success (in our sample of patients with long-standing, moderate–severe, treatment-resistant depression). Psychomotor slowing is known to strongly impact functioning in MDD (Papakostas, 2009; Porter, Bourke, & Gallagher, 2007). Relationships with reaction time variability are less well studied. It may be that reaction time variability, when distinguished from attentional lapses (themselves captured by the TAU parameter of the ex-Gaussian distribution), is a marker of cognitive flexibility, allowing one to improve performance and respond quickly when possible or wait for further certainty when necessary. There is evidence for cognitive rigidity and reduced adaptive control on attentional tasks in MDD (Meiran, Diamond, Toder, & Nemets, 2011; Stange et al., 2016; Zheng et al., 2024). Future research should use ex-Gaussian analyses or other distributional approaches that are able to disentangle contributors to reaction time variability (Parris, Dienes, & Hodgson, 2013; Viola et al., 2025) to further understand this phenomenon.",
+   "printed": true
+  },
+  {
+   "para_id": 21,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "A key question is whether cognitive impairments are independent components of the pathophysiology of MDD or a secondary consequence of low mood (Bora, Harrison, Yücel, & Pantelis, 2013; Rock et al., 2014). Our observed relationships between DMN-ECN FC, SN-ECN FC, functioning, and average reaction time and variability of reaction time remained when depression and anxiety severity were considered, providing support for some degree of independence. However, relationships between FC or functioning and attentional lapses (TAU) were moderated by depression severity, and in the final path model, depression severity predicted TAU alone. There is some evidence for particular increases in TAU in people with depression versus healthy controls (Gallagher et al., 2015; Silvia et al., 2020). The current study examines relationships with reaction times within a sample of people with MDD, without comparison to healthy controls. Our findings nevertheless suggest that attentional lapses, in particular, would be expected to lessen as mood improves following a course of treatment.",
+   "printed": true
+  },
+  {
+   "para_id": 22,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "We did not find relationships between the examined FC relationships and self-reported difficulties in cognition (as measured by the PDQ-5-D scale). When incorporated into the path model, subjective difficulties did predict functioning but were themselves predicted by anxiety symptoms. Serra-Blasco et al. (2019) have previously shown a discrepancy between objective and subjective cognition in MDD. It may be that subjective cognitive difficulties reflect perceived criticism of, or worry about, cognitive difficulties.",
+   "printed": true
+  },
+  {
+   "para_id": 23,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Key strengths of our study include the use of a pre-published analytic protocol to test a set of prespecified hypotheses based on the existing literature, which we synthesize into a well-fitting path model. We examine a large group of patients with generally long-standing, treatment-resistant depression of at least moderate severity, and we disentangle contributors to reaction time variability (Parris et al., 2013; Viola et al., 2025) using an ex-Gaussian model. Limitations of our study include that relationships between nonexamined brain networks or nodes may be missed. In particular, we prespecified fixed regions of interest (ROIs) to represent canonical brain networks, rather than identifying ECN, DMN, and SN sites or maps within individuals. We made this decision due to the expected increase in temporal dependency between the ECN and DMN in depression, which was the focus of the current analyses, and which could influence approaches to network identification that rely on statistical independence, such as independent component analysis (ICA). However, a fixed ROI approach has the disadvantage that it does not account for inter-individual variability in network topography (Marek & Dosenbach, 2018). Successful uses of ICA with dual regression in people with MDD (Li et al., 2017) suggest that such approaches could be explored with this dataset in the future. We also note our choice of left-sided ROIs to operationalize the ECN. This a priori decision reflected the use of a left DLPFC target (the most common neuromodulation target for MDD) in the BRIGhTMIND trial, given planned future analyses of changes in connectivity and cognition following neuromodulation. However, it should be noted that attentional brain networks are bilateral, with evidence for right-hemisphere dominance in some areas (Spagna, Kim, Wu, & Fan, 2020). Meta-analytic evidence supports a functional imbalance between left and right prefrontal cortices in MDD (Diener et al., 2012); thus, relationships between cognition and laterality of brain connectivity warrant further exploration.",
+   "printed": true
+  },
+  {
+   "para_id": 24,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Another limitation is that we examine functional (undirected) rather than effective (directed) brain connectivity metrics, so the causal influence between networks is less clear. The trial fMRI datasets used a long TR interval, unsuitable for analyses of effective connectivity. This, alongside short scan duration, also precluded time-varying (dynamic) functional connectivity analyses. Future work using dynamic connectome approaches may be valuable for understanding the immediate drivers of dysfunctions in attentional state changes (Song & Rosenberg, 2021). This will require the use of fMRI with concurrent tasks, as opposed to resting-state fMRI in the current study. Exploring IIV on a range of tasks, beyond the choice reaction time studied here, would help determine whether relationships generalize across tasks or reflect specific attention or psychomotor processes. Note also that, in the current study, the collection of imaging and task data could be separated by up to 2 weeks, so reported relationships reflect IIV and connectivity features that remain stable over this period in the depressed state.",
+   "printed": true
+  },
+  {
+   "para_id": 25,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "As expected, given the patient group, most of those in the BRIGhTMIND trial were taking antidepressant medications, which were not stopped before trial commencement due to ethical concerns. Given the diversity of medications used, we could not directly explore medication effects in this study. It would be valuable to explore the impact of medication on relationships between brain connectivity, cognition, and functioning in future experimental studies. Finally, we treat functioning, measured with the Work and Social Adjustment Scale (WSAS) and incorporating work, close relationships, and private and social leisure activities, as a single dimension. There is evidence for a unidimensional factor structure for the WSAS, including in mental health conditions (Lundqvist et al., 2024; Zahra et al., 2014). However, it would be valuable to explore relationships between different aspects of functioning in future analyses. Our path model should be evaluated in future studies of people with moderate-to-severe treatment-resistant depression and both healthy and psychiatric controls (the latter to examine specificity to MDD; Sha et al., 2019).",
+   "printed": true
+  }
+ ],
+ "links": [
+  {
+   "link_id": 1,
+   "url": "github.com/spmic-uon/brc_pipeline",
+   "url_raw": "github.com/SPMIC-UoN/BRC_Pipeline),",
+   "href_jats": "",
+   "repo_key": "github:spmic-uon/brc_pipeline",
+   "host_class": "github",
+   "loc": "body",
+   "sec_title": "MRI processing",
+   "source": "regex",
+   "para_id": 1
+  }
+ ],
+ "links_optional": [
+  "creativecommons.org/licenses/by/4.0",
+  "doi:10.1001/archinte.166.10.1092",
+  "doi:10.1001/jamapsychiatry.2015.0071",
+  "doi:10.1002/da.22063",
+  "doi:10.1002/da.22513",
+  "doi:10.1002/mpr.1922",
+  "doi:10.1016/j.biopsych.2006.04.003",
+  "doi:10.1016/j.biopsych.2018.11.011",
+  "doi:10.1016/j.cobeha.2020.12.007",
+  "doi:10.1016/j.cortex.2018.12.012",
+  "doi:10.1016/j.euroneuro.2018.11.1104",
+  "doi:10.1016/j.jad.2009.04.022",
+  "doi:10.1016/j.jad.2018.04.051",
+  "doi:10.1016/j.jad.2024.08.092",
+  "doi:10.1016/j.jad.2025.01.143",
+  "doi:10.1016/j.jpsychires.2016.12.011",
+  "doi:10.1016/j.mehy.2019.109385",
+  "doi:10.1016/j.neuroimage.2007.08.008",
+  "doi:10.1016/j.neuroimage.2012.04.005",
+  "doi:10.1016/j.neuroimage.2014.05.052",
+  "doi:10.1016/j.neuron.2011.09.006",
+  "doi:10.1016/j.pscychresns.2024.111846",
+  "doi:10.1016/j.psychres.2010.04.044",
+  "doi:10.1016/j.tics.2008.01.001",
+  "doi:10.1016/s2215-0366(19)30291-3",
+  "doi:10.1017/s0033291710001911",
+  "doi:10.1017/s0033291712002085",
+  "doi:10.1017/s0033291713002535",
+  "doi:10.1017/s0033291715000926",
+  "doi:10.1017/s0033291722003671",
+  "doi:10.1017/s0033291725000509",
+  "doi:10.1017/s0033291726104899",
+  "doi:10.1037/0096-3445.136.3.414",
+  "doi:10.1037/mot0000208",
+  "doi:10.1038/s41386-024-01960-w",
+  "doi:10.1038/s41398-022-02249-6",
+  "doi:10.1038/s41586-024-07805-2",
+  "doi:10.1038/s41586-024-08260-9",
+  "doi:10.1038/s41591-023-02764-z",
+  "doi:10.1073/pnas.0800005105",
+  "doi:10.1080/00048670601109881",
+  "doi:10.1098/rstb.2001.0915",
+  "doi:10.1111/j.2044-8260.1967.tb00530.x",
+  "doi:10.1111/j.2517-6161.1995.tb02031.x",
+  "doi:10.1136/bmjopen-2020-038430",
+  "doi:10.1146/annurev-neuro-071013-014030",
+  "doi:10.1152/jn.00338.2011",
+  "doi:10.1177/070674371405901206",
+  "doi:10.1192/bjp.180.5.461",
+  "doi:10.1214/aos/1013699998",
+  "doi:10.1371/journal.pcbi.1000381",
+  "doi:10.1371/journal.pone.0068910",
+  "doi:10.1371/journal.pone.0184661",
+  "doi:10.1371/journal.pone.0311420",
+  "doi:10.1523/jneurosci.4837-12.2013",
+  "doi:10.1523/jneurosci.5587-06.2007",
+  "doi:10.17639/nott.7251",
+  "doi:10.17639/nott.7477",
+  "doi:10.17639/nott.7506",
+  "doi:10.2147/ndt.s199746",
+  "doi:10.2196/31925",
+  "doi:10.3109/13651501.2014.894072",
+  "doi:10.31887/dcns.2018.20.2/smarek",
+  "doi:10.3310/wvny5029",
+  "doi:10.3389/fnhum.2018.00128",
+  "doi:10.3389/fpsyg.2013.00647",
+  "doi:10.3389/fpsyt.2018.00655",
+  "doi:10.3389/fpsyt.2022.764374",
+  "doi:10.4021/jocmr2009.10.1266",
+  "doi:10.4088/jcp.16m11329",
+  "doi:10.54294/2g80r4"
+ ],
+ "own_doi": "doi:10.1017/s0033291726104899",
+ "citations": [
+  {
+   "cite_id": 1,
+   "para_id": 2,
+   "bib_id": 8,
+   "marker": "2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 2,
+   "para_id": 2,
+   "bib_id": 18,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 3,
+   "para_id": 2,
+   "bib_id": 34,
+   "marker": "2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 4,
+   "para_id": 2,
+   "bib_id": 46,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 5,
+   "para_id": 2,
+   "bib_id": 51,
+   "marker": "2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 6,
+   "para_id": 2,
+   "bib_id": 19,
+   "marker": "2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 7,
+   "para_id": 2,
+   "bib_id": 55,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 8,
+   "para_id": 2,
+   "bib_id": 25,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 9,
+   "para_id": 2,
+   "bib_id": 32,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 10,
+   "para_id": 2,
+   "bib_id": 36,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 11,
+   "para_id": 2,
+   "bib_id": 52,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 12,
+   "para_id": 2,
+   "bib_id": 7,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 13,
+   "para_id": 2,
+   "bib_id": 70,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 14,
+   "para_id": 2,
+   "bib_id": 64,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 15,
+   "para_id": 3,
+   "bib_id": 38,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 16,
+   "para_id": 3,
+   "bib_id": 11,
+   "marker": "2008",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 17,
+   "para_id": 3,
+   "bib_id": 50,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 18,
+   "para_id": 3,
+   "bib_id": 54,
+   "marker": "2007",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 19,
+   "para_id": 3,
+   "bib_id": 20,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 20,
+   "para_id": 3,
+   "bib_id": 22,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 21,
+   "para_id": 3,
+   "bib_id": 23,
+   "marker": "2008",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 22,
+   "para_id": 3,
+   "bib_id": 65,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 23,
+   "para_id": 3,
+   "bib_id": 15,
+   "marker": "2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 24,
+   "para_id": 3,
+   "bib_id": 62,
+   "marker": "2008",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 25,
+   "para_id": 3,
+   "bib_id": 57,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 26,
+   "para_id": 4,
+   "bib_id": 24,
+   "marker": "2006",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 27,
+   "para_id": 4,
+   "bib_id": 14,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 28,
+   "para_id": 4,
+   "bib_id": 65,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 29,
+   "para_id": 4,
+   "bib_id": 14,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 30,
+   "para_id": 4,
+   "bib_id": 53,
+   "marker": "2007",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 31,
+   "para_id": 4,
+   "bib_id": 58,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 32,
+   "para_id": 5,
+   "bib_id": 39,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 33,
+   "para_id": 5,
+   "bib_id": 4,
+   "marker": "2024a",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 34,
+   "para_id": 5,
+   "bib_id": 21,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 35,
+   "para_id": 5,
+   "bib_id": 31,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 36,
+   "para_id": 5,
+   "bib_id": 5,
+   "marker": "2024b",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 37,
+   "para_id": 5,
+   "bib_id": 1,
+   "marker": "1",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 38,
+   "para_id": 5,
+   "bib_id": 2,
+   "marker": "2",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 39,
+   "para_id": 5,
+   "bib_id": 56,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 40,
+   "para_id": 5,
+   "bib_id": 3,
+   "marker": "3",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 41,
+   "para_id": 5,
+   "bib_id": 4,
+   "marker": "4",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 42,
+   "para_id": 5,
+   "bib_id": 26,
+   "marker": "2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 43,
+   "para_id": 6,
+   "bib_id": 40,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 44,
+   "para_id": 6,
+   "bib_id": 39,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 45,
+   "para_id": 6,
+   "bib_id": 5,
+   "marker": "2024b",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 46,
+   "para_id": 6,
+   "bib_id": 6,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 47,
+   "para_id": 6,
+   "bib_id": 49,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 48,
+   "para_id": 6,
+   "bib_id": 16,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 49,
+   "para_id": 7,
+   "bib_id": 1,
+   "marker": "1",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 50,
+   "para_id": 8,
+   "bib_id": 1,
+   "marker": "1",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 51,
+   "para_id": 9,
+   "bib_id": 2,
+   "marker": "2",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 52,
+   "para_id": 10,
+   "bib_id": 4,
+   "marker": "4",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 53,
+   "para_id": 10,
+   "bib_id": 5,
+   "marker": "4–6",
+   "expanded": true,
+   "scored": false
+  },
+  {
+   "cite_id": 54,
+   "para_id": 10,
+   "bib_id": 6,
+   "marker": "6",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 55,
+   "para_id": 11,
+   "bib_id": 61,
+   "marker": "2006",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 56,
+   "para_id": 11,
+   "bib_id": 42,
+   "marker": "2002",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 57,
+   "para_id": 11,
+   "bib_id": 17,
+   "marker": "1967",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 58,
+   "para_id": 11,
+   "bib_id": 35,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 59,
+   "para_id": 11,
+   "bib_id": 41,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 60,
+   "para_id": 11,
+   "bib_id": 14,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 61,
+   "para_id": 11,
+   "bib_id": 53,
+   "marker": "2007",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 62,
+   "para_id": 12,
+   "bib_id": 9,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 63,
+   "para_id": 13,
+   "bib_id": 12,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 64,
+   "para_id": 14,
+   "bib_id": 62,
+   "marker": "2008",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 65,
+   "para_id": 14,
+   "bib_id": 67,
+   "marker": "2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 66,
+   "para_id": 14,
+   "bib_id": 13,
+   "marker": "2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 67,
+   "para_id": 14,
+   "bib_id": 43,
+   "marker": "2006",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 68,
+   "para_id": 14,
+   "bib_id": 48,
+   "marker": "2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 69,
+   "para_id": 15,
+   "bib_id": 66,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 70,
+   "para_id": 15,
+   "bib_id": 33,
+   "marker": "2001",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 71,
+   "para_id": 16,
+   "bib_id": 39,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 72,
+   "para_id": 17,
+   "bib_id": 1,
+   "marker": "1995",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 73,
+   "para_id": 17,
+   "bib_id": 2,
+   "marker": "2001",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 74,
+   "para_id": 18,
+   "bib_id": 20,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 75,
+   "para_id": 18,
+   "bib_id": 57,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 76,
+   "para_id": 19,
+   "bib_id": 15,
+   "marker": "2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 77,
+   "para_id": 19,
+   "bib_id": 62,
+   "marker": "2008",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 78,
+   "para_id": 19,
+   "bib_id": 29,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 79,
+   "para_id": 19,
+   "bib_id": 39,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 80,
+   "para_id": 20,
+   "bib_id": 44,
+   "marker": "2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 81,
+   "para_id": 20,
+   "bib_id": 47,
+   "marker": "2007",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 82,
+   "para_id": 20,
+   "bib_id": 37,
+   "marker": "2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 83,
+   "para_id": 20,
+   "bib_id": 63,
+   "marker": "2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 84,
+   "para_id": 20,
+   "bib_id": 69,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 85,
+   "para_id": 20,
+   "bib_id": 45,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 86,
+   "para_id": 20,
+   "bib_id": 65,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 87,
+   "para_id": 21,
+   "bib_id": 3,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 88,
+   "para_id": 21,
+   "bib_id": 51,
+   "marker": "2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 89,
+   "para_id": 21,
+   "bib_id": 14,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 90,
+   "para_id": 21,
+   "bib_id": 58,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 91,
+   "para_id": 22,
+   "bib_id": 56,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 92,
+   "para_id": 23,
+   "bib_id": 45,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 93,
+   "para_id": 23,
+   "bib_id": 65,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 94,
+   "para_id": 23,
+   "bib_id": 30,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 95,
+   "para_id": 23,
+   "bib_id": 27,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 96,
+   "para_id": 23,
+   "bib_id": 60,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 97,
+   "para_id": 23,
+   "bib_id": 10,
+   "marker": "2012",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 98,
+   "para_id": 24,
+   "bib_id": 59,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 99,
+   "para_id": 25,
+   "bib_id": 28,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 100,
+   "para_id": 25,
+   "bib_id": 68,
+   "marker": "2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 101,
+   "para_id": 25,
+   "bib_id": 57,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-ext-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "v1_bib_count": 70
+ }
+}

@@ -1,0 +1,698 @@
+{
+ "paper_id": "10.1162_opmi.a.359",
+ "paras": [
+  {
+   "para_id": 1,
+   "loc": "body",
+   "sec_title": "Multivariate Case.",
+   "text": "As before, we assume the observer infers the stimulus identity by computing the posterior over all possible stimuli, P(s1|x) … P(sk|x). Then, the observer chooses the available action which maximizes this probability (a = argmaxi∈{1,2} P(si|x)) and rates confidence as the posterior probability of the chosen stimulus (c = P(sa|x)). The posterior probabilities can be computed using Bayes’ rule:c=Psax=PsapxsaPs1pxs1+Ps2pxs2+…+Pskpxsk(1)Assuming a flat prior across stimuli (i.e., P(s1) = … = P(sk)) we obtain:c=Psax=pxsapxs1+pxs2+…+pxsk(2)As we show in Appendix A, this equation can be solved to show that confidence can be straightforwardly computed as the softmax of the evidence with inverse temperature equal to the observer’s sensitivity (β = μtarget):c=Psax=σμtargetxa=1eμtargetx1−xa+eμtargetx2−xa+…+eμtargetxk−xa(3)This equation emphasizes that, as k increases, confidence is subject to increasing normalisation (for a similar derivation for detection tasks, see Appendix F). To plot out example surfaces in Figure 2, we set the unchosen evidence values to 0, but similar results are obtained when this is allowed to vary. All simulation code is available via GitHub at https://osf.io/uxphg.",
+   "printed": false
+  },
+  {
+   "para_id": 2,
+   "loc": "body",
+   "sec_title": "Neural Network Models",
+   "text": "To ask whether similar effects of dimensionality on confidence formation would obtain in more realistic stimulus sets, we trained the convolutional neural networks introduced by Webb et al. (2023) to classify MNIST digits and report confidence (https://github.com/taylorwwebb/performance_optimized_NN_confidence).",
+   "printed": true
+  },
+  {
+   "para_id": 3,
+   "loc": "body",
+   "sec_title": "INTRODUCTION",
+   "text": "Understanding how confidence is formed in human perceptual decision-making is important for identifying sources of metacognitive failure. One prominent metacognitive bias is termed the “positive evidence bias” (PEB). A PEB is the empirical observation that confidence ratings (but not first-order decisions) are often insensitive to evidence against (relative to evidence for) one’s choice (Koizumi et al., 2015; Odegaard et al., 2018; Peters, Thesen, et al., 2017; Samaha et al., 2019; Zylberberg et al., 2012). A consequence of a PEB is that observers may become inappropriately confident when the total evidence supporting any decision option increases, even if their choice accuracy remains unaltered (Rollwage et al., 2020).",
+   "printed": true
+  },
+  {
+   "para_id": 4,
+   "loc": "body",
+   "sec_title": "INTRODUCTION",
+   "text": "A PEB can be accounted for within signal detection theory (SDT) as confidence criteria becoming “detection-like” (Hautus et al., 2021; Mazor et al., 2023; Rausch et al., 2018). In SDT, the observer receives a noisy evidence signal dependent on the target stimulus and makes a choice by evaluating a set of hypotheses with respect to the evidence. For a discrimination decision between two symmetrical hypotheses, the total amount of evidence should be irrelevant to one’s confidence in the decision—instead, what matters is the relative evidence supporting one decision option over the other (Figure 1A). For a two-dimensional SDT problem, this yields optimal decision and confidence criteria that track the balance of evidence in favour of one stimulus over the other (the distance to the main diagonal), irrespective of the total evidence (the distance along the main diagonal; Figure 1C). In a detection task, in contrast, the optimal decision and confidence criteria become perpendicular to the evidence axes—because what matters for detecting (rather than discriminating) a stimulus is the extent to which the amount of evidence for the dominating option deviates from the distribution of percepts expected under the absence of any stimuli (Figure 1B).",
+   "printed": true
+  },
+  {
+   "para_id": 5,
+   "loc": "fig",
+   "sec_title": "INTRODUCTION",
+   "text": "Relationship between sensory evidence and confidence for (A) discrimination tasks and (B) detection tasks in a 2-dimensional signal detection theory (SDT) model. Circles indicate bivariate Gaussian evidence distributions produced by stimulus S1 (blue), stimulus S2 (yellow), and an absent stimulus (grey). Shaded areas indicate the optimal confidence ratings for an ideal Bayesian observer. (C–D) Two heuristic strategies for responding in discrimination tasks. Under the balance of evidence heuristic (C), confidence is sensitive to relative evidence (the distance from the diagonal). Under the response congruent evidence heuristic (D), confidence is only sensitive to evidence for the chosen option (the distance along the horizontal or vertical axis). Although the balance of evidence heuristic is the optimal strategy for discrimination tasks, confidence ratings tend to resemble the response congruent evidence heuristic, which approximates the optimal strategy in detection tasks. Modified from Mazor et al. (2023).",
+   "printed": true
+  },
+  {
+   "para_id": 6,
+   "loc": "body",
+   "sec_title": "INTRODUCTION",
+   "text": "Previous efforts to explain a PEB have focused on explaining why confidence criteria become detection-like. These explanations include proposals that confidence estimates are based on response-congruent evidence (Figure 1D; Maniscalco et al., 2016; Miyoshi & Lau, 2020); that neural computations of confidence are preferentially informed by a subset of less normalised, “detection-like” neurons (Maniscalco et al., 2021); or that there is an additional contribution of stimulus visibility to confidence estimates (Rausch et al., 2018). Other studies have suggested that a PEB may arise due to a violation in the SDT assumption of equal-variance bivariate Gaussian distributions with naturalistic stimuli, which tend to show more variance along target vs. non-target dimensions (Miyoshi & Lau, 2020). More broadly, the PEB has typically been considered a bias or suboptimality that plagues human metacognition (Koriat et al., 1980; Maniscalco et al., 2016; Miyoshi & Lau, 2020).",
+   "printed": true
+  },
+  {
+   "para_id": 7,
+   "loc": "body",
+   "sec_title": "INTRODUCTION",
+   "text": "Against this backdrop, Webb et al. (2023) showed that a PEB can emerge naturally in convolutional neural networks trained to optimise the accuracy of both choices and confidence estimates when discriminating between handwritten digits. These intriguing results indicated that the PEB may be a result of the adaptive consequences of learning the statistics of natural stimuli, rather than as a suboptimality particular to human metacognition.",
+   "printed": true
+  },
+  {
+   "para_id": 8,
+   "loc": "body",
+   "sec_title": "INTRODUCTION",
+   "text": "Webb et al. (2023)’s findings are important in presenting the possibility that apparent suboptimalities in human confidence may be explained by optimal computations applied to more naturalistic evidence spaces. Their results were obtained as a by-product of training a neural network on higher-dimensional stimulus sets. However, if this hypothesis is correct, it should be possible to expose such decision rules directly within the simpler framework of signal detection theory (SDT), rather than relying on a neural network to discover their emergence. In this theoretical note, we propose that at least some forms of a PEB observed in both humans and neural networks may reflect optimal confidence computation under the assumption of multidimensional evidence spaces. This framework provides a principled explanation for the emergence of detection-like confidence and generates the testable prediction that manipulating representational dimensionality should systematically modulate the strength of the positive evidence bias.",
+   "printed": true
+  },
+  {
+   "para_id": 9,
+   "loc": "body",
+   "sec_title": "INTRODUCTION",
+   "text": "Dimensionality here refers to the number of possible features tracked by the observer—independent hypotheses for which one accumulates evidence. Classical SDT has one feature dimension encoding a property such as brightness or familiarity. 2D SDT allows two feature dimensions which are typically treated as encoding “evidence” for each of two distinct stimuli, such as a right-tilted or left-tilted grating (Hautus et al., 2021; Peters & Lau, 2015). But even when tasks force participants to classify stimuli into one of two categories defined by the experimenter, it is often natural for participants to tentatively consider a wide range of hypotheses about the stimulus before responding. For instance, in an orientation discrimination task, observers are unlikely to restrict their perceptual inferences to whether the orientation is left- or right-tilted; they may also be implicitly sensitive to other incidental stimulus properties, such as phase, spatial frequency, contrast, size, duration, and so on. To account for this possibility, here we allow for greater numbers of feature dimensions such that the evidence space becomes k-dimensional. We simulate a typical PEB experiment where subjects are asked to make a 2-choice discrimination between two stimulus categories, s1 and s2. We then compute the impact of additional “distractor” stimulus dimensions representing evidence for alternative stimulus categories s3:k on the optimal confidence criteria for two-choice discrimination. To preempt our results, we show that confidence criteria are discrimination-like when the hypothesis space is low-dimensional, but become detection-like when the space is higher-dimensional. The appearance of detection-like confidence criteria in higher-dimensional SDT spaces indicates that a PEB can be rational if subjects are computing confidence in a higher-dimensional evidence space than assumed by the experimenter.",
+   "printed": true
+  },
+  {
+   "para_id": 10,
+   "loc": "body",
+   "sec_title": "INTRODUCTION",
+   "text": "Finally, this prediction also provides a way to reinterpret recent findings in artificial systems. Webb et al. (2023) showed that convolutional neural networks trained to jointly optimise perceptual decisions and confidence exhibit a positive evidence bias when discriminating between handwritten digits. From the perspective developed here, this effect need not be specific to either humans or neural networks per se, but may instead reflect an incidental property of these models—namely, that confidence is computed over a high-dimensional space of alternative hypotheses. While such networks are not a direct implementation of the SDT framework developed in this paper, they nonetheless offer a useful illustrative case in which the consequences of operating over higher-dimensional representations can be examined. Accordingly, we adapt the neural network models introduced by Webb et al. (2023) to explore whether variations in representational dimensionality are accompanied by corresponding changes in the strength of detection-like confidence. Taken together, the SDT and neural network results motivate an interpretation of the positive evidence bias as an efficient heuristic that is computationally optimal under the assumption of multidimensional evidence, offering a principled account of why such a bias might arise in biological systems rather than reflecting a mere inefficiency of confidence computation.",
+   "printed": true
+  },
+  {
+   "para_id": 11,
+   "loc": "body",
+   "sec_title": "Bivariate Case.",
+   "text": "We start with a standard 2-dimensional bivariate Gaussian SDT model (Figure 1). In this model, the observer is asked to determine the identity of an unknown stimulus s ∈ {s1, s2} on the basis of a 2-dimensional sensory evidence signal x = [x1, x2]. Each dimension of the evidence corresponds to a possible stimulus category such that x1 is the evidence for s = s1 and x2 is the evidence for s = s2. The evidence along each dimension is assumed to be independently normally distributed such that the average evidence is μtarget along the target dimension (representing the true stimulus category) and 0 along the other dimension:x1∼𝒩μtarget1ifs=s1𝒩01otherwisex2∼𝒩μtarget1ifs=s2𝒩01otherwiseWe assume that the observer infers the stimulus category s by computing the posterior probabilities P(s1|x) and P(s2|x). Then, the observer chooses an action a ∈ {1, 2} reflecting the most probable stimulus with confidence c ∈ [0, 1] equal to the posterior probability of the chosen option sa:a=1ifPs1x>Ps2x2otherwisec=PsaxUnder these conditions, it is well known that this optimal strategy leads to the confidence criteria in Figure 1A, which can be efficiently computed using a “balance of evidence” heuristic (Figure 1C; e.g., Maniscalco et al., 2016). That is, where f : ℝ → [0, 1] is a monotonic transformation,c=Psax≈fx1−x2The above formulation makes clear that, in the 2-dimensional setting, the optimal strategy is one that weights x1 and x2 equally against each other, regardless of which option is chosen.",
+   "printed": false
+  },
+  {
+   "para_id": 12,
+   "loc": "body",
+   "sec_title": "Bivariate Case.",
+   "text": "This discrimination-like pattern of confidence (Figure 1A) stands in contrast to a detection-like pattern (Figure 1B). In a detection task, the goal is not to discriminate between possible stimuli s1 and s2, but to determine whether any stimulus was presented in the first place (as compared to nothing). Specifically, where p ∈ {p0, p1} indicates stimulus absence/presence, the observer is presented with the sensory evidence x generated from the following distribution:x1∼𝒩μtarget1ifp=p1ands=s1𝒩01otherwisex2∼𝒩μtarget1ifp=p1ands=s2𝒩01otherwiseThen, the observer selects an action indicating the presence or absence of the stimulus:a=0ifPp0x>Pp1x1otherwisec=PpaxIn this case, since the objective is to determine whether a stimulus was presented (ignoring which stimulus might have been presented), the optimal strategy is for confidence to increase with evidence for either stimulus (Mazor et al., 2023). However, since the strongest piece of evidence has a greater impact on accuracy, the optimal strategy is now to place confidence criteria that are roughly perpendicular to this axis (Figure 1B). In the strongest form of this strategy, the “response congruent evidence” heuristic approximates confidence using only the stronger piece of evidence (Figure 1D):c=Ppax≈fmaxx1x2What we aim to explain is that, in a two-alternative discrimination task, participants’ confidence ratings often more closely resemble the optimal strategy for detection (rather than discrimination) tasks, even though both strategies can be approximated as simple transformations of the evidence.",
+   "printed": false
+  },
+  {
+   "para_id": 13,
+   "loc": "body",
+   "sec_title": "Neural Network Models",
+   "text": "The model architecture was the same as in Webb et al. (2023), and involved three main components. A deep neural network encoder f takes an input image x of class y. The output of this encoder is then passed to two heads, gclass and gconf. The classification head gclass outputs a predicted class for the image, while the confidence head gconf predicts p(y^ = y), the probability that the classification response is correct. The encoder f consisted of three convolutional layers followed by three fully-connected (FC) layers. Each convolutional layer had 32 channels, a kernel size of 3, a stride of 2, batch normalisation, and leaky ReLU nonlinearities with a negative slope of 0.01. The first two FC layers had 256 and 128 units, respectively and included batch normalisation, and leaky ReLU nonlinearities with a negative slope of 0.01. The encoder output was produced by a final FC layer with 100 units and no nonlinearity or normalisation.",
+   "printed": true
+  },
+  {
+   "para_id": 14,
+   "loc": "body",
+   "sec_title": "Neural Network Models",
+   "text": "To manipulate dimensionality, we modified the number of distinct digits used as stimuli during network training. Dimensionality conditions ranging from k = 2 to k = 10 were created by randomly drawing subsets of k digits without replacement from the set of integers between 0 and 9. Within each subset, we created high and low positive evidence exemplars by manipulating the signal-to-noise ratio of the stimuli, following the procedure in Webb et al. (2023). Signal strength was varied by adjusting digit brightness from 0.1 to 1.0 (where black = 0 and white = 1), with noise superimposed as Gaussian-distributed brightness levels at each pixel in the image (both digit and background) with a standard deviation ranging between 0.0 and 2.0. Pixel values were demeaned before the noise was added, and the final values were truncated between −1 (black) and 1 (white). Two pairs of signal and noise levels were then established tocreate high and low positive evidence conditions. Noise level values were pre-established (low noise = 1, high noise = 2), and contrast levels (between 0 and 1) were adjusted to find High Positive Evidence (HPE) and Low Positive Evidence (LPE) conditions that resulted in equal discrimination accuracies of 55% correct. Each neural network was evaluated on the digit classes it was trained on, using held-out base images, under both HPE and LPE conditions.",
+   "printed": true
+  },
+  {
+   "para_id": 15,
+   "loc": "body",
+   "sec_title": "Revisiting Variance Asymmetries",
+   "text": "Miyoshi and Lau (2020) proposed that a PEB may result from the evidence distributions in SDT having unequal variance along the target and non-target dimensions, leading to the adoption of curved, detection-like confidence criteria. However, their proposal does not explain why an inequality in variance may ensue in the first place. The current simulations in higher-dimensional spaces allow us to revisit this issue and obtain insight into one potential source of the variance inequality.",
+   "printed": true
+  },
+  {
+   "para_id": 16,
+   "loc": "body",
+   "sec_title": "Beyond the Two-Choice Case",
+   "text": "So far we have considered a two-choice task faced by an observer using a higher-dimensional stimulus space to compute their (discrimination) confidence. But there is nothing special about the two-choice case. While it is harder to visualise, we can also demonstrate a similar effect in a 3-choice (or N-choice) task (Li & Ma, 2020), where dimensionality k ≥ N. Figure 4 shows the confidence surfaces for a 3-choice discrimination decision with increasing dimensionality of the evidence space. As for the 2-choice case, when k = N, the confidence criteria are aligned along the diagonal planes that separate one stimulus distribution from another. But as k > N, the confidence criteria become increasingly parallel to the sides of the cube—becoming increasingly detection-like.",
+   "printed": true
+  },
+  {
+   "para_id": 17,
+   "loc": "body",
+   "sec_title": "Effect of Dimensionality on Confidence Formation in Neural Networks",
+   "text": "To ask whether similar effects of dimensionality on confidence formation would obtain in more realistic stimulus sets, we trained convolutional neural networks to classify MNIST digits and report confidence (Webb et al., 2023; Figure 5). Following Webb et al. (2023), we created sets of HPE and LPE stimuli by simultaneously varying the signal and noise within each digit image (Figure 5). We varied the dimensionality of the stimulus space by varying how many (randomly subsampled) digits from 0–9 would be included in the network’s training set (such that dimensionality k ranged from 2 to 10).",
+   "printed": true
+  },
+  {
+   "para_id": 18,
+   "loc": "fig",
+   "sec_title": "Effect of Dimensionality on Confidence Formation in Neural Networks",
+   "text": "(A) Model architecture (modified from Webb et al., 2023). An image x, belonging to class y, was passed through a deep neural network (DNN) encoder f, followed by two output heads: gclass generated a decision classifying the image, and gconf generated a confidence score by predicting p(y^) = y, the probability that the decision was correct. (B, C) Impact of varying the dimensionality of the training set on a positive evidence bias in confidence obtained for MNIST digit classification. The fitted lines are derived from a logarithmic model in which the impact of dimensionality on PEB saturates at higher dimensionalities.",
+   "printed": true
+  },
+  {
+   "para_id": 19,
+   "loc": "body",
+   "sec_title": "Dimensionality and Metacognitive Sensitivity",
+   "text": "We have shown that if participants consider a richer hypothesis space than assumed by the experimenter, the functional form of the optimal confidence criteria shifts, resulting in a positive evidence bias. We next asked whether dimensionality also affected metacognitive sensitivity—the extent to which confidence discriminates between correct and incorrect responses (Fleming & Lau, 2014). In Figure 6A–B, we plot distributions of posterior probabilities and confidence from simulated signal detection agents varying in their number of dimensions. As can be seen in Figure 6A, although posterior probabilities always tend to be larger for target relative to non-target stimuli, these differences become smaller as k increases. Likewise, in Figure 6B, distributions of confidence for correct and incorrect decisions become more similar with increasing k. Figure 6C plots the corresponding Type 2 ROCs for each value of k, which are defined by the Type 2 hit rate (i.e., the proportion of confidence ratings greater than c following a correct decision) and the Type 2 false alarm rate (i.e., the proportion of confidence ratings greater than c following an incorrect decision) across a range of confidence criteria c. Figure 6C shows that the above pattern results in reduced metacognitive sensitivity, meaning that it is increasingly difficult to discriminate between correct and incorrect decisions in high-dimensional hypothesis spaces. Since dimensionality reduces metacognitive sensitivity but has no effect on Type 1 decision accuracy (see Appendix C), it follows that dimensionality also reduces metacognitive efficiency (the ratio of metacognitive sensitivity to Type 1 sensitivity) in a similar manner.",
+   "printed": true
+  },
+  {
+   "para_id": 20,
+   "loc": "body",
+   "sec_title": "DISCUSSION",
+   "text": "Here we show that extending SDT into higher dimensional evidence spaces naturally leads to detection-like confidence surfaces when computing confidence in lower-dimensional (e.g., 2-choice) decisions. Our results extend the observations of Webb et al. (2023), obtained as emergent properties of training neural networks on high-dimensional stimulus sets, to the framework of classical SDT. An advantage of this approach is that we are able to precisely isolate a source of the detection-like confidence effects in higher-dimensional spaces in the normalisation induced by other (distractor) stimulus dimensions on confidence.",
+   "printed": true
+  },
+  {
+   "para_id": 21,
+   "loc": "body",
+   "sec_title": "DISCUSSION",
+   "text": "Previous work has also sought to link the emergence of a positive evidence bias to the degree of normalisation in the computation of confidence. Maniscalco et al. (2021) proposed that the degree to which units within a neural network exhibit mutual inhibition predicts whether they will show discrimination- or detection-like confidence profiles. Less inhibition tuning led to detection-like confidence profiles, and accounted for empirical features of a positive evidence bias. This occurs because lower tuned inhibition leads to confidence being driven more by the absolute evidence than the difference in evidence between response options. In our SDT model, in contrast, detection-like confidence profiles are associated with greater normalisation of confidence within a higher-dimensional feature space. These two perspectives can be reconciled by recognising that in Maniscalco et al. (2021), the degree of inhibition is an intrinsic property of the network’s units, rather than being a consequence of a confidence computation. It is possible, then, that a detection-like “neuron” that shows lower tuned inhibition within a neural network is in fact exactly what would be required to approximate the more aggressive algorithmic normalisation needed for computing (discrimination) confidence in higher-dimensional feature spaces.",
+   "printed": true
+  },
+  {
+   "para_id": 22,
+   "loc": "body",
+   "sec_title": "DISCUSSION",
+   "text": "Our model suggests that one source of unequal variance in signal detection models may be in the confidence computation itself, rather than (or in addition to) in the representation of evidence. We show in Appendix E that this insight is also consistent with recent findings that the positive evidence bias (and associated variance aysmmetry) can be “flipped” just by changing the target dimension, with a positive evidence bias becoming a negative evidence bias if subjects are asked to report the lower value item in a pair (Sepulveda et al., 2020). Such a flip would be more difficult to accommodate if a positive evidence bias was driven by lower level asymmetries in the representation of sensory evidence and/or a function of (signed) input magnitude (Rausch et al., 2018). Similar asymmetrical distributions have been observed in the latent space of neural network representations of the stimulus input (obtained by using a variational autoencoder to extract a low-dimensional latent space underlying the high-dimensional stimulus inputs used in their experiments; Webb et al., 2023). These models capture unequal variance as a consequence of features of the training distribution, allowing them to explain how the PEB might arise in two-dimensional, stationary tasks. However, they presumably would not be able to accommodate an instantaneous flip in the PEB without retraining the model (Sepulveda et al., 2020). Here, as a complementary mechanism, we suggest that the rapid and flexible influence of changing the goal or hypothesis space being entertained by the subject is a key driver of the strength and sign of the PEB.",
+   "printed": true
+  },
+  {
+   "para_id": 23,
+   "loc": "body",
+   "sec_title": "DISCUSSION",
+   "text": "More generally, our results suggest, together with Webb et al. (2023), that metacognitive biases may emerge due to subjects adopting a richer hypothesis space than assumed by the experimenter. This proposal aligns with other work showing how a mismatch between the experimenter’s and subjects’ task state-representations explains seemingly maladaptive behaviour in decision making (Molano-Mazón et al., 2023) and metacognition (Khalvati et al., 2021; Moore, 2023). This hypothesis may be testable in future experiments that vary subjects’ expectations about the task-relevance of different stimuli. For instance, it would be of interest to know whether a positive evidence bias becomes stronger when a subject is induced to expect a richer stimulus space, even if the range of stimuli in play remain constant. These and other hypotheses that emerge from extending SDT into higher dimensions make for a rich source of hypotheses for future experiments.",
+   "printed": true
+  },
+  {
+   "para_id": 24,
+   "loc": "body",
+   "sec_title": "DISCUSSION",
+   "text": "A broader implication of our results is that, in higher dimensional spaces, confidence criteria for detection and identification become more similar (Maniscalco et al., 2016; Mazor et al., 2023). In line with this idea, Mazor et al. (2023) showed that subjects incorporated detection-relevant evidence into their discrimination confidence, and discrimination-relevant evidence into their detection confidence. It is interesting to speculate that strict dissociations between detection and discrimination performance may be artefacts of the adoption of narrower stimulus spaces. Given that such dissociations have been foundational in establishing an empirical basis for unconscious perception (e.g., in blindsight; Azzopardi & Cowey, 1997; Peters, Kentridge, et al., 2017; Peters & Lau, 2015; Phillips, 2021; Weiskrantz et al., 1974), establishing whether classical findings in consciousness science generalise to more naturalistic stimulus spaces represents an important direction for future research.",
+   "printed": true
+  },
+  {
+   "para_id": 25,
+   "loc": "back",
+   "sec_title": "APPENDIX E: POSITIVE EVIDENCE BIAS FLIPS WITH TASK DEMANDS",
+   "text": "Now assume that instead of choosing the stimulus with the strongest evidence, the observer is tasked with choosing the stimulus with the weakest evidence (Sepulveda et al., 2020). In this setting, confidence is be equal to the complement of the posterior probability of the chosen stimulus:a=argmini∈12Psixc=1−PsaxWe can determine the PEB in a similar manner as before:PEBi=log∂∂xi1−Psax∂∂xa1−Psax=log∂∂xiPsax∂∂xaPsax=log11+∑j∉aieμtargetxj−xi=−log1+∑j∉aieμtargetxj−xiSo, when asked to report the stimulus with the weakest evidence, it is normative for confidence to depend on the evidence for the unchosen options more than the chosen option.",
+   "printed": false
+  },
+  {
+   "para_id": 26,
+   "loc": "back",
+   "sec_title": "Discussion",
+   "text": "Additionally, a universal limitation of interpreting the CNN results is linked to the multiple researchers’ degrees of freedom, including the choice of architecture, training regime, dataset composition, and regularisation—all of which could, in principle, affect outcomes. However, the robustness of the PEB across all our manipulations demonstrates that this bias is not an artefact of selective model tuning. Additionally, no arbitrary choices were made during the process as the architecture used the CNN model from Webb et al. (2023), which already exhibited the PEB, and simply manipulated its dimensionality to test whether the bias scales with representational complexity. We further confirmed that the same pattern persists across multiple accuracy levels, extending beyond the single accuracy tested in the original work. The replication of the dimensionality-related PEB under these constraints indicates that it is a genuine property of these networks rather than a product of arbitrary design choices.",
+   "printed": true
+  }
+ ],
+ "links": [
+  {
+   "link_id": 1,
+   "url": "osf.io/uxphg",
+   "url_raw": "https://osf.io/uxphg",
+   "href_jats": "https://osf.io/uxphg",
+   "repo_key": "osf:uxphg",
+   "host_class": "osf",
+   "loc": "body",
+   "sec_title": "Multivariate Case.",
+   "source": "tagged",
+   "para_id": 1
+  },
+  {
+   "link_id": 2,
+   "url": "github.com/taylorwwebb/performance_optimized_nn_confidence",
+   "url_raw": "https://github.com/taylorwwebb/performance_optimized_NN_confidence",
+   "href_jats": "https://github.com/taylorwwebb/performance_optimized_NN_confidence",
+   "repo_key": "github:taylorwwebb/performance_optimized_nn_confidence",
+   "host_class": "github",
+   "loc": "body",
+   "sec_title": "Neural Network Models",
+   "source": "tagged",
+   "para_id": 2
+  }
+ ],
+ "links_optional": [
+  "creativecommons.org/licenses/by/4.0",
+  "doi:10.1016/j.cub.2022.12.044",
+  "doi:10.1037/0278-7393.6.2.107",
+  "doi:10.1037/rev0000184",
+  "doi:10.1037/rev0000254",
+  "doi:10.1037/rev0000370",
+  "doi:10.1038/s41467-020-15581-6",
+  "doi:10.1038/s41467-020-16278-6",
+  "doi:10.1038/s41467-021-25419-4",
+  "doi:10.1038/s41467-023-39737-2",
+  "doi:10.1038/s41562-017-0139",
+  "doi:10.1073/pnas.1711628115",
+  "doi:10.1073/pnas.94.25.14190",
+  "doi:10.1093/brain/97.1.709",
+  "doi:10.1093/nc/nix015",
+  "doi:10.1162/opmi.a.359",
+  "doi:10.1167/19.4.25",
+  "doi:10.1371/journal.pcbi.1008779",
+  "doi:10.3389/fnhum.2014.00443",
+  "doi:10.3389/fnint.2012.00079",
+  "doi:10.3758/s13414-015-0843-3",
+  "doi:10.3758/s13414-016-1059-x",
+  "doi:10.3758/s13414-017-1431-5",
+  "doi:10.3758/s13414-023-02710-8",
+  "doi:10.4324/9781003203636",
+  "doi:10.7554/elife.09651",
+  "doi:10.7554/elife.60705"
+ ],
+ "own_doi": "doi:10.1162/opmi.a.359",
+ "citations": [
+  {
+   "cite_id": 1,
+   "para_id": 3,
+   "bib_id": 5,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 2,
+   "para_id": 3,
+   "bib_id": 14,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 3,
+   "para_id": 3,
+   "bib_id": 17,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 4,
+   "para_id": 3,
+   "bib_id": 21,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 5,
+   "para_id": 3,
+   "bib_id": 25,
+   "marker": "2012",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 6,
+   "para_id": 3,
+   "bib_id": 20,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 7,
+   "para_id": 4,
+   "bib_id": 3,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 8,
+   "para_id": 4,
+   "bib_id": 10,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 9,
+   "para_id": 4,
+   "bib_id": 19,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 10,
+   "para_id": 5,
+   "bib_id": 10,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 11,
+   "para_id": 6,
+   "bib_id": 9,
+   "marker": "2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 12,
+   "para_id": 6,
+   "bib_id": 11,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 13,
+   "para_id": 6,
+   "bib_id": 8,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 14,
+   "para_id": 6,
+   "bib_id": 19,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 15,
+   "para_id": 6,
+   "bib_id": 11,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 16,
+   "para_id": 6,
+   "bib_id": 6,
+   "marker": "1980",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 17,
+   "para_id": 6,
+   "bib_id": 9,
+   "marker": "2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 18,
+   "para_id": 6,
+   "bib_id": 11,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 19,
+   "para_id": 7,
+   "bib_id": 23,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 20,
+   "para_id": 8,
+   "bib_id": 23,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 21,
+   "para_id": 9,
+   "bib_id": 3,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 22,
+   "para_id": 9,
+   "bib_id": 16,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 23,
+   "para_id": 10,
+   "bib_id": 23,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 24,
+   "para_id": 10,
+   "bib_id": 23,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 25,
+   "para_id": 11,
+   "bib_id": 9,
+   "marker": "2016",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 26,
+   "para_id": 12,
+   "bib_id": 10,
+   "marker": "2023",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 27,
+   "para_id": 2,
+   "bib_id": 23,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 28,
+   "para_id": 13,
+   "bib_id": 23,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 29,
+   "para_id": 14,
+   "bib_id": 23,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 30,
+   "para_id": 15,
+   "bib_id": 11,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 31,
+   "para_id": 16,
+   "bib_id": 7,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 32,
+   "para_id": 17,
+   "bib_id": 23,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 33,
+   "para_id": 17,
+   "bib_id": 23,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 34,
+   "para_id": 18,
+   "bib_id": 23,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 35,
+   "para_id": 19,
+   "bib_id": 2,
+   "marker": "2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 36,
+   "para_id": 20,
+   "bib_id": 23,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 37,
+   "para_id": 21,
+   "bib_id": 8,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 38,
+   "para_id": 21,
+   "bib_id": 8,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 39,
+   "para_id": 22,
+   "bib_id": 22,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 40,
+   "para_id": 22,
+   "bib_id": 19,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 41,
+   "para_id": 22,
+   "bib_id": 23,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 42,
+   "para_id": 22,
+   "bib_id": 22,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 43,
+   "para_id": 23,
+   "bib_id": 23,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 44,
+   "para_id": 23,
+   "bib_id": 12,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 45,
+   "para_id": 23,
+   "bib_id": 4,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 46,
+   "para_id": 23,
+   "bib_id": 13,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 47,
+   "para_id": 24,
+   "bib_id": 9,
+   "marker": "2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 48,
+   "para_id": 24,
+   "bib_id": 10,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 49,
+   "para_id": 24,
+   "bib_id": 10,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 50,
+   "para_id": 24,
+   "bib_id": 1,
+   "marker": "1997",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 51,
+   "para_id": 24,
+   "bib_id": 15,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 52,
+   "para_id": 24,
+   "bib_id": 16,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 53,
+   "para_id": 24,
+   "bib_id": 18,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 54,
+   "para_id": 24,
+   "bib_id": 24,
+   "marker": "1974",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 55,
+   "para_id": 25,
+   "bib_id": 22,
+   "marker": "2020",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 56,
+   "para_id": 26,
+   "bib_id": 23,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-ext-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "v1_bib_count": 25
+ }
+}

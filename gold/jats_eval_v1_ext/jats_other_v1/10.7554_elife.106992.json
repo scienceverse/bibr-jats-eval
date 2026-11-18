@@ -1,0 +1,1822 @@
+{
+ "paper_id": "10.7554_elife.106992",
+ "paras": [
+  {
+   "para_id": 1,
+   "loc": "body",
+   "sec_title": "Imaging",
+   "text": "Images for cell quantifications were obtained using 20× spinning-disk confocal microscopy (Olympus SpinSR SoRa) and pre-processed by maximum-intensity z-stack projection, auto-brightness thresholding, and background subtraction using a custom Fiji/ImageJ.ijm script. Outputs were imported into QuPath (v0.4.2) (Bankhead et al., 2017) for cell segmentation. Resulting detections and downsampled images were additionally processed using another custom Fiji/ImageJ.ijm script (i.e. binary masks application, pixel inversion, and file type conversion to RGB.pngs), merged for atlas registration (2017 CCFv3) (Wang et al., 2020), and analysed using the QUINT pipeline (Yates et al., 2019). Software versions employed as a part of the QUINT pipeline include QuickNII (RRID:SCR_016854) (Puchades et al., 2019), VisuAlign (v0.8 RRID:SCR_017978), and Nutil (generating object reports with minimum pixel size = 4, point cloud density = 4, without object splitting, and extracting all coordinates) (Groeneboom et al., 2020). A custom MATLAB script (R2022b) re-formatted Nutil outputs for statistical analysis and graphical representation using GraphPad Prism. For the orexin experiment, brain sections were imaged with an epifluorescence microscope mounted with a camera (Leica Digital Module R [DMR] with DFC500) or laser scanning confocal microscope (Zeiss LSM710) to confirm cannulas successfully penetrated the lateral ventricle. Images were processed in Fiji/ImageJ (Fiji, Schindelin et al., 2012, 2.9.0 v1.54b) using background subtraction, brightness, and contrast adjustments, and merging of images from different fluorescent channels. Further processing, such as adding labels and indicating histological or anatomical boundaries, was carried out in Inkscape (Inkscape Project (2020). Inkscape. Retrieved from https://inkscape.org).",
+   "printed": true
+  },
+  {
+   "para_id": 2,
+   "loc": "back",
+   "sec_title": "Data availability",
+   "text": "Data can be accessed through these links: Analysis: https://doi.org/10.6084/m9.figshare.31830526. EEG spectra: https://doi.org/10.6084/m9.figshare.31830520. Histology: https://doi.org/10.6084/m9.figshare.31830289. Vigilance state annotation: https://doi.org/10.6084/m9.figshare.31375441. Matlab scripts and functions: Resampling_Feb2022_20241027.m: This script resamples the EEG data that have been exported from the TDT recording software. It uses the TDTSDK Matlab package that is provided by TDT. The script loops through all animals, recording days and channels, obtains the original sampling rate from the raw data tank and resamples the signals to 256 Hz. The signals are saved per animal, recording day and EEG channel. BL_PSDperVS_fromunfilteredfiles_20241027.m: This script calculates EEG spectral power density per epoch with the PWelch function in Matlab. It loads the signals that have been exported from the TDT software and resampled in Matlab. It loops through all animals and recording days individually. The signal is zero padded if it is shorter than 24 hours and the signal is cut off at 24 hours if it is longer than 24 hours. There is the option to apply a notch filter, which is specified in the top lines in the script. The result is saved in a file per animal, per recording day and per channel (frontal EEG, occipital EEG). SleepEpisodes: This function finds the number and duration of uninterrupted episodes of NREM sleep, REM sleep, and wakefulness, using preset variables such as the maximal duration of interruptions that are allowed. BriefAwakenings: This function finds the number of brief awakenings, short stretches of epochs scored as wakefulness during episodes of sleep. The maximal duration of interruptions that are allowed to still classify the sleep episode as a single episode despite the interruption (and the interruption not as a new wake episode) are specified in the top lines of the script. EEG data: Baseline & sleep dep recording info: Information file that provides information on the Baseline and Sleep deprivation experiment. Orexin ICV schedule: Information file that provides information on the orexin intracerebroventricular (ICV) infusion experiment. Orexin spectra excluded animals: Lists excluded animals for spectral analysis including analysis of slow wave activity. We decided to exclude general spectral analysis, because the number of remaining animals was too low. OutputVSch: Output from SleepSign: per animal, EEG (1 = frontal, 2=occipital), and per day for every epoch the annotation from manual sleep scoring and spectra exported from SleepSign (for spectral analysis, PWelch spectra calculated directly from raw data files in Matlab were used instead). 1. Baseline: \"C1\" etc refers to animal name codes (data was recorded in two cohorts, C and D); number \"1\" refers to baseline file; \"eeg1\" and \"eeg2\" to frontal and occipital EEG derivation, respectively. 2. Sleep deprivation: as above; number \"2\" behind animal name codes refers to sleep deprivation file. 3. Orexin: \"F1\" etc refers to animal name codes (experiment was recorded in 4 cohorts F,G,H,I); four-character code refers to infusion (either INF1-4 or a four-digit date code; key to decoding can be found in the Orexin ICV study file); \"eeg1\" and \"eeg2\" to frontal and occipital EEG derivation, respectively. PwelchPSD: EEG spectral power density calculated with PWelch function in Matlab. Naming convention: no notch filter was applied, and this is also specified in the file name. 1. Baseline: C1\" etc refers to animal name codes (data was recorded in two cohorts, C and D); date \"0202\" refers to baseline file for C cohort and \"0224\" refers to baseline file for D cohort, \"ch1\" and \"ch2\" to frontal and occipital EEG derivation, respectively2. Sleep deprivation: C1\" etc refers to animal name codes (data was recorded in two cohorts, C and D); date \"0203\" refers to sleep deprivation file for C cohort and \"0225\" refers to sleep deprivation file for D cohort, \"ch1\" and \"ch2\" to frontal and occipital EEG derivation, respectively. Histology: Analysis 2 - Densities/DCST_Drd1a-Cplx3_Cell-Densities.prism: Compares Drd1a-Cre positive cell densities across layers. Images: Image files as TIFFs and PNGs. Prism files. Baseline_Sleeparchitecture: Prism file with statistical analysis of sleep architecture parameters. All electrophysiological and immunohistochemical data have been deposited as supplementary material. Figure 1—source data 1. Inter-layer pairwise comparisons. Figure 1—source data 2. Inter-region pairwise comparisons. Figure 3—source data 1. Comparison of EEG spectra from L6b silenced and control animals across the full frequency range recorded. Figure 4—source data 1. One sample t and Wilcoxon test of Wake during SD Frontal EEG Mean Controls. Figure 4—source data 2. One sample t and Wilcoxon test of Wake during SD Frontal EEG Mean L6b silenced. Figure 4—source data 3. One sample t and Wilcoxon test of Wake during SD Occipital EEG Mean Controls. Figure 4—source data 4. One sample t and Wilcoxon test of Wake during SD Occipital EEG Mean L6b silenced.",
+   "printed": true
+  },
+  {
+   "para_id": 3,
+   "loc": "back",
+   "sec_title": "Funding Information",
+   "text": "https://ror.org/029chgv08Wellcome Trust 10.35802/227093 to Vladyslav V Vyazovskiy.",
+   "printed": false
+  },
+  {
+   "para_id": 4,
+   "loc": "back",
+   "sec_title": "Funding Information",
+   "text": "https://ror.org/029chgv08Wellcome Trust 10.35802/206500 to Hannah Alfonsa.",
+   "printed": false
+  },
+  {
+   "para_id": 5,
+   "loc": "back",
+   "sec_title": "Funding Information",
+   "text": "https://ror.org/029chgv08Wellcome Trust 10.35802/203971 to Lukas B Krone.",
+   "printed": false
+  },
+  {
+   "para_id": 6,
+   "loc": "back",
+   "sec_title": "Funding Information",
+   "text": "https://ror.org/029chgv08Wellcome Trust 10.35802/224083 to Lukas B Krone.",
+   "printed": false
+  },
+  {
+   "para_id": 7,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Layer 6b (L6b) is the earliest generated and deepest layer of the mouse neocortex and is partially derived from the subplate – a critical structure during cortical development which contributes to the formation of intracortical and thalamocortical networks (McConnell et al., 1989; Allendoerfer and Shatz, 1994; Molnár and Blakemore, 1995; Molnár et al., 1998; Feldmeyer, 2023). While evolutionary conservation of L6b neurons and their primate homologue interstitial white matter neurons across many species suggests that these cells are not merely remnants of a developmental cell population, their functional significance in the adult brain remains unknown (Kostovic and Rakic, 1980; Reep, 2000; Kostović and Judas, 2010; Duque et al., 2016; Molnár, 2019; Swiegers et al., 2019; Swiegers et al., 2021; Bhagwandin et al., 2020).",
+   "printed": true
+  },
+  {
+   "para_id": 8,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "L6b exhibits widespread anatomical connectivity, implying an integrative role across a range of functional brain networks. L6b receives long-range intracortical inputs, enabling direct communication between distant cortical areas (Hoerder-Suabedissen et al., 2018; Zolnik et al., 2020), while being reciprocally innervated by higher-order thalamic nuclei and cortical layer 5 (L5) (Zolnik et al., 2024). Consistent with this notion, it was shown that optogenetic activation of L6b neurons leads to activation of the posterior medial nucleus of the thalamus (Ansorge et al., 2020) and the neocortex (Zolnik et al., 2024). This connectivity is of potential importance for brain state regulation as L5 is the major output layer of the cortex and is engaged in bidirectional communication with higher-order thalamic nuclei (Hoerder-Suabedissen et al., 2018). Recently, several subtypes of L5 pyramidal neurons have been shown to play important roles in distinct aspects of sleep-wake regulation (Krone et al., 2021; Krone et al., 2025; Hong et al., 2023; Honjoh et al., 2025; Wasilczuk et al., 2025). Together with the established role of L5 pyramidal neurons in the regulation of oscillatory dynamics with functional relevance for sleep (Sanchez-Vives and McCormick, 2000; Seibt et al., 2017) and anaesthesia (Bharioke et al., 2022), the projections of L6b neurons to L5 might be of particular importance for brain state control. L6b neurons furthermore project to cortical layer 1 (L1) (Clancy and Cauller, 1999) and the hippocampus (Ben-Simon et al., 2022), suggesting an additional role in higher-order cognitive functions. L6b is therefore uniquely placed to integrate information from both subcortical and cortical regions, convey signals across L1, L5, and higher-order thalamus, and promote cortical activation.",
+   "printed": true
+  },
+  {
+   "para_id": 9,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Another important property of L6b neurons is their responsiveness to orexin (also known as hypocretin), a powerful wake-promoting neurotransmitter (de Lecea et al., 1998; Sakurai et al., 1998; Bayer et al., 2004; Wenger Combremont et al., 2016b; Wenger Combremont et al., 2016a; Zolnik et al., 2024; Messore et al., 2025). Experimental studies have shown that optogenetic activation of orexin neurons promotes awakening (Adamantidis et al., 2007), while optogenetic inhibition promotes sleep (Tsunematsu et al., 2011). The significance of orexin in brain state control is especially apparent in narcolepsy, wherein loss of orexin signalling results in state instability, including sleep attacks and fragmented sleep (Sakurai, 2007). The established view is that orexinergic effects on brain state control are mediated by subcortical circuitry (Sakurai, 2007). However, based on orexinergic projections to the prefrontal cortex and orexinergic induction of spikes in prefrontal cortex slice preparations from rats, it was speculated that the cerebral cortex may contribute to orexin-mediated increases in attention and arousal (Lambe and Aghajanian, 2003). Subsequent work in rat brain slices established the responsiveness of L6b to orexin (and nicotine), and the ability of L6b to potentiate thalamocortical arousal leading to the suggestion that L6b is an essential part of an orexin-gated feed-forward loop driving brain state control (Hay et al., 2015; Zolnik et al., 2026). In support of this, recent findings from our lab with multielectrode array recordings of mouse brain slices show that cortical activation in prefrontal cortex by orexin is impaired in L6b-silenced mice (Messore et al., 2025).",
+   "printed": true
+  },
+  {
+   "para_id": 10,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "We targeted L6b neurons by using the dopamine receptor 1a (Drd1a)-Cre expressing mouse strain Tg(Drd1-Cre)FK164GSat. In this mouse line, Cre is relatively selectively expressed in the lower layers of the cortex (Hoerder-Suabedissen et al., 2018; Zolnik et al., 2024). Subcortically, sparse expression is found in the hippocampus and the striatum, with denser expression in several midbrain nuclei and in the cerebellum (Hoerder-Suabedissen et al., 2018). Drd1a-Cre cortical expression is specific to excitatory neurons and has been quantified to include 25–40% of L6b neurons in the somatosensory cortex (Hoerder-Suabedissen et al., 2018; Zolnik et al., 2020). These Drd1a-Cre neurons in the primary somatosensory cortex receive predominantly long-range intracortical input (Zolnik et al., 2020), project cortically to L1 and L5, and project subcortically selectively to higher-order thalamic nuclei (e.g. lateral posterior [LP] and posterior [Po] nuclei), avoiding first-order thalamic nuclei (including the dorsal lateral geniculate nucleus, ventrobasal nucleus, and medial geniculate nucleus) (Hoerder-Suabedissen et al., 2018). Drd1a-Cre L6b projections do not exhibit collaterals in the thalamic reticular nucleus (TRN) and form small boutons at their targets (Hoerder-Suabedissen et al., 2018; Casas-Torremocha et al., 2022).",
+   "printed": true
+  },
+  {
+   "para_id": 11,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "In this study, we continuously recorded EEG/EMG signals across sleep-wake states in ‘L6b-silenced’ mice and Cre-negative littermate controls. We achieved L6b silencing by selectively ablating synaptosomal protein of 25 kDa (SNAP25) from Drd1a-Cre expressing neurons in L6b in mice from birth (Hoerder-Suabedissen et al., 2018), a population which has been demonstrated to be orexin-sensitive (Zolnik et al., 2024). The same mouse model was used in previous studies, one of which showed that chronic L6b silencing eventually elicits neurodegeneration (Hoerder-Suabedissen et al., 2019), and another of which indicated that the orexin receptor agonist YNT-185 has differential effects on high-density planar multielectrode array recordings in L6b-silenced compared to control animals (Messore et al., 2025); both of these studies indirectly confirm effective silencing. We found that L6b-silenced mice show a slowing of theta frequency oscillations during both wakefulness and rapid eye movement (REM) sleep, and an overall decrease in EEG power centred within the spindle frequency range during non-rapid eye movement (NREM) sleep. Furthermore, during sleep deprivation (SD), slow EEG power increased to a lesser extent in L6b-silenced mice, as compared to control animals. In response to intracerebroventricular (ICV) administration of orexins A and B, both genotypes showed a strong increase in wakefulness, with a minor difference between genotypes wherein orexin A infusion resulted in a greater increase in wake episode duration in L6b-silenced compared to control animals, yet it was followed by reduced sleep slow-wave activity (SWA). Taken together, our findings suggest that L6b plays an important role in regulating state-dependent cortical dynamics and has a potential role in wake maintenance.",
+   "printed": true
+  },
+  {
+   "para_id": 12,
+   "loc": "body",
+   "sec_title": "The amount of time spent in sleep-wake states is not altered in L6b-silenced mice",
+   "text": "First, we performed EEG and EMG recordings in control and L6b-silenced mice over an undisturbed baseline recording using an approach established in our previous work (Yamagata et al., 2021). Electrodes were implanted above the frontal and the occipital cortex and referenced against the cerebellum to monitor state-specific brain oscillations, including EEG SWA (0.5–4 Hz) and spindle-frequency (10–15 Hz) activity, which are both more prominent in anterior derivations in mice (Vyazovskiy et al., 2004; Vyazovskiy and Tobler, 2005a; Blanco-Duque et al., 2024) and theta activity, which is typically more pronounced in posterior electrodes (Huber et al., 2000; McKillop et al., 2021; Figure 2a). Visual inspection of EEG traces confirmed that the key features of vigilance states were clearly identifiable in both genotypes (Figure 2b). We then analysed the daily profiles of SWA and spectrograms (representative individuals: Figure 2c), which revealed the typical spectral signatures of waking, NREM, and REM sleep in both control and L6b-silenced animals. Specifically, we observed that high SWA (0.5–4 Hz) was prominent during epochs scored as NREM sleep, while theta activity (4–10 Hz) was strongest during epochs scored as REM sleep. Plotting individual hypnograms indicated that, as expected in all animals regardless of genotype, sleep occurred mostly during the light phase and wakefulness was more consolidated during the dark period as expected for mice in laboratory conditions (Figure 2d). This analysis reassured us that functionally silencing neocortical L6b neurons does not result in the emergence of any atypical brain oscillations or states under baseline conditions, which may contaminate spectral analyses or compromise our ability to annotate vigilance states using conventional criteria.",
+   "printed": true
+  },
+  {
+   "para_id": 13,
+   "loc": "body",
+   "sec_title": "The amount of time spent in sleep-wake states is not altered in L6b-silenced mice",
+   "text": "Next, we addressed whether L6b silencing affects continuity of sleep-wake states. We found that the average duration of individual episodes of wakefulness (controls 14.3±1.29 min vs L6b silenced 14.7±1.43 min, t(14)=0.1663, p=0.8703), NREM sleep (controls 4.28±0.200 min vs L6b silenced 4.50±0.298 min, t(14)=0.5671, p=0.5796), and REM sleep episodes (controls 1.04±0.0344 min vs L6b silenced 1.10±0.0523 min, t(14)=0.9792, p=0.3441) did not differ between genotypes. Likewise, the number of brief awakenings – short regular interruptions of sleep by epochs resembling wakefulness, characterised by EEG activation and an increase in EMG signal lasting ≤16 s (Hauglund et al., 2025) – was not altered (controls 51.1±2.04 hr–1 vs L6b silenced 51.6±3.97 hr–1, t(12)=0.1205, p=0.9061).",
+   "printed": true
+  },
+  {
+   "para_id": 14,
+   "loc": "body",
+   "sec_title": "L6b silencing leads to state-dependent changes in the EEG",
+   "text": "After examining daily sleep-wake amount, time course, and architecture, we investigated the effect of L6b silencing on EEG power spectra. During wakefulness, only minor changes were observed in the frontal derivation (Figure 3a). However, differences were more pronounced in the occipital EEG, especially in the higher theta frequency range where power was significantly reduced due to a leftward shift of theta peak frequency (theta peak frequency during wake: controls 7.42±0.300 Hz vs L6b silenced 5.78±0.485 Hz, Welch’s t test, t(12.40)=2.873, p=0.0136) (Figure 3a, d, and e). Higher frequencies were not significantly affected (Figure 3—figure supplement 1, Source data 1). During REM sleep, L6b silencing resulted in a reduction of frontal EEG power in the theta and higher frequency ranges (Figure 3a, Figure 3—figure supplement 1, Source data 1). In the occipital derivation, we observed a leftward shift of theta-peak frequency in L6b-silenced animals (Figure 3e and e) (during REM: controls 7.58±0.0833 Hz vs L6b silenced 7.11±0.0735 Hz, Welch’s t test, t(11.47)=4.250, p=0.0012). During NREM sleep, L6b silencing markedly reduced frontal EEG spectral density across nearly the entire frequency range examined, from 3 Hz upward (Figure 3a, Figure 3—figure supplement 1, Source data 1). No differences in the occipital EEG were apparent across low frequencies, while a slight decrease in frequencies above 80 Hz was observed (Figure 3—figure supplement 1, Source data 1). To further investigate state specificity of these differences, we examined changes in EEG spectra around NREM-REM sleep transitions (Figure 3b). This revealed that the EEG power decrease in NREM sleep was especially prominent in the frontal derivation around the spindle-frequency range (Blanco-Duque et al., 2024), while a shift in theta-peak frequency during REM sleep was especially apparent in the occipital derivation (Figure 3e). Importantly, the reduced EEG power during NREM sleep was not specific to NREM sleep immediately before NREM-REM state transitions, as normalising EEG spectra in the 32 s of NREM sleep preceding NREM-REM transitions to overall NREM sleep spectral power density on baseline day abolished differences between genotypes (Figure 3c).",
+   "printed": true
+  },
+  {
+   "para_id": 15,
+   "loc": "body",
+   "sec_title": "L6b silencing affects spectral signatures of sleep pressure during waking and sleep",
+   "text": "Next, we investigated the effects of L6b silencing on homeostatic sleep regulation by undertaking 6 hr of SD starting from light onset. This manipulation is usually associated with an increase in EEG indices of cortical arousal (Vyazovskiy and Tobler, 2005b; Vassalli and Franken, 2017; Yamagata et al., 2021), intrusion of sleep-like patterns of activity in wake EEG (Vyazovskiy et al., 2011), and subsequently increased EEG SWA during NREM sleep (Thomas et al., 2020). SD was successful in all animals, with only minimal sleep observed during the 6 hr SD procedure (controls 15.0±3.73 min vs L6b silenced 14.3±3.97 min, t(14)=0.1240, p=0.9030). Animals fell asleep soon after the end of SD, where the latency to the first consolidated NREM sleep did not differ significantly between genotypes (controls, 6.75±2.92 min, L6b silenced 11.2±2.56 min, t(14)=1.153, p=0.2680). Representative hypnograms of two individual animals during the SD experiment are shown in Figure 4a.",
+   "printed": true
+  },
+  {
+   "para_id": 16,
+   "loc": "body",
+   "sec_title": "L6b silencing affects spectral signatures of sleep pressure during waking and sleep",
+   "text": "First, we analysed wake EEG spectra during SD. In both control and L6b-silenced animals, a broadband increase in EEG power, most prominently in the theta frequency range, was observed during SD compared to undisturbed wakefulness (Figure 4b; see Figure 4—source data 1–4 for a statistical comparison per genotype between normalised spectra and a theoretical mean = 1 by multiple one-sample t-tests). This may indicate a heightened wake ‘intensity’ or level of arousal (Krone et al., 2021; Yamagata et al., 2021) induced by continuous provision of novel objects. Interestingly, when we evaluated the change in wake EEG spectral power from the first to the last hour of SD, L6b-silenced animals showed an attenuated increase in spectral power density in the 9.5–11 Hz and 5.5–9.0 Hz range compared to controls, in the frontal and occipital derivation, respectively (frontal: frequency × genotype, F(118,1652)=1.597, p<0.0001, post hoc test significant 9.5–11.0 Hz; occipital: frequency × genotype, F(118,1298)=4.543, p<0.0001, post hoc test significant 5.5–9.0 Hz) (Figure 4c).",
+   "printed": true
+  },
+  {
+   "para_id": 17,
+   "loc": "body",
+   "sec_title": "Orexin promotes wakefulness in L6b-silenced and control animals",
+   "text": "Subsequently, we compared the effects of ICV orexin administration between control and L6b-silenced animals. Histology confirmed that cannulas were positioned in the right lateral ventricle in all animals. Vehicle, orexin A, or orexin B were infused at light onset (Figure 5a and b). Visual inspection of EEG traces did not reveal any abnormalities or obvious differences between genotypes (Figure 5—figure supplement 1); therefore, sleep scoring was performed blindly using established criteria (Yamagata et al., 2021). No abnormal oscillatory activities were revealed by subsequent spectral analysis in either genotype or derivation (representative individual examples: Figure 5—figure supplement 1).",
+   "printed": true
+  },
+  {
+   "para_id": 18,
+   "loc": "body",
+   "sec_title": "Orexin promotes wakefulness in L6b-silenced and control animals",
+   "text": "Sleep architecture was considerably affected by orexin administration. As depicted in individual examples, while vehicle administration had no effect on vigilance states, orexin induced prolonged wakefulness in both genotypes (Figure 5c, Figure 5—figure supplement 2). The 6 hr time course of vigilance states revealed a pronounced increase in wakefulness and decrease in sleep after both doses of orexin A in both genotypes, while effects of orexin B were less prominent (Figure 5d). Based on these findings that illustrate that the effects dissipated beyond 3 hr (Figure 5d) and reports in literature regarding the duration of action of orexin (Piper et al., 2000; Huang et al., 2001; Mieda et al., 2011), the time frame used to analyse sleep architecture was defined as the time from the end of the infusion to 3 hr post-infusion. During this interval, ORXA administration markedly and dose-dependently increased the time spent in wakefulness (Figure 5e; ORXA dose, F(1.316,11.18)=27.56; p=0.0001); there was no difference between genotypes in the total amount of time spent in wakefulness during the time frame analysed (ORXA dose × genotype, F(2,17)=2.597, p=0.10), even though the mean duration of individual wake episodes within that time frame was increased to a greater extent in L6b-silenced animals (ORXA dose × genotype, F(2,22)=4.376, p=0.0251). The amount of NREM sleep and REM sleep decreased with ORXA administration (NREM sleep: vehicle controls 91.1±4.73 min vs L6b silenced 96.3±4.61 min, ORXA controls 65.4±6.08 min vs L6b silenced 51.1±4.43 min, ORXA dose F(1.629,14.66)=22.30, p<0.0001; REM sleep: vehicle controls 15.3±2.75 min vs L6b silenced 14.8±1.78 min, ORXA controls 6.23±2.39 min vs L6b silenced 4.07±0.818 min, ORXA dose, F(1.057,9.516)=21.23, p=0.001). In contrast, ORXB did not have a significant effect on vigilance states (as compared to vehicle: wake, ORXB dose F(1,9)=0.02874, p=0.8691; NREM sleep, ORXB dose, F(1,9)=0.00898, p=0.9266; REM sleep, ORXB dose, F(1,20)=1.193, p=0.2878).",
+   "printed": true
+  },
+  {
+   "para_id": 19,
+   "loc": "body",
+   "sec_title": "L6b plays a role in regulation of arousal states",
+   "text": "In this study, we examined sleep-wake regulation in the ‘L6b-silenced’ mouse model, wherein the synaptic protein Snap25 is chronically ablated from birth in the Drd1a-Cre expressing subpopulation of L6b (Drd1a-Cre; Snap25fl/fl;Ai14) across the entire cortical mantle. The distribution of vigilance states and measures of sleep consolidation and sleep fragmentation did not differ between L6b-silenced and control animals at 12 weeks of age. However, during wakefulness, EEG activity in the theta frequency range, the signature of active or exploratory wakefulness (Vyazovskiy et al., 2006; Vassalli and Franken, 2017), was characterised by a lower peak frequency in L6b-silenced animals, while in REM sleep there was a reduction in theta peak frequency, along with a reduction in gamma frequency power. We posit that silencing L6b impairs the establishment of an activated brain state, which is required to generate a state of arousal and alertness.",
+   "printed": true
+  },
+  {
+   "para_id": 20,
+   "loc": "body",
+   "sec_title": "L6b plays a role in regulation of arousal states",
+   "text": "Our findings are in line with previous in vitro studies showing that L6b neurons can be activated by orexin, neurotensin, noradrenaline, histamine, and dopamine – all of which are powerful promoters of arousal (Bayer et al., 2004; ; Wenger Combremont et al., 2016b; Wenger Combremont et al., 2016a). Notably, data from Zolnik et al. show that optogenetically activating the same Drd1a-Cre+ subpopulation of L6b neurons in head-restrained awake mice can promote conversion from delta oscillations to gamma oscillations, thus promoting a state of cortical activation, resembling wakefulness and REM sleep (Zolnik et al., 2024). Our study of long-term recordings in freely behaving mice supports this same conclusion; L6b is involved in generating or maintaining active substates of wakefulness.",
+   "printed": true
+  },
+  {
+   "para_id": 21,
+   "loc": "body",
+   "sec_title": "L6b plays a role in regulation of arousal states",
+   "text": "Anatomically, L6b is ideally positioned to contribute to the regulation of levels of arousal and vigilance, which are known to exhibit a rich dynamic in both waking and sleep (Andrillon, 2023). L6b receives input predominantly from long-range intracortical projections and projects selectively to higher-order thalamic nuclei (Hoerder-Suabedissen et al., 2018; Zolnik et al., 2020; Zolnik et al., 2024). Therefore, L6b can integrate inputs from wake-promoting subcortical neuromodulatory areas, as well as information from distant cortical areas and translate this into widespread cortical activation with additional relay via higher-order thalamic nuclei. Higher-order thalamic nuclei can themselves also be directly activated by orexin (Bayer et al., 2002), and orexinergic activation of L6b can enhance the integration of higher-order thalamic inputs in L6a (Hay et al., 2015).",
+   "printed": true
+  },
+  {
+   "para_id": 22,
+   "loc": "body",
+   "sec_title": "A role of cortical L6b in brain oscillations",
+   "text": "Silencing a subpopulation of L6b not only changed cortical activity during wakefulness and REM sleep, but also during NREM sleep. This was reflected in a reduction in NREM sleep EEG power across a broad frequency range, including delta (0.5–4 Hz), theta (5–10 Hz), sigma (10–15 Hz), and gamma (30–100 Hz) frequencies. SWA (0.5–4 Hz) including slow waves and delta waves is a marker of sleep intensity and reflects the levels of sleep pressure, which builds up as a function of preceding wakefulness duration (Borbély, 1982; Achermann and Borbély, 2003). The reduction of delta power during NREM sleep in L6b-silenced animals agrees with the reduction of theta power during wakefulness, since the theta substate of wakefulness drives the build-up of sleep pressure (Vyazovskiy and Tobler, 2005b; Vassalli and Franken, 2017; Yamagata et al., 2021). EEG activity in the delta frequency band is thought to reflect spatial and temporal synchronization across large neuronal populations undergoing up and down states (Steriade et al., 1993; Vyazovskiy et al., 2009; Thomas et al., 2020); therefore, the reduction in SWA in L6b-silenced animals may suggest a role for L6b in network synchrony.",
+   "printed": true
+  },
+  {
+   "para_id": 23,
+   "loc": "body",
+   "sec_title": "A role of cortical L6b in brain oscillations",
+   "text": "Sigma power (10–15 Hz) represents the frequency range of sleep spindles (Blanco-Duque et al., 2024), which are waxing and waning bursts of activity that are thought to originate from interactions between cortex, thalamus, and the TRN (Steriade et al., 1993; Crunelli et al., 2006). Sleep spindles have been linked to memory consolidation in sleep and are posited to facilitate the transfer of information to long-term storage (Helfrich et al., 2018; Hahn et al., 2019). Thus, the reduction in sigma power in L6b-silenced animals suggests that L6b may be involved in these functions. L6b does not directly project to the TRN (Hoerder-Suabedissen et al., 2018), yet there are projections from L6b to L5 (Zolnik et al., 2024), and subpopulations of L5 innervate segments of the TRN in an area-specific pattern (Carroll et al., 2022; Hádinger et al., 2023), therefore L6b may indirectly influence sleep spindle generation via L5.",
+   "printed": true
+  },
+  {
+   "para_id": 24,
+   "loc": "body",
+   "sec_title": "A role of cortical L6b in brain oscillations",
+   "text": "In addition, the EEG peak theta frequency was slower in L6b-silenced animals. A similar reduction was observed as a result of a global deletion of the GluA1 subunit of AMPA receptors (Ang et al., 2018) and in animals with an SNAP25-ablation in L5 pyramidal neurons and dentate gyrus granule cells (Krone et al., 2021). While a relatively simple explanation, such as a modest reduction in brain temperature (Deboer, 2002), cannot be excluded, the neurophysiological mechanisms underlying this shift in theta peak frequency cannot be reliably inferred from EEG recordings alone. Cortical EEG signals are likely dominated by volume-conducted activity, and therefore resolving the underlying mechanisms would require additional intracortical and intrahippocampal recordings.",
+   "printed": true
+  },
+  {
+   "para_id": 25,
+   "loc": "body",
+   "sec_title": "An active role for the neocortex in sleep regulation",
+   "text": "We showed recently that state regulation is impaired in mice that have a reduction in network excitability because of a mutation in the synaptic vesicle protein VAMP2 (Guillaumin et al., 2025). These findings are broadly consistent with the view that brain state transitions start at the local level and may or may not converge to a ‘global’ brain state transition (Krueger et al., 2008; Thomas et al., 2020; Andrillon et al., 2024; Guillaumin et al., 2025). In the current study, we showed that SNAP25-ablation in a subpopulation of excitatory L6b neurons across the entire cortical mantle is associated with changes in oscillatory activity during sleep and wakefulness. Mice with an SNAP25-ablation in a subpopulation of cortical L5 across the whole cortical mantle, however, show a substantial reduction in time spent asleep without clearly affecting global EEG oscillations (McKillop et al., 2021). These findings suggest that different brain regions or distinct subpopulations of projection neurons in infragranular layers have differential contributions in the dynamics of wake-sleep states or state intensity.",
+   "printed": true
+  },
+  {
+   "para_id": 26,
+   "loc": "body",
+   "sec_title": "An active role for the neocortex in sleep regulation",
+   "text": "The fact that SNAP25-ablation in both L5 and L6b affects cortical signatures of sleep and wakefulness – one in the time spent in different vigilance states and the other in state-specific oscillations, respectively – strongly suggests that sleep is not only regulated via subcortical systems forming a ‘sleep-wake switch’ at a global level (Saper et al., 2010), but that the neocortex is also actively involved in regulating its own state, likely through both local and distributed intra- and extracortical circuits (Krueger et al., 2008). Recent work has shown that activity in the neocortex is involved in cortical synchrony (Ratliff et al., 2024), regulation of sleep depth and duration (Vaidyanathan et al., 2021), sleep homeostasis (Kon et al., 2024), sleep-preparatory behaviour (Tossell et al., 2023), and REM sleep initiation (Wang et al., 2022; Hong et al., 2023) and progression (Dong et al., 2022), all supporting an active role of the neocortex in brain state regulation. Yet, our current findings also support an important role of subcortical nuclei in the control of local and global cortical states of arousal. In addition to orexinergic effects, this likely extends to other neuromodulatory systems, including acetylcholine, noradrenaline, dopamine, neurotensin, serotonin, and histamine (Constantinople and Bruno, 2011; Wenger Combremont et al., 2016b; Wenger Combremont et al., 2016a; Case et al., 2017; Pal et al., 2018; Parkar et al., 2020; Osorio-Forero et al., 2021; Dean et al., 2022; Bréant et al., 2026).",
+   "printed": true
+  },
+  {
+   "para_id": 27,
+   "loc": "body",
+   "sec_title": "Limitations",
+   "text": "This study was exploratory in nature from the beginning, and there are several key points that need to be addressed in future studies. First, the Drd1a-Cre driver line FK164 was selected amongst various Drd1a-Cre driver lines that are currently available because of its Cre-expression that is relatively specific to the neocortex. Yet, sparse subcortical expression is still found in this line, in hippocampus, striatum, several midbrain nuclei, and in the cerebellum (Hoerder-Suabedissen et al., 2018), and it cannot be excluded that subcortical populations contribute to the effects on brain state control that were detected. Also, within cortex Drd1a-Cre expression is not limited to L6b, with some expression also detected in L6a. Since projection pattern and responsiveness to orexin are mutual across Drd1a-Cre neurons in L6a and L6b, this issue may not be vital, but further characterisation of both populations is needed to solidify the assumption that these cells are part of the same population. In the current study, only male mice were used, because our experimental protocol precluded the possibility of accurately monitoring the oestrous cycle, which has marked effects on brain activity, arousal, and vigilance states. We therefore decided to use male mice only for the current study but are planning to use both sexes in future work. Moreover, in the current study, we investigated the effect of chronic manipulation of the Drd1a-positive L6b population in freely moving animals. With these findings, we complement previous work on acute manipulation of the same L6b population (Drd1a-Cre) in head-fixed animals (Zolnik et al., 2020; Zolnik et al., 2024). Data in freely moving animals can aid in understanding brain processes in a more naturalistic setting. Moreover, chronic rather than acute manipulation could offer insights into pathophysiological mechanisms in neurodevelopmental disorders, such as schizophrenia, which may be linked to chronic abnormal network development. Even though the current study thus adds valuable longer-term data on chronic manipulations in freely moving animals, next steps should also include acute and spatially restricted manipulations of L6b neurons using a viral vector strategy and intracranial recordings to strengthen insights into the exact cortical area and corticothalamic networks involved. In particular, manipulations restricted to the prefrontal cortex would be of interest due to recent findings pointing towards a role for this cortical region in arousal from anaesthesia and slow-wave sleep (Pal et al., 2018; Parkar et al., 2020; Dean et al., 2022). Finally, the exclusion of some animals from the final data set for technical reasons limited our ability to draw strong conclusions regarding the effects of orexin on wake EEG spectra, and future studies will be required to address this.",
+   "printed": true
+  },
+  {
+   "para_id": 28,
+   "loc": "body",
+   "sec_title": "The ‘L6b-silenced’ mouse model",
+   "text": "In this study, the gene encoding the synaptic protein synaptosomal-associated protein of 25 kDa (SNAP25), which mediates regulated synaptic vesicle release (Hanson et al., 1997; Poirier et al., 1998; Sutton et al., 1998), was selectively ablated from a subpopulation of L6b neurons to render these functionally ‘silenced’ from the first week of the postnatal period. While whole-mouse Snap25 knockout is impossible due to embryonic lethality (Molnár et al., 2002; Washbourne et al., 2002), embryos with selective Snap25 elimination from specific cortical projection neurons are viable. Snap25 ablation from L5, L6a, and L6b, respectively, initially results in normal cortical development, with loss of synapses, demyelination, microglia activation, axonal, and neuronal degeneration typically observed at later time points (Hoerder-Suabedissen et al., 2019; Korrell et al., 2019; Vadisiute et al., 2022).",
+   "printed": true
+  },
+  {
+   "para_id": 29,
+   "loc": "body",
+   "sec_title": "The ‘L6b-silenced’ mouse model",
+   "text": "L6b can be targeted in the Tg(Drd1a-cre)FK164Gsat/Mmucd mouse (Drd1a-Cre) line, wherein Cre recombinase is expressed from the time of birth (Gerfen et al., 2013; Hoerder-Suabedissen et al., 2018). To generate these mice, Tg(Drd1a-cre)FK164Gsat/Mmucd (Drd1a-Cre; MMRRC) and C57BL/6-Snap25tm3mcw (Snap25fl/fl) animals were crossed to the tdTomato reporter strain B6;129S6-Gt(ROSA)26Sortm14(CAG-tdTomato)Hze/J (Ai14). The confirmation of the loss of regulated synaptic vesicular release from the Cre+ neuronal population was described in our previous publications (Marques-Smith et al., 2016; Hoerder-Suabedissen et al., 2019; Messore et al., 2025).",
+   "printed": true
+  },
+  {
+   "para_id": 30,
+   "loc": "body",
+   "sec_title": "The ‘L6b-silenced’ mouse model",
+   "text": "For baseline and SD recordings, adult male L6b-silenced animals (n=9) and Cre-negative adult male littermate control animals (n=7) were used following conventional group sizes in similar studies (Yamagata et al., 2021). For the orexin infusion experiments, separate cohorts of n=8 adult male L6b-silenced animals and n=5 adult male littermate control animals were used. For the circadian screen, separate cohorts of young adult male L6b-silenced (n=6) and control animals (n=7) were used. Genotypes were confirmed by polymerase chain reaction through Transnetyx (Transnetyx Inc, Cordova, TN, USA).",
+   "printed": true
+  },
+  {
+   "para_id": 31,
+   "loc": "body",
+   "sec_title": "The ‘L6b-silenced’ mouse model",
+   "text": "Although the age at the start of sleep experiments was comparable between genotypes (controls 11±0.48 weeks vs L6b silenced 10.6±0.39 weeks t(14)=0.6966, p=0.4974), L6b-silenced animals had a significantly lower body weight (controls 23±0.67 g vs L6b silenced 21±0.47 g, t(14)=2.530, p=0.024). A lower body weight compared to Cre-negative control animals has also been previously observed in Rbp4-Cre;Snap25fl/fl;Ai14 ‘L5-silenced’ mice (Hoerder-Suabedissen et al., 2019; Krone et al., 2021).",
+   "printed": true
+  },
+  {
+   "para_id": 32,
+   "loc": "body",
+   "sec_title": "Surgical procedures and postoperative care",
+   "text": "Surgical implantation of EEG/EMG recording electrodes was carried out as previously described (Krone et al., 2021; McKillop et al., 2021). Bregma was localised and the positions of the electrodes were marked, with the frontal EEG 2 mm anteroposterior (AP), +2 mm to the right of the midline (ML), occipital EEG –3.5 mm AP, and +2.5 mm ML. Holes were created with a microdrill at the marked positions and above the cerebellum for the reference electrode. Next, the EEG/EMG headstage was positioned with the bone screws into the holes. The headstage was secured with dental cement (Super bond, Prestige Dental Products Ltd, Bradford, UK). EMGs were implanted into the nuchal muscles and secured to the headstage with acrylic dental cement (Simplex Rapid, Associated Dental Products Ltd, Swindon, UK). The headstage weight was <10% of presurgical body weight in all animals. Postoperative analgesia was provided through jellies mixed with oral Metacam (meloxicam, 5 mg/kg, Boehringer Ingelheim Ltd., Bracknell, UK) as needed.",
+   "printed": true
+  },
+  {
+   "para_id": 33,
+   "loc": "body",
+   "sec_title": "Surgical procedures and postoperative care",
+   "text": "For the orexin infusion experiment, surgeries were extended with the unilateral implantation of a cannula in the right lateral cerebral ventricle. To insert the cannula, an additional hole was drilled (AP –0.3 mm, ML +0.9 mm, DV –2.3 mm; coordinates based on Suzuki et al., 2005) in the skull, and the guide cannula (C315G/Spc, Plastics1, Protech International Inc, Boerne, TX, USA) was inserted into the holder in the stereotactic frame and slowly positioned atop the dura. The cannula was then lowered to 2.3 mm below the dura. Silicone elastomer (Kwik-Sil, World Precision Instruments Inc, Sarasota, FL, USA) was applied to close the craniotomy. The guide cannula was secured with dental cement (Super Bond, Prestige Dental Products Ltd, Bradford, UK), and a dummy cannula (C315DC/Spc, Plastics1) was inserted into the guide cannula to prevent infection and bore occlusion. Dummies were manually moved in the cannulas every few days to habituate animals to the procedure and to ensure clean cannula bores.",
+   "printed": true
+  },
+  {
+   "para_id": 34,
+   "loc": "body",
+   "sec_title": "Preparation of orexin solutions",
+   "text": "ORXA (Orexin A [human, mouse, rat] trifluoroacetate salt, 4028262.0500, lot no 1068668, Bachem AG, Switzerland) was dissolved in sterile saline to a concentration of 0.3 nmol/μl or 0.15 nmol/μl, and ORXB (Orexin B [human] trifluoroacetate salt, 4028263.0500, lot no 1000056801, Bachem AG) to a concentration of 0.3 nmol/μl under sterile conditions in a flow cabinet. Doses were determined based on previous studies involving orexin infusion in mice (Mobarakeh et al., 2005; Suzuki et al., 2005; Mieda et al., 2011) and the reported dissolvability of orexin according to product data sheets.",
+   "printed": true
+  },
+  {
+   "para_id": 35,
+   "loc": "body",
+   "sec_title": "Experimental timeline: baseline and SD recording",
+   "text": "For SD, animals were kept awake from light onset for 6 hr, which is when mice in laboratory conditions are predominantly asleep. At light onset (9 AM), the chambers were opened, and nests were removed from the cages. Animals were continuously observed by an experimenter for the full 6 hr, and when an animal seemed to be falling asleep based on posture and/or online EEG/EMG traces, a novel object was introduced into the cage. This is a common SD procedure in rodents which keeps animals awake in an ethologically relevant and less-stressful manner than other SD methods (McKillop et al., 2018). After 6 hr, objects were taken out of the cages, nests were reintroduced, and chambers were closed.",
+   "printed": true
+  }
+ ],
+ "links": [
+  {
+   "link_id": 1,
+   "url": "inkscape.org",
+   "url_raw": "https://inkscape.org",
+   "href_jats": "https://inkscape.org",
+   "repo_key": null,
+   "host_class": "other",
+   "loc": "body",
+   "sec_title": "Imaging",
+   "source": "tagged",
+   "para_id": 1
+  },
+  {
+   "link_id": 2,
+   "url": "doi:10.6084/m9.figshare.31830526",
+   "url_raw": "https://doi.org/10.6084/m9.figshare.31830526",
+   "href_jats": "https://doi.org/10.6084/m9.figshare.31830526",
+   "repo_key": "doi:10.6084/m9.figshare.31830526",
+   "host_class": "doi",
+   "loc": "back",
+   "sec_title": "Data availability",
+   "source": "tagged",
+   "para_id": 2
+  },
+  {
+   "link_id": 3,
+   "url": "doi:10.6084/m9.figshare.31830520",
+   "url_raw": "https://doi.org/10.6084/m9.figshare.31830520",
+   "href_jats": "https://doi.org/10.6084/m9.figshare.31830520",
+   "repo_key": "doi:10.6084/m9.figshare.31830520",
+   "host_class": "doi",
+   "loc": "back",
+   "sec_title": "Data availability",
+   "source": "tagged",
+   "para_id": 2
+  },
+  {
+   "link_id": 4,
+   "url": "doi:10.6084/m9.figshare.31830289",
+   "url_raw": "https://doi.org/10.6084/m9.figshare.31830289",
+   "href_jats": "https://doi.org/10.6084/m9.figshare.31830289",
+   "repo_key": "doi:10.6084/m9.figshare.31830289",
+   "host_class": "doi",
+   "loc": "back",
+   "sec_title": "Data availability",
+   "source": "tagged",
+   "para_id": 2
+  },
+  {
+   "link_id": 5,
+   "url": "doi:10.6084/m9.figshare.31375441",
+   "url_raw": "https://doi.org/10.6084/m9.figshare.31375441",
+   "href_jats": "https://doi.org/10.6084/m9.figshare.31375441",
+   "repo_key": "doi:10.6084/m9.figshare.31375441",
+   "host_class": "doi",
+   "loc": "back",
+   "sec_title": "Data availability",
+   "source": "tagged",
+   "para_id": 2
+  },
+  {
+   "link_id": 6,
+   "url": "doi:10.35802/227093",
+   "url_raw": "10.35802/227093",
+   "href_jats": "",
+   "repo_key": "doi:10.35802/227093",
+   "host_class": "doi",
+   "loc": "back",
+   "sec_title": "Funding Information",
+   "source": "regex",
+   "para_id": 3
+  },
+  {
+   "link_id": 7,
+   "url": "doi:10.35802/206500",
+   "url_raw": "10.35802/206500",
+   "href_jats": "",
+   "repo_key": "doi:10.35802/206500",
+   "host_class": "doi",
+   "loc": "back",
+   "sec_title": "Funding Information",
+   "source": "regex",
+   "para_id": 4
+  },
+  {
+   "link_id": 8,
+   "url": "doi:10.35802/203971",
+   "url_raw": "10.35802/203971",
+   "href_jats": "",
+   "repo_key": "doi:10.35802/203971",
+   "host_class": "doi",
+   "loc": "back",
+   "sec_title": "Funding Information",
+   "source": "regex",
+   "para_id": 5
+  },
+  {
+   "link_id": 9,
+   "url": "doi:10.35802/224083",
+   "url_raw": "10.35802/224083",
+   "href_jats": "",
+   "repo_key": "doi:10.35802/224083",
+   "host_class": "doi",
+   "loc": "back",
+   "sec_title": "Funding Information",
+   "source": "regex",
+   "para_id": 6
+  }
+ ],
+ "links_optional": [
+  "creativecommons.org/licenses/by/4.0",
+  "doi:10.1002/cne.24545",
+  "doi:10.1002/cne.24894",
+  "doi:10.1002/cne.25202",
+  "doi:10.1002/dneu.22892",
+  "doi:10.1007/bf01205159",
+  "doi:10.1007/s00429-014-0869-7",
+  "doi:10.1016/0166-2236(95)93935-q",
+  "doi:10.1016/j.bcp.2021.114515",
+  "doi:10.1016/j.brainres.2005.03.002",
+  "doi:10.1016/j.brainres.2005.05.022",
+  "doi:10.1016/j.ceca.2006.04.022",
+  "doi:10.1016/j.cell.2020.04.007",
+  "doi:10.1016/j.celrep.2020.02.044",
+  "doi:10.1016/j.cub.2018.05.025",
+  "doi:10.1016/j.cub.2021.09.041",
+  "doi:10.1016/j.cub.2025.02.053",
+  "doi:10.1016/j.neucli.2024.102954",
+  "doi:10.1016/j.neures.2025.104969",
+  "doi:10.1016/j.neurol.2023.08.007",
+  "doi:10.1016/j.neuron.2009.08.024",
+  "doi:10.1016/j.neuron.2010.11.032",
+  "doi:10.1016/j.neuron.2011.02.040",
+  "doi:10.1016/j.neuron.2013.10.016",
+  "doi:10.1016/j.neuron.2016.01.015",
+  "doi:10.1016/j.neuron.2017.11.020",
+  "doi:10.1016/j.neuron.2022.03.032",
+  "doi:10.1016/j.neuron.2023.11.021",
+  "doi:10.1016/j.neuron.2025.11.024",
+  "doi:10.1016/j.peptides.2005.01.001",
+  "doi:10.1016/s0006-8993(02)02247-3",
+  "doi:10.1016/s0092-8674(00)80512-7",
+  "doi:10.1016/s0092-8674(00)80949-6",
+  "doi:10.1016/s0896-6273(03)00598-1",
+  "doi:10.1038/1799",
+  "doi:10.1038/26412",
+  "doi:10.1038/79848",
+  "doi:10.1038/nature06310",
+  "doi:10.1038/nature10009",
+  "doi:10.1038/nmeth.2019",
+  "doi:10.1038/nn783",
+  "doi:10.1038/nrn2092",
+  "doi:10.1038/nrn2521",
+  "doi:10.1038/s41398-018-0199-2",
+  "doi:10.1038/s41398-025-03350-2",
+  "doi:10.1038/s41467-017-00735-w",
+  "doi:10.1038/s41467-022-32559-8",
+  "doi:10.1038/s41467-022-34720-9",
+  "doi:10.1038/s41467-024-50168-5",
+  "doi:10.1038/s41593-021-00894-6",
+  "doi:10.1038/s41593-022-01195-2",
+  "doi:10.1038/s41593-022-01217-z",
+  "doi:10.1038/s41593-023-01398-1",
+  "doi:10.1038/s41593-023-01430-4",
+  "doi:10.1038/s41598-017-17204-5",
+  "doi:10.1038/s42003-025-09412-x",
+  "doi:10.1046/j.1460-9568.2000.00919.x",
+  "doi:10.1073/pnas.1610078113",
+  "doi:10.1073/pnas.1700983114",
+  "doi:10.1073/pnas.181330998",
+  "doi:10.1073/pnas.2101580118",
+  "doi:10.1073/pnas.2205209119",
+  "doi:10.1073/pnas.95.1.322",
+  "doi:10.1093/cercor/bhi110",
+  "doi:10.1093/cercor/bhw100",
+  "doi:10.1093/cercor/bhw158",
+  "doi:10.1093/cercor/bhy036",
+  "doi:10.1093/cercor/bhy127",
+  "doi:10.1101/2024.06.20.599756",
+  "doi:10.1101/2024.10.26.620399",
+  "doi:10.1101/2025.01.29.635246",
+  "doi:10.1101/2025.09.07.673922",
+  "doi:10.1101/2025.10.10.681639",
+  "doi:10.1111/desc.12706",
+  "doi:10.1111/ejn.13978",
+  "doi:10.1111/j.1365-2869.2005.00456.x",
+  "doi:10.1111/j.1651-2227.2010.01811.x",
+  "doi:10.1111/joa.12974",
+  "doi:10.1113/jp279915",
+  "doi:10.1126/sciadv.adn6247",
+  "doi:10.1126/science.2475909",
+  "doi:10.1126/science.8235588",
+  "doi:10.1146/annurev.ne.17.030194.001153",
+  "doi:10.1152/jn.2000.84.4.1888",
+  "doi:10.1159/000047206",
+  "doi:10.1213/ane.0000000000006011",
+  "doi:10.1371/journal.pone.0216796",
+  "doi:10.1523/jneurosci.0698-22.2022",
+  "doi:10.1523/jneurosci.0784-11.2011",
+  "doi:10.1523/jneurosci.1783-04.2004",
+  "doi:10.1523/jneurosci.18-15-05723.1998",
+  "doi:10.1523/jneurosci.22-18-07835.2002",
+  "doi:10.1523/jneurosci.22-23-10313.2002",
+  "doi:10.1523/jneurosci.2513-17.2018",
+  "doi:10.1523/jneurosci.6506-10.2011",
+  "doi:10.2741/1064",
+  "doi:10.3389/fncel.2023.1257803",
+  "doi:10.3389/fneur.2016.00088",
+  "doi:10.3389/fninf.2019.00075",
+  "doi:10.3389/fninf.2020.00037",
+  "doi:10.3389/fnins.2020.567849",
+  "doi:10.4449/aib.v142i4.422",
+  "doi:10.7554/elife.106992.1",
+  "doi:10.7554/elife.106992.1.sa0",
+  "doi:10.7554/elife.106992.1.sa1",
+  "doi:10.7554/elife.106992.1.sa2",
+  "doi:10.7554/elife.106992.1.sa3",
+  "doi:10.7554/elife.106992.2",
+  "doi:10.7554/elife.106992.2.sa0",
+  "doi:10.7554/elife.106992.2.sa1",
+  "doi:10.7554/elife.106992.2.sa2",
+  "doi:10.7554/elife.106992.2.sa3",
+  "doi:10.7554/elife.54148",
+  "doi:10.7554/elife.63329",
+  "identifiers.org/rrid:scr_016854",
+  "identifiers.org/rrid:scr_017978"
+ ],
+ "own_doi": "doi:10.7554/elife.106992",
+ "citations": [
+  {
+   "cite_id": 1,
+   "para_id": 7,
+   "bib_id": 53,
+   "marker": "McConnell et al., 1989",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 2,
+   "para_id": 7,
+   "bib_id": 3,
+   "marker": "Allendoerfer and Shatz, 1994",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 3,
+   "para_id": 7,
+   "bib_id": 59,
+   "marker": "Molnár and Blakemore, 1995",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 4,
+   "para_id": 7,
+   "bib_id": 60,
+   "marker": "Molnár et al., 1998",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 5,
+   "para_id": 7,
+   "bib_id": 28,
+   "marker": "Feldmeyer, 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 6,
+   "para_id": 7,
+   "bib_id": 46,
+   "marker": "Kostovic and Rakic, 1980",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 7,
+   "para_id": 7,
+   "bib_id": 70,
+   "marker": "Reep, 2000",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 8,
+   "para_id": 7,
+   "bib_id": 47,
+   "marker": "Kostović and Judas, 2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 9,
+   "para_id": 7,
+   "bib_id": 27,
+   "marker": "Duque et al., 2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 10,
+   "para_id": 7,
+   "bib_id": 62,
+   "marker": "Molnár, 2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 11,
+   "para_id": 7,
+   "bib_id": 80,
+   "marker": "Swiegers et al., 2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 12,
+   "para_id": 7,
+   "bib_id": 81,
+   "marker": "Swiegers et al., 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 13,
+   "para_id": 7,
+   "bib_id": 12,
+   "marker": "Bhagwandin et al., 2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 14,
+   "para_id": 8,
+   "bib_id": 38,
+   "marker": "Hoerder-Suabedissen et al., 2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 15,
+   "para_id": 8,
+   "bib_id": 102,
+   "marker": "Zolnik et al., 2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 16,
+   "para_id": 8,
+   "bib_id": 103,
+   "marker": "Zolnik et al., 2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 17,
+   "para_id": 8,
+   "bib_id": 7,
+   "marker": "Ansorge et al., 2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 18,
+   "para_id": 8,
+   "bib_id": 103,
+   "marker": "Zolnik et al., 2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 19,
+   "para_id": 8,
+   "bib_id": 38,
+   "marker": "Hoerder-Suabedissen et al., 2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 20,
+   "para_id": 8,
+   "bib_id": 48,
+   "marker": "Krone et al., 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 21,
+   "para_id": 8,
+   "bib_id": 49,
+   "marker": "Krone et al., 2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 22,
+   "para_id": 8,
+   "bib_id": 40,
+   "marker": "Hong et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 23,
+   "para_id": 8,
+   "bib_id": 41,
+   "marker": "Honjoh et al., 2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 24,
+   "para_id": 8,
+   "bib_id": 97,
+   "marker": "Wasilczuk et al., 2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 25,
+   "para_id": 8,
+   "bib_id": 73,
+   "marker": "Sanchez-Vives and McCormick, 2000",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 26,
+   "para_id": 8,
+   "bib_id": 76,
+   "marker": "Seibt et al., 2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 27,
+   "para_id": 8,
+   "bib_id": 13,
+   "marker": "Bharioke et al., 2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 28,
+   "para_id": 8,
+   "bib_id": 20,
+   "marker": "Clancy and Cauller, 1999",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 29,
+   "para_id": 8,
+   "bib_id": 11,
+   "marker": "Ben-Simon et al., 2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 30,
+   "para_id": 9,
+   "bib_id": 25,
+   "marker": "de Lecea et al., 1998",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 31,
+   "para_id": 9,
+   "bib_id": 71,
+   "marker": "Sakurai et al., 1998",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 32,
+   "para_id": 9,
+   "bib_id": 10,
+   "marker": "Bayer et al., 2004",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 33,
+   "para_id": 9,
+   "bib_id": 99,
+   "marker": "Wenger Combremont et al., 2016b",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 34,
+   "para_id": 9,
+   "bib_id": 98,
+   "marker": "Wenger Combremont et al., 2016a",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 35,
+   "para_id": 9,
+   "bib_id": 103,
+   "marker": "Zolnik et al., 2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 36,
+   "para_id": 9,
+   "bib_id": 56,
+   "marker": "Messore et al., 2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 37,
+   "para_id": 9,
+   "bib_id": 2,
+   "marker": "Adamantidis et al., 2007",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 38,
+   "para_id": 9,
+   "bib_id": 84,
+   "marker": "Tsunematsu et al., 2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 39,
+   "para_id": 9,
+   "bib_id": 72,
+   "marker": "Sakurai, 2007",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 40,
+   "para_id": 9,
+   "bib_id": 72,
+   "marker": "Sakurai, 2007",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 41,
+   "para_id": 9,
+   "bib_id": 51,
+   "marker": "Lambe and Aghajanian, 2003",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 42,
+   "para_id": 9,
+   "bib_id": 36,
+   "marker": "Hay et al., 2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 43,
+   "para_id": 9,
+   "bib_id": 104,
+   "marker": "Zolnik et al., 2026",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 44,
+   "para_id": 9,
+   "bib_id": 56,
+   "marker": "Messore et al., 2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 45,
+   "para_id": 10,
+   "bib_id": 38,
+   "marker": "Hoerder-Suabedissen et al., 2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 46,
+   "para_id": 10,
+   "bib_id": 103,
+   "marker": "Zolnik et al., 2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 47,
+   "para_id": 10,
+   "bib_id": 38,
+   "marker": "Hoerder-Suabedissen et al., 2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 48,
+   "para_id": 10,
+   "bib_id": 38,
+   "marker": "Hoerder-Suabedissen et al., 2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 49,
+   "para_id": 10,
+   "bib_id": 102,
+   "marker": "Zolnik et al., 2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 50,
+   "para_id": 10,
+   "bib_id": 102,
+   "marker": "Zolnik et al., 2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 51,
+   "para_id": 10,
+   "bib_id": 38,
+   "marker": "Hoerder-Suabedissen et al., 2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 52,
+   "para_id": 10,
+   "bib_id": 38,
+   "marker": "Hoerder-Suabedissen et al., 2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 53,
+   "para_id": 10,
+   "bib_id": 18,
+   "marker": "Casas-Torremocha et al., 2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 54,
+   "para_id": 11,
+   "bib_id": 38,
+   "marker": "Hoerder-Suabedissen et al., 2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 55,
+   "para_id": 11,
+   "bib_id": 103,
+   "marker": "Zolnik et al., 2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 56,
+   "para_id": 11,
+   "bib_id": 39,
+   "marker": "Hoerder-Suabedissen et al., 2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 57,
+   "para_id": 11,
+   "bib_id": 56,
+   "marker": "Messore et al., 2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 58,
+   "para_id": 12,
+   "bib_id": 100,
+   "marker": "Yamagata et al., 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 59,
+   "para_id": 12,
+   "bib_id": 88,
+   "marker": "Vyazovskiy et al., 2004",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 60,
+   "para_id": 12,
+   "bib_id": 89,
+   "marker": "Vyazovskiy and Tobler, 2005a",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 61,
+   "para_id": 12,
+   "bib_id": 14,
+   "marker": "Blanco-Duque et al., 2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 62,
+   "para_id": 12,
+   "bib_id": 43,
+   "marker": "Huber et al., 2000",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 63,
+   "para_id": 12,
+   "bib_id": 55,
+   "marker": "McKillop et al., 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 64,
+   "para_id": 13,
+   "bib_id": 35,
+   "marker": "Hauglund et al., 2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 65,
+   "para_id": 14,
+   "bib_id": 14,
+   "marker": "Blanco-Duque et al., 2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 66,
+   "para_id": 15,
+   "bib_id": 90,
+   "marker": "Vyazovskiy and Tobler, 2005b",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 67,
+   "para_id": 15,
+   "bib_id": 87,
+   "marker": "Vassalli and Franken, 2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 68,
+   "para_id": 15,
+   "bib_id": 100,
+   "marker": "Yamagata et al., 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 69,
+   "para_id": 15,
+   "bib_id": 93,
+   "marker": "Vyazovskiy et al., 2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 70,
+   "para_id": 15,
+   "bib_id": 82,
+   "marker": "Thomas et al., 2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 71,
+   "para_id": 16,
+   "bib_id": 48,
+   "marker": "Krone et al., 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 72,
+   "para_id": 16,
+   "bib_id": 100,
+   "marker": "Yamagata et al., 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 73,
+   "para_id": 17,
+   "bib_id": 100,
+   "marker": "Yamagata et al., 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 74,
+   "para_id": 18,
+   "bib_id": 66,
+   "marker": "Piper et al., 2000",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 75,
+   "para_id": 18,
+   "bib_id": 42,
+   "marker": "Huang et al., 2001",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 76,
+   "para_id": 18,
+   "bib_id": 57,
+   "marker": "Mieda et al., 2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 77,
+   "para_id": 19,
+   "bib_id": 91,
+   "marker": "Vyazovskiy et al., 2006",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 78,
+   "para_id": 19,
+   "bib_id": 87,
+   "marker": "Vassalli and Franken, 2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 79,
+   "para_id": 20,
+   "bib_id": 10,
+   "marker": "Bayer et al., 2004",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 80,
+   "para_id": 20,
+   "bib_id": 99,
+   "marker": "Wenger Combremont et al., 2016b",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 81,
+   "para_id": 20,
+   "bib_id": 98,
+   "marker": "Wenger Combremont et al., 2016a",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 82,
+   "para_id": 20,
+   "bib_id": 103,
+   "marker": "Zolnik et al., 2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 83,
+   "para_id": 21,
+   "bib_id": 4,
+   "marker": "Andrillon, 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 84,
+   "para_id": 21,
+   "bib_id": 38,
+   "marker": "Hoerder-Suabedissen et al., 2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 85,
+   "para_id": 21,
+   "bib_id": 102,
+   "marker": "Zolnik et al., 2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 86,
+   "para_id": 21,
+   "bib_id": 103,
+   "marker": "Zolnik et al., 2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 87,
+   "para_id": 21,
+   "bib_id": 9,
+   "marker": "Bayer et al., 2002",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 88,
+   "para_id": 21,
+   "bib_id": 36,
+   "marker": "Hay et al., 2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 89,
+   "para_id": 22,
+   "bib_id": 15,
+   "marker": "Borbély, 1982",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 90,
+   "para_id": 22,
+   "bib_id": 1,
+   "marker": "Achermann and Borbély, 2003",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 91,
+   "para_id": 22,
+   "bib_id": 90,
+   "marker": "Vyazovskiy and Tobler, 2005b",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 92,
+   "para_id": 22,
+   "bib_id": 87,
+   "marker": "Vassalli and Franken, 2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 93,
+   "para_id": 22,
+   "bib_id": 100,
+   "marker": "Yamagata et al., 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 94,
+   "para_id": 22,
+   "bib_id": 77,
+   "marker": "Steriade et al., 1993",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 95,
+   "para_id": 22,
+   "bib_id": 92,
+   "marker": "Vyazovskiy et al., 2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 96,
+   "para_id": 22,
+   "bib_id": 82,
+   "marker": "Thomas et al., 2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 97,
+   "para_id": 23,
+   "bib_id": 14,
+   "marker": "Blanco-Duque et al., 2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 98,
+   "para_id": 23,
+   "bib_id": 77,
+   "marker": "Steriade et al., 1993",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 99,
+   "para_id": 23,
+   "bib_id": 22,
+   "marker": "Crunelli et al., 2006",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 100,
+   "para_id": 23,
+   "bib_id": 37,
+   "marker": "Helfrich et al., 2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 101,
+   "para_id": 23,
+   "bib_id": 33,
+   "marker": "Hahn et al., 2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 102,
+   "para_id": 23,
+   "bib_id": 38,
+   "marker": "Hoerder-Suabedissen et al., 2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 103,
+   "para_id": 23,
+   "bib_id": 103,
+   "marker": "Zolnik et al., 2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 104,
+   "para_id": 23,
+   "bib_id": 17,
+   "marker": "Carroll et al., 2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 105,
+   "para_id": 23,
+   "bib_id": 32,
+   "marker": "Hádinger et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 106,
+   "para_id": 24,
+   "bib_id": 6,
+   "marker": "Ang et al., 2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 107,
+   "para_id": 24,
+   "bib_id": 48,
+   "marker": "Krone et al., 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 108,
+   "para_id": 24,
+   "bib_id": 24,
+   "marker": "Deboer, 2002",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 109,
+   "para_id": 25,
+   "bib_id": 31,
+   "marker": "Guillaumin et al., 2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 110,
+   "para_id": 25,
+   "bib_id": 50,
+   "marker": "Krueger et al., 2008",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 111,
+   "para_id": 25,
+   "bib_id": 82,
+   "marker": "Thomas et al., 2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 112,
+   "para_id": 25,
+   "bib_id": 5,
+   "marker": "Andrillon et al., 2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 113,
+   "para_id": 25,
+   "bib_id": 31,
+   "marker": "Guillaumin et al., 2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 114,
+   "para_id": 25,
+   "bib_id": 55,
+   "marker": "McKillop et al., 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 115,
+   "para_id": 26,
+   "bib_id": 74,
+   "marker": "Saper et al., 2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 116,
+   "para_id": 26,
+   "bib_id": 50,
+   "marker": "Krueger et al., 2008",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 117,
+   "para_id": 26,
+   "bib_id": 69,
+   "marker": "Ratliff et al., 2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 118,
+   "para_id": 26,
+   "bib_id": 86,
+   "marker": "Vaidyanathan et al., 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 119,
+   "para_id": 26,
+   "bib_id": 44,
+   "marker": "Kon et al., 2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 120,
+   "para_id": 26,
+   "bib_id": 83,
+   "marker": "Tossell et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 121,
+   "para_id": 26,
+   "bib_id": 95,
+   "marker": "Wang et al., 2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 122,
+   "para_id": 26,
+   "bib_id": 40,
+   "marker": "Hong et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 123,
+   "para_id": 26,
+   "bib_id": 26,
+   "marker": "Dong et al., 2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 124,
+   "para_id": 26,
+   "bib_id": 21,
+   "marker": "Constantinople and Bruno, 2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 125,
+   "para_id": 26,
+   "bib_id": 99,
+   "marker": "Wenger Combremont et al., 2016b",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 126,
+   "para_id": 26,
+   "bib_id": 98,
+   "marker": "Wenger Combremont et al., 2016a",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 127,
+   "para_id": 26,
+   "bib_id": 19,
+   "marker": "Case et al., 2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 128,
+   "para_id": 26,
+   "bib_id": 64,
+   "marker": "Pal et al., 2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 129,
+   "para_id": 26,
+   "bib_id": 65,
+   "marker": "Parkar et al., 2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 130,
+   "para_id": 26,
+   "bib_id": 63,
+   "marker": "Osorio-Forero et al., 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 131,
+   "para_id": 26,
+   "bib_id": 23,
+   "marker": "Dean et al., 2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 132,
+   "para_id": 26,
+   "bib_id": 16,
+   "marker": "Bréant et al., 2026",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 133,
+   "para_id": 27,
+   "bib_id": 38,
+   "marker": "Hoerder-Suabedissen et al., 2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 134,
+   "para_id": 27,
+   "bib_id": 102,
+   "marker": "Zolnik et al., 2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 135,
+   "para_id": 27,
+   "bib_id": 103,
+   "marker": "Zolnik et al., 2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 136,
+   "para_id": 27,
+   "bib_id": 64,
+   "marker": "Pal et al., 2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 137,
+   "para_id": 27,
+   "bib_id": 65,
+   "marker": "Parkar et al., 2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 138,
+   "para_id": 27,
+   "bib_id": 23,
+   "marker": "Dean et al., 2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 139,
+   "para_id": 28,
+   "bib_id": 34,
+   "marker": "Hanson et al., 1997",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 140,
+   "para_id": 28,
+   "bib_id": 67,
+   "marker": "Poirier et al., 1998",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 141,
+   "para_id": 28,
+   "bib_id": 78,
+   "marker": "Sutton et al., 1998",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 142,
+   "para_id": 28,
+   "bib_id": 61,
+   "marker": "Molnár et al., 2002",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 143,
+   "para_id": 28,
+   "bib_id": 96,
+   "marker": "Washbourne et al., 2002",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 144,
+   "para_id": 28,
+   "bib_id": 39,
+   "marker": "Hoerder-Suabedissen et al., 2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 145,
+   "para_id": 28,
+   "bib_id": 45,
+   "marker": "Korrell et al., 2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 146,
+   "para_id": 28,
+   "bib_id": 85,
+   "marker": "Vadisiute et al., 2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 147,
+   "para_id": 29,
+   "bib_id": 29,
+   "marker": "Gerfen et al., 2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 148,
+   "para_id": 29,
+   "bib_id": 38,
+   "marker": "Hoerder-Suabedissen et al., 2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 149,
+   "para_id": 29,
+   "bib_id": 52,
+   "marker": "Marques-Smith et al., 2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 150,
+   "para_id": 29,
+   "bib_id": 39,
+   "marker": "Hoerder-Suabedissen et al., 2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 151,
+   "para_id": 29,
+   "bib_id": 56,
+   "marker": "Messore et al., 2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 152,
+   "para_id": 30,
+   "bib_id": 100,
+   "marker": "Yamagata et al., 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 153,
+   "para_id": 31,
+   "bib_id": 39,
+   "marker": "Hoerder-Suabedissen et al., 2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 154,
+   "para_id": 31,
+   "bib_id": 48,
+   "marker": "Krone et al., 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 155,
+   "para_id": 32,
+   "bib_id": 48,
+   "marker": "Krone et al., 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 156,
+   "para_id": 32,
+   "bib_id": 55,
+   "marker": "McKillop et al., 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 157,
+   "para_id": 33,
+   "bib_id": 79,
+   "marker": "Suzuki et al., 2005",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 158,
+   "para_id": 34,
+   "bib_id": 58,
+   "marker": "Mobarakeh et al., 2005",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 159,
+   "para_id": 34,
+   "bib_id": 79,
+   "marker": "Suzuki et al., 2005",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 160,
+   "para_id": 34,
+   "bib_id": 57,
+   "marker": "Mieda et al., 2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 161,
+   "para_id": 35,
+   "bib_id": 54,
+   "marker": "McKillop et al., 2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 162,
+   "para_id": 1,
+   "bib_id": 8,
+   "marker": "Bankhead et al., 2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 163,
+   "para_id": 1,
+   "bib_id": 94,
+   "marker": "Wang et al., 2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 164,
+   "para_id": 1,
+   "bib_id": 101,
+   "marker": "Yates et al., 2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 165,
+   "para_id": 1,
+   "bib_id": 68,
+   "marker": "Puchades et al., 2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 166,
+   "para_id": 1,
+   "bib_id": 30,
+   "marker": "Groeneboom et al., 2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 167,
+   "para_id": 1,
+   "bib_id": 75,
+   "marker": "Schindelin et al., 2012",
+   "expanded": false,
+   "scored": true
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-ext-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "v1_bib_count": 104
+ }
+}

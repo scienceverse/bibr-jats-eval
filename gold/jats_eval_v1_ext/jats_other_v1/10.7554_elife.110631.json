@@ -1,0 +1,1813 @@
+{
+ "paper_id": "10.7554_elife.110631",
+ "paras": [
+  {
+   "para_id": 1,
+   "loc": "body",
+   "sec_title": "Materials and methods",
+   "text": "A total of 2634 participants via online platforms (questionnaires from https://www.wjx.cn and tasks from https://www.naodao.com) took part in five experiments, including a psychometric experiment, a laboratory experiment, and two online replication experiments. Participants were recruited through participant pools and study advertisement. For online experiments, interested participants accessed the study through an online link and completed the questionnaires and task remotely. For the laboratory experiment, participants completed the study in a controlled laboratory setting. The study was approved by the Ethics Committee of Beijing Normal University (approve number: ICBIR_A_0016_028). Written or electronic informed consent was obtained from all participants before participation. Participants were paid a basic participation fee and a performance-based bonus, and the payment structure was explained before the experiment.",
+   "printed": true
+  },
+  {
+   "para_id": 2,
+   "loc": "body",
+   "sec_title": "Statistical analysis",
+   "text": "We performed correlations among depression/anxiety factor scores, behavioral indices, and parameters using Matlab R2015a. To further validate our main correlational results, the percentile bootstrap CIs were estimated using the R package ‘boot’ and 5000 bootstrap resamples. We used an online calculator (https://www.psychometrica.de/correlation.html) to examine differences between two correlation coefficients. All reported tests are two-tailed. We set the significance level at P=0.05.",
+   "printed": true
+  },
+  {
+   "para_id": 3,
+   "loc": "back",
+   "sec_title": "Data availability",
+   "text": "The data and code that support the findings of this study are available from https://github.com/ZhihaoWangpsyer/depression_anxiety_mood (copy archived at Wang, 2026).",
+   "printed": true
+  },
+  {
+   "para_id": 4,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Happiness is a central component of human experience, providing a subjective signal of value and guiding actions aimed at maximizing well-being (Bentham, 1780; Mill, 1859). Yet, well-being is often disrupted, as evidenced by the high prevalence of mood disorders such as depression and anxiety. It is therefore crucial to understand what drives mood fluctuations, and how these processes promote happiness or contribute to mood disorders.",
+   "printed": true
+  },
+  {
+   "para_id": 5,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Mood dynamics are strongly influenced by reward prediction error (RPE) – discrepancies between expected and actual outcomes (Eldar and Niv, 2015; Kao et al., 2023; Emanuel and Eldar, 2023; Bennett et al., 2022; Eldar et al., 2016; Rutledge et al., 2014; Otto et al., 2016). This influence is particularly prominent in uncertain environments, such as gambling scenarios, where outcomes frequently deviate from expectations and thereby drive moment-to-moment mood changes (Rutledge et al., 2014; Rutledge et al., 2015; Rutledge et al., 2016a; Blain and Rutledge, 2020; Vanhasbroeck et al., 2021). Although RPE-induced mood fluctuations play a critical role in adaptive behavior (Kao et al., 2023; Eldar et al., 2016; Quoidbach et al., 2019; Taquet et al., 2016), atypical mood dynamics may increase vulnerability to affective disorders (Kao et al., 2023; Broome et al., 2015; Mason et al., 2017; Taquet et al., 2020). Specifically, depression, often associated with blunted emotional responses (Bylsma et al., 2008; Rottenberg et al., 2005), may be linked to dampened mood fluctuations (Rottenberg et al., 2002a; Rottenberg et al., 2002b; Rottenberg and Hindash, 2015; Koval et al., 2012; Rutledge et al., 2017). In contrast, anxiety, characterized by exaggerated responses to uncertainty (Grupe and Nitschke, 2013), might intensify them (Bowen et al., 2006; Bowen et al., 2004). However, distinguishing the unique effects of depression and anxiety on mood dynamics presents a significant challenge, owing to their overlapping symptoms and entangled nature (Stavrakaki and Vargo, 1986; Steer et al., 1995).",
+   "printed": true
+  },
+  {
+   "para_id": 6,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Recent work has used bifactor models of the tripartite model of depression and anxiety to clarify their distinct features and differential influences on decision-making (Gagne et al., 2022; Gagne et al., 2020). The tripartite model of anxiety and depression proposes that these two symptom dimensions share a broad general distress or negative affect component while also including symptom-specific components: low positive affect/anhedonia is more specific to depression, whereas physiological hyperarousal is more specific to anxiety (Steer et al., 1995; Simms et al., 2008; Clark and Watson, 1991). Bifactor analysis offers a way to model this structure statistically. In a bifactor model, symptoms load on a general factor reflecting their shared variance and on specific factors capturing residual variance in narrower symptom dimensions after accounting for the general factor. Although bifactor and hierarchical models have long been used in psychometrics, for example intelligence research (Rodriguez et al., 2016; Reise, 2012), their application to anxiety and depression is grounded in the tripartite model and subsequent psychometric work distinguishing general internalizing/distress from symptom-specific dimensions. This framework has recently been extended to computational psychiatry, where shared and specific affective symptom dimensions have been linked to task-derived computational parameters. For example, Gagne et al., 2022 used bifactor analysis to show that depression was associated with weaker prior beliefs, whereas anxiety was associated with a stronger negative bias in belief updating (Gagne et al., 2022). Intriguingly, mood sensitivity to RPE appears to remain intact in both patients with major depressive disorder (MDD) and individuals with high depression scores (Blain and Rutledge, 2020; Rutledge et al., 2017; Csukly et al., 2023), contrary to the hypothesis that depression is associated with reduced RPE-related mood sensitivity (Rutledge et al., 2017). Individuals with anxiety not only show heightened vigilance before an outcome is known but may also assign greater precision to information that resolves uncertainty (Tobias and Ito, 2021; Huang et al., 2017). Such increased precision-weighting could amplify the affective influence of RPEs, leading to larger mood shifts when outcomes deviate from expectations (Villano et al., 2023; Paulus and Yu, 2012). Given evidence suggesting opposite associations of depression and anxiety with mood fluctuations (Rottenberg and Hindash, 2015; Koval et al., 2012; Bowen et al., 2006; Bowen et al., 2004), one possible explanation for the apparent intactness of RPE-related mood sensitivity (Rutledge et al., 2017) is that depression and anxiety exert opposing effects on this sensitivity, thereby counteracting each other. To test this hypothesis, we applied a bifactor model to disentangle these interrelated influences.",
+   "printed": true
+  },
+  {
+   "para_id": 7,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "This study used a computational model of momentary mood in a gambling task across five experiments involving 2043 participants. Participants also completed a series of questionnaires, enabling bifactor analysis to dissociate the influences of anxiety- and depression-specific traits on mood fluctuations. We measured momentary mood by asking participants, “How happy are you at this moment?” This measure has also been used to index happiness or momentary subjective well-being (Rutledge et al., 2014; Quoidbach et al., 2019; Taquet et al., 2016; Jangraw et al., 2023). Although mood can persist for hours, days, or even weeks (Kao et al., 2023; Emanuel and Eldar, 2023; Eldar et al., 2016; Schiller et al., 2024), momentary mood measured in laboratory settings captures how multiple events accumulate to shape affective state over minutes (Kao et al., 2023; Eldar et al., 2016; Rutledge et al., 2014; Rutledge et al., 2016a; Blain and Rutledge, 2020; Vanhasbroeck et al., 2021; Rutledge et al., 2017; Csukly et al., 2023; Vinckier et al., 2018). Its external validity is supported by associations with depressive symptoms (Blain and Rutledge, 2020; Rutledge et al., 2017). We first validated the tripartite model of depression and anxiety before examining the specific roles of depression and anxiety in mood fluctuations (n=901). Next, we measured mood sensitivity to RPE in a gambling task and investigated its relation to anxiety- and depression-specific traits based on the tripartite model in a laboratory experiment (n=44) and two additional online experiments (n=747 and n=235). In the final experiment (n=116), we tested the generalizability of these findings in a clinical sample of patients with affective disorders, revealing dissociable roles of depression and anxiety in RPE-related mood dynamics.",
+   "printed": true
+  },
+  {
+   "para_id": 8,
+   "loc": "body",
+   "sec_title": "Experimental protocol",
+   "text": "After completing a battery of questionnaires (Gagne et al., 2020; see Materials and methods), participants performed a gambling task with momentary mood ratings (Rutledge et al., 2014; Rutledge et al., 2015; Vanhasbroeck et al., 2021). Within this task, participants were asked to choose between a certain option and a gamble option with two possible outcomes, each occurring with a 50% probability. Participants were instructed to rate their mood every two to three trials (Figure 1). Detailed participant demographics are summarized in Table 1. Choice data (e.g. gambling rates) and mood data (e.g. initial mood, mean mood, and mood variation) showed patterns similar to those reported in previous studies measuring momentary mood during gambling tasks (Figure 1—figure supplements 1 and 2; Rutledge et al., 2015; Rutledge et al., 2016b). We also replicated established effects on momentary mood: mood was higher following gains than following losses, and mood drifted over time (all ps <0.001; Figure 1—figure supplement 3).",
+   "printed": true
+  },
+  {
+   "para_id": 9,
+   "loc": "fig",
+   "sec_title": "Experimental protocol",
+   "text": "Replication of Rutledge et al., 2017’s findings using BDI (N=1026).",
+   "printed": true
+  },
+  {
+   "para_id": 10,
+   "loc": "body",
+   "sec_title": "Experimental protocol",
+   "text": "To examine the computational drivers of momentary mood, we used the classic mood model, assuming that momentary mood is modeled as a recency-weighted sum of certain rewards from chosen certain options (CR), expected values of chosen gambles (EV), and RPEs following gamble outcomes (Equation 1; Figure 1H; Rutledge et al., 2014; Vanhasbroeck et al., 2021). RPE was defined as the difference between the obtained outcome and the expected value of the chosen gamble. We also incorporated a drift parameter to account for gradual changes in happiness over time (Jangraw et al., 2023; Vinckier et al., 2018).(1)Happiness(t)=β0+βCR∑j=1tγt−jCRj+βEV∑j=1tγt−jEVj+βRPE∑j=1tγt−jRPEj+βtt\\begin{document}$$\\displaystyle {\\rm Happiness}\\left (t\\right)=\\beta _{0}+\\beta _{CR}\\sum _{j=1}^{t}\\gamma ^{t-j}CR_{j}+\\beta _{EV}\\sum _{j=1}^{t}\\gamma ^{t-j}EV_{j}+\\beta _{RPE}\\sum _{j=1}^{t}\\gamma ^{t-j}RPE_{j}+\\beta _{t}t$$\\end{document}",
+   "printed": false
+  },
+  {
+   "para_id": 11,
+   "loc": "body",
+   "sec_title": "Experimental protocol",
+   "text": "This model explained momentary moods well across all gambling-task datasets (R2: mean ± SD = 0.67±0.20 for the laboratory dataset, 0.69±0.17 for online dataset 1, and 0.64±0.19 for online dataset 2, and 0.47±0.21 for the clinical dataset; see Appendix 2 and Note 5 for mood model space; see Appendix 1—tables 2 and 4 for mood model comparisons), with good performance for parameter recovery (Figure 1—figure supplement 4). Across all gambling-task datasets, we replicated previous model-based findings on momentary mood (Rutledge et al., 2014; Vanhasbroeck et al., 2021): (1) the RPE weight was significantly higher than the EV weight (ts >3.84, ps <0.001; Figure 1I), suggesting that momentary mood was more strongly influenced by RPEs following gamble outcomes than by the expected value of chosen gamble; (2) the baseline mood parameter β0\\begin{document}$\\beta _{0}$\\end{document} was positively correlated with the initial mood ratings (rs >0.25, ps <0.006), supporting the interpretability of this model parameter. We also replicated previous depression-related findings (Rutledge et al., 2017): depression symptom measured by Beck Depression Inventory (BDI) was negatively correlated with the baseline mood parameter β0\\begin{document}$\\beta _{0}$\\end{document} (r=–0.173, p<0.001; Figure 1—figure supplement 5). In sum, these confirmatory results support the validity of the questionnaire and task measures, the substantial contribution of RPEs to momentary mood fluctuations, and a robust association between BDI-measured depressive symptoms and the baseline mood parameter.",
+   "printed": true
+  },
+  {
+   "para_id": 12,
+   "loc": "body",
+   "sec_title": "Depression is associated with dampened mood fluctuations through reduced sensitivity to RPEs",
+   "text": "We first examined the association between depression and mood fluctuations, as well as its computational signature. Depression and anxiety often co-occur at the symptom level (Stavrakaki and Vargo, 1986; Clark and Watson, 1991; Briley et al., 2022; Wang et al., 2021), as reflected by a high correlation between depressive symptoms measured by the BDI and anxiety symptoms measured by the anxiety subscale of the Trait Anxiety Inventory (r=0.75, p<0.001). To differentiate the unique influences of anxiety- and depression-specific factors, we applied the validated bifactor structure from the psychometric dataset (Figure 1C) to decompose depression and anxiety symptoms into three orthogonal components: the general factor, anxiety-specific factor, and depression-specific factor (–0.001<rs < 0.001, all ps = 1.000; see Appendix 1 for psychometric properties of the tripartite model of depression and anxiety in our sample; n=901; Figure 1—figure supplement 6).",
+   "printed": true
+  },
+  {
+   "para_id": 13,
+   "loc": "body",
+   "sec_title": "Anxiety is associated with intensified mood fluctuations through increased sensitivity to RPEs",
+   "text": "We then examined how anxiety was associated with mood fluctuations. Correlations between the anxiety-specific factor and mood variation were positive in direction across datasets, although they were not statistically significant in several datasets (the laboratory dataset: r=0.10, p=0.531; the online dataset 1: r=0.08, p=0.026; the online dataset 2: r=0.19, p=0.004). Similarly, correlations between the anxiety-specific factor and βRPE\\begin{document}$\\beta _{RPE}$\\end{document} were positive in direction but statistically inconsistent across datasets (the laboratory dataset: r=0.04, p=0.820; the online dataset 1: r=0.05, p=0.216; the online dataset 2: r=0.19, p=0.004; Figure 2A–C & and E–G). Because these datasets used comparable task and questionnaire procedures and showed positive effect directions, and because reliable individual differences often require large samples to detect (Marek et al., 2022), we combined the laboratory dataset, online dataset 1, and online dataset 2 (total N=1026). This approach is analogous to an individual-participant-data meta-analytic analysis. We fitted linear mixed-effects models predicting mood variation and βRPE\\begin{document}$\\beta _{RPE}{\\ }$\\end{document} from the three bifactor scores, with dataset included as a random intercept to account for dataset-level variability. For mood variation, the anxiety-specific factor was positively associated with mood variation (t=3.46, p<0.001), whereas the depression-specific factor was negatively associated with mood variation (t=–6.13, p<0.001). For RPE-related mood sensitivity, the anxiety-specific factor was positively associated with βRPE\\begin{document}$\\beta _{RPE}$\\end{document} (t=2.60, p=0.009), whereas the depression-specific factor was negatively associated with βRPE\\begin{document}$\\beta _{RPE}$\\end{document} (t=–5.30, p<0.001). These associations remained significant after controlling for gender, age, task earnings, and mood drift. In addition, we performed a mini meta-analysis on these correlation coefficients (Goh et al., 2016). Results showed significant positive correlation for both mood variation and RPE-related mood sensitivity (mood variation: Z=3.399, 95 % CI for correlation coefficient r [0.045, 0.166]; RPE-related mood sensitivity: Z=2.618, 95 % CI for correlation coefficient r [0.021, 0.143]), supporting that anxiety is associated with intensified mood fluctuations and increased mood sensitivity to RPE in non-clinical participants. Mediation analysis further showed that heightened mood sensitivity to RPEs statistically mediated the association between anxiety loading and greater mood fluctuations (a×b = 0.055, 95% CI = [0.013, 0.097], p=0.010; Figure 2J). Moreover, linear regression against anxiety-specific factor with mood sensitivity to CR, EV, and RPE as regressors showed RPE-specific mood hyper-sensitivity with anxiety loading (CR: t=–0.36, p=0.718; EV: t=–0.35, p=0.724; RPE: t=2.19, p=0.028; Figure 2L).",
+   "printed": false
+  },
+  {
+   "para_id": 14,
+   "loc": "body",
+   "sec_title": "Anxiety is associated with intensified mood fluctuations through increased sensitivity to RPEs",
+   "text": "To address the possibility that individual differences in subjective scale calibration confounded our findings, we conducted several complementary analyses. For example, individuals with nonlinear utility functions, such as risk-seeking participants, might show disproportionately large mood responses to large versus small wins. We therefore re-analyzed two publicly available datasets using similar risky decision-making tasks with repeated happiness ratings: (n=49; Vanhasbroeck et al., 2021) and the Rutledge smartphone app dataset (n=46,204). See Appendix 3 for details. Collectively, these analyses suggested that individual differences in risk preference did not account for our primary findings regarding distinct mood dynamics in anxiety versus depression. These results further suggest a partial dissociation between decision-related risk preferences and RPE-related mood dynamics. Together, these results suggest that depression and anxiety are associated with opposite patterns of mood dynamics through RPE-specific mood sensitivity.",
+   "printed": true
+  },
+  {
+   "para_id": 15,
+   "loc": "body",
+   "sec_title": "Exploratory associations of the common factor with mood and choice parameters",
+   "text": "Given the theoretical relevance of the common factor – often linked to shared symptoms such as somatic complaints, sleep disturbances, and cognitive impairments (Clark and Watson, 1991) – as well as the potential for nonlinear associations with symptom severity, we conducted exploratory analyses to examine its relationship with choice and mood parameters in both healthy and clinical datasets. Choice parameters were estimated using an established approach–avoidance prospect theory model (Rutledge et al., 2015; Rutledge et al., 2016b; Wang et al., 2026), which included loss aversion, domain-specific risk attitude parameters in the gain and loss domains, and value-independent Pavlovian approach and avoidance parameters (see Appendix 7 for details of the computational choice models). In this model, risk attitude was quantified by the exponent parameter α in a prospect-theory-inspired subjective value function. Lower α values reflect greater risk aversion, whereas values closer to or above 1 reflect more linear or risk-seeking valuation.",
+   "printed": true
+  },
+  {
+   "para_id": 16,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Although atypical mood dynamics are considered central features of depression and anxiety (Rottenberg et al., 2002a; Rottenberg and Hindash, 2015; Bowen et al., 2006; Bowen et al., 2004), little is known about their underlying computational mechanisms. Our study offers computational insights into the distinct associations of depression and anxiety with mood fluctuations. By orthogonally decomposing shared and specific symptom variance in depression and anxiety, we were able to distinguish their specific associations with mood dynamics. Depression-specific symptoms were associated with dampened mood fluctuations through reduced mood sensitivity to RPEs, whereas anxiety-specific symptoms were linked to intensified mood fluctuations through increased mood sensitivity to RPEs in non-clinical datasets. Notably, the depression-related reduction in RPE-related mood sensitivity was replicated in patients with affective disorders, highlighting its potential clinical relevance as an affective computational marker. Moreover, the shared depression–anxiety component was linked to a lower affective baseline and greater risk aversion.",
+   "printed": true
+  },
+  {
+   "para_id": 17,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Depression and anxiety, though often coexisting (Stavrakaki and Vargo, 1986; Steer et al., 1995), show contrasting associations with mood dynamics, consistent with their distinct affective profiles (Koval et al., 2012; Bowen et al., 2006; Bowen et al., 2004). Our computational model not only replicates the important role of RPEs in mood dynamics but also highlights the divergent mediating roles of RPE-related mood sensitivity in the associations of depression and anxiety with mood fluctuations. The opposite associations of depression and anxiety with mood sensitivity to RPEs complement previous findings of apparently intact RPE-related mood sensitivity in depression (Blain and Rutledge, 2020; Rutledge et al., 2017; Csukly et al., 2023). These findings further underscore the necessity of decomposing shared and specific components of depression and anxiety in studies of mood dynamics, which can enhance our understanding of their distinct associations with emotion processing and cognitive flexibility. This point is consistent with bifactor-based work showing that shared and specific symptom dimensions can have different computational correlates. For example, Gagne et al., 2020 showed that bifactor-derived symptom dimensions differentially relate to maladaptation to environmental volatility (Gagne et al., 2020), complementing previous findings that trait anxiety is associated with inflexible adjustment to volatility (Gagne et al., 2020). Although the present study did not include neuroimaging, the observed computational dissociation may map onto partially distinct neural systems involved in reward learning, mood updating, and affective psychopathology. RPE processing has been consistently linked to striatal–midbrain dopaminergic reward-learning circuits (Rutledge et al., 2014; Schultz et al., 1997). The integration of these reward-learning signals into subjective mood and value-based decision-making may further involve the ventral medial prefrontal cortex and orbitofrontal cortex (Vinckier et al., 2018). In addition, the anterior insula may be particularly relevant for integrating feedback-related signals with affective and interoceptive states (Rutledge et al., 2014; Vinckier et al., 2018), potentially linking RPE processing to anxiety- and depression-related mood dynamics. Consistent with this view, Cecchi et al., 2022 used intracranial EEG to show that feedback-related neural activity tracks mood fluctuations and risky choice. Future neuroimaging studies should test whether depression-related reductions and anxiety-related increases in RPE-related mood sensitivity are associated with altered interactions among striatal, prefrontal, and insular circuits.",
+   "printed": true
+  },
+  {
+   "para_id": 18,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "This study bridges research on affective dynamics and reward-based decision-making in depression. Anhedonia, a core symptom of depression, refers to a reduced ability to experience pleasure (Hall et al., 2024). In affective science, researchers have used experience-sampling methods over several weeks or months (Emanuel and Eldar, 2023; Eldar et al., 2016; Bowen et al., 2006; Pulcu et al., 2022), showing dampened mood fluctuations in depression (Rottenberg and Hindash, 2015; Koval et al., 2012). In parallel, decision-making and learning research has often adopted laboratory-based learning or gambling tasks, revealing alterations in reward processing in individuals with depression (Pike and Robinson, 2022; Bishop and Gagne, 2018). However, how altered reward processing translates into aberrant momentary hedonic experience remains largely unknown. Our study employed a gambling task with momentary mood ratings, allowing us to examine reward- and RPE-related mood dynamics. Consistent with both affective-science and reward-learning accounts (Rottenberg et al., 2005; Koval et al., 2012), this study provides evidence that depressive symptoms are associated with reduced mood sensitivity to RPEs.",
+   "printed": true
+  },
+  {
+   "para_id": 19,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "In addition to supporting the proposed role of anxiety in intensified mood fluctuations (Grupe and Nitschke, 2013; Bowen et al., 2006; Bowen et al., 2004), our study provides a computational account of this phenomenon: anxiety was associated with heightened mood sensitivity to RPEs. Notably, the anxiety-related effects were less robust than the depression-related effects and were detectable only in the pooled dataset (n=1026); therefore, they require further replication in larger samples. Anxiety symptoms are often marked by exaggerated anticipatory responses to uncertainty and excessive affective reactivity (Grupe and Nitschke, 2013). Because RPEs quantify the discrepancy revealed when uncertain outcomes are resolved, our findings suggest a potential pathway through which anxiety may shape mood responses to uncertainty resolution – by amplifying affective responses to unexpected outcomes. In this way, individuals with higher anxiety may exhibit a stronger need to resolve uncertainty (Browning et al., 2015), which could contribute to increased mood reactivity to RPEs. Our findings differ from those of Browning et al., 2015, who reported reduced adaptation of learning rates to environmental volatility in anxiety. However, the two findings may reflect different aspects of uncertainty processing: while Browning et al., 2015 focused on learning-rate adaptation in response to environmental volatility, our study targets affective responsiveness to outcome-level prediction errors. Thus, anxious individuals may exhibit reduced cognitive flexibility in belief updating yet increased emotional reactivity to prediction errors, highlighting a possible dissociation between cognitive and affective systems. Notably, the pattern of heightened RPE sensitivity observed in the pooled non-clinical dataset was not observed in the clinical sample. On the one hand, this discontinuity may reflect that the clinical sample was underpowered to detect anxiety-specific effects, especially given the high comorbidity between anxiety and depression in affective disorders (Appendix 1—table 8). Based on the effect size observed in the non-clinical datasets (r=0.079), we estimated that a sample size of 1226 would be required to detect this effect with 80% statistical power using a two-tailed test with α=0.05. This estimate is substantially larger than the current clinical sample size (n=116). On the other hand, it may reflect a disruption of mood homeostasis in clinical populations (Paulus and Yu, 2012; Paulus, 2007). In non-clinical individuals, counterbalancing associations of depression- and anxiety-related traits with mood variation may help maintain emotional equilibrium. In contrast, affective disorders may involve a loss of such regulatory balance, reducing the ability to stabilize mood in the face of competing depression- and anxiety-related affective signals.",
+   "printed": true
+  },
+  {
+   "para_id": 20,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "The common factor – reflecting general internalizing psychopathology – was consistently associated with both a lower affective baseline (i.e. affective setpoint) and greater gain-domain risk aversion. Regarding baseline mood, previous large-scale studies have established a reliable association between a lower affective setpoint and elevated depressive symptoms in both individuals scoring high on the BDI and patients diagnosed with MDD (Rutledge et al., 2017). Extending this work, our bifactor approach decomposed shared and specific symptom variance in depression and anxiety into three orthogonal components and revealed that only the common factor, rather than the depression- or anxiety-specific components, was significantly associated with a lower affective baseline. This finding suggests that the shared general distress component, rather than depression- or anxiety-specific symptom variance, is more closely related to individuals’ affective baselines (Kao et al., 2023). With respect to decision-making, prior literature using risky decision-making tasks without feedback has linked pathological anxiety to greater risk aversion (Charpentier et al., 2017). In line with this, our results from a risky decision-making task with feedback suggest that the common factor, rather than anxiety-specific variance per se, is more consistently associated with risk aversion. This suggests that heightened gain-domain risk aversion may be a transdiagnostic feature of internalizing psychopathology, rather than being uniquely attributable to anxiety. Notably, model comparison favored linear over nonlinear associations, indicating that even subclinical levels of general internalizing symptoms are measurably associated with affective baseline and gain-domain risk processing. Taken together, these findings underscore the importance of incorporating general internalizing dimensions into computational models of affect and choice.",
+   "printed": true
+  },
+  {
+   "para_id": 21,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Several limitations of the present study should be noted. First, although anxiety- and depression-related associations differed consistently, the anxiety-specific associations themselves were less robust across datasets. This pattern may raise the possibility of confounding by scale-related variability – that is, individual differences in how participants calibrate or use mood rating scales. Because both mood variability and βRPE\\begin{document}$\\beta _{RPE}$\\end{document} are derived from subjective ratings, such scale-use differences could disproportionately affect weaker anxiety-specific effects. Our additional analyses, including analyses of two publicly available datasets with similar paradigms (Vanhasbroeck et al., 2021, n=49; Rutledge et al., n=46,204), did not support this explanation (see Appendix 3). Nevertheless, future studies would benefit from task designs that better control for scale sensitivity and elicit stronger mood responses to risky outcomes, possibly by incorporating more emotionally salient or high-stakes decision contexts. Second, our symptom assessment focused specifically on anxiety and depression. This choice was motivated by our primary hypotheses, but it limits our ability to evaluate the specificity of the observed associations. Recent work has shown that individuals with suicidal thoughts and behaviors exhibit reduced mood sensitivity to CR, but not to RPEs (Wang et al., 2026), suggesting that the current RPE-related effects are not driven by suicide-related processes. However, because we did not assess other psychiatric dimensions, such as compulsivity or schizophrenia-spectrum symptoms, we cannot determine whether the current findings are specific to anxiety- and depression-related symptom dimensions or instead reflect broader transdiagnostic psychopathology or nonspecific response-related variance. Future studies should include measures covering a wider range of psychiatric dimensions, such as internalizing, externalizing, inattentive/neurodevelopmental, mood/anxiety, and withdrawal dimensions identified by Wise et al., 2026, to better characterize whether links among symptom dimensions, RPE sensitivity, and mood variability are disorder-specific or transdiagnostic.",
+   "printed": true
+  },
+  {
+   "para_id": 22,
+   "loc": "body",
+   "sec_title": "Measurements of anxiety and depression",
+   "text": "In line with previous literature orthogonally decomposing anxiety and depression (Gagne et al., 2022; Gagne et al., 2020), participants completed a set of Chinese version questionnaires of anxiety and depression. These measurements included the Mood and Anxiety Symptoms Questionnaire (MASQ; 62 items; Liu et al., 2015), the Trait subscale of the State-Trait Anxiety Inventory (TAI; 20 items; Shek, 1988), the BDI (21 items; Shek, 1990), the Penn State Worry Questionnaire (PSWQ; 16 items; Zhong et al., 2009), the Center for Epidemiologic Studies Depression Scale (CESD; 20 items; Jiang et al., 2019), and the Big Five Inventory-2 (BFI; 60 items; Zhang et al., 2022). Each item in the TAI, BDI, and CESD was rated on a four-point Likert scale, while a five-point Likert rating scale was used for the MASQ, PSWQ, and BFI. There were four items for attentional checks, which required the participants to make a specific choice and were embedded in the entire measurements, for example “please select the second option for this item”.",
+   "printed": true
+  },
+  {
+   "para_id": 23,
+   "loc": "body",
+   "sec_title": "Experimental procedure",
+   "text": "Participants were asked to make a choice between a certain option and a gamble (50% probability for each outcome) and to rate their momentary moods. Before the task protocol, participants were asked to rate their current happiness that we consider as their initial mood. At the beginning of the task, participants were endowed with 500 points. Each trial started with two options (a gamble option and a certain option) that presented randomly on each side (Figure 1F). Upon response, the chosen option would be highlighted in yellow for 0.5 s. Then the corresponding outcome at the screen center was presented for 1 s, followed by a fixation cross with a random duration (0.6~1.4 s). If the gamble was chosen, participants had equal probability to obtain each outcome. The obtained outcome would be accumulated to their total score, which was presenting at the top-right concern. Every two to three trials, participants rated “how happy are you at this moment” from 0 (very unhappy) to 100 (very happy) by moving a slider anchoring at midpoint (i.e. 50). Upon identifying their current mood, a fixation cross was presented with a random duration (0.6–1.4 s). Please note that the slider in the laboratory experiment was anchoring at the midpoint, that is 50. To exclude the potential anchoring effect, we did not set an anchor in the online replication experiment to check the robustness of our findings. This task consisted of 90 randomly presented trials, including 30 mixed trials, 30 gain trials, and 30 loss trials. In mixed trials, participants made a choice between a certain amount 0 and a gamble with a gain amount {40, 45, or 75} and a loss amount determined by a multiplier {0.2, 0.34, 0.5, 0.64, 0.77, 0.89, 1, 1.1, 1.35, or 2} on the gain amount. In gain trials, there was a certain gain amount {35, 45, or 55} and a gamble with 0 and a gain amount determined by a multiplier {1.68, 1.82, 2, 2.22, 2.48, 2.8, 3.16, 3.6, 4.2, or 5} on the certain gain amount. In loss trials, there were a certain loss amount {−35,–45, or –55} and a gamble with 0 and a loss amount determined by a multiplier {1.68, 1.82, 2, 2.22, 2.48, 2.8, 3.16, 3.6, 4.2, or 5} on the certain loss amount. Many amounts and multipliers were used to accommodate a wide range of risk and loss sensitivity, as in previous literature (Rutledge et al., 2014; Rutledge et al., 2015). We also set four trials embedded in the entire task for attentional checks. For example, participants were asked to make a choice between a certain gain 20 and a gamble 35/55, where the correct response for this trial was the gamble choice. All experimental procedures were programmed using Psychopy3 (2021.2.3) builder and hosted on https://www.naodao.com.",
+   "printed": true
+  },
+  {
+   "para_id": 24,
+   "loc": "back",
+   "sec_title": "Psychometric properties of the bifactor model of anxiety and depression in the Chinese population",
+   "text": "We tested the validation of the tripartite model of anxiety and depression in the Chinese population (n=901). All participants were asked to complete a set of anxiety- and depression-related questionnaires (see Materials and methods), as previous literature on the tripartite model (Bentham, 1780; Mill, 1859). To examine the underlying factor structure, the entire sample was equally divided into two datasets according to the participants’ number for exploratory and confirmatory factor analysis (EFA dataset, the first part, 1–450; CFA dataset, the second part, 451–901), respectively. For the EFA dataset, we determined the number of factors based on theoretical considerations (i.e. the tripartite model of anxiety and depression Eldar and Niv, 2015; Kao et al., 2023; Emanuel and Eldar, 2023) and scree plot. Results showed that our data was best explained by three factors (40.24%). We then used the three-factor bifactor model to decompose the item-level covariance matrix into a general factor and two specific factors. The ‘Psych’ package in R was used to perform Schmid-Leiman (SL) orthogonalization procedure to obtain factor loadings for each item. Specifically, the SL procedure used oblique factor analysis and higher order factor analysis based on the lower order factor correlations to extract the shared higher order factor (the common factor). Factor scores for each participant were calculated using the Anderson-Rubin method, which is a weighted-least squares solution that maintains the orthogonality of the common score and each specific factor score. Results of factor loadings indicated that the common factor had high loadings (>0.4) for multiple anxiety-related and depression-related items and moderately high loadings (>0.2) across almost all items (Figure 1D). One specific factor had high loadings (>0.4) on items related to anhedonia while another specific factor had high loadings (>0.4) on items related to worry and anxious arousal (Figure 1D).",
+   "printed": true
+  },
+  {
+   "para_id": 25,
+   "loc": "back",
+   "sec_title": "Psychometric properties of the bifactor model of anxiety and depression in the Chinese population",
+   "text": "In the CFA dataset, all items were allowed to load onto the common factor. Each item was also allowed to load onto either the anxiety-specific factor or the depression-specific factor. The assignment for each item was depended on whether the loading on each specific factor was greater than 0.2 in the EFA dataset. After item assignments, factor loadings were re-estimated with diagonally weighted least squares estimation (DWLS). This method only allowed each item to load on the loaded factor in the EFA dataset (>0.2), because it is more appropriate for ordinal data and less sensitive to deviations from normality, as compared with maximum likelihood estimation (Bennett et al., 2022). We implemented this procedure with the specification of an orthogonal solution using the ‘Lavaan’ package in R. The quality of the fit was evaluated by the comparative fit index (CFI), Tucker-Lewis index (TLI), root mean square error of approximation (RMSEA), and standardized root-mean-square residual (SRMR). Results showed excellent goodness-of-fit indices (CFI = 0.989, TLI = 0.989, RMSEA = 0.046, SRMR = 0.061). We additionally performed the same analysis for the CFA dataset as in the EFA dataset to access the similarity between different datasets. That is, we conducted an unconstrained (i.e., exploratory, but not confirmatory) bifactor analysis in the CFA dataset. The resulting factor loadings were highly congruent with the factor loadings in the EFA dataset (cosine-similarity was 0.99 for the common factor loadings, 0.99 for the depression-specific factor loadings, and 0.98 for the anxiety-specific factor loadings). As predicted by the factor structure, the common factor scores are orthogonal to each specific factor score (Figure 1C&E).",
+   "printed": true
+  },
+  {
+   "para_id": 26,
+   "loc": "back",
+   "sec_title": "Psychometric properties of the bifactor model of anxiety and depression in the Chinese population",
+   "text": "To verify the factor structure underlying anxiety and depression, our model space also included a three-factor high-order model and a simple three-factor model. Comparison of model fit revealed that the bifactor model outperformed other models (Appendix 1—table 1), confirming the bifactor structure underlying anxiety and depression. In addition, the common factor showed high correlations with all questionnaires (rs >0.69; Figure 1F), except the anxious arousal subscale of the Mood and Anxiety Symptoms Questionnaire (MASQaa; r=0.16). The anxiety-specific factor was mainly contributed by the anxiety subscale of the State-Trait Anxiety Inventory (TAIanx, r=0.60), the neuroticism of the Big Five Inventory-2 (BFIn, r=0.41), the Penn State Worry Questionnaire (PSWQ, r=0.41), MASQaa (r=0.86), the Beck Depression Inventory (BDI; r=0.52), and the Center for Epidemiologic Studies Depression Scale (CESD; r=0.54), while the depression-specific factor was mainly contributed by the depression subscale of the State-Trait Anxiety Inventory (TAIdep, r=0.52) and the anhedonia depression subscale of the Mood and Anxiety Symptoms Questionnaire (MASQad; r=0.58). Correlations between factors and questionnaires showed the same pattern in different datasets (Figure 1—figure supplement 6). These results indicated good construct validity of this bifactor model of anxiety and depression. Together, these results validated the bifactor model of anxiety and depression in the Chinese population and supported the classic tripartite model. Regarding the application, the bifactor model was initially derived and validated using the larger psychometric dataset (n=901). For subsequent analyses, we applied this validated bifactor solution by computing factor scores using the loadings obtained from the original psychometric sample. This operation was consistent with recent literature of computational psychiatry (Eldar et al., 2016).",
+   "printed": true
+  },
+  {
+   "para_id": 27,
+   "loc": "back",
+   "sec_title": "Psychometric properties of the bifactor model of anxiety and depression in the Chinese population",
+   "text": "In addition, the ratio of 450 participants to 128 items in the EFA split-half sample, approximately 3.5:1, is below some conventional sample-size recommendations for EFA, including the often-cited recommendation of five participants per item (Rutledge et al., 2014). However, the split-half EFA yielded a stable factor structure, and the independent CFA further supported the robustness of this solution. Moreover, reliable EFA solutions may be obtained even with relatively small samples when the data are well-conditioned, such as when factor loadings are high, the number of factors is small, and each factor is defined by multiple items (Otto et al., 2016). These conditions were largely met in our data.",
+   "printed": true
+  },
+  {
+   "para_id": 28,
+   "loc": "back",
+   "sec_title": "Psychometric properties of the bifactor model of anxiety and depression in the Chinese population",
+   "text": "For factor score extraction, we followed prior work using bifactor modeling in computational psychiatry (Rutledge et al., 2015) and extracted factor scores with the Anderson–Rubin method, implemented using psych::factor.scores with method = \"Anderson\". This approach yields standardized and mutually orthogonal factor scores, which is particularly appropriate for our subsequent correlation analyses because it avoids multicollinearity among the general, depression-specific, and anxiety-specific factors. As a robustness check, we also extracted factor scores using the Bartlett method from an oblique bifactor model, which allowed the depression- and anxiety-specific factors to correlate. In the combined dataset (n=1026), anxiety- and depression-specific scores were significantly correlated when extracted using the Bartlett method (r=0.638, p<0.001), whereas, as expected, they were effectively uncorrelated when extracted using the Anderson–Rubin method (r<0.001, p=1.000). This comparison suggests that the Anderson–Rubin method is more appropriate for our analytic aim of isolating the unique contributions of shared and symptom-specific variance because it separates the general distress/internalizing factor from residual anxiety- and depression-specific components. Thus, we retained the Anderson–Rubin factor scores in the main analyses. We further analyzed non-orthogonalized full depression and anxiety scores to assess the robustness of our results. When full depression and anxiety scores were entered in separate linear mixed-effects models predicting RPE-related mood sensitivity, with dataset included as a random intercept, the anxiety association was not significant (anxiety: b=0.002, t=1.130, p=0.259; depression: b=–0.008, t=–3.732, p<0.001). By contrast, when the full non-orthogonalized anxiety and depression scores were entered simultaneously in the same linear mixed-effects model, the original pattern was replicated: anxiety and depression showed opposing associations with RPE-related mood sensitivity (anxiety: b=0.012, t=4.619, p<0.001; depression: b=–0.017, t=–5.851, p<0.001). This pattern is consistent with a mutual suppression effect: shared variance between anxiety and depression may obscure their unique associations when examined separately, whereas simultaneous regression reveals their opposing symptom-specific associations. These results support our interpretation that RPE-related mood sensitivity is linked to the separable anxiety- and depression-specific components.",
+   "printed": true
+  },
+  {
+   "para_id": 29,
+   "loc": "back",
+   "sec_title": "Computational model of momentary mood",
+   "text": "To quantify how different events impacted participants’ momentary moods during the gambling task, we used the classic model assuming that momentary mood depends on the recency-weighted average of the chosen certain reward (CR), expected value of the chosen gamble (EV), and reward prediction error (RPE; M1; Equation 2). RPE was defined as the difference between the obtained and expected value. We also incorporated a drift parameter to account for the gradual change in happiness over time (Rutledge et al., 2016a; Blain and Rutledge, 2020).(2)Happiness(t)=β0+βCR∑j=1tγt−jCRj+βEV∑j=1tγt−jEVj+βRPE∑j=1tγt−jRPEj+βtt\\begin{document}$$\\displaystyle {\\rm Happiness}\\left (t\\right)=\\beta _{0}\\mathrm{+}\\beta _{CR}\\sum _{j=1}^{t}\\gamma ^{t-j}CR_{j}+\\beta _{EV}\\sum _{j=1}^{t}\\gamma ^{t-j}EV_{j}+\\beta _{RPE}\\sum _{j=1}^{t}\\gamma ^{t-j}RPE_{j}+\\beta _{t}t$$\\end{document}",
+   "printed": false
+  },
+  {
+   "para_id": 30,
+   "loc": "back",
+   "sec_title": "Calibration of rating scales",
+   "text": "Fourth, we validated these findings externally by examining two open datasets using similar risk-based decision-making tasks with repeated happiness ratings: (Vanhasbroeck et al., 2021; n=49) and Rutledge’s smartphone App dataset (n=46,204). Consistent with our own data, model comparisons again favored the objective happiness model (Appendix 1—table 3), and interaction analyses revealed no meaningful moderation by risk preferences (Appendix 1—table 6).",
+   "printed": true
+  },
+  {
+   "para_id": 31,
+   "loc": "back",
+   "sec_title": "Time effect on happiness",
+   "text": "Model comparisons consistently favored the simpler intercept-only drift model (M1) over these interaction models (M7–M9), as indicated by lower Bayesian Information Criterion (BIC) values (Appendix 1—table 4). Furthermore, we validated these results externally using two publicly available datasets with similar paradigms (Vanhasbroeck et al., 2021; n=49; and Rutledge’s smartphone app dataset, n=46,204). These external validations also strongly favored the simpler drift model without time-event interactions (see Appendix 1—table 4). Taken together, these analyses suggest that while overall mood indeed exhibits gradual drift over time, there is minimal evidence to support time-on-task by event interactions substantially affecting mood sensitivity to event parameters in our task, supporting the robustness and generalizability of our primary findings.",
+   "printed": true
+  },
+  {
+   "para_id": 32,
+   "loc": "back",
+   "sec_title": "Contributions to model fit",
+   "text": "The results showed that removing RPE led to the most substantial drop in model fit: ΔR²=0.26 in the healthy dataset and ΔR²=0.18 in the clinical dataset (Appendix 1—table 5). This indicates that RPE was the most important contributor to explaining mood dynamics. In contrast, excluding either CR or EV resulted in only modest reductions in model fit (ΔR²<0.09 in the healthy dataset and ΔR²<0.07 in the clinical dataset). We replicated this pattern in two independent, publicly available datasets (Vanhasbroeck et al., 2021, n=49; and Rutledge’s smartphone app dataset, n=46,204), further supporting the robustness and generalizability of the central role of RPE in momentary mood computations (Appendix 1—table 5). These analyses confirm that reward prediction error is the dominant predictor of trial-by-trial mood changes.",
+   "printed": true
+  },
+  {
+   "para_id": 33,
+   "loc": "back",
+   "sec_title": "Computational model of gambling choice",
+   "text": "In line with previous studies (Quoidbach et al., 2019; Taquet et al., 2016), our choice model space included expected value model (cM1), prospect theory model (cM2) (Broome et al., 2015), and approach-avoidance prospect theory model (cM3) (Quoidbach et al., 2019). For cM2 (Equations 14–17), there were 3 parameters, including risk aversion (α, range: [0.3, 1.3]), loss aversion (λ: [0.5, 5]), and inverse temperature (μ: [0, 10]).(14)Ugamble=0.5(Vgain)α−0.5λ(−Vloss)α\\begin{document}$$\\displaystyle U_{gamble}=0.5\\left (V_{gain}\\right)^{\\alpha}-0.5\\lambda \\left (-V_{loss}\\right)^{\\alpha}$$\\end{document}(15)Ucertain=(Vcertain)αifVcertain≥0\\begin{document}$$\\displaystyle U_{certain}=\\left (V_{certain}\\right)^{\\alpha}\\,if\\,V_{certain}\\geq 0$$\\end{document}(16)Ucertain=−λ(−Vcertain)αifVcertain<0\\begin{document}$$\\displaystyle U_{certain}=-\\lambda \\left (-V_{certain}\\right)^{\\alpha}\\,if\\,V_{certain}{\\lt}0$$\\end{document}(17)Pgamble=11+e−μ(Ugamble−Ucertain)\\begin{document}$$\\displaystyle P_{gamble}=\\frac{1}{1+e^{-\\mu \\left (U_{gamble}-U_{certain}\\right)}}$$\\end{document}",
+   "printed": false
+  },
+  {
+   "para_id": 34,
+   "loc": "back",
+   "sec_title": "Computational model of gambling choice",
+   "text": "where Vgain and Vloss are the objective gain and loss from a gamble, respectively. Please note that Vgain is 0 in loss trials and Vloss is 0 in gain trials. Vcertain is the objective value for the certain option. Ugamble and Ucertain denote the subjective utilities of the gamble and the certain option, respectively. Choice probability for gamble (Pgamble) is determined by the softmax rule. Building on cM2, cM3 decomposes the decision process into risk-attitude-driven valuation (e.g. loss and risk aversion) and value-insensitive motivational components (Equations 14–16; 18–20). That is, choice probability for Pgamble in cM3 is jointly determined by the softmax rule and approach/avoidance parameters (βgain\\begin{document}$\\beta _{gain}$\\end{document}: [–1, 1], βloss\\begin{document}$\\beta _{loss}$\\end{document}: [–1, 1]). Approach/avoidance parameters are not applied in mixed trials. Please note that a higher gambling rate does not imply a change in risk attitude per se: it can arise from an increased value-insensitive approach bias even when risk-attitude parameters are comparable between groups. Risk attitude is indeed conceptualized in economics as the curvature of the utility function (i.e. the subjective value) of the objective outcomes, with concave curves associated with risk aversion, and convex curves associated with risk seeking (Mason et al., 2017; Taquet et al., 2020). By contrast, the approach or avoidance bias applies to all the value. A possible interpretation of the approach bias is that participants approach the option with the highest possible gain (the lottery) in the gain frame; the avoidance bias would then reflect a tendency to systematically avoid the highest potential losses (the lottery) in the loss frame.(18)Pgamble=1−βval1+e−μ(Ugamble−Ucertain)+βvalifβval≥0\\begin{document}$$\\displaystyle P_{gamble}=\\frac{1-\\beta _{val}}{1+e^{-\\mu \\left (U_{gamble}-U_{certain}\\right)}}+\\beta _{val}\\quad if\\,\\beta _{val}\\geq 0$$\\end{document}(19)Pgamble=1+βval1+e−μ(Ugamble−Ucertain)ifβval<0\\begin{document}$$\\displaystyle P_{gamble}=\\frac{1+\\beta _{val}}{1+e^{-\\mu \\left (U_{gamble}-U_{certain}\\right)}}\\quad if\\,\\beta _{val}{< }0$$\\end{document}(20)βval{βgain,gaintrials,βloss,losstrials.\\begin{document}$$\\displaystyle \\beta_{val} \\begin{cases} \\beta_{gain}, & {gain\\, trials},\\\\ \\beta_{loss}, & {loss\\, trials}. \\end{cases}$$\\end{document}",
+   "printed": false
+  }
+ ],
+ "links": [
+  {
+   "link_id": 1,
+   "url": "wjx.cn",
+   "url_raw": "https://www.wjx.cn",
+   "href_jats": "https://www.wjx.cn",
+   "repo_key": null,
+   "host_class": "other",
+   "loc": "body",
+   "sec_title": "Materials and methods",
+   "source": "tagged",
+   "para_id": 1
+  },
+  {
+   "link_id": 2,
+   "url": "naodao.com",
+   "url_raw": "https://www.naodao.com",
+   "href_jats": "https://www.naodao.com",
+   "repo_key": null,
+   "host_class": "other",
+   "loc": "body",
+   "sec_title": "Materials and methods",
+   "source": "tagged",
+   "para_id": 1
+  },
+  {
+   "link_id": 3,
+   "url": "psychometrica.de/correlation.html",
+   "url_raw": "https://www.psychometrica.de/correlation.html",
+   "href_jats": "https://www.psychometrica.de/correlation.html",
+   "repo_key": null,
+   "host_class": "other",
+   "loc": "body",
+   "sec_title": "Statistical analysis",
+   "source": "tagged",
+   "para_id": 2
+  },
+  {
+   "link_id": 4,
+   "url": "github.com/zhihaowangpsyer/depression_anxiety_mood",
+   "url_raw": "https://github.com/ZhihaoWangpsyer/depression_anxiety_mood",
+   "href_jats": "https://github.com/ZhihaoWangpsyer/depression_anxiety_mood",
+   "repo_key": "github:zhihaowangpsyer/depression_anxiety_mood",
+   "host_class": "github",
+   "loc": "back",
+   "sec_title": "Data availability",
+   "source": "tagged",
+   "para_id": 3
+  }
+ ],
+ "links_optional": [
+  "archive.softwareheritage.org/swh:1:dir:31cad4e45d12776856eb1430556475fea1a294fe;origin=https://github.com/zhihaowangpsyer/depression_anxiety_mood;visit=swh:1:snp:24db7ae0568f372137e421e5084db9e0462401f8;anchor=swh:1:rev:ae9508737780aaa85910c81000a33692452b259a",
+  "creativecommons.org/licenses/by/4.0",
+  "doi:10.1001/jamapsychiatry.2017.1713",
+  "doi:10.1001/jamapsychiatry.2017.3163",
+  "doi:10.1001/jamapsychiatry.2020.0588",
+  "doi:10.1001/jamapsychiatry.2022.0051",
+  "doi:10.1002/1097-4679(199001)46:1<35::aid-jclp2270460106>3.0.co;2-w",
+  "doi:10.1002/da.20432",
+  "doi:10.1007/bf00960624",
+  "doi:10.1016/j.biopsych.2016.12.010",
+  "doi:10.1016/j.biopsych.2017.07.007",
+  "doi:10.1016/j.biopsycho.2021.108092",
+  "doi:10.1016/j.copsyc.2014.12.025",
+  "doi:10.1016/j.cpr.2007.10.001",
+  "doi:10.1016/j.cub.2016.05.017",
+  "doi:10.1016/j.jad.2005.12.050",
+  "doi:10.1016/j.neubiorev.2022.104701",
+  "doi:10.1016/j.neubiorev.2022.104977",
+  "doi:10.1016/j.neubiorev.2022.105008",
+  "doi:10.1016/j.neubiorev.2023.105450",
+  "doi:10.1016/j.paid.2015.07.036",
+  "doi:10.1016/j.tics.2012.07.009",
+  "doi:10.1016/j.tics.2015.07.010",
+  "doi:10.1016/j.tics.2024.01.006",
+  "doi:10.1016/s0165-0327(02)00304-x",
+  "doi:10.1017/s0033291723000193",
+  "doi:10.1037//0021-843x.100.3.316",
+  "doi:10.1037//0021-843x.104.3.542",
+  "doi:10.1037/0021-843x.111.2.302",
+  "doi:10.1037/0021-843x.114.4.627",
+  "doi:10.1037/1528-3542.2.2.135",
+  "doi:10.1037/met0000045",
+  "doi:10.1037/rev0000294",
+  "doi:10.1038/ncomms11825",
+  "doi:10.1038/ncomms7149",
+  "doi:10.1038/nn.3961",
+  "doi:10.1038/nrn3524",
+  "doi:10.1038/s41398-026-03922-w",
+  "doi:10.1038/s41467-018-03774-z",
+  "doi:10.1038/s41562-023-01519-7",
+  "doi:10.1038/s41586-022-04492-9",
+  "doi:10.1073/pnas.1407535111",
+  "doi:10.1073/pnas.1519998113",
+  "doi:10.1073/pnas.2202983119",
+  "doi:10.1080/00273171.2012.715555",
+  "doi:10.1080/02699931.2012.667392",
+  "doi:10.1080/02699931.2021.1891863",
+  "doi:10.1093/cercor/bhaa407",
+  "doi:10.1101/2023.10.31.23297870",
+  "doi:10.1111/spc3.12267",
+  "doi:10.1126/sciadv.add2976",
+  "doi:10.1126/science.1142997",
+  "doi:10.1126/science.275.5306.1593",
+  "doi:10.1146/annurev-neuro-080317-062007",
+  "doi:10.1177/0956797615618366",
+  "doi:10.1177/0956797619849666",
+  "doi:10.1177/10731911211008245",
+  "doi:10.1192/bjp.149.1.7",
+  "doi:10.1192/bjp.bp.114.158543",
+  "doi:10.1371/journal.pcbi.1010176",
+  "doi:10.1523/jneurosci.0702-15.2015",
+  "doi:10.1631/jzus.b0820189",
+  "doi:10.31234/osf.io/z6s2r_v1",
+  "doi:10.3389/fpsyt.2019.00315",
+  "doi:10.7554/elife.110631.1",
+  "doi:10.7554/elife.110631.1.sa0",
+  "doi:10.7554/elife.110631.1.sa1",
+  "doi:10.7554/elife.110631.1.sa2",
+  "doi:10.7554/elife.110631.1.sa3",
+  "doi:10.7554/elife.110631.2",
+  "doi:10.7554/elife.110631.2.sa4",
+  "doi:10.7554/elife.110631.2.sa5",
+  "doi:10.7554/elife.110631.2.sa6",
+  "doi:10.7554/elife.110631.2.sa7",
+  "doi:10.7554/elife.110631.2.sa8",
+  "doi:10.7554/elife.57977",
+  "doi:10.7554/elife.61387",
+  "doi:10.7554/elife.72440"
+ ],
+ "own_doi": "doi:10.7554/elife.110631",
+ "citations": [
+  {
+   "cite_id": 1,
+   "para_id": 4,
+   "bib_id": 2,
+   "marker": "Bentham, 1780",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 2,
+   "para_id": 4,
+   "bib_id": 31,
+   "marker": "Mill, 1859",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 3,
+   "para_id": 5,
+   "bib_id": 15,
+   "marker": "Eldar and Niv, 2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 4,
+   "para_id": 5,
+   "bib_id": 26,
+   "marker": "Kao et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 5,
+   "para_id": 5,
+   "bib_id": 17,
+   "marker": "Emanuel and Eldar, 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 6,
+   "para_id": 5,
+   "bib_id": 1,
+   "marker": "Bennett et al., 2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 7,
+   "para_id": 5,
+   "bib_id": 16,
+   "marker": "Eldar et al., 2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 8,
+   "para_id": 5,
+   "bib_id": 44,
+   "marker": "Rutledge et al., 2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 9,
+   "para_id": 5,
+   "bib_id": 32,
+   "marker": "Otto et al., 2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 10,
+   "para_id": 5,
+   "bib_id": 44,
+   "marker": "Rutledge et al., 2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 11,
+   "para_id": 5,
+   "bib_id": 45,
+   "marker": "Rutledge et al., 2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 12,
+   "para_id": 5,
+   "bib_id": 46,
+   "marker": "Rutledge et al., 2016a",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 13,
+   "para_id": 5,
+   "bib_id": 4,
+   "marker": "Blain and Rutledge, 2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 14,
+   "para_id": 5,
+   "bib_id": 59,
+   "marker": "Vanhasbroeck et al., 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 15,
+   "para_id": 5,
+   "bib_id": 26,
+   "marker": "Kao et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 16,
+   "para_id": 5,
+   "bib_id": 16,
+   "marker": "Eldar et al., 2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 17,
+   "para_id": 5,
+   "bib_id": 37,
+   "marker": "Quoidbach et al., 2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 18,
+   "para_id": 5,
+   "bib_id": 56,
+   "marker": "Taquet et al., 2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 19,
+   "para_id": 5,
+   "bib_id": 26,
+   "marker": "Kao et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 20,
+   "para_id": 5,
+   "bib_id": 8,
+   "marker": "Broome et al., 2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 21,
+   "para_id": 5,
+   "bib_id": 30,
+   "marker": "Mason et al., 2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 22,
+   "para_id": 5,
+   "bib_id": 57,
+   "marker": "Taquet et al., 2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 23,
+   "para_id": 5,
+   "bib_id": 10,
+   "marker": "Bylsma et al., 2008",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 24,
+   "para_id": 5,
+   "bib_id": 42,
+   "marker": "Rottenberg et al., 2005",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 25,
+   "para_id": 5,
+   "bib_id": 40,
+   "marker": "Rottenberg et al., 2002a",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 26,
+   "para_id": 5,
+   "bib_id": 41,
+   "marker": "Rottenberg et al., 2002b",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 27,
+   "para_id": 5,
+   "bib_id": 43,
+   "marker": "Rottenberg and Hindash, 2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 28,
+   "para_id": 5,
+   "bib_id": 27,
+   "marker": "Koval et al., 2012",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 29,
+   "para_id": 5,
+   "bib_id": 48,
+   "marker": "Rutledge et al., 2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 30,
+   "para_id": 5,
+   "bib_id": 21,
+   "marker": "Grupe and Nitschke, 2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 31,
+   "para_id": 5,
+   "bib_id": 6,
+   "marker": "Bowen et al., 2006",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 32,
+   "para_id": 5,
+   "bib_id": 5,
+   "marker": "Bowen et al., 2004",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 33,
+   "para_id": 5,
+   "bib_id": 54,
+   "marker": "Stavrakaki and Vargo, 1986",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 34,
+   "para_id": 5,
+   "bib_id": 55,
+   "marker": "Steer et al., 1995",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 35,
+   "para_id": 6,
+   "bib_id": 19,
+   "marker": "Gagne et al., 2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 36,
+   "para_id": 6,
+   "bib_id": 18,
+   "marker": "Gagne et al., 2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 37,
+   "para_id": 6,
+   "bib_id": 55,
+   "marker": "Steer et al., 1995",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 38,
+   "para_id": 6,
+   "bib_id": 53,
+   "marker": "Simms et al., 2008",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 39,
+   "para_id": 6,
+   "bib_id": 13,
+   "marker": "Clark and Watson, 1991",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 40,
+   "para_id": 6,
+   "bib_id": 39,
+   "marker": "Rodriguez et al., 2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 41,
+   "para_id": 6,
+   "bib_id": 38,
+   "marker": "Reise, 2012",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 42,
+   "para_id": 6,
+   "bib_id": 19,
+   "marker": "Gagne et al., 2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 43,
+   "para_id": 6,
+   "bib_id": 19,
+   "marker": "Gagne et al., 2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 44,
+   "para_id": 6,
+   "bib_id": 4,
+   "marker": "Blain and Rutledge, 2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 45,
+   "para_id": 6,
+   "bib_id": 48,
+   "marker": "Rutledge et al., 2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 46,
+   "para_id": 6,
+   "bib_id": 14,
+   "marker": "Csukly et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 47,
+   "para_id": 6,
+   "bib_id": 48,
+   "marker": "Rutledge et al., 2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 48,
+   "para_id": 6,
+   "bib_id": 58,
+   "marker": "Tobias and Ito, 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 49,
+   "para_id": 6,
+   "bib_id": 23,
+   "marker": "Huang et al., 2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 50,
+   "para_id": 6,
+   "bib_id": 60,
+   "marker": "Villano et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 51,
+   "para_id": 6,
+   "bib_id": 34,
+   "marker": "Paulus and Yu, 2012",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 52,
+   "para_id": 6,
+   "bib_id": 43,
+   "marker": "Rottenberg and Hindash, 2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 53,
+   "para_id": 6,
+   "bib_id": 27,
+   "marker": "Koval et al., 2012",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 54,
+   "para_id": 6,
+   "bib_id": 6,
+   "marker": "Bowen et al., 2006",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 55,
+   "para_id": 6,
+   "bib_id": 5,
+   "marker": "Bowen et al., 2004",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 56,
+   "para_id": 6,
+   "bib_id": 48,
+   "marker": "Rutledge et al., 2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 57,
+   "para_id": 7,
+   "bib_id": 44,
+   "marker": "Rutledge et al., 2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 58,
+   "para_id": 7,
+   "bib_id": 37,
+   "marker": "Quoidbach et al., 2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 59,
+   "para_id": 7,
+   "bib_id": 56,
+   "marker": "Taquet et al., 2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 60,
+   "para_id": 7,
+   "bib_id": 24,
+   "marker": "Jangraw et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 61,
+   "para_id": 7,
+   "bib_id": 26,
+   "marker": "Kao et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 62,
+   "para_id": 7,
+   "bib_id": 17,
+   "marker": "Emanuel and Eldar, 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 63,
+   "para_id": 7,
+   "bib_id": 16,
+   "marker": "Eldar et al., 2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 64,
+   "para_id": 7,
+   "bib_id": 49,
+   "marker": "Schiller et al., 2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 65,
+   "para_id": 7,
+   "bib_id": 26,
+   "marker": "Kao et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 66,
+   "para_id": 7,
+   "bib_id": 16,
+   "marker": "Eldar et al., 2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 67,
+   "para_id": 7,
+   "bib_id": 44,
+   "marker": "Rutledge et al., 2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 68,
+   "para_id": 7,
+   "bib_id": 46,
+   "marker": "Rutledge et al., 2016a",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 69,
+   "para_id": 7,
+   "bib_id": 4,
+   "marker": "Blain and Rutledge, 2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 70,
+   "para_id": 7,
+   "bib_id": 59,
+   "marker": "Vanhasbroeck et al., 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 71,
+   "para_id": 7,
+   "bib_id": 48,
+   "marker": "Rutledge et al., 2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 72,
+   "para_id": 7,
+   "bib_id": 14,
+   "marker": "Csukly et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 73,
+   "para_id": 7,
+   "bib_id": 61,
+   "marker": "Vinckier et al., 2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 74,
+   "para_id": 7,
+   "bib_id": 4,
+   "marker": "Blain and Rutledge, 2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 75,
+   "para_id": 7,
+   "bib_id": 48,
+   "marker": "Rutledge et al., 2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 76,
+   "para_id": 8,
+   "bib_id": 18,
+   "marker": "Gagne et al., 2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 77,
+   "para_id": 8,
+   "bib_id": 44,
+   "marker": "Rutledge et al., 2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 78,
+   "para_id": 8,
+   "bib_id": 45,
+   "marker": "Rutledge et al., 2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 79,
+   "para_id": 8,
+   "bib_id": 59,
+   "marker": "Vanhasbroeck et al., 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 80,
+   "para_id": 8,
+   "bib_id": 45,
+   "marker": "Rutledge et al., 2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 81,
+   "para_id": 8,
+   "bib_id": 47,
+   "marker": "Rutledge et al., 2016b",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 82,
+   "para_id": 9,
+   "bib_id": 48,
+   "marker": "Rutledge et al., 2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 83,
+   "para_id": 10,
+   "bib_id": 44,
+   "marker": "Rutledge et al., 2014",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 84,
+   "para_id": 10,
+   "bib_id": 59,
+   "marker": "Vanhasbroeck et al., 2021",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 85,
+   "para_id": 10,
+   "bib_id": 24,
+   "marker": "Jangraw et al., 2023",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 86,
+   "para_id": 10,
+   "bib_id": 61,
+   "marker": "Vinckier et al., 2018",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 87,
+   "para_id": 11,
+   "bib_id": 44,
+   "marker": "Rutledge et al., 2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 88,
+   "para_id": 11,
+   "bib_id": 59,
+   "marker": "Vanhasbroeck et al., 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 89,
+   "para_id": 11,
+   "bib_id": 48,
+   "marker": "Rutledge et al., 2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 90,
+   "para_id": 12,
+   "bib_id": 54,
+   "marker": "Stavrakaki and Vargo, 1986",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 91,
+   "para_id": 12,
+   "bib_id": 13,
+   "marker": "Clark and Watson, 1991",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 92,
+   "para_id": 12,
+   "bib_id": 7,
+   "marker": "Briley et al., 2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 93,
+   "para_id": 12,
+   "bib_id": 62,
+   "marker": "Wang et al., 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 94,
+   "para_id": 13,
+   "bib_id": 29,
+   "marker": "Marek et al., 2022",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 95,
+   "para_id": 13,
+   "bib_id": 20,
+   "marker": "Goh et al., 2016",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 96,
+   "para_id": 14,
+   "bib_id": 59,
+   "marker": "Vanhasbroeck et al., 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 97,
+   "para_id": 15,
+   "bib_id": 13,
+   "marker": "Clark and Watson, 1991",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 98,
+   "para_id": 15,
+   "bib_id": 45,
+   "marker": "Rutledge et al., 2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 99,
+   "para_id": 15,
+   "bib_id": 47,
+   "marker": "Rutledge et al., 2016b",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 100,
+   "para_id": 15,
+   "bib_id": 64,
+   "marker": "Wang et al., 2026",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 101,
+   "para_id": 16,
+   "bib_id": 40,
+   "marker": "Rottenberg et al., 2002a",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 102,
+   "para_id": 16,
+   "bib_id": 43,
+   "marker": "Rottenberg and Hindash, 2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 103,
+   "para_id": 16,
+   "bib_id": 6,
+   "marker": "Bowen et al., 2006",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 104,
+   "para_id": 16,
+   "bib_id": 5,
+   "marker": "Bowen et al., 2004",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 105,
+   "para_id": 17,
+   "bib_id": 54,
+   "marker": "Stavrakaki and Vargo, 1986",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 106,
+   "para_id": 17,
+   "bib_id": 55,
+   "marker": "Steer et al., 1995",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 107,
+   "para_id": 17,
+   "bib_id": 27,
+   "marker": "Koval et al., 2012",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 108,
+   "para_id": 17,
+   "bib_id": 6,
+   "marker": "Bowen et al., 2006",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 109,
+   "para_id": 17,
+   "bib_id": 5,
+   "marker": "Bowen et al., 2004",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 110,
+   "para_id": 17,
+   "bib_id": 4,
+   "marker": "Blain and Rutledge, 2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 111,
+   "para_id": 17,
+   "bib_id": 48,
+   "marker": "Rutledge et al., 2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 112,
+   "para_id": 17,
+   "bib_id": 14,
+   "marker": "Csukly et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 113,
+   "para_id": 17,
+   "bib_id": 18,
+   "marker": "Gagne et al., 2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 114,
+   "para_id": 17,
+   "bib_id": 18,
+   "marker": "Gagne et al., 2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 115,
+   "para_id": 17,
+   "bib_id": 18,
+   "marker": "Gagne et al., 2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 116,
+   "para_id": 17,
+   "bib_id": 44,
+   "marker": "Rutledge et al., 2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 117,
+   "para_id": 17,
+   "bib_id": 50,
+   "marker": "Schultz et al., 1997",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 118,
+   "para_id": 17,
+   "bib_id": 61,
+   "marker": "Vinckier et al., 2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 119,
+   "para_id": 17,
+   "bib_id": 44,
+   "marker": "Rutledge et al., 2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 120,
+   "para_id": 17,
+   "bib_id": 61,
+   "marker": "Vinckier et al., 2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 121,
+   "para_id": 17,
+   "bib_id": 11,
+   "marker": "Cecchi et al., 2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 122,
+   "para_id": 18,
+   "bib_id": 22,
+   "marker": "Hall et al., 2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 123,
+   "para_id": 18,
+   "bib_id": 17,
+   "marker": "Emanuel and Eldar, 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 124,
+   "para_id": 18,
+   "bib_id": 16,
+   "marker": "Eldar et al., 2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 125,
+   "para_id": 18,
+   "bib_id": 6,
+   "marker": "Bowen et al., 2006",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 126,
+   "para_id": 18,
+   "bib_id": 36,
+   "marker": "Pulcu et al., 2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 127,
+   "para_id": 18,
+   "bib_id": 43,
+   "marker": "Rottenberg and Hindash, 2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 128,
+   "para_id": 18,
+   "bib_id": 27,
+   "marker": "Koval et al., 2012",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 129,
+   "para_id": 18,
+   "bib_id": 35,
+   "marker": "Pike and Robinson, 2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 130,
+   "para_id": 18,
+   "bib_id": 3,
+   "marker": "Bishop and Gagne, 2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 131,
+   "para_id": 18,
+   "bib_id": 42,
+   "marker": "Rottenberg et al., 2005",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 132,
+   "para_id": 18,
+   "bib_id": 27,
+   "marker": "Koval et al., 2012",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 133,
+   "para_id": 19,
+   "bib_id": 21,
+   "marker": "Grupe and Nitschke, 2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 134,
+   "para_id": 19,
+   "bib_id": 6,
+   "marker": "Bowen et al., 2006",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 135,
+   "para_id": 19,
+   "bib_id": 5,
+   "marker": "Bowen et al., 2004",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 136,
+   "para_id": 19,
+   "bib_id": 21,
+   "marker": "Grupe and Nitschke, 2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 137,
+   "para_id": 19,
+   "bib_id": 9,
+   "marker": "Browning et al., 2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 138,
+   "para_id": 19,
+   "bib_id": 9,
+   "marker": "Browning et al., 2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 139,
+   "para_id": 19,
+   "bib_id": 9,
+   "marker": "Browning et al., 2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 140,
+   "para_id": 19,
+   "bib_id": 34,
+   "marker": "Paulus and Yu, 2012",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 141,
+   "para_id": 19,
+   "bib_id": 33,
+   "marker": "Paulus, 2007",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 142,
+   "para_id": 20,
+   "bib_id": 48,
+   "marker": "Rutledge et al., 2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 143,
+   "para_id": 20,
+   "bib_id": 26,
+   "marker": "Kao et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 144,
+   "para_id": 20,
+   "bib_id": 12,
+   "marker": "Charpentier et al., 2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 145,
+   "para_id": 21,
+   "bib_id": 59,
+   "marker": "Vanhasbroeck et al., 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 146,
+   "para_id": 21,
+   "bib_id": 64,
+   "marker": "Wang et al., 2026",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 147,
+   "para_id": 21,
+   "bib_id": 65,
+   "marker": "Wise et al., 2026",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 148,
+   "para_id": 22,
+   "bib_id": 19,
+   "marker": "Gagne et al., 2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 149,
+   "para_id": 22,
+   "bib_id": 18,
+   "marker": "Gagne et al., 2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 150,
+   "para_id": 22,
+   "bib_id": 28,
+   "marker": "Liu et al., 2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 151,
+   "para_id": 22,
+   "bib_id": 51,
+   "marker": "Shek, 1988",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 152,
+   "para_id": 22,
+   "bib_id": 52,
+   "marker": "Shek, 1990",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 153,
+   "para_id": 22,
+   "bib_id": 67,
+   "marker": "Zhong et al., 2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 154,
+   "para_id": 22,
+   "bib_id": 25,
+   "marker": "Jiang et al., 2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 155,
+   "para_id": 22,
+   "bib_id": 66,
+   "marker": "Zhang et al., 2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 156,
+   "para_id": 23,
+   "bib_id": 44,
+   "marker": "Rutledge et al., 2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 157,
+   "para_id": 23,
+   "bib_id": 45,
+   "marker": "Rutledge et al., 2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 158,
+   "para_id": 3,
+   "bib_id": 63,
+   "marker": "Wang, 2026",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 159,
+   "para_id": 24,
+   "bib_id": 2,
+   "marker": "Bentham, 1780",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 160,
+   "para_id": 24,
+   "bib_id": 31,
+   "marker": "Mill, 1859",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 161,
+   "para_id": 24,
+   "bib_id": 15,
+   "marker": "Eldar and Niv, 2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 162,
+   "para_id": 24,
+   "bib_id": 26,
+   "marker": "Kao et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 163,
+   "para_id": 24,
+   "bib_id": 17,
+   "marker": "Emanuel and Eldar, 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 164,
+   "para_id": 25,
+   "bib_id": 1,
+   "marker": "Bennett et al., 2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 165,
+   "para_id": 26,
+   "bib_id": 16,
+   "marker": "Eldar et al., 2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 166,
+   "para_id": 27,
+   "bib_id": 44,
+   "marker": "Rutledge et al., 2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 167,
+   "para_id": 27,
+   "bib_id": 32,
+   "marker": "Otto et al., 2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 168,
+   "para_id": 28,
+   "bib_id": 45,
+   "marker": "Rutledge et al., 2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 169,
+   "para_id": 29,
+   "bib_id": 46,
+   "marker": "Rutledge et al., 2016a",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 170,
+   "para_id": 29,
+   "bib_id": 4,
+   "marker": "Blain and Rutledge, 2020",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 171,
+   "para_id": 30,
+   "bib_id": 59,
+   "marker": "Vanhasbroeck et al., 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 172,
+   "para_id": 31,
+   "bib_id": 59,
+   "marker": "Vanhasbroeck et al., 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 173,
+   "para_id": 32,
+   "bib_id": 59,
+   "marker": "Vanhasbroeck et al., 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 174,
+   "para_id": 33,
+   "bib_id": 37,
+   "marker": "Quoidbach et al., 2019",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 175,
+   "para_id": 33,
+   "bib_id": 56,
+   "marker": "Taquet et al., 2016",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 176,
+   "para_id": 33,
+   "bib_id": 8,
+   "marker": "Broome et al., 2015",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 177,
+   "para_id": 33,
+   "bib_id": 37,
+   "marker": "Quoidbach et al., 2019",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 178,
+   "para_id": 34,
+   "bib_id": 30,
+   "marker": "Mason et al., 2017",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 179,
+   "para_id": 34,
+   "bib_id": 57,
+   "marker": "Taquet et al., 2020",
+   "expanded": false,
+   "scored": false
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-ext-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "v1_bib_count": 67
+ }
+}

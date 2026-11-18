@@ -1,0 +1,362 @@
+{
+ "paper_id": "10.1371_journal.pone.0357492",
+ "paras": [
+  {
+   "para_id": 1,
+   "loc": "front",
+   "sec_title": "",
+   "text": "The raw otoscopy videos, tympanometry records, and associated clinical metadata cannot be publicly shared because they are human-participant clinical data that may contain identifying or sensitive information even after de-identification, and public release is restricted by applicable institutional review board requirements and institutional data-use policies. Qualified researchers may submit requests for access to restricted de-identified data to Wake Forest University Health Sciences through its institutional Signing Official: Michele A. Gordon, CP, CRCP, Director of Research (Michele.A.Gordon@AdvocateHealth.org), Wake Forest University Health Sciences, Medical Center Boulevard, Winston-Salem, NC 27157-0001, USA. Requests will be considered subject to approval by the relevant participating institutions, applicable IRB requirements, and execution of any required data-use agreements. The public reproducibility package is available as: Lu H, Langefeld CD, Zinnia A, Demir MF, Chavan S, Elmaraghy CA, Wilson M, Niazi MKK, Moberly AC, Gurcan MN. otoscope_MMMC: code and anonymized derived data for “Confidence-guided integration of otoscopy videos and tympanometry for middle ear disease diagnosis: A multi-center otoscopy study with external paired-cohort evaluation.” GitHub; 2026. Available from: https://github.com/CAIR-LAB-WFUSM/otoscope_MMMC.",
+   "printed": true
+  },
+  {
+   "para_id": 2,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Otoscopy is a fundamental, routinely performed examination for evaluating the external auditory canal, tympanic membrane, and middle ear. Ear-related complaints account for a substantial proportion of visits in primary care and pediatric settings, where clinicians are frequently required to assess ear pathology during both routine and acute care encounters [1–3]. However, access to otolaryngology specialists remains limited due to workforce shortages and long wait times, resulting in most initial evaluations being performed by non-specialist clinicians [2,4,5].",
+   "printed": true
+  },
+  {
+   "para_id": 3,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Despite its central role in the evaluation of ear disease, the diagnostic accuracy of clinicians performing otoscopy in primary care settings varies widely and is strongly influenced by clinician training and experience [6,7]. Visual interpretation of the tympanic membrane can be challenging, particularly in cases with subtle or overlapping features. Inaccurate diagnosis may lead to inappropriate treatment, delayed care, and adverse outcomes including hearing loss and reduced quality of life [8].",
+   "printed": true
+  },
+  {
+   "para_id": 4,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Recent advances in artificial intelligence (AI) have enabled the development of deep learning models for automated interpretation of otoscopic images and videos [9–12]. These models have demonstrated promising performance in controlled settings. However, most existing AI-based otoscopy models rely primarily on visual information and are often developed using single-center datasets [13], creating an opportunity to improve diagnostic robustness through external validation and integration of complementary clinical measurements. In particular, visual assessment alone may not fully distinguish conditions with similar appearance but different underlying middle-ear physiology.",
+   "printed": true
+  },
+  {
+   "para_id": 5,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "In clinical practice, otoscopy is often complemented by tympanometry [14–16], a non-invasive test that evaluates the mechanical properties of the tympanic membrane and middle ear system. Tympanometry provides objective physiological information that can help differentiate between conditions that are visually ambiguous, such as distinguishing effusion from a normal tympanic membrane. This complementarity creates an opportunity for AI-based diagnostic frameworks that integrate anatomical information from otoscopy with physiological information from tympanometry.",
+   "printed": true
+  },
+  {
+   "para_id": 6,
+   "loc": "body",
+   "sec_title": "AI-based interpretation of otoscopy images",
+   "text": "Early applications of AI in otology have primarily focused on static otoscopic images. Convolutional neural networks (CNNs) have been widely used to classify tympanic membrane conditions, with several studies [9–11,17] reporting high diagnostic accuracy under controlled conditions. These approaches typically rely on curated image datasets with well-centered views of the tympanic membrane and limited variability in acquisition settings.",
+   "printed": true
+  },
+  {
+   "para_id": 7,
+   "loc": "body",
+   "sec_title": "Video-based otoscopy analysis",
+   "text": "To address the limitations of static image analysis, more recent studies [18–20] have explored video-based approaches for otoscopic diagnosis. These methods either aggregate information across multiple frames or select diagnostically informative frames from video sequences to generate video-level predictions. By incorporating multiple viewpoints over time, video-based models can provide more complete coverage of the tympanic membrane—an advantage that is particularly important in pediatric otoscopy, where the restricted field of view often prevents a single image from capturing the entire eardrum. Video-based models can also better handle variability in image quality and reflect the dynamic nature of clinical examinations, making them more suitable for real-world deployment.",
+   "printed": true
+  },
+  {
+   "para_id": 8,
+   "loc": "body",
+   "sec_title": "Video-based otoscopy analysis",
+   "text": "However, several challenges remain for video-based otoscopy analysis. Existing approaches often focus on visual information alone, and performance is frequently evaluated using internal or randomly split datasets, with limited validation on independent external cohorts [21]. As a result, the robustness of video-based AI models across institutions, devices, and patient populations remains an important area for further study. In addition, visual information alone may not fully distinguish conditions with similar otoscopic appearance but different underlying middle-ear physiology.",
+   "printed": true
+  },
+  {
+   "para_id": 9,
+   "loc": "body",
+   "sec_title": "Multimodal approaches and tympanometry",
+   "text": "Tympanometry is a well-established clinical tool that provides objective assessment of tympanic membrane and middle ear function by measuring the mechanical properties of the tympanic membrane and middle ear system [22]. It is routinely used in conjunction with otoscopy to improve diagnostic accuracy, particularly in differentiating conditions such as middle ear effusion, perforation, and normal ear status [23].",
+   "printed": true
+  },
+  {
+   "para_id": 10,
+   "loc": "body",
+   "sec_title": "Multimodal approaches and tympanometry",
+   "text": "Despite its clinical importance, tympanometry is not commonly incorporated into AI-based otoscopy frameworks. Prior work has explored decision fusion between image analysis and tympanometry [14], but multimodal AI approaches that combine otoscopy videos with tympanometric measurements remain limited. This represents an important opportunity because the two modalities provide complementary information: otoscopy captures anatomical appearance, whereas tympanometry reflects middle-ear mechanical function. Integrating these modalities may help refine visually uncertain predictions, particularly for conditions with overlapping otoscopic features but distinct physiological patterns.",
+   "printed": true
+  },
+  {
+   "para_id": 11,
+   "loc": "body",
+   "sec_title": "High-quality frame selection.",
+   "text": "Frame quality was quantified using three metrics derived from the LUCID framework [19]. For all three metrics, higher values indicate better image quality:",
+   "printed": true
+  }
+ ],
+ "links": [
+  {
+   "link_id": 1,
+   "url": "github.com/cair-lab-wfusm/otoscope_mmmc",
+   "url_raw": "https://github.com/CAIR-LAB-WFUSM/otoscope_MMMC",
+   "href_jats": "https://github.com/CAIR-LAB-WFUSM/otoscope_MMMC",
+   "repo_key": "github:cair-lab-wfusm/otoscope_mmmc",
+   "host_class": "github",
+   "loc": "front",
+   "sec_title": "",
+   "source": "tagged",
+   "para_id": 1
+  }
+ ],
+ "links_optional": [
+  "creativecommons.org/licenses/by/4.0",
+  "doi:10.1001/jamapediatrics.2024.0011",
+  "doi:10.1002/lio2.1239",
+  "doi:10.1002/ohn.965",
+  "doi:10.1016/j.anl.2023.12.005",
+  "doi:10.1016/j.ebiom.2019.06.050",
+  "doi:10.1016/j.ijmedinf.2025.106042",
+  "doi:10.1038/s41598-023-31921-0",
+  "doi:10.1055/s-0043-1763295",
+  "doi:10.1080/02813432.2025.2571936",
+  "doi:10.1093/med/9780192871633.003.0005",
+  "doi:10.1117/12.2549394",
+  "doi:10.1117/12.3006926",
+  "doi:10.1117/12.3046822",
+  "doi:10.1177/00034894800890s304",
+  "doi:10.1177/0194599815623467",
+  "doi:10.1186/s12889-024-20010-0",
+  "doi:10.1371/journal.pone.0036226",
+  "doi:10.1371/journal.pone.0232776",
+  "doi:10.2147/amep.s396046",
+  "doi:10.3390/app11041831",
+  "doi:10.3390/audiolres16030062",
+  "nidcd.nih.gov",
+  "ssrn.com/abstract=5605762"
+ ],
+ "own_doi": "doi:10.1371/journal.pone.0357492",
+ "citations": [
+  {
+   "cite_id": 1,
+   "para_id": 2,
+   "bib_id": 1,
+   "marker": "1",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 2,
+   "para_id": 2,
+   "bib_id": 2,
+   "marker": "1–3",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 3,
+   "para_id": 2,
+   "bib_id": 3,
+   "marker": "3",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 4,
+   "para_id": 2,
+   "bib_id": 2,
+   "marker": "2",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 5,
+   "para_id": 2,
+   "bib_id": 4,
+   "marker": "4",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 6,
+   "para_id": 2,
+   "bib_id": 5,
+   "marker": "5",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 7,
+   "para_id": 3,
+   "bib_id": 6,
+   "marker": "6",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 8,
+   "para_id": 3,
+   "bib_id": 7,
+   "marker": "7",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 9,
+   "para_id": 3,
+   "bib_id": 8,
+   "marker": "8",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 10,
+   "para_id": 4,
+   "bib_id": 9,
+   "marker": "9",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 11,
+   "para_id": 4,
+   "bib_id": 10,
+   "marker": "9–12",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 12,
+   "para_id": 4,
+   "bib_id": 11,
+   "marker": "9–12",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 13,
+   "para_id": 4,
+   "bib_id": 12,
+   "marker": "12",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 14,
+   "para_id": 4,
+   "bib_id": 13,
+   "marker": "13",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 15,
+   "para_id": 5,
+   "bib_id": 14,
+   "marker": "14",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 16,
+   "para_id": 5,
+   "bib_id": 15,
+   "marker": "14–16",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 17,
+   "para_id": 5,
+   "bib_id": 16,
+   "marker": "16",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 18,
+   "para_id": 6,
+   "bib_id": 9,
+   "marker": "9",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 19,
+   "para_id": 6,
+   "bib_id": 10,
+   "marker": "9–11",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 20,
+   "para_id": 6,
+   "bib_id": 11,
+   "marker": "11",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 21,
+   "para_id": 6,
+   "bib_id": 17,
+   "marker": "17",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 22,
+   "para_id": 7,
+   "bib_id": 18,
+   "marker": "18",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 23,
+   "para_id": 7,
+   "bib_id": 19,
+   "marker": "18–20",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 24,
+   "para_id": 7,
+   "bib_id": 20,
+   "marker": "20",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 25,
+   "para_id": 8,
+   "bib_id": 21,
+   "marker": "21",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 26,
+   "para_id": 9,
+   "bib_id": 22,
+   "marker": "22",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 27,
+   "para_id": 9,
+   "bib_id": 23,
+   "marker": "23",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 28,
+   "para_id": 10,
+   "bib_id": 14,
+   "marker": "14",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 29,
+   "para_id": 11,
+   "bib_id": 19,
+   "marker": "19",
+   "expanded": false,
+   "scored": true
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-ext-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "v1_bib_count": 23
+ }
+}

@@ -1,0 +1,552 @@
+{
+ "paper_id": "10.2196_98690",
+ "paras": [
+  {
+   "para_id": 1,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Mental health disorders affect an estimated 1 in 8 people globally, yet most who need care never receive it [1]. In the United States, almost half of individuals with mental illness do not receive care, with gaps driven by cost, geographic access, and stigma [2,3]. These shortfalls have accelerated interest in digital mental health interventions (DMHIs) as scalable, accessible alternatives to traditional care [4]. Among DMHIs, conversational AI agents, commonly referred to as AI therapists or mental health chatbots, have emerged as a particularly promising modality, offering around-the-clock availability and low cost [4]. Conversational AI agents can produce meaningful reductions in symptoms of depression and anxiety [5,6], lending empirical credibility to their growing adoption and positioning them as a practical option in settings where traditional care is hard to access.",
+   "printed": true
+  },
+  {
+   "para_id": 2,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Despite the promise of conversational AI agents, a critical gap remains in understanding what drives therapeutic benefit within AI-powered care. Engagement in DMHIs is most commonly operationalized as the number of modules, activities, or sessions completed [7], largely because these metrics are easy to extract and compare across users. However, these metrics assume that all engagement is equivalent, collapsing meaningful variation in how interactions unfold over time into a single quantity. Higher engagement does not consistently predict better outcomes in DMHIs, with the relationships between volume-based engagement and symptom improvement being weak and inconsistent [8,9]. Characterizing engagement in DMHIs has proven to be difficult, partially because engagement is multidimensional and encompasses behavioral, cognitive, and affective components that volume-based metrics cannot distinguish [10]. Prior work in DMHIs has largely focused on adherence, dropout, or total use [7,9]. As a result, existing approaches fail to capture how engagement unfolds over time, including patterns of depth and timing that may be critical for understanding outcomes.",
+   "printed": true
+  },
+  {
+   "para_id": 3,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "In contrast, human psychotherapy research shows that not only the amount of care but also how it is structured over time, including session intensity and spacing, can influence clinical improvement beyond the total therapy received [11,12]. For example, twice-weekly cognitive behavioral therapy (CBT) sessions have been shown to produce faster rates of symptom improvement in depression compared to once-weekly delivery, independent of the total sessions attended, suggesting that session concentration matters beyond cumulative dose [13]. These findings suggest that engagement is not interchangeable across time and that when and how interactions occur may shape therapeutic benefits independent of overall exposure. This distinction is particularly relevant for conversational AI interventions, where engagement is highly flexible and user-driven, leading to substantial variability in how individuals interact with care over time. However, despite this variability, the temporal and structural patterns of engagement have not been systematically examined in AI-powered DMHIs, leaving a significant gap in understanding which forms of engagement are associated with better outcomes and how AI-powered platforms should be designed and evaluated.",
+   "printed": true
+  },
+  {
+   "para_id": 4,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Mental is a commercially available DMHI designed primarily for adult men. Its core feature is a generative AI conversational agent that delivers on-demand, free-text mental health support grounded in evidence-based practice. Unlike earlier DMHIs that relied on structured, rule-based, or decision-tree frameworks grounded primarily in manualized CBT [14,15], Mental’s conversational AI agent draws flexibly from multiple therapeutic frameworks, including CBT, acceptance and commitment therapy, and motivational interviewing, selecting appropriate techniques based on user input and conversational context. This approach mirrors the adaptive, individualized nature of routine clinical practice. At the start of each session, users select a preferred AI persona (eg, differing in tone, priorities, and inspirations) and a session length (approximately 8, 15, or 30 min), allowing for flexible, customizable engagement. Users then interact with the conversational AI agent through real-time, free-text dialogue. The flexible, user-driven nature of the Mental platform makes it well-suited for examining how engagement patterns vary in real-world use and whether those patterns are meaningfully associated with mental health outcomes.",
+   "printed": true
+  },
+  {
+   "para_id": 5,
+   "loc": "body",
+   "sec_title": "Ethical Considerations",
+   "text": "The study protocol was reviewed by the Biomedical Research Alliance of New York (BRANY) Institutional Review Board (study ID: 26-006-1708) and was determined to qualify for exemption under US federal regulations for human participants’ research involving secondary analysis of existing data [16]. Because the study used retrospective, deidentified data and involved no direct participant contact, informed consent procedures were not required. All data were deidentified before analysis. Back-end engagement data were extracted from the platform’s operational data infrastructure as part of routine app functionality, and survey data were collected as part of routine business operations. Users acknowledged the data collection practices through the Mental app’s terms of service and privacy policy at the time of account creation.",
+   "printed": true
+  },
+  {
+   "para_id": 6,
+   "loc": "body",
+   "sec_title": "Mental App",
+   "text": "Mental is a commercially available DMHI developed by The Path and is available for download on iOS and Android [17]. The platform is marketed primarily to adult men and offers multiple tools, including motivational content and structured training activities, though the present study focuses specifically on user engagement with Mental’s generative AI conversational agent. The generative AI conversational agent is grounded in multiple empirically supported therapeutic approaches, including CBT, acceptance and commitment therapy, motivational interviewing, and other cognitive, behavioral, and skills-based strategies. Rather than following fixed dialogue pathways, Mental’s conversational AI agent draws flexibly from these frameworks based on user input and conversational context. At the start of each session, users select a preferred AI persona and a session length (approximately 8, 15, or 30 min), allowing flexible, customizable engagement, after which they interact with the agent through real-time, free-text dialogue.",
+   "printed": true
+  },
+  {
+   "para_id": 7,
+   "loc": "body",
+   "sec_title": "Study Measures",
+   "text": "Depression was assessed using the Patient Health Questionnaire-8 (PHQ-8; [18]), an 8-item self-report measure of depressive symptom severity. Respondents were asked, “Over the last 2 weeks, how often have you been bothered by any of the following problems?” Responses to these prompts were rated on a 4-point Likert scale ranging from 0 (not at all) to 3 (nearly every day), with total scores calculated as the sum of all items, ranging from 0 to 24. Higher PHQ-8 scores indicate greater depressive symptom severity. The PHQ-8 has demonstrated strong internal consistency (α=.86-.89; [18]).",
+   "printed": true
+  },
+  {
+   "para_id": 8,
+   "loc": "body",
+   "sec_title": "Study Measures",
+   "text": "Anxiety was assessed using the Generalized Anxiety Disorder scale (GAD-7; [19]), a 7-item self-report measure of generalized anxiety severity. Respondents were asked, “Over the last 2 weeks, how often have you been bothered by the following problems?” Responses to these prompts were rated on a 4-point Likert scale ranging from 0 (not at all) to 3 (nearly every day), with total scores calculated as the sum of all items, ranging from 0 to 21. Higher GAD-7 scores indicate greater anxiety symptom severity. The GAD-7 has demonstrated strong internal consistency (α=.89-.92; [19]).",
+   "printed": true
+  },
+  {
+   "para_id": 9,
+   "loc": "body",
+   "sec_title": "App Engagement Patterns",
+   "text": "To address existing limitations of volume-based metrics (eg, session counts and module completions), the present study explored 2 engagement metrics to characterize how the distribution and concentration of sessions varied across users: interaction depth and temporal consistency. The α parameter, estimated from the distribution of session durations using a Pareto-based maximum likelihood approach, characterizes the shape of the session duration distribution rather than its mean, making it sensitive to variation in how deeply users engage across sessions rather than simply how much total time they accumulate [20]. Session durations across the analytic sample were right-skewed (median 14.8, IQR 11.9-22.3 min; mean 16.7, SD 57.1 min), consistent with a heavy-tailed distribution and supportive of the Pareto model as an appropriate characterization of session duration behavior. The α parameter was estimated using maximum likelihood estimation. Given that session durations were drawn from a discrete set of platform-defined lengths (approximately 8, 15, or 30 min), formal goodness-of-fit testing using the Kolmogorov-Smirnov statistic was not appropriate due to violations of the continuity assumption. Visual inspection of the log-log complementary cumulative distribution function confirmed approximately linear decay consistent with the heavy-tailed distributional assumptions of the Pareto model, supporting its use for characterizing session depth in this sample. Lower α values indicate longer, more sustained sessions, while higher α values indicate shorter, more fragmented interactions. The Gini coefficient, derived from the distribution of usage across days, quantifies inequality in the temporal spacing of engagement, with values approaching 1 reflecting highly clustered use and values approaching 0 reflecting evenly distributed use [21]. Together, these metrics map onto the 2 dimensions absent from traditional volume-based measurement: how deeply users interact within sessions and how that engagement is distributed over time [21,22]. The total number of sessions and total duration of use were also extracted from back-end usage data to provide descriptive summaries of overall app exposure.",
+   "printed": true
+  },
+  {
+   "para_id": 10,
+   "loc": "body",
+   "sec_title": "Statistical Analyses",
+   "text": "Engagement profiles were derived by applying median splits to the α values and Gini coefficients [23]. Median splits were used to facilitate interpretation and generate meaningful, mutually exclusive engagement profiles based on the intersection of interaction depth and temporal consistency. This approach was selected for its interpretive utility and aligns with the study’s aim of identifying distinct, real-world engagement patterns. It is also consistent with prior work in digital health that has used similar categorization strategies to characterize user engagement [7,8]. Alternative classification strategies, such as cluster analysis or tertile splits, were considered but not pursued, given the exploratory nature of the study and the modest sample size. Users were first classified as extended (lower α values) or brief (higher α values). Separately, users were classified as consistent (lower Gini coefficients) or episodic (higher Gini coefficients). These classifications were then cross-tabulated to create 4 mutually exclusive groups defined by combinations of interaction depth (extended versus brief) and temporal consistency (episodic versus consistent). To ensure reliable estimates, Gini and α values were calculated only for users with ≥5 sessions [24]. This threshold was selected to ensure stable parameter estimation for both metrics, consistent with recommendations for fitting distributional models to small samples [20]. However, this threshold has not been empirically validated specifically for DMHI engagement data and should be interpreted with caution. A sensitivity analysis comparing engagement profiles and symptom associations under a ≥2-session threshold was conducted to empirically evaluate the stability and justification of the ≥5-session analytical criterion. Descriptive statistics for depression and anxiety were summarized across session count groups (1 session, 2‐4 sessions, and ≥5 sessions) for all users with available survey data. Correlations between engagement pattern metrics (α and Gini) and total duration were modest (|r|≤0.26), suggesting that pattern-based metrics capture distinct aspects of engagement.",
+   "printed": true
+  },
+  {
+   "para_id": 11,
+   "loc": "body",
+   "sec_title": "Principal Findings",
+   "text": "To our knowledge, this is the first study to characterize patterns of engagement among users interacting with an AI conversational agent in the real world. Using α and Gini metrics, 4 distinct profiles emerged, reflecting combinations of session depth (ie, long vs short interactions) and temporal patterns of use (ie, evenly distributed vs clustered across days). Prior work in DMHIs has primarily characterized engagement using raw session counts or total time on the platform [25]. The α and Gini metrics used here offer 2 specific advantages over traditional volume-based measures. First, they characterize the shape and distribution of engagement behavior rather than its aggregate quantity, capturing variation that session counts and total time obscure [10]. Second, by quantifying both interaction depth and temporal consistency independently, they allow engagement to be decomposed into dimensions that map onto theoretically meaningful constructs from the psychotherapy dosing literature [13]. In doing so, these profiles move beyond a single engagement quantity toward a multidimensional characterization of how users interact with AI-powered care.",
+   "printed": true
+  },
+  {
+   "para_id": 12,
+   "loc": "body",
+   "sec_title": "Principal Findings",
+   "text": "Users who engaged consistently over time, regardless of whether their individual sessions were long or short, reported higher depression and anxiety symptoms than those whose use was more temporally clustered. This pattern is consistent with prior research on digital health behavior, suggesting that individuals with greater symptom severity may seek out more regular platform engagement as a coping resource [26]. This interpretation is further supported by the on-demand nature of the platform, which removes structural barriers to access and may facilitate frequent, symptom-driven use among users with persistent or unmet support needs. Notably, users in profile 4 (brief and consistent) reported the highest symptom levels of any group, suggesting that frequent, brief interactions distributed over time may reflect an ongoing need for support rather than a pattern associated with symptom improvement. In contrast, users who engaged in longer, more in-depth sessions that were concentrated within fewer days (ie, extended and episodic use) reported the lowest symptom levels. These findings may carry implications for DMHI design. Specifically, the divergence between profile 1 (lowest symptoms; extended and episodic) and profile 4 (highest symptoms; brief and consistent) suggests that temporal clustering of sustained interactions may be a more relevant engagement signature than consistency alone. The association between consistent engagement and higher symptoms diverges from the psychotherapy literature, in which regular session attendance is generally associated with better outcomes [12,26]. This divergence may reflect a fundamental difference between human-delivered therapy and AI-powered therapy. In human-delivered therapy, consistency is clinician-scheduled and reflects treatment adherence, whereas in AI-powered care, it is entirely user-initiated and may instead reflect symptom burden or unmet need. This structural distinction has direct implications for how engagement data should be interpreted in AI-powered care and underscores why pattern-based metrics that capture both depth and timing are preferable to aggregate volume as indicators of meaningful use. Preliminary work suggests AI-powered interventions may produce self-reported improvement rates that are comparable to, or exceed, those observed in traditional outpatient settings across multiple well-being domains and often in fewer total hours of engagement [5,6]. Understanding how users engage, not just how much, will be essential for interpreting those comparisons meaningfully.",
+   "printed": true
+  },
+  {
+   "para_id": 13,
+   "loc": "body",
+   "sec_title": "Principal Findings",
+   "text": "The adjusted regression models further demonstrated that engagement profiles were associated with depression and anxiety beyond total duration of use alone, providing preliminary evidence that pattern-based metrics (eg, temporal consistency and interaction depth) may offer explanatory value beyond volume-based measurement. This finding aligns with a growing recognition in the DMHI literature that simple volume metrics, such as total sessions or time on platform, are insufficient proxies for meaningful engagement [7,9]. This parallels findings from the psychotherapy dose-response literature, in which session frequency has been shown to be associated with treatment outcomes independent of the total number of sessions attended [11,27,28]. Taken together, the present findings provide preliminary empirical support for the value of pattern-based engagement measurement as a complement to, or replacement for, aggregate usage metrics in DMHI research and evaluation, pending replication in prospective designs.",
+   "printed": true
+  },
+  {
+   "para_id": 14,
+   "loc": "body",
+   "sec_title": "Principal Findings",
+   "text": "The engagement profiling approach introduced here opens several avenues for future research. Prospective designs with pre-post symptom measurement, longitudinal follow-up, and control groups are needed to establish the directionality of the relationships observed here and to determine whether engagement profiles are associated with symptom change over time. Replication among more demographically diverse samples will be important for assessing the generalizability of these profiles beyond the predominantly White population of men examined here. Research should also explore whether real-time detection of engagement patterns can inform adaptive platform responses, such as prompts toward longer sessions for users exhibiting brief, consistent use. Extending this profiling framework to other DMHI modalities would help establish whether these patterns reflect stable features of user behavior or are specific to conversational AI. A particularly important next step is the systematic comparison of AI-powered and human-delivered outpatient care using standardized baseline measures, matched comparison groups, and pre-post validated outcome instruments, with engagement pattern metrics included as potential moderators of comparative effectiveness. Future research should also examine the sensitivity of engagement profile solutions to alternative classification strategies, including cluster-based approaches and varied session thresholds, to establish whether the profiles identified here represent stable behavioral phenotypes or are sensitive to analytical choices. Benchmark comparisons using established instruments such as the Mental Health Statistics Improvement Program (MHSIP) provide a useful starting point [29], but prospective, preregistered designs are needed to establish the conditions under which AI therapy is most effective relative to traditional care.",
+   "printed": true
+  },
+  {
+   "para_id": 15,
+   "loc": "body",
+   "sec_title": "Principal Findings",
+   "text": "Fourth, the session threshold of ≥5 and the use of median splits represent pragmatic analytical choices that, while consistent with prior work [7,9,23], impose boundaries on continuous distributions and may not optimally capture the full range of engagement behavior in this sample. The attenuation of effects observed under the ≥2-session threshold is consistent with the theoretical requirements of distributional metrics: the Gini coefficient requires sufficient temporal observations to meaningfully characterize inequality in session spacing, and the Pareto-based α parameter requires sufficient session duration observations to estimate distributional shape. This pattern of attenuation suggests the threshold difference reflects a psychometric requirement rather than an arbitrary analytical choice, though the optimal minimum threshold for these metrics in DMHI contexts has not been empirically established. Fifth, the application of Pareto-based metrics to session duration data in DMHIs is a novel methodological approach. Given that session durations were drawn from a discrete set of platform-defined lengths, standard goodness-of-fit procedures were not fully appropriate, and distributional fit was evaluated through visual inspection of the log-log complementary cumulative distribution function, which confirmed approximately linear decay consistent with heavy-tailed distributional assumptions. Future work should formally validate α-based engagement metrics in DMHI populations, examine alternative distributional models, and systematically test the sensitivity of engagement profile solutions to varied session thresholds and classification strategies to establish whether the profiles identified here represent stable behavioral phenotypes.",
+   "printed": true
+  }
+ ],
+ "links": [],
+ "links_optional": [
+  "bhw.hrsa.gov/data-research/review-health-workforce-research",
+  "creativecommons.org/licenses/by/4.0",
+  "doi:10.1001/archinte.166.10.1092",
+  "doi:10.1002/bimj.200410148",
+  "doi:10.1002/wps.21299",
+  "doi:10.1007/s13142-016-0453-1",
+  "doi:10.1007/s40501-023-00297-3",
+  "doi:10.1016/j.brat.2022.104038",
+  "doi:10.1016/j.jad.2008.06.026",
+  "doi:10.1016/j.jad.2024.04.057",
+  "doi:10.1037/ccp0000575",
+  "doi:10.1037/cou0000593",
+  "doi:10.1038/nature23018",
+  "doi:10.1038/s41746-023-00979-5",
+  "doi:10.1038/s44159-021-00003-1",
+  "doi:10.1080/01612840.2019.1646363",
+  "doi:10.1080/10503307.2019.1566676",
+  "doi:10.1093/jamia/ocy072",
+  "doi:10.1111/sms.14085",
+  "doi:10.1137/070710111",
+  "doi:10.1177/070674371305800702",
+  "doi:10.1186/s44247-024-00105-9",
+  "doi:10.1192/bjp.2019.265",
+  "doi:10.2196/43727",
+  "doi:10.2196/45469",
+  "doi:10.3389/fdgth.2021.764079",
+  "hhs.gov/ohrp/regulations-and-policy/regulations/45-cfr-46/index.html",
+  "iris.who.int/server/api/core/bitstreams/40e5a13a-fe50-4efa-b56d-6e8cf00d5bfa/content",
+  "marketdecisions.com/markets/health/mhsip",
+  "mental.jmir.org",
+  "thepath.ai"
+ ],
+ "own_doi": "doi:10.2196/98690",
+ "citations": [
+  {
+   "cite_id": 1,
+   "para_id": 1,
+   "bib_id": 1,
+   "marker": "1",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 2,
+   "para_id": 1,
+   "bib_id": 2,
+   "marker": "2",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 3,
+   "para_id": 1,
+   "bib_id": 3,
+   "marker": "3",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 4,
+   "para_id": 1,
+   "bib_id": 4,
+   "marker": "4",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 5,
+   "para_id": 1,
+   "bib_id": 4,
+   "marker": "4",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 6,
+   "para_id": 1,
+   "bib_id": 5,
+   "marker": "5",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 7,
+   "para_id": 1,
+   "bib_id": 6,
+   "marker": "6",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 8,
+   "para_id": 2,
+   "bib_id": 7,
+   "marker": "7",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 9,
+   "para_id": 2,
+   "bib_id": 8,
+   "marker": "8",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 10,
+   "para_id": 2,
+   "bib_id": 9,
+   "marker": "9",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 11,
+   "para_id": 2,
+   "bib_id": 10,
+   "marker": "10",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 12,
+   "para_id": 2,
+   "bib_id": 7,
+   "marker": "7",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 13,
+   "para_id": 2,
+   "bib_id": 9,
+   "marker": "9",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 14,
+   "para_id": 3,
+   "bib_id": 11,
+   "marker": "11",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 15,
+   "para_id": 3,
+   "bib_id": 12,
+   "marker": "12",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 16,
+   "para_id": 3,
+   "bib_id": 13,
+   "marker": "13",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 17,
+   "para_id": 4,
+   "bib_id": 14,
+   "marker": "14",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 18,
+   "para_id": 4,
+   "bib_id": 15,
+   "marker": "15",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 19,
+   "para_id": 5,
+   "bib_id": 16,
+   "marker": "16",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 20,
+   "para_id": 6,
+   "bib_id": 17,
+   "marker": "17",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 21,
+   "para_id": 7,
+   "bib_id": 18,
+   "marker": "18",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 22,
+   "para_id": 7,
+   "bib_id": 18,
+   "marker": "18",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 23,
+   "para_id": 8,
+   "bib_id": 19,
+   "marker": "19",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 24,
+   "para_id": 8,
+   "bib_id": 19,
+   "marker": "19",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 25,
+   "para_id": 9,
+   "bib_id": 20,
+   "marker": "20",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 26,
+   "para_id": 9,
+   "bib_id": 21,
+   "marker": "21",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 27,
+   "para_id": 9,
+   "bib_id": 21,
+   "marker": "21",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 28,
+   "para_id": 9,
+   "bib_id": 22,
+   "marker": "22",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 29,
+   "para_id": 10,
+   "bib_id": 23,
+   "marker": "23",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 30,
+   "para_id": 10,
+   "bib_id": 7,
+   "marker": "7",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 31,
+   "para_id": 10,
+   "bib_id": 8,
+   "marker": "8",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 32,
+   "para_id": 10,
+   "bib_id": 24,
+   "marker": "24",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 33,
+   "para_id": 10,
+   "bib_id": 20,
+   "marker": "20",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 34,
+   "para_id": 11,
+   "bib_id": 25,
+   "marker": "25",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 35,
+   "para_id": 11,
+   "bib_id": 10,
+   "marker": "10",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 36,
+   "para_id": 11,
+   "bib_id": 13,
+   "marker": "13",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 37,
+   "para_id": 12,
+   "bib_id": 26,
+   "marker": "26",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 38,
+   "para_id": 12,
+   "bib_id": 12,
+   "marker": "12",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 39,
+   "para_id": 12,
+   "bib_id": 26,
+   "marker": "26",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 40,
+   "para_id": 12,
+   "bib_id": 5,
+   "marker": "5",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 41,
+   "para_id": 12,
+   "bib_id": 6,
+   "marker": "6",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 42,
+   "para_id": 13,
+   "bib_id": 7,
+   "marker": "7",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 43,
+   "para_id": 13,
+   "bib_id": 9,
+   "marker": "9",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 44,
+   "para_id": 13,
+   "bib_id": 11,
+   "marker": "11",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 45,
+   "para_id": 13,
+   "bib_id": 27,
+   "marker": "27",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 46,
+   "para_id": 13,
+   "bib_id": 28,
+   "marker": "28",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 47,
+   "para_id": 14,
+   "bib_id": 29,
+   "marker": "29",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 48,
+   "para_id": 15,
+   "bib_id": 7,
+   "marker": "7",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 49,
+   "para_id": 15,
+   "bib_id": 9,
+   "marker": "9",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 50,
+   "para_id": 15,
+   "bib_id": 23,
+   "marker": "23",
+   "expanded": false,
+   "scored": true
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-ext-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "v1_bib_count": 29
+ }
+}

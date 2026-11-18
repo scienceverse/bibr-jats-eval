@@ -1,0 +1,785 @@
+{
+ "paper_id": "10.1162_opmi.a.367",
+ "paras": [
+  {
+   "para_id": 1,
+   "loc": "body",
+   "sec_title": "DATA AVAILABILITY STATEMENT",
+   "text": "Preregistrations, data, code, and materials are available on an OSF repository (https://osf.io/rkvbd/overview?view_only=2c725a6939ef490d836d9550c19dd309) and AsPredicted (https://researchbox.org/4593).",
+   "printed": true
+  },
+  {
+   "para_id": 2,
+   "loc": "body",
+   "sec_title": "INTRODUCTION",
+   "text": "Experimenter demand effects—changes in participant behavior triggered by cues as to the study’s purpose or the participant’s expected role—are a classic concern in social science, mentioned in textbooks (e.g., Nichols & Edlund, 2023; Schacter et al., 2021) and hundreds of articles in top journals.1 If participants act as “good subjects” in an experiment, observed results may reflect what participants think the researcher wants rather than true effects of experimental manipulations, threatening internal validity (Orne, 1962; Zizzo, 2010).",
+   "printed": true
+  },
+  {
+   "para_id": 3,
+   "loc": "body",
+   "sec_title": "INTRODUCTION",
+   "text": "Do demand effects menace experiments conducted on large, online platforms with methods commonly used by modern psychologists? Two major shifts in modern psychology motivate the present research. First, psychologists have shifted from conducting in-person laboratory experiments to running studies online using large crowdwork platforms. In laboratory experiments, demand can arise from subtle behavior or context cues (e.g., experimenter demeanor, recruitment materials, instructions, laboratory environment) that signal desired behavior to participants (Orne, 1962; Sigall et al., 1970). However, modern psychology experiments often occur online, where participants have minimal face-to-face contact with researchers. One might therefore wonder whether the risk of demand effects is lower in online studies. Alternatively, online participants from convenience platforms are often experienced survey-takers; these participants may be highly adept at guessing hypotheses, thus increasing the risk of demand effects. Participants on these platforms must also maintain high approval ratings (Berinsky et al., 2014) and may worry that researchers will reject their submitted data (imposing financial and reputational costs) if they do not conform to experimenters’ expectations.",
+   "printed": true
+  },
+  {
+   "para_id": 4,
+   "loc": "body",
+   "sec_title": "INTRODUCTION",
+   "text": "Second, tasks and survey designs used by psychologists today differ considerably from those used in classic studies, presenting a different set of demand-related challenges. Contemporary studies often use highly-standardized, text-based vignettes or games that experienced participants may have previously encountered. Within-subjects designs can make condition contrasts salient (Hsee, 1996), and routine quality controls (e.g., comprehension checks) can highlight the construct under study. Outcomes are often collected immediately after interventions using face-valid items, with few filler tasks to obscure hypotheses. In contrast to many classic laboratory studies that relied on idiosyncratic props, confederates, and extended cover stories, these standardized, repeated, and tightly coupled procedures create new avenues for experimenter demand.",
+   "printed": true
+  },
+  {
+   "para_id": 5,
+   "loc": "body",
+   "sec_title": "INTRODUCTION",
+   "text": "Prior work examining demand effects offers mixed evidence. A recent meta-analysis of mostly in-person, student samples finds that manipulating participants’ beliefs about the study hypothesis tends to produce a small but significant increase in hypothesis-consistent responding (Coles et al., 2025). Demand effects were also observed to be heterogeneous across study contexts: Between-subjects manipulations of demand characteristics prompted larger demand effects than within-subjects designs, and demand effects were smaller in online (versus in-person) studies (Coles et al., 2025). However, most studies of demand effects were conducted prior to the popularization of online survey platforms in behavioral research (Anderson et al., 2019; for an overview, see Coles et al., 2025).",
+   "printed": true
+  },
+  {
+   "para_id": 6,
+   "loc": "body",
+   "sec_title": "INTRODUCTION",
+   "text": "Recent examinations of demand effects among Amazon Mechanical Turk (MTurk) participants find evidence of small though inconsistent demand effects in economic games (de Quidt et al., 2018; Winichakul et al., 2024) and survey experiments used in political science (Mummolo & Peterson, 2019). Specifically, de Quidt et al. (2018) provided MTurk participants with explicit information about what behavior was expected (e.g., giving more or less money than one normally would in a dictator game). Across multiple economic games, they found that such instructions had either a modest (∼0.13 SD effect size) or a statistically insignificant effect on participants’ behavior (9 out of 11 games yielded null results). Only strong direct demand cues (i.e., “You will do us a favor if you do X”) consistently shifted participants’ behavior across games (0.23 to 1.06 SD effect size; de Quidt et al., 2018). However, Winichakul et al. (2024) applied the same strong direct demand cues in four other economic tasks involving lotteries and charitable donations and observed inconsistent, quantitatively small, and qualitatively irrelevant effects in laboratory, Prolific, and MTurk samples. Similarly, Mummolo and Peterson (2019) replicated five well-known political-science survey experiments and randomly revealed each study’s hypothesis to participants. They found that neither subtle nor explicit cues about the study’s hypothesis affected the manipulation’s average treatment effect (Mummolo & Peterson, 2019).",
+   "printed": true
+  },
+  {
+   "para_id": 7,
+   "loc": "body",
+   "sec_title": "INTRODUCTION",
+   "text": "If anything, researchers have shown that experimenter demand can backfire, inducing psychological reactance. One paper reports that Prolific participants who habitually play violent video games downplay their aggression when they believe researchers are trying to prove that violent video games and aggression are linked (Seetahul & Greitemeyer, 2024). This paper studied a salient political topic in which participants were personally invested, perhaps the setting most conducive to experimenter effects (Corneille & Lush, 2023), but atypical of many psychology experiments investigating basic social or cognitive mechanisms.",
+   "printed": true
+  },
+  {
+   "para_id": 8,
+   "loc": "body",
+   "sec_title": "INTRODUCTION",
+   "text": "Nevertheless, the spectre of experimenter demand continues to haunt psychology. One recent paper in the leadership literature argues that certain priming interventions manipulate MTurk participants’ beliefs about experimental hypotheses, creating the “potential for demand” (Khademi et al., 2021). Another recent paper in the emotion literature argues that measures collected immediately after a seemingly-related affect induction procedure are subject to demand effects (Wenzel et al., 2024). But critically, their manipulation did not affect participants’ beliefs about the study’s hypothesis.",
+   "printed": true
+  },
+  {
+   "para_id": 9,
+   "loc": "body",
+   "sec_title": "INTRODUCTION",
+   "text": "In the present work, we aim to provide increased clarity by directly testing whether revealing the study’s hypothesis alters behavior among experienced Prolific participants. This follows Orne’s (1962) classical definition of experimenter demand as participants’ efforts to infer and conform to perceived experimental hypotheses, though we recognize that “demand effects” are sometimes used to refer to any cues that may bias experimental results. We focus on three paradigms that exemplify those commonly employed in modern social and cognitive psychology experiments: a dictator game, a moral dilemma vignette study, and an intervention on group attitudes. In each study, our strategy is to allocate participants between-subjects to demand cues (testing both positive and negative demand cues against a neutral control, Figure 1A), measure their beliefs about experimental hypotheses (establishing experimenter demand), and quantify the size of demand effects (Figure 1B).",
+   "printed": true
+  },
+  {
+   "para_id": 10,
+   "loc": "fig",
+   "sec_title": "INTRODUCTION",
+   "text": "Summary of design and results from our three studies. (A. Design) Each study used a similar experimental design, measuring both positive and negative demand in an online experiment, with three commonly used task types (dictator game, vignette, intervention). Our experiments had ns ≈ 250 per cell. (B. Results) Observed demand effects were statistically indistinguishable from zero. The plot shows means and 95% confidence intervals for standardized mean differences derived from frequentist analyses of each experiment and an inverse variance-weighted fixed-effect estimator pooling all experiments (circles). Prior measurements of experimenter demand from a previous dictator game experiment (de Quidt et al., 2018; standardized mean difference from regression coefficient) and a meta-analysis primarily including small-sample, in-person studies (Coles et al., 2025; Hedges’ g statistic) are also shown for comparison (triangles). The main text includes Bayesian analyses that quantify our uncertainty over the size and direction of demand effects.",
+   "printed": true
+  },
+  {
+   "para_id": 11,
+   "loc": "body",
+   "sec_title": "INTRODUCTION",
+   "text": "Crucially, we disentangle awareness of the hypothesis (experimenter demand) from its downstream behavioral effects, extending prior work which found that participants’ beliefs about the purpose of the study determined whether an effect emerges (Durgin et al., 2009; Firestone & Scholl, 2016). By isolating these mechanisms, our design clarifies whether participants’ awareness of the hypothesis is sufficient to produce behavioral effects. In our preregistered hypotheses, we anticipated that positive demand cues would shift behavior in the predicted direction (e.g., greater giving in the dictator game), while negative demand cues would produce the opposite pattern, yielding effects of 0.1–0.3 SD (following de Quidt et al., 2018). We further predicted that participants would accurately infer each study’s hypothesis from the demand cues and that the magnitudes of positive and negative demand effects would be similar. Contrary to our expectations, we found that while demand cues strongly influenced participants’ beliefs about each study’s hypothesis, they did not significantly alter their behavior, judgments, or attitudes. We provide a summary of our estimates of demand effect magnitudes across studies in Table 1.",
+   "printed": true
+  },
+  {
+   "para_id": 12,
+   "loc": "table",
+   "sec_title": "INTRODUCTION",
+   "text": "Regression coefficient and 95% confidence interval with indicator predictor and standardized response variable. Standardization computed using control condition mean/SD (cf. de Quidt et al., 2018).",
+   "printed": true
+  },
+  {
+   "para_id": 13,
+   "loc": "table",
+   "sec_title": "INTRODUCTION",
+   "text": "We convert from an odds ratio to a linear scale using Chinn’s method (Chinn, 2000).",
+   "printed": true
+  },
+  {
+   "para_id": 14,
+   "loc": "table",
+   "sec_title": "INTRODUCTION",
+   "text": "From the weak demand condition in de Quidt et al. (2018). Regression coefficient with an indicator predictor and standardized response variable.",
+   "printed": true
+  },
+  {
+   "para_id": 15,
+   "loc": "table",
+   "sec_title": "INTRODUCTION",
+   "text": "Hedges’ g statistic from Coles et al. (2025).",
+   "printed": true
+  },
+  {
+   "para_id": 16,
+   "loc": "body",
+   "sec_title": "EXPERIMENT 1: DICTATOR GAME",
+   "text": "In Experiment 1, we conducted a direct replication of the dictator game (weak demand condition) used in de Quidt et al. (2018), as it was among the only economic games that showed clear evidence of demand. We used the materials from de Quidt and colleagues’ replication package and assigned participants to one of three conditions: a Positive Demand condition wherein participants received a demand cue indicating that experimenters hypothesized participants would increase their response, a Negative Demand condition wherein participants received a demand cue indicating that experimenters hypothesized participants would decrease their response, and a Control condition without a demand cue. This design allows us to test whether participants alter their responses in the direction of the demand cue. Importantly, we then measured participants’ beliefs regarding the study’s hypothesis. This lets us separate two components of demand effects: (1) whether the demand manipulation successfully changed participants’ beliefs about the hypothesis, and (2) whether it changed their responses.",
+   "printed": true
+  },
+  {
+   "para_id": 17,
+   "loc": "body",
+   "sec_title": "Participants.",
+   "text": "All participants were recruited from Prolific on October 23, 2024, and were paid at a rate of $15/hour. Participants were English-speaking U.S. adults. Following prior work (de Quidt et al., 2018), we recruited N = 751 participants (approximately 250 per condition) and restricted eligibility to participants with more than 500 tasks completed. We also restricted eligibility to participants with high prior approval ratings (>99%), though we note that applying alternative approval rate requirements (e.g., >95%) are unlikely to change the sample that is recruited because Prolific removes most participants with approval rates lower than 97% (Gordon, 2025).",
+   "printed": true
+  },
+  {
+   "para_id": 18,
+   "loc": "body",
+   "sec_title": "Procedure.",
+   "text": "Participants first answered an instructional manipulation (attention) question and then were instructed to allocate $1 between themselves and another randomly selected Prolific participant. Participants were informed that the task involved real money and that whatever they did not give, they would keep for themselves. Following de Quidt et al. (2018), participants in the Positive Demand condition received a demand cue intended to increase the amount of money they gave to the other participant (“We expect that participants who are shown these instructions will give more to the other participant than they normally would.”). Participants in the Negative Demand condition received a demand cue intended to decrease the amount of money they gave to the other participant (“We expect that participants who are shown these instructions will give less to the other participant than they normally would.”). Participants in the Control condition received no additional information. All participants then allocated $1. After allocating $1, participants were asked a dichotomous question about what they thought was the research study’s hypothesis (“What do you think was the hypothesis of this research study?”—Participants would send a large/small share of the $1). To confirm understanding of the task, we also asked participants whether or not their decision involved real money. Participants then provided demographic information and answered additional exploratory measures (not reported here but available in the dataset posted to OSF).",
+   "printed": true
+  },
+  {
+   "para_id": 19,
+   "loc": "body",
+   "sec_title": "Results and Discussion",
+   "text": "Yet, critically, these demand cues had no significant effect on participants’ allocation decisions, as can be seen in Figure 2. A linear regression shows that participants gave similar amounts of money in the Positive Demand (B = 0.034, SE = 0.023, t = 1.49, p = .136, pBH = .339) and Negative Demand conditions (B = −0.009, SE = 0.023, t = −0.40, p = .688, pBH = .688) relative to control. Put differently, participants in the Positive Demand condition gave M = $0.35 (SD = $0.25), whereas participants in the Negative Demand condition gave M = $0.31 (SD = $0.25) and participants in the Control condition gave M = $0.32 (SD = $0.25). Using a standardized measure of allocation following de Quidt et al. (2018), we also find that demand effects are statistically insignificant and small, with positive demand cues increasing giving by 0.13 SD (p = .136, pBH = .271) and negative demand cues reducing giving by 0.04 SD (p = .688, pBH = .688) relative to control. We do not detect a difference in the effects of positive and negative demand (Wald χ2(1) = 3.60, p = .058, pBH = .144). These patterns persist when controlling for participants’ attentiveness, as there were no significant effects of positive demand cues (B = −0.16, SE = 0.32, t = −0.51, p = .611, pBH = .679) or negative demand cues (B = −0.28, SE = 0.35, t = −0.79, p = .427, pBH = .558) on allocations, nor were there significant interaction effects of condition and attentiveness (Attention × Positive Demand: B = 0.32, SE = 0.33, t = 0.98, p = .327, pBH = .545, Attention × Negative Demand: B = 0.28, SE = 0.36, t = 0.76, p = .446, pBH = .558). Table 1 reports all coefficients for models using standardized and unstandardized measures.",
+   "printed": true
+  },
+  {
+   "para_id": 20,
+   "loc": "body",
+   "sec_title": "EXPERIMENT 2: MORAL DILEMMA VIGNETTE STUDY",
+   "text": "Experiment 2 examined whether experimenter demand alters participants’ moral judgments in a vignette study. We used a realistic sacrificial dilemma from Körner and Deutsch (2023) and Maier et al. (2026) and, as in Experiment 1, assigned participants to one of three conditions (Positive Demand, Negative Demand, or Control).",
+   "printed": true
+  },
+  {
+   "para_id": 21,
+   "loc": "body",
+   "sec_title": "EXPERIMENT 3: INERT INTERVENTION ON GROUP ATTITUDES",
+   "text": "Moreover, Experiment 3 collected attitudinal information before and after the intervention. This allowed us to explore whether demand cues may elicit a reactance effect, where participants deliberately engage in behavior that counters the perceived hypothesis (Rosenberg & Siegel, 2018); for example, one sign of reactance could be participants in the Positive Demand condition under-reporting warmth toward their political ingroup after the intervention.",
+   "printed": true
+  },
+  {
+   "para_id": 22,
+   "loc": "body",
+   "sec_title": "Procedure.",
+   "text": "Figure 4 provides an overview of the procedure. Participants were directed to a custom JavaScript application deployed on a Heroku website (leveraging a template from Callaway & Correa, 2025). After consenting, participants answered an instructional manipulation (attention) question and then indicated their political ideology on a 7-point scale (1 = Very Liberal, 7 = Very Conservative). We then collected pre-intervention attitudes towards participants’ political ingroup using a 0–100 feeling thermometer (“How warm do you feel toward the average [liberal / conservative] person?” 0 = Very Cold, 100 = Very Warm). After providing an initial rating, participants were randomly assigned to one of the Positive Demand, Negative Demand, or Control conditions and read the following: “You will now see a series of flashing images. These images are designed to [increase warmth / decrease warmth / not affect attitudes] toward the average [liberal / conservative]. These images are designed to have effects that last for a few hours. Please maintain your focus on the center of the screen.”",
+   "printed": true
+  },
+  {
+   "para_id": 23,
+   "loc": "body",
+   "sec_title": "Procedure.",
+   "text": "Participants then completed 16 “subliminal image” trials (see Figure 4). On each trial, participants first viewed a central fixation cross for 500 ms. Then, a centrally presented maximum 100-by-67 pixel condition-congruent intervention image in a 600-by-600 pixel black square appeared for 16 ms (equivalent to approximately one frame on a standard computer monitor with a 60 Hz refresh rate). The intervention image was presented for a shorter duration than many priming studies employ (e.g., two-thirds that of the Very Brief Exposure paradigm; Siegel & Warren, 2025), and covering only a small area of the screen (1/17th that of the Very Brief Exposure paradigm). Finally, the image was replaced with a word mask for 500 ms (political ingroup, i.e., either the word “LIBERAL” or “CONSERVATIVE”), followed by a fixation cross for 500 ms. As we were not focused on estimating participants’ image detection skills, there was no inter-trial interval. So as not to deceive participants, the image we presented was in fact of an ingroup politician (liberal: Barack Obama; conservative: John McCain) shown either smiling (Positive Demand/increase ingroup warmth condition), frowning (Negative Demand/decrease ingroup warmth condition), or with a neutral expression (Control/not affect attitudes condition). A participant was presented with the same image on each trial.",
+   "printed": true
+  },
+  {
+   "para_id": 24,
+   "loc": "body",
+   "sec_title": "BOUNDING EXPERIMENTER DEMAND EFFECTS",
+   "text": "In each experiment, following prior literature, we expected to observe experimenter demand effects. But although we successfully manipulated participants’ beliefs about each study’s hypotheses, we did not observe evidence that inducing such experimenter demand significantly altered participants’ behavior, judgments, or attitudes. However, we recognize that absence of evidence is not equivalent to evidence of absence. We therefore conducted exploratory analyses aimed at assessing the extent to which our data can help bound the plausible magnitude of experimenter demand effects within online experiments conducted with experienced participants. Specifically, we conducted a Bayesian region-of-practical-equivalence (ROPE) analysis. We note that although our studies use fairly large samples by contemporary standards (approximately N = 250 per cell), they are somewhat underpowered for equivalence testing. We therefore pool across studies to estimate the standardized effects of positive and negative demand relative to control.5 We specified a region of practical equivalence of Cohen’s d = ±0.20, corresponding to a traditionally “small” effect (Cohen, 1988). The posterior mean for the difference between positive demand and control was d = 0.04, 95% CrI [−0.05, 0.13]. The posterior mean for the difference between negative demand and control was d = −0.04, 95% CrI [−0.13, 0.05]. For both contrasts, 99.98% of the posterior probability mass fell within the ROPE. For practical purposes, our data indicate that effects of experimenter demand in these paradigms with online samples are unlikely to be larger than Cohen’s d of ±0.20.",
+   "printed": true
+  },
+  {
+   "para_id": 25,
+   "loc": "body",
+   "sec_title": "BOUNDING EXPERIMENTER DEMAND EFFECTS",
+   "text": "In addition, we ran a frequentist two-one-sided test (TOST) procedure to test for the absence of a meaningful effect of demand (Lakens, 2017). That is, we tested whether our standardized estimates of demand effects, pooled across studies within direction, were within equivalence bounds of d = 0.20 (i.e., a “small” effect size). For both directions, the equivalence test was significant (Positive: z = −2.15, p = 0.016; Negative: z = 2.72, p = 0.003) and the null hypothesis test was non-significant (Positive: z = 1.41, p = 0.157; Negative: z = −0.87, p = 0.383); we can rule out experimenter demand effects larger than |d| = 0.2 in our data.",
+   "printed": true
+  },
+  {
+   "para_id": 26,
+   "loc": "body",
+   "sec_title": "GENERAL DISCUSSION",
+   "text": "Our findings strengthen the view emerging in recent literature arguing that simple disclosure of a study’s expected result seldom contaminates data quality in online behavioral research using modern paradigms (Coles et al., 2025; de Quidt et al., 2019; Mummolo & Peterson, 2019; Winichakul et al., 2024). Why might participants register a cue but decline to act on it? One possibility is insufficient motivation: with full anonymity, modest stakes, and no interpersonal rapport with the experimenter, Prolific participants may feel little incentive to “help” the researcher beyond meeting basic task requirements. Additionally, economic generosity, moral judgments, and group attitudes may be governed by stable preferences that mere knowledge of a study’s hypothesis cannot easily override. In Experiment 3, our exploratory analyses are inconsistent with the possibility that different participants demonstrated either compliance with or reactance to experimenter demand cues, yielding a mixture of such responses across the population. Thus, even if rare individuals may treat the cue as a signal to conform (or rebel), their influence on aggregate estimates is insignificant.",
+   "printed": true
+  },
+  {
+   "para_id": 27,
+   "loc": "body",
+   "sec_title": "GENERAL DISCUSSION",
+   "text": "Our findings are subject to several limitations. First, our cues stated an expected direction of behavior but offered no social evaluation, financial leverage, or moral pressure. More forceful manipulations (e.g., “You will help us if …” or financial bonuses for hypothesis-consistent behaviors) could elicit larger shifts in participants’ responses (Corneille & Lush, 2023; de Quidt et al., 2018), though manipulations like these are atypical in modern experimental psychology.",
+   "printed": true
+  },
+  {
+   "para_id": 28,
+   "loc": "body",
+   "sec_title": "GENERAL DISCUSSION",
+   "text": "Second, our cues were explicit. Perhaps “demand characteristics may be less effective or even have a paradoxical action if they are too obvious” (Orne, 2009, p. 116). Related, it is possible that explicit cues induce a form of experimenter demand (e.g., about how participants should respond to learning hypotheses) unlike those typically encountered in psychology experiments. However, we observe neither demand effects nor paradoxical actions (i.e, reactance), and we test explicit cues that are both very obvious (Experiments 1 and 2) and more subtle (Experiment 3). It remains possible that only minimally obvious cues (e.g., researcher facial expressions or even more subtle messages requiring interpretation by participants) will induce traditional demand effects (cf. Coles et al., 2025; Corneille & Lush, 2023). If so, the field requires a theory of how participants’ interpretation of these minimally obvious demand cues translates into biased estimates.",
+   "printed": true
+  },
+  {
+   "para_id": 29,
+   "loc": "body",
+   "sec_title": "GENERAL DISCUSSION",
+   "text": "Third, participants in all three studies may have held clear views on our domains of generosity, animal welfare, and partisan identity. Attitude-neutral or ambiguous tasks (e.g., abstract puzzles, perceptual judgments) may be more strongly susceptible to experimenter demand effects (Firestone & Scholl, 2016). (However, we also do not observe reactance, which we might have expected to occur if participants held clear views contrary to our experimental manipulations; Seetahul & Greitemeyer, 2024.)",
+   "printed": true
+  },
+  {
+   "para_id": 30,
+   "loc": "body",
+   "sec_title": "GENERAL DISCUSSION",
+   "text": "Fourth, our studies recruited a US-based population. Other populations may differ in their response to experimenter demand; for example, acquiescence, a related effect, appears stronger in collectivistic populations (Johnson et al., 2005) and in traditional societies (Javeline, 1999).",
+   "printed": true
+  },
+  {
+   "para_id": 31,
+   "loc": "body",
+   "sec_title": "TRANSPARENCY AND OPENNESS",
+   "text": "This research was approved by the Harvard University-Area IRB (protocol #IRB14-2016). For all studies, the design, sample size, hypotheses, and analysis plan were preregistered: https://researchbox.org/4593. Materials, preregistration forms, de-identified data, and analysis scripts for all studies are available in an Open Science Framework (OSF) repository: https://osf.io/rkvbd/overview?view_only=2c725a6939ef490d836d9550c19dd309. We report how we determined sample sizes, all data exclusions (if any), all manipulations, and all measures in the studies. All analyses were conducted using R statistical software (R Core Team, 2025). Sample sizes were determined using power analyses based on previous research. No artificial intelligence technologies were used in writing this paper. The authors used AI to assist with programming. The authors have thoroughly checked and take responsibility for all lines of code. For details, see the Supplemental Material.",
+   "printed": true
+  },
+  {
+   "para_id": 32,
+   "loc": "fn",
+   "sec_title": "Notes",
+   "text": "Following de Quidt et al. (2018), for our preregistered replication analyses we additionally report p-values corrected for a false discovery rate at the α = 0.05 level, using the Benjamini-Hochberg method, as pBH.",
+   "printed": true
+  }
+ ],
+ "links": [
+  {
+   "link_id": 1,
+   "url": "osf.io/rkvbd/overview?view_only=2c725a6939ef490d836d9550c19dd309",
+   "url_raw": "https://osf.io/rkvbd/overview?view_only=2c725a6939ef490d836d9550c19dd309",
+   "href_jats": "https://osf.io/rkvbd/overview?view_only=2c725a6939ef490d836d9550c19dd309",
+   "repo_key": "osf:rkvbd",
+   "host_class": "osf",
+   "loc": "body",
+   "sec_title": "DATA AVAILABILITY STATEMENT",
+   "source": "tagged",
+   "para_id": 1
+  },
+  {
+   "link_id": 2,
+   "url": "researchbox.org/4593",
+   "url_raw": "https://researchbox.org/4593",
+   "href_jats": "https://researchbox.org/4593",
+   "repo_key": null,
+   "host_class": "other",
+   "loc": "body",
+   "sec_title": "DATA AVAILABILITY STATEMENT",
+   "source": "tagged",
+   "para_id": 1
+  }
+ ],
+ "links_optional": [
+  "creativecommons.org/licenses/by/4.0",
+  "d-scholarship.pitt.edu/46953",
+  "doi:10.1002/1097-0258(20001130)19:22<3127::aid-sim784>3.0.co;2-m",
+  "doi:10.1006/obhd.1996.0077",
+  "doi:10.1007/s10683-009-9230-z",
+  "doi:10.1016/0022-1031(70)90072-7",
+  "doi:10.1016/j.leaqua.2021.101496",
+  "doi:10.1017/9781009010054",
+  "doi:10.1017/s0003055418000837",
+  "doi:10.1017/s0140525x15000965",
+  "doi:10.1037/cns0000435",
+  "doi:10.1037/emo0001368",
+  "doi:10.1037/h0043424",
+  "doi:10.1037/mot0000091",
+  "doi:10.1038/s41562-025-02271-w",
+  "doi:10.1086/297701",
+  "doi:10.1093/acprof:oso/9780195385540.003.0005",
+  "doi:10.1111/ajps.12081",
+  "doi:10.1162/opmi.a.367",
+  "doi:10.1177/0022022104272905",
+  "doi:10.1177/0146167218798821",
+  "doi:10.1177/01461672221103058",
+  "doi:10.1177/10888683221104368",
+  "doi:10.1177/1948550617697177",
+  "doi:10.1177/19485506241273193",
+  "doi:10.1257/aer.20171330",
+  "doi:10.1525/collabra.143005",
+  "doi:10.3758/pbr.16.5.964",
+  "doi:10.4337/9781788110563.00031",
+  "github.com/fredcallaway/heroku-experiment",
+  "r-project.org",
+  "web.archive.org/web/20250803111024/https://www.prolific.com/resources/how-to-improve-data-quality-in-online-studies"
+ ],
+ "own_doi": "doi:10.1162/opmi.a.367",
+ "citations": [
+  {
+   "cite_id": 1,
+   "para_id": 2,
+   "bib_id": 21,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 2,
+   "para_id": 2,
+   "bib_id": 26,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 3,
+   "para_id": 2,
+   "bib_id": 22,
+   "marker": "1962",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 4,
+   "para_id": 2,
+   "bib_id": 32,
+   "marker": "2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 5,
+   "para_id": 3,
+   "bib_id": 22,
+   "marker": "1962",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 6,
+   "para_id": 3,
+   "bib_id": 29,
+   "marker": "1970",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 7,
+   "para_id": 3,
+   "bib_id": 2,
+   "marker": "2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 8,
+   "para_id": 4,
+   "bib_id": 13,
+   "marker": "1996",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 9,
+   "para_id": 5,
+   "bib_id": 6,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 10,
+   "para_id": 5,
+   "bib_id": 6,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 11,
+   "para_id": 5,
+   "bib_id": 1,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 12,
+   "para_id": 5,
+   "bib_id": 6,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 13,
+   "para_id": 6,
+   "bib_id": 8,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 14,
+   "para_id": 6,
+   "bib_id": 31,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 15,
+   "para_id": 6,
+   "bib_id": 20,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 16,
+   "para_id": 6,
+   "bib_id": 8,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 17,
+   "para_id": 6,
+   "bib_id": 8,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 18,
+   "para_id": 6,
+   "bib_id": 31,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 19,
+   "para_id": 6,
+   "bib_id": 20,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 20,
+   "para_id": 6,
+   "bib_id": 20,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 21,
+   "para_id": 7,
+   "bib_id": 27,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 22,
+   "para_id": 7,
+   "bib_id": 7,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 23,
+   "para_id": 8,
+   "bib_id": 16,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 24,
+   "para_id": 8,
+   "bib_id": 30,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 25,
+   "para_id": 9,
+   "bib_id": 22,
+   "marker": "1962",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 26,
+   "para_id": 10,
+   "bib_id": 8,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 27,
+   "para_id": 10,
+   "bib_id": 6,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 28,
+   "para_id": 11,
+   "bib_id": 10,
+   "marker": "2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 29,
+   "para_id": 11,
+   "bib_id": 11,
+   "marker": "2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 30,
+   "para_id": 11,
+   "bib_id": 8,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 31,
+   "para_id": 12,
+   "bib_id": 8,
+   "marker": "2018",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 32,
+   "para_id": 13,
+   "bib_id": 4,
+   "marker": "2000",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 33,
+   "para_id": 14,
+   "bib_id": 8,
+   "marker": "2018",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 34,
+   "para_id": 15,
+   "bib_id": 6,
+   "marker": "2025",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 35,
+   "para_id": 16,
+   "bib_id": 8,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 36,
+   "para_id": 17,
+   "bib_id": 8,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 37,
+   "para_id": 17,
+   "bib_id": 12,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 38,
+   "para_id": 18,
+   "bib_id": 8,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 39,
+   "para_id": 19,
+   "bib_id": 8,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 40,
+   "para_id": 20,
+   "bib_id": 17,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 41,
+   "para_id": 20,
+   "bib_id": 19,
+   "marker": "2026",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 42,
+   "para_id": 21,
+   "bib_id": 25,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 43,
+   "para_id": 22,
+   "bib_id": 3,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 44,
+   "para_id": 23,
+   "bib_id": 28,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 45,
+   "para_id": 24,
+   "bib_id": 5,
+   "marker": "1988",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 46,
+   "para_id": 25,
+   "bib_id": 18,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 47,
+   "para_id": 26,
+   "bib_id": 6,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 48,
+   "para_id": 26,
+   "bib_id": 9,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 49,
+   "para_id": 26,
+   "bib_id": 20,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 50,
+   "para_id": 26,
+   "bib_id": 31,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 51,
+   "para_id": 27,
+   "bib_id": 7,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 52,
+   "para_id": 27,
+   "bib_id": 8,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 53,
+   "para_id": 28,
+   "bib_id": 23,
+   "marker": "2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 54,
+   "para_id": 28,
+   "bib_id": 6,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 55,
+   "para_id": 28,
+   "bib_id": 7,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 56,
+   "para_id": 29,
+   "bib_id": 11,
+   "marker": "2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 57,
+   "para_id": 29,
+   "bib_id": 27,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 58,
+   "para_id": 30,
+   "bib_id": 15,
+   "marker": "2005",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 59,
+   "para_id": 30,
+   "bib_id": 14,
+   "marker": "1999",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 60,
+   "para_id": 31,
+   "bib_id": 24,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 61,
+   "para_id": 32,
+   "bib_id": 8,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-ext-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "v1_bib_count": 32
+ }
+}

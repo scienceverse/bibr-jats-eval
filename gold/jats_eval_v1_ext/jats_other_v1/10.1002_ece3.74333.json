@@ -1,0 +1,664 @@
+{
+ "paper_id": "10.1002_ece3.74333",
+ "paras": [
+  {
+   "para_id": 1,
+   "loc": "body",
+   "sec_title": "Statistical Methods",
+   "text": "The representative sequence of each OTU was aligned against the SILVA (16S) database using usearch‐sintax/blast to obtain taxonomic annotation information (confidence threshold default = 0.8, default database = SILVA (16S)) (Caporaso et al. 2010). Relative abundances of species were calculated at the phylum, class, order, family, genus, and other taxonomic levels, and community structure analyses were performed. Based on the OTU abundance table, alpha diversity indices (Chao1, Shannon, Simpson) were calculated using usearch‐alpha_div (V10, http://www.drive5.com/usearch/) and R packages to evaluate the species richness and diversity of the gut microbiota in the samples. Differences between groups were analyzed using the Wilcoxon rank‐sum test, with p < 0.05 considered statistically significant. Principal coordinate analysis (PCoA) was performed using the vegan package in R software with the Bray–Curtis distance algorithm to compare differences in microbial community structure between groups.",
+   "printed": true
+  },
+  {
+   "para_id": 2,
+   "loc": "back",
+   "sec_title": "Data Availability Statement",
+   "text": "All data generated or analyzed during this study are included in the NCBI BioProject database under accession number PRJNA1456346. The dataset can be accessed at https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1456346.",
+   "printed": true
+  },
+  {
+   "para_id": 3,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "The Asian elephant ( Elephas maximus ) is the largest extant terrestrial mammal in Asia and a typical flagship species, playing an important role in maintaining the structure and function of forest ecosystems. In China, it is listed as a first‐class national protected wildlife species and assessed as endangered by the International Union for Conservation of Nature (IUCN) (Wang et al. 2021). Historically, Asian elephants were widely distributed across South and Southeast Asia (Olivier 1978); however, due to habitat loss and human activities, their range has significantly contracted, and they now occur only in scattered populations across 13 countries, including China (Li 1998). Against the background of global population declines, the Asian elephant population in China has shown a recovery, increasing from approximately 150 individuals at the end of the 20th century to over 300 individuals by 2025, with a particularly notable increase in Yunnan Province (Li 2017).",
+   "printed": true
+  },
+  {
+   "para_id": 4,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Asian elephants are hindgut‐fermenting herbivores. Their own genome does not encode cellulose‐degrading enzyme systems, and their utilization of plant fiber relies on gut microbial fermentation (Imlberger et al. 2014; Chong et al. 2019). The gut microbiota plays a critical role in nutrient breakdown, energy acquisition, and host health maintenance in herbivorous mammals. Studies have shown that the gut microbiota of elephants is primarily composed of Firmicutes, Bacteroidetes, and Proteobacteria, with compositional differences observed across species and habitats, and these differences are closely related to diet composition and environmental factors (Budd et al. 2020). In the African savanna elephant ( Loxodonta africana ) and the African forest elephant (Loxodonta cyrictis), the most common phyla in the gut are Firmicutes, Protebacteria, and Bacteroidetes. The gut microbiota of the African savanna elephant is dominated by Firmicutes, whereas that of the African forest elephant is dominated by Protebacteria, a difference attributed to dietary variations resulting from their distinct habitats (Budd et al. 2020). The gut microbiota also differs between captive and wild Asian elephants. A study on three wild Asian elephants at the Wild Elephant Valley in Xishuangbanna found that the most abundant phylum was Firmicutes, followed by Bacteroidetes, Proteobacteria, Fibrobacteres, Spirochaetes, and Actinobacteria (Klinhom et al. 2025); in contrast, another study on captive Asian elephants reported that the dominant gut microbiota consisted mainly of Firmicutes, Bacteroidetes, Proteobacteria, and Spirochaetes (Klinhom et al. 2025). Studies on individual wild Asian elephants have shown a high abundance of Firmicutes and cellulose‐degrading enzymes in the gut, indicating a strong capacity for lignocellulose degradation (Zhang et al. 2019; Lin et al. 2016); metagenomic analyses further revealed that the gut microbiota of wild Asian elephants is enriched with functional enzymes involved in the degradation of hemicellulose and complex polysaccharides (Klinhom et al. 2025). Research has found that the transition between wild and captive states can lead to significant changes in gut microbiota composition, which may affect the host's ability to adapt to the environment (Chong et al. 2019). Due to the relatively monotonous diet structure of captive individuals, their gut microbiota diversity and functional potential are reduced (Mohamed et al. 2021; Wang, Wang, Zhou, et al. 2024). Sarisa Klinhom and colleagues collected fecal samples from 18 Asian elephants in Chiang Mai, Thailand, and performed sequencing analysis. They found that the most abundant phylum in healthy Asian elephants was Firmicutes, followed by Bacteroidetes. Compared to healthy individuals, elephants suffering from colic and diarrhea exhibited reduced levels of Bacteroidetes. Healthy Asian elephants had a relatively even composition of gut bacterial communities, whereas those with gastrointestinal diseases showed marked changes in the abundance of specific bacterial taxa and significantly lower alpha diversity than healthy individuals, indicating that gastrointestinal diseases significantly affect the gut microbiota composition of Asian elephants (Klinhom et al. 2025).",
+   "printed": true
+  },
+  {
+   "para_id": 5,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Wild Asian elephants exhibit strict selectivity for habitat factors such as food type and quantity, habitat area, concealment conditions, water availability, and temperature. They primarily inhabit tropical rainforests, seasonal rainforests, and forested ravines and thickets below an altitude of 1000 m (Tan and Yu 2015). Regarding Simao District specifically, land use changes are mainly characterized by a reduction in forest land, cultivated land, and grassland, which have been converted into other land types, along with an increase in plantation land, construction land, and water areas. Among these, plantation land showed an average annual growth rate of 3.9%. Changes in forest land use are the primary cause of the ongoing reduction and fragmentation of suitable habitats for Asian elephants. Currently, suitable habitat area accounts for only 14%, indicating severe habitat fragmentation (Jin et al. 2023). Further studies have found that during the dry season, Asian elephants in Simao primarily consume 19 species of wild plants and 11 species of crops and economic trees. The main factors influencing their habitat use include food resources, concealment conditions, and human disturbance (Wang and Zhang 2001).",
+   "printed": true
+  },
+  {
+   "para_id": 6,
+   "loc": "body",
+   "sec_title": "Study Area",
+   "text": "The Pu'er region in Yunnan Province is an important distribution area for Asian elephants in China (Figure 1), with different areas within this region exhibiting notable differences in vegetation composition, water source distribution, and intensity of human activity disturbance. Wild Asian elephants exhibit strict selectivity for habitat factors such as food type and quantity, habitat area, concealment conditions, water availability, and temperature, and they mainly inhabit tropical rainforests, seasonal rainforests, and forested ravines and thickets below an altitude of 1000 m (Tan and Yu 2015). The Jiangcheng subpopulation consists of approximately 44 elephants, while the Liushun subpopulation consists of approximately 45 elephants, and both interact with the Mengyang subpopulation in Mengwang Township, Jinghong City (Zhu et al. 2019). The Jiangcheng area is dominated by tropical seasonal evergreen broadleaf forest, which provides relatively abundant and stable food resources year‐round (Zhang et al. 2003); in contrast, the Liushun area experiences greater human disturbance, primarily in the form of agricultural expansion, crop cultivation, and increased infrastructure development, which lead to more pronounced spatial and seasonal fluctuations in food resource availability (Zhang et al. 2003; Guo et al. 2006). Currently, research on the gut microbiota of Asian elephants remains focused on wild and captive populations in the Xishuangbanna region, while studies on Asian elephants in the Pu'er region are relatively lacking.",
+   "printed": true
+  },
+  {
+   "para_id": 7,
+   "loc": "body",
+   "sec_title": "Sequencing and Data Processing",
+   "text": "PCR products were used to construct libraries with the NEBNext Ultra II DNA Library Prep Kit (New England Biolabs, USA). After the library quality was confirmed as qualified by Qubit quantification and Agilent 2100 analysis, paired‐end sequencing (PE250) was performed on the Illumina NovaSeq 6000 platform. The raw sequencing data were first subjected to quality control. Fastp software was used to filter sequences, remove adapters, and perform quality trimming to obtain high‐quality clean reads (Chen, Zhou, et al. 2018; Chen, Jiang, et al. 2018). Subsequently, the USEARCH software was employed for bidirectional sequence assembly and denoising processing, followed by OTU clustering based on a 97% similarity threshold (Edgar 2013).",
+   "printed": true
+  },
+  {
+   "para_id": 8,
+   "loc": "body",
+   "sec_title": "Statistical Methods",
+   "text": "Based on the normalized abundance table (OTU_table) at various taxonomic levels, LEfSe (Linear Discriminant Analysis Effect Size) software was used to identify differentially abundant species between groups. First, the nonparametric factorial Kruskal–Wallis (KW) sum‐rank test was used to detect species with significant abundance differences among groups. Then, the pairwise Wilcoxon rank‐sum test was applied to determine differences between two groups. Finally, linear discriminant analysis (LDA) was used for dimensionality reduction and to evaluate the effect size of differentially abundant species (i.e., LDA score). The default LDA score threshold was set to 2, and the results represent the biomarkers within each group. The OTU abundance table was normalized using PICRUSt2 to remove the effect of copy number of the 16S marker gene in species genomes. Then, through the GreenGene ID corresponding to each OTU/ASV, the data were aligned to the KEGG database. Based on the KEGG annotation, KO, Pathway, and EC information were obtained, and the abundance of each functional category was calculated according to OTU abundance. Abundance tables for each sample at different functional levels were generated for subsequent analyses (Langille et al. 2013).",
+   "printed": true
+  },
+  {
+   "para_id": 9,
+   "loc": "body",
+   "sec_title": "Analysis of Species Community Structure",
+   "text": "Based on a 97% similarity threshold, OTU clustering analysis was performed on a total of 3,334,093 sequences from the JC and LS groups using the UPARSE algorithm implemented in USEARCH v10 (Edgar 2013) to obtain the community composition at various taxonomic levels. During clustering, sequences with lengths < 400 or > 600 bp were discarded, and the maximum mismatches in the barcode were set to 1. Among all OTUs obtained from the samples, a total of 24 phyla, 48 classes, 98 orders, 164 families, 288 genera, and 351 species were annotated. The number of shared OTUs between the two groups was 1897; the JC group had 3890 unique OTUs, while the LS group had 3789 unique OTUs (Figure 2), indicating significant differences in the species composition of the gut microbiota of Asian elephants under different habitat conditions. The representative sequence of each OTU was aligned against the SILVA v138 (16S) database using usearch‐sintax/blast with a default confidence threshold of 0.8 to obtain taxonomic annotation information. The rarefaction curves (Figure 3) showed that as sequencing depth increased, the curves for each sample gradually leveled off and eventually reached a plateau, indicating that the sequencing data volume in this study had largely covered the vast majority of microbial species in the samples and that the sequencing depth was sufficient to truly reflect the diversity characteristics of the microbial communities.",
+   "printed": true
+  },
+  {
+   "para_id": 10,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "At the phylum level, Firmicutes and Bacteroidetes were the common dominant phyla in both groups, a finding consistent with previous studies (Zhang et al. 2019; Keady et al. 2021). In African savanna elephants and African forest elephants, the most prevalent phyla were Firmicutes, Proteobacteria, and Bacteroidetes; the gut microbiota of savanna elephants was dominated by Firmicutes, whereas that of forest elephants was dominated by Proteobacteria, which is associated with dietary differences driven by their distinct habitats (Budd et al. 2020). Firmicutes and Bacteroidetes are major components of the gut microbiota in these animals and are essential for fermentation of plant‐derived polysaccharides (Budd et al. 2020; Berg and Cernava 2022; Niu et al. 2023). Proteobacteria were uniquely detected in the LS group but not in the JC group. It has been reported that Proteobacteria are involved in protein and lipid metabolism in the intestines of ruminants and poultry (Cholewińska et al. 2020), suggesting that Asian elephants in the LS group may consume more energy. Notably, Proteobacteria are known to be enriched under conditions of host stress, dietary imbalance, or low‐grade intestinal inflammation (Shin et al. 2015). In the LS area, where human disturbance is stronger and food resources fluctuate more, the enrichment of Proteobacteria may reflect a state of gut microbial dysbiosis or an adaptive shift in the microbiota to cope with fluctuating nutrient availability and environmental stressors. This observation is consistent with studies in other mammals, where Proteobacteria abundance often increases in response to dietary changes or anthropogenic pressures (Zhu et al. 2022). Furthermore, the abundance of Spirochaetes was lower in the LS group than in the JC group. Previous studies have shown that under high‐fiber dietary conditions, Spirochaetes can cooperate with Bacteroidetes to promote carbohydrate metabolism, but their abundance may become abnormal under specific disease conditions or environmental stress (Shoaib et al. 2024). Therefore, monitoring changes in gut microbial abundance in wild Asian elephants is of great value for health assessment.",
+   "printed": true
+  },
+  {
+   "para_id": 11,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "At the family level, both groups shared Lachnospiraceae, Spirochaetaceae, and Oscillospiraceae as dominant families, together accounting for over 50% of the gut microbiota and constituting the major components. This result is consistent with a previous study (Yang 2025). A characterization study of gut microbiota in wild Asian elephants from five nature reserves in Thailand similarly found that Lachnospiraceae was the most dominant family across all sampling sites, followed by Oscillospiraceae (Kantirakoon et al. 2026). As a key fiber‐degrading group within Firmicutes, Lachnospiraceae is widespread in the intestines of large herbivores and plays a critical role in the fermentation of plant cell wall polysaccharides (Wang, Wang, Zhou, et al. 2024). Regarding Oscillospiraceae, a study reported high abundance of Oscillospira in the gut of plateau pikas, which is associated with plant polysaccharide degradation (Feng et al. 2020), implying that Oscillospira may participate in the fermentation and metabolism of dietary fiber. Spirochaetaceae, due to their unique spiral morphology and active motility, are widely distributed in natural environments and within animal bodies (Pappas et al. 2024). Overall, the abundant presence of Lachnospiraceae, Oscillospiraceae, and Spirochaetaceae in the gut of wild Asian elephants is crucial for health maintenance and energy acquisition, although potential pathogenic risks also warrant attention. In this study, the abundance of Prevotellaceae was significantly higher in the JC group than in the LS group. Prevotella is a key taxon in the herbivore gut that degrades complex carbohydrates and can utilize dietary fiber, resistant starch, and other polysaccharides to produce short‐chain fatty acids (e.g., acetate, propionate, and butyrate), which positively affect host energy metabolism and intestinal health (Ley 2016). In a dietary study on juvenile Asian elephants, Prevotellaceae was more abundant in the goat milk–plant mixed‐feed group, further confirming the association of this family with plant‐based diet intake (Zhang et al. 2023). Based on these findings, the higher abundance of Prevotellaceae in the JC group may be related to the relatively stable and sufficient high‐fiber food resources available in their habitat, which could positively influence their intestinal metabolism and health. In addition to dietary factors, gut microbial composition is also closely associated with host developmental stage. A study on Asian elephants at Okinawa Zoo in Japan found that the gut microbial diversity of calves was significantly lower than that of their mothers and gradually increased with age (Kambe et al. 2020). A study on captive Asian elephants in Germany also showed that gut microbial richness was significantly lower in suckling calves than in plant‐eating individuals (Imlberger et al. 2014). In the wild, calves supplement their gut microbiota by consuming feces from adult elephants (Chen, Zhou, et al. 2018; Chen, Jiang, et al. 2018), a behavior that is important for the establishment and development of the gut microbial community in juveniles.",
+   "printed": true
+  },
+  {
+   "para_id": 12,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Significant differences in gut microbial diversity were observed between the two groups. The alpha diversity of the JC group was significantly higher than that of the LS group. Beta diversity analysis further revealed that samples from the JC group were more clustered, indicating higher community stability, whereas samples from the LS group were more dispersed, indicating greater spatial variation. Previous studies have shown that vegetation type, food sources, and environmental disturbance are important factors driving differences in gut microbial structure (Budd et al. 2020; Rana et al. 2020). In a comparative study of North American bison ( Bison bison ) subspecies (plains bison and wood bison), subspecies classification had no significant effect on alpha diversity but significantly affected beta diversity, indicating that gut microbial differences are primarily driven by differential abundance of specific taxa, likely influenced by dietary preferences, ancestral phenotypes, and historical range distributions. This pattern echoes the beta‐diversity differences observed between the JC and LS groups in our study (Grant et al. 2025). Another study based on 16S rRNA gene phylogenetic analysis found that while alpha diversity of gut bacterial communities in wild Asian elephants showed no significant difference between rainy and dry seasons (remaining generally stable), beta diversity differed significantly, suggesting that seasonal changes (e.g., food availability, temperature, humidity) influence species composition (Chen 2025). Since all samples in the present study were collected during the early to mid‐rainy season and dry‐season samples were not included, this limits a comprehensive understanding of seasonal dynamics in the gut microbiota. To address this limitation, future studies should include dry‐season samples to complete the seasonal sequence and enable systematic comparison of microbial composition and function across seasons.",
+   "printed": true
+  },
+  {
+   "para_id": 13,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "LEfSe analysis revealed that Flavobacteriaceae contributed most to the differences in the JC group. In herbivorous wildlife, Flavobacteriaceae are commonly associated with plant fiber degradation and breakdown of complex polysaccharides (Lee et al. 2024). Their higher contribution in the JC group likely reflects the relatively stable and abundant high‐fiber food resources available in the intact tropical forests of the JC area, which may favor the proliferation of this fiber‐degrading family. In contrast, Bacteroidaceae were the most differentially abundant family in the LS group. Bacteroidaceae are core functional groups in the gut that efficiently degrade dietary fiber and mucosal glycans, playing key roles in maintaining the intestinal barrier and regulating host immunity (Wexler 2007; Flint et al. 2012). The prominent contribution of Bacteroidaceae in the LS group may indicate a greater need for efficient energy extraction from a more variable diet, or it may reflect an adaptive response of the host to nutritional stress and environmental fluctuations caused by anthropogenic disturbance.",
+   "printed": true
+  },
+  {
+   "para_id": 14,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Functional prediction analysis revealed a clear divergence between the two groups at the KEGG pathway level. The JC group was mainly enriched in pathways related to genetic information processing and energy metabolism, reflecting higher metabolic activity and functional stability of their gut microbiota. In contrast, the LS group was enriched in pathways associated with environmental information processing, signal transduction, and xenobiotic metabolism, suggesting that their gut microbiota is more oriented toward functions related to environmental adaptation. Previous studies have shown that gut microbial communities can undergo functional reorganization in response to changes in host diet and external environmental stress (Imlberger et al. 2014; Qin 2007), which is consistent with the findings of this study. In a metagenomic survey of the fecal microbiome of African savanna elephants, carbohydrate catabolic pathways were identified as the main degradation pathways, and the fecal metagenome was enriched in glycoside hydrolase (GH) class CAZymes, with GH43, GH2, GH13, and GH3 being the most abundant GH families (du Preez et al. 2024). Future research could adopt this metagenomic approach to further dissect the actual functional differences between the two groups and their ecological significance.",
+   "printed": true
+  }
+ ],
+ "links": [
+  {
+   "link_id": 1,
+   "url": "drive5.com/usearch",
+   "url_raw": "http://www.drive5.com/usearch/",
+   "href_jats": "http://www.drive5.com/usearch/",
+   "repo_key": null,
+   "host_class": "other",
+   "loc": "body",
+   "sec_title": "Statistical Methods",
+   "source": "tagged",
+   "para_id": 1
+  },
+  {
+   "link_id": 2,
+   "url": "ncbi.nlm.nih.gov/bioproject/prjna1456346",
+   "url_raw": "https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1456346",
+   "href_jats": "https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1456346",
+   "repo_key": null,
+   "host_class": "other",
+   "loc": "back",
+   "sec_title": "Data Availability Statement",
+   "source": "tagged",
+   "para_id": 2
+  }
+ ],
+ "links_optional": [
+  "creativecommons.org/licenses/by/4.0",
+  "doi:10.1002/ece3.6305",
+  "doi:10.1016/j.engmic.2023.100124",
+  "doi:10.1016/j.tibtech.2015.06.011",
+  "doi:10.1017/s1466252319000069",
+  "doi:10.1038/nbt.2676",
+  "doi:10.1038/nmeth.2604",
+  "doi:10.1038/nmeth.f.303",
+  "doi:10.1038/nrgastro.2016.4",
+  "doi:10.1038/s41598-020-80537-1",
+  "doi:10.1038/s41598-025-85495-0",
+  "doi:10.1038/s41598-026-57801-x",
+  "doi:10.1093/bioinformatics/bty560",
+  "doi:10.1111/age.13458",
+  "doi:10.1111/asj.13366",
+  "doi:10.1128/cmr.00008-07",
+  "doi:10.1186/s40168-021-01224-5",
+  "doi:10.1186/s42523-019-0012-4",
+  "doi:10.1186/s42523-021-00146-9",
+  "doi:10.1186/s42523-025-00451-7",
+  "doi:10.1292/jvms.20-0190",
+  "doi:10.1371/journal.pone.0106707",
+  "doi:10.3389/fmicb.2023.1183130",
+  "doi:10.3389/fmicb.2024.1403930",
+  "doi:10.3389/fmicb.2024.1510000",
+  "doi:10.3390/ani13050916",
+  "doi:10.4014/jmb.1904.04033",
+  "doi:10.4161/gmic.19897",
+  "doi:10.5423/ppj.rw.01.2024.0019"
+ ],
+ "own_doi": "doi:10.1002/ece3.74333",
+ "citations": [
+  {
+   "cite_id": 1,
+   "para_id": 3,
+   "bib_id": 38,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 2,
+   "para_id": 3,
+   "bib_id": 28,
+   "marker": "1978",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 3,
+   "para_id": 3,
+   "bib_id": 24,
+   "marker": "1998",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 4,
+   "para_id": 3,
+   "bib_id": 23,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 5,
+   "para_id": 4,
+   "bib_id": 14,
+   "marker": "2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 6,
+   "para_id": 4,
+   "bib_id": 8,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 7,
+   "para_id": 4,
+   "bib_id": 2,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 8,
+   "para_id": 4,
+   "bib_id": 2,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 9,
+   "para_id": 4,
+   "bib_id": 19,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 10,
+   "para_id": 4,
+   "bib_id": 19,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 11,
+   "para_id": 4,
+   "bib_id": 42,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 12,
+   "para_id": 4,
+   "bib_id": 25,
+   "marker": "2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 13,
+   "para_id": 4,
+   "bib_id": 19,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 14,
+   "para_id": 4,
+   "bib_id": 8,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 15,
+   "para_id": 4,
+   "bib_id": 26,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 16,
+   "para_id": 4,
+   "bib_id": 37,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 17,
+   "para_id": 4,
+   "bib_id": 19,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 18,
+   "para_id": 5,
+   "bib_id": 35,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 19,
+   "para_id": 5,
+   "bib_id": 15,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 20,
+   "para_id": 5,
+   "bib_id": 36,
+   "marker": "2001",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 21,
+   "para_id": 6,
+   "bib_id": 35,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 22,
+   "para_id": 6,
+   "bib_id": 44,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 23,
+   "para_id": 6,
+   "bib_id": 43,
+   "marker": "2003",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 24,
+   "para_id": 6,
+   "bib_id": 43,
+   "marker": "2003",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 25,
+   "para_id": 6,
+   "bib_id": 13,
+   "marker": "2006",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 26,
+   "para_id": 7,
+   "bib_id": 6,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 27,
+   "para_id": 7,
+   "bib_id": 5,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 28,
+   "para_id": 7,
+   "bib_id": 9,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 29,
+   "para_id": 1,
+   "bib_id": 3,
+   "marker": "2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 30,
+   "para_id": 8,
+   "bib_id": 20,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 31,
+   "para_id": 9,
+   "bib_id": 9,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 32,
+   "para_id": 10,
+   "bib_id": 42,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 33,
+   "para_id": 10,
+   "bib_id": 18,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 34,
+   "para_id": 10,
+   "bib_id": 2,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 35,
+   "para_id": 10,
+   "bib_id": 2,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 36,
+   "para_id": 10,
+   "bib_id": 1,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 37,
+   "para_id": 10,
+   "bib_id": 27,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 38,
+   "para_id": 10,
+   "bib_id": 7,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 39,
+   "para_id": 10,
+   "bib_id": 33,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 40,
+   "para_id": 10,
+   "bib_id": 45,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 41,
+   "para_id": 10,
+   "bib_id": 34,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 42,
+   "para_id": 11,
+   "bib_id": 40,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 43,
+   "para_id": 11,
+   "bib_id": 17,
+   "marker": "2026",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 44,
+   "para_id": 11,
+   "bib_id": 37,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 45,
+   "para_id": 11,
+   "bib_id": 10,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 46,
+   "para_id": 11,
+   "bib_id": 29,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 47,
+   "para_id": 11,
+   "bib_id": 22,
+   "marker": "2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 48,
+   "para_id": 11,
+   "bib_id": 41,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 49,
+   "para_id": 11,
+   "bib_id": 16,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 50,
+   "para_id": 11,
+   "bib_id": 14,
+   "marker": "2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 51,
+   "para_id": 11,
+   "bib_id": 6,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 52,
+   "para_id": 11,
+   "bib_id": 5,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 53,
+   "para_id": 12,
+   "bib_id": 2,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 54,
+   "para_id": 12,
+   "bib_id": 32,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 55,
+   "para_id": 12,
+   "bib_id": 12,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 56,
+   "para_id": 12,
+   "bib_id": 4,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 57,
+   "para_id": 13,
+   "bib_id": 21,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 58,
+   "para_id": 13,
+   "bib_id": 39,
+   "marker": "2007",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 59,
+   "para_id": 13,
+   "bib_id": 11,
+   "marker": "2012",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 60,
+   "para_id": 14,
+   "bib_id": 14,
+   "marker": "2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 61,
+   "para_id": 14,
+   "bib_id": 31,
+   "marker": "2007",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 62,
+   "para_id": 14,
+   "bib_id": 30,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-ext-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "v1_bib_count": 45
+ }
+}

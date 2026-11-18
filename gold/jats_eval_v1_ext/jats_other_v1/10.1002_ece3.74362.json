@@ -1,0 +1,655 @@
+{
+ "paper_id": "10.1002_ece3.74362",
+ "paras": [
+  {
+   "para_id": 1,
+   "loc": "body",
+   "sec_title": "Data",
+   "text": "The second dataset corresponds to a data compilation of ca. 14 million presence records of 1135 plant species in native and exotic ranges across the entire world (Zachariah Atwater and Barney 2021). The species occurrences were collated mainly from GBIF, but data from the United States were complemented with records from the Early Detection and Distribution Mapping System (Early Detection and Distribution Mapping System, http://www.eddmaps.org). All records were matched to four climatic predictors resulting from a PCA on bioclimatic variables from the WorldClim Global Climate Database (Hijmans et al. 2005). The background locations (10,000 for each species) were randomly chosen from the pool of presence records of all species within the respective biogeographic regions. All the data, including the species occurrences and predictors, were obtained from the original study. The SDMs were fitted to native occurrence records and used to predict the exotic distribution. We retained a total of 787 plant species for analysis according to a model quality criterion (see below).",
+   "printed": true
+  },
+  {
+   "para_id": 2,
+   "loc": "body",
+   "sec_title": "",
+   "text": "FundingThis work was supported by Agencia Estatal de Investigación, European Commission, MSCA Project 101059418, and project PID2023‐150807NA‐I00 funded by MICIU/AEI/10.13039/501100011033 and European Regional Development Fund, UE.",
+   "printed": true
+  },
+  {
+   "para_id": 3,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Understanding and predicting how species respond to environmental variation and change is of primary importance for ecology, biogeography and conservation biology. This is why there is a huge body of work aimed at developing and improving species distribution models (SDMs; also known as ecological niche models). However, the predictive ability and transferability of such models is typically limited (Liu et al. 2020), because, in addition to sampling and analytical issues, the species' responses to the environment are non‐stationary and context dependent in space and time.",
+   "printed": true
+  },
+  {
+   "para_id": 4,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Evidence for changes in the realised niche of species in space and time has been accumulating in different ecosystems (Avidad et al. 2025; Di Marco et al. 2021; Pearman et al. 2008; Pulliam 2000; Zachariah Atwater and Barney 2021; Zurell et al. 2024). Invasive species, in particular, are especially prone to non‐stationarity, as they encounter a diversity of contexts and environments in recipient ecosystems (Cardador and Blackburn 2020; Guisan et al. 2014; Viana et al. 2023; Zachariah Atwater and Barney 2021). Non‐stationarity, assessed as variation in the response of a species to a given environmental gradient, often arises when species responses to the environment are context dependent (Catford et al. 2022). The abiotic context (e.g., climate) in a region at a given time can influence the response of species to any particular environmental gradient. For example, temperature‐dependent body size has been shown to alter species' responses to global warming (Lindmark et al. 2018); and regional microclimate has been shown to moderate plant species' responses to global warming (De Frenne et al. 2013). The effect of climate can also override the effect of a regional environment that would otherwise be stronger, or interact with a regional environment (e.g., land cover) by changing how species exploit it. An extreme example comes from Japan, where the invasive giant bamboo ( Phyllostachys bambusoides ) reverses its response to the canopy cover depending on temperature—positive under cool conditions and negative under warm conditions—resulting in an interaction between light and temperature (Spake et al. 2021). Indeed, much of the observed context dependence can result from interactive effects between environmental drivers (e.g., climate and land cover in the giant bamboo case). As such, we could expect that modelling driver interactions generally improves the predictability of species distributions.",
+   "printed": true
+  },
+  {
+   "para_id": 5,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Species Distribution Models are widely used to model species responses to the environment and predict their distributions under past, present and future environmental conditions (Elith and Leathwick 2009). These models can incorporate interactive effects between environmental predictors, but informed decisions to include them are rarely made. Depending on the study goals and knowledge of the species and ecosystems, approaches based on the general linear model (e.g., GLM, GAM) often omit interactions between multiple predictors due to the overwhelming complexity of specifying them as well as potential overfitting issues caused by the expansion of estimated effects. Machine learning models (e.g., MaxEnt, RF, BRT), on the other hand, are typically used to model flexible non‐linear and interactive effects learned from the data, but can also be prone to overfitting if the algorithms are not carefully tuned (Elith et al. 2006).",
+   "printed": true
+  },
+  {
+   "para_id": 6,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "The question is whether accounting for interactive effects improves the transferability of SDMs, especially when predicting (extrapolating) for different regions and times. On one hand, predictor interactions can account for spatiotemporal variation in niche responses, and thus improve the predictability of species distributions. Although direct tests remain elusive, models and algorithms that allow fitting flexible interactive effects, such as machine learning algorithms, have been systematically proven to achieve higher transferability (Elith et al. 2006; Heikkinen et al. 2012; Tsoar et al. 2007; Valavi et al. 2022, 2023). On the other hand, incorporating interactive effects can produce overfitting of training data and reduce the predictability of species distributions if the interactions themselves are regionally idiosyncratic or not pervasive across the species' ranges—i.e., non‐stationarity produced by complex environmental interactions, fluctuations and change. Moreover, methodological issues might hamper the estimation of relevant interactive effects, including sampling and modelling limitations, omission of important predictors, and scale mismatches (Rousseau and Betts 2022; Takolander et al. 2025; Yates et al. 2018). Therefore, allowing and specifying interactive effects in SDMs is not a straightforward decision.",
+   "printed": true
+  },
+  {
+   "para_id": 7,
+   "loc": "body",
+   "sec_title": "Data",
+   "text": "The first dataset is the result of a collaborative effort to collect data with the purpose of comparing the performance of different species distribution modelling approaches (Elith et al. 2020). This dataset comprises data of 226 anonymised species, including plants, reptiles, birds and bats, collected across six regions of five continents. For each species, the data records are divided in a training dataset with presence‐only records and respective background locations, and a testing dataset with presence‐absence records from an independent survey for evaluating model performance. All species records were matched to predictor variables deemed relevant for each taxon, including climatic, topographical, physico‐chemical, among other predictors (see the detailed data description in Elith et al. 2020). These data were accessed via the R package disdat (Elith et al. 2020).",
+   "printed": true
+  },
+  {
+   "para_id": 8,
+   "loc": "body",
+   "sec_title": "Data",
+   "text": "The third dataset is a compilation of presence records of 150 invasive bird species in their native and exotic ranges at 0.083° resolution from the GBIF database (Cardador and Blackburn 2020). The background locations in native ranges consisted of 10,000 pseudo‐absences randomly drawn from all biomes occupied by each species across its native ranges. In the exotic range, the background area was defined as the total area each species could have potentially colonised, based on the year of introduction and an estimated invasion speed of 4.59 km/year (Blackburn et al. 2009). For this dataset, in addition to climatic data extracted from the WorldClim database (Hijmans et al. 2005), we used land use predictors which were not included in the original study to model potential habitat‐climate interactions. Land use data, extracted from the Land‐Use Harmonization2 dataset (Hurtt et al. 2020), correspond to fractional land‐use patterns, the transitions between different land uses, and important agricultural management details at a spatial resolution of 0.25 × 0.25°. Both climate and land use variables were averaged across the period 1970–2000. The final set of predictor variables, selected to avoid collinearity issues, was: maximum temperature of the warmest month, minimum temperature of the coldest month, precipitation of the driest month, precipitation of the wettest month and precipitation seasonality as climatic variables, and forest, non‐forest, pasture, crop and urban cover as land use variables (land use subcategories were aggregated). We excluded two species due to model fitting issues.",
+   "printed": true
+  },
+  {
+   "para_id": 9,
+   "loc": "body",
+   "sec_title": "Species Distribution Models",
+   "text": "We chose MaxEnt and Boosted Regression Trees (BRT), two widely used machine learning approaches, that allow an optional estimation of interactive effects without having to specify them. Furthermore, machine learning algorithms are ideal for modelling nonlinear relationships, also preventing spurious interactions that could arise from nonlinearity (Duncan and Kefford 2021). Two versions of each model type were applied to all species: models either with or without predictor interactions. MaxEnt models were run using the R package dismo (Hijmans et al. 2017) always allowing linear and quadratic model terms (called “features” in MaxEnt), and activating or deactivating the product (i.e., interaction) feature. BRT were run using the R package gbm (Greenwell et al. 2019) with a learning rate (i.e., “shrinkage”) of 0.01, 1 k trees, a cross validation procedure with five folds and bag fraction of 0.75, and an interaction depth of either 1 (no interactions) or 2 (two‐way interactions), using the same cross‐validation data folds in both model fits. Even though the two approaches deal with complexity and fit the data in different ways, including the estimation of interaction effects, they are commonly used and combined within the same SDM frameworks and studies (Araújo and New 2007). Our goal was to exclusively compare differences in transferability between models with or without predictor interactions (while keeping the remaining parameters fixed), independently of likely differences in their ecological interpretations. Models showing poor fits to the training data—i.e., those showing in‐sample goodness‐of‐fit of < 0.70 (Hosmer et al. 2013; Pearce and Ferrier 2000), as measured by the area under the receiver operating curve (AUC) – were excluded, resulting in 1158 species kept for analysis. For each species, we assessed the predictive ability (or transferability) of the models by calculating the out‐of‐sample AUC with the testing data, consisting of either the independent evaluation data in the first dataset or the occurrence data in the exotic range in the other two datasets. We then compared the out‐of‐sample AUC of models with and without interactions across species.",
+   "printed": true
+  },
+  {
+   "para_id": 10,
+   "loc": "body",
+   "sec_title": "Model Comparison",
+   "text": "To evaluate the effect of accounting for predictor interactions on model transferability, we first calculated the difference in out‐of‐sample AUC between models with and without interactions, such that more positive values indicate a better predictive ability of models with interactions. The significance of this difference was evaluated using the Delong test for concordance in Receiver Operating Curves (ROC) using the function “roc.test” of the R package pROC (Robin et al. 2011). To generally test for differences in the transferability of models with and without interactions, we performed paired permutation tests for each species and model separately using the function “twoSamplePermutationTestLocation” of the R package EnvStats (Millard 2013). Then, using a linear model, we modelled the AUC difference as a function of model type (Maxent vs. BRT) in interaction with the case study (3‐level factor), the number of presence points in the training data, the area encompassed by the training occurrences, and the environmental novelty between training and testing areas (calculated for each species distribution as the proportion of Mahalanobis distances above the 0.95 quantile of their frequency distribution). Because the number of features that MaxEnt uses (including the “product” feature) depends on the sample size, the number of presence records also corrects for possible biases produced by species with lower data availability (25% of the species had less than 100 training occurrences). In addition, we repeated this analysis for each case study and model type separately to account for differences in test settings and algorithms (Supporting Information, Tables S1–S9). For the first case study, we also tested for differences between taxonomic groups in interaction‐induced transferability differences.",
+   "printed": true
+  },
+  {
+   "para_id": 11,
+   "loc": "body",
+   "sec_title": "Results",
+   "text": "The general predictive performance of the models was moderate (according to Hosmer et al. 2013; Pearce and Ferrier 2000), with a global out‐of‐sample AUC median of 0.756 (Q5% = 0.501, Q95% = 0.986; range: 0.355–1). MaxEnt models had slightly better performance compared to BRT, with median AUC of 0.771 and 0.743, respectively. As expected, their performances were strongly correlated, both for models with and without predictor interactions (r = 0.77 and 0.78, respectively; Figure 2a,b). However, the difference in performance between models with and without interactions was not systematically consistent between MaxEnt and BRT (r = 0.05; Figure 2c).",
+   "printed": true
+  },
+  {
+   "para_id": 12,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "In general, modelling interactive effects did not influence the transferability of the fitted species distribution models, not even within the native distributions of species where environmental conditions are expected to be more similar than in distant invaded regions. In fact, the models' predictive power was often quite low, revealing a high degree of statistical non‐stationarity potentially explained by biological factors such as high environmental heterogeneity, global environmental change and the plasticity of species responses to environmental variation, as well as analytical issues such as omission of important predictors and sampling scale and coverage (Yates et al. 2018).",
+   "printed": true
+  },
+  {
+   "para_id": 13,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Environmental heterogeneity, exacerbated by rapid global change, poses significant challenges for an appropriate characterisation of the diversity of environmental contexts under which species live, hindering our ability to capture biologically relevant environmental interactions. For example, global change is disrupting the species' responses to the environment and causing extinction debts, producing environmental decoupling that further complicates model training and transferability (Viana and Chase 2022; Zurell et al. 2024). Moreover, differences in the regional biotic context and landscape connectivity can affect the species' responses to the abiotic environment. For example, the presence of new competitors or predators can affect the realised niche response (Alexander et al. 2015; Brooker 2006; Viana et al. 2023), and even reverse responses (Suttle et al. 2007); and differences in connectivity among regions can lead to differences in the ability of populations to track their niche, causing variable niche responses across the species' ranges (Schloss et al. 2012).",
+   "printed": true
+  },
+  {
+   "para_id": 14,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "How species respond to the environment is also mediated by the species' functional traits—which can evolve and be more or less plastic, generating the high intraspecific trait variability observed in many species. This biological variation and plasticity introduce an additional layer of variation in species–environment interactions that further compromises model transferability (Paton and Matthiopoulos 2016). For example, body size is a critical ecophysiological factor that can mediate differential population responses to climatic gradients, and behavioural variability in animals can lead to differential selection of microhabitats and diets. This is why there have been efforts to model distributions at the subspecies level (Cardador et al. 2022; Oney et al. 2013) or to develop process‐based SDMs that integrate intraspecific trait variability (Chardon et al. 2020).",
+   "printed": true
+  },
+  {
+   "para_id": 15,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "In addition to ecological and biological factors, analytical issues, such as spatial biases in data collection, low sample size and omission of important environmental drivers (Sequeira et al. 2016), may also explain why models incorporating interactive effects were not more transferable. Usually, species are not sampled across the entire environmental gradients on which they occur (or could occur given their fundamental niche), which precludes an efficient characterisation of the variety of environmental contexts where populations subsist. Furthermore, data quality is often affected by differences in the resolution of environmental variables that can potentially miss important variation, as well as by a misalignment between the species' response and the measured environmental grain (Lu and Jetz 2023). These scaling issues can get even worse when modelling interactive effects, since their effective estimation should depend on data resolutions fine enough to capture biologically relevant interdependencies.",
+   "printed": true
+  }
+ ],
+ "links": [
+  {
+   "link_id": 1,
+   "url": "eddmaps.org",
+   "url_raw": "http://www.eddmaps.org",
+   "href_jats": "http://www.eddmaps.org",
+   "repo_key": null,
+   "host_class": "other",
+   "loc": "body",
+   "sec_title": "Data",
+   "source": "tagged",
+   "para_id": 1
+  },
+  {
+   "link_id": 2,
+   "url": "doi:10.13039/501100011033",
+   "url_raw": "10.13039/501100011033",
+   "href_jats": "",
+   "repo_key": "doi:10.13039/501100011033",
+   "host_class": "doi",
+   "loc": "body",
+   "sec_title": "Funding",
+   "source": "regex",
+   "para_id": 2
+  }
+ ],
+ "links_optional": [
+  "cran.r-project.org/package=dismo",
+  "cran.r-project.org/package=gbm",
+  "creativecommons.org/licenses/by/4.0",
+  "doi:10.1002/ece3.426",
+  "doi:10.1002/ecm.1486",
+  "doi:10.1002/joc.1276",
+  "doi:10.1007/978-1-4614-8456-1",
+  "doi:10.1007/s10530-021-02673-7",
+  "doi:10.1016/j.tree.2006.09.010",
+  "doi:10.1016/j.tree.2007.11.005",
+  "doi:10.1016/j.tree.2014.02.009",
+  "doi:10.1016/j.tree.2018.08.001",
+  "doi:10.1016/j.tree.2021.09.007",
+  "doi:10.1016/j.tree.2023.01.003",
+  "doi:10.1016/s0304-3800(00)00322-7",
+  "doi:10.1038/nature14952",
+  "doi:10.1038/s41559-022-01814-y",
+  "doi:10.1046/j.1461-0248.2000.00143.x",
+  "doi:10.1073/pnas.1116791109",
+  "doi:10.1073/pnas.1311190110",
+  "doi:10.1093/acprof:oso/9780199232543.001.0001",
+  "doi:10.1098/rstb.2023.0013",
+  "doi:10.1111/1365-2656.14007",
+  "doi:10.1111/1365-2664.12578",
+  "doi:10.1111/1365-2664.13945",
+  "doi:10.1111/2041-210x.13714",
+  "doi:10.1111/ecog.04630",
+  "doi:10.1111/ecog.05414",
+  "doi:10.1111/ecog.06060",
+  "doi:10.1111/ele.12880",
+  "doi:10.1111/ele.13577",
+  "doi:10.1111/geb.13166",
+  "doi:10.1111/geb.13342",
+  "doi:10.1111/geb.13639",
+  "doi:10.1111/j.1469-8137.2006.01752.x",
+  "doi:10.1111/j.1472-4642.2007.00346.x",
+  "doi:10.1111/j.1600-0587.2011.06999.x",
+  "doi:10.1111/j.2006.0906-7590.04596.x",
+  "doi:10.1111/jbi.15045",
+  "doi:10.1126/science.1136401",
+  "doi:10.1146/annurev.ecolsys.110308.120159",
+  "doi:10.1186/1471-2105-12-77",
+  "doi:10.17161/bi.v15i2.13384",
+  "doi:10.1890/14-2241.1",
+  "doi:10.5194/gmd-13-5425-2020"
+ ],
+ "own_doi": "doi:10.1002/ece3.74362",
+ "citations": [
+  {
+   "cite_id": 1,
+   "para_id": 3,
+   "bib_id": 24,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 2,
+   "para_id": 4,
+   "bib_id": 3,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 3,
+   "para_id": 4,
+   "bib_id": 11,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 4,
+   "para_id": 4,
+   "bib_id": 30,
+   "marker": "2008",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 5,
+   "para_id": 4,
+   "bib_id": 31,
+   "marker": "2000",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 6,
+   "para_id": 4,
+   "bib_id": 45,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 7,
+   "para_id": 4,
+   "bib_id": 46,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 8,
+   "para_id": 4,
+   "bib_id": 7,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 9,
+   "para_id": 4,
+   "bib_id": 17,
+   "marker": "2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 10,
+   "para_id": 4,
+   "bib_id": 43,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 11,
+   "para_id": 4,
+   "bib_id": 45,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 12,
+   "para_id": 4,
+   "bib_id": 8,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 13,
+   "para_id": 4,
+   "bib_id": 23,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 14,
+   "para_id": 4,
+   "bib_id": 10,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 15,
+   "para_id": 4,
+   "bib_id": 36,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 16,
+   "para_id": 5,
+   "bib_id": 15,
+   "marker": "2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 17,
+   "para_id": 5,
+   "bib_id": 14,
+   "marker": "2006",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 18,
+   "para_id": 6,
+   "bib_id": 14,
+   "marker": "2006",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 19,
+   "para_id": 6,
+   "bib_id": 18,
+   "marker": "2012",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 20,
+   "para_id": 6,
+   "bib_id": 39,
+   "marker": "2007",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 21,
+   "para_id": 6,
+   "bib_id": 41,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 22,
+   "para_id": 6,
+   "bib_id": 40,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 23,
+   "para_id": 6,
+   "bib_id": 33,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 24,
+   "para_id": 6,
+   "bib_id": 38,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 25,
+   "para_id": 6,
+   "bib_id": 44,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 26,
+   "para_id": 7,
+   "bib_id": 13,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 27,
+   "para_id": 7,
+   "bib_id": 13,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 28,
+   "para_id": 7,
+   "bib_id": 13,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 29,
+   "para_id": 1,
+   "bib_id": 45,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 30,
+   "para_id": 1,
+   "bib_id": 19,
+   "marker": "2005",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 31,
+   "para_id": 8,
+   "bib_id": 7,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 32,
+   "para_id": 8,
+   "bib_id": 4,
+   "marker": "2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 33,
+   "para_id": 8,
+   "bib_id": 19,
+   "marker": "2005",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 34,
+   "para_id": 8,
+   "bib_id": 22,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 35,
+   "para_id": 9,
+   "bib_id": 12,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 36,
+   "para_id": 9,
+   "bib_id": 20,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 37,
+   "para_id": 9,
+   "bib_id": 16,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 38,
+   "para_id": 9,
+   "bib_id": 2,
+   "marker": "2007",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 39,
+   "para_id": 9,
+   "bib_id": 21,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 40,
+   "para_id": 9,
+   "bib_id": 29,
+   "marker": "2000",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 41,
+   "para_id": 10,
+   "bib_id": 32,
+   "marker": "2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 42,
+   "para_id": 10,
+   "bib_id": 26,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 43,
+   "para_id": 11,
+   "bib_id": 21,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 44,
+   "para_id": 11,
+   "bib_id": 29,
+   "marker": "2000",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 45,
+   "para_id": 12,
+   "bib_id": 44,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 46,
+   "para_id": 13,
+   "bib_id": 42,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 47,
+   "para_id": 13,
+   "bib_id": 46,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 48,
+   "para_id": 13,
+   "bib_id": 1,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 49,
+   "para_id": 13,
+   "bib_id": 5,
+   "marker": "2006",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 50,
+   "para_id": 13,
+   "bib_id": 43,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 51,
+   "para_id": 13,
+   "bib_id": 37,
+   "marker": "2007",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 52,
+   "para_id": 13,
+   "bib_id": 34,
+   "marker": "2012",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 53,
+   "para_id": 14,
+   "bib_id": 28,
+   "marker": "2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 54,
+   "para_id": 14,
+   "bib_id": 6,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 55,
+   "para_id": 14,
+   "bib_id": 27,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 56,
+   "para_id": 14,
+   "bib_id": 9,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 57,
+   "para_id": 15,
+   "bib_id": 35,
+   "marker": "2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 58,
+   "para_id": 15,
+   "bib_id": 25,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-ext-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "v1_bib_count": 46
+ }
+}

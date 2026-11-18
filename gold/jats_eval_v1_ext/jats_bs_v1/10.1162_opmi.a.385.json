@@ -1,0 +1,1282 @@
+{
+ "paper_id": "10.1162_opmi.a.385",
+ "paras": [
+  {
+   "para_id": 1,
+   "loc": "body",
+   "sec_title": "DATA AND CODE AVAILABILITY STATEMENT",
+   "text": "The data and code associated with this work are publicly available at https://github.com/lance-ying/benchmark_human_data.",
+   "printed": true
+  },
+  {
+   "para_id": 2,
+   "loc": "body",
+   "sec_title": "INTRODUCTION",
+   "text": "From the earliest days of cognitive science and artificial intelligence (AI), the vision of creating machines that think and act like humans has captured the imagination of researchers and the public alike (Anderson et al., 1990; Cave & Dihal, 2023; Lake et al., 2017; Turing, 1950; Weizenbaum, 1966). This pursuit is driven not only by scientific curiosity (to better understand and model human intelligence) but also by the potential of human-like AI to reshape our world, through the ways that we engage with our work and with each other.",
+   "printed": true
+  },
+  {
+   "para_id": 3,
+   "loc": "body",
+   "sec_title": "BUILDING AND EVALUATING HUMAN-LIKE AI",
+   "text": "There has been a long history of interest in building and evaluating human-like intelligence in machines. But what do we mean by human-like intelligence? There is no universal definition; indeed, whether behavioral similarity alone is sufficient for attributing intelligence has been debated since at least Block (1981), who argued that a system could produce human-like outputs without any genuine cognitive processing. We argue that part of this disagreement arises because “human-likeness” can be assessed at different levels of analysis. A useful framework for thinking about this comes from Marr (1982), who proposed three levels at which any information-processing system can be understood: the computational level (what problem is being solved and why), the algorithmic/representational level (what representations and processes are used to solve it), and the implementational level (how the system is physically realized). A machine could be human-like at any one of these levels without necessarily being human-like at the others. For instance, a system might arrive at human-like judgments through entirely non-human internal representations.",
+   "printed": true
+  },
+  {
+   "para_id": 4,
+   "loc": "body",
+   "sec_title": "BUILDING AND EVALUATING HUMAN-LIKE AI",
+   "text": "Much of the current work in AI evaluation has focused on the behavioral level, assessing whether AI systems produce outputs that are similar to those of humans on cognitive tasks. This corresponds most closely to Marr’s computational level: characterizing the input-output mapping that the system computes, without committing to claims about how that mapping is internally achieved. In this paper, we adopt this behavioral perspective. Specifically, we define human-likeness at the behavioral level as the capacity of an AI system to produce judgments and behaviors that are qualitatively similar to those of humans across a range of cognitive tasks, capturing not only which response the system gives, but also its patterns of errors, uncertainties, and the distributional variability observed across human populations. On the other hand, human-likeness at representational level, often called representational alignment (whether a model’s internal representations are structured similarly to those of humans), is also an important and growing area of research (Muttenthaler et al., 2024; Sucholutsky, Muttenthaler, et al., 2023).",
+   "printed": true
+  },
+  {
+   "para_id": 5,
+   "loc": "body",
+   "sec_title": "BUILDING AND EVALUATING HUMAN-LIKE AI",
+   "text": "But why may we aim for human-like AI? The pursuit of human-like AI is motivated by both scientific curiosity and practical considerations. From the earliest days of AI, scholars have sought to understand, model, and attempt to replicate the intricacies of human cognition and intelligence (Minsky, 1988; Mitchell, 2024; Rosenblatt, 1958; Rumelhart et al., 1988) and use these cognitively-informed models for practical applications. Building human-like AI offers a powerful lens through which to explore fundamental questions about the philosophy of mind, the nature of human cognition, and the underlying mechanisms driving complex human behavior. This quest not only pushes the boundaries of computer science but also promises to deepen our understanding of human intelligence.",
+   "printed": true
+  },
+  {
+   "para_id": 6,
+   "loc": "body",
+   "sec_title": "BUILDING AND EVALUATING HUMAN-LIKE AI",
+   "text": "Effective Human-AI Interaction: Humans have developed complex social cognitive skills for effective collaboration, which involves simulating other agents’ mental states and future actions (Bandura, 2001; Gallese, 2007). AI systems that adhere to human-like patterns of reasoning and behavior can enable human users to easily construct accurate mental models of the AI partner and better simulate and predict the AI partner’s future actions (Collins, Sucholutsky, et al., 2024). This leads to more effective collaboration and coordination between human users and AI agents (Carroll et al., 2019; Ho & Griffiths, 2022; Zhi-Xuan et al., 2024). Additionally, interacting with agents that behave predictably and understandably can reduce cognitive load (Dragan et al., 2013; Fisac et al., 2020). We don’t have to expend as much mental effort trying to decipher unfamiliar or unexpected behaviors.",
+   "printed": true
+  },
+  {
+   "para_id": 7,
+   "loc": "body",
+   "sec_title": "BUILDING AND EVALUATING HUMAN-LIKE AI",
+   "text": "Better simulated agents: AI systems with human-like cognitive capabilities are valuable tools for building simulations of people. This has many benefits, including improving communication (Liu et al., 2023; Shaikh et al., 2024), generating feedback on pilot studies, and even potentially automating human participant responses in social sciences (Ashokkumar et al., 2024; Demszky et al., 2023; Park et al., 2024) or Human Computer Interaction (Hämäläinen et al., 2023). Prior work has also explored the use of LLMs for product testing (Brand et al., 2023) and substituting human subjects in software engineering (Gerosa et al., 2024).",
+   "printed": true
+  },
+  {
+   "para_id": 8,
+   "loc": "body",
+   "sec_title": "BENCHMARK SELECTION AND EVALUATION",
+   "text": "To motivate our recommendations, we collected human data on 9 commonly used AI benchmarks. We selected 7 benchmarks from BIG-Bench (Srivastava et al., 2022) under the common-sense reasoning category and two Theory-of-Mind reasoning benchmarks, BigToM (Gandhi et al., 2024) and ToMBench (Chen et al., 2024). The benchmarks are described in Table 1. We chose these benchmarks because they target inherently subjective cognitive tasks, such as moral reasoning, social cognition, and humor detection, as well as Theory of Mind reasoning, that we believe would benefit most from rigorous practices drawn from cognitive science, including the collection of human-validated labels, measurement of response uncertainty, and evaluation against population-level distributions. Many focus on language understanding and social cognition, which are particularly pertinent for human-AI interaction. All 9 benchmarks have a single ground truth label for each stimulus.",
+   "printed": true
+  },
+  {
+   "para_id": 9,
+   "loc": "table",
+   "sec_title": "BENCHMARK SELECTION AND EVALUATION",
+   "text": "BIG-Bench (Srivastava et al., 2022)",
+   "printed": true
+  },
+  {
+   "para_id": 10,
+   "loc": "table",
+   "sec_title": "BENCHMARK SELECTION AND EVALUATION",
+   "text": "ToMBench (Chen et al., 2024)",
+   "printed": true
+  },
+  {
+   "para_id": 11,
+   "loc": "table",
+   "sec_title": "BENCHMARK SELECTION AND EVALUATION",
+   "text": "BigToM (Gandhi et al., 2024)",
+   "printed": true
+  },
+  {
+   "para_id": 12,
+   "loc": "body",
+   "sec_title": "PITFALLS AND RECOMMENDATIONS FOR BENCHMARKING HUMAN-LIKE AI",
+   "text": "In this section, we present recommendations for evaluating “human-like” AI. More recently, a growing body of work has offered cognitive-science-inspired recommendations for AI evaluation that overlap with and complement our proposals. Frank (2023) argued for careful, incremental evaluation of language model capacities using methods from developmental psychology. Ivanova (2025) outlined guidelines for evaluating the cognitive abilities of LLMs, emphasizing construct validity and controlled experimental design. Shiffrin and Mitchell (2023) discussed the challenges of using psychological methods to probe AI models and the interpretive pitfalls that can arise. From the comparative cognition perspective, Rane et al. (2024) and Voudouris et al. (2024) have advocated for applying principles from animal cognition research to AI evaluation, emphasizing the importance of carefully designed behavioral assays that avoid anthropocentric assumptions. Other work has highlighted specific methodological challenges in human-machine comparison: Firestone (2020) drew an important distinction between performance and competence in human-machine comparisons, arguing that observed task performance may not reflect underlying competence due to confounding factors in how tasks are administered to humans versus machines. Relatedly, Hu and Frank (2024) showed that auxiliary task demands can mask model capabilities, A. Lampinen (2024) demonstrated the importance of carefully matched comparison conditions between models and humans, and Hu and Levy (2023) established that prompting methods are not equivalent to direct probability measurements when evaluating language models.",
+   "printed": true
+  },
+  {
+   "para_id": 13,
+   "loc": "body",
+   "sec_title": "Recommendation 1: Measure ‘Human-Like AI’ Against Actual Humans, and Collect Robust, Replicable Sample Sizes of Human Data",
+   "text": "A surprising number of “cognitively-inspired” benchmark suites and AI evaluations claim to measure human-like AI performance without any human data at all. Rather, tasks derived or sometimes loosely adapted from psychological assays are used to directly evaluate computational model performance, often with ground-truth notions of what it means to “solve” a task (for instance, to identify whether a model can label mental states in simple “false-belief” tasks derived from cognitive theory-of-mind experiments (Wimmer & Perner, 1983)). Our first and perhaps most fundamental recommendation is that the ground-truth labels for measuring whether AI is human-like should be response data collected from humans themselves.",
+   "printed": true
+  },
+  {
+   "para_id": 14,
+   "loc": "body",
+   "sec_title": "Recommendation 1: Measure ‘Human-Like AI’ Against Actual Humans, and Collect Robust, Replicable Sample Sizes of Human Data",
+   "text": "Using actual human behavior as the “gold” labels for AI benchmarks, we propose, is important for many structural aspects that have been well documented in cognitive science. First, many AI benchmarks seek to evaluate inherently subjective concepts, such as whether an act is morally permissible, where a single, objectively correct answer (or even any set of “correct answers”) may not exist. Rather, computational models of subjective behavior like moral reasoning, have long sought to characterize distributions of human judgments, including to account for known variation across populations, social groups, and cultures (Graham et al., 2009, 2016), while also seeking to explain how these differences arise (Levine et al., 2020).",
+   "printed": true
+  },
+  {
+   "para_id": 15,
+   "loc": "body",
+   "sec_title": "Recommendation 1: Measure ‘Human-Like AI’ Against Actual Humans, and Collect Robust, Replicable Sample Sizes of Human Data",
+   "text": "Second, even on tasks that appear to have a single objective “gold label” based on external measures, measuring human behavior may still reveal important variation and disagreement, sometimes with high confidence, that is nonetheless revealing of the internal computations by which humans process particular inputs. The famous visual illusion involving The Dress, for instance, illustrates people’s strongly diverging judgments even given a measurable external label, the true color of the dress. These divergent judgments on this single stimulus reveal important, measurable, and modelable facets of human visual processing (Lafer-Sousa et al., 2015). Our own data demonstrates analogous patterns of structured disagreement across higher-level cognitive tasks (see Figure 1 and Figure 3). More generally, building systems that are truly human-like or that can well-model human-like behavior requires also modeling human error patterns and uncertainty. Computational cognitive modelers do not shy away from human errors, but rather lean into them; such errors can help reveal structure in what we do or do not know. Understanding whether a machine is human-like therefore ought to examine such error patterns from the “true” state of the world.",
+   "printed": true
+  },
+  {
+   "para_id": 16,
+   "loc": "body",
+   "sec_title": "Recommendation 1: Measure ‘Human-Like AI’ Against Actual Humans, and Collect Robust, Replicable Sample Sizes of Human Data",
+   "text": "Taken together, our re-annotation of these benchmarks, with real humans, suggests that there are serious concerns as to the validity of some published ground-truth labels for benchmarking “human-likeness.” This finding is consistent with broader evidence that pervasive label errors in benchmark test sets can destabilize machine learning evaluations more generally (Northcutt et al., 2021).",
+   "printed": true
+  },
+  {
+   "para_id": 17,
+   "loc": "body",
+   "sec_title": "Recommendation 2: Evaluate Models of Human Populations Against Population-Level Distributions of Human Judgments",
+   "text": "Nearly all facets of human cognition are influenced by a complex set of individual differences and cultural factors. These include differences in underlying cognitive abilities or resources like working memory or attention (Boogert et al., 2018); differences in prior experiences, preferences and goals, which can influence how individuals predict unknowns given limited evidence or choose among a set of options and actions (Ongchoco et al., 2024); and cultural variation in values, expectations, and experiences that systematically influence priors or decision making strategies (Henrich et al., 2010).",
+   "printed": true
+  },
+  {
+   "para_id": 18,
+   "loc": "body",
+   "sec_title": "Recommendation 2: Evaluate Models of Human Populations Against Population-Level Distributions of Human Judgments",
+   "text": "Many existing benchmarks collect human annotations but rely on majority voting to collapse the human responses to a single “ground-truth” label, effectively discarding valuable information about the range and distribution of human judgments. This may disproportionally lead models to align with the majority view, even if there are important subpopulations that are otherwise underrepresented (Gordon et al., 2022). Additional pitfalls of such information loss in label construction have been raised in the context of image classification systems wherein the labels used to train models were often taken to be the label with the majority vote; several works identified that training and evaluating such models on distributions over annotator uncertainty (“soft labels”) revealed and guarded against otherwise fragility in such model predictions (Collins, Bhatt, et al., 2023; Peterson et al., 2019; Sucholutsky, Battleday, et al., 2023; Uma et al., 2020). These works also highlight the potential benefit of then training on labels that better capture the richness of human beliefs for enhanced generalization and robustness. As a concrete example, Peterson et al. (2019) introduced CIFAR10H, a dataset providing full distributions of human labels for CIFAR-10 test images, and showed that classifiers trained on these soft labels generalize better to out-of-distribution test sets and exhibit improved robustness against adversarial attacks compared to those trained on majority-vote hard labels. We advocate for the consideration of distributions over human data in the context of AI evaluation more broadly.",
+   "printed": true
+  },
+  {
+   "para_id": 19,
+   "loc": "body",
+   "sec_title": "Recommendation 2: Evaluate Models of Human Populations Against Population-Level Distributions of Human Judgments",
+   "text": "Researchers in AI Alignment, specifically “pluralistic alignment”, have advocated for similar recommendations (Kirk et al., 2024; Sorensen et al., 2024) but more restricted to alignment to a distribution of values and preferences in decision-making. Relatedly, there is substantial work on calibration in machine learning, i.e., how well a model’s answer uncertainty matches its accuracy, which is relevant when considering whether model uncertainty should match the human distribution (Geng et al., 2024). Distributional evaluation and calibration assessment serve complementary goals: the former asks whether a model’s response patterns resemble those of human populations, while the latter asks whether a model’s expressed confidence is well-calibrated. In our paper, we argue modeling distributions over annotators should extend beyond value-laden tasks to encompass the full range of cognitive tasks where human variability is meaningful, such as tasks involving language understanding (where pragmatic interpretation varies across individuals), and social cognition (where inferences about others’ mental states are inherently uncertain).",
+   "printed": true
+  },
+  {
+   "para_id": 20,
+   "loc": "body",
+   "sec_title": "Recommendation 3: Evaluate Model Gradedness and Uncertainty Against Gradedness in Individual Human Judgments",
+   "text": "Just as different people may come to different conclusions about any given task, any single person may be uncertain about what decision they want to make or what plan they want to take. Decades of cognitive science research has shown that graded beliefs and uncertainties are an essential part of human cognition, driving nuanced human perception, reasoning and behaviors (Chater & Manning, 2006; Griffiths et al., 2024; Tversky & Kahneman, 1974). We encourage benchmark builders to consider eliciting, maintaining, and measuring not just judgment over hard labels with multiple choice questions but graded judgments from individual annotators using soft labels. The collection and consideration of soft labels for capturing graded judgments from humans has been standard practice for cognitive modeling and has more recently been advocated for in the context of computer vision (Schmarje et al., 2022; Sucholutsky, Muttenthaler, et al., 2023; Uma et al., 2022), human-AI interaction (Collins, Barker, et al., 2023; Steyvers et al., 2022), and the elicitation of knowledge from experts more broadly (O’Hagan, 2019; O’Hagan et al., 2006). These judgements can also be collected and compared over hierarchical representations (Muttenthaler et al., 2024).",
+   "printed": true
+  },
+  {
+   "para_id": 21,
+   "loc": "body",
+   "sec_title": "Recommendation 3: Evaluate Model Gradedness and Uncertainty Against Gradedness in Individual Human Judgments",
+   "text": "We call on AI benchmarks to consider collecting and assessing soft labels from annotators to measure their graded judgments for the following reasons. First, graded judgments better reflect the nuances of real-world scenarios. Real-world decision-making rarely involves absolute, binary choices. Consider emotions, which vary in intensity, or moral judgments, where two wrong actions might warrant different levels of reprimand. Graded responses allow benchmarks to capture these crucial distinctions and nuances and can in turn be used to train models for better generalization to new situations (Muttenthaler et al., 2022, 2023; Peterson et al., 2019).",
+   "printed": true
+  },
+  {
+   "para_id": 22,
+   "loc": "body",
+   "sec_title": "Recommendation 3: Evaluate Model Gradedness and Uncertainty Against Gradedness in Individual Human Judgments",
+   "text": "To deeply understand whether a model is human-like, we urge finer-grained consideration of the rich, structured beliefs that any single annotator may have. Researchers may fear perceived “messiness” of collecting human uncertainty. An oft heard retort to the collection of uncertainty is that people are “miscalibrated” in their uncertainty. Decades of research in cognitive science, however, have designed studies to examine people’s probabilistic judgments in order to study and model human cognition (Chater & Manning, 2006; Griffiths et al., 2024; Keren, 1991; O’Hagan et al., 2006; Tenenbaum, 1998; Windschitl & Wells, 1996). We encourage designers of AI benchmarks to engage with such literature and lean into these uncertainties in humans’ judgments in order to assess models’ human-like behaviors.",
+   "printed": true
+  },
+  {
+   "para_id": 23,
+   "loc": "body",
+   "sec_title": "Recommendation 4: Situate Tasks With Respect to Meta-Reviews of Existing Cognitive Theory",
+   "text": "To draw generalizable conclusions about an AI model’s cognitive capacity, tasks should be carefully designed to measure whether the model’s cognitive capabilities are human-like (Hernández-Orallo, 2017). To do so, benchmarks should begin with what we term a meta-theory of the target cognitive construct. By meta-theory, we mean an explicit specification of the construct that defines what it is (and what it is not), decomposes it into subcomponents, and identifies the observable behavioral signatures that should arise under controlled manipulations, such as ablations, difficulty variations, resource constraints, or adversarial conditions. This framing draws on the classic literature on construct validity in psychometrics (Cronbach & Meehl, 1955; Messick, 1995): a benchmark should be justified as a measurement instrument with an explicit argument for why its tasks validly measure the intended construct, rather than serving as a collection of intuitively related tasks (Bean et al., 2025). The meta-theory then guides the construction of the benchmark, ensuring that tasks effectively probe the specific cognitive capacities of interest and provide meaningful insights into to what extent AI possesses these mental constructs in a human-like way.",
+   "printed": true
+  },
+  {
+   "para_id": 24,
+   "loc": "body",
+   "sec_title": "Recommendation 4: Situate Tasks With Respect to Meta-Reviews of Existing Cognitive Theory",
+   "text": "One common pitfall is the use of impoverished theory in guiding AI benchmark creation. For example, many benchmarks have been created to evaluate a machine’s Theory of Mind (ToM), which refers to the human ability to make inferences about other agents’ mental states. ToM benchmarks for AI commonly or exclusively use the Sally-Anne test (a.k.a. false-belief test) (e.g., Le et al., 2019), which has traditionally been used in developmental psychology for evaluating the timing of children’s developing Theory of Mind. The results from these evaluations have led to claims such as ToM having emerged in LLMs (Gandhi et al., 2024; Kosinski, 2024). However, ToM embodies a wide range of subcomponents beyond those assessed by the Sally-Anne test. In a comprehensive review, Beaudoin et al. (2020) identified 220 ToM tasks and measures previously used by psychological studies. Other authors have also questioned the validity and effectiveness of the Sally-Anne test in assessing children’s ToM (Bloom & German, 2000). By exclusively focusing on false-belief tasks, many studies on evaluating AI models’ ToM reflect a poor understanding of the meta-theory of ToM as construed in cognitive psychology. A construct-valid evaluation of ToM would specify its subcomponents (e.g., false belief attribution, intention inference, desire reasoning, knowledge tracking), identify which behavioral signatures each subcomponent predicts under controlled conditions, and design tasks that probe these signatures while controlling for confounds. This is especially important because the target construct differs between developmental assays and model evaluation: Sally-Anne tasks were designed to detect a developmental milestone in children, not to provide a comprehensive measure of ToM competence. When applied to language models, they also risk conflating ToM with linguistic or pragmatic skills, as Hu et al. (2025) demonstrate, apparent model competence on these tasks often reflects language understanding rather than genuine mental state reasoning. Instead, benchmarking intelligent systems should start from a meta-theory of the cognitive construct and design tasks grounded in the cognitive theory, including a comprehensive survey of its subdomains, taxonomies, and measures. More broadly, if a construct is assumed to have a particular factor structure, as has been established for domains like self-regulation (Eisenberg et al., 2019), then evaluations should verify that this structure holds for the models being tested, rather than assuming that human-derived constructs map directly onto model behavior. Whether human-derived meta-theories transfer to AI systems at all is itself an open question: in some cases, the constructs may not hang together in the same way, and validating the mapping from a human-derived meta-theory to a model’s behavioral variation across tasks is an important prerequisite to any strong claim of “human-likeness.”",
+   "printed": true
+  },
+  {
+   "para_id": 25,
+   "loc": "body",
+   "sec_title": "Recommendation 4: Situate Tasks With Respect to Meta-Reviews of Existing Cognitive Theory",
+   "text": "Another common pitfall is the naive use and adaptation of psychological tests in evaluating AI models. Passing a few psychological tests is insufficient to claim certain cognitive capacities exist in machines. Again take the Sally-Anne test as an example. Although it may be effective in measuring children’s ToM, tests as such are insufficient for evaluating AI’s ToM because these well-known test items are likely present in the web-scraped training corpora of large language models, creating data contamination concerns that undermine the validity of such evaluations (Jacovi et al., 2023). Unlike human children who encounter false-belief scenarios naturally during development, AI models may have been exposed to both the test items and their expected answers during training. Therefore, blindly taking psychological scales and applying them to AI benchmarks to claim an AI is human-like can result in misleading conclusions and the results will be unlikely to generalize to richer tasks in the real world. Instead, we encourage AI benchmark creators to use psychological theories as a guide and psychological tests as inspirations for designing tasks for evaluating AI’s cognitive capacity, but the tasks should be richer, more grounded, and more complex. Research in Cognitive Science in the past decades have introduced many rich and interactive paradigms for studying and evaluating models’ social cognition (e.g., Baker et al., 2017; Jara-Ettinger et al., 2020; Ying et al., 2023), which were used to extract sophisticated and graded reasoning patterns from humans. In the next section, we discuss some concrete recommendations for designing such tasks.",
+   "printed": true
+  },
+  {
+   "para_id": 26,
+   "loc": "body",
+   "sec_title": "Recommendation 5: Design Cognitively Rich Tasks that Elicit Naturalistic Behavior",
+   "text": "Benchmark tasks should elicit the kind of rich, structured cognitive behavior that humans display in the real world, rather than being constrained to simple, unambiguous question-answer formats. Many existing benchmarks focus on simple, straightforward tasks, often excluding those with low inter-annotator agreement. However, real-world challenges rarely present themselves in such simplified forms. Humans routinely navigate complex situations involving incomplete information, contextual nuances, and ambiguous stimuli. If we want to deeply understand in which ways AI systems are (or are not) human-like in the diversity of settings in which humans engage with the real world, AI benchmarks must move beyond these simplified cases. This direction parallels recent calls within cognitive science itself for more naturalistic computational cognitive science (Carvalho & Lampinen, 2025), which emphasizes building generalizable models and theories that capture the full range of natural human behavior rather than narrow laboratory paradigms. The broader goal here is ecological validity: designing tasks whose structure and demands resemble those encountered in real-world applications. We note, however, that what counts as ecologically valid for a human subject may not necessarily be ecologically valid for an AI system, and approaches for establishing ecological validity in human-machine comparisons (e.g., Taylor et al., 2022) remain an active area of research and an open methodological question. With this caveat in mind, we next provide several suggestions for eliciting rich cognitive behavior in benchmarks.",
+   "printed": true
+  },
+  {
+   "para_id": 27,
+   "loc": "body",
+   "sec_title": "Integration of Cognitive Capacities.",
+   "text": "Benchmarks should incorporate tasks that require integrating multiple cognitive processes. Even text-based tasks can demand such integration: for example, understanding the intent behind a sentence might require considering conversational context, the speaker’s prior beliefs, social norms, and planning or rational decision-making under uncertainty. Tasks can also span modalities: inferring an agent’s goals from observed trajectories in a visual scene (Baker et al., 2017), multimodal Theory of Mind reasoning over video and text (Jin et al., 2024), or following pragmatic spoken instructions in embodied settings (Ying et al., 2024). By incorporating such complexities, benchmarks can better assess an AI’s ability to handle nuanced, real-world situations that demand integration across reasoning, planning, language, perception, and social cognition.",
+   "printed": true
+  },
+  {
+   "para_id": 28,
+   "loc": "body",
+   "sec_title": "Structured Ambiguity.",
+   "text": "Tasks involving ambiguous perceptual and reasoning challenges, like the example illustrated in The Dress, can elicit diverse response patterns among humans. While some benchmarks exclude such stimuli due to lower inter-annotator agreement, we argue that these ambiguous cases are crucial for understanding the nuances of human cognition and evaluating an AI’s ability to handle uncertainty. Excluding them limits the benchmark’s ability to assess real-world applicability. Rather, we encourage benchmark designers to retain and even seek out stimuli that elicit structured disagreement or graded uncertainty among humans, as these are precisely the cases that are most informative for evaluating human-like cognition. Collecting human-derived ratings of expected ambiguity (Zhou et al., 2024) can help identify such stimuli systematically.",
+   "printed": true
+  },
+  {
+   "para_id": 29,
+   "loc": "body",
+   "sec_title": "Do We Need Human-like AI?",
+   "text": "We acknowledge that certain highly specialized AI applications, such as protein structure prediction (Jumper et al., 2021) or weather forecasting (Bodnar et al., 2024; Lam et al., 2023), do not require human-like characteristics. Benchmarks for these domains fall outside the scope of this paper. Similarly, benchmarks that aim to test AI performance at the frontier of human expertise (e.g., research-level mathematics) or that evaluate abstract reasoning at the level of the best human performers may prioritize different evaluation criteria. Our focus lies on core cognitive capacities that enable machines to reason, interact, and collaborate with humans in the real world (Collins, Sucholutsky, et al., 2024), where modeling humanlike patterns of judgment, uncertainty, and variability is most valuable.",
+   "printed": true
+  },
+  {
+   "para_id": 30,
+   "loc": "body",
+   "sec_title": "Do We Need Human-like AI?",
+   "text": "Another critical consideration in using human data for AI benchmarks is the potential for biases and errors in human judgments. Cognitive science research has extensively documented human limitations in rational reasoning and decision-making, due to limited cognitive resources (Griffiths, 2020; Lieder & Griffiths, 2019) or systematic biases (Tversky & Kahneman, 1974). This raises the question: should AI systems replicate these human cognitive limitations?",
+   "printed": true
+  },
+  {
+   "para_id": 31,
+   "loc": "body",
+   "sec_title": "Do We Need Human-like AI?",
+   "text": "There is no clear answer here. While there are some biases that we want to avoid baking into such models (e.g., harmful racial or gender prejudices), other cognitive biases can be useful for decision making (Haselton et al., 2009; Lieder & Griffiths, 2019) and essential for accurately modeling human behavior, and the evidence on whether today’s models exhibit human-like error patterns is mixed. Some studies suggest that certain patterns of errors are not implicitly learned in current models, which risks hampered human-AI interaction (Liu et al., 2024), while others have found that language models do exhibit content effects on reasoning tasks similar to known human biases (A. K. Lampinen et al., 2024). Understanding which error patterns are and are not captured by current models, and under what conditions, remains an important open question.",
+   "printed": true
+  },
+  {
+   "para_id": 32,
+   "loc": "body",
+   "sec_title": "Scalability of Human Data Collection",
+   "text": "Another limitation of our approach, and of human-centric AI evaluation more broadly, lies in the scalability of data collection. The process of gathering human judgments is inherently resource-intensive in terms of time and cost, potentially hindering the rapid development of large-scale benchmarks (Collins, Kim, et al., 2024; Wu et al., 2023). This challenge is particularly pronounced when eliciting fine-grained annotations across multiple attributes, as required by our methodology (Chung et al., 2019; Kirk et al., 2024). While modern crowdsourcing platforms like Amazon Mechanical Turk and Prolific have made large-scale annotation more feasible, they do not fully resolve these core challenges and may introduce their own sampling biases. Consequently, developing novel, scalable, and cost-effective methods for high-quality human data collection remains a critical open research direction.",
+   "printed": true
+  }
+ ],
+ "links": [
+  {
+   "link_id": 1,
+   "url": "github.com/lance-ying/benchmark_human_data",
+   "url_raw": "https://github.com/lance-ying/benchmark_human_data",
+   "href_jats": "https://github.com/lance-ying/benchmark_human_data",
+   "repo_key": "github:lance-ying/benchmark_human_data",
+   "host_class": "github",
+   "loc": "body",
+   "sec_title": "DATA AND CODE AVAILABILITY STATEMENT",
+   "source": "tagged",
+   "para_id": 1
+  }
+ ],
+ "links_optional": [
+  "creativecommons.org/licenses/by/4.0",
+  "doi:10.1002/0470033312",
+  "doi:10.1007/978-3-030-43089-4_10",
+  "doi:10.1007/s10462-016-9505-7",
+  "doi:10.1007/s10515-023-00409-6",
+  "doi:10.1016/0001-6918(91)90036-y",
+  "doi:10.1016/0010-0277(83)90004-5",
+  "doi:10.1016/j.cogpsych.2020.101334",
+  "doi:10.1016/j.copsyc.2015.09.007",
+  "doi:10.1016/j.cub.2015.04.053",
+  "doi:10.1016/j.tics.2006.05.006",
+  "doi:10.1016/j.tics.2020.09.001",
+  "doi:10.1016/j.tics.2022.06.002",
+  "doi:10.1016/s0010-0277(00)00096-2",
+  "doi:10.1017/s0140525x0999152x",
+  "doi:10.1017/s0140525x16001837",
+  "doi:10.1017/s0140525x1900061x",
+  "doi:10.1037/0003-066x.50.9.741",
+  "doi:10.1037/1076-898x.2.4.343",
+  "doi:10.1037/a0015141",
+  "doi:10.1037/h0040957",
+  "doi:10.1037/h0042519",
+  "doi:10.1038/s41467-019-10301-1",
+  "doi:10.1038/s41562-017-0064",
+  "doi:10.1038/s41562-024-01991-9",
+  "doi:10.1038/s41562-024-02096-z",
+  "doi:10.1038/s41586-021-03819-2",
+  "doi:10.1038/s41586-024-07930-y",
+  "doi:10.1038/s44159-023-00211-x",
+  "doi:10.1038/s44159-023-00241-5",
+  "doi:10.1073/pnas.1905334117",
+  "doi:10.1073/pnas.2014505117",
+  "doi:10.1073/pnas.2111547119",
+  "doi:10.1073/pnas.2300963120",
+  "doi:10.1073/pnas.2405460121",
+  "doi:10.1080/00031305.2018.1518265",
+  "doi:10.1093/mind/lix.236.433",
+  "doi:10.1093/oso/9780192865366.001.0001",
+  "doi:10.1093/pnasnexus/pgae233",
+  "doi:10.1098/rstb.2006.2002",
+  "doi:10.1098/rstb.2017.0280",
+  "doi:10.1098/rstb.2023.0499",
+  "doi:10.1109/hri.2013.6483603",
+  "doi:10.1126/science.185.4157.1124",
+  "doi:10.1126/science.adi2336",
+  "doi:10.1126/science.adq9356",
+  "doi:10.1145/3359164",
+  "doi:10.1145/3491102.3502004",
+  "doi:10.1145/3544548.3580688",
+  "doi:10.1145/3600211.3604692",
+  "doi:10.1145/3613904.3642159",
+  "doi:10.1145/365153.365168",
+  "doi:10.1146/annurev-control-042920-015547",
+  "doi:10.1146/annurev.psych.52.1.1",
+  "doi:10.1162/coli_a_00525",
+  "doi:10.1162/opmi.a.385",
+  "doi:10.1162/opmi_a_00168",
+  "doi:10.1521/soco.2009.27.5.733",
+  "doi:10.1609/aies.v7i1.31637",
+  "doi:10.1609/hcomp.v8i1.7478",
+  "doi:10.18653/v1/2023.emnlp-main.306",
+  "doi:10.18653/v1/2023.emnlp-main.308",
+  "doi:10.18653/v1/2024.naacl-long.366",
+  "doi:10.18653/v1/d19-1598",
+  "doi:10.2139/ssrn.4395751",
+  "doi:10.2307/2184371",
+  "doi:10.3389/fpsyg.2019.02905",
+  "doi:10.3389/frai.2022.818451",
+  "doi:10.48550/arxiv.2103.14749",
+  "doi:10.48550/arxiv.2206.04615",
+  "doi:10.48550/arxiv.2207.06214",
+  "doi:10.48550/arxiv.2310.13018",
+  "doi:10.48550/arxiv.2311.00687",
+  "doi:10.48550/arxiv.2402.05070",
+  "doi:10.48550/arxiv.2402.15052",
+  "doi:10.48550/arxiv.2405.13063",
+  "doi:10.48550/arxiv.2406.17055",
+  "doi:10.48550/arxiv.2409.06509",
+  "doi:10.48550/arxiv.2409.10849",
+  "doi:10.48550/arxiv.2502.20349",
+  "doi:10.48550/arxiv.2511.04703",
+  "doi:10.7551/mitpress/1167.003.0002",
+  "doi:10.7551/mitpress/4943.003.0128",
+  "en.wikipedia.org/wiki/the_dress",
+  "proceedings.neurips.cc/paper_files/paper/2023/file/9febda1c8344cc5f2d51713964864e93-paper-conference.pdf"
+ ],
+ "own_doi": "doi:10.1162/opmi.a.385",
+ "citations": [
+  {
+   "cite_id": 1,
+   "para_id": 2,
+   "bib_id": 1,
+   "marker": "1990",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 2,
+   "para_id": 2,
+   "bib_id": 14,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 3,
+   "para_id": 2,
+   "bib_id": 55,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 4,
+   "para_id": 2,
+   "bib_id": 90,
+   "marker": "1950",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 5,
+   "para_id": 2,
+   "bib_id": 95,
+   "marker": "1966",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 6,
+   "para_id": 3,
+   "bib_id": 7,
+   "marker": "1981",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 7,
+   "para_id": 3,
+   "bib_id": 64,
+   "marker": "1982",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 8,
+   "para_id": 4,
+   "bib_id": 69,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 9,
+   "para_id": 4,
+   "bib_id": 87,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 10,
+   "para_id": 5,
+   "bib_id": 66,
+   "marker": "1988",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 11,
+   "para_id": 5,
+   "bib_id": 67,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 12,
+   "para_id": 5,
+   "bib_id": 78,
+   "marker": "1958",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 13,
+   "para_id": 5,
+   "bib_id": 79,
+   "marker": "1988",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 14,
+   "para_id": 6,
+   "bib_id": 4,
+   "marker": "2001",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 15,
+   "para_id": 6,
+   "bib_id": 29,
+   "marker": "2007",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 16,
+   "para_id": 6,
+   "bib_id": 21,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 17,
+   "para_id": 6,
+   "bib_id": 12,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 18,
+   "para_id": 6,
+   "bib_id": 42,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 19,
+   "para_id": 6,
+   "bib_id": 101,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 20,
+   "para_id": 6,
+   "bib_id": 24,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 21,
+   "para_id": 6,
+   "bib_id": 27,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 22,
+   "para_id": 7,
+   "bib_id": 63,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 23,
+   "para_id": 7,
+   "bib_id": 81,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 24,
+   "para_id": 7,
+   "bib_id": 2,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 25,
+   "para_id": 7,
+   "bib_id": 23,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 26,
+   "para_id": 7,
+   "bib_id": 75,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 27,
+   "para_id": 7,
+   "bib_id": 38,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 28,
+   "para_id": 7,
+   "bib_id": 11,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 29,
+   "para_id": 7,
+   "bib_id": 32,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 30,
+   "para_id": 8,
+   "bib_id": 84,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 31,
+   "para_id": 8,
+   "bib_id": 30,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 32,
+   "para_id": 8,
+   "bib_id": 16,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 33,
+   "para_id": 9,
+   "bib_id": 84,
+   "marker": "2022",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 34,
+   "para_id": 10,
+   "bib_id": 16,
+   "marker": "2024",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 35,
+   "para_id": 11,
+   "bib_id": 30,
+   "marker": "2024",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 36,
+   "para_id": 12,
+   "bib_id": 28,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 37,
+   "para_id": 12,
+   "bib_id": 46,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 38,
+   "para_id": 12,
+   "bib_id": 82,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 39,
+   "para_id": 12,
+   "bib_id": 77,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 40,
+   "para_id": 12,
+   "bib_id": 94,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 41,
+   "para_id": 12,
+   "bib_id": 26,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 42,
+   "para_id": 12,
+   "bib_id": 43,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 43,
+   "para_id": 12,
+   "bib_id": 57,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 44,
+   "para_id": 12,
+   "bib_id": 44,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 45,
+   "para_id": 13,
+   "bib_id": 96,
+   "marker": "1983",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 46,
+   "para_id": 14,
+   "bib_id": 34,
+   "marker": "2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 47,
+   "para_id": 14,
+   "bib_id": 35,
+   "marker": "2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 48,
+   "para_id": 14,
+   "bib_id": 60,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 49,
+   "para_id": 15,
+   "bib_id": 54,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 50,
+   "para_id": 16,
+   "bib_id": 71,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 51,
+   "para_id": 17,
+   "bib_id": 10,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 52,
+   "para_id": 17,
+   "bib_id": 74,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 53,
+   "para_id": 17,
+   "bib_id": 40,
+   "marker": "2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 54,
+   "para_id": 18,
+   "bib_id": 33,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 55,
+   "para_id": 18,
+   "bib_id": 19,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 56,
+   "para_id": 18,
+   "bib_id": 76,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 57,
+   "para_id": 18,
+   "bib_id": 86,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 58,
+   "para_id": 18,
+   "bib_id": 93,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 59,
+   "para_id": 18,
+   "bib_id": 76,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 60,
+   "para_id": 19,
+   "bib_id": 52,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 61,
+   "para_id": 19,
+   "bib_id": 83,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 62,
+   "para_id": 19,
+   "bib_id": 31,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 63,
+   "para_id": 20,
+   "bib_id": 15,
+   "marker": "2006",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 64,
+   "para_id": 20,
+   "bib_id": 37,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 65,
+   "para_id": 20,
+   "bib_id": 91,
+   "marker": "1974",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 66,
+   "para_id": 20,
+   "bib_id": 80,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 67,
+   "para_id": 20,
+   "bib_id": 70,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 68,
+   "para_id": 20,
+   "bib_id": 92,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 69,
+   "para_id": 20,
+   "bib_id": 18,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 70,
+   "para_id": 20,
+   "bib_id": 85,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 71,
+   "para_id": 20,
+   "bib_id": 72,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 72,
+   "para_id": 20,
+   "bib_id": 73,
+   "marker": "2006",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 73,
+   "para_id": 20,
+   "bib_id": 69,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 74,
+   "para_id": 21,
+   "bib_id": 68,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 75,
+   "para_id": 21,
+   "bib_id": 70,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 76,
+   "para_id": 21,
+   "bib_id": 76,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 77,
+   "para_id": 22,
+   "bib_id": 15,
+   "marker": "2006",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 78,
+   "para_id": 22,
+   "bib_id": 37,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 79,
+   "para_id": 22,
+   "bib_id": 51,
+   "marker": "1991",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 80,
+   "para_id": 22,
+   "bib_id": 73,
+   "marker": "2006",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 81,
+   "para_id": 22,
+   "bib_id": 89,
+   "marker": "1998",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 82,
+   "para_id": 22,
+   "bib_id": 97,
+   "marker": "1996",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 83,
+   "para_id": 23,
+   "bib_id": 41,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 84,
+   "para_id": 23,
+   "bib_id": 22,
+   "marker": "1955",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 85,
+   "para_id": 23,
+   "bib_id": 65,
+   "marker": "1995",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 86,
+   "para_id": 23,
+   "bib_id": 5,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 87,
+   "para_id": 24,
+   "bib_id": 59,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 88,
+   "para_id": 24,
+   "bib_id": 30,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 89,
+   "para_id": 24,
+   "bib_id": 53,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 90,
+   "para_id": 24,
+   "bib_id": 6,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 91,
+   "para_id": 24,
+   "bib_id": 8,
+   "marker": "2000",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 92,
+   "para_id": 24,
+   "bib_id": 45,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 93,
+   "para_id": 24,
+   "bib_id": 25,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 94,
+   "para_id": 25,
+   "bib_id": 47,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 95,
+   "para_id": 25,
+   "bib_id": 3,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 96,
+   "para_id": 25,
+   "bib_id": 48,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 97,
+   "para_id": 25,
+   "bib_id": 100,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 98,
+   "para_id": 26,
+   "bib_id": 13,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 99,
+   "para_id": 26,
+   "bib_id": 88,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 100,
+   "para_id": 27,
+   "bib_id": 3,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 101,
+   "para_id": 27,
+   "bib_id": 49,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 102,
+   "para_id": 27,
+   "bib_id": 99,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 103,
+   "para_id": 28,
+   "bib_id": 102,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 104,
+   "para_id": 29,
+   "bib_id": 50,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 105,
+   "para_id": 29,
+   "bib_id": 9,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 106,
+   "para_id": 29,
+   "bib_id": 56,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 107,
+   "para_id": 29,
+   "bib_id": 21,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 108,
+   "para_id": 30,
+   "bib_id": 36,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 109,
+   "para_id": 30,
+   "bib_id": 61,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 110,
+   "para_id": 30,
+   "bib_id": 91,
+   "marker": "1974",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 111,
+   "para_id": 31,
+   "bib_id": 39,
+   "marker": "2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 112,
+   "para_id": 31,
+   "bib_id": 61,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 113,
+   "para_id": 31,
+   "bib_id": 62,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 114,
+   "para_id": 31,
+   "bib_id": 58,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 115,
+   "para_id": 32,
+   "bib_id": 20,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 116,
+   "para_id": 32,
+   "bib_id": 98,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 117,
+   "para_id": 32,
+   "bib_id": 17,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 118,
+   "para_id": 32,
+   "bib_id": 52,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-ext-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "v1_bib_count": 102
+ }
+}

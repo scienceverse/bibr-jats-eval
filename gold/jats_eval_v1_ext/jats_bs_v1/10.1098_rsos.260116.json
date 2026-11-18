@@ -1,0 +1,1596 @@
+{
+ "paper_id": "10.1098_rsos.260116",
+ "paras": [
+  {
+   "para_id": 1,
+   "loc": "front",
+   "sec_title": "",
+   "text": "Supplementary material is available online at https://doi.org/10.6084/m9.figshare.c.8598587.",
+   "printed": true
+  },
+  {
+   "para_id": 2,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "The relationship between humans and horses is complex owing to the versatile uses of horses and the evolution of their status throughout history. This relationship began around 2200 BC in the Western Eurasian steppes with the domestication of Equus caballus for transportation [1]. The rise of horseback riding and the use of horses for transportation was a pivotal development in human history, enabling exploration, territorial expansion, trade growth and significant improvements in agricultural efficiency [1]. Over recent decades, horses in Western societies have shifted from primarily utilitarian roles to being valued as companions and leisure partners, with recreational, social and sporting uses now dominant, and horses commonly viewed as companion animals rather than purely working stock [2].",
+   "printed": true
+  },
+  {
+   "para_id": 3,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Horses are prey animals [3], who naturally form stable social groups called harems, composed of mares and a few stallions [4]. Females often remain in the same group for life, forming strong bonds [5]. In the wild, horses graze for 12–18 hours daily and cover 9–16 km [6,7], making them highly active animals. Since their domestication, horses have gone through changes in their behaviour, becoming more curious and more social and less agonistic towards humans [8]. While becoming accustomed to human-controlled environments, horses have experienced new conditions, including changes in housing, herd size, activities, riding gear and human interactions. Nowadays, horse housing varies in space and social access. Some horses are kept alone in individual stalls, while others may live in pasture within a herd [9,10]. Outdoor group housing mimics natural conditions more closely [11] and allows more social and movement-based behaviours [12,13]. In contrast, isolation limits social contact and tends to increase alertness, disrupt sleep and be associated with nervousness and aggression [5,14].",
+   "printed": true
+  },
+  {
+   "para_id": 4,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Horses exhibit pronounced and consistent interindividual differences in personality and behaviour, a phenomenon that has been widely documented across experimental, observational and large-scale studies [15]. Traits, such as fearfulness, reactivity to humans, gregariousness, learning style and emotional responsiveness, show temporal stability and consistency across contexts, meeting the criteria for animal personality [16]. These individual differences are not merely descriptive but have important implications for welfare, performance, injury risk and the quality of horse–human relationships, making personality a key factor in equine management and training [17,18]. A growing body of evidence indicates that equine personality traits have a substantial genetic and hereditary component. Systematic reviews have reported moderate heritability estimates for several personality dimensions and identified consistent breed differences, as well as candidate genes and polymorphisms associated with traits such as curiosity, vigilance, tractability and emotional reactivity [15,19–21]. However, genetic predispositions do not act in isolation; rather, they interact with environmental conditions to shape behavioural expression throughout the horse's life. Housing conditions, type of work or discipline, early social experiences with the dam, training methods and the quality and consistency of human handling have all been shown to influence horses’ emotional responses, learning abilities and reactions to social or physical challenges [15,22]. Despite this extensive body of research, important gaps remain in our understanding of how these factors interact under everyday conditions. Existing literature often focuses on isolated environmental variables or specific horse–human interactions in controlled settings. While daily handling, management and rider numbers affect a horse's emotional reactivity and welfare, with these effects varying according to individual personality traits [16,18], we still know little about how relationship histories and daily care influence personality expression across large, diverse populations. Addressing this gap is essential to better guide individual management, training and welfare decisions.",
+   "printed": true
+  },
+  {
+   "para_id": 5,
+   "loc": "table",
+   "sec_title": "Survey",
+   "text": "horse breeds divided into 5 different categories based on their genetic background [28,29];",
+   "printed": true
+  },
+  {
+   "para_id": 6,
+   "loc": "body",
+   "sec_title": "Survey",
+   "text": "The second section of the questionnaire consisted of a horse personality questionnaire featuring 52 items, adapted from previous studies that assessed horse personality [23–26] and additional items to provide a greater focus on the human–horse interactions. Each item was presented as a statement (e.g. ‘My horse seeks physical closeness with known humans’) to which respondents were required to indicate their level of agreement with each adjective using a five-point Likert scale: ‘strongly disagree’, ‘disagree’, ‘neutral’, ‘agree’, ‘strongly agree’, plus the option to respond ‘I don't know’. The personality questionnaire is available as supplementary material in the data repository [27].",
+   "printed": true
+  },
+  {
+   "para_id": 7,
+   "loc": "body",
+   "sec_title": "Participants",
+   "text": "A number of 2257 horse owners completed the survey, resulting in a total of 2767 responses, as horse owners were allowed to fill out the questionnaire for as many horses as they wished (mean = 1, s.d. = 0.59, min = 1 and max = 8). The survey was available in English, Finnish and French, and we used a multimodal recruitment and snowball sampling method through a variety of channels. It included targeted social media groups focused on equine topics, both online and printed equine press, specialized forums and direct outreach to horse stables (randomly picked from Google Maps) in countries where English, Finnish or French is spoken. While recruitment was targeted in these regions, the survey was accessible to respondents from anywhere in the world. The most common age group among participants was 35–44 years. Of the respondents, 2616 were women (94.5%), and 151 identified as men, intersex or preferred not to disclose their sex (5.5%). The majority of participants were from Central Europe (44.7%), with the second most common location being Fennoscandia (34.5%). Only individuals aged 18 or older were eligible to participate in the survey. Participants could fill out the horse personality part of the questionnaire multiple times if they had more than one horse. Most horses were aged from 13 to 18 years old, and 1203 of them were mares, 106 stallions and 1458 geldings. In this study, the horse's breed was categorized into different categories based on genetic resemblance (draught horse, Nordic, pony, warm-blooded and unknown) [28,29]. The high number of cross-breeds and owners unsure of their horse's breed, along with the uneven breed distribution, prevented us from incorporating the exact breed into the analysis.",
+   "printed": true
+  },
+  {
+   "para_id": 8,
+   "loc": "body",
+   "sec_title": "Horse personality factor analyses",
+   "text": "All analyses and data handling were conducted on R v. 4.4.1, and figures were created using the ggplot2 package [30]. An exploratory factor analysis (EFA) was performed to reduce the personality questionnaire items into a smaller number of biologically meaningful factors, which is usually done in personality research [31]. Each factor thus represents a distinct personality dimension. Before the analysis, the adjective ‘protective’ (‘My horse is protective and prevents harm or possible harm to other horses’) was removed because 21.1% of respondents answered ‘I don't know’. The data were then split into train and test sets with the package caret [32] to allow for an assessment of dimensionality using cross-validation with confirmatory factor analysis (CFA).",
+   "printed": true
+  },
+  {
+   "para_id": 9,
+   "loc": "body",
+   "sec_title": "Exploratory factor analysis",
+   "text": "To ensure the replication and validity of the identified factor structure, a split-sample validation approach was employed. The total dataset (N = 2767) was randomly split into a training dataset (N = 1385, approx. 50% of the total sample) used for EFA and an independent validation dataset (N = 1382, approx. 50% of the total sample) used to confirm if the model structure holds. The suitability of the data for factor analysis was first verified using the Kaiser–Meyer–Olkin test, which yielded a value of 0.91, indicating excellent factorability. Next, the number of factors was visually assessed using a screen test, which suggested solutions with either three or six factors. Additionally, Velicer's minimum average partial (MAP) test was used to estimate the optimal number of factors, with the lowest MAP value obtained with nine factors. The decision on the number of factors was made by extracting all factor solutions ranging from 1 to 10 factors and comparing them. The comparisons were based both on the content of the factors (i.e. which variables load onto each factor) and on fit indices, particularly the Tucker–Lewis index (TLI) and the root mean square error of approximation (RMSEA). All factor analyses were conducted using polychoric correlations and mean imputation for missing values. A Heywood case occurred in factor solutions with 7–10 factors, where more than 100% of a variable's variance was explained by the factors—resulting in negative residual variance. Owing to this issue, these factor configurations were excluded from further analysis. One- and two-factor models proved difficult to interpret and were, therefore, also excluded. For the remaining models, various rotation methods were compared, and the number of items that did not load onto any factors and those with cross-loadings (loading onto two or more factors simultaneously) was calculated. From these models that best fit the data, preference was given to models offering the greatest biological relevance—that is, those best capturing meaningful behavioural variation among horses. Based on this criterion, a four-factor solution was selected, with each factor named according to the types of items it included: human sociability, attentiveness, neuroticism and horse sociability (see §3 for more details). Items that did not load onto any factors were excluded from the final analysis (n = 9). Based on the EFA conducted on the train data, factor scores were calculated for each horse using the ‘tenBerge’ method from the psych package [33], with mean imputation for missing values. These individual scores were later used for the statistical analyses. We acknowledge that treating these estimated factor scores as observed, error-free variables in the generalized linear mixed models (GLMMs) omits the inherent measurement error of the latent constructs. While this approach is standard practice when complex random-effect structures preclude the use of full structural equation modelling, it represents a limitation that can potentially inflate statistical power and lead to overly conservative standard errors. The final analysis used a Varimax rotation with four factors. Internal consistency for these factors was assessed using Cronbach's alpha and Guttman's lambda (attentiveness: alpha = 0.88, lambda = 0.90; human sociability (soc): alpha = 0.85, lambda = 0.88; neuroticism: alpha = 0.86, lambda = 0.88; horse soc: alpha = 0.78, lambda = 0.82).",
+   "printed": true
+  },
+  {
+   "para_id": 10,
+   "loc": "body",
+   "sec_title": "Confirmatory factor analysis",
+   "text": "To assess the stability of the four-factor structure identified in the EFA, a CFA was applied to the test data (N = 1382) using the CFA function from the lavaan package [34]. When evaluating the CFA's four-factor structure, the standardized estimates (equivalent to loadings in the EFA) and model fit indices were examined. The relative fit indices indicated a poor fit (TLI = 0.721, comparative fit index (CFI) = 0.738), while the absolute fit index showed an acceptable fit (RMSEA = 0.078 [0.076, 0.080]). The package semTools [35] was used to calculate the RMSEA of the null model, which was 0.147, indicating that relative fit indices may not be informative. Finally, Cronbach's alpha and Guttman's lambda were calculated for this dataset to assess the reliability of survey items and to help determine whether a collection of items consistently measures the same characteristic (attentiveness: alpha = 0.89, lambda = 0.91; human soc: alpha = 0.85, lambda = 0.89; neuroticism: alpha = 0.86, lambda = 0.88; horse soc: alpha = 0.77, lambda = 0.81).",
+   "printed": true
+  },
+  {
+   "para_id": 11,
+   "loc": "body",
+   "sec_title": "Statistical analyses",
+   "text": "GLMMs from the package glmmTMB [36] were used to assess how predictors, from table 1, are associated with horse scores for each personality factor (human sociability, horse sociability, neuroticism and attentiveness). The DHARMa package [37] was used to evaluate model dispersion, deviations, and overall fit and optimal distribution of the data (Gaussian). Human-related factors, such as ID, age group, sex and geographical area, were incorporated as random effects to account for potential socio-demographic biases. Regarding the model for the personality factor ‘horse sociability’, certain human-related parameters, such as riding frequency, groundwork frequency, quality time frequency, headgear, other riders and relationship length, were removed from the initial model, as this personality factor is based on items involving horse-on-horse interactions and not human–horse interactions. Thus, there were no biological reasons to formulate hypotheses of potential associations between horse-to-horse social behaviour and the human-related parameters explored in this study.",
+   "printed": true
+  },
+  {
+   "para_id": 12,
+   "loc": "body",
+   "sec_title": "Statistical analyses",
+   "text": "Multicollinearity among predictor variables was assessed using a combination of correlation analyses and variance inflation factors, car package [38]. Pairwise Pearson correlation matrices were computed across all predictors (with ordinal variables treated as integers and nominal factors as factor levels). Collinearity was evaluated using a two-step approach: a pairwise correlation coefficient threshold of greater than 0.70 was used to flag strong associations for closer inspection [39], while an adjusted generalized variance inflation factor (GVIF) threshold greater than 5 was considered indicative of potentially problematic multicollinearity (calculated as GVIF1/(2*Df)). No critical multicollinearity was detected. Only the variables ‘riding frequency’ and ‘type of headgear used’ showed a pairwise correlation (= 0.72), reflecting that owners who rode more frequently tended to predominantly use bridles with bits. However, because these variables capture conceptually distinct management and welfare dimensions (workload vs equipment type) and their corresponding adjusted GVIF values remained exceptionally low (1.45 and 1.68, respectively), well below the critical threshold of 5, both variables were retained in the analyses to avoid omitted-variable bias.",
+   "printed": true
+  },
+  {
+   "para_id": 13,
+   "loc": "body",
+   "sec_title": "Statistical analyses",
+   "text": "To avoid the biases and type I error inflation associated with traditional stepwise selection, an information-theoretic framework was applied. Best-fitted models (table 3) were selected based on the lowest corrected Akaike information criterion (AICc) from the candidate model set using the function dredge from the package MuMIn [40]. A post hoc analysis (Tukey method) was then performed using the emmeans package [41] to obtain the estimated marginal means (EMM) and pairwise differences between groups while controlling the family-wise error rate. Effect sizes for all mixed-effects models were quantified using standardized regression coefficients β and 95% confidence intervals (CIs), calculated via the effectsize package [38] with the method refit. These coefficients represent the expected change in the outcome in standard deviation (s.d.) units per one s.d. change in the predictor, allowing for a direct comparison of effect magnitudes across disparate variables, with CIs encompassing zero indicating non-meaningful effects. Percentages were calculated from pairwise ratios as (ratio − 1) × 100. This approach reflects the multiplicative nature of the model, where a negative value indicates a percentage decrease and a positive value a percentage increase. Dataset and script are provided in an open access repository [29]. Table 3.A summary of selected predictors for each model.response variables (personality factors)independent variablesrandom factorsriding freq.groundwork freq.quality time freq.headgearprevious ownersriders’ contextherd sizepasture timerelationship lengthhorse sexhorse age^2breedhuman IDlocationhuman agehuman sexhuman sociability✓✓✓✓✓✓✓✓✓attentiveness✓✓✓✓✓✓✓neuroticism✓✓✓✓✓✓✓✓horse sociability✗✗✗✗✗✓✗✓✓✓✓Notes: The tick marks indicate that the predictor was kept in the final model. The crosses indicate predictors removed because they were not relevant to the study.",
+   "printed": true
+  },
+  {
+   "para_id": 14,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Across the diverse field of equine personality research with substantial variability in questionnaire design and analytical approaches, similar personality factors have been observed to emerge. In their review, Rankins and Wickens [15] identified reactivity, gregariousness, reactivity to humans, sensory sensitivity and locomotor activity as equine personality factors. The four personality factors (human sociability, attentiveness, neuroticism and horse sociability) found in this study align closely with these recurring domains, supporting both its construct validity and its comparability with previous factor-analytic work. The factor score distributions further support the psychometric robustness of the model, with all factors approximately normally distributed. This facilitates linear modelling and meaningful comparisons across individuals and groups. The presence of long tails (up to ±4 s.d.) indicates extreme but behaviourally meaningful trait expressions, as also reported in other equine personality questionnaires [39–41]. Overall, despite differences in terminology across instruments, the present factor structure shows strong convergence with previously identified equine personality domains summarized in systematic and conceptual reviews.",
+   "printed": true
+  },
+  {
+   "para_id": 15,
+   "loc": "body",
+   "sec_title": "Human sociability",
+   "text": "In our analyses, the human sociability factor corresponds to the tendency of a horse to seek, tolerate and enjoy interactions with humans. Horses with low human sociability would avoid or ignore people, especially strangers. They would often be difficult to catch, show little interest in interaction and may appear distrustful or withdrawn. Human contact is tolerated rather than actively sought. In contrast, horses with high human sociability readily approach people and show curiosity, affection and playfulness. They are easy to catch, comfortable with strangers and actively seek human interaction. This factor corresponds closely to traits described as reactivity to humans or gregariousness towards people or sociability/protection towards humans in instruments such as the Equine Personality Test [42] the Horse Personality Questionnaire or the Equine Behavioural Assessment and Research Questionnaire (E-BARQ) [26,39,41]. Reactivity and responsiveness to humans have repeatedly been identified as central trait clusters in questionnaire-based research, and their consistent emergence suggests that horses’ orientation towards human interaction represents a stable and salient personality domain.",
+   "printed": true
+  },
+  {
+   "para_id": 16,
+   "loc": "body",
+   "sec_title": "Human sociability",
+   "text": "Regarding the exploration of the associations between human sociability scores and the relationship, environmental and intrinsic parameters, human sociability was most associated with age, with scores decreasing with horse age and stabilizing after about 20 years of age. This is in line with behavioural observations from Lerch et al. [43] where, in a motionless person test, 3–15‑year‑old equids interacted more with the human than those over 15 years old, suggesting a nonlinear age effect with reduced interaction in the oldest individuals. The human sociability factor included positively loaded items of curiosity and playfulness regardless of if it was directed towards humans or not, and young individuals of many species [44,45], including horses [46,47], generally show higher explorative behaviours and playfulness, which could drive this pattern. Additionally, as horses age, the more likely they are to interact with humans in new ways, including riding, training, transport and veterinary procedures, which may not be considered as a positive interaction for the horses [48,49], possibly reducing their interest in humans if the daily interactions do not always guarantee a positive output for them. Ensuring that daily interactions remain rewarding throughout a horse's life is, therefore, important for maintaining positive relationships, especially in older individuals.",
+   "printed": true
+  },
+  {
+   "para_id": 17,
+   "loc": "body",
+   "sec_title": "Human sociability",
+   "text": "Horse sex was also strongly associated with perceived human sociability, with geldings receiving higher ratings than mares. Consistent with this, Lerch et al. [43] reported that geldings interacted more frequently with a motionless human. In contrast, other studies have identified little to no behavioural sex differences in human–horse interaction contexts [50–52]. Additionally, the same respondents reported higher avoidant attachment scores towards mares compared with geldings and stallions [29]. These patterns may reflect gendered perceptions of horse temperament rather than true behavioural differences. As most respondents in the present study were women (94.6%), this interpretation is supported by findings from Fenner et al. [53], who showed that female riders often hold gendered views of horse temperament. Geldings are commonly perceived as possessing favourable traits, such as calmness, trainability, reliability and predictability, which may be reflected in how geldings and mares are rated in personality surveys. Such perceptions may unintentionally shape welfare outcomes, with geldings potentially receiving more positive handling and opportunities for social interaction than mares.",
+   "printed": true
+  },
+  {
+   "para_id": 18,
+   "loc": "body",
+   "sec_title": "Human sociability",
+   "text": "Owners who spent more frequent quality time with their horses (defined as time spent without making specific demands, where the animal is free to interact or not and often receives positive outcomes like treats and scratches) rated their horses higher in human sociability. While the cross-sectional nature of our data cannot establish a definitive causal direction, these findings point to a strong association that may be bidirectional; owners may naturally dedicate more unstructured quality time to horses they already perceive as gregarious, or conversely, repeated, pleasant interactions initiated by humans (e.g. gentle touch and predictable care) are known to reinforce voluntary approach and relaxed behaviour in animals [54]. This aligns with the systematic review by Hall and Kay [49], who concluded that positive experiences and voluntary approach behaviour to humans are key indicators of good welfare, and that interaction quantity and quality strongly modulate these horse–human dynamics.",
+   "printed": true
+  },
+  {
+   "para_id": 19,
+   "loc": "body",
+   "sec_title": "Human sociability",
+   "text": "Horses with shorter relationships with their owners and those that had been sold multiple times throughout their lives were rated lower in human sociability. This finding aligns with Liehrmann et al. [51], who reported that shorter relationship duration and frequent owner changes influenced horses’ responses during novel object tests conducted with human handlers. These results suggest that reduced familiarity with humans and repeated changes in environment may negatively affect horses’ confidence and alter their human-directed responses. Our findings extend this work by indicating that such life-history factors may also be reflected in horses’ general behavioural tendencies towards humans.",
+   "printed": true
+  },
+  {
+   "para_id": 20,
+   "loc": "body",
+   "sec_title": "Attentiveness",
+   "text": "The attentiveness factor represents the horse's capacity to focus on, respond to and cooperate with human cues and handling. Horses with low attentiveness scores are easily distracted, inconsistent and uncooperative during handling or training. They may become irritable or frustrated under constraint and respond poorly to human cues. Highly attentive horses are focused, responsive and consistent. They follow cues reliably, remain calm when handled and are easy to work with during training. This factor aligns with traits often described as reliability and obedience under human control. Comparable constructs appear across questionnaires under labels such as reliability, obedience, understanding or trainability [15,41,55].",
+   "printed": true
+  },
+  {
+   "para_id": 21,
+   "loc": "body",
+   "sec_title": "Attentiveness",
+   "text": "Attentiveness scores were predominantly positively associated with horse age. Age may also correlate with the level of training received, as younger horses that are still in training may be more likely to be rated highly on items such as distractibility or frustration. In contrast, more experienced horses may show higher levels of cooperative behaviour and be less reactive to external stimuli owing to habituation. Liehrmann et al. [52] found that in an object-choice task involving human referential communication, task success increased with age, with older horses (over 19 years old) achieving the highest success rates. Similarly, Proops et al. [56] reported that while young horses could successfully use pointing and touching cues to locate a rewarded bucket, they failed to respond to more subtle cues such as body orientation, gaze, elbow pointing or tapping. If horses’ ability to interpret nuanced human body signals improves with age and experience, older horses may, therefore, be more likely to receive higher ratings on behavioural items related to cooperation and attentiveness.",
+   "printed": true
+  },
+  {
+   "para_id": 22,
+   "loc": "body",
+   "sec_title": "Attentiveness",
+   "text": "Attentiveness was also positively associated with riding frequency, with horses ridden four to seven times per week receiving higher attentiveness scores. As with age, riding frequency may reflect differences in training exposure, such that more frequently ridden horses benefit from greater training consistency and are, therefore, more likely to score highly on items related to cooperative work behaviours. Conversely, it is also possible that horses rated as highly attentive are preferentially selected or retained by regular riders, meaning that horses with this temperament are more likely to be ridden frequently. Supporting this, in Visser et al. [54], riders preferred to ride horses they themselves had assessed as ‘attentive to the rider's aids’. Similarly, in a questionnaire of 197 riders on ‘ideal horse’ characteristics, behaviour during riding and handling was the most important category which included similar items, such as manageability, ease of handling and sociability, all closely tied to attentive, compliant behaviour [57]. Large-scale E‑BARQ data further support this, showing that rider and management characteristics, such as the number and type of regular riders, are systematically related to a horse's compliance and responsiveness to aids [58,59]. These data also indicate that traits like being ‘safe’ and ‘easy to ride’ cluster alongside other compliant behaviours that make horses attractive mounts for regular use, reinforcing the idea that rider preferences and selection pressures shape which horses are preferentially retained and used most intensively by frequent riders [60].",
+   "printed": true
+  },
+  {
+   "para_id": 23,
+   "loc": "body",
+   "sec_title": "Neuroticism",
+   "text": "The neuroticism factor is linked to the degree of horse emotional reactivity, anxiety and sensitivity to stress. Horses scoring low on neuroticism are described as calm, confident and emotionally stable. They show little fear or anxiety and cope well with novel or challenging situations. Highly neurotic horses are anxious, fearful and easily stressed. They show strong emotional reactions and increased reactivity to environmental changes. This factor directly parallels dimensions, such as nervousness, anxiousness, excitability, emotionality or fearfulness, which are among the most robust and consistently reported traits in equine personality research [15] and are widely documented across species [61] (cats: [62]; ferrets: [63]; dogs: [64]). The E-BARQ captures equine boldness, defined as the horse's reaction to the unfamiliar or unexpected, as a core dimension, which constitutes roughly the inverse of our neuroticism factor [41].",
+   "printed": true
+  },
+  {
+   "para_id": 24,
+   "loc": "body",
+   "sec_title": "Neuroticism",
+   "text": "Not surprisingly, breed appeared as the strongest association with neuroticism. Similarly, in the review of [15], the authors also report that reactivity/sensory sensitivity and anxiousness are among the traits that are most clearly influenced by breed and heritable factors. Our results show that draught horses score the lowest in neuroticism, followed by Nordic horses, ponies and then warmbloods with the highest scores. Our results somewhat align with those of Burattini et al. [65] who observed that Thoroughbreds were less bold than cross-breed horses and that draught horses and ponies were bolder. Sackman and Houpt [66] also found clear breed differences, with Arabians, Thoroughbreds and Saddlebreds (highly represented in our warmblood category) rated as the most nervous and draughts as the least nervous in a survey. Modern warmbloods are intensively selected for athletic sport performance and responsive mental attitude [67,68]. Within warmblood sport populations, higher proportions of Thoroughbred ancestry are associated with higher baseline heart rate and greater fear reactivity to novel stimuli, and warmblood and Thoroughbred sport horses show higher hypothalamic–pituitary–adrenal axis reactivity than cold‑blooded breeds [69,70].",
+   "printed": true
+  },
+  {
+   "para_id": 25,
+   "loc": "body",
+   "sec_title": "Neuroticism",
+   "text": "Interestingly, although the effect size was small, both younger and older horses scored lower in neuroticism than ‘middle-aged’ horses, with a peak observed at approximately 15 years of age. This pattern is partially consistent with evidence that younger horses tend to show more exploratory behaviour [46,47] and may, therefore, be perceived by owners as bolder, leading to lower ratings on neuroticism-related items. However, Baragli et al. [71] reported that although younger horses displayed more exploratory behaviour towards a novel object in a suddenness test, they also exhibited stronger avoidance responses than older individuals. It is important to note that many studies examining age effects on horse behaviour rely on strictly linear models and do not consider potential quadratic relationships, such as the pattern observed in the present study, which may limit direct comparability of findings. Very few studies include sufficient geriatric horses (over 18 years old) in their samples to draw strong conclusions. In our study, horses may be rated as less fearful once retired and consequently exposed to fewer potentially aversive or challenging stimuli than actively working horses. As a result, owners of older horses may observe fewer fear-related behaviours, which could contribute to lower neuroticism ratings compared with those assigned to ridden, working horses that encounter a wider range of external stimuli. Older horses commonly develop ocular lesions, such as cataracts and senile retinopathy, and the prevalence of these changes increases with age [72–74]. Even when owners still perceive their horses as visual, this age‑related vision decline could reasonably make some older horses less reactive to external visual stimuli like distant movement or subtle environmental changes. Another explanation comes from the E-BARQ data, analysed in Burattini et al. [65], which report that older horses are rated by owners as bolder and interpret this as a consequence of accumulated experience, habituation and greater training exposure.",
+   "printed": true
+  },
+  {
+   "para_id": 26,
+   "loc": "body",
+   "sec_title": "Neuroticism",
+   "text": "Riding frequency and sex were also associated with neuroticism scoring, but with smaller magnitude. Horses ridden more frequently scored lower than those rarely ridden. It is in line with the review conclusions of [15], which emphasizes that training intensity, exposure and handling practices can modify the expression of personality traits such as reactivity and fearfulness, even when underlying temperament is genetically influenced. This is consistent with E‑BARQ data showing that, with increasing age and accumulated training, horses become bolder and more responsive to rider cues, presumably through habituation and repeated exposure to varied stimuli [58,65]. It is also possible that fearful horses are not preferred to be ridden regularly, which could influence our results. There may be a strong implication of horse personality regarding training management and horse selection depending on the tasks they are used for. As for the sex difference, we found a small difference with gelding scoring a bit higher than mares or stallions in neuroticism. Sex effects related to fearful behaviour is contradictory, as some studies using fear and novel object tests align with our findings [22,75], while others observed no sex differences [51,76] or stallions to be more reactive than mares [77]. While these conflicting patterns make a definitive interpretation challenging, our data point to a potential behavioural mechanism. In our sample, geldings also scored the highest in human sociability. If owners perceive their geldings as more social and agreeable, it may foster a higher level of trust, leading to increased likelihood of exposing these horses to novel or potentially fearful stimuli in varied environments as in Fenner et al. [53], who reported that female riders often view geldings as more suitable for show jumping, dressage and trail riding than mares.",
+   "printed": true
+  },
+  {
+   "para_id": 27,
+   "loc": "body",
+   "sec_title": "Horse sociability",
+   "text": "The horse sociability factor represents the horse's tendency to engage in affiliative, non-aggressive inter actions with other horses. Horses with low horse sociability are more likely to be aggressive, invasive or controlling towards other horses. They may struggle with group integration and show frequent social conflict. Highly horse-sociable horses are described as showing more affiliative and submissive behaviour and being well-integrated within the group. They show low aggression and maintain positive relationships with conspecifics. This factor relates to what is also called gregariousness, affiliative behaviour towards conspecifics or non-human social confidence in the literature [41,42] but not always analytically separable from human-directed sociability [26,28,39]. This limited separability in earlier studies may be partly attributable to smaller questionnaires, typically comprising 25–30 items, which reduce factor overdetermination and increase the likelihood that distinct sociability domains merge into broader factors. In contrast, the clear distinction between human sociability and horse sociability observed in the present study is probably facilitated by the large sample size (n > 2000) and extensive item set (n = 52). Larger samples (n > 300) improve the stability and precision of factor loadings, enhancing the ability to differentiate correlated latent traits [78], while a higher number of items allows more specific constructs to emerge.",
+   "printed": true
+  },
+  {
+   "para_id": 28,
+   "loc": "body",
+   "sec_title": "Horse sociability",
+   "text": "Not surprisingly, horse sociability scores were mainly driven by their social life: horses housed mainly alone scored lower on sociability than horses housed with conspecifics. This is in line with E‑BARQ data, where lower non‑human social confidence scores are interpreted as an indication that horses may benefit from social enrichment with conspecifics [41]. The most common reasons for housing horses singly are linked to perceived risks and practical constraints rather than doubts about the benefits of social, outdoor living. Owners primarily cite concerns about injuries, group feeding and the management of high-value, stallion or competition horses, leading them to choose boxes or individual paddocks despite generally agreeing that group turnout and outdoor access are better for welfare [79–81]. It is possible that horses housed alone are rated lower because horse owners do not witness affiliative behaviour, although respondents had the option to precise ‘I don't know’. One reason horses housed alone may score lower in horse sociability is because deprivation from conspecific may then alter their social skill, as shown in stallions by Christensen et al. [82], where prolonged individual housing increased the risk and intensity of agonistic behaviours when horses are put back into contact. On the other hand, we cannot exclude that owners may have witnessed strong agonistic interactions from their horses and then decided to house them individually to prevent injuries. Taken together, these perspectives highlight important welfare implications regardless of the direction of the relationship between personality and social housing. If housing decisions are influenced by perceived personality traits, some horses may be systematically excluded from social environments, leading to unequal welfare outcomes despite social contact being a fundamental need. Conversely, if the social environment shapes personality, restrictive housing may contribute to the development of less adaptive behavioural profiles, such as reduced sociability or heightened agonistic responses, which can, in turn, justify continued isolation. In both cases, a feedback loop may emerge in which management practices and personality reinforce one another, underscoring the importance of considering the long-term welfare consequences of social housing decisions and individual needs of horses.",
+   "printed": true
+  },
+  {
+   "para_id": 29,
+   "loc": "body",
+   "sec_title": "Horse sociability",
+   "text": "Finally, age and sex were also associated with horse sociability, with younger and older horses scoring the highest and mares scoring lower than geldings. Age associations are somewhat supported by the observations of van Dierendonck et al. [83] in Icelandic horse herds where dominance rank increased with age and older mares formed long‑lasting affiliative bonds and subgroups, while very young horses show high levels of allogrooming and play. Regarding the sex differences, a review of equine social behaviour [84] notes that both sexes engage in affiliative interactions, and that domestic group compositions (mare–gelding, bachelor groups and mixed herds) can all support stable bonds if management is adequate.",
+   "printed": true
+  },
+  {
+   "para_id": 30,
+   "loc": "body",
+   "sec_title": "Other parameters",
+   "text": "Interestingly, groundwork frequency (training from the ground with a lead rope or at liberty without riding the horse) was never selected in the models, and the use of bitless headgear had no meaningful association with any of the personality factors. Groundwork, including in-hand and lunging work, has long existed in European traditions, but modern ‘natural horsemanship’ approaches, particularly liberty and round‑pen work, have grown in popularity recently [53,85,86]. Bitless bridles, though not new (e.g. hackamores and cavessons), remain rare overall, especially in rule-bound sports like dressage, but are more common in American Western and alternative disciplines [87,88]. Surveys and ethological studies show that both bitless tack and liberty/round‑pen methods are closely associated with natural horsemanship, equine-assisted activities, welfare- or science-branded training and relationship-centred approaches, while remaining uncommon in traditional English competition contexts [53,87,89,90]. Liehrmann et al. [27] observed that, in the same cohort of respondents, higher frequency of groundwork training and the use of bitless gear were associated with owner's lower avoidant attachment style and higher scores in openness personality trait, showing that these parameters depend on the horse owner's interest for less traditional practices [27]. This interpretation is consistent with the development of E‑BARQ, where numerous management and training items were removed because they attracted low response rates or showed very limited variance, indicating that some practices are confined to specific subcultures rather than broadly shaping behaviour across the population [41]. In this context, our finding that groundwork frequency and bitless headgear use were unrelated to personality factors is compatible with the idea that these variables mainly capture owner training philosophy rather than stable horse traits.",
+   "printed": true
+  },
+  {
+   "para_id": 31,
+   "loc": "body",
+   "sec_title": "Other parameters",
+   "text": "Time spent at pasture was not retained in any of the models, indicating no significant association with either personality factor. In our survey, pasture was deliberately defined in a simple way—as a grazing field larger than one hectare—following Liehrmann et al. [52], who reported behavioural associations using a similar definition. In their study, however, pasture time was highly correlated with herd size, preventing disentanglement of these effects. This confounding was not present in our data, making the absence of an association in our results unexpected, given the well-established link between pasture access and horse welfare. Numerous studies have shown that increased time at pasture, providing space for movement and continuous access to forage, reduces stereotypic and aggressive behaviours and promotes natural locomotion and social interactions, thereby better meeting horses’ species-typical ecological needs [5,7,91]. Seasonal alternation between pasture and indoor housing has also been shown to influence behaviour: summer pasture periods markedly reduce stereotypies and aggression, while the return to individual stabling triggers short-term increases in withdrawal, hypervigilance and stereotypic behaviours, with most welfare benefits disappearing within weeks [13,92]. Based on this literature, an association between pasture time and traits, such as sociality or neuroticism, could have been expected. However, a limitation of our approach is that the broad ordinal categories used to measure pasture time may have lacked the resolution to detect these effects across a highly disparate, geographically diverse sample. Macroclimatic differences mean that pasture utility varies drastically by region; for example, the harsh, dark winters of Fennoscandia and Canada restrict outdoor grazing to entirely different seasonal dynamics and forage qualities compared with the arid or more temperate conditions. Future studies should, therefore, consider more detailed assessments of pasture conditions, including size, terrain variability, availability of forage beyond grass (e.g. hedges or hay) and access to shelter, to better capture the complexity of pasture environments and climate and their potential association with horse consistent behaviour.",
+   "printed": true
+  },
+  {
+   "para_id": 32,
+   "loc": "body",
+   "sec_title": "Limitations",
+   "text": "Demographic factors, such as ethnicity, social class, gender and family status, shape people's experiences with and perspectives towards animals and, thus, influence human–animal relationships [93]. Although the survey was distributed internationally, limiting participation to English, French and Finnish speakers probably biased the sample towards respondents from Western, educated, industrialized, rich, and democratic societies—a well-recognized limitation in psychological research [94,95]. Resource constraints prevented translation into additional languages, underscoring the need for future studies to include a wider linguistic range to achieve greater global representativeness. Moreover, voluntary participation may have introduced additional self-selection biases.",
+   "printed": true
+  },
+  {
+   "para_id": 33,
+   "loc": "body",
+   "sec_title": "Limitations",
+   "text": "A further limitation is the pronounced gender imbalance in the sample, with 94.6% of respondents identifying as female, reflecting patterns commonly observed in equestrian research [53,88]. Our results may then suffer from a gender bias, as Anzulewicz et al. [59] found that the biological sex of handlers and riders was associated with differences in horses’ reported social confidence, compliance and touch sensitivity, with horses ridden by male humans more likely to be described as difficult to catch or defensive. In addition, the study design did not allow for multiple raters per horse or repeated assessments over time. As a result, it may have introduced subjective biases, and the findings also only reflect owners’ perceptions at a single time point rather than stable or long-term behavioural profiles. Finally, the cross-sectional nature of the study precludes causal inference. While associations between personality ratings and environmental or relationship factors can be identified, the directionality of these relationships remains unclear. Longitudinal and multi-rater studies are, therefore, needed to clarify causal pathways and to better capture the dynamic interactions between owner characteristics, management practices and equine personality over time.",
+   "printed": true
+  },
+  {
+   "para_id": 34,
+   "loc": "back",
+   "sec_title": "Data accessibility",
+   "text": "The data as well as the horse personality survey in English, Finnish and French and the R script are freely available in an online repository [96].",
+   "printed": true
+  },
+  {
+   "para_id": 35,
+   "loc": "back",
+   "sec_title": "Data accessibility",
+   "text": "Supplementary material is available online [97].",
+   "printed": true
+  }
+ ],
+ "links": [
+  {
+   "link_id": 1,
+   "url": "doi:10.6084/m9.figshare.c.8598587",
+   "url_raw": "https://doi.org/10.6084/m9.figshare.c.8598587",
+   "href_jats": "https://doi.org/10.6084/m9.figshare.c.8598587",
+   "repo_key": "doi:10.6084/m9.figshare.c.8598587",
+   "host_class": "doi",
+   "loc": "front",
+   "sec_title": "",
+   "source": "tagged",
+   "para_id": 1
+  }
+ ],
+ "links_optional": [
+  "creativecommons.org/licenses/by/4.0",
+  "doi:10.1002/9781118970843.ch88",
+  "doi:10.1006/anbe.1999.1155",
+  "doi:10.1007/978-3-319-24277-4",
+  "doi:10.1007/s10071-023-01775-0",
+  "doi:10.1007/s10519-024-10186-x",
+  "doi:10.1016/j.anbehav.2018.01.025",
+  "doi:10.1016/j.applanim.2003.12.010",
+  "doi:10.1016/j.applanim.2004.06.010",
+  "doi:10.1016/j.applanim.2004.11.006",
+  "doi:10.1016/j.applanim.2006.05.017",
+  "doi:10.1016/j.applanim.2007.08.010",
+  "doi:10.1016/j.applanim.2007.10.006",
+  "doi:10.1016/j.applanim.2010.09.012",
+  "doi:10.1016/j.applanim.2011.10.004",
+  "doi:10.1016/j.applanim.2014.02.014",
+  "doi:10.1016/j.applanim.2017.03.015",
+  "doi:10.1016/j.applanim.2019.104833",
+  "doi:10.1016/j.applanim.2020.105076",
+  "doi:10.1016/j.applanim.2022.105567",
+  "doi:10.1016/j.applanim.2022.105709",
+  "doi:10.1016/j.applanim.2023.105855",
+  "doi:10.1016/j.applanim.2023.106113",
+  "doi:10.1016/j.applanim.2024.106244",
+  "doi:10.1016/j.applanim.2025.106556",
+  "doi:10.1016/j.cveq.2020.03.014",
+  "doi:10.1016/j.jevs.2018.10.018",
+  "doi:10.1016/j.jveb.2014.11.006",
+  "doi:10.1016/j.jveb.2018.05.003",
+  "doi:10.1016/j.jveb.2020.09.003",
+  "doi:10.1016/j.jveb.2023.10.003",
+  "doi:10.1016/j.jveb.2023.12.005",
+  "doi:10.1016/j.tvjl.2009.03.023",
+  "doi:10.1016/s0168-1591(01)00196-4",
+  "doi:10.1016/s0168-1591(02)00092-8",
+  "doi:10.1017/awf.2023.9",
+  "doi:10.1017/awf.2024.41",
+  "doi:10.1037/amp0001298",
+  "doi:10.1038/s41398-022-01841-0",
+  "doi:10.1038/s41586-021-04018-9",
+  "doi:10.1038/s41598-020-65444-9",
+  "doi:10.1079/pavsnnr20138006",
+  "doi:10.1080/08927936.2026.2676402",
+  "doi:10.1080/10888700802101254",
+  "doi:10.1093/beheco/arz090",
+  "doi:10.1111/1467-8721.00017",
+  "doi:10.1111/evj.13005",
+  "doi:10.1111/evj.13130",
+  "doi:10.1111/evj.13941",
+  "doi:10.1111/j.1751-9020.2012.00494.x",
+  "doi:10.1111/j.2042-3306.1999.tb05154.x",
+  "doi:10.1111/j.2042-3306.2010.00203.x",
+  "doi:10.1136/vr.153.11.319",
+  "doi:10.1163/156853007x217177",
+  "doi:10.1163/1568539x-00003197",
+  "doi:10.1186/1297-9686-41-31",
+  "doi:10.1186/s12864-019-6079-1",
+  "doi:10.1371/journal.pone.0054997",
+  "doi:10.1371/journal.pone.0067000",
+  "doi:10.1371/journal.pone.0171010",
+  "doi:10.1371/journal.pone.0183455",
+  "doi:10.1371/journal.pone.0215913",
+  "doi:10.1371/journal.pone.0221794",
+  "doi:10.1558/jcsr.38413",
+  "doi:10.17632/jdrx4fnkjj.2",
+  "doi:10.18637/jss.v028.i05",
+  "doi:10.21105/joss.02815",
+  "doi:10.2307/jj.18377000",
+  "doi:10.2478/acve-2014-0031",
+  "doi:10.2478/acve-2018-0025",
+  "doi:10.2527/jas.2015-9233",
+  "doi:10.2752/175303711x13159027359827",
+  "doi:10.32614/cran.package.dharma",
+  "doi:10.32614/cran.package.lavaan",
+  "doi:10.32614/cran.package.psych",
+  "doi:10.32614/cran.package.semtools",
+  "doi:10.32614/rj-2017-066",
+  "doi:10.3389/fnbeh.2022.941517",
+  "doi:10.3389/fvets.2024.1504116",
+  "doi:10.3390/ani10030414",
+  "doi:10.3390/ani10111982",
+  "doi:10.3390/ani10122321",
+  "doi:10.3390/ani11010066",
+  "doi:10.3390/ani11010130",
+  "doi:10.3390/ani11051347",
+  "doi:10.3390/ani11061798",
+  "doi:10.3390/ani11082173",
+  "doi:10.3390/ani11092533",
+  "doi:10.3390/ani11102782",
+  "doi:10.3390/ani13020275",
+  "doi:10.3390/ani13040769",
+  "doi:10.3390/ani13091473",
+  "doi:10.3390/ani14172548",
+  "doi:10.3390/ani9090621",
+  "doi:10.5187/jast.2021.e51",
+  "doi:10.64252/bvgzkb65",
+  "jstor.org/stable/jj.18377000",
+  "sidestone.com/books/harnessing-horses-from-prehistory-to-history"
+ ],
+ "own_doi": "doi:10.1098/rsos.260116",
+ "citations": [
+  {
+   "cite_id": 1,
+   "para_id": 2,
+   "bib_id": 1,
+   "marker": "1",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 2,
+   "para_id": 2,
+   "bib_id": 1,
+   "marker": "1",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 3,
+   "para_id": 2,
+   "bib_id": 2,
+   "marker": "2",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 4,
+   "para_id": 3,
+   "bib_id": 3,
+   "marker": "3",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 5,
+   "para_id": 3,
+   "bib_id": 4,
+   "marker": "4",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 6,
+   "para_id": 3,
+   "bib_id": 5,
+   "marker": "5",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 7,
+   "para_id": 3,
+   "bib_id": 6,
+   "marker": "6",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 8,
+   "para_id": 3,
+   "bib_id": 7,
+   "marker": "7",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 9,
+   "para_id": 3,
+   "bib_id": 8,
+   "marker": "8",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 10,
+   "para_id": 3,
+   "bib_id": 9,
+   "marker": "9",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 11,
+   "para_id": 3,
+   "bib_id": 10,
+   "marker": "10",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 12,
+   "para_id": 3,
+   "bib_id": 11,
+   "marker": "11",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 13,
+   "para_id": 3,
+   "bib_id": 12,
+   "marker": "12",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 14,
+   "para_id": 3,
+   "bib_id": 13,
+   "marker": "13",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 15,
+   "para_id": 3,
+   "bib_id": 5,
+   "marker": "5",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 16,
+   "para_id": 3,
+   "bib_id": 14,
+   "marker": "14",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 17,
+   "para_id": 4,
+   "bib_id": 15,
+   "marker": "15",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 18,
+   "para_id": 4,
+   "bib_id": 16,
+   "marker": "16",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 19,
+   "para_id": 4,
+   "bib_id": 17,
+   "marker": "17",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 20,
+   "para_id": 4,
+   "bib_id": 18,
+   "marker": "18",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 21,
+   "para_id": 4,
+   "bib_id": 15,
+   "marker": "15",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 22,
+   "para_id": 4,
+   "bib_id": 19,
+   "marker": "19–21",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 23,
+   "para_id": 4,
+   "bib_id": 20,
+   "marker": "19–21",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 24,
+   "para_id": 4,
+   "bib_id": 21,
+   "marker": "19–21",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 25,
+   "para_id": 4,
+   "bib_id": 15,
+   "marker": "15",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 26,
+   "para_id": 4,
+   "bib_id": 22,
+   "marker": "22",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 27,
+   "para_id": 4,
+   "bib_id": 16,
+   "marker": "16",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 28,
+   "para_id": 4,
+   "bib_id": 18,
+   "marker": "18",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 29,
+   "para_id": 5,
+   "bib_id": 28,
+   "marker": "28",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 30,
+   "para_id": 5,
+   "bib_id": 29,
+   "marker": "29",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 31,
+   "para_id": 6,
+   "bib_id": 23,
+   "marker": "23–26",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 32,
+   "para_id": 6,
+   "bib_id": 24,
+   "marker": "23–26",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 33,
+   "para_id": 6,
+   "bib_id": 25,
+   "marker": "23–26",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 34,
+   "para_id": 6,
+   "bib_id": 26,
+   "marker": "23–26",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 35,
+   "para_id": 6,
+   "bib_id": 27,
+   "marker": "27",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 36,
+   "para_id": 7,
+   "bib_id": 28,
+   "marker": "28",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 37,
+   "para_id": 7,
+   "bib_id": 29,
+   "marker": "29",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 38,
+   "para_id": 8,
+   "bib_id": 30,
+   "marker": "30",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 39,
+   "para_id": 8,
+   "bib_id": 31,
+   "marker": "31",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 40,
+   "para_id": 8,
+   "bib_id": 32,
+   "marker": "32",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 41,
+   "para_id": 9,
+   "bib_id": 33,
+   "marker": "33",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 42,
+   "para_id": 10,
+   "bib_id": 34,
+   "marker": "34",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 43,
+   "para_id": 10,
+   "bib_id": 35,
+   "marker": "35",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 44,
+   "para_id": 11,
+   "bib_id": 36,
+   "marker": "36",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 45,
+   "para_id": 11,
+   "bib_id": 37,
+   "marker": "37",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 46,
+   "para_id": 12,
+   "bib_id": 38,
+   "marker": "38",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 47,
+   "para_id": 12,
+   "bib_id": 39,
+   "marker": "39",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 48,
+   "para_id": 13,
+   "bib_id": 40,
+   "marker": "40",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 49,
+   "para_id": 13,
+   "bib_id": 41,
+   "marker": "41",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 50,
+   "para_id": 13,
+   "bib_id": 38,
+   "marker": "38",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 51,
+   "para_id": 13,
+   "bib_id": 29,
+   "marker": "29",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 52,
+   "para_id": 14,
+   "bib_id": 15,
+   "marker": "15",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 53,
+   "para_id": 14,
+   "bib_id": 39,
+   "marker": "39–41",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 54,
+   "para_id": 14,
+   "bib_id": 40,
+   "marker": "39–41",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 55,
+   "para_id": 14,
+   "bib_id": 41,
+   "marker": "39–41",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 56,
+   "para_id": 15,
+   "bib_id": 42,
+   "marker": "42",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 57,
+   "para_id": 15,
+   "bib_id": 26,
+   "marker": "26",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 58,
+   "para_id": 15,
+   "bib_id": 39,
+   "marker": "39",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 59,
+   "para_id": 15,
+   "bib_id": 41,
+   "marker": "41",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 60,
+   "para_id": 16,
+   "bib_id": 43,
+   "marker": "43",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 61,
+   "para_id": 16,
+   "bib_id": 44,
+   "marker": "44",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 62,
+   "para_id": 16,
+   "bib_id": 45,
+   "marker": "45",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 63,
+   "para_id": 16,
+   "bib_id": 46,
+   "marker": "46",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 64,
+   "para_id": 16,
+   "bib_id": 47,
+   "marker": "47",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 65,
+   "para_id": 16,
+   "bib_id": 48,
+   "marker": "48",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 66,
+   "para_id": 16,
+   "bib_id": 49,
+   "marker": "49",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 67,
+   "para_id": 17,
+   "bib_id": 43,
+   "marker": "43",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 68,
+   "para_id": 17,
+   "bib_id": 50,
+   "marker": "50–52",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 69,
+   "para_id": 17,
+   "bib_id": 51,
+   "marker": "50–52",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 70,
+   "para_id": 17,
+   "bib_id": 52,
+   "marker": "50–52",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 71,
+   "para_id": 17,
+   "bib_id": 29,
+   "marker": "29",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 72,
+   "para_id": 17,
+   "bib_id": 53,
+   "marker": "53",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 73,
+   "para_id": 18,
+   "bib_id": 54,
+   "marker": "54",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 74,
+   "para_id": 18,
+   "bib_id": 49,
+   "marker": "49",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 75,
+   "para_id": 19,
+   "bib_id": 51,
+   "marker": "51",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 76,
+   "para_id": 20,
+   "bib_id": 15,
+   "marker": "15",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 77,
+   "para_id": 20,
+   "bib_id": 41,
+   "marker": "41",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 78,
+   "para_id": 20,
+   "bib_id": 55,
+   "marker": "55",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 79,
+   "para_id": 21,
+   "bib_id": 52,
+   "marker": "52",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 80,
+   "para_id": 21,
+   "bib_id": 56,
+   "marker": "56",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 81,
+   "para_id": 22,
+   "bib_id": 54,
+   "marker": "54",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 82,
+   "para_id": 22,
+   "bib_id": 57,
+   "marker": "57",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 83,
+   "para_id": 22,
+   "bib_id": 58,
+   "marker": "58",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 84,
+   "para_id": 22,
+   "bib_id": 59,
+   "marker": "59",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 85,
+   "para_id": 22,
+   "bib_id": 60,
+   "marker": "60",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 86,
+   "para_id": 23,
+   "bib_id": 15,
+   "marker": "15",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 87,
+   "para_id": 23,
+   "bib_id": 61,
+   "marker": "61",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 88,
+   "para_id": 23,
+   "bib_id": 62,
+   "marker": "62",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 89,
+   "para_id": 23,
+   "bib_id": 63,
+   "marker": "63",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 90,
+   "para_id": 23,
+   "bib_id": 64,
+   "marker": "64",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 91,
+   "para_id": 23,
+   "bib_id": 41,
+   "marker": "41",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 92,
+   "para_id": 24,
+   "bib_id": 15,
+   "marker": "15",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 93,
+   "para_id": 24,
+   "bib_id": 65,
+   "marker": "65",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 94,
+   "para_id": 24,
+   "bib_id": 66,
+   "marker": "66",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 95,
+   "para_id": 24,
+   "bib_id": 67,
+   "marker": "67",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 96,
+   "para_id": 24,
+   "bib_id": 68,
+   "marker": "68",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 97,
+   "para_id": 24,
+   "bib_id": 69,
+   "marker": "69",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 98,
+   "para_id": 24,
+   "bib_id": 70,
+   "marker": "70",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 99,
+   "para_id": 25,
+   "bib_id": 46,
+   "marker": "46",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 100,
+   "para_id": 25,
+   "bib_id": 47,
+   "marker": "47",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 101,
+   "para_id": 25,
+   "bib_id": 71,
+   "marker": "71",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 102,
+   "para_id": 25,
+   "bib_id": 72,
+   "marker": "72–74",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 103,
+   "para_id": 25,
+   "bib_id": 73,
+   "marker": "72–74",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 104,
+   "para_id": 25,
+   "bib_id": 74,
+   "marker": "72–74",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 105,
+   "para_id": 25,
+   "bib_id": 65,
+   "marker": "65",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 106,
+   "para_id": 26,
+   "bib_id": 15,
+   "marker": "15",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 107,
+   "para_id": 26,
+   "bib_id": 58,
+   "marker": "58",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 108,
+   "para_id": 26,
+   "bib_id": 65,
+   "marker": "65",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 109,
+   "para_id": 26,
+   "bib_id": 22,
+   "marker": "22",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 110,
+   "para_id": 26,
+   "bib_id": 75,
+   "marker": "75",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 111,
+   "para_id": 26,
+   "bib_id": 51,
+   "marker": "51",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 112,
+   "para_id": 26,
+   "bib_id": 76,
+   "marker": "76",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 113,
+   "para_id": 26,
+   "bib_id": 77,
+   "marker": "77",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 114,
+   "para_id": 26,
+   "bib_id": 53,
+   "marker": "53",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 115,
+   "para_id": 27,
+   "bib_id": 41,
+   "marker": "41",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 116,
+   "para_id": 27,
+   "bib_id": 42,
+   "marker": "42",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 117,
+   "para_id": 27,
+   "bib_id": 26,
+   "marker": "26",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 118,
+   "para_id": 27,
+   "bib_id": 28,
+   "marker": "28",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 119,
+   "para_id": 27,
+   "bib_id": 39,
+   "marker": "39",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 120,
+   "para_id": 27,
+   "bib_id": 78,
+   "marker": "78",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 121,
+   "para_id": 28,
+   "bib_id": 41,
+   "marker": "41",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 122,
+   "para_id": 28,
+   "bib_id": 79,
+   "marker": "79–81",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 123,
+   "para_id": 28,
+   "bib_id": 80,
+   "marker": "79–81",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 124,
+   "para_id": 28,
+   "bib_id": 81,
+   "marker": "79–81",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 125,
+   "para_id": 28,
+   "bib_id": 82,
+   "marker": "82",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 126,
+   "para_id": 29,
+   "bib_id": 83,
+   "marker": "83",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 127,
+   "para_id": 29,
+   "bib_id": 84,
+   "marker": "84",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 128,
+   "para_id": 30,
+   "bib_id": 53,
+   "marker": "53",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 129,
+   "para_id": 30,
+   "bib_id": 85,
+   "marker": "85",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 130,
+   "para_id": 30,
+   "bib_id": 86,
+   "marker": "86",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 131,
+   "para_id": 30,
+   "bib_id": 87,
+   "marker": "87",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 132,
+   "para_id": 30,
+   "bib_id": 88,
+   "marker": "88",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 133,
+   "para_id": 30,
+   "bib_id": 53,
+   "marker": "53",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 134,
+   "para_id": 30,
+   "bib_id": 87,
+   "marker": "87",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 135,
+   "para_id": 30,
+   "bib_id": 89,
+   "marker": "89",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 136,
+   "para_id": 30,
+   "bib_id": 90,
+   "marker": "90",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 137,
+   "para_id": 30,
+   "bib_id": 27,
+   "marker": "27",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 138,
+   "para_id": 30,
+   "bib_id": 27,
+   "marker": "27",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 139,
+   "para_id": 30,
+   "bib_id": 41,
+   "marker": "41",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 140,
+   "para_id": 31,
+   "bib_id": 52,
+   "marker": "52",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 141,
+   "para_id": 31,
+   "bib_id": 5,
+   "marker": "5",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 142,
+   "para_id": 31,
+   "bib_id": 7,
+   "marker": "7",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 143,
+   "para_id": 31,
+   "bib_id": 91,
+   "marker": "91",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 144,
+   "para_id": 31,
+   "bib_id": 13,
+   "marker": "13",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 145,
+   "para_id": 31,
+   "bib_id": 92,
+   "marker": "92",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 146,
+   "para_id": 32,
+   "bib_id": 93,
+   "marker": "93",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 147,
+   "para_id": 32,
+   "bib_id": 94,
+   "marker": "94",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 148,
+   "para_id": 32,
+   "bib_id": 95,
+   "marker": "95",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 149,
+   "para_id": 33,
+   "bib_id": 53,
+   "marker": "53",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 150,
+   "para_id": 33,
+   "bib_id": 88,
+   "marker": "88",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 151,
+   "para_id": 33,
+   "bib_id": 59,
+   "marker": "59",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 152,
+   "para_id": 34,
+   "bib_id": 96,
+   "marker": "96",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 153,
+   "para_id": 35,
+   "bib_id": 97,
+   "marker": "97",
+   "expanded": false,
+   "scored": true
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-ext-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "v1_bib_count": 97
+ }
+}

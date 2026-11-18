@@ -1,0 +1,811 @@
+{
+ "paper_id": "10.7717_peerj.21313",
+ "paras": [
+  {
+   "para_id": 1,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Since the World Health Organization (WHO) declared COVID-19 a global pandemic in March 2020 (Cucinotta & Vanelli, 2020), the scientific community has produced an unprecedented volume of research, generating over 480,000 publications to date (Chen et al., 2023). This global response has led to the creation of extensive datasets across academic, governmental, and private sectors (Zuo et al., 2021), accelerating the integration of artificial intelligence (AI) and data science in healthcare (Wang et al., 2021). Among the omics disciplines, metabolomics has emerged as a powerful approach for investigating COVID-19 pathophysiology and the host’s biochemical response to infection.",
+   "printed": true
+  },
+  {
+   "para_id": 2,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Metabolomics involves the comprehensive analysis of small-molecule metabolites that represent the functional end-products of cellular processes (Kell & Oliver, 2016). Unlike genomics, which provides information on static susceptibility and potential risk factors, or proteomics and transcriptomics, which elucidate the machinery of cellular response, metabolomics captures the ultimate phenotypic outcome of these interactions (Kell & Oliver, 2016; Idle & Gonzalez, 2007). This distinction is particularly critical in COVID-19 research, where clinical manifestations vary drastically among individuals with similar genetic backgrounds. While genomic studies have identified host factors associated with severity, they cannot account for the dynamic, real-time metabolic alterations driven by the viral infection, environmental exposures, and comorbidities. Metabolomics provides a snapshot of these complex interactions, revealing immediate disturbances in energy metabolism, immune regulation, and lipid signaling that other omics layers might miss or detect only indirectly (Idle & Gonzalez, 2007; Klassen et al., 2017). Consequently, it is uniquely positioned to identify disease-related changes and potential therapeutic targets with high sensitivity (Hasan, Suleiman & Perez-Lopez, 2021).",
+   "printed": true
+  },
+  {
+   "para_id": 3,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "The integration of machine learning (ML) with metabolomics has gained momentum for its ability to detect complex patterns in high-dimensional biochemical data (Wishart, 2016). ML algorithms can assist in biomarker discovery, patient stratification, and the development of predictive models for diagnosis and prognosis (Blaženović et al., 2018; Xu et al., 2024). This approach has shown potential in various diseases, including cancer (Seyfried & Shelton, 2010; Brown et al., 2012; Chen et al., 2024; Kuwabara et al., 2022), diabetes (Leiherer et al., 2024; Hirakawa et al., 2022; Zhang & Yang, 2022), and more recently, COVID-19.",
+   "printed": true
+  },
+  {
+   "para_id": 4,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "In the context of COVID-19, several studies have developed metabolomics-based ML models to classify disease severity, predict outcomes, and support clinical decision-making (Shen et al., 2020; Baiges-Gaya et al., 2023). For instance, Shen et al. (2020) identified lipid alterations and used random forest models to classify severe cases, while Baiges-Gaya et al. (2023) used gradient boosting machines to differentiate between COVID-19 patients and healthy controls based on serum metabolite profiles. Other works have demonstrated the feasibility of using such approaches for early diagnosis and severity prediction (López-Hernández et al., 2021; Thomas et al., 2020; Wu et al., 2020; Sumon et al., 2025; Robinson et al., 2025), reinforcing the potential of ML-enhanced metabolomics to advance precision medicine in COVID-19 care (Hasan, Suleiman & Perez-Lopez, 2021; Bardanzellu & Fanos, 2022).",
+   "printed": true
+  },
+  {
+   "para_id": 5,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Despite this promise, the application of ML to metabolomics faces specific computational and methodological challenges. A primary hurdle is the “curse of dimensionality”, where the number of detected metabolic features (p) vastly outnumbers the available samples (n). This imbalance makes ML models highly prone to overfitting, capturing noise instead of true biological signals, especially in small-scale COVID-19 cohorts (Liebal et al., 2020; Broadhurst et al., 2018). Additionally, technical sources of variation—such as batch effects and inter-instrument differences—can introduce non-biological bias, leading algorithms to learn site-specific patterns rather than generalizable disease markers (Kumar & Misra, 2019). Data sparsity is another critical issue; metabolomics datasets often contain high rates of missing values (e.g., due to limits of detection), which require specialized imputation strategies distinct from standard tabular data approaches (Wei et al., 2018). Finally, the lack of standardized metadata formats limits the ability to merge datasets for validating models across different populations, hindering the development of robust, clinically deployable tools (Shuja et al., 2021).",
+   "printed": true
+  },
+  {
+   "para_id": 6,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "To overcome these limitations, data sharing and the adoption of best practices are critical. One of the main obstacles to training reliable ML models is the limited availability of high-quality, standardized datasets (Shuja et al., 2021). Given the high cost and effort associated with generating metabolomics data, promoting open data access enhances the value of existing resources, reduces sampling bias, and supports model generalization.",
+   "printed": true
+  },
+  {
+   "para_id": 7,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Efforts to improve data reusability are supported by frameworks such as Findable, Accessible, Interoperable, and Reusable (FAIR), which provides principles to ensure that digital assets are discoverable and usable by both humans and machines (Boeckhout, Zielhuis & Bredenoord, 2018). These are complemented by the Transparency, Responsibility, User focus, Sustainability, and Technology (TRUST) principles, which define the requirements for digital repositories to maintain data integrity and long-term stewardship (Lin et al., 2020). Furthermore, domain-specific metadata standards from the Metabolomics Standards Initiative (MSI) establish the minimum information necessary to describe metabolomics experiments, ensuring that chemical and biological contexts are preserved (Fiehn et al., 2007). Public repositories like MetaboLights (Yurekten et al., 2024) and the Metabolomics Workbench (Sud et al., 2016) have been instrumental in implementing these principles, offering platforms for standardized data deposition, analysis tools, and educational resources. Furthermore, the increasing use of data sharing statements in publications fosters transparency by requiring authors to explicitly state how and where their data can be accessed (Taichman et al., 2017; Federer et al., 2018). These practices are essential to enhance reproducibility and collaboration in metabolomics research.",
+   "printed": true
+  },
+  {
+   "para_id": 8,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Although previous reviews have addressed data sharing in the context of COVID-19, they have predominantly focused on general open-data landscapes without specific attention to the complexities of omics data (Zuo et al., 2021; Shuja et al., 2021). In the specific domain of metabolomics, early efforts such as the meta-analysis by Pang et al. (2021) provided crucial insights into the biological pathways altered by the infection. However, that study was limited to the initial phase of the pandemic and focused primarily on aggregating biological findings rather than evaluating the reusability and accessibility of the underlying raw datasets. To date, there is no systematic assessment of the vast amount of metabolomics data generated in subsequent years, nor a detailed evaluation of their metadata quality and readiness for secondary analysis, particularly for data-driven approaches like Machine Learning.",
+   "printed": true
+  },
+  {
+   "para_id": 9,
+   "loc": "body",
+   "sec_title": "Materials and methods",
+   "text": "To conduct this systematic literature review (SLR), we followed the guidelines proposed by Kitchenham (2004), structured into three key phases: planning, execution, and reporting. We complemented this approach with the PRISMA framework (Moher et al., 2009), which was particularly applied during the execution and reporting phases to standardize study identification, screening, eligibility assessment, and final inclusion. No protocol was registered prior to conducting the review. The complete methodology is summarized and visually represented in Fig. 1.",
+   "printed": true
+  },
+  {
+   "para_id": 10,
+   "loc": "body",
+   "sec_title": "Q1. Availability and accessibility",
+   "text": "Based on the reviewed literature, a total of 110 metabolomics datasets related to COVID-19, listed in Table S1, were identified, spanning from December 2019 to March 2026. Of these, 65 were deposited in public data repositories, while 47 were made available as Supplementary Materials in scientific publications. Notably, two datasets from Juyal et al. (2026) and Gardinassi et al. (2023) were found both in the Supplementary Materials and through a external repository, and therefore were counted twice.",
+   "printed": true
+  },
+  {
+   "para_id": 11,
+   "loc": "body",
+   "sec_title": "Data format",
+   "text": "Among the shared datasets, 39 provided raw data. As detailed in Fig. 3A, metabolomics-specialized repositories were the most common hosts for raw datasets. Additionally, platforms primarily designed for proteomics, such as ProteomeXChange and MassIVE, were also used, particularly in studies involving multi-omics analyses (He et al., 2021; Li et al., 2022) or focused exclusively on metabolomics (Li et al., 2023; Tahir et al., 2024; Sameh et al., 2023; Overmyer et al., 2021). Other datasets were shared through PanoramaWeb (Richard et al., 2022) and the general-purpose repository Mendeley Data (Marhuenda-Egea et al., 2023).",
+   "printed": true
+  },
+  {
+   "para_id": 12,
+   "loc": "body",
+   "sec_title": "Biological sample",
+   "text": "As shown in Fig. 5, plasma (n = 57) and serum (n = 35) were the most commonly analyzed biological matrices. Other less frequent sample types—often tailored to specific research objectives—included urine, feces, lung tissue, mucosal cells, saliva, nasopharyngeal swabs, and perinatal fluids. Additionally, some studies incorporated multiple matrices for broader metabolome characterization, such as combining serum and urine (Bi et al., 2022) or investigating various maternal fluids during pregnancy (Frankevich et al., 2023).",
+   "printed": true
+  },
+  {
+   "para_id": 13,
+   "loc": "body",
+   "sec_title": "Number of annotated metabolites",
+   "text": "While 100 datasets reported some form of metabolite annotation—ranging from 3 to 2,732 compounds (Fig. 7B)—adherence to the MSI levels of confidence was low. MSI recommends reporting levels from 1 (confirmed by standards) to 4 (unknowns); however, most datasets omitted these details. Only a small subset explicitly stated their annotations were putative (MSI Levels 2 or 3), based solely on spectral database comparisons (Saito et al., 2024; Overmyer et al., 2021).",
+   "printed": true
+  },
+  {
+   "para_id": 14,
+   "loc": "body",
+   "sec_title": "Sample collection periods and temporal coverage",
+   "text": "Longitudinal studies investigating post-acute sequelae of COVID-19 (PASC) required extended periods for repeated measurements. Examples include studies by Saito et al. (2024), López-Hernández et al. (2023a), Kovarik et al. (2023), Yang et al. (2022), Jing et al. (2022), Zheng et al. (2021), Su et al. (2022), López-Hernández et al. (2023b) and Ozonoff et al. (2024), which collected samples at multiple time points to track metabolic recovery or persistent dysregulation. In contrast, several studies performed retrospective analyses using pre-existing biobank samples collected prior to the COVID-19 pandemic (eight collected before 2019 and five during 2019).",
+   "printed": true
+  },
+  {
+   "para_id": 15,
+   "loc": "body",
+   "sec_title": "Additional participant data shared",
+   "text": "Numerous studies have emphasized that metabolic responses are significantly modulated by individual-level characteristics. For example, Mittelstrass et al. (2011) demonstrated that sex-specific metabolic patterns are prevalent across populations, while Kimhofer et al. (2020) reported that the presence of comorbidities like diabetes and cardiovascular disease significantly alters the metabolic profile and influences COVID-19 severity.",
+   "printed": true
+  },
+  {
+   "para_id": 16,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Our review reveals a substantial effort in sharing metabolomics data during the COVID-19 pandemic, with nearly three-quarters of studies making datasets available directly or by author request (n = 192). This trend reflects a growing recognition of transparency and collaboration during global health crises. However, availability and accessibility remains limited; while about half (n = 110) were directly downloadable, a considerable amount required author requests (n = 82)—a barrier that reduces efficiency and reproducibility. While protecting patient confidentiality is crucial—particularly given that clinical metabolomics involves sensitive phenotype-associated metadata—this caution often hinders reproducibility and the development of large-scale ML models. The reliance on “data available upon request” is increasingly viewed as insufficient, as response rates are often low and decline over time (Vines et al., 2014). To mitigate privacy risks without compromising open science, researchers should adopt rigorous de-identification protocols (e.g., removing direct identifiers and generalizing sensitive demographic attributes) prior to submission. Furthermore, for highly sensitive clinical data that cannot be fully anonymized, the use of “controlled-access” repositories is a viable strategy. Platforms such as the European Genome-phenome Archive (EGA) or specific sections of MetaboLights allow data to be archived securely, granting access only to approved researchers under Data Use Agreements (DUAs), thereby balancing ethical compliance with the scientific imperative of data reuse (Regulatory, Ethics Working Group & Sugano, 2014; Dyke et al., 2018).",
+   "printed": true
+  }
+ ],
+ "links": [],
+ "links_optional": [
+  "creativecommons.org/licenses/by/4.0",
+  "doi:10.1002/pmic.201900042",
+  "doi:10.1002/smtd.202400305",
+  "doi:10.1007/978-3-319-47656-8_1",
+  "doi:10.1007/s10489-020-01862-6",
+  "doi:10.1007/s11306-007-0070-6",
+  "doi:10.1007/s11306-016-1108-4",
+  "doi:10.1007/s11306-018-1367-3",
+  "doi:10.1007/s11306-023-01971-6",
+  "doi:10.1007/s11306-026-02394-9",
+  "doi:10.1016/j.aca.2021.338881",
+  "doi:10.1016/j.cell.2020.05.032",
+  "doi:10.1016/j.cell.2022.01.014",
+  "doi:10.1016/j.celrep.2021.110271",
+  "doi:10.1016/j.cels.2020.10.003",
+  "doi:10.1016/j.cmet.2007.10.005",
+  "doi:10.1016/j.csbj.2021.03.039",
+  "doi:10.1016/j.cub.2013.11.014",
+  "doi:10.1016/j.isci.2022.105717",
+  "doi:10.1016/j.mcpro.2022.100277",
+  "doi:10.1016/s0140-6736(17)31282-5",
+  "doi:10.1021/acs.jproteome.0c00519",
+  "doi:10.1038/nrd.2016.32",
+  "doi:10.1038/s41419-022-04674-3",
+  "doi:10.1038/s41419-023-05791-3",
+  "doi:10.1038/s41431-018-0160-0",
+  "doi:10.1038/s41431-018-0219-y",
+  "doi:10.1038/s41467-023-44090-5",
+  "doi:10.1038/s41467-024-46043-y",
+  "doi:10.1038/s41597-020-0486-7",
+  "doi:10.1038/s41597-024-03822-y",
+  "doi:10.1038/s41598-017-19120-0",
+  "doi:10.1038/s41598-021-94171-y",
+  "doi:10.1038/s41598-022-20638-1",
+  "doi:10.1038/s41598-023-28816-5",
+  "doi:10.1038/s41598-023-39049-x",
+  "doi:10.1073/pnas.2117089119",
+  "doi:10.1093/bib/bbaa331",
+  "doi:10.1093/nar/gkac1005",
+  "doi:10.1093/nar/gkad1045",
+  "doi:10.1093/nar/gkv1042",
+  "doi:10.1093/nsr/nwaa086",
+  "doi:10.1111/cas.15472",
+  "doi:10.1111/pai.13640",
+  "doi:10.1128/mbio.03343-23",
+  "doi:10.1128/spectrum.02194-22",
+  "doi:10.1172/jci.insight.140327",
+  "doi:10.1186/1743-7075-7-7",
+  "doi:10.1186/1877-6566-8-1",
+  "doi:10.1186/gm332",
+  "doi:10.1371/journal.pgen.1002215",
+  "doi:10.1371/journal.pone.0194768",
+  "doi:10.23750/abm.v91i1.9397",
+  "doi:10.3389/fendo.2022.967191",
+  "doi:10.3389/fgene.2021.721556",
+  "doi:10.3389/fimmu.2022.841739",
+  "doi:10.3389/fimmu.2024.1341843",
+  "doi:10.3389/fmed.2021.704256",
+  "doi:10.3389/fmolb.2023.1100486",
+  "doi:10.3390/biom13010163",
+  "doi:10.3390/ijms241813787",
+  "doi:10.3390/ijms25105331",
+  "doi:10.3390/metabo10060243",
+  "doi:10.3390/metabo11010044",
+  "doi:10.3390/metabo15010044",
+  "doi:10.3390/metabo8020031",
+  "peerj.com/articles/21313"
+ ],
+ "own_doi": "doi:10.7717/peerj.21313",
+ "citations": [
+  {
+   "cite_id": 1,
+   "para_id": 1,
+   "bib_id": 10,
+   "marker": "Cucinotta & Vanelli, 2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 2,
+   "para_id": 1,
+   "bib_id": 8,
+   "marker": "Chen et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 3,
+   "para_id": 1,
+   "bib_id": 67,
+   "marker": "Zuo et al., 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 4,
+   "para_id": 1,
+   "bib_id": 58,
+   "marker": "Wang et al., 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 5,
+   "para_id": 2,
+   "bib_id": 22,
+   "marker": "Kell & Oliver, 2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 6,
+   "para_id": 2,
+   "bib_id": 22,
+   "marker": "Kell & Oliver, 2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 7,
+   "para_id": 2,
+   "bib_id": 19,
+   "marker": "Idle & Gonzalez, 2007",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 8,
+   "para_id": 2,
+   "bib_id": 19,
+   "marker": "Idle & Gonzalez, 2007",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 9,
+   "para_id": 2,
+   "bib_id": 25,
+   "marker": "Klassen et al., 2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 10,
+   "para_id": 2,
+   "bib_id": 16,
+   "marker": "Hasan, Suleiman & Perez-Lopez, 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 11,
+   "para_id": 3,
+   "bib_id": 60,
+   "marker": "Wishart, 2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 12,
+   "para_id": 3,
+   "bib_id": 4,
+   "marker": "Blaženović et al., 2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 13,
+   "para_id": 3,
+   "bib_id": 62,
+   "marker": "Xu et al., 2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 14,
+   "para_id": 3,
+   "bib_id": 48,
+   "marker": "Seyfried & Shelton, 2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 15,
+   "para_id": 3,
+   "bib_id": 7,
+   "marker": "Brown et al., 2012",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 16,
+   "para_id": 3,
+   "bib_id": 9,
+   "marker": "Chen et al., 2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 17,
+   "para_id": 3,
+   "bib_id": 28,
+   "marker": "Kuwabara et al., 2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 18,
+   "para_id": 3,
+   "bib_id": 29,
+   "marker": "Leiherer et al., 2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 19,
+   "para_id": 3,
+   "bib_id": 18,
+   "marker": "Hirakawa et al., 2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 20,
+   "para_id": 3,
+   "bib_id": 65,
+   "marker": "Zhang & Yang, 2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 21,
+   "para_id": 4,
+   "bib_id": 49,
+   "marker": "Shen et al., 2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 22,
+   "para_id": 4,
+   "bib_id": 1,
+   "marker": "Baiges-Gaya et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 23,
+   "para_id": 4,
+   "bib_id": 49,
+   "marker": "Shen et al. (2020)",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 24,
+   "para_id": 4,
+   "bib_id": 1,
+   "marker": "Baiges-Gaya et al. (2023)",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 25,
+   "para_id": 4,
+   "bib_id": 35,
+   "marker": "López-Hernández et al., 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 26,
+   "para_id": 4,
+   "bib_id": 56,
+   "marker": "Thomas et al., 2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 27,
+   "para_id": 4,
+   "bib_id": 61,
+   "marker": "Wu et al., 2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 28,
+   "para_id": 4,
+   "bib_id": 53,
+   "marker": "Sumon et al., 2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 29,
+   "para_id": 4,
+   "bib_id": 45,
+   "marker": "Robinson et al., 2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 30,
+   "para_id": 4,
+   "bib_id": 16,
+   "marker": "Hasan, Suleiman & Perez-Lopez, 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 31,
+   "para_id": 4,
+   "bib_id": 2,
+   "marker": "Bardanzellu & Fanos, 2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 32,
+   "para_id": 5,
+   "bib_id": 32,
+   "marker": "Liebal et al., 2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 33,
+   "para_id": 5,
+   "bib_id": 6,
+   "marker": "Broadhurst et al., 2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 34,
+   "para_id": 5,
+   "bib_id": 27,
+   "marker": "Kumar & Misra, 2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 35,
+   "para_id": 5,
+   "bib_id": 59,
+   "marker": "Wei et al., 2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 36,
+   "para_id": 5,
+   "bib_id": 50,
+   "marker": "Shuja et al., 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 37,
+   "para_id": 6,
+   "bib_id": 50,
+   "marker": "Shuja et al., 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 38,
+   "para_id": 7,
+   "bib_id": 5,
+   "marker": "Boeckhout, Zielhuis & Bredenoord, 2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 39,
+   "para_id": 7,
+   "bib_id": 33,
+   "marker": "Lin et al., 2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 40,
+   "para_id": 7,
+   "bib_id": 13,
+   "marker": "Fiehn et al., 2007",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 41,
+   "para_id": 7,
+   "bib_id": 64,
+   "marker": "Yurekten et al., 2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 42,
+   "para_id": 7,
+   "bib_id": 52,
+   "marker": "Sud et al., 2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 43,
+   "para_id": 7,
+   "bib_id": 55,
+   "marker": "Taichman et al., 2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 44,
+   "para_id": 7,
+   "bib_id": 12,
+   "marker": "Federer et al., 2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 45,
+   "para_id": 8,
+   "bib_id": 67,
+   "marker": "Zuo et al., 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 46,
+   "para_id": 8,
+   "bib_id": 50,
+   "marker": "Shuja et al., 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 47,
+   "para_id": 8,
+   "bib_id": 42,
+   "marker": "Pang et al. (2021)",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 48,
+   "para_id": 9,
+   "bib_id": 24,
+   "marker": "Kitchenham (2004)",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 49,
+   "para_id": 9,
+   "bib_id": 39,
+   "marker": "Moher et al., 2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 50,
+   "para_id": 10,
+   "bib_id": 21,
+   "marker": "Juyal et al. (2026)",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 51,
+   "para_id": 10,
+   "bib_id": 15,
+   "marker": "Gardinassi et al. (2023)",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 52,
+   "para_id": 11,
+   "bib_id": 17,
+   "marker": "He et al., 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 53,
+   "para_id": 11,
+   "bib_id": 30,
+   "marker": "Li et al., 2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 54,
+   "para_id": 11,
+   "bib_id": 31,
+   "marker": "Li et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 55,
+   "para_id": 11,
+   "bib_id": 54,
+   "marker": "Tahir et al., 2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 56,
+   "para_id": 11,
+   "bib_id": 47,
+   "marker": "Sameh et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 57,
+   "para_id": 11,
+   "bib_id": 40,
+   "marker": "Overmyer et al., 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 58,
+   "para_id": 11,
+   "bib_id": 44,
+   "marker": "Richard et al., 2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 59,
+   "para_id": 11,
+   "bib_id": 37,
+   "marker": "Marhuenda-Egea et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 60,
+   "para_id": 12,
+   "bib_id": 3,
+   "marker": "Bi et al., 2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 61,
+   "para_id": 12,
+   "bib_id": 14,
+   "marker": "Frankevich et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 62,
+   "para_id": 13,
+   "bib_id": 46,
+   "marker": "Saito et al., 2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 63,
+   "para_id": 13,
+   "bib_id": 40,
+   "marker": "Overmyer et al., 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 64,
+   "para_id": 14,
+   "bib_id": 46,
+   "marker": "Saito et al. (2024)",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 65,
+   "para_id": 14,
+   "bib_id": 34,
+   "marker": "López-Hernández et al. (2023a)",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 66,
+   "para_id": 14,
+   "bib_id": 26,
+   "marker": "Kovarik et al. (2023)",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 67,
+   "para_id": 14,
+   "bib_id": 63,
+   "marker": "Yang et al. (2022)",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 68,
+   "para_id": 14,
+   "bib_id": 20,
+   "marker": "Jing et al. (2022)",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 69,
+   "para_id": 14,
+   "bib_id": 66,
+   "marker": "Zheng et al. (2021)",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 70,
+   "para_id": 14,
+   "bib_id": 51,
+   "marker": "Su et al. (2022)",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 71,
+   "para_id": 14,
+   "bib_id": 36,
+   "marker": "López-Hernández et al. (2023b)",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 72,
+   "para_id": 14,
+   "bib_id": 41,
+   "marker": "Ozonoff et al. (2024)",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 73,
+   "para_id": 15,
+   "bib_id": 38,
+   "marker": "Mittelstrass et al. (2011)",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 74,
+   "para_id": 15,
+   "bib_id": 23,
+   "marker": "Kimhofer et al. (2020)",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 75,
+   "para_id": 16,
+   "bib_id": 57,
+   "marker": "Vines et al., 2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 76,
+   "para_id": 16,
+   "bib_id": 43,
+   "marker": "Regulatory, Ethics Working Group & Sugano, 2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 77,
+   "para_id": 16,
+   "bib_id": 11,
+   "marker": "Dyke et al., 2018",
+   "expanded": false,
+   "scored": true
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-ext-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "v1_bib_count": 67
+ }
+}

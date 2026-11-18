@@ -1,0 +1,1050 @@
+{
+ "paper_id": "10.1162_opmi.a.363",
+ "paras": [
+  {
+   "para_id": 1,
+   "loc": "body",
+   "sec_title": "Performance Measures",
+   "text": "We measured the performance of the trained DCNNs on three face verification tasks: own-group, other-race (Asians), and other-age (4–6-month-old babies). In each task half of the pairs were upright, and half were inverted. In all verification tasks, half of the trials were positive pairs, where both images show the same person, and half negative pairs, where the two images show different people. The goal of the verification tasks is to determine if the two images in each pair belong to the same person or not. We assessed the models’ performance by measuring the cosine distance between the embeddings of face pairs. Based on these distances, we computed the Area Under the ROC Curve (AUC), which quantifies the model’s ability to discriminate between same-identity and different-identity pairs across different levels of thresholds. Additionally, we computed accuracy using the optimal threshold determined from the ROC curve. We report AUC values in the main text because they are threshold-independent and the optimal threshold accuracy in the Supplementary materials (Face verification performance using accuracy measures). Results of both measures were similar. The AUC values and optimal-threshold-accuracy scores are available on the Open Science Framework (OSF)—https://osf.io/htmaq/?view_only=4d05a21142af4782abfef2b052912f3d.",
+   "printed": true
+  },
+  {
+   "para_id": 2,
+   "loc": "body",
+   "sec_title": "INTRODUCTION",
+   "text": "Face recognition is a fundamental cognitive and social ability, supported by dedicated cognitive and neural mechanisms. This ability is further characterized by a specialization for upright, own-group faces. This specialization is evident in robust behavioral effects, including the well-established face inversion effect—where recognition performance is significantly impaired for inverted compared to upright faces (Farah et al., 1995; Valentine, 1988; Yin, 1969)—and in the enhanced recognition of faces from one’s own race or age group, known as the other-race (Meissner & Brigham, 2001; Rossion & Michel, 2011) or other-age effects (Rhodes & Anastasi, 2012) or more generally the other-group effect. These face specialization effects are thought to emerge from the extensive experience humans have with upright own-group faces throughout their life (McKone et al., 2019; Rhodes et al., 2010). However, several additional factors have been proposed to account for these face specializations, including innate predispositions (Johnson, 2005; Pascalis & Kelly, 2009), holistic processing mechanisms (Farah et al., 1995; Hugenberg & Corneille, 2009; Michel, Caldara, & Rossion, 2006; Michel, Rossion, et al., 2006; Rhodes et al., 2006), levels of categorization (Gordon & Tanaka, 2011; Levin, 1996; Schwartz & Yovel, 2016; Yovel et al., 2012), and social and motivation influences (Bernstein et al., 2007; Hugenberg et al., 2010; Young & Hugenberg, 2012). Disentangling the contributions of these different factors in humans is challenging, as they cannot be independently manipulated. The present study aims to isolate the role of experience with faces by assessing its sole contribution to face specialization using computational modeling.",
+   "printed": true
+  },
+  {
+   "para_id": 3,
+   "loc": "body",
+   "sec_title": "INTRODUCTION",
+   "text": "Evidence that experience shapes face recognition abilities is abundant. The role of experience in the other race effect is demonstrated in studies using face recognition tasks that show that early experience with faces of the other race abolishes or reverse the other-race effect (de Heering et al., 2010; McKone et al., 2019; Sangrigoli et al., 2005). In particular, studies that examined face recognition in individuals of Asian descent who were adopted by European parents at a young age and raised primarily among White individuals found that these adoptees exhibited either superior performance in old/new tasks for White faces compared to Asian faces (Sangrigoli et al., 2005) or no difference between the two race groups (de Heering et al., 2010). Moreover, a recent study suggested that there might be a critical period during which other-race faces can reach performance level as own race faces. This study indicated that exposure to other-race faces after the age of 12 does not abolish the other-race effect (McKone et al., 2019). These findings highlight the central role of early and sustained exposure in shaping face recognition capabilities across racial categories.",
+   "printed": true
+  },
+  {
+   "para_id": 4,
+   "loc": "body",
+   "sec_title": "INTRODUCTION",
+   "text": "A related phenomenon that further underscores the importance of experiential factors is the other-age effect, which refers to enhanced recognition performance for faces belonging to the age group with which individuals predominantly interact. This effect has been consistently observed in face recognition tasks showing diminished identity recognition accuracy for children’s or infants’ faces by adults (Kuefner et al., 2008; Yovel et al., 2012). It has been further shown that teachers who work with children do not show this other-age effect (Harrison & Hole, 2009), again indicating that experience with a certain category of faces improves performance on face identity recognition of that age category. Interestingly, passive exposure to faces from an other-age which does not involve individuation does not improve face recognition, indicating that it is the act of identification rather than perceptual exposure to faces per se that is critical for face recognition (Yovel et al., 2012).",
+   "printed": true
+  },
+  {
+   "para_id": 5,
+   "loc": "body",
+   "sec_title": "INTRODUCTION",
+   "text": "The role of experience is further evidenced by the improvement in face recognition abilities during development. Studies have shown that performance on face identity recognition across varied head orientation continues to improve after the age of 10 (Mondloch et al., 2003). Moreover, improvement in recognizing identities in memory tasks (old/new and Cambridge Face Memory Test (CFMT)) continues even after the age of 30 (Germine et al., 2011). These studies suggested that experience continues to play an important role in face recognition even after the early stages of development through adulthood. The developmental enhancement was also reported for the face inversion effect. Whereas preference for looking at upright relative to inverted faces was shown shortly after birth (Viola Macchi et al., 2004), the magnitude of the face inversion effect substantially increases across development. This increase primarily results from improved performance for upright faces, with little to no improvement for inverted faces (de Heering et al., 2012; Lewis & Hills, 2018; Megreya & Bindemann, 2015; Meinhardt-Injac et al., 2014). These findings suggest that with development, the face recognition system becomes increasingly fine-tuned to upright faces, while recognition performance for inverted faces remains static. Consistent with this experience-based account, a recent case study of an individual born with his head oriented upside down revealed superior face detection and identity recognition for inverted faces compared to upright faces (Duchaine et al., 2023), demonstrating that lifelong experience viewing faces from an inverted perspective can reverse the typical face orientation advantage.",
+   "printed": true
+  },
+  {
+   "para_id": 6,
+   "loc": "body",
+   "sec_title": "INTRODUCTION",
+   "text": "The developmental trajectory of the other-race effect has also been examined. While several studies report an increase in the magnitude of the other-race effect with age, others have found no significant developmental differences in the strength of this effect (Anzures et al., 2013; Chance et al., 1982; Goodman et al., 2007). These mixed findings underscore the complexity of developmental changes in face recognition and the influence of experiential factors in shaping performance across different face categories.",
+   "printed": true
+  },
+  {
+   "para_id": 7,
+   "loc": "body",
+   "sec_title": "INTRODUCTION",
+   "text": "Deep learning models have achieved human-level performance in face recognition tasks for over a decade (Balaban, 2015; Blauch et al., 2021; Taigman et al., 2014). These models are typically trained on millions of face images to reach this level of proficiency, aligning with human performance. This underscores the importance of extensive experience in achieving expert-level face recognition. Following this engineering milestone, cognitive scientists have begun to explore whether face-trained deep learning models exhibit phenomena analogous to those observed in humans, such as the other-race effect and face inversion effect (for reviews see van Dyck & Gruber, 2023; White & Phillips, 2024). Remarkably, the evidence suggests that they do: deep convolutional neural networks (DCNNs) trained predominantly on upright faces from a particular race exhibit superior recognition performance for faces of that race (Dobs et al., 2022, 2023; Tian et al., 2021). Similarly, performance for recognizing children’s faces is notably lower in state-of-the-art DCNNs that are primarily trained on adult faces (Siddiqui et al., 2018), consistent with the other-age effect seen in humans. Finally, face recognition algorithms also show a substantial inversion effect (Tian et al., 2022). Interestingly, both humans and models show a larger inversion effect for within-category discrimination, such as individual faces or birds (Campbell & Tanaka, 2018; Yovel et al., 2023), and a smaller inversion effect for between-category discrimination, such as object categories (Dobs et al., 2022, 2023; Yovel et al., 2023). What remains unknown, however, is how these effects develop as experience accumulates: do they strengthen gradually with increasing training, mirroring the developmental trajectory observed in humans, and is this driven primarily by selective improvements in recognizing own-group upright faces.",
+   "printed": true
+  },
+  {
+   "para_id": 8,
+   "loc": "body",
+   "sec_title": "INTRODUCTION",
+   "text": "The presence of these human-like effects in DCNNs offers a unique opportunity to systematically examine the sole role of experience in the specialization for upright, own-race and own-age faces. We will refer to these faces as upright own-group faces. While findings from such models may not directly translate to human cognitive processes, they allow for controlled investigation of experiential factors and enable comparison with developmental patterns observed in humans. For example, developmental studies show that the increasing magnitude of the face inversion effect with age results primarily from enhanced performance for upright faces, with little improvement for inverted faces (de Heering et al., 2012). If a similar pattern emerges in DCNNs trained on increasing numbers of face images, this suggests that experience alone could underly the effect in humans. Additionally, by varying systematically the number of identities or number of images per identity, we can examine what is the relative contribution of between-identity and within-identity face variability, which cannot be disentangled in human natural experience with faces. Finally, given that the face specialization to upright own-group faces has often been attributed to qualitative differences in face processing (Farah et al., 1995; Mondloch et al., 2002, 2007; Rhodes et al., 2006)—potentially linked to innate mechanisms (Johnson, 2005; Pascalis & Kelly, 2009)—the finding that DCNNs exhibit these effects demonstrates that face specialization can emerge from experience alone.",
+   "printed": true
+  },
+  {
+   "para_id": 9,
+   "loc": "body",
+   "sec_title": "Model",
+   "text": "We used VGG-16 (Simonyan & Zisserman, 2014) as the base model, which we trained on different numbers of face images. We selected this model because it is a well-established widely used architecture that reaches human level performance on face recognition tasks and provides a principled baseline for studying experience-dependent face specialization effects (Abudarham et al., 2021; Blauch et al., 2021; Dobs et al., 2023).",
+   "printed": true
+  },
+  {
+   "para_id": 10,
+   "loc": "body",
+   "sec_title": "Model",
+   "text": "To extract the representations that were generated by the DCNNs, we ran the trained models in evaluation mode on a predefined set of image stimuli. The face images were first aligned using the MTCNN face alignment algorithm (Xiang & Zhu, 2017). Following alignment, the images were normalized with the normalization of (M = [0.5, 0.5, 0.5], SD = [0.5, 0.5, 0.5]). Then, we extracted the representations at the penultimate, fully connected (fc7) layer. This is the final hidden layer that generates the final representation that is transformed to the output probability layer to determine face identity.",
+   "printed": true
+  },
+  {
+   "para_id": 11,
+   "loc": "body",
+   "sec_title": "Train Dataset",
+   "text": "We selected face images from the VGGFace2 dataset (Cao et al., 2018) to train our networks. VGGFace2 is a large-scale face recognition dataset developed by the Visual Geometry Group at the University of Oxford. It contains over 3 million images of more than 8,749 individuals, with each individual represented by several hundred images. The images were collected from a variety of sources and were annotated with bounding boxes and labels indicating the identity of the individuals. To allow evaluation of the other-race effect, we used only White adult faces from this dataset.",
+   "printed": true
+  },
+  {
+   "para_id": 12,
+   "loc": "body",
+   "sec_title": "Face Stimuli for Model Performance",
+   "text": "Face inversion effect: To examine the inversion effect for own-group faces, we used the Labeled Faces in the Wild dataset (LFW; Huang et al., 2008), which includes 6,000 benchmark face pairs. We excluded non-Caucasian identities based on the dataset’s race annotation scores (only scores > 0) and removed identities that overlap with the VGGFace2 dataset. This resulted in 3,506 pairs, which were tested in both upright and inverted orientations (see Figure 1).",
+   "printed": true
+  },
+  {
+   "para_id": 13,
+   "loc": "body",
+   "sec_title": "DISCUSSION",
+   "text": "The specialization of face recognition for upright own-group faces is one of the most robust phenomena in human face recognition. This specialization is believed to rely on extensive experience with upright own-group faces and was shown to increase across development (e.g., de Heering et al., 2012; Meinhardt-Injac et al., 2014). Yet multiple innate and experience-based factors were proposed to account for these face effects, including cognitive, social and motivational factors (Bernstein et al., 2007; Farah et al., 1995; Levin, 1996; Meinhardt-Injac et al., 2014; Mondloch et al., 2007; Pascalis & Kelly, 2009; Yin, 1969), making it impossible to isolate the contribution of visual experience with faces to the emergence of face specialization effects. Our findings demonstrate that human-like face specialization can be achieved based on face experience alone in artificial face models.",
+   "printed": true
+  },
+  {
+   "para_id": 14,
+   "loc": "body",
+   "sec_title": "DISCUSSION",
+   "text": "Notably, our computational approach demonstrates that experience-based learning is sufficient to produce human-like face specialization effects in DCNNs. However, this does not establish that experience operates as the sole mechanism in human development. Important differences exist between DCNN training, which is based on supervised learning with explicit labels via backpropagation and human perceptual learning which likely involves self-supervised, multimodal processes (Vong et al., 2024). Moreover, humans may possess innate predispositions or evolutionary constraints that are not well modelled with DCNNs (Johnson, 2005; Viola Macchi et al., 2004). Our approach therefore provides a computational proof of principle showing that experience-driven learning alone can generate the behavioral signatures of face expertise and reproduce developmental trajectories observed in humans. This demonstrates that experience-based mechanisms are sufficient to produce these effects in artificial systems and provides mechanistic hypotheses for how face specialization might emerge in human development.",
+   "printed": true
+  },
+  {
+   "para_id": 15,
+   "loc": "body",
+   "sec_title": "DISCUSSION",
+   "text": "The effects of experience that are found in DCNNs mirror some of the effects that are found in humans. First, the increase in the magnitude of the inversion effect as experience with upright faces increases (Figure 3, Supplementary Figure S1) is similar to reports in developmental studies that show that the magnitude of the inversion effect increases across age primarily due to increase in performance for upright faces (de Heering et al., 2012). For the other-age effect, studies have shown better recognition of adult faces than children’s faces in both children and adults (e.g., Cassia et al., 2009; Kuefner et al., 2008), while lab-based or real-life experience with other-age faces abolished the effect (Kuefner et al., 2008; Yovel et al., 2012).",
+   "printed": true
+  },
+  {
+   "para_id": 16,
+   "loc": "body",
+   "sec_title": "DISCUSSION",
+   "text": "A recent study showed that the other-race effect can be reversed or abolished through exposure to other-race faces—but this reversal was limited after the age of 12, suggesting a potential critical period for face recognition (McKone et al., 2019). The computational approach used in the current study provides a useful framework for modeling the role of such a critical period in the development of the other-race effect. This can be achieved in future studies by introducing other-race faces into the training set at different stages of learning to systematically examine how much exposure is required to reduce or eliminate the effect during early development, when the system is still learning to recognize faces. Once the network reaches a stage of high performance for own-race faces, its parameters may be frozen—simulating a mature system—so that additional exposure to own- or other-race faces no longer alters its internal representations. This may result in continued high performance for familiar own-race faces, but limited improvement for other-race faces, which would require changes to the network’s feature tuning.",
+   "printed": true
+  },
+  {
+   "para_id": 17,
+   "loc": "body",
+   "sec_title": "DISCUSSION",
+   "text": "In a previous study we used the same DCNNs reported in this study, to examine the role of experience in the generation of view-invariant representations (the ability to generalize across different views of the same identity) and sensitivity to facial features that were shown to be critical for human face recognition (Rosemblaum et al., 2025). The current study complements these findings by showing that increased experience with own-group upright faces is accompanied by category-specific tuning for own-group face identification. Both studies demonstrate that general identity recognition abilities and category-specific tuning emerge together as an outcome of increased experience with faces.",
+   "printed": true
+  },
+  {
+   "para_id": 18,
+   "loc": "body",
+   "sec_title": "DISCUSSION",
+   "text": "Another advantage of our approach is that it enabled us to assess the relative contribution of the number of identities and number of images per identity. Our findings descriptively show that both the number of identities and the number of images per identity contribute to the generation of the face inversion effect and the other-group effect, indicating that overall training experience, rather than a single component, drives the emergence of these specialization effects. This is consistent with our previous findings that both factors contribute to view invariant representations and sensitivity to human-like critical features for face identity (Rosemblaum et al., 2025). This raises an open empirical question: what is the nature of variability that enables successful performance on face identification task, and whether data augmentation manipulations during training could produce similar effects as training with naturally diverse exemplars in DCNNs.",
+   "printed": true
+  },
+  {
+   "para_id": 19,
+   "loc": "body",
+   "sec_title": "DISCUSSION",
+   "text": "Our networks were trained exclusively on upright White adult faces, as our baseline condition relative to which we compared Asian faces or inverted faces. However, existing studies demonstrate that these specialization effects generalize to other training categories: networks trained on inverted faces show better performance on inverted than upright faces, and networks trained on Asian faces show better performance on Asian than White faces (Dobs et al., 2023; Tian et al., 2021). While these studies did not systematically vary training experience as we did, they demonstrate that performance improvements occur primarily for the trained category rather than the untrained category, suggesting that the effect that we found is not specific to white upright faces. We therefore expect that the same experience-dependent specialization pattern we observed would emerge for DCNN trained on other face categories. While our study examined how experience supports specialization for upright own-race faces that is evident in humans, such specialization can be abolished by increasing the diversity of the training set in CNNs. Akbari and Dobs (2025) demonstrated that training CNNs on both Asian and White faces substantially reduces the other-race effect through development of an integrated representational space. This may be consistent with studies in humans that are exposed to more heterogeneous categories of races and show reduced or abolished other-race effect. Future studies could use similar approaches to examine how training diversity shapes the emergence and magnitude of specialization effects.",
+   "printed": true
+  },
+  {
+   "para_id": 20,
+   "loc": "body",
+   "sec_title": "DISCUSSION",
+   "text": "Despite these similarities in the emergence of face specialization between humans and DCNNs, it is important to note that DCNNs and human differ remarkably in their face learning regimes. Our models are trained on static images with high variability, whereas human experience involves dynamic visual information across time. Moreover, DCNNs are trained in batch mode with explicit identity labels and backpropagation—a learning algorithm with no known biological analog (though biologically plausible approximations have been proposed; Lillicrap et al., 2020)—whereas human face learning takes place during critical periods during which input from the environment accumulates gradually through self-supervised mechanisms that extract statistical regularities, likely integrating multimodal information, combined with supervised learning that involves explicit labels. While our findings demonstrate that experience with faces is sufficient to produce specialization effects in a computational system, our approach lacks the developmental trajectory, social context, and direct behavioral comparisons needed to validate mechanistic predictions about human face perception. Our models therefore provide a computational proof of principle that experience-dependent learning can produce face specialization, rather than a mechanistic model of how such learning occurs in the brain.",
+   "printed": true
+  },
+  {
+   "para_id": 21,
+   "loc": "body",
+   "sec_title": "DISCUSSION",
+   "text": "Moreover, studies that used head-mounted cameras that record infant’s visual diet showed that during the first year of life, infants are exposed to a very small number of identities, but many images per identity (Jayaraman et al., 2015, 2017). Abudarham and Yovel (2025) have recently begun to address these differences with a new model that is trained continuously on a small number of identities with many images per identity, potentially allowing more direct comparison to how infants learn to recognize familiar faces during early development. For example, the phenomenon of perceptual narrowing, where performance for other-race faces is comparable to own race faces up to 6 months of age, but is reduced at 9 months of age, could be tested with models that better capture the type of experience that occurs during this period of time. Using data collected from infant’s head-mounted cameras to train the algorithms can further advance our ability to more closely model human experience (Smith et al., 2015; Vong et al., 2024).",
+   "printed": true
+  }
+ ],
+ "links": [
+  {
+   "link_id": 1,
+   "url": "osf.io/htmaq?view_only=4d05a21142af4782abfef2b052912f3d",
+   "url_raw": "https://osf.io/htmaq/?view_only=4d05a21142af4782abfef2b052912f3d",
+   "href_jats": "https://osf.io/htmaq/?view_only=4d05a21142af4782abfef2b052912f3d",
+   "repo_key": "osf:htmaq",
+   "host_class": "osf",
+   "loc": "body",
+   "sec_title": "Performance Measures",
+   "source": "tagged",
+   "para_id": 1
+  }
+ ],
+ "links_optional": [
+  "creativecommons.org/licenses/by/4.0",
+  "doi:10.1016/j.cogdev.2011.07.001",
+  "doi:10.1016/j.cognition.2010.11.002",
+  "doi:10.1016/j.cognition.2020.104341",
+  "doi:10.1016/j.isci.2023.107763",
+  "doi:10.1016/j.jecp.2007.08.004",
+  "doi:10.1016/s0022-0965(03)00102-4",
+  "doi:10.1037/0096-1523.21.3.628",
+  "doi:10.1037/0096-1523.34.4.811",
+  "doi:10.1037/0278-7393.22.6.1364",
+  "doi:10.1037/1076-8971.7.1.3",
+  "doi:10.1037/a0017680",
+  "doi:10.1037/a0020463",
+  "doi:10.1037/a0025750",
+  "doi:10.1037/a0027077",
+  "doi:10.1037/dev0000230",
+  "doi:10.1037/h0027474",
+  "doi:10.1037/xge0000220",
+  "doi:10.1038/nrn1766",
+  "doi:10.1038/s41583-020-0277-3",
+  "doi:10.1038/s41598-019-49202-0",
+  "doi:10.1068/p3339",
+  "doi:10.1068/p7825",
+  "doi:10.1073/pnas.2220642120",
+  "doi:10.1080/00223980.1982.9923531",
+  "doi:10.1080/13506280500158761",
+  "doi:10.1080/13506280600859383",
+  "doi:10.1080/15248372.2014.933430",
+  "doi:10.1093/oxfordhb/9780199559053.013.0012",
+  "doi:10.1098/rspb.2023.0093",
+  "doi:10.1101/2025.11.25.690208",
+  "doi:10.1109/cvpr.2014.220",
+  "doi:10.1109/fg.2018.00020",
+  "doi:10.1109/icisce.2017.95",
+  "doi:10.1109/icpr.2018.8545742",
+  "doi:10.1111/cogs.13031",
+  "doi:10.1111/j.0956-7976.2004.00688.x",
+  "doi:10.1111/j.0956-7976.2005.01554.x",
+  "doi:10.1111/j.1467-7687.2009.00876.x",
+  "doi:10.1111/j.1467-9280.2006.01752.x",
+  "doi:10.1111/j.1467-9280.2007.01964.x",
+  "doi:10.1111/j.1467-9280.2009.02376.x",
+  "doi:10.1111/j.1551-6709.2009.01048.x",
+  "doi:10.1111/j.1745-6924.2009.01119.x",
+  "doi:10.1111/j.2044-8295.1988.tb02747.x",
+  "doi:10.1111/j.2044-8295.2011.02064.x",
+  "doi:10.1117/12.2181526",
+  "doi:10.1126/sciadv.abl8913",
+  "doi:10.1126/science.adi1374",
+  "doi:10.1162/jocn_a_02040",
+  "doi:10.1162/opmi.a.363",
+  "doi:10.1167/jov.25.8.2",
+  "doi:10.1177/0301006618771806",
+  "doi:10.1177/0963721412474459",
+  "doi:10.1177/1948550611409759",
+  "doi:10.1371/journal.pone.0123780",
+  "doi:10.31234/osf.io/hfjmq",
+  "doi:10.3389/fnagi.2014.00291",
+  "doi:10.3389/fncom.2021.620281",
+  "doi:10.3389/fncom.2022.854218",
+  "doi:10.3389/fpsyg.2018.01456",
+  "doi:10.3758/bf03193876",
+  "doi:10.3758/pbr.16.2.264",
+  "doi:10.48550/arxiv.1409.1556",
+  "doi:10.64898/2025.12.19.695398",
+  "inria.hal.science/inria-00321923"
+ ],
+ "own_doi": "doi:10.1162/opmi.a.363",
+ "citations": [
+  {
+   "cite_id": 1,
+   "para_id": 2,
+   "bib_id": 17,
+   "marker": "1995",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 2,
+   "para_id": 2,
+   "bib_id": 55,
+   "marker": "1988",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 3,
+   "para_id": 2,
+   "bib_id": 61,
+   "marker": "1969",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 4,
+   "para_id": 2,
+   "bib_id": 35,
+   "marker": "2001",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 5,
+   "para_id": 2,
+   "bib_id": 46,
+   "marker": "2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 6,
+   "para_id": 2,
+   "bib_id": 44,
+   "marker": "2012",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 7,
+   "para_id": 2,
+   "bib_id": 32,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 8,
+   "para_id": 2,
+   "bib_id": 43,
+   "marker": "2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 9,
+   "para_id": 2,
+   "bib_id": 27,
+   "marker": "2005",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 10,
+   "para_id": 2,
+   "bib_id": 41,
+   "marker": "2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 11,
+   "para_id": 2,
+   "bib_id": 17,
+   "marker": "1995",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 12,
+   "para_id": 2,
+   "bib_id": 23,
+   "marker": "2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 13,
+   "para_id": 2,
+   "bib_id": 36,
+   "marker": "2006",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 14,
+   "para_id": 2,
+   "bib_id": 37,
+   "marker": "2006",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 15,
+   "para_id": 2,
+   "bib_id": 42,
+   "marker": "2006",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 16,
+   "para_id": 2,
+   "bib_id": 20,
+   "marker": "2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 17,
+   "para_id": 2,
+   "bib_id": 29,
+   "marker": "1996",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 18,
+   "para_id": 2,
+   "bib_id": 48,
+   "marker": "2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 19,
+   "para_id": 2,
+   "bib_id": 64,
+   "marker": "2012",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 20,
+   "para_id": 2,
+   "bib_id": 6,
+   "marker": "2007",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 21,
+   "para_id": 2,
+   "bib_id": 24,
+   "marker": "2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 22,
+   "para_id": 2,
+   "bib_id": 62,
+   "marker": "2012",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 23,
+   "para_id": 3,
+   "bib_id": 12,
+   "marker": "2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 24,
+   "para_id": 3,
+   "bib_id": 32,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 25,
+   "para_id": 3,
+   "bib_id": 47,
+   "marker": "2005",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 26,
+   "para_id": 3,
+   "bib_id": 47,
+   "marker": "2005",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 27,
+   "para_id": 3,
+   "bib_id": 12,
+   "marker": "2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 28,
+   "para_id": 3,
+   "bib_id": 32,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 29,
+   "para_id": 4,
+   "bib_id": 28,
+   "marker": "2008",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 30,
+   "para_id": 4,
+   "bib_id": 64,
+   "marker": "2012",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 31,
+   "para_id": 4,
+   "bib_id": 21,
+   "marker": "2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 32,
+   "para_id": 4,
+   "bib_id": 64,
+   "marker": "2012",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 33,
+   "para_id": 5,
+   "bib_id": 38,
+   "marker": "2003",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 34,
+   "para_id": 5,
+   "bib_id": 18,
+   "marker": "2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 35,
+   "para_id": 5,
+   "bib_id": 57,
+   "marker": "2004",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 36,
+   "para_id": 5,
+   "bib_id": 13,
+   "marker": "2012",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 37,
+   "para_id": 5,
+   "bib_id": 30,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 38,
+   "para_id": 5,
+   "bib_id": 33,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 39,
+   "para_id": 5,
+   "bib_id": 34,
+   "marker": "2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 40,
+   "para_id": 5,
+   "bib_id": 16,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 41,
+   "para_id": 6,
+   "bib_id": 4,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 42,
+   "para_id": 6,
+   "bib_id": 11,
+   "marker": "1982",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 43,
+   "para_id": 6,
+   "bib_id": 19,
+   "marker": "2007",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 44,
+   "para_id": 7,
+   "bib_id": 5,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 45,
+   "para_id": 7,
+   "bib_id": 7,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 46,
+   "para_id": 7,
+   "bib_id": 52,
+   "marker": "2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 47,
+   "para_id": 7,
+   "bib_id": 56,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 48,
+   "para_id": 7,
+   "bib_id": 59,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 49,
+   "para_id": 7,
+   "bib_id": 14,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 50,
+   "para_id": 7,
+   "bib_id": 15,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 51,
+   "para_id": 7,
+   "bib_id": 54,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 52,
+   "para_id": 7,
+   "bib_id": 49,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 53,
+   "para_id": 7,
+   "bib_id": 53,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 54,
+   "para_id": 7,
+   "bib_id": 8,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 55,
+   "para_id": 7,
+   "bib_id": 63,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 56,
+   "para_id": 7,
+   "bib_id": 14,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 57,
+   "para_id": 7,
+   "bib_id": 15,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 58,
+   "para_id": 7,
+   "bib_id": 63,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 59,
+   "para_id": 8,
+   "bib_id": 13,
+   "marker": "2012",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 60,
+   "para_id": 8,
+   "bib_id": 17,
+   "marker": "1995",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 61,
+   "para_id": 8,
+   "bib_id": 39,
+   "marker": "2002",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 62,
+   "para_id": 8,
+   "bib_id": 40,
+   "marker": "2007",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 63,
+   "para_id": 8,
+   "bib_id": 42,
+   "marker": "2006",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 64,
+   "para_id": 8,
+   "bib_id": 27,
+   "marker": "2005",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 65,
+   "para_id": 8,
+   "bib_id": 41,
+   "marker": "2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 66,
+   "para_id": 9,
+   "bib_id": 50,
+   "marker": "2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 67,
+   "para_id": 9,
+   "bib_id": 1,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 68,
+   "para_id": 9,
+   "bib_id": 7,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 69,
+   "para_id": 9,
+   "bib_id": 15,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 70,
+   "para_id": 10,
+   "bib_id": 60,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 71,
+   "para_id": 11,
+   "bib_id": 9,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 72,
+   "para_id": 12,
+   "bib_id": 22,
+   "marker": "2008",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 73,
+   "para_id": 13,
+   "bib_id": 13,
+   "marker": "2012",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 74,
+   "para_id": 13,
+   "bib_id": 34,
+   "marker": "2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 75,
+   "para_id": 13,
+   "bib_id": 6,
+   "marker": "2007",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 76,
+   "para_id": 13,
+   "bib_id": 17,
+   "marker": "1995",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 77,
+   "para_id": 13,
+   "bib_id": 29,
+   "marker": "1996",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 78,
+   "para_id": 13,
+   "bib_id": 34,
+   "marker": "2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 79,
+   "para_id": 13,
+   "bib_id": 40,
+   "marker": "2007",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 80,
+   "para_id": 13,
+   "bib_id": 41,
+   "marker": "2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 81,
+   "para_id": 13,
+   "bib_id": 61,
+   "marker": "1969",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 82,
+   "para_id": 14,
+   "bib_id": 58,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 83,
+   "para_id": 14,
+   "bib_id": 27,
+   "marker": "2005",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 84,
+   "para_id": 14,
+   "bib_id": 57,
+   "marker": "2004",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 85,
+   "para_id": 15,
+   "bib_id": 13,
+   "marker": "2012",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 86,
+   "para_id": 15,
+   "bib_id": 10,
+   "marker": "2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 87,
+   "para_id": 15,
+   "bib_id": 28,
+   "marker": "2008",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 88,
+   "para_id": 15,
+   "bib_id": 28,
+   "marker": "2008",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 89,
+   "para_id": 15,
+   "bib_id": 64,
+   "marker": "2012",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 90,
+   "para_id": 16,
+   "bib_id": 32,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 91,
+   "para_id": 17,
+   "bib_id": 45,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 92,
+   "para_id": 18,
+   "bib_id": 45,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 93,
+   "para_id": 19,
+   "bib_id": 15,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 94,
+   "para_id": 19,
+   "bib_id": 54,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 95,
+   "para_id": 19,
+   "bib_id": 3,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 96,
+   "para_id": 20,
+   "bib_id": 31,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 97,
+   "para_id": 21,
+   "bib_id": 25,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 98,
+   "para_id": 21,
+   "bib_id": 26,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 99,
+   "para_id": 21,
+   "bib_id": 2,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 100,
+   "para_id": 21,
+   "bib_id": 51,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 101,
+   "para_id": 21,
+   "bib_id": 58,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-ext-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "v1_bib_count": 64
+ }
+}

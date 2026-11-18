@@ -1,0 +1,909 @@
+{
+ "paper_id": "10.2196_98840",
+ "paras": [
+  {
+   "para_id": 1,
+   "loc": "body",
+   "sec_title": "Background",
+   "text": "Borderline personality disorder (BPD) is associated with significant functional impairment and profound distress [1]. It is characterized by intense, unstable interpersonal relationships marked by alternating idealization and devaluation, an unstable sense of self, affective instability, and a heightened risk of self-harm and suicidal behavior [1]. Yet access to specialist treatments such as dialectical behavior therapy (DBT) is limited [2], and there are implementation challenges [3,4]. Earlier digital interventions for BPD, predating AI-CA and commonly based on DBT or CBT, have shown mixed efficacy, with meta-analytic benefits for suicidal ideation and paranoia but not for overall symptom severity [5]. These DBT- and CBT-based tools nonetheless outperformed alternative approaches for suicidal ideation [5], suggesting that grounding digital support in an evidence-based framework matters. Interest in AI-enabled support for mental health is now growing and could help to extend evidence-based treatment to more people, though practical and ethical concerns complicate implementation [6,7]. For people with BPD, who experience interpersonal challenges, self-harm, and high risk for suicidal behavior [1], it is essential that we understand how to integrate AI into BPD treatment responsibly. This study provides an in-depth account of how DBT psychologists anticipate, imagine, and evaluate possible AI-CA integration within a DBT framework for BPD, which may also inform care for other populations with similar clinical needs.",
+   "printed": true
+  },
+  {
+   "para_id": 2,
+   "loc": "body",
+   "sec_title": "DBT, BPD, and Implementation Challenges",
+   "text": "Standard DBT is an evidence-based treatment for BPD [8], delivered through individual therapy, group skills training (including homework assignment and review), phone coaching, and therapist consultation team [9,10]. These four modes serve DBT’s core functions: building patients’ skills, strengthening motivation to change, promoting generalization of skills to daily life, structuring the environment, and sustaining therapists’ capability and motivation [9,10]. DBT assumes that many difficulties reflect skills deficits [9,10]. Across treatment, therapists balance acceptance and change while helping patients act from Wise Mind, the integration of emotion mind and reasonable mind [9,10]. DBT combines validation of patients’ responses as understandable in context with contingency management to reinforce adaptive behavior [9,11]. Phone coaching supports real-time skills generalization before self-destructive behaviors occur [12,13].",
+   "printed": true
+  },
+  {
+   "para_id": 3,
+   "loc": "body",
+   "sec_title": "DBT, BPD, and Implementation Challenges",
+   "text": "For example, a patient who has just received a poor exam grade calls with high urges to self-harm. The therapist first validates the distress (“you worked so hard on that exam, and now you are anxious about failing the course”), then coaches a specific plan for the rest of the evening, and, when risk warrants it, also helps the patient reduce access to means. This real-time intervention reduces the risk of self-harm while helping the patient plan to cope with pain in more adaptive ways. Yet phone coaching is among the DBT components most challenging to implement and the least frequently delivered [3,4]. Perceived provider burden is a frequently cited reason for omission [14]. These implementation difficulties provide a clinical rationale for considering AI-CA in DBT, particularly for hard-to-sustain functions such as between-session skills generalization.",
+   "printed": true
+  },
+  {
+   "para_id": 4,
+   "loc": "body",
+   "sec_title": "Conversational Agents, AI, and Mental Health",
+   "text": "AI-based conversational agents are increasingly being investigated as potentially scalable tools for mental health support, although evidence for their effectiveness and implementation in routine care remains limited [7,15,16]. Conversational agents relevant to mental health vary both in technical architecture and primary design intent. Architecturally, they range from rule-based systems using predefined scripts or decision trees, through hybrid systems combining natural language processing or machine learning with rule-based constraints, to generative AI systems, often large language model (LLM)-based, that produce more open-ended and contextually responsive dialogue [16-18]. In terms of design intent, agents may be developed specifically for therapeutic or wellness support [16], function primarily as social or relational companions [19], or be general-purpose generative AI systems that are not designed for mental health but are nevertheless used for emotional or psychological support [20]. We use the term AI-CA to refer only to hybrid and generative (LLM-based) AI agents with therapeutic intent; where evidence concerns the generative AI (eg, ChatGPT [Open AI]) specifically, we use the term generative AI-CA. While evidence on AI-CA in mental health care remains limited overall [17,21], research specifically addressing its use in BPD or within DBT frameworks is, to our knowledge, absent. This may reflect iatrogenic-risk concerns and the ethical, legal, and practical challenges of managing self-harm and suicidality in this population [22,23].",
+   "printed": true
+  },
+  {
+   "para_id": 5,
+   "loc": "body",
+   "sec_title": "Conversational Agents, AI, and Mental Health",
+   "text": "How patients and professionals perceive AI-CA is central to responsible implementation, as multiple factors at both the patient and provider level shape the acceptability and adoption of conversational agents in health care [24]. Several studies have examined how users perceive generative AI-CA and AI-CA for mental health support [25-28]. Common findings indicate that AI-CA are perceived as accessible, helpful, and nonjudgmental, but also limited by a lack of emotional depth, difficulties with complex situations, and an inability to actively guide the therapeutic process. Clinicians, in turn, tend to favor administrative uses of AI, such as documentation, while showing uncertainty toward client-facing applications, though openness may increase with greater exposure [29].",
+   "printed": true
+  },
+  {
+   "para_id": 6,
+   "loc": "body",
+   "sec_title": "Potential AI-CA Integration in DBT: Opportunities and Functional Risks",
+   "text": "The relevance of AI-CA to DBT cannot be evaluated only by asking whether AI can produce empathic, coherent, or clinically plausible responses. DBT therapists respond strategically, reinforcing skillful behavior; that is, responding so that the behavior becomes more likely to recur. Whether a behavior is skillful is not given by its topography (the observable form of the behavior, described independently of its consequences) but by its function (the effect it produces in a given context) [9,11]. Determining this requires attention to the context, frequency, and duration of the behavior, to the patient’s current capabilities, and to the patient’s short- and long-term goals. Calling for support during an intense urge to self-harm is skillful for a patient who cannot yet tolerate the emotion alone. The same call becomes a safety behavior when the patient is no longer seeking coaching but repeated confirmation that nothing bad will happen. Safety behaviors are actions taken to prevent a feared outcome that is in fact unlikely; they relieve anxiety in the moment, which maintains them, while preventing the patient from learning that the feared outcome does not follow [30].",
+   "printed": true
+  },
+  {
+   "para_id": 7,
+   "loc": "body",
+   "sec_title": "Potential AI-CA Integration in DBT: Opportunities and Functional Risks",
+   "text": "Two features of AI-CA are relevant against this background. First, generative AI-CA tends toward sycophancy, affirming users’ statements and self-image rather than challenging them, a tendency linked to reduced prosocial intentions and increased dependence [31]. An agent that responds affirmingly to whatever the patient brings may therefore reinforce what treatment targets for change, for example, by supporting avoidance where exposure is indicated, or by confirming a patient’s belief that they cannot cope. The concern is not merely hypothetical: studies of suicide-related AI responses show inadequate crisis responses, limited contextual understanding, and a need for safety evaluation [22,32]. Second, unlike human therapists, AI-CA respond immediately and on demand. This lowers the threshold for seeking support, which may aid skills generalization but may equally sustain safety behaviors and reduce opportunities to tolerate distress or learn skills more independently. AI-CA have also been found to facilitate self-disclosure by reducing perceived fear of judgment, although in nonclinical samples [33]. How a constantly affirming and always-available agent affects patients who already may struggle with relationships, boundaries, and expressing their own wants and feelings remains an open question.",
+   "printed": true
+  },
+  {
+   "para_id": 8,
+   "loc": "body",
+   "sec_title": "Potential AI-CA Integration in DBT: Opportunities and Functional Risks",
+   "text": "There is a need for understanding how AI-CA might be responsibly integrated into DBT, particularly given limited access to specialist BPD treatments such as DBT [2] and the potential for AI-CA to support between-session skills practice and generalization. However, methodological guidance on how to integrate AI into psychotherapy remains underdeveloped [7], and the perspectives of method-specific clinicians who would be responsible for such integration have received limited attention. Because the adoption of AI-enabled health care tools depends on stakeholders’ perceptions and acceptability [24], qualitative methods are well suited to capture how clinicians make sense of risks, responsibilities, and fit within clinical practice. Since AI integration in DBT is not yet established, participants’ accounts are treated as anticipatory and interpretive rather than experiential reports of implemented practice. Such expectations are analytically relevant because emerging technologies are shaped not only by technical capability, but also by professional imaginaries, anticipated risks and benefits, and role negotiations before implementation occurs [34]. Therefore, this study aims to explore how DBT clinicians in Sweden understand the anticipated integration of AI-CA into DBT for individuals with BPD, specifically regarding the relational positioning of AI-CA and perceived suitability of DBT functions or tasks for AI-CA involvement.",
+   "printed": true
+  },
+  {
+   "para_id": 9,
+   "loc": "body",
+   "sec_title": "Study Design",
+   "text": "This qualitative study used semistructured interviews to explore DBT clinicians’ expectations about the imagined integration of AI-CA into DBT. Data were generated and analyzed using reflexive thematic analysis (RTA) within a constructivist epistemological framework [35], in which knowledge and meaning are understood as actively constructed through the researcher’s engagement with the data, rather than as preexisting patterns awaiting discovery. RTA within a constructivist framework was chosen because the knowledge sought is interpretive rather than observational. The first author’s dual positioning, as a DBT clinician and as a developer of an AI-CA prototype, was treated as an analytic resource rather than a bias to be neutralized, enabling recognition of treatment-specific meaning in participants’ accounts. Consistent with a constructivist RTA, the findings are understood as constructions shaped through dialogue between participants’ accounts, the interview framing, and the research team’s clinical and theoretical positioning [35]. The study is reported in accordance with the Standards for Reporting Qualitative Research (SRQR) checklist (Checklist 1)[36].",
+   "printed": true
+  },
+  {
+   "para_id": 10,
+   "loc": "body",
+   "sec_title": "Procedure",
+   "text": "The mean interview length was 51 (SD 9.9; range 36-80) minutes. The participant group comprised 13 women and 4 men, with a mean age of 43 (SD 10.3, range 24-60) years and a mean of 6.4 (SD 5.6; range 1-18) years of DBT experience. No participant dropped out after agreeing to take part. One pilot interview was conducted to refine the interview guide and was included in the study. Three participants from the first author’s DBT team were included but interviewed by coauthor LA, who has no connection to the participants, and the rest by the first author. Interviews were conducted via secure video (12 of 17) or, when it was possible, in person from January 28 to June 3, 2025, at the workplaces of participants. Information power was assessed reflexively throughout the process, and the 17 interviews provided rich and diverse data that enabled deep engagement with the research questions [37]. This decision regarding the number of participants relied on the study’s narrow scope (AI integration in DBT), the highly specific participant group (DBT psychologists), and the rich quality of the dialogue, although no established theory was applied and the analysis was cross-case, which may have lessened the information power of the participant group. Recruitment was guided by information power rather than data saturation and ended when the focused aim, specific participant group, and rich interview material were judged sufficient to address the research questions. Data saturation was not applied, in accordance with RTA methodology [38].",
+   "printed": true
+  },
+  {
+   "para_id": 11,
+   "loc": "body",
+   "sec_title": "Data Analysis",
+   "text": "The analysis followed Braun and Clarke [35] 6-phase framework. The process was recursive, moving back and forth between phases as patterns of meaning were developed and refined. The first author conducted the primary analysis, with 2 team discussions to explore and challenge interpretations of codes and themes, and more frequent analytic consultations with supervisors (SS, LA, and SIL). Analytic discussions functioned as critical reflexive dialogue to challenge and deepen interpretations rather than to establish coding consensus. The initial focus on power, responsibility, and potential iatrogenic effects was gradually refined into a more nuanced concern with relational dynamics and the difficulty of determining the function of AI-generated responses within a therapeutic context. Later stages involved refining, defining, and naming themes, and then producing the final report.",
+   "printed": true
+  },
+  {
+   "para_id": 12,
+   "loc": "body",
+   "sec_title": "Data Analysis",
+   "text": "Generative AI tools (ChatGPT, Claude) were used only for language editing and manuscript organization, not for data analysis, coding, or theme development; no interview excerpts or participant material were entered into them. Two authors (SS and LA) have previously coauthored work on a separate mental health chatbot prototype (BETSY) for non-DBT contexts [39,40]. This shared research trajectory likely sensitized the analytic dialogue to questions of codesign, feasibility, and acceptability of AI-CA, and was kept in view during reflexive discussions. All interviews were transcribed verbatim in Swedish by the first author. Analysis was informed by the first author’s clinical training in DBT and undergraduate grounding in both psychodynamic and cognitive behavior theory. Behavioral-theoretical concepts such as reinforcement contingencies, the dialectical tension between acceptance and change [9], and relational or projective sensitivities functioned as interpretive lenses rather than deductive frameworks; no predefined codebooks were used.",
+   "printed": true
+  },
+  {
+   "para_id": 13,
+   "loc": "body",
+   "sec_title": "Theme 3: The Well-Intended Accommodator",
+   "text": "Several participants raised the concept of Wise mind [9,10], which is constructed as the opposite of an external auxiliary ego and connects the effects of AI to the ability to trust one’s sense of inner wisdom or certainty.",
+   "printed": true
+  },
+  {
+   "para_id": 14,
+   "loc": "body",
+   "sec_title": "AI Functional Ambiguity: Help or Maladaptive Accommodation (Theme 3)?",
+   "text": "What makes this issue especially challenging is that the boundary between the stoic helper and the well-intended accommodator may be difficult to identify in practice, for both therapists and patients. The topography of the AI-CA’s response may appear identical in both cases, while its therapeutic function differs. The same therapeutic response may support skills generalization in one context but serve as safety behavior in another. Participants’ accounts raised concerns that AI-CA may not reliably discern which function its responses serve in a clinical context. In therapy, initial helpful therapeutic responses may at times be met with resistance, confusion, or skepticism from patients, yet still move them closer to their goals over time. Distinguishing the function of a behavior from its topography is a core clinical task in DBT [9,11]; what is new here is the condition under which that distinction cannot be reliably made. This condition is clinically consequential because, under such ambiguity, a generative AI-CA does not default to a neutral response: LLMs have been shown to exhibit sycophancy, tending to affirm and agree with the user rather than challenge them [31]. In DBT terms, this means the agent may deliver reinforcement precisely where a clinician would withhold it, strengthening the behaviors treatment aims to reduce.",
+   "printed": true
+  },
+  {
+   "para_id": 15,
+   "loc": "body",
+   "sec_title": "Comparison With Prior Work",
+   "text": "A qualitative study found that therapists conceptualized AI as a “bridge” or complement to therapy, supporting accessibility and structured tasks rather than the relational core of treatment [41]. In this current study, participants positioned AI-CA in more than a single role. Mapping these accounts onto a behavioral intervention technology continuum [42], they range from therapist-led use with AI-CA support to AI-CA-delivered care under therapist oversight, near but never fully automated use.",
+   "printed": true
+  },
+  {
+   "para_id": 16,
+   "loc": "body",
+   "sec_title": "Comparison With Prior Work",
+   "text": "When participants imagined an AI-CA in DBT with relational capabilities, they thought this might affect the alliance, a question that predates generative AI [43]. Recent AI-CA studies suggest that users may form alliance-like experiences with AI agents [16,44], and perceived alliance has been linked to greater engagement and symptom improvement [44]. Qualitative research with psychotherapists suggests that integrating AI-CA into psychotherapy raises questions about professional role boundaries, ethical responsibility, and the preservation of the human therapeutic relationship [45]. However, these studies examined the patient’s experience of the AI-CA, rather than how an AI agent affects an ongoing therapist-patient relationship. To our knowledge, direct evidence remains limited on alliance when AI, patient, and therapist are integrated within a psychotherapy model such as DBT.",
+   "printed": true
+  },
+  {
+   "para_id": 17,
+   "loc": "body",
+   "sec_title": "Comparison With Prior Work",
+   "text": "AI-CA have been proposed to support several parts of the suicide prevention pathway, such as disclosure, risk detection, crisis signposting, and clinician-assisted triage [46], which would be important if AI-CA were integrated into DBT. Responses to suicide-related queries appear to have improved over time [32]. Autonomous risk assessment and crisis management remain insufficiently validated and may be unsafe, especially for high-risk or relationally vulnerable groups [19,22], which several participants in this study raised concerns around. Given the AI-CA’s tendency toward sycophancy and the fact that patients with BPD often present with self-destructive and suicidal behaviors, where it is essential not to reinforce maladaptive behavior, the management of anticipated AI functional ambiguity becomes a central clinical concern.",
+   "printed": true
+  },
+  {
+   "para_id": 18,
+   "loc": "body",
+   "sec_title": "Comparison With Prior Work",
+   "text": "AI functional ambiguity is related to but structurally distinct from safety behavior, a patient-enacted behavior such as seeking reassurance from an AI-CA. AI functional ambiguity, by contrast, is not a patient behavior but a condition pertaining to AI responses in therapeutic interaction. It is the condition under which it cannot be reliably determined whether a given AI response supports treatment-consistent change processes or inadvertently undermines them. The concerns expressed by participants under “The Well-Intended Accommodator” align with an emerging empirical literature on LLM sycophancy, in which interaction with sycophantic models has been shown to reduce prosocial intentions while paradoxically increasing user trust and willingness to continue using such models [31]. Within DBT, validation is defined as communicating to the patient that their responses make sense and are understandable given their history and current life context, while explicitly not endorsing what is maladaptive [9]. DBT operationalizes this through the therapeutic frame, in which the therapist tries to understand each behavior in the patient’s whole context. A generative AI-CA may instead default to sycophancy, for example, by delivering the reassurance a patient seeks, and so reinforce the patient’s safety behavior. Whereas sycophancy is an AI response whose therapeutic function has already been classified as unhelpful, AI functional ambiguity is the condition in which such classification is not reliably available. What distinguishes the concept is that its concern lies one level higher, at the point of functional classification itself.",
+   "printed": true
+  },
+  {
+   "para_id": 19,
+   "loc": "body",
+   "sec_title": "Limitations and Transferability",
+   "text": "Clinicians did not test an AI-CA, a deliberate choice: any demonstrated model would quickly become outdated and could steer participants’ narratives, and a brief demonstration would capture only a narrow aspect of AI-CA in DBT. In addition, the interview guide framed AI- and therapist-generated responses as potentially hard to distinguish, an assumption supported by prior research [47,48]. Because the interview framing positioned AI-CA as a potential adjunctive tool or support, and at times as resembling an additional therapist, relational issues such as alliance, role boundaries, and responsibility may have been made more salient during interviews. We therefore treat the themes as reflexively developed interpretations shaped by the dialogue between participants’ accounts, the interview framing, and the research team’s DBT-informed clinical perspective. We collected no standard measures of computer or AI-CA use to characterize the participants. DBT program fidelity and individual therapist adherence were not formally assessed. Some participants’ limited AI-CA experience may also have shaped the range and depth of their reflections.",
+   "printed": true
+  },
+  {
+   "para_id": 20,
+   "loc": "body",
+   "sec_title": "Limitations and Transferability",
+   "text": "Transferability should also be considered in relation to the EU AI Act, given that participants were situated within this legal context. To our knowledge, no AI-CA is currently implemented in publicly funded DBT. Under current EU and Swedish legal systems, this appears to be complicated [49], which may have shaped participants’ AI-CA expectations. Another more permissive legal setting might have generated different themes. Swedish survey data describe a public that adopts technology early yet holds cautious, mixed AI attitudes [50], possibly shaping participants’ baseline orientation toward AI-CA. Because the sample was predominantly female and drawn from a caring profession, transferability to more gender-diverse clinician groups should be considered with caution, particularly for findings concerning care, emotional availability, dependency, and AI-CA’s relational role. The themes should not be read as gendered, as no gender-comparative analysis was conducted. The participants’ shared DBT frame of reference is, by contrast, possibly a less context-sensitive frame of reference. Participants worked in large public regional services rather than private settings, likely treating patients with substantial psychiatric burden. Because DBT is team-delivered, a participant group including nurses, social workers, or counselors might have surfaced concerns about liability, professional identity, and scope of practice absent from this psychologist-only group. Purposive recruitment may have shaped which views became most visible, particularly among clinicians with more positive or critical views of AI-CA. While telephone coaching practices can vary across DBT programs and health care systems [3], and most of our participants worked in programs that included telephone coaching (15 of 17), which may have shaped their perspectives.",
+   "printed": true
+  }
+ ],
+ "links": [],
+ "links_optional": [
+  "creativecommons.org/licenses/by/4.0",
+  "doi:10.1001/jamanetworkopen.2026.6713",
+  "doi:10.1002/cpp.2668",
+  "doi:10.1002/jclp.20243",
+  "doi:10.1002/wps.21156",
+  "doi:10.1002/wps.21299",
+  "doi:10.1007/s40501-024-00340-x",
+  "doi:10.1016/j.brat.2014.10.003",
+  "doi:10.1016/j.cbpra.2019.10.005",
+  "doi:10.1016/j.chbr.2026.101094",
+  "doi:10.1016/j.invent.2025.100841",
+  "doi:10.1038/s41598-025-17242-4",
+  "doi:10.1038/s41746-023-00979-5",
+  "doi:10.1038/s41746-024-01232-3",
+  "doi:10.1038/s41746-025-01611-4",
+  "doi:10.1038/s44184-024-00097-4",
+  "doi:10.1056/aioa2400802",
+  "doi:10.1080/09537320600777002",
+  "doi:10.1080/10447318.2022.2146227",
+  "doi:10.1080/2159676x.2019.1704846",
+  "doi:10.1097/acm.0000000000000388",
+  "doi:10.1111/j.1468-2850.2010.01213.x",
+  "doi:10.1111/papt.12325",
+  "doi:10.1126/science.aec8352",
+  "doi:10.1155/hbe2/3616773",
+  "doi:10.1176/appi.ps.201900073",
+  "doi:10.1177/1049732315617444",
+  "doi:10.1177/20552076251351088",
+  "doi:10.1186/s12888-020-02610-3",
+  "doi:10.1186/s12888-024-06243-8",
+  "doi:10.1186/s40359-025-02491-9",
+  "doi:10.1192/bjp.2021.204",
+  "doi:10.1371/journal.pmen.0000145",
+  "doi:10.2196/11752",
+  "doi:10.2196/46548",
+  "doi:10.2196/54581",
+  "doi:10.2196/54941",
+  "doi:10.2196/60432",
+  "doi:10.2196/63126",
+  "doi:10.2196/66163",
+  "doi:10.2196/67114",
+  "doi:10.2196/71065",
+  "doi:10.2196/73623",
+  "doi:10.2196/77951",
+  "doi:10.2196/78340",
+  "doi:10.2196/88932",
+  "doi:10.3389/fdgth.2025.1576135",
+  "doi:10.3389/fpsyt.2024.1505024",
+  "mental.jmir.org"
+ ],
+ "own_doi": "doi:10.2196/98840",
+ "citations": [
+  {
+   "cite_id": 1,
+   "para_id": 1,
+   "bib_id": 1,
+   "marker": "1",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 2,
+   "para_id": 1,
+   "bib_id": 1,
+   "marker": "1",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 3,
+   "para_id": 1,
+   "bib_id": 2,
+   "marker": "2",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 4,
+   "para_id": 1,
+   "bib_id": 3,
+   "marker": "3",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 5,
+   "para_id": 1,
+   "bib_id": 4,
+   "marker": "4",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 6,
+   "para_id": 1,
+   "bib_id": 5,
+   "marker": "5",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 7,
+   "para_id": 1,
+   "bib_id": 5,
+   "marker": "5",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 8,
+   "para_id": 1,
+   "bib_id": 6,
+   "marker": "6",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 9,
+   "para_id": 1,
+   "bib_id": 7,
+   "marker": "7",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 10,
+   "para_id": 1,
+   "bib_id": 1,
+   "marker": "1",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 11,
+   "para_id": 2,
+   "bib_id": 8,
+   "marker": "8",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 12,
+   "para_id": 2,
+   "bib_id": 9,
+   "marker": "9",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 13,
+   "para_id": 2,
+   "bib_id": 10,
+   "marker": "10",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 14,
+   "para_id": 2,
+   "bib_id": 9,
+   "marker": "9",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 15,
+   "para_id": 2,
+   "bib_id": 10,
+   "marker": "10",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 16,
+   "para_id": 2,
+   "bib_id": 9,
+   "marker": "9",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 17,
+   "para_id": 2,
+   "bib_id": 10,
+   "marker": "10",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 18,
+   "para_id": 2,
+   "bib_id": 9,
+   "marker": "9",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 19,
+   "para_id": 2,
+   "bib_id": 10,
+   "marker": "10",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 20,
+   "para_id": 2,
+   "bib_id": 9,
+   "marker": "9",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 21,
+   "para_id": 2,
+   "bib_id": 11,
+   "marker": "11",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 22,
+   "para_id": 2,
+   "bib_id": 12,
+   "marker": "12",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 23,
+   "para_id": 2,
+   "bib_id": 13,
+   "marker": "13",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 24,
+   "para_id": 3,
+   "bib_id": 3,
+   "marker": "3",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 25,
+   "para_id": 3,
+   "bib_id": 4,
+   "marker": "4",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 26,
+   "para_id": 3,
+   "bib_id": 14,
+   "marker": "14",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 27,
+   "para_id": 4,
+   "bib_id": 7,
+   "marker": "7",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 28,
+   "para_id": 4,
+   "bib_id": 15,
+   "marker": "15",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 29,
+   "para_id": 4,
+   "bib_id": 16,
+   "marker": "16",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 30,
+   "para_id": 4,
+   "bib_id": 16,
+   "marker": "16",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 31,
+   "para_id": 4,
+   "bib_id": 17,
+   "marker": "16–18",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 32,
+   "para_id": 4,
+   "bib_id": 18,
+   "marker": "18",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 33,
+   "para_id": 4,
+   "bib_id": 16,
+   "marker": "16",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 34,
+   "para_id": 4,
+   "bib_id": 19,
+   "marker": "19",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 35,
+   "para_id": 4,
+   "bib_id": 20,
+   "marker": "20",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 36,
+   "para_id": 4,
+   "bib_id": 17,
+   "marker": "17",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 37,
+   "para_id": 4,
+   "bib_id": 21,
+   "marker": "21",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 38,
+   "para_id": 4,
+   "bib_id": 22,
+   "marker": "22",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 39,
+   "para_id": 4,
+   "bib_id": 23,
+   "marker": "23",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 40,
+   "para_id": 5,
+   "bib_id": 24,
+   "marker": "24",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 41,
+   "para_id": 5,
+   "bib_id": 25,
+   "marker": "25",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 42,
+   "para_id": 5,
+   "bib_id": 26,
+   "marker": "25–28",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 43,
+   "para_id": 5,
+   "bib_id": 27,
+   "marker": "25–28",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 44,
+   "para_id": 5,
+   "bib_id": 28,
+   "marker": "28",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 45,
+   "para_id": 5,
+   "bib_id": 29,
+   "marker": "29",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 46,
+   "para_id": 6,
+   "bib_id": 9,
+   "marker": "9",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 47,
+   "para_id": 6,
+   "bib_id": 11,
+   "marker": "11",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 48,
+   "para_id": 6,
+   "bib_id": 30,
+   "marker": "30",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 49,
+   "para_id": 7,
+   "bib_id": 31,
+   "marker": "31",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 50,
+   "para_id": 7,
+   "bib_id": 22,
+   "marker": "22",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 51,
+   "para_id": 7,
+   "bib_id": 32,
+   "marker": "32",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 52,
+   "para_id": 7,
+   "bib_id": 33,
+   "marker": "33",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 53,
+   "para_id": 8,
+   "bib_id": 2,
+   "marker": "2",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 54,
+   "para_id": 8,
+   "bib_id": 7,
+   "marker": "7",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 55,
+   "para_id": 8,
+   "bib_id": 24,
+   "marker": "24",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 56,
+   "para_id": 8,
+   "bib_id": 34,
+   "marker": "34",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 57,
+   "para_id": 9,
+   "bib_id": 35,
+   "marker": "35",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 58,
+   "para_id": 9,
+   "bib_id": 35,
+   "marker": "35",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 59,
+   "para_id": 9,
+   "bib_id": 36,
+   "marker": "36",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 60,
+   "para_id": 10,
+   "bib_id": 37,
+   "marker": "37",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 61,
+   "para_id": 10,
+   "bib_id": 38,
+   "marker": "38",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 62,
+   "para_id": 11,
+   "bib_id": 35,
+   "marker": "35",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 63,
+   "para_id": 12,
+   "bib_id": 39,
+   "marker": "39",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 64,
+   "para_id": 12,
+   "bib_id": 40,
+   "marker": "40",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 65,
+   "para_id": 12,
+   "bib_id": 9,
+   "marker": "9",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 66,
+   "para_id": 13,
+   "bib_id": 9,
+   "marker": "9",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 67,
+   "para_id": 13,
+   "bib_id": 10,
+   "marker": "10",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 68,
+   "para_id": 14,
+   "bib_id": 9,
+   "marker": "9",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 69,
+   "para_id": 14,
+   "bib_id": 11,
+   "marker": "11",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 70,
+   "para_id": 14,
+   "bib_id": 31,
+   "marker": "31",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 71,
+   "para_id": 15,
+   "bib_id": 41,
+   "marker": "41",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 72,
+   "para_id": 15,
+   "bib_id": 42,
+   "marker": "42",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 73,
+   "para_id": 16,
+   "bib_id": 43,
+   "marker": "43",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 74,
+   "para_id": 16,
+   "bib_id": 16,
+   "marker": "16",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 75,
+   "para_id": 16,
+   "bib_id": 44,
+   "marker": "44",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 76,
+   "para_id": 16,
+   "bib_id": 44,
+   "marker": "44",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 77,
+   "para_id": 16,
+   "bib_id": 45,
+   "marker": "45",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 78,
+   "para_id": 17,
+   "bib_id": 46,
+   "marker": "46",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 79,
+   "para_id": 17,
+   "bib_id": 32,
+   "marker": "32",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 80,
+   "para_id": 17,
+   "bib_id": 19,
+   "marker": "19",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 81,
+   "para_id": 17,
+   "bib_id": 22,
+   "marker": "22",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 82,
+   "para_id": 18,
+   "bib_id": 31,
+   "marker": "31",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 83,
+   "para_id": 18,
+   "bib_id": 9,
+   "marker": "9",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 84,
+   "para_id": 19,
+   "bib_id": 47,
+   "marker": "47",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 85,
+   "para_id": 19,
+   "bib_id": 48,
+   "marker": "48",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 86,
+   "para_id": 20,
+   "bib_id": 49,
+   "marker": "49",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 87,
+   "para_id": 20,
+   "bib_id": 50,
+   "marker": "50",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 88,
+   "para_id": 20,
+   "bib_id": 3,
+   "marker": "3",
+   "expanded": false,
+   "scored": true
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-ext-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "v1_bib_count": 50
+ }
+}

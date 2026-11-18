@@ -1,0 +1,958 @@
+{
+ "paper_id": "10.1017_s0033291726105303",
+ "paras": [
+  {
+   "para_id": 1,
+   "loc": "body",
+   "sec_title": "Data analysis",
+   "text": "All data analyses in this study were conducted using R version 4.3.1. The primary analysis code is available at https://osf.io/4jrst (Zhang, 2026).",
+   "printed": true
+  },
+  {
+   "para_id": 2,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Earthquakes cause substantial economic losses, structural damage, population displacement, and fatalities (Centre for Research on the Epidemiology of Disasters, 2025), along with adverse psychological outcomes among survivors (Cénat, McIntee, & Blais-Rochette, 2020). Among these, posttraumatic stress disorder (PTSD) is a mental health condition particularly associated with earthquakes (Sirotich & Camisasca, 2024). PTSD arises following direct exposure (experiencing or witnessing a traumatic event) or indirect exposure (learning that a traumatic event occurred to a close relative, or experiencing repeated or extreme exposure to aversive details of the event) (American Psychiatric Association, 2022). The disorder is characterized by four symptom clusters: intrusive symptoms, avoidance, negative alterations in cognition and mood, and changes in arousal and reactivity (American Psychiatric Association, 2022). Children and adolescents are especially vulnerable to developing PTSD symptoms after earthquakes due to their dependence on adults (Blanc et al., 2020), and their symptoms often persist for up to a decade (Wang, Wu, & Zhou, 2018). Thus, understanding the long-term developmental pathological characteristics of PTSD symptoms in this population is critical.",
+   "printed": true
+  },
+  {
+   "para_id": 3,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "In recent years, the network theory of psychopathology (Borsboom, 2017) has proposed that PTSD arises from interactions among its symptoms, a framework that disentangles the heterogeneity of symptoms and their interconnections to provide more precise insights into etiology and intervention (Birkeland, Greene, & Spiller, 2020; Borsboom, 2017). Although most studies have examined cross-sectional symptom networks (Birkeland, Greene, & Spiller, 2020), the severity of children’s and adolescents’ PTSD symptoms and their interconnections are known to evolve and fluctuate over time (Hong & Efferth, 2016; Liang, Cheng, Ruzek, & Liu, 2019; Ma et al., 2023; Wang, Wu, & Zhou, 2018). Therefore, scholars have argued that dynamic temporal networks offer a more robust reference, particularly those that account for within-person change characteristics (Borsboom, 2017; Bridges-Curry, 2025; Grimes et al., 2025).",
+   "printed": true
+  },
+  {
+   "para_id": 4,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Identifying network features that hold clinical significance through dynamic temporal networks is crucial. Previous research has emphasized the centrality of nodes (symptoms) within these networks (Birkeland, Greene, & Spiller, 2020; Bridges-Curry, 2025). However, this approach has several limitations. In cross-sectional networks, a symptom may appear to be central and thus a target for intervention. Yet, if this symptom is a consequence rather than a cause of other symptoms, targeting it may not lead to reductions in other symptoms (Grimes et al., 2025). Although longitudinal networks offer some degree of causal inference, the replicability of identified core PTSD symptoms remains poor due to variations in study intervals, types of trauma, and sample differences across studies (Birkeland, Greene, & Spiller, 2020; Bridges-Curry, 2025; Ma et al., 2023; Wu et al., 2025). Consequently, the clinical utility of emphasizing centrality within the complex system of psychological networks has been increasingly questioned by many researchers (Bringmann et al., 2019; Grimes et al., 2025).",
+   "printed": true
+  },
+  {
+   "para_id": 5,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Against this backdrop, researchers have begun to shift their focus from individual symptom centrality to global network indices within this complex system (Bringmann et al., 2019; Grimes et al., 2025; Öngür & Paulus, 2025; van Borkulo et al., 2023). Recently, network temperature has emerged as a novel metric for assessing the stability of psychological dynamic temporal networks (Borsboom et al., 2021; Grimes et al., 2025), which may contribute to understanding the fluctuations in PTSD symptoms among children and adolescents following earthquakes. Specifically, network temperature is primarily calculated based on the Ising model (Finnemann, Borsboom, Epskamp, & van der Maas, 2021; van Borkulo et al., 2014). In this framework, the Ising model is estimated using logistic regression analyses, where edge weights correspond to the regression coefficients obtained by iteratively regressing each symptom variable on all other symptoms. The intercept of the logistic regression represents the threshold parameter for each symptom, indicating its autonomous disposition for manifestation. The specific formula governing the probability of a given symptom configuration is presented in Equation (1): (1) PX=x=e−β−∑iτixi−∑i<jωijxixjZ,PX equals x equals e minus beta minus sigma summation i tau ixi minus sigma summation i less than j omega ijxixjZ comma where PX=xPX equals x denotes the probability of the network being in a specific configuration xx . The configuration Xupper X represents the particular states of all nodes in the network, with each node xixi capable of being in one of two states (e.g., −1 or 1). The expression in the exponent, −∑iτixi−∑i<jωijxixjminus sigma summation i tau ixi minus sigma summation i less than j omega ijxixj , is the Hamiltonian function, which represents the energy of a given symptom configuration. The Hamiltonian integrates the two structural components of the network: τitau i represents the threshold parameter for symptom ii (capturing its autonomous tendency to activate), and ωijomega ij represents the edge weight between symptoms ii and jj (quantifying their pairwise interaction). The parameter βbeta represents the inverse temperature ( βbeta = 1/network temperature), scaling the influence of the Hamiltonian on the probability. A high βbeta (low temperature) indicates that the system strongly favors low-energy states with reduced randomness. Zupper Z is the partition function, which sums the numerator over all possible network configurations to ensure that the probabilities sum to 1, serving as a normalization constant.",
+   "printed": false
+  },
+  {
+   "para_id": 6,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Crucially, network temperature functions as a global scaling factor applied uniformly to the entire ‘network skeleton’—that is, to both the edge weights ( ωijomega ij ) and the thresholds ( τitau i ). At low network temperatures (high βbeta ), the system exhibits relatively little randomness; the influence of the skeleton is amplified, thereby constraining node states to converge toward a limited set of low-energy configurations. Taking PTSD symptoms as an example, under such low-temperature conditions, symptom expression tends to follow the network skeleton closely, and the reduced randomness implies a more stable system that is less susceptible to change. Conversely, high network temperatures (low βbeta ) effectively scale down the influence of both the interactions and thresholds, such that random thermal fluctuations override the structural constraints. In this case, symptoms may be unstable, varying unpredictably over time, and reflecting a system that is highly susceptible to change. This high-temperature state may thus represent a window of opportunity for modifying the PTSD symptom system: well-timed positive interventions are more likely to take effect, while adverse influences may also exact a greater toll (Grimes et al., 2025).",
+   "printed": true
+  },
+  {
+   "para_id": 7,
+   "loc": "body",
+   "sec_title": "Participants and procedure",
+   "text": "Our analysis included a total of eight cohorts. The assessment time points for each wave of every cohort were detailed in Table 1. Aligning with the previous study (Wang, Li, Yuan, & Wu, 2024), we stratified the cohorts into three post-earthquake periods: early (≤2.5 years; Cohorts 1, 4, 5, 7), middle (3.5–5.5 years; Cohorts 2, 6), and late (8.5–10 years; Cohort 3).Table 1.Sample sizes per cohort Table 1. long description.Middle school students after the Wenchuan earthquake (Cohort 1)Time points after the earthquake1 year later1.5 years later2 years later2.5 years laterSample size of cross-sectional studies12531224900487The sample size of participants who finished at least three waves602The sample size of participants who finished all waves145Middle school students after the Wenchuan earthquake (Cohort 2)Time points after the earthquake3.5 years later4.5 years later5.5 years laterSample size of cross-sectional studies364331161The sample size of participants who finished at least two waves332The sample size of participants who finished all waves137Middle school students after the Wenchuan earthquake (Cohort 3)Time points after the earthquake8.5 years later9.5 years later10 years later10.5 years laterSample size of cross-sectional studies2341164815651031The sample size of participants who finished at least three waves1227The sample size of participants who finished all waves473Primary school students after the Wenchuan earthquake (Cohort 4)Time points after the earthquake1 year later1.5 years laterSample size of cross-sectional studies1511984The sample size of participants who finished at least two waves753The sample size of participants who finished all waves753Middle school students after the Yaan earthquake (Cohort 5)Time points after the earthquake0.5 year later1 year later1.5 years later2 years laterSample size of cross-sectional studies625594535813The sample size of participants who finished at least three waves503The sample size of participants who finished all waves168Middle school students after the Yaan earthquake (Cohort 6)Time points after the earthquake3.5 years later4.5 years later5.5 years laterSample size of cross-sectional studies14201104646The sample size of participants who finished at least two waves1019The sample size of participants who finished all waves300Primary school students after the Yaan earthquake (Cohort 7)Time points after the earthquake0.5 year later1 year later1.5 years later2 years laterSample size of cross-sectional studies303296308304The sample size of participants who finished at least three waves303The sample size of participants who finished all waves132Middle school students after the Jiuzhaigou earthquake (Cohort 8)Time points after the earthquake10 months later22 months later27 months laterSample size of cross-sectional studies12411319624The sample size of participants who finished at least two waves1055The sample size of participants who finished all waves190A table detailing sample sizes for eight cohorts of students across different time points following the Wenchuan, Yaan, and Jiuzhaigou earthquakes. See long description.",
+   "printed": true
+  },
+  {
+   "para_id": 8,
+   "loc": "body",
+   "sec_title": "Participants and procedure",
+   "text": "The sample sizes for each cohort are shown in Table 1, and the number of participants who completed all waves in each cohort is also presented. It should be noted that some cohorts comprised relatively small samples of participants who completed all assessment waves, which may lead to unstable results in network analysis (Isvoranu & Epskamp, 2023). Therefore, for cohorts with three or more waves, we included cases that participated in at least the total wave counts minus 1 and imputed the missing data (see the Methods section for details) to form our primary analytic sample (sample size was shown in Table 1). However, this approach to sample selection and imputation might introduce some degree of bias. Thus, following the recommendations of prior research (Grimes et al., 2025), we also conducted analyses on the subsample of participants who completed all waves across all cohorts (sample size see Table 1) to ensure the robustness of our findings.",
+   "printed": true
+  },
+  {
+   "para_id": 9,
+   "loc": "body",
+   "sec_title": "Measures",
+   "text": "The Child PTSD Symptoms Scale for DSM-IV (CPSS; Foa, Johnson, Feeny, & Treadwell, 2001) was employed to assess PTSD symptoms in Cohorts 1, 2, 4, 5, and 7. This scale comprises 17 items, rated on a 4-point scale ranging from 0 (never) to 3 (always), and includes three subscales: intrusions, avoidance, and hyperarousal. The scale has demonstrated good reliability and validity among Chinese children and adolescents who experienced an earthquake (Zhen, Zhou, & Wu, 2019). In the present study, the Cronbach’s α coefficients for the CPSS ranged from 0.81 to 0.93 across all waves.",
+   "printed": true
+  },
+  {
+   "para_id": 10,
+   "loc": "body",
+   "sec_title": "Measures",
+   "text": "For Cohorts 3, 6, and 8, PTSD symptoms were measured using the PTSD Checklist for the DSM-5 (PCL-5), developed by Weathers et al. (2013). This checklist consists of 20 items and four subscales: intrusions, negative cognition and emotion alteration, avoidance, and hyperarousal. Each item is rated on a 5-point Likert scale, ranging from 0 (completely disagree) to 4 (completely agree). However, to maintain consistency with the 0–3 scoring range historically used in Wenchuan and Yaan earthquake datasets, Cohort 3 and Cohort 6 used a modified 0–3 scoring (rather than the standard 0–4), whereas Cohort 8 retained the original 0–4 scoring of the PCL-5. The reliability and validity of this scale have been previously established in studies involving post-earthquake Chinese children and adolescents (Zhou, Wu, & Zhen, 2017). In the current study, the Cronbach’s α internal consistency coefficients for this scale ranged from 0.84 to 0.92 across all waves.",
+   "printed": true
+  },
+  {
+   "para_id": 11,
+   "loc": "body",
+   "sec_title": "Symptom cleaning and multiple imputation",
+   "text": "The symptom data for all eight cohorts were scored on a 4- or 5-point Likert scale (where the lowest value represents the absence of symptoms, and the other values indicate varying degrees of symptom severity). In line with the Ising model’s conceptualization of symptom ‘on’/‘off’ states, we recoded the lowest value (0, indicating no symptoms) as −1, and all other values as 1 (Grimes et al., 2025). Subsequently, following the approach used in prior research (Grimes et al., 2025), we applied multiple imputation by chained equations with predictive mean matching using the mice package in R. The number of imputed datasets was set to the percentage of missing data, with 20 iterations for each imputation. The final analytic dataset was obtained by aggregating the imputed datasets and selecting the modal symptom combination as the pooled point estimate. As mentioned earlier, to assess the impact of both attrition and imputation, we estimated the networks and extracted temperature changes for all cohorts using the maximum-likelihood estimator, based on the nonimputed case dataset.",
+   "printed": true
+  },
+  {
+   "para_id": 12,
+   "loc": "body",
+   "sec_title": "Network estimation and network temperature",
+   "text": "To estimate PTSD symptom networks, we employed the multigroup Ising model with binary variables, as described by Finnemann et al. (2021) and Grimes et al. (2025). Following the guidelines of Grimes et al. (2025), we utilized the Ising model function of the psychonetrics package in R to independently estimate network models at different time points (waves). In this framework, edge weights are denoted by the parameter omega, thresholds by tau, and inverse temperature by beta. For each cohort, we estimated four network models using an iterative approach with increasing constraints: (1) fully saturated with all parameters free; (2) set omega equal between groups for equal edges (structure) over time; (3) set omega and tau equal between groups for equal edges and external information (thresholds) over time, respectively; and (4) set omega, tau and beta equal between groups for equal edges, thresholds and temperature over time, respectively. For each of these four models, we also tested dense network (fully connected) and sparse network (pruned edges) structures, resulting in eight models estimated for each cohort. This approach has been extensively detailed in previous Ising model methodologies (Borsboom et al., 2021).",
+   "printed": true
+  },
+  {
+   "para_id": 13,
+   "loc": "body",
+   "sec_title": "Network estimation and network temperature",
+   "text": "According to the guidelines of Grimes et al. (2025), the optimal model was selected based on model fit criteria, including low Akaike Information Criterion, low Bayesian Information Criterion, root mean square error of approximation (RMSEA) < 0.05, and chi-square test p values (α = 0.05). The RMSEA was calculated by comparing the subsequent models with increasing constraints to the fully connected (saturated) Ising model, which has zero degrees of freedom for pairwise interactions. This method is analogous to structural equation modelling. We conducted pairwise nested comparisons between dense and sparse networks, with Model 1 serving as the reference model.",
+   "printed": true
+  },
+  {
+   "para_id": 14,
+   "loc": "body",
+   "sec_title": "Network estimation and network temperature",
+   "text": "Once the ideal Ising model was identified, network temperature was calculated as the inverse of the beta parameter (inverse temperature) in the network formula (for detailed formulas and derivations, see Grimes et al., 2025). At wave 1 of each cohort, beta (inverse temperature) was not identifiable and was thus fixed at 1 (resulting in a network temperature of 1). Adding equality constraints for subsequent time points allowed for the identification of network temperature from wave 2 onward. Consequently, network temperature could increase or decrease relative to this initial value. Finally, following the approach of Grimes et al. (2025), we computed the entropy Supper S for each network using the formula (2) S=−∑xΡxlogPx,upper S equals minus sigma summation x upper Rho xlogPx comma where PxPx has the same meaning as in Equation (1). In this calculation, entropy incorporates both the network temperature and the network skeleton (i.e., edge weights and thresholds). Unlike network temperature, which reflects the degree of randomness (or instability) of the system and determines the extent to which network states conform to the skeleton, entropy places greater emphasis on the behavior of symptom nodes and quantifies the stability of the system’s states. Higher entropy indicates lower stability, meaning that symptom node states tend toward disorganization rather than consistency.",
+   "printed": true
+  },
+  {
+   "para_id": 15,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Based on recent developments in network theory emphasizing global network characteristics and the novel metric of network temperature (Bringmann et al., 2019; Grimes et al., 2025; Öngür & Paulus, 2025; van Borkulo et al., 2023), we examined changes in PTSD symptom network temperature across eight child–adolescent cohorts assessed at different post-earthquake periods to elucidate shifts in the stability of the PTSD symptom system. Our findings advance our understanding of the longitudinal psychopathology of PTSD in children and adolescents after earthquakes and carry implications for clinical practice.",
+   "printed": true
+  },
+  {
+   "para_id": 16,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Our results revealed that although the trends in mean PTSD symptom levels and their variance across the eight cohorts varied inconsistently over time and between earthquakes, a key consistent pattern emerged: network temperature decreased universally in all cohorts. This decline reflects reduced randomness in the PTSD symptom network system; that is, node states become less erratic and more strongly governed by the network skeleton (i.e., the edge weights and thresholds), leading to more entrenched, stable symptom presentations (Grimes et al., 2025). In other words, the PTSD symptom system becomes increasingly rigid and resistant to change. We speculate that this pattern might be attributable to the dynamics of trauma-related memory strength. Over time, trauma memories of the earthquake might gradually fade, yet early earthquake-related cues remain especially salient in the brain, sustaining a PTSD symptom system that is initially highly active and changeable (Ehlers & Clark, 2000; Wu, Zhou, Wang, & Tian, 2018). Such a change can unfold in two directions. On the one hand, individuals might adopt a range of positive coping strategies, which, together with timely interventions (e.g., provision of survival resources and basic psychological support), might facilitate the adaptive integration of trauma memories and thereby alleviate PTSD symptoms (Ehlers & Clark, 2000; Tedeschi & Calhoun, 2004; Wu et al., 2018). On the other hand, maladaptive coping strategies and external risk factors (such as secondary trauma exposure) might promote negative integration, including negative appraisals of the trauma or its aftermath, which in turn exacerbates PTSD symptoms (Ehlers & Clark, 2000; Elwood, Mott, Lohr, & Galovski, 2011; Wu et al., 2018). Hence, when network temperature is high, that is, immediately after an earthquake and before the system has stabilized, there is both an urgent need to implement positive interventions and a concurrent need to prevent further deterioration.",
+   "printed": true
+  },
+  {
+   "para_id": 17,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "These findings regarding changes in PTSD symptom network properties can be mapped onto the established trajectories of PTSD symptom levels following earthquakes. Previous studies have identified four distinct symptom trajectories: chronic dysfunction (persistently high symptoms), delayed dysfunction (initially low symptoms followed by a subsequent increase), resilience (consistently low symptoms), and recovery (initially high symptoms followed by a decline) (Cheng et al., 2019; Ma et al., 2023). The chronic dysfunction and resilience groups, which are characterized by greater symptom stability, are typically associated with lower network temperature; conversely, the delayed dysfunction and recovery groups, which exhibit more dynamic symptom changes, tend to be associated with higher network temperature (Grimes et al., 2025). The observed decline in network temperature among children and adolescents after earthquakes was associated with an increased prevalence of the chronic dysfunction and resilience groups, alongside a decrease in the delayed dysfunction and recovery groups (Grimes et al., 2025). The extent of proportional shifts and changes in these groups was likely associated with the specific trajectories of PTSD symptom levels in each cohort (see Supplementary Figures S1 and S2).",
+   "printed": true
+  },
+  {
+   "para_id": 18,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Beyond their connection to PTSD symptom levels, changes in network temperature are also linked to PTSD symptom heterogeneity, a central focus of network theory (Borsboom, 2017), and thus carry additional clinical implications. Even when total symptom levels remain constant, symptom subgroups or profiles might diverge—for instance, through an increase in intrusive symptoms alongside a decrease in hyperarousal symptoms—reflecting growing heterogeneity among symptom profiles and dynamic interchange between them over time (Boasso, Steenkamp, Larson, & Litz, 2016; Goodman-Williams, Clark, Campbell, & Ullman, 2024). The recognition of PTSD subtypes, such as the dissociative subtype, and the distinction of complex PTSD further underscore the clinical relevance of symptom heterogeneity (Ben‐Ezra et al., 2018; Friedman, 2013).",
+   "printed": true
+  },
+  {
+   "para_id": 19,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Therefore, a decline in network temperature, which signifies reduced randomness of the symptom system, might be associated with reduced diversity in PTSD symptom profiles across individuals. This is further corroborated by the concurrent decline in network entropy across all cohorts (where network entropy measures state instability, with higher entropy signifying greater diversity in symptom expression). Initially, children and adolescents within each cohort likely exhibited the most diverse symptom profiles—for example, some predominantly displayed intrusion symptoms, others primarily avoidance symptoms (Boasso et al., 2016; Goodman-Williams et al., 2024). Over time, an increasing number of individuals tended to converge on more homogeneous symptom profiles, coalescing into one or a few groups that shared similar symptom features. Although early intervention remains crucial (Grimes et al., 2025; McElroy, Napoleone, Wolpert, & Patalay, 2019), the high symptom heterogeneity present when network temperature is elevated was associated with increased cost and complexity of delivering personalized, person‑centered interventions. Therefore, further research is needed to examine how elevated network temperature relates to person‑centered treatment planning.",
+   "printed": true
+  },
+  {
+   "para_id": 20,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "We further examined differences in the rate of network temperature reduction across samples (children versus adolescents), post-earthquake periods, and different earthquakes. These results might not be entirely robust; therefore, the following interpretations should be viewed with caution. The rate of decrease was faster among children in the early post-Wenchuan period than among adolescents and faster than that of children in the early post-Yaan period. This suggests that children’s PTSD symptom systems are more susceptible to change and stabilize more rapidly, especially after a more severe earthquake. One possible explanation is that children receive more prioritized protection after a major earthquake (Bhadra, 2022), and their relatively lower direct trauma exposure compared with adolescents might result in fewer and less consolidated trauma memories (Ehlers & Clark, 2000). Consequently, the randomness of the symptom system diminishes more quickly. A complementary explanation is that children’s trauma memories, particularly after a severe earthquake, are more likely to be latent and implicit in nature (e.g., encoded as bodily cues) rather than integrated into verbally accessible autobiographical memories (McCrory & Viding, 2015). While these implicit memories might not directly perturb self-reported PTSD symptoms in the early period, their influence might only become manifest in the middle or late period—a period not covered by our current data.",
+   "printed": true
+  },
+  {
+   "para_id": 21,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Conversely, the rate of network temperature decline among adolescents in the early post-Wenchuan period was slower than the early post-earthquake rates among adolescents after the Jiuzhaigou and Yaan earthquakes and slower than the rate observed during the middle/late post-Wenchuan period. Notably, the early post-Yaan adolescent decline rate was faster than that during the middle period. This pattern implies that, although the overall trend is one of decreasing network temperature, adolescents who experienced the more severe Wenchuan earthquake maintain a PTSD system that remains relatively random and variable for a longer time, with a more accelerated drop occurring only in the middle/late period. This prolongation might be due to more profoundly encoded trauma memories (Ehlers & Clark, 2000), which keep the associated PTSD symptom system in a persistently heightened state of activation, compounded by the fact that adolescents are navigating a critical developmental stage already characterized by heightened uncertainty (such as rapid physical, cognitive, and emotional changes; Cisler & Herringa, 2021).",
+   "printed": true
+  },
+  {
+   "para_id": 22,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Importantly, these findings call for a dialectical interpretation. The rapid early decline in network temperature among children after a severe earthquake might imply a potentially narrow intervention window. Yet, during this very period, PTSD symptom profiles tend to be highly heterogeneous, which might require interventions tailored to symptom subtypes (Boasso et al., 2016; Goodman-Williams et al., 2024). Moreover, it is essential to remain vigilant against the delayed impact of latent, implicit trauma representations, which might only surface at later developmental stages (McCrory & Viding, 2015). Accordingly, even children whose early symptoms subside quickly after a severe earthquake should receive longitudinal monitoring, and caregivers should be equipped to recognize and respond to delayed behavioral or somatic expressions of trauma. Conversely, the slower early decline in network temperature among adolescents after a severe earthquake offers a more extended intervention window. However, the prolonged period of a random and highly susceptible symptom network also carries a substantial risk of deterioration. Extra caution must be directed toward secondary trauma exposure in the early post-earthquake period (Elwood et al., 2011), alongside attention to the normative developmental crises of adolescence (such as emotion dysregulation, academic pressure, and interpersonal difficulties) that render this population particularly vulnerable (Cisler & Herringa, 2021). Nonetheless, while the above discussion highlights the urgency of intervention in the early post-earthquake period, especially after severe earthquakes (e.g., Wenchuan), this does not imply that intervention and deterioration prevention become less important following milder earthquakes (e.g., Yaan, Jiuzhaigou) or during the middle and late post-earthquake periods. Sustained, school–family–community collaborative psychological screening and support remain essential for all children and adolescents who have experienced earthquakes.",
+   "printed": true
+  },
+  {
+   "para_id": 23,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "However, this study has several limitations. First, because our study involved multiple cohorts from different earthquakes, the assessment instruments used were not uniform. Across the cohorts, the number of PTSD symptoms measured varied (17 or 20), and the rating scales differed (0–4 or 0–3). Nevertheless, consistent findings were obtained from sensitivity analyses. Second, the cohorts did not cover all possible time points following each earthquake, preventing the formation of continuous long-term cohorts. Consequently, although network temperature decreased across all observed cohorts, we cannot definitively infer a universal decline in PTSD symptom network temperature for children and adolescents following earthquakes. Third, while prior research posits that periods of high network temperature represent optimal intervention windows (Grimes et al., 2025), this instability may theoretically also indicate heightened vulnerability to risk factors. Moreover, the concomitant high individual heterogeneity in symptoms during such periods poses significant challenges for personalized intervention. Future intervention studies are needed to clarify the clinical utility of network temperature for guiding interventions. Furthermore, this study encountered substantial participant attrition during follow-up. While we performed sensitivity analyses comparing complete cases and imputed datasets following established procedures (Grimes et al., 2025), the development of more sophisticated missing data methods remains essential for longitudinal network analysis.",
+   "printed": true
+  }
+ ],
+ "links": [
+  {
+   "link_id": 1,
+   "url": "osf.io/4jrst",
+   "url_raw": "https://osf.io/4jrst",
+   "href_jats": "https://osf.io/4jrst",
+   "repo_key": "osf:4jrst",
+   "host_class": "osf",
+   "loc": "body",
+   "sec_title": "Data analysis",
+   "source": "tagged",
+   "para_id": 1
+  }
+ ],
+ "links_optional": [
+  "creativecommons.org/licenses/by/4.0",
+  "doi:10.1002/da.22723",
+  "doi:10.1002/jts.21840",
+  "doi:10.1002/wps.20375",
+  "doi:10.1007/978-981-16-9820-0_26",
+  "doi:10.1007/s10608-025-10575-4",
+  "doi:10.1007/s11920-020-01178-9",
+  "doi:10.1007/s12187-019-09634-6",
+  "doi:10.1016/j.biopsych.2020.06.001",
+  "doi:10.1016/j.cpr.2010.09.004",
+  "doi:10.1016/j.eclinm.2019.02.009",
+  "doi:10.1016/j.jad.2018.09.047",
+  "doi:10.1016/j.jad.2019.04.047",
+  "doi:10.1016/j.jad.2020.04.046",
+  "doi:10.1016/j.janxdis.2023.102767",
+  "doi:10.1016/j.jpsychires.2016.08.002",
+  "doi:10.1016/j.jpsychires.2024.12.028",
+  "doi:10.1016/s0005-7967(99)00123-0",
+  "doi:10.1016/s2215-0366(24)00334-1",
+  "doi:10.1017/s0033291726105303",
+  "doi:10.1017/s0954579415000115",
+  "doi:10.1037/abn0000446",
+  "doi:10.1037/met0000439",
+  "doi:10.1037/met0000476",
+  "doi:10.1037/tra0000213",
+  "doi:10.1037/tra0001376",
+  "doi:10.1038/s43586-021-00055-w",
+  "doi:10.1038/s44220-025-00415-5",
+  "doi:10.1038/srep05918",
+  "doi:10.1080/20008066.2024.2365477",
+  "doi:10.1080/20008198.2019.1700614",
+  "doi:10.1111/aphw.12507",
+  "doi:10.1177/1524838015585313",
+  "doi:10.1207/s15327965pli1501_01",
+  "doi:10.1207/s15374424jccp3003_9",
+  "doi:10.3390/psych3040039",
+  "dx.chinadoi.cn/10.3969/j.issn.1002-0209.2018.02.005",
+  "dx.chinadoi.cn/10.3969/j.issn.1002-0209.2018.02.006",
+  "preventionweb.net/publication/documents-and-publications/2024-disasters-numbers",
+  "ptsd.va.gov"
+ ],
+ "own_doi": "doi:10.1017/s0033291726105303",
+ "citations": [
+  {
+   "cite_id": 1,
+   "para_id": 2,
+   "bib_id": 12,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 2,
+   "para_id": 2,
+   "bib_id": 11,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 3,
+   "para_id": 2,
+   "bib_id": 29,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 4,
+   "para_id": 2,
+   "bib_id": 1,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 5,
+   "para_id": 2,
+   "bib_id": 1,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 6,
+   "para_id": 2,
+   "bib_id": 5,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 7,
+   "para_id": 2,
+   "bib_id": 34,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 8,
+   "para_id": 3,
+   "bib_id": 7,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 9,
+   "para_id": 3,
+   "bib_id": 4,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 10,
+   "para_id": 3,
+   "bib_id": 7,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 11,
+   "para_id": 3,
+   "bib_id": 4,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 12,
+   "para_id": 3,
+   "bib_id": 22,
+   "marker": "2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 13,
+   "para_id": 3,
+   "bib_id": 24,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 14,
+   "para_id": 3,
+   "bib_id": 25,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 15,
+   "para_id": 3,
+   "bib_id": 34,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 16,
+   "para_id": 3,
+   "bib_id": 7,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 17,
+   "para_id": 3,
+   "bib_id": 9,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 18,
+   "para_id": 3,
+   "bib_id": 21,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 19,
+   "para_id": 4,
+   "bib_id": 4,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 20,
+   "para_id": 4,
+   "bib_id": 9,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 21,
+   "para_id": 4,
+   "bib_id": 21,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 22,
+   "para_id": 4,
+   "bib_id": 4,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 23,
+   "para_id": 4,
+   "bib_id": 9,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 24,
+   "para_id": 4,
+   "bib_id": 25,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 25,
+   "para_id": 4,
+   "bib_id": 37,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 26,
+   "para_id": 4,
+   "bib_id": 10,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 27,
+   "para_id": 4,
+   "bib_id": 21,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 28,
+   "para_id": 5,
+   "bib_id": 10,
+   "marker": "2019",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 29,
+   "para_id": 5,
+   "bib_id": 21,
+   "marker": "2025",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 30,
+   "para_id": 5,
+   "bib_id": 28,
+   "marker": "2025",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 31,
+   "para_id": 5,
+   "bib_id": 32,
+   "marker": "2023",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 32,
+   "para_id": 5,
+   "bib_id": 8,
+   "marker": "2021",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 33,
+   "para_id": 5,
+   "bib_id": 21,
+   "marker": "2025",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 34,
+   "para_id": 5,
+   "bib_id": 17,
+   "marker": "2021",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 35,
+   "para_id": 5,
+   "bib_id": 31,
+   "marker": "2014",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 36,
+   "para_id": 6,
+   "bib_id": 21,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 37,
+   "para_id": 7,
+   "bib_id": 33,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 38,
+   "para_id": 8,
+   "bib_id": 23,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 39,
+   "para_id": 8,
+   "bib_id": 21,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 40,
+   "para_id": 9,
+   "bib_id": 18,
+   "marker": "2001",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 41,
+   "para_id": 9,
+   "bib_id": 39,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 42,
+   "para_id": 10,
+   "bib_id": 35,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 43,
+   "para_id": 10,
+   "bib_id": 40,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 44,
+   "para_id": 1,
+   "bib_id": 38,
+   "marker": "2026",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 45,
+   "para_id": 11,
+   "bib_id": 21,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 46,
+   "para_id": 11,
+   "bib_id": 21,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 47,
+   "para_id": 12,
+   "bib_id": 17,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 48,
+   "para_id": 12,
+   "bib_id": 21,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 49,
+   "para_id": 12,
+   "bib_id": 21,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 50,
+   "para_id": 12,
+   "bib_id": 8,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 51,
+   "para_id": 13,
+   "bib_id": 21,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 52,
+   "para_id": 14,
+   "bib_id": 21,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 53,
+   "para_id": 14,
+   "bib_id": 21,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 54,
+   "para_id": 15,
+   "bib_id": 10,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 55,
+   "para_id": 15,
+   "bib_id": 21,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 56,
+   "para_id": 15,
+   "bib_id": 28,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 57,
+   "para_id": 15,
+   "bib_id": 32,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 58,
+   "para_id": 16,
+   "bib_id": 21,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 59,
+   "para_id": 16,
+   "bib_id": 15,
+   "marker": "2000",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 60,
+   "para_id": 16,
+   "bib_id": 36,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 61,
+   "para_id": 16,
+   "bib_id": 15,
+   "marker": "2000",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 62,
+   "para_id": 16,
+   "bib_id": 30,
+   "marker": "2004",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 63,
+   "para_id": 16,
+   "bib_id": 36,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 64,
+   "para_id": 16,
+   "bib_id": 15,
+   "marker": "2000",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 65,
+   "para_id": 16,
+   "bib_id": 16,
+   "marker": "2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 66,
+   "para_id": 16,
+   "bib_id": 36,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 67,
+   "para_id": 17,
+   "bib_id": 13,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 68,
+   "para_id": 17,
+   "bib_id": 25,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 69,
+   "para_id": 17,
+   "bib_id": 21,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 70,
+   "para_id": 17,
+   "bib_id": 21,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 71,
+   "para_id": 18,
+   "bib_id": 7,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 72,
+   "para_id": 18,
+   "bib_id": 6,
+   "marker": "2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 73,
+   "para_id": 18,
+   "bib_id": 20,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 74,
+   "para_id": 18,
+   "bib_id": 2,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 75,
+   "para_id": 18,
+   "bib_id": 19,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 76,
+   "para_id": 19,
+   "bib_id": 6,
+   "marker": "2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 77,
+   "para_id": 19,
+   "bib_id": 20,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 78,
+   "para_id": 19,
+   "bib_id": 21,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 79,
+   "para_id": 19,
+   "bib_id": 27,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 80,
+   "para_id": 20,
+   "bib_id": 3,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 81,
+   "para_id": 20,
+   "bib_id": 15,
+   "marker": "2000",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 82,
+   "para_id": 20,
+   "bib_id": 26,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 83,
+   "para_id": 21,
+   "bib_id": 15,
+   "marker": "2000",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 84,
+   "para_id": 21,
+   "bib_id": 14,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 85,
+   "para_id": 22,
+   "bib_id": 6,
+   "marker": "2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 86,
+   "para_id": 22,
+   "bib_id": 20,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 87,
+   "para_id": 22,
+   "bib_id": 26,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 88,
+   "para_id": 22,
+   "bib_id": 16,
+   "marker": "2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 89,
+   "para_id": 22,
+   "bib_id": 14,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 90,
+   "para_id": 23,
+   "bib_id": 21,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 91,
+   "para_id": 23,
+   "bib_id": 21,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-ext-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "v1_bib_count": 40
+ }
+}

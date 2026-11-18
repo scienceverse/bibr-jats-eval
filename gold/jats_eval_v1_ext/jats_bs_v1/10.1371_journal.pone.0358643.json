@@ -1,0 +1,372 @@
+{
+ "paper_id": "10.1371_journal.pone.0358643",
+ "paras": [
+  {
+   "para_id": 1,
+   "loc": "front",
+   "sec_title": "",
+   "text": "All data used in this study are publicly available from Kaggle, including the IBM HR Analytics Employee Attrition dataset (www.kaggle.com/datasets/pavansubhasht/ibm-hr-analytics-attrition-dataset) and the Telco Customer Churn dataset (www.kaggle.com/datasets/blastchar/telco-customer-churn).",
+   "printed": true
+  },
+  {
+   "para_id": 2,
+   "loc": "body",
+   "sec_title": "1 Introduction",
+   "text": "In recent years, organizations across sectors have increasingly relied on data-driven approaches to support complex managerial decision-making processes [1]. Decisions related to employee retention, customer loyalty, risk management, and resource allocation now involve analyzing large volumes of heterogeneous data generated from organizational operations, digital platforms, and customer interactions [2]. Artificial intelligence (AI) and machine learning techniques have shown strong potential in this context by enabling accurate predictions and uncovering patterns that can guide strategic and operational decisions [3]. Empirical evidence also suggests that AI-based advisory and analytics tools can change how professionals make choices and learn better decision rules, which makes careful human-in-the-loop design important in managerial settings [4,5]. As a result, AI-based decision-support systems are becoming an integral part of modern management practices.",
+   "printed": true
+  },
+  {
+   "para_id": 3,
+   "loc": "body",
+   "sec_title": "1 Introduction",
+   "text": "Despite these advances, the adoption of AI in managerial decision-making remains constrained by a critical challenge: limited transparency and interpretability in complex predictive models [6]. Many high-performing AI models, particularly deep neural networks, behave as black boxes that output predictions without exposing the underlying decision logic, which makes it difficult to justify outcomes in real operational settings [7]. In managerial contexts, this opacity creates practical risks for trust, accountability, and governance, and it complicates compliance with responsible-AI expectations in organizations [8]. Managers often need both accurate risk estimates and clear, human-understandable reasons that connect predictions to controllable business levers (e.g., retention programs, service changes, or policy interventions) [9]. This gap between predictive performance and actionable explainability continues to limit the real-world impact and adoption of AI-driven managerial analytics [10].",
+   "printed": true
+  },
+  {
+   "para_id": 4,
+   "loc": "body",
+   "sec_title": "2 Related work",
+   "text": "Research on the use of artificial intelligence for managerial decision-making has grown rapidly in recent years, with strong emphasis on predictive analytics in domains such as human resource management, customer relationship management, finance, and operations [11]. In HR analytics, employee turnover/attrition prediction is now frequently framed as a supervised learning problem, where studies compare a range of classical machine learning models (e.g., logistic regression, decision trees, random forests, and other ensembles) to identify risk drivers and support retention planning [12]. Similarly, churn modeling in customer management has a long history in telecom and other subscription settings, where prior work commonly benchmarks traditional statistical learners and tree-based ensembles, and increasingly evaluates neural models to better capture non-linear customer behavior patterns [13]. While these traditional and classical approaches offer useful baselines and partial interpretability, many studies highlight that richer, high-dimensional organizational data often contains complex feature interactions that motivate more expressive learning systems for robust decision support.",
+   "printed": true
+  },
+  {
+   "para_id": 5,
+   "loc": "body",
+   "sec_title": "2 Related work",
+   "text": "With the advancement of deep learning, researchers began applying neural networks to managerial datasets to improve predictive accuracy and capture complex, non-linear interactions that classical models often miss [14,15]. However, the higher representational power of these models increases opacity, which makes it harder to justify predictions in organizational settings where decisions carry financial, legal, and ethical consequences [16]. This tension between predictive strength and transparency has accelerated interest in explainable artificial intelligence (XAI) as a way to align model reasoning with human expectations and managerial accountability [17].",
+   "printed": true
+  },
+  {
+   "para_id": 6,
+   "loc": "body",
+   "sec_title": "2 Related work",
+   "text": "Explainable AI (XAI) methods can broadly be categorized into intrinsic (ante-hoc) and post hoc approaches [18]. Intrinsic methods aim to build models that are interpretable by design (e.g., rule-based learners or additive models), which can improve transparency but may restrict representational flexibility for complex, nonlinear tabular patterns. Post hoc methods, in contrast, explain a trained model after learning, enabling the use of high-capacity predictors while adding interpretability as a separate layer [19]. For tabular managerial analytics, feature-attribution techniques are widely used because they produce global rankings and case-level explanations that managers can inspect. In particular, SHAP-based explanations, rooted in Shapley values from cooperative game theory, are frequently adopted due to their axiomatic grounding and their ability to produce additive, instance-wise attributions that aggregate into global insights [18]. Recent studies have demonstrated the practical value of SHAP-style explanations in identifying key drivers in employee attrition analysis, telecom churn modeling, and financial risk settings, where explanations help stakeholders understand why a model flags high-risk cases [20–22]. Nevertheless, much of the existing literature emphasizes explanation fidelity and feature importance reporting, while offering limited support for translating explanations into feasible, cost-aware managerial interventions.",
+   "printed": true
+  },
+  {
+   "para_id": 7,
+   "loc": "body",
+   "sec_title": "2 Related work",
+   "text": "In parallel, counterfactual explanations have emerged as a practical approach for actionable interpretability in high-stakes decision support. A counterfactual explanation answers a “what-if” query by producing an alternative instance 𝐱′ that differs minimally from the factual case 𝐱 while changing the model outcome, i.e., f(𝐱′)≠f(𝐱) and ‖𝐱′−𝐱‖ is small [23,24]. This form of contrastive reasoning is attractive for managerial use because it can be read as an intervention plan: which attributes would need to change to reduce predicted risk. Recent work has applied counterfactual reasoning in finance to identify sparse changes associated with improved corporate credit rating decisions [25], and in customer retention to generate counterfactual ensembles that support churn-focused decision-making under both real-world and synthetic data settings [26]. However, multiple studies caution that “closest” counterfactuals do not automatically correspond to feasible actions in the real world, since valid recommendations often require causal and operational constraints (e.g., what can be changed, at what cost, and in what time order) [27]. As a result, a growing line of work emphasizes feasibility, diversity, and actionability criteria during counterfactual generation rather than treating it as a purely geometric post-processing step [24,28]. Overall, the literature shows strong promise for counterfactual explanations in managerial analytics, but it also highlights an open need for counterfactual pipelines that are constraint-aware and tightly aligned with organizational intervention rules and costs [24,27].",
+   "printed": true
+  }
+ ],
+ "links": [
+  {
+   "link_id": 1,
+   "url": "kaggle.com/datasets/pavansubhasht/ibm-hr-analytics-attrition-dataset",
+   "url_raw": "www.kaggle.com/datasets/pavansubhasht/ibm-hr-analytics-attrition-dataset",
+   "href_jats": "http://www.kaggle.com/datasets/pavansubhasht/ibm-hr-analytics-attrition-dataset",
+   "repo_key": null,
+   "host_class": "other",
+   "loc": "front",
+   "sec_title": "",
+   "source": "tagged",
+   "para_id": 1
+  },
+  {
+   "link_id": 2,
+   "url": "kaggle.com/datasets/blastchar/telco-customer-churn",
+   "url_raw": "www.kaggle.com/datasets/blastchar/telco-customer-churn",
+   "href_jats": "http://www.kaggle.com/datasets/blastchar/telco-customer-churn",
+   "repo_key": null,
+   "host_class": "other",
+   "loc": "front",
+   "sec_title": "",
+   "source": "tagged",
+   "para_id": 1
+  }
+ ],
+ "links_optional": [
+  "creativecommons.org/licenses/by/4.0",
+  "doi:10.1002/smj.3694",
+  "doi:10.1007/s10479-024-06347-0",
+  "doi:10.1007/s10614-020-10042-0",
+  "doi:10.1007/s10618-022-00831-6",
+  "doi:10.1007/s10994-025-06880-4",
+  "doi:10.1007/s11740-024-01306-x",
+  "doi:10.1007/s40747-019-00124-4",
+  "doi:10.1007/s44230-023-00038-y",
+  "doi:10.1016/j.chb.2022.107539",
+  "doi:10.1016/j.cogsys.2024.101243",
+  "doi:10.1016/j.dss.2024.114276",
+  "doi:10.1016/j.ejor.2019.09.018",
+  "doi:10.1016/j.eswa.2023.121794",
+  "doi:10.1016/j.eswa.2025.126575",
+  "doi:10.1016/j.inffus.2019.12.012",
+  "doi:10.1016/j.mlwa.2024.100567",
+  "doi:10.1016/j.ribaf.2022.101869",
+  "doi:10.1016/j.techfore.2021.120970",
+  "doi:10.1016/j.techfore.2024.123250",
+  "doi:10.1109/access.2021.3051315",
+  "doi:10.1109/access.2021.3116481",
+  "doi:10.1145/3491209",
+  "doi:10.1145/3555803",
+  "doi:10.1186/s40537-023-00721-8",
+  "doi:10.1186/s40854-024-00629-z"
+ ],
+ "own_doi": "doi:10.1371/journal.pone.0358643",
+ "citations": [
+  {
+   "cite_id": 1,
+   "para_id": 2,
+   "bib_id": 1,
+   "marker": "1",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 2,
+   "para_id": 2,
+   "bib_id": 2,
+   "marker": "2",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 3,
+   "para_id": 2,
+   "bib_id": 3,
+   "marker": "3",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 4,
+   "para_id": 2,
+   "bib_id": 4,
+   "marker": "4",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 5,
+   "para_id": 2,
+   "bib_id": 5,
+   "marker": "5",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 6,
+   "para_id": 3,
+   "bib_id": 6,
+   "marker": "6",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 7,
+   "para_id": 3,
+   "bib_id": 7,
+   "marker": "7",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 8,
+   "para_id": 3,
+   "bib_id": 8,
+   "marker": "8",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 9,
+   "para_id": 3,
+   "bib_id": 9,
+   "marker": "9",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 10,
+   "para_id": 3,
+   "bib_id": 10,
+   "marker": "10",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 11,
+   "para_id": 4,
+   "bib_id": 11,
+   "marker": "11",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 12,
+   "para_id": 4,
+   "bib_id": 12,
+   "marker": "12",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 13,
+   "para_id": 4,
+   "bib_id": 13,
+   "marker": "13",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 14,
+   "para_id": 5,
+   "bib_id": 14,
+   "marker": "14",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 15,
+   "para_id": 5,
+   "bib_id": 15,
+   "marker": "15",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 16,
+   "para_id": 5,
+   "bib_id": 16,
+   "marker": "16",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 17,
+   "para_id": 5,
+   "bib_id": 17,
+   "marker": "17",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 18,
+   "para_id": 6,
+   "bib_id": 18,
+   "marker": "18",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 19,
+   "para_id": 6,
+   "bib_id": 19,
+   "marker": "19",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 20,
+   "para_id": 6,
+   "bib_id": 18,
+   "marker": "18",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 21,
+   "para_id": 6,
+   "bib_id": 20,
+   "marker": "20",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 22,
+   "para_id": 6,
+   "bib_id": 21,
+   "marker": "20–22",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 23,
+   "para_id": 6,
+   "bib_id": 22,
+   "marker": "22",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 24,
+   "para_id": 7,
+   "bib_id": 23,
+   "marker": "23",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 25,
+   "para_id": 7,
+   "bib_id": 24,
+   "marker": "24",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 26,
+   "para_id": 7,
+   "bib_id": 25,
+   "marker": "25",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 27,
+   "para_id": 7,
+   "bib_id": 26,
+   "marker": "26",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 28,
+   "para_id": 7,
+   "bib_id": 27,
+   "marker": "27",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 29,
+   "para_id": 7,
+   "bib_id": 24,
+   "marker": "24",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 30,
+   "para_id": 7,
+   "bib_id": 28,
+   "marker": "28",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 31,
+   "para_id": 7,
+   "bib_id": 24,
+   "marker": "24",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 32,
+   "para_id": 7,
+   "bib_id": 27,
+   "marker": "27",
+   "expanded": false,
+   "scored": true
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-ext-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "v1_bib_count": 28
+ }
+}

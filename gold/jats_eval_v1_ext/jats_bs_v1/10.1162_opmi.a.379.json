@@ -1,0 +1,1293 @@
+{
+ "paper_id": "10.1162_opmi.a.379",
+ "paras": [
+  {
+   "para_id": 1,
+   "loc": "body",
+   "sec_title": "Transparency and Openness",
+   "text": "Experiment 2 task, primary analyses, and exclusion criteria were pre-registered at https://aspredicted.org/vnys-yxm7.pdf. In our pre-registration, we wrote that we aimed to collect 150 participants per condition. Due to a bug in the code used to monitor data collection, we collected a greater number of participants than intended, yielding a final sample size of 715 (i.e., approximately 178 participants per condition prior to exclusion). Additionally, in our preregistered analyses, we specified that the analyses of motivation would be conducted with mixed effects models that included the following random effects: (1 + is_motivated|subject) + (1|item). However, due to convergence errors that indicated our model was over-specified, we simplified the random effects, instead choosing to include only a random intercepts for subject: (1|subject). Finally, in the pre-registration we did not specify if the models would be run on the data from Experiments 1 and 2 separately or combined. Here we chose to report all three versions (Experiments 1 and 2 separately, as well as across the full sample) to show which effects replicate across experiments as well as summarize the effect across both studies. Code and data will be made available upon publication of the manuscript at https://github.com/dpmlab/motivated_memory.",
+   "printed": true
+  },
+  {
+   "para_id": 2,
+   "loc": "body",
+   "sec_title": "INTRODUCTION",
+   "text": "The ability to prioritize what we remember is crucial for ensuring that our memories align with our goals. Research on the effects of motivation on memory suggests that cues about the importance of information, such as its potential monetary value, can enhance memory (Adcock et al., 2006; Gholston et al., 2023; Gruber et al., 2013; Murty et al., 2011; Shigemune et al., 2010, 2014, 2017; Spaniol et al., 2014; Villaseñor et al., 2021; Wolosin et al., 2012). A common task for studying this process is the monetary incentive encoding task (Adcock et al., 2006), where value cues presented during encoding denote the amount of reward a participant will receive if they correctly remember a given item on a subsequent memory test. Past work demonstrates that motivation enhances recognition memory (Adcock et al., 2006; Gholston et al., 2023; Gruber et al., 2013; Shigemune et al., 2010; Spaniol et al., 2014; Villaseñor et al., 2021), associative memory (Shigemune et al., 2017; Wolosin et al., 2012), and, to some extent, source or context memory (Gholston et al., 2023; Shigemune et al., 2014; Villaseñor et al., 2021) although see: (Gholston et al., 2023; Shigemune et al., 2014; Villaseñor et al., 2021). However, despite substantial progress in characterizing motivation’s enhancement on different kinds of memory, several questions about the cognitive mechanisms governing this enhancement remain open.",
+   "printed": true
+  },
+  {
+   "para_id": 3,
+   "loc": "body",
+   "sec_title": "INTRODUCTION",
+   "text": "One key unresolved question is how the timing of motivation impacts the ability to prioritize memory. While experiments typically present motivational value cues pre-encoding, in daily life we don’t always know which information will be important in advance. A teacher might prompt students to remember an upcoming slide, but could just as well underscore its importance only after the fact, remarking, “That last slide will be on the exam.” Receiving a value signal at the end of an episode has also been a central focus of reinforcement learning models, which predict that this feedback drives updates to your internal models of the world (Gershman & Daw, 2017). When the value of a stimulus is revealed after encoding, rather than before encoding, does it influence memory through the same mechanisms?",
+   "printed": true
+  },
+  {
+   "para_id": 4,
+   "loc": "body",
+   "sec_title": "INTRODUCTION",
+   "text": "Prior work proposes that motivation initiates anticipatory midbrain processes, which, via dopaminergic modulation, strengthen memory formation in the medial temporal lobe (Adcock et al., 2006; Cohen et al., 2017; Knowlton & Castel, 2022; Poh et al., 2022; Shohamy & Adcock, 2010). Memory enhancement has also been shown to benefit from selective attention (Cohen et al., 2017; Elliott & Brewer, 2019; Knowlton & Castel, 2022; Murphy et al., 2024; Yin et al., 2024) and strategic encoding (Cohen et al., 2014). However, such mechanisms are only relevant for memory that is preceded by a motivationally relevant cue, suggesting they would not be effective routes to memory enhancement due to post-encoding motivation. Instead, memories can be selectively strengthened post-encoding through offline processes that happen following the event.",
+   "printed": true
+  },
+  {
+   "para_id": 5,
+   "loc": "body",
+   "sec_title": "INTRODUCTION",
+   "text": "Research on incidental reward has shown evidence for this kind of after-the-fact prioritization; receiving a reward enhances memory for neutral items encoded prior to the reward (Braun et al., 2018; Dunsmoor et al., 2022; Knowlton & Castel, 2022; Lin et al., 2025; Murayama & Kitagami, 2014; Nielson & Bryant, 2005; Patil et al., 2016). Notably, these effects appear only after a consolidation period (Cowan et al., 2021), with some evidence suggesting a graded pattern, in which enhancement is stronger for stimuli closer to the reward. These effects might arise through increased rates of reverse hippocampal replay in response to reward, as has been shown in rodents (Ambrose et al., 2016; Shohamy & Adcock, 2010). Human fMRI research corroborates this theory; rewarded items are preferentially reactivated during sleep and post-task rest (Gruber et al., 2016; Sterpenich et al., 2021) and post-encoding connectivity between the VTA, hippocampus, and category-selective visual cortex selectively predicts memory for high-reward memoranda (Murty et al., 2017). This line of work raises the possibility that motivational cues, much like direct receipt of reward, could trigger similar consolidation-based processes which prevent important memories from decaying. Paradigms that manipulate test expectations support this idea: when participants are told after encoding that studied items (or a category of studied items) will be tested later, their performance improves relative to baseline, but only if the test takes place after a night of sleep (van Dongen et al., 2012; Wilhelm et al., 2011). More broadly, consolidation-based mechanisms have been implicated in motivation reward-driven memory enhancement, including when cues are presented before or concurrent with encoding (Adcock et al., 2006; Igloi et al., 2015; Murayama & Kuhbandner, 2011; Wittmann et al., 2005; though reward-driven memory effects have also been observed without a consolidation delay, see: Gholston et al., 2023; Gruber et al., 2013; Murty & Adcock, 2014). Critically, while pre-encoding motivation can enhance memory through both encoding-phase mechanisms and post-encoding consolidation, post-encoding motivation can by definition only operate through mechanisms that take place after the event. This asymmetry leads to the prediction that the memory benefit of post-encoding motivation should be uniquely dependent on consolidation.",
+   "printed": true
+  },
+  {
+   "para_id": 6,
+   "loc": "body",
+   "sec_title": "INTRODUCTION",
+   "text": "An alternative possibility is that motivation enhances memory through similar mechanisms, regardless of its timing relative to encoding. Research on event segmentation, the process of dividing continuous experience into discrete episodes, suggests that some memory processes might not take place until after an event ends and could therefore be impacted by either pre- or post-event motivation. Specifically, brain dynamics just after an event are predictive of later recall (Baldassano et al., 2017; Barnett et al., 2022; Ben-Yakov & Dudai, 2011; Ben-Yakov & Henson, 2018), and computational work suggests that boundaries are optimal moments for transferring information from working memory into episodic memory (Lu et al., 2022). Applying this framework to motivated encoding, a value cue presented immediately after an event (i.e., at the boundary) could have the same effect as a cue presented before encoding, as long as the event’s contents are still active in working memory. This perspective would predict that pre- and post-encoding motivation could enhance memory through the same underlying mechanisms.",
+   "printed": true
+  },
+  {
+   "para_id": 7,
+   "loc": "body",
+   "sec_title": "INTRODUCTION",
+   "text": "While motivation reliably enhances item memory (Adcock et al., 2006; Gruber et al., 2013; Shigemune et al., 2010; Spaniol et al., 2014), its effects on source and associative memory are mixed (Gholston et al., 2023; Shigemune et al., 2014; Villaseñor et al., 2021; Wolosin et al., 2012). To clarify how motivation might differentially impact distinct forms of episodic memory, our paradigm included three types of memory tests. First, during encoding, participants completed an unrewarded temporal order task, designed to assess incidental effects of motivation on memory organization. Second, participants completed an item memory test, where they distinguished between items shown during encoding and similar lures, and received a reward for every motivated item they correctly identified. Lastly, to measure the impact of motivation on source memory, participants identified the color of the border paired with a given image, again receiving a reward for every correct motivated trial. Critically, to test the role of consolidation, the item and source memory tests occurred either 3 minutes or 24 hours after encoding.",
+   "printed": true
+  },
+  {
+   "para_id": 8,
+   "loc": "body",
+   "sec_title": "Stimuli.",
+   "text": "Participants viewed sequences of grayscale objects (Frank et al., 2020). A total of 288 images were shown to each participant during encoding. Each object image was paired with a colored border (red, purple, blue, or green). Items in each “event” all had the same border color (event structure described below), and the color was chosen pseudorandomly such that consecutive events were assigned different colors.",
+   "printed": true
+  },
+  {
+   "para_id": 9,
+   "loc": "body",
+   "sec_title": "Procedure.",
+   "text": "We used a between-subjects design for our experiment. This design choice was motivated by two considerations. First, given that there are relatively few studies directly comparing prospective and retrospective motivation, we wanted to minimize task complexity for an online sample by ensuring participants only needed to learn one cue-reward contingency. Second, prior work suggests that reward-enhanced memory effects may be attenuated when the proportion of rewarded trials is high (Nagel et al., 2024), so we sought to maintain a relatively low ratio of motivated to neutral trials. A natural follow-up, now that we have established these effects, would be a within-subjects design that will increase this proportion or lengthening the task, to examine the replication of the results we report here. Participants were assigned to one of four conditions (2 motivation conditions × 2 test delay conditions). Participants were assigned to either the Prospective motivation condition (in which the motivation cue appears prior to encoding) or the Retrospective motivation condition (in which the motivation cue appears after encoding). One key difference between the motivation conditions is that participants in the retrospective condition may have experienced greater overall motivation throughout the experiment, since they only learned an event’s reward status after it occurred. However, because motivation effects were analyzed relative to performance on neutral cues, the retrospective results specifically reflect memory enhancement driven by motivational cues rather than a general improvement in memory across the experiment.",
+   "printed": true
+  },
+  {
+   "para_id": 10,
+   "loc": "body",
+   "sec_title": "Encoding.",
+   "text": "For the encoding phase of the task, we adapted a version of the Ezzyat-Dubrow-Davachi paradigm, specifically using a version designed to elicit event boundaries through color and cover task changes (Buonomano et al., 2023; Cowan et al., 2024; Heusser et al., 2018). Participants were shown a series of object images framed by colored borders. Each trial (object and border pair) was shown for 2.5 seconds with a 2-second inter-trial interval. While the object was on screen, participants were instructed to imagine the object on screen in the color of its border, and answer one of two questions: “Is this object-color combination pleasant?” or “Is this object-color combination realistic?.” The task and the border color remained consistent for a sequence of four successive images, constituting an “event.” Colors were pseudo-randomized across events, such that no two consecutive events had the same color. The encoding task (“pleasant?” or “realistic?”) alternated every other event, and the encoding task assigned to the first event was randomly chosen for each participant.",
+   "printed": true
+  },
+  {
+   "para_id": 11,
+   "loc": "body",
+   "sec_title": "Item Memory.",
+   "text": "To determine the effect of motivation condition on item memory, we conducted a binomial mixed effects model using the package lme4 (Bates et al., 2015) via the Python interface pymer4 (Jolly, 2018). All models were fit at the individual trial level, with accuracy on each trial coded as a binary outcome (correct = 1, incorrect = 0). P-values for fixed effects were derived using Wald z-tests. We performed three versions of this analysis: 1. Separately on each group of subjects (2 motivation conditions × 2 timing conditions). 2. Collapsing across timing conditions, and adding an interaction term for timing. The first method was specified as follows: correct ∼ is_motivated + (1|subject), where is_motivated refers to whether an item was in a motivated or neutral event. The second method was specified as follows: correct ∼ is_motivated * timing + (1|subject), where timing is either immediate or delayed. 3. Collapsing across motivation conditions (prospective and retrospective) to assess the relative effect of the two: correct ∼ motivation_type * is_motivated + (1|subject), where motivation_type is prospective or retrospective. These analyses were performed two ways: 1. Removing items seen twice due to the temporal order memory task (see Figure 2). 2. Using all items (see Supplementary Figure 2).",
+   "printed": true
+  },
+  {
+   "para_id": 12,
+   "loc": "body",
+   "sec_title": "For Stimuli Earlier in an Event, Item Memory Is Enhanced, While Source Memory Is Impaired",
+   "text": "The temporal order memory test was the most challenging for participants, but 88.04% of participants performed above 50% (chance level performance for a two-alternative forced choice test) and overall performance was similar to previous studies using a highly similar task (Cowan et al., 2024). Performance was slightly better on this task in Experiment 2 compared to Experiment 1(Experiment 1: M = 0.63, SD = 0.14, N = 196; Experiment 2: M = 0.65, SD = 0.13, N = 243; t(901) = −2.64, p = 0.008). To confirm that the paradigm produces event boundaries as intended, we replicated past work showing greater temporal order memory within vs. across events (see Supplementary Figure 4). We note that our paradigm may produce stronger event boundary effects than typical Ezzyat–DuBrow–Davachi designs, given that the inter-event interval in our task is longer and involves an additional button press, both of which could reinforce the formation of discrete events. See supplement for visualization of overall memory accuracy hit rate (Supplementary Figure 5) and for item and source hit-rate grouped by condition (item: Supplementary Figure 6, source: Supplementary Figure 7).",
+   "printed": true
+  },
+  {
+   "para_id": 13,
+   "loc": "body",
+   "sec_title": "For Stimuli Earlier in an Event, Item Memory Is Enhanced, While Source Memory Is Impaired",
+   "text": "As an exploratory analysis, we investigated the impact of event position on memory, independent of motivation, to determine if memory is better for information that occurred at the start or the end of an episodic event. Prior research has reported mixed results regarding the impact of event boundaries on item memory. Some studies show enhanced recognition memory for items encoded concurrent with a boundary (McClay et al., 2023; Swallow et al., 2009). In contrast, other work reports no difference in recognition memory for items appearing before versus after a boundary (DuBrow & Davachi, 2013), while still other studies find improved item memory (better discrimination from similar lures) for items presented immediately before a boundary (Morse et al., 2023). Looking first at item memory, we observe a significant effect of position, such that item memory is improved for items occurring later in an event (Experiment 1, immediate: β = 0.04, 95% CI [0.02, 0.06], p < .001; Experiment 1, delay β = 0.02, 95% CI [0.0, 0.04], p = 0.027; Experiment 2, immediate: β = 0.03, 95% CI [0.01, 0.05], p = 0.004; Experiment 2, delay β = 0.04, 95% CI [0.02, 0.05], p < .001; Combined sample, immediate: β = 0.03, 95% CI [0.02, 0.05], p < .001; Combined sample, delay: β = 0.03, 95% CI [0.02, 0.04], p < .001; see Supplementary Figure 8, for results split by motivated vs. neutral events see Supplementary Figure 9).",
+   "printed": true
+  },
+  {
+   "para_id": 14,
+   "loc": "body",
+   "sec_title": "For Stimuli Earlier in an Event, Item Memory Is Enhanced, While Source Memory Is Impaired",
+   "text": "Interestingly, source memory shows the opposite pattern, such that accuracy is greater for items occurring earlier in the event. We observe a negative relationship between event index and source memory across experiments and delay conditions, and the effect is significant in all but the Experiment 1 delay condition (Experiment 1, immediate: β = −0.03, 95% CI [−0.05, −0.01], p = 0.001; Experiment 1, delay β = −0.01, 95% CI [−0.03, 0.01], p = 0.18; Experiment 2, immediate: β = −0.04, 95% CI [−0.06, −0.02], p < .001; Experiment 2, delay β = −0.04, 95% CI [−0.05, −0.02], p < .001; Combined sample, immediate: β = −0.04, 95% CI [−0.05, −0.02], p < .001; Combined sample, delay: β = −0.02, 95% CI [−0.04, −0.01], p < .001; see Supplementary Figure 8, for results split by motivated vs. neutral events see Supplementary Figure 9). This finding replicates prior work showing improved source memory for information encountered early in an event, after an event boundary (Clewett et al., 2020; Cowan et al., 2024; Heusser et al., 2018). Taken together, these results reveal a double dissociation: item memory benefits from later event positions, whereas source memory benefits from earlier ones.",
+   "printed": true
+  },
+  {
+   "para_id": 15,
+   "loc": "body",
+   "sec_title": "Prospective and Retrospective Motivated Encoding Have Opposing Effects on Temporal Order Memory",
+   "text": "To evaluate the impact of our motivated encoding manipulation on temporal order memory, we analyzed within-event trials, testing whether participants were more accurate at judging the relative order of two items from the same event when that event was motivated versus neutral (see Methods for details). While we hypothesized an effect of motivation on item memory prior to running Experiment 1 and 2, for temporal order memory, the expected effect of motivation seemed less clear. On the one hand, participants were not rewarded for their performance on this task and therefore might be expected to show no improvement for motivated events. Alternatively, temporal order memory is thought to reflect the extent to which discrete stimuli are linked into a single representation (Clewett & Davachi, 2017; Clewett et al., 2019; DuBrow & Davachi, 2013, 2016; Ezzyat & Davachi, 2011), and could be expected to be larger for events in which participants are motivated to remember the shared context for all items.",
+   "printed": true
+  },
+  {
+   "para_id": 16,
+   "loc": "body",
+   "sec_title": "DISCUSSION",
+   "text": "In investigating the mechanisms by which motivation shapes memory formation, we sought to adjudicate between two key hypotheses. The first posits that post-encoding motivation, much like receipt of reward at the end of an episode, relies on an extended consolidation period to influence memory. The second hypothesis is that both pre- and post-encoding motivation can affect memory immediately and via similar mechanisms. Our item memory results support the former account, indicating that retroactive motivation requires a consolidation-based mechanism to modulate memory. The source memory results are also largely inline with this interpretation: the benefit of retroactive motivation was more consistent across experiments in the delay condition than in the immediate condition. Finally, results from the temporal memory task provide converging evidence that pre- and post-encoding motivation modulate memory through distinct processes. Prior work has shown that temporal order memory relies on the strength of associative links between items, and that disrupting associative encoding—such as task switches (Wang & Egner, 2022), interleaved distractor tasks (DuBrow & Davachi, 2013), and context changes in color or judgment type that induce event boundaries (Cowan et al., 2024; Heusser et al., 2018)—impairs temporal memory. These findings align with the interpretation that pre-encoding motivation enhances within-event binding, thereby strengthening associative memory. However, as our current design assesses memory only on the day of encoding, further research is required to determine whether post-encoding motivation fails to enhance memory due to the necessity of anticipatory processes during encoding, or whether retroactive effects might emerge given sufficient consolidation time. It should be noted that performance on the temporal memory test is quite low, both in the present study and in past research using a similarly structured task (Cowan et al., 2024). As a result, temporal order memory may need to be operationalized differently in tasks assessed after a 24-hour delay to prevent floor effects.",
+   "printed": true
+  },
+  {
+   "para_id": 17,
+   "loc": "body",
+   "sec_title": "DISCUSSION",
+   "text": "Past research has investigated the cognitive mechanisms underlying motivated memory by contrasting behavior and brain activity for neutral and motivated stimuli (Adcock et al., 2006; Cohen et al., 2014; Elliott & Brewer, 2019; Poh et al., 2022; Wolosin et al., 2012). Expanding on this work, the results of two complementary measures of memory studied here highlight that the behavioral effects of motivation are also critically dependent on its timing relative to encoding. More broadly, our findings argue that distinctions in memory processes should not be drawn solely based on motivational relevance (i.e., motivated vs. neutral), but must also consider the temporal dynamics of motivation signals (i.e., pre- vs. post-encoding). In this sense, identifying when motivation exerts its influence is essential for carving memory processes at their natural joints, helping to delineate underlying mechanisms that might otherwise be conflated.",
+   "printed": true
+  },
+  {
+   "para_id": 18,
+   "loc": "body",
+   "sec_title": "DISCUSSION",
+   "text": "Our findings suggest that post-encoding motivation may operate similarly to other types of salience during encoding (e.g., emotional arousal, incidental reward) in that it requires consolidation to improve memory for preceding stimuli (Braun et al., 2018; Dunsmoor et al., 2015, 2022; Patil et al., 2016). A key question that remains, however, is the nature of the consolidation-dependent process driving these effects. One potential mechanism is hippocampal replay, which occurs during sleep and periods of rest and is thought to strengthen the memory traces it reactivates (Atherton et al., 2015; Foster & Wilson, 2006; Lee & Wilson, 2002). Furthermore, reward drives higher rates of reverse replay (Ambrose et al., 2016; Gomperts et al., 2015; Singer & Frank, 2009), offering a route by which neutral memories leading up to a rewarding event might be strengthened over the course of consolidation. Finally, consistent with the graded effect of motivation observed here, rodent research demonstrates that reward-sensitive ventral tegmental area (VTA) neurons coordinate replay, resulting in increased rates of hippocampal replay for locations proximal to reward (Gomperts et al., 2015). Although we test the effect of motivation, rather than direct receipt of reward, prior fMRI research in humans demonstrates that motivational cues also modulate VTA activity (Adcock et al., 2006; Wolosin et al., 2012). Taken together, these studies point to VTA-mediated replay as a plausible mechanistic account of our findings. An important limitation of our design, however, is that our 24-hour delay condition cannot isolate the specific contribution of sleep, as it necessarily includes both sleep and waking periods. A sleep/wake design (e.g., where the delay duration is held constant but only one group sleeps during the delay) could help disentangle this could clarify whether sleep plays a privileged role in consolidating retrospectively motivated memories, or whether the benefit accrues more gradually over time.",
+   "printed": true
+  },
+  {
+   "para_id": 19,
+   "loc": "body",
+   "sec_title": "DISCUSSION",
+   "text": "While our results align with previous research showing consolidation-dependent retroactive effects, they also raise the question: is consolidation always required for post-encoding motivation to influence memory? Alternatively, the impact of post-encoding cues might depend on their exact timing. The event segmentation literature demonstrates a sharp increase in hippocampal activity at boundaries that scales with event salience and predicts subsequent recall (Baldassano et al., 2017; Barnett et al., 2022; Ben-Yakov & Dudai, 2011; Ben-Yakov & Henson, 2018). Boundary activity has been shown to quickly reactivate representations of the prior event (Silva et al., 2019, 2023; Sols et al., 2017), potentially analogous to replay observed during brief periods of rest during exploration in rodents and nonhuman primates (Carr et al., 2011; Leonard et al., 2015). As a result, it is possible that in our task the post-encoding cue arrived too late (i.e. after the hippocampal boundary activity), whereas a cue presented slightly earlier might yield immediate memory improvements, as seen in the pre-encoding motivation condition.",
+   "printed": true
+  },
+  {
+   "para_id": 20,
+   "loc": "body",
+   "sec_title": "DISCUSSION",
+   "text": "Aside from the precise timing of the retroactive motivational cue, the content of a memory might also impact whether consolidation is necessary for retroactive effects. Previous research has shown same-day effects of post-encoding value cues on memory for words and sentences (Chung & Federmeier, 2023; Hayes et al., 2013; Villaseñor et al., 2021). One potential explanation for the discrepancy between these studies and our own is stimulus format, and particularly whether that format facilitates rehearsal. Word stimuli may be easier to rehearse than the images in our task, allowing for an immediate retroactive boost in memory that would otherwise require consolidation time.",
+   "printed": true
+  },
+  {
+   "para_id": 21,
+   "loc": "body",
+   "sec_title": "DISCUSSION",
+   "text": "The type of boundary may also play a role in determining the effect of retrospective motivation. In our paradigm, boundaries were defined by both color and task switches, which prior work suggests elicit robust event boundary effects (Cowan et al., 2024; Heusser et al., 2018). It remains possible that the retrospective cue’s effect depends in part on boundary-driven reactivation of the preceding event, and might differ as a function of how boundaries are defined (i.e., whether boundaries arise from a longer inter-trial interval alone, a task switch, a change in stimulus features, or some combination of these). A design that parametrically varies boundary type or strength while holding cue timing constant could help clarify this relationship.",
+   "printed": true
+  }
+ ],
+ "links": [
+  {
+   "link_id": 1,
+   "url": "aspredicted.org/vnys-yxm7.pdf",
+   "url_raw": "https://aspredicted.org/vnys-yxm7.pdf",
+   "href_jats": "https://aspredicted.org/vnys-yxm7.pdf",
+   "repo_key": "aspredicted:vnys-yxm7.pdf",
+   "host_class": "aspredicted",
+   "loc": "body",
+   "sec_title": "Transparency and Openness",
+   "source": "tagged",
+   "para_id": 1
+  },
+  {
+   "link_id": 2,
+   "url": "github.com/dpmlab/motivated_memory",
+   "url_raw": "https://github.com/dpmlab/motivated_memory",
+   "href_jats": "https://github.com/dpmlab/motivated_memory",
+   "repo_key": "github:dpmlab/motivated_memory",
+   "host_class": "github",
+   "loc": "body",
+   "sec_title": "Transparency and Openness",
+   "source": "tagged",
+   "para_id": 1
+  }
+ ],
+ "links_optional": [
+  "creativecommons.org/licenses/by/4.0",
+  "doi:10.1002/hbm.23599",
+  "doi:10.1002/hipo.23074",
+  "doi:10.1007/s00426-023-01829-5",
+  "doi:10.1016/j.cobeha.2017.08.013",
+  "doi:10.1016/j.cognition.2011.01.001",
+  "doi:10.1016/j.cognition.2021.104992",
+  "doi:10.1016/j.cub.2017.09.057",
+  "doi:10.1016/j.neures.2010.01.003",
+  "doi:10.1016/j.neuroimage.2012.07.064",
+  "doi:10.1016/j.neuron.2005.01.010",
+  "doi:10.1016/j.neuron.2006.03.036",
+  "doi:10.1016/j.neuron.2009.11.016",
+  "doi:10.1016/j.neuron.2016.01.017",
+  "doi:10.1016/j.neuron.2016.07.047",
+  "doi:10.1016/j.neuron.2017.06.041",
+  "doi:10.1016/j.nlm.2005.03.004",
+  "doi:10.1016/j.nlm.2016.07.011",
+  "doi:10.1016/j.tics.2010.08.002",
+  "doi:10.1016/j.tics.2022.06.009",
+  "doi:10.1016/j.tins.2015.07.004",
+  "doi:10.1016/s0896-6273(02)01096-6",
+  "doi:10.1037/a0015631",
+  "doi:10.1037/a0031992",
+  "doi:10.1037/a0034024",
+  "doi:10.1037/xlm0000395",
+  "doi:10.1037/xlm0000503",
+  "doi:10.1037/xlm0001264",
+  "doi:10.1038/nature04587",
+  "doi:10.1038/nature14106",
+  "doi:10.1038/nn.2732",
+  "doi:10.1038/s41467-018-07280-0",
+  "doi:10.1038/s41467-020-17851-9",
+  "doi:10.1038/s41467-021-24357-5",
+  "doi:10.1038/s41467-022-34459-3",
+  "doi:10.1038/s41467-023-42241-2",
+  "doi:10.1038/s44271-024-00074-9",
+  "doi:10.1080/09658211.2024.2389177",
+  "doi:10.1093/cercor/bhs415",
+  "doi:10.1093/cercor/bht063",
+  "doi:10.1093/geronb/gbs057",
+  "doi:10.1093/geronb/gbt044",
+  "doi:10.1101/2022.10.23.513391",
+  "doi:10.1101/2023.09.27.559739",
+  "doi:10.1101/lm.023549.111",
+  "doi:10.1101/lm.042978.116",
+  "doi:10.1126/sciadv.ady1704",
+  "doi:10.1146/annurev-psych-032921-050951",
+  "doi:10.1146/annurev-psych-122414-033625",
+  "doi:10.1162/jocn_a_00237",
+  "doi:10.1162/jocn_a_02220",
+  "doi:10.1162/opmi.a.379",
+  "doi:10.1177/0956797610393742",
+  "doi:10.1371/journal.pone.0043426",
+  "doi:10.1523/jneurosci.0360-19.2019",
+  "doi:10.1523/jneurosci.0524-18.2018",
+  "doi:10.1523/jneurosci.0702-11.2011",
+  "doi:10.1523/jneurosci.0864-15.2015",
+  "doi:10.1523/jneurosci.1430-23.2023",
+  "doi:10.1523/jneurosci.3575-10.2011",
+  "doi:10.1523/jneurosci.4032-15.2016",
+  "doi:10.1525/collabra.156",
+  "doi:10.18637/jss.v067.i01",
+  "doi:10.21105/joss.00862",
+  "doi:10.31234/osf.io/h8bj2",
+  "doi:10.3758/s13415-014-0275-x",
+  "doi:10.3758/s13421-021-01153-6",
+  "doi:10.3758/s13421-023-01409-3",
+  "doi:10.3758/s13423-021-01978-x",
+  "doi:10.3758/s13428-019-01211-7",
+  "doi:10.7554/elife.05360",
+  "doi:10.7554/elife.07903",
+  "doi:10.7554/elife.74445"
+ ],
+ "own_doi": "doi:10.1162/opmi.a.379",
+ "citations": [
+  {
+   "cite_id": 1,
+   "para_id": 2,
+   "bib_id": 1,
+   "marker": "2006",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 2,
+   "para_id": 2,
+   "bib_id": 29,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 3,
+   "para_id": 2,
+   "bib_id": 32,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 4,
+   "para_id": 2,
+   "bib_id": 48,
+   "marker": "2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 5,
+   "para_id": 2,
+   "bib_id": 54,
+   "marker": "2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 6,
+   "para_id": 2,
+   "bib_id": 55,
+   "marker": "2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 7,
+   "para_id": 2,
+   "bib_id": 56,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 8,
+   "para_id": 2,
+   "bib_id": 62,
+   "marker": "2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 9,
+   "para_id": 2,
+   "bib_id": 66,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 10,
+   "para_id": 2,
+   "bib_id": 70,
+   "marker": "2012",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 11,
+   "para_id": 2,
+   "bib_id": 1,
+   "marker": "2006",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 12,
+   "para_id": 2,
+   "bib_id": 1,
+   "marker": "2006",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 13,
+   "para_id": 2,
+   "bib_id": 29,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 14,
+   "para_id": 2,
+   "bib_id": 32,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 15,
+   "para_id": 2,
+   "bib_id": 54,
+   "marker": "2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 16,
+   "para_id": 2,
+   "bib_id": 62,
+   "marker": "2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 17,
+   "para_id": 2,
+   "bib_id": 66,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 18,
+   "para_id": 2,
+   "bib_id": 56,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 19,
+   "para_id": 2,
+   "bib_id": 70,
+   "marker": "2012",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 20,
+   "para_id": 2,
+   "bib_id": 29,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 21,
+   "para_id": 2,
+   "bib_id": 55,
+   "marker": "2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 22,
+   "para_id": 2,
+   "bib_id": 66,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 23,
+   "para_id": 2,
+   "bib_id": 29,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 24,
+   "para_id": 2,
+   "bib_id": 55,
+   "marker": "2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 25,
+   "para_id": 2,
+   "bib_id": 66,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 26,
+   "para_id": 3,
+   "bib_id": 28,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 27,
+   "para_id": 4,
+   "bib_id": 1,
+   "marker": "2006",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 28,
+   "para_id": 4,
+   "bib_id": 16,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 29,
+   "para_id": 4,
+   "bib_id": 37,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 30,
+   "para_id": 4,
+   "bib_id": 53,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 31,
+   "para_id": 4,
+   "bib_id": 57,
+   "marker": "2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 32,
+   "para_id": 4,
+   "bib_id": 16,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 33,
+   "para_id": 4,
+   "bib_id": 24,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 34,
+   "para_id": 4,
+   "bib_id": 37,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 35,
+   "para_id": 4,
+   "bib_id": 46,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 36,
+   "para_id": 4,
+   "bib_id": 71,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 37,
+   "para_id": 4,
+   "bib_id": 17,
+   "marker": "2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 38,
+   "para_id": 5,
+   "bib_id": 9,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 39,
+   "para_id": 5,
+   "bib_id": 22,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 40,
+   "para_id": 5,
+   "bib_id": 37,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 41,
+   "para_id": 5,
+   "bib_id": 40,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 42,
+   "para_id": 5,
+   "bib_id": 44,
+   "marker": "2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 43,
+   "para_id": 5,
+   "bib_id": 51,
+   "marker": "2005",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 44,
+   "para_id": 5,
+   "bib_id": 52,
+   "marker": "2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 45,
+   "para_id": 5,
+   "bib_id": 19,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 46,
+   "para_id": 5,
+   "bib_id": 2,
+   "marker": "2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 47,
+   "para_id": 5,
+   "bib_id": 57,
+   "marker": "2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 48,
+   "para_id": 5,
+   "bib_id": 31,
+   "marker": "2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 49,
+   "para_id": 5,
+   "bib_id": 63,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 50,
+   "para_id": 5,
+   "bib_id": 49,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 51,
+   "para_id": 5,
+   "bib_id": 65,
+   "marker": "2012",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 52,
+   "para_id": 5,
+   "bib_id": 68,
+   "marker": "2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 53,
+   "para_id": 5,
+   "bib_id": 1,
+   "marker": "2006",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 54,
+   "para_id": 5,
+   "bib_id": 35,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 55,
+   "para_id": 5,
+   "bib_id": 45,
+   "marker": "2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 56,
+   "para_id": 5,
+   "bib_id": 69,
+   "marker": "2005",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 57,
+   "para_id": 5,
+   "bib_id": 29,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 58,
+   "para_id": 5,
+   "bib_id": 32,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 59,
+   "para_id": 5,
+   "bib_id": 47,
+   "marker": "2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 60,
+   "para_id": 6,
+   "bib_id": 4,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 61,
+   "para_id": 6,
+   "bib_id": 5,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 62,
+   "para_id": 6,
+   "bib_id": 7,
+   "marker": "2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 63,
+   "para_id": 6,
+   "bib_id": 8,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 64,
+   "para_id": 6,
+   "bib_id": 41,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 65,
+   "para_id": 7,
+   "bib_id": 1,
+   "marker": "2006",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 66,
+   "para_id": 7,
+   "bib_id": 32,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 67,
+   "para_id": 7,
+   "bib_id": 54,
+   "marker": "2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 68,
+   "para_id": 7,
+   "bib_id": 62,
+   "marker": "2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 69,
+   "para_id": 7,
+   "bib_id": 29,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 70,
+   "para_id": 7,
+   "bib_id": 55,
+   "marker": "2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 71,
+   "para_id": 7,
+   "bib_id": 66,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 72,
+   "para_id": 7,
+   "bib_id": 70,
+   "marker": "2012",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 73,
+   "para_id": 8,
+   "bib_id": 27,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 74,
+   "para_id": 9,
+   "bib_id": 50,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 75,
+   "para_id": 10,
+   "bib_id": 10,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 76,
+   "para_id": 10,
+   "bib_id": 18,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 77,
+   "para_id": 10,
+   "bib_id": 34,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 78,
+   "para_id": 11,
+   "bib_id": 6,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 79,
+   "para_id": 11,
+   "bib_id": 36,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 80,
+   "para_id": 12,
+   "bib_id": 18,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 81,
+   "para_id": 13,
+   "bib_id": 42,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 82,
+   "para_id": 13,
+   "bib_id": 64,
+   "marker": "2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 83,
+   "para_id": 13,
+   "bib_id": 20,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 84,
+   "para_id": 13,
+   "bib_id": 43,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 85,
+   "para_id": 14,
+   "bib_id": 15,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 86,
+   "para_id": 14,
+   "bib_id": 18,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 87,
+   "para_id": 14,
+   "bib_id": 34,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 88,
+   "para_id": 15,
+   "bib_id": 13,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 89,
+   "para_id": 15,
+   "bib_id": 14,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 90,
+   "para_id": 15,
+   "bib_id": 20,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 91,
+   "para_id": 15,
+   "bib_id": 21,
+   "marker": "2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 92,
+   "para_id": 15,
+   "bib_id": 25,
+   "marker": "2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 93,
+   "para_id": 16,
+   "bib_id": 67,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 94,
+   "para_id": 16,
+   "bib_id": 20,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 95,
+   "para_id": 16,
+   "bib_id": 18,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 96,
+   "para_id": 16,
+   "bib_id": 34,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 97,
+   "para_id": 16,
+   "bib_id": 18,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 98,
+   "para_id": 17,
+   "bib_id": 1,
+   "marker": "2006",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 99,
+   "para_id": 17,
+   "bib_id": 17,
+   "marker": "2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 100,
+   "para_id": 17,
+   "bib_id": 24,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 101,
+   "para_id": 17,
+   "bib_id": 53,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 102,
+   "para_id": 17,
+   "bib_id": 70,
+   "marker": "2012",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 103,
+   "para_id": 18,
+   "bib_id": 9,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 104,
+   "para_id": 18,
+   "bib_id": 23,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 105,
+   "para_id": 18,
+   "bib_id": 22,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 106,
+   "para_id": 18,
+   "bib_id": 52,
+   "marker": "2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 107,
+   "para_id": 18,
+   "bib_id": 3,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 108,
+   "para_id": 18,
+   "bib_id": 26,
+   "marker": "2006",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 109,
+   "para_id": 18,
+   "bib_id": 38,
+   "marker": "2002",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 110,
+   "para_id": 18,
+   "bib_id": 2,
+   "marker": "2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 111,
+   "para_id": 18,
+   "bib_id": 30,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 112,
+   "para_id": 18,
+   "bib_id": 60,
+   "marker": "2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 113,
+   "para_id": 18,
+   "bib_id": 30,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 114,
+   "para_id": 18,
+   "bib_id": 1,
+   "marker": "2006",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 115,
+   "para_id": 18,
+   "bib_id": 70,
+   "marker": "2012",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 116,
+   "para_id": 19,
+   "bib_id": 4,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 117,
+   "para_id": 19,
+   "bib_id": 5,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 118,
+   "para_id": 19,
+   "bib_id": 7,
+   "marker": "2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 119,
+   "para_id": 19,
+   "bib_id": 8,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 120,
+   "para_id": 19,
+   "bib_id": 58,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 121,
+   "para_id": 19,
+   "bib_id": 59,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 122,
+   "para_id": 19,
+   "bib_id": 61,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 123,
+   "para_id": 19,
+   "bib_id": 11,
+   "marker": "2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 124,
+   "para_id": 19,
+   "bib_id": 39,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 125,
+   "para_id": 20,
+   "bib_id": 12,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 126,
+   "para_id": 20,
+   "bib_id": 33,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 127,
+   "para_id": 20,
+   "bib_id": 66,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 128,
+   "para_id": 21,
+   "bib_id": 18,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 129,
+   "para_id": 21,
+   "bib_id": 34,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-ext-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "v1_bib_count": 71
+ }
+}

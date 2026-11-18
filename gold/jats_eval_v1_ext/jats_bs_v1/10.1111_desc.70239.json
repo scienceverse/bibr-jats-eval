@@ -1,0 +1,1136 @@
+{
+ "paper_id": "10.1111_desc.70239",
+ "paras": [
+  {
+   "para_id": 1,
+   "loc": "fn",
+   "sec_title": "Endnotes",
+   "text": "Segmentation + Conversation analysis: https://github.com/MarvinLvn/voice‐type‐classifier",
+   "printed": true
+  },
+  {
+   "para_id": 2,
+   "loc": "fn",
+   "sec_title": "Endnotes",
+   "text": "Adult word count: https://github.com/orasanen/ALICE",
+   "printed": true
+  },
+  {
+   "para_id": 3,
+   "loc": "fn",
+   "sec_title": "Endnotes",
+   "text": "Vocalization classification: https://github.com/LAAC‐LSCP/vcm",
+   "printed": true
+  },
+  {
+   "para_id": 4,
+   "loc": "back",
+   "sec_title": "Data Availability Statement",
+   "text": "Anonymized transcripts and Python code to run the analyses are available at https://github.com/MarvinLvn/neurogen. Performance metrics reported in this paper are also available in tabular format at https://doi.org/10.17605/OSF.IO/5QE4M .",
+   "printed": true
+  },
+  {
+   "para_id": 5,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Children with neurogenetic syndromes often display distinctive patterns of volubility and vocal development compared to typically developing children, making the monitoring of their vocal production and language environment particularly valuable for guiding interventions and informing prognoses (Belardi et al. 2017; Berger and Cunningham 1983; Lohmander et al. 2017; Marschik et al. 2014). However, monitoring children's vocal production and language environment is challenging for numerous reasons. First, vocal behaviors in infants are both variable and context‐dependent, making consistent measurement difficult even in typically developing populations (Soderstrom and Wittebolle 2013). This variability is further amplified in children with neurogenetic syndromes, particularly those with minimal vocalization skills who may produce vocalizations too infrequently to establish reliable baselines (Grieco et al. 2018). Because in‐lab assessments are inherently noisy, and sampling occurs infrequently, small but meaningful changes in vocal production are often obscured. Second, the rarity of neurogenetic conditions (e.g., 1 in 20,000 for Angelman syndrome; Dagli et al. 2021) creates logistical challenges. Families must often travel long distances to specialized research centers, creating a substantial burden and disproportionately affecting families whose children exhibit severe behavioral difficulties or those with limited financial resources (e.g., inability to take paid time off).",
+   "printed": true
+  },
+  {
+   "para_id": 6,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Lightweight child‐worn recorders offer an appealing solution to these challenges, as the technology can be shipped for remote data collection, and the recorders themselves are unobtrusive and well‐received by most child populations—see Casillas and Cristia (2019) for an introduction to the technique and Cychosz et al. (2020) for ethical considerations. By capturing the child's language environment and vocal production, these daylong recordings (also known as long‐form recordings) provide a uniquely naturalistic window into the child's spontaneous vocalizations and communicative exchanges during daily routines and social activities. The LENA system is a prominent example of this technology, specifically designed for studying early language development (Gilkerson et al. 2008; Gilkerson and Richards 2008a; Xu et al. 2008). It consists of a small digital recorder worn in a specifically designed pocket on the child's clothing that records audio for up to 16 h (the hardware), paired with a proprietary algorithm that automatically analyzes the audio data (the software). After detecting key sound events occurring in the audio, the LENA algorithm extracts estimates of children's and caregivers’ speech, including how many conversational turns occur between the key child and an adult (CTC; see Table 1 for a list of acronyms), how many words adults say around the child (AWC), and how many speech‐like sounds the child makes (CVC)—see Figure 1 for an overview of the algorithm. Since its development in the early 2000s, LENA has been widely adopted in theoretical and clinical research, across languages and neurodevelopmental profiles (e.g., Oller et al. 2010; Ganek and Eriks‐Brophy 2018a, b; McDonald et al. 2021; Cristia et al. 2021; see also Putnam et al. 2024 for a recent review on the use of LENA for autism research).",
+   "printed": true
+  },
+  {
+   "para_id": 7,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Recent technological advancements have dramatically reduced the cost and increased the accessibility of wearables (Islam et al. 2024). As affordable hardware options have multiplied, researchers have sought free, open‐source, and more flexible machine‐learning solutions to analyze these recordings, leading to the development of the ACLEW (Analyzing Child Language Experiences around the World) algorithm. Unlike the LENA algorithm, which is only usable with LENA recorded audios, the ACLEW algorithm can be used with recordings from any device, allowing researchers and practitioners to use the device that best fits their goals. Despite these advantages, the ACLEW algorithm has not undergone the same extensive validation as the LENA system (see previous validation studies). As a result, it remains unclear how the ACLEW algorithm compares to the LENA algorithm.",
+   "printed": true
+  },
+  {
+   "para_id": 8,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "The risk of such biases is particularly concerning given that speech processing algorithms are trained on datasets that may not accurately represent the full range of vocal characteristics in children with neurodevelopmental conditions. Children with Down syndrome and Fragile X syndrome often produce fewer vocalizations and show delays in canonical babbling compared to their typically developing peers (Berger and Cunningham 1983; Lynch et al. 1995; Lohmander et al. 2017; Belardi et al. 2017). Higher pitch and unusual prosodic patterns, often associated with autism (Fusaroli et al. 2022), are more common in neurogenetic syndromes due to the higher prevalence of autism in these populations. For example, these populations can display anywhere from double the prevalence of autism versus low‐risk controls (e.g., see DiGuiseppi et al. 2010 in Down syndrome) to more than 10 times the prevalence (e.g., see Kaufmann et al. 2017 in males with Fragile X syndrome). Distinct facial morphology associated with neurogenetic conditions may further affect vocal production (e.g., see Bull 2020 for populations with Down syndrome). These characteristics can potentially lead algorithms to make more errors on certain populations than others (e.g., missing brief speech segments entirely, incorrectly attributing child vocalizations to adults due to unexpected prosodic patterns, or misclassifying speech‐like sounds as nonspeech‐like due to unfamiliar acoustic properties). These concerns are particularly relevant for the LENA and ACLEW algorithms, as both were developed and optimized using recordings from children with typical language development or no known risks of language delay (Gilkerson and Richards 2008b; Al Futaisi et al. 2019; Lavechin et al. 2020; Räsänen et al. 2021).",
+   "printed": true
+  },
+  {
+   "para_id": 9,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Previous validation studies. The LENA algorithm has been extensively validated across languages and neurodevelopmental profiles (e.g., see Canault et al. 2016 for French; McDonald et al. 2021 for Korean; Jones et al. 2019 for populations with autism; Bredin‐Oja et al. 2018 for one of the few validation studies across diverse neurodevelopmental profiles). A systematic review by Cristia et al. (2020) analyzing 28 articles revealed that LENA's segmentation algorithm performs reasonably well, with 68% precision and 59% recall. LENA's adult word count (AWC) and child vocalization count (CVC) showed strong correlations with human counts (Pearson's r of 0.79 and 0.77, respectively). However, a more problematic level of performance was found for CTC with a Pearson's r of only 0.36. Among these 28 articles, seven included clinical populations (autism, elevated autism likelihood, language delays, or preterm infants), demonstrating interest in automatic solutions for assessing and supporting these groups. Notably, these validation studies vary in their methodology: Some compare LENA's output to manual annotation on short clips (which may fail to capture infrequent vocalizers) while others use longer clips (which may fail to sample the day's full variability).",
+   "printed": true
+  },
+  {
+   "para_id": 10,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "The performance of the ACLEW algorithm remains less thoroughly documented, with different components of the algorithm validated separately across various publications (Al Futaisi et al. 2019; Lavechin et al. 2020; Räsänen et al. 2021). Lavechin et al. (2020) report slightly higher performance in terms of F‐score for ACLEW's segmentation into speaker categories compared to LENA (40.8% for LENA vs. 52.0% for ACLEW when collapsing across speaker categories)—see Long et al. (2024) or Sun et al. (2024) for independent validation studies on non‐LENA‐recorded audios. Among the three automatic counts provided by ACLEW, only AWC has been validated, showing performance comparable to LENA (Räsänen et al. 2021). To the best of our knowledge, the other two counts, CTC and CVC, have not been validated under real‐world conditions (i.e., using automatic rather than human segmentation). Notably, none of the studies mentioned in this paragraph included children with neurogenetic syndromes.",
+   "printed": true
+  },
+  {
+   "para_id": 11,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Regarding algorithmic biases, research remains notably scarce despite its fundamental importance for ensuring valid scientific conclusions that are not artifacts of algorithmic performance variations. Seidl et al. (2018) verified the accuracy of LENA's speaker segmentation in siblings of children with autism and found performance comparable to previously reported data for typically developing children; however, this comparison relied on descriptive observation rather than formal statistical analysis. Similarly, Rankine et al. (2017) focus on examining bias within the clinical population (testing factors such as age) rather than testing for bias between typically developing and clinical populations. Similar approaches are used across other populations, such as low‐ versus high‐income families (e.g., Oetting et al. 2009). One exception to this is Cristia et al. (2021), which tested for significant performance differences across different linguistic and socio‐cultural settings.",
+   "printed": true
+  },
+  {
+   "para_id": 12,
+   "loc": "body",
+   "sec_title": "Participants",
+   "text": "The daylong recordings used for evaluation were subsampled from the Neurodevelopmental Natural History Study, aimed at capturing early development across diverse neurodevelopmental profiles (Kelleher et al. 2020; Hamrick et al. 2023). Across the study, more than 300 families were recruited from various locations in the United States, and a subset of 229 participants (49% were female, mean age 26 months ± 15 months, range 3–81 months) completed at least one full day of recording using LENA recorders (Gilkerson and Richards 2008a).",
+   "printed": true
+  },
+  {
+   "para_id": 13,
+   "loc": "body",
+   "sec_title": "Selection Procedure",
+   "text": "We matched children based on chronological age rather than mental age for two reasons. First, matching on mental age would require selecting older children with neurodevelopmental conditions (or younger low‐risk children), introducing age‐related acoustic confounds in vocal tract length and pitch that are unrelated to the neurodevelopmental conditions themselves (Fitch and Giedd 1999). Second, it would minimize condition‐related vocal differences between groups (e.g., lower volubility or reduced consonant‐vowel combinations), preventing us from testing whether these characteristics affect algorithm performance (Berger and Cunningham 1983; Belardi et al. 2017; Lohmander et al. 2017). Specifically, we selected chronological age‐matched children from each diagnostic group using an iterative matching procedure. For each iteration (niterations = 1000), we randomly selected 10 children from a reference group and used the Hungarian algorithm (Kuhn 1955) to find the best age‐matched children from other groups, minimizing age differences between pairs. We kept the selection with the smallest maximum difference in mean age between any two groups. Demographics of our participants are reported in Table 2.",
+   "printed": true
+  },
+  {
+   "para_id": 14,
+   "loc": "body",
+   "sec_title": "Selection Procedure",
+   "text": "Annotation procedure . Following Cristia et al. (2021), we randomly sampled fifteen 2‐min nonoverlapping clips from each daylong recording (one daylong recording per child). This sampling strategy maximizes the diversity of captured interactions while maintaining feasible annotation time constraints since a larger number of shorter clips are more likely to capture distinct interaction types than fewer, longer clips. Another sampling strategy often used in the literature is to select high‐volubility clips based on automatic annotation (Soderstrom et al. 2021), but this would have introduced a selection bias into our study given the populations explored. Besides, by selecting segments already identified as speech‐dense by either system, we would over‐represent interactions that the respective system detects, artificially inflating its performance metrics. This sampling procedure yielded 25 h of audio.",
+   "printed": true
+  },
+  {
+   "para_id": 15,
+   "loc": "body",
+   "sec_title": "Selection Procedure",
+   "text": "A single human expert annotated all clips following the DARCLE annotation scheme (Casillas et al. 2017), marking onsets and offsets of all speech and vocalizations and assigning each segment to speaker categories (key child, other children, female adults, male adults). Key child vocalizations were classified by type (canonical, noncanonical, crying, laughing) to derive CVC, and adult speech was transcribed to derive AWC. In total, 5.5 h of speech/vocalizations (from children and adults) were identified and annotated.",
+   "printed": true
+  },
+  {
+   "para_id": 16,
+   "loc": "body",
+   "sec_title": "Selection Procedure",
+   "text": "Our human expert is a native American English speaker with a background in vocal development and many years of experience annotating infant speech data. They were masked to the participants' diagnostic group status during tagging. While we acknowledge that multiple annotators would be ideal, we have little reason to be concerned about annotation reliability in this context, as the DARCLE annotation scheme has been previously validated on LENA daylong recordings with a Cohen's κ of 0.64 (Cristia et al. 2021), though we note that this validation was conducted on typically developing populations. The composition of our annotated dataset is reported in Table 3.",
+   "printed": true
+  },
+  {
+   "para_id": 17,
+   "loc": "body",
+   "sec_title": "Technical Overview and Key Differences Between LENA and Aclew",
+   "text": "Segmentation and conversation analysis . LENA segments the audio into speaker and nonspeaker categories using a minimum duration Gaussian mixture model (MDGMM) fed with 36 mel‐frequency cepstrum coefficients (Xu et al. 2008). Categories include the following: female adult speech, male adult speech, key child vocalizations, other child vocalizations (all of which will be considered in this paper), as well as electronic speech, overlapping speech, noise, and silence, which are outside the scope of our current evaluation (see Cristia et al. 2021 for an assessment of these additional categories). Additionally, LENA assigns confidence levels to each category: “near” (high probability) and “far” (low probability). Since far categories have been shown to be unreliable (Cristia et al. 2021), our analysis will focus on LENA's “near” speech categories, with all other categories mapped to silence to enable direct comparison with ACLEW (which does not produce nonspeech categories).",
+   "printed": true
+  },
+  {
+   "para_id": 18,
+   "loc": "body",
+   "sec_title": "Technical Overview and Key Differences Between LENA and Aclew",
+   "text": "In ACLEW, the segmentation step is performed by the Voice Type Classifier (VTC), a deep‐learning model that combines SincNet filters for learning low‐level acoustic representations with long short‐term memory (LSTM) and feed‐forward layers for aggregating these into context‐dependent representations (Lavechin et al. 2020). VTC detects the same speaker categories as LENA (CHI, OCH, FEM, MAL) plus a general SPEECH category that encompasses any speech sound regardless of speaker (not relevant for the present study).",
+   "printed": true
+  },
+  {
+   "para_id": 19,
+   "loc": "body",
+   "sec_title": "Technical Overview and Key Differences Between LENA and Aclew",
+   "text": "AWC . In LENA, adult speech segments identified in the segmentation step are further processed to estimate word counts using a least‐squares linear regression based on the sequence length and the number of consonants and vowels. These phonetic features are obtained using the Sphinx phone recognizer optimized for American English adult speech (Lamere et al. 2003; Xu et al. 2008).",
+   "printed": true
+  },
+  {
+   "para_id": 20,
+   "loc": "body",
+   "sec_title": "Technical Overview and Key Differences Between LENA and Aclew",
+   "text": "ACLEW uses ALICE (Automatic LInguistic unit Count Estimator) to estimate AWC (Räsänen et al. 2021). ALICE also consists of a least‐squares linear regression model, but contrary to LENA, it is fed with (1) the estimated number of consonants, vowels, and consonant–vowel or vowel–consonant alternations using the pretrained multilingual phone recognizer Allosaurus (Li et al. 2020); (2) the estimated number of syllables using a pretrained syllable count estimator SylNet (Seshadri and Rasanen 2019); and (3) various signal‐level features such as the utterance duration or the total signal energy.",
+   "printed": true
+  },
+  {
+   "para_id": 21,
+   "loc": "body",
+   "sec_title": "Technical Overview and Key Differences Between LENA and Aclew",
+   "text": "Vocalization classification . In LENA, segments identified as produced by the key child are further classified into vegetative sounds (e.g., breathing or burping), fixed signals (e.g., crying, screaming, laughing), and speech‐like vocalizations. We found little information about how this classification is performed, but Xu et al. (2008) suggest an approach based on low‐level acoustic features discriminative of the type of sounds produced by the child.",
+   "printed": true
+  },
+  {
+   "para_id": 22,
+   "loc": "body",
+   "sec_title": "Technical Overview and Key Differences Between LENA and Aclew",
+   "text": "In ACLEW, the key‐child segments are further processed by VCMNet (VoCal Maturity Net), a deep‐learning model that classifies vocalizations into canonical (syllables with vowel and consonant sounds), noncanonical (vowel‐only sounds), crying, and other (the latter of which includes laughing and other vegetative sounds such as burping). See Al Futaisi et al. (2019) for implementation details. While our past investigations have revealed that the algorithm shows limited accuracy in distinguishing canonical from noncanonical vocalizations, this limitation is not relevant for the present study, as we merge VCMNet's canonical and noncanonical categories into a single category to match LENA's speech‐like category.",
+   "printed": true
+  },
+  {
+   "para_id": 23,
+   "loc": "body",
+   "sec_title": "Technical Overview and Key Differences Between LENA and Aclew",
+   "text": "Training data . The systems differ in their training data. LENA was trained and validated using recordings from monolingual English‐speaking families1 (Gilkerson et al. 2008). ACLEW, however, incorporated data from multiple languages, including data from non‐WEIRD (Western, Educated, Industrialized, Rich, and Democratic) communities. Importantly, neither LENA nor ACLEW was trained or validated using recordings from children with known neurodevelopmental conditions or atypical language development.",
+   "printed": true
+  },
+  {
+   "para_id": 24,
+   "loc": "body",
+   "sec_title": "Speaker Segmentation Evaluation",
+   "text": "Automatic and manual annotations were standardized into .csv files containing segment onset, duration, and speaker information using ChildProject (Gautheron et al. 2023). These files were used to extract performance metrics of LENA and ACLEW speaker segmentation using ChildProject and pyannote.metrics (Bredin 2017). The following section details our performance metrics.",
+   "printed": true
+  },
+  {
+   "para_id": 25,
+   "loc": "body",
+   "sec_title": "Automatic Counts (CTC, AWC, CVC): Pearson's R Coefficients",
+   "text": "The Pearson's r values we found for LENA AWC (r = 0.82) and CVC (r = 0.83) are compatible with Cristia et al.’s (2020) systematic review, which reported mean correlations of 0.79 for AWC and 0.77 for CVC. However, our LENA CTC correlation (r = 0.83) is markedly higher than their reported mean of 0.36, which was based on six studies with highly variable Pearson's r (ranging from −0.03 to 0.70). Despite reviewing these papers, we could not identify specific methodological factors explaining such exceptionally low correlations. At present, our study does not support the view that LENA's CTC estimate is unreliable, suggesting that it is important to understand why previous studies found such variability and to identify potential failure cases of LENA.",
+   "printed": true
+  },
+  {
+   "para_id": 26,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Findings summary. Our comparison of the LENA and ACLEW algorithms across diverse neurodevelopmental profiles revealed differences in algorithm performance that were relatively consistent across diagnostic groups. Regarding the audio segmentation into speaker categories, LENA makes relatively few mistakes but misses many segments, whereas ACLEW retrieved more speech/vocalizations but at the cost of more false alarms. To illustrate this contrast with concrete numbers: for every 100 h of speech/vocalizations found by our human expert, LENA correctly classified 45 h (assigning the correct speaker category), missed 41 h entirely (outputting nonspeech when there was speech), generated 27 h of false alarms (detecting speech when there was none), and confused the speaker category for 14 h. ACLEW, by comparison, correctly classified 69 h out of those same 100 h, missing only about 15 h, confused the speaker category for approximately 15 h, but generated 99 h of false alarms. We found lower performance for male adults and other children segments compared to key child and female adult segments (see Section 3.1.2), as documented by Cristia et al. (2021) for LENA and Lavechin et al. (2020) for ACLEW.",
+   "printed": true
+  },
+  {
+   "para_id": 27,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Regarding implementation constraints, LENA allows researchers and practitioners to both collect and analyze data through an easy‐to‐use interface requiring no programming skills. However, the LENA solution is quite costly (count several thousand dollars for initial setup and yearly subscription fees, LENA SP Pricing Document 2025). In contrast, the ACLEW algorithm is entirely free and usable with any recordings, enabling researchers to use the equipment of their choice (e.g., USB recorders as in Scaff et al. 2024 or GoPro head‐mounted cameras as in Long et al. 2023). However, ACLEW requires some programming skills to install dependencies and run the models, typically involving command‐line operations and familiarity with Python environments. This accessibility barrier may limit ACLEW's adoption among clinicians and researchers without programming expertise, though future development of user‐friendly interfaces could help democratize access to open‐source tools. Perhaps another consideration is the running time: ACLEW's segmentation step, the most computation‐intensive phase of the pipeline, takes approximately 1/4th of the audio time on Intel Xeon Gold 6230 CPUs (accessible on typical consumer‐grade laptops) and 1/35th real‐time on an NVIDIA Tesla V100 GPU. If data are processed on a computing cluster, these processing times can be significantly reduced through parallel processing of multiple audio files simultaneously. Whenever possible, we recommend that researchers inquire about computational resources available at their institution, as some universities offer access to high‐performance computing that can accelerate processing. Although the learning curve may seem steep, the skills gained by integrating ACLEW and similar machine learning tools into one's research toolkit will likely transfer to other research projects, especially since these tools are likely to persist and continue to transform developmental and speech sciences.",
+   "printed": true
+  },
+  {
+   "para_id": 28,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Regarding performance considerations, the largest difference we observed between LENA and ACLEW lies in their segmentation strategy. Since LENA's false alarm and confusion rates are low (it rarely detects vocalizations that are not actually present and rarely misclassifies one speaker category for another), it is especially suited for creating speech/vocalization datasets with minimal noise or misclassifications (e.g., for further acoustic analyses like pitch). However, LENA's low percentage correct (only around 45% of the true speech duration is correctly retrieved) means such a dataset may not represent the full range of language use. For instance, LENA might miss less distinct vocalizations (less clearly articulated, lower in volume, or with atypical prosodic patterns), which can be problematic when studying populations with atypical language development who may produce less clear speech due to lags in motor skill and/or differences in facial morphology. Further acoustic and linguistic analysis of these missed vocalizations is needed to determine which specific features cause them to go undetected by LENA. While our analysis (Section 3.2.1) suggests that LENA's miss rate is consistent across our five diagnostic groups, the content of what's being missed could still contain diagnostically relevant differences. On the contrary, ACLEW's high percentage correct (it rarely fails to detect vocalizations that are actually present) makes it suited for creating datasets that better capture the full variability of language use. This comes at the price of a high false alarm rate, which introduces a considerable number of misclassifications when environmental sounds are classified as speech. For acoustic analyses, users may want to run an additional pass over segments detected by ACLEW to filter out these nonspeech segments. Given the current level of performance of both algorithms in detecting male speech and other children's vocalizations, we recommend caution when using either system for research questions involving these speaker categories, as already suggested by Cristia et al. (2021)—but see Kunze et al. (2025) and Charlot et al. (2025) for recent improvements on detecting male adult and other children's segments.",
+   "printed": true
+  },
+  {
+   "para_id": 29,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "In most cases, it is extremely thorny to predict how the algorithm's behavior will impact downstream analyses. For this reason, and under the assumption that implementation constraints can be solved, we recommend using both LENA and ACLEW (when possible) for analyzing daylong recordings, as recommended in Gautheron et al. (2025). Findings can then be interpreted in light of the performance considerations our study has identified for each algorithm. This approach helps ensure robust scientific conclusions by comparing effect sizes and observations across both algorithms.",
+   "printed": true
+  },
+  {
+   "para_id": 30,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Since we annotated 2‐min clips, it may seem logical to compute performance metrics on these same 2‐min clips. Examining the extensive literature on LENA validation studies reveals that researchers typically employ varying clip lengths. For instance, Cristia et al. (2021) compute performance metrics on 2‐min clips; Busch et al. (2018), McDonald et al. (2021), and Bruyneel et al. (2021) used 5‐min clips; Canault et al. (2016) and Ganek and Eriks‐Brophy (2018a, b) used 10‐min clips; and Oetting et al. 2009 used 30‐min clips.",
+   "printed": true
+  },
+  {
+   "para_id": 31,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "In Figure S1, we compare Pearson's r for LENA and ACLEW's CTC estimate over different timescales, for example, our seven hundred and fifty 2‐min clips as in Cristia et al. (2021) versus fifty 30‐min megaclips as in the present study. We found that correlations between human and automatic counts improve substantially with longer timescales. For instance, LENA's CTC estimate shows a Pearson's r of 0.70 on 2‐min clips versus 0.83 on 30‐min megaclips, despite analyzing the exact same underlying audio data.",
+   "printed": true
+  },
+  {
+   "para_id": 32,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Limitations. This study has three primary limitations. First, our use of a single annotator may introduce some subjectivity in annotation decisions, though this is mitigated by the annotator's extensive experience and use of a validated protocol. Importantly, the maximum reported interannotator agreement for this type of data (Cohen's κ = 0.64; Cristia et al. 2021) represents a practical ceiling for algorithm performance, as algorithms trained to reproduce human annotations cannot be expected to exceed the level of agreement between human annotators themselves. Both LENA and ACLEW's observed performance should therefore be interpreted relative to this ceiling of human agreement rather than perfect ground truth. Second, the sample size of 10 children per diagnostic group limits statistical power to detect subtle performance differences across neurodevelopmental profiles. While our statistical analyses on seven hundred and fifty 2‐min clips provided additional granularity, our findings can only be reliably generalized to the 50 children in our sample. Larger cohorts, replication studies, and meta‐analyses will be necessary for a more comprehensive validation of both the LENA and ACLEW algorithms. Third, our analysis was restricted to 2‐year‐olds growing up in English‐speaking households based in the United States. Algorithm performance may vary across different ages, languages, and cultural settings, particularly when applied to children with diverse neurodevelopmental profiles. Future validation studies should address this diversity to ensure these tools serve all children who might benefit from them.",
+   "printed": true
+  },
+  {
+   "para_id": 33,
+   "loc": "body",
+   "sec_title": "Conflicts of Interest",
+   "text": "M.L. contributed to the development of the ACLEW algorithm evaluated in this study (Lavechin et al. 2020; Räsänen et al. 2021). He has no financial interest in the ACLEW algorithm and does not receive monetary compensation for its use. While every effort has been made to maintain objectivity in the analysis and interpretation of results, this involvement is disclosed in the interest of full transparency.",
+   "printed": true
+  },
+  {
+   "para_id": 34,
+   "loc": "fn",
+   "sec_title": "Endnotes",
+   "text": "To our knowledge, no performance difference across languages has been documented for LENA, even when the system was applied in a different linguistic and sociocultural setting (see Cristia et al. 2021 for an investigation of LENA's performance on Tsimane).",
+   "printed": true
+  }
+ ],
+ "links": [
+  {
+   "link_id": 1,
+   "url": "github.com/marvinlvn/voice-type-classifier",
+   "url_raw": "https://github.com/MarvinLvn/voice-type-classifier",
+   "href_jats": "https://github.com/MarvinLvn/voice-type-classifier",
+   "repo_key": "github:marvinlvn/voice-type-classifier",
+   "host_class": "github",
+   "loc": "fn",
+   "sec_title": "Endnotes",
+   "source": "tagged",
+   "para_id": 1
+  },
+  {
+   "link_id": 2,
+   "url": "github.com/orasanen/alice",
+   "url_raw": "https://github.com/orasanen/ALICE",
+   "href_jats": "https://github.com/orasanen/ALICE",
+   "repo_key": "github:orasanen/alice",
+   "host_class": "github",
+   "loc": "fn",
+   "sec_title": "Endnotes",
+   "source": "tagged",
+   "para_id": 2
+  },
+  {
+   "link_id": 3,
+   "url": "github.com/laac-lscp/vcm",
+   "url_raw": "https://github.com/LAAC-LSCP/vcm",
+   "href_jats": "https://github.com/LAAC-LSCP/vcm",
+   "repo_key": "github:laac-lscp/vcm",
+   "host_class": "github",
+   "loc": "fn",
+   "sec_title": "Endnotes",
+   "source": "tagged",
+   "para_id": 3
+  },
+  {
+   "link_id": 4,
+   "url": "github.com/marvinlvn/neurogen",
+   "url_raw": "https://github.com/MarvinLvn/neurogen",
+   "href_jats": "https://github.com/MarvinLvn/neurogen",
+   "repo_key": "github:marvinlvn/neurogen",
+   "host_class": "github",
+   "loc": "back",
+   "sec_title": "Data Availability Statement",
+   "source": "tagged",
+   "para_id": 4
+  },
+  {
+   "link_id": 5,
+   "url": "osf.io/5qe4m",
+   "url_raw": "https://doi.org/10.17605/OSF.IO/5QE4M",
+   "href_jats": "https://doi.org/10.17605/OSF.IO/5QE4M",
+   "repo_key": "osf:5qe4m",
+   "host_class": "osf",
+   "loc": "back",
+   "sec_title": "Data Availability Statement",
+   "source": "tagged",
+   "para_id": 4
+  }
+ ],
+ "links_optional": [
+  "creativecommons.org/licenses/by/4.0",
+  "doi:10.1002/aur.2071",
+  "doi:10.1002/aur.2661",
+  "doi:10.1007/s10579-022-09579-3",
+  "doi:10.1007/s10803-017-3033-4",
+  "doi:10.1007/s10803-017-3082-8",
+  "doi:10.1016/j.jcomdis.2017.12.005",
+  "doi:10.1016/j.ridd.2014.01.004",
+  "doi:10.1017/s0305000920000525",
+  "doi:10.1037/0012-1649.19.3.322",
+  "doi:10.1044/2018_ajslp-17-0016",
+  "doi:10.1044/2018_jslhr-s-17-0287",
+  "doi:10.1044/2020_jslhr-19-00017",
+  "doi:10.1044/2020_jslhr-20-00489",
+  "doi:10.1044/leader.ftr3.14062009.20",
+  "doi:10.1056/nejmra1706537",
+  "doi:10.1073/pnas.1003882107",
+  "doi:10.1097/dbp.0b013e3181d5aa6d",
+  "doi:10.1109/icdl61372.2024.10644508",
+  "doi:10.1109/lsp.2019.2929415",
+  "doi:10.1111/apa.13816",
+  "doi:10.1111/infa.12568",
+  "doi:10.1111/jar.12305",
+  "doi:10.1121/1.427148",
+  "doi:10.1145/3340555.3353751",
+  "doi:10.1177/13623613241290072",
+  "doi:10.1177/1525740117705094",
+  "doi:10.1352/1944-7558-128.6.425",
+  "doi:10.1371/journal.pone.0080646",
+  "doi:10.1525/collabra.23445",
+  "doi:10.1542/peds.2016-1159f",
+  "doi:10.17023/7n3b-4h35",
+  "doi:10.21437/interspeech.2017-1418",
+  "doi:10.21437/interspeech.2017-411",
+  "doi:10.21437/interspeech.2020-1690",
+  "doi:10.3389/fpsyg.2020.01634",
+  "doi:10.3390/s24030901",
+  "doi:10.3758/s13428-015-0634-8",
+  "doi:10.3758/s13428-017-0960-0",
+  "doi:10.3758/s13428-020-01365-9",
+  "doi:10.3758/s13428-020-01393-5",
+  "doi:10.3758/s13428-020-01460-x",
+  "doi:10.3758/s13428-023-02206-1",
+  "doi:10.48550/arxiv.2406.10447",
+  "doi:10.48550/arxiv.2508.15637",
+  "doi:10.48550/arxiv.2509.15001",
+  "f.hubspotusercontent30.net/hubfs/3975639/10.%20lena%20sp/2.%20lena_sp_pricing.pdf?utm_campaign=lena%20sp%20webinars&utm_medium=email&_hsmi=91858633&_hsenc=p2anqtz-_gsf6zp9tn-x_7vcw6w4tcxuxmnbvqeedws45hjsfu-iaafhloo8cabbjdpinx7iq4k3wjcr8huc_mtxzzn1lxrgevmlvdjlwbh2nnhnrbym2ugzu&utm_content=91858633&utm_source=hs_automation",
+  "f.hubspotusercontent30.net/hubfs/3975639/10.%20lena%20sp/2.%20lena_sp_pricing.pdf?utm_campaign=lena%20sp%20webinars&utm_medium=email&_hsmi=91858633&hsenc=p2anqtz-_gsf6zp9tn-x_7vcw6w4tcxuxmnbvqeedws45hjsfu-iaafhloo8cabbjdpinx7iq4k3wjcr8huc_mtxzzn1lxrgevmlvdjlwbh2nnhnrbym2ugzu&utm_content=91858633&utm_source=hs_automation",
+  "isca-archive.org/wocci_2008/xu08_wocci.pdf",
+  "lena.org/wp-content/uploads/2016/07/ltr-02-2_natural_language_study.pdf",
+  "lena.org/wp-content/uploads/2016/07/ltr-06-2_transcription.pdf",
+  "lena.org/wp-content/uploads/2020/07/ltr-12_how_lena_works.pdf",
+  "ncbi.nlm.nih.gov/books/nbk1144"
+ ],
+ "own_doi": "doi:10.1111/desc.70239",
+ "citations": [
+  {
+   "cite_id": 1,
+   "para_id": 5,
+   "bib_id": 2,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 2,
+   "para_id": 5,
+   "bib_id": 3,
+   "marker": "1983",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 3,
+   "para_id": 5,
+   "bib_id": 39,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 4,
+   "para_id": 5,
+   "bib_id": 43,
+   "marker": "2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 5,
+   "para_id": 5,
+   "bib_id": 54,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 6,
+   "para_id": 5,
+   "bib_id": 27,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 7,
+   "para_id": 5,
+   "bib_id": 16,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 8,
+   "para_id": 6,
+   "bib_id": 11,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 9,
+   "para_id": 6,
+   "bib_id": 15,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 10,
+   "para_id": 6,
+   "bib_id": 24,
+   "marker": "2008",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 11,
+   "para_id": 6,
+   "bib_id": 25,
+   "marker": "2008a",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 12,
+   "para_id": 6,
+   "bib_id": 56,
+   "marker": "2008",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 13,
+   "para_id": 6,
+   "bib_id": 46,
+   "marker": "2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 14,
+   "para_id": 6,
+   "bib_id": 20,
+   "marker": "2018a",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 15,
+   "para_id": 6,
+   "bib_id": 21,
+   "marker": "b",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 16,
+   "para_id": 6,
+   "bib_id": 44,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 17,
+   "para_id": 6,
+   "bib_id": 14,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 18,
+   "para_id": 6,
+   "bib_id": 47,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 19,
+   "para_id": 7,
+   "bib_id": 29,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 20,
+   "para_id": 8,
+   "bib_id": 3,
+   "marker": "1983",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 21,
+   "para_id": 8,
+   "bib_id": 42,
+   "marker": "1995",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 22,
+   "para_id": 8,
+   "bib_id": 39,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 23,
+   "para_id": 8,
+   "bib_id": 2,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 24,
+   "para_id": 8,
+   "bib_id": 19,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 25,
+   "para_id": 8,
+   "bib_id": 17,
+   "marker": "2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 26,
+   "para_id": 8,
+   "bib_id": 31,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 27,
+   "para_id": 8,
+   "bib_id": 7,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 28,
+   "para_id": 8,
+   "bib_id": 26,
+   "marker": "2008b",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 29,
+   "para_id": 8,
+   "bib_id": 1,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 30,
+   "para_id": 8,
+   "bib_id": 36,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 31,
+   "para_id": 8,
+   "bib_id": 49,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 32,
+   "para_id": 9,
+   "bib_id": 9,
+   "marker": "2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 33,
+   "para_id": 9,
+   "bib_id": 44,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 34,
+   "para_id": 9,
+   "bib_id": 30,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 35,
+   "para_id": 9,
+   "bib_id": 5,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 36,
+   "para_id": 9,
+   "bib_id": 13,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 37,
+   "para_id": 10,
+   "bib_id": 1,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 38,
+   "para_id": 10,
+   "bib_id": 36,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 39,
+   "para_id": 10,
+   "bib_id": 49,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 40,
+   "para_id": 10,
+   "bib_id": 36,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 41,
+   "para_id": 10,
+   "bib_id": 41,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 42,
+   "para_id": 10,
+   "bib_id": 55,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 43,
+   "para_id": 10,
+   "bib_id": 49,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 44,
+   "para_id": 11,
+   "bib_id": 51,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 45,
+   "para_id": 11,
+   "bib_id": 48,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 46,
+   "para_id": 11,
+   "bib_id": 45,
+   "marker": "2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 47,
+   "para_id": 11,
+   "bib_id": 14,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 48,
+   "para_id": 12,
+   "bib_id": 32,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 49,
+   "para_id": 12,
+   "bib_id": 28,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 50,
+   "para_id": 12,
+   "bib_id": 25,
+   "marker": "2008a",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 51,
+   "para_id": 13,
+   "bib_id": 18,
+   "marker": "1999",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 52,
+   "para_id": 13,
+   "bib_id": 3,
+   "marker": "1983",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 53,
+   "para_id": 13,
+   "bib_id": 2,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 54,
+   "para_id": 13,
+   "bib_id": 39,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 55,
+   "para_id": 13,
+   "bib_id": 33,
+   "marker": "1955",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 56,
+   "para_id": 14,
+   "bib_id": 14,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 57,
+   "para_id": 14,
+   "bib_id": 53,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 58,
+   "para_id": 15,
+   "bib_id": 10,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 59,
+   "para_id": 16,
+   "bib_id": 14,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 60,
+   "para_id": 17,
+   "bib_id": 56,
+   "marker": "2008",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 61,
+   "para_id": 17,
+   "bib_id": 14,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 62,
+   "para_id": 17,
+   "bib_id": 14,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 63,
+   "para_id": 18,
+   "bib_id": 36,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 64,
+   "para_id": 19,
+   "bib_id": 35,
+   "marker": "2003",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 65,
+   "para_id": 19,
+   "bib_id": 56,
+   "marker": "2008",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 66,
+   "para_id": 20,
+   "bib_id": 49,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 67,
+   "para_id": 20,
+   "bib_id": 38,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 68,
+   "para_id": 20,
+   "bib_id": 52,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 69,
+   "para_id": 21,
+   "bib_id": 56,
+   "marker": "2008",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 70,
+   "para_id": 22,
+   "bib_id": 1,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 71,
+   "para_id": 23,
+   "bib_id": 24,
+   "marker": "2008",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 72,
+   "para_id": 24,
+   "bib_id": 23,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 73,
+   "para_id": 24,
+   "bib_id": 4,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 74,
+   "para_id": 25,
+   "bib_id": 13,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 75,
+   "para_id": 26,
+   "bib_id": 14,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 76,
+   "para_id": 26,
+   "bib_id": 36,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 77,
+   "para_id": 27,
+   "bib_id": 37,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 78,
+   "para_id": 27,
+   "bib_id": 50,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 79,
+   "para_id": 27,
+   "bib_id": 40,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 80,
+   "para_id": 28,
+   "bib_id": 14,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 81,
+   "para_id": 28,
+   "bib_id": 34,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 82,
+   "para_id": 28,
+   "bib_id": 12,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 83,
+   "para_id": 29,
+   "bib_id": 22,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 84,
+   "para_id": 30,
+   "bib_id": 14,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 85,
+   "para_id": 30,
+   "bib_id": 8,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 86,
+   "para_id": 30,
+   "bib_id": 44,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 87,
+   "para_id": 30,
+   "bib_id": 6,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 88,
+   "para_id": 30,
+   "bib_id": 9,
+   "marker": "2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 89,
+   "para_id": 30,
+   "bib_id": 20,
+   "marker": "2018a",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 90,
+   "para_id": 30,
+   "bib_id": 21,
+   "marker": "b",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 91,
+   "para_id": 30,
+   "bib_id": 45,
+   "marker": "2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 92,
+   "para_id": 31,
+   "bib_id": 14,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 93,
+   "para_id": 32,
+   "bib_id": 14,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 94,
+   "para_id": 33,
+   "bib_id": 36,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 95,
+   "para_id": 33,
+   "bib_id": 49,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 96,
+   "para_id": 34,
+   "bib_id": 14,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-ext-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "v1_bib_count": 56
+ }
+}

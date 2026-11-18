@@ -1,0 +1,583 @@
+{
+ "paper_id": "10.7717_peerj.21665",
+ "paras": [
+  {
+   "para_id": 1,
+   "loc": "body",
+   "sec_title": "Data analysis",
+   "text": "The return on time invested in a full search to account for non-visible cockles was evaluated by estimating cockle density at each subsite based on visible and total cockles per quadrat. Estimates of mean density in each subsite were obtained from GLMMs similar to Eq. 1 but treating subsites as fixed effects. The average size of cockle at each subsite was estimated by linear mixed model treating subsites as fixed effects, transects as random effects and assuming a gaussian error distribution. All data analysis and graphical presentation was conducted in the R environment (R Core Team, 2025) with particular use of the lme4 package (Bates et al., 2015) for model fit and DHARMa package (Hartig, 2024) for diagnostics. Full analysis code and data files are available at https://doi.org/10.5281/zenodo.19341874.",
+   "printed": true
+  },
+  {
+   "para_id": 2,
+   "loc": "fn",
+   "sec_title": "Data Availability",
+   "text": "The data and R-code are available at Zenodo: Morris, S. (2026). Sampling of estuarine ark clams (cockles) in estuarine soft sediment habitats, to inform fisheries management [Dataset]. Zenodo. https://doi.org/10.5281/zenodo.20652010.",
+   "printed": true
+  },
+  {
+   "para_id": 3,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Cockles or ark clams (Subfamily Anadarinae) are prominent members of many estuarine soft sediment communities. These taxa can be present across diverse estuarine habitats at very high densities, and grow to a considerable size (Squires et al., 1975). Ecologically, the functional role of these species is poorly studied. As filter feeders and primary consumers with the capacity to persist at high densities, they can display high productivity (e.g., Broom, 1983) with the potential to have a substantial influence on trophic pathways in estuarine systems.",
+   "printed": true
+  },
+  {
+   "para_id": 4,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Cockles support commercial (e.g., MacKenzie, 2001) and recreational (Taylor & Chick, 2024) fisheries, and are an important aquaculture species across many countries (Borrero, 1986; Broom, 1985). In Australia, members of this taxa have formed an important food source for Australian Aboriginal peoples for many thousands of years (Catterall & Poiner, 1987), and support important subsistence fisheries in other areas of the world (e.g., Tawake, Vuki & Aalbersberg, 2007). The most common form of collection is by hand gathering, although dredging is sometimes allowed (e.g., Dewi et al., 2019). Cockles are thought to be comparatively sessile, and abundances are unlikely to show the tidal or diel variation in abundance or gear avoidance that is encountered when sampling other, more mobile estuarine species (e.g., fish and crustaceans). Nevertheless, these taxa persist across multiple habitat strata, including shallow water not accessible by boat, deep waters not accessible by foot, vegetated and unvegetated soft sediments, muddy and sandy habitats, as well as accessible, exploited/harvested beds and less accessible, non-harvested beds. Furthermore, cockles can be clearly visible when they are on or protruding from the benthos, but can also be almost wholly buried with only the anterior margin protruding. Anadarinae, however, are generally poor burrowers and are normally only partly buried (Brotohadikusomo, 1994).",
+   "printed": true
+  },
+  {
+   "para_id": 5,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "With cockles occurring across a range of strata and at varying sediment depths, quantitative sampling of these taxa is complex. Benthic infaunal species can display substantial spatial heterogeneity across habitats and environmental gradients (e.g., Kraan et al., 2009; Ysebaert & Herman, 2002). However, such variability has not been systematically examined for Anadara spp. The resolution of abundance patterns can be strongly influenced by the sampling approach employed (Reamon et al., 2024), so efficiency and bias should ideally be evaluated under field conditions. In particular, the use of abundance proxies in place of exhaustive counts (e.g., Magorrian & Service, 1998; Zhao et al., 2024), requires careful consideration of performance across sites and spatial strata. Robust indices of abundance are critical for fisheries assessments and broader ecosystem monitoring; however, resolving the suitability and performance of the methods and design selected is essential for the development of reliable longitudinal sampling programs. If sampling yields inaccurate indices, this can inflate uncertainty and reduce the reliability of stock assessments, potentially leading to ineffective management.",
+   "printed": true
+  },
+  {
+   "para_id": 6,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "This study sought to improve the basal information available to inform the design of sampling programs for cockles, using Sydney Cockle (formerly known as the Estuary Cockle), Anadara trapezia as a case study. Sydney Cockle is the most common ark clam in south-eastern Australia. The species supports important commercial, recreational, and cultural fisheries in some estuaries (Taylor et al., 2026), but anecdotal evidence suggests that exploitation may have greatly increased over the past 10 years. Coupled with the comparative dearth of information on this species, this has created a need for both basal ecological research, and ongoing surveys to inform stock assessment and quota setting. Published research to date has not yet explicitly examined patterns of variation in abundance of Sydney Cockle (or other Anadarinae) from a sampling design perspective, nor have proxies of abundance (e.g., relationships between visible and buried cockles) been evaluated. Specifically, we conducted sampling across multiple spatial scales to address three objectives: (1) partition sources of variability in abundance within a typical nested sampling design; (2) assess the influence of spatial separation on variability in abundance; and (3) evaluate visible cockle abundance as a potential proxy for total abundance. We hypothesised that variability in abundance would be greatest at fine spatial scales, but with additional divergence in abundance with increasing distance among sampling strata. Sydney Cockle are often colonised by epiphytic macroalgae (‘cockle weed’, Fig. 1, Inglis, 1994) which is visible above the sediment and seagrass canopy. We also examined whether the presence of this algae could serve as an indicator of cockle occurrence or relative abundance.",
+   "printed": true
+  },
+  {
+   "para_id": 7,
+   "loc": "body",
+   "sec_title": "Survey location and design",
+   "text": "The survey was undertaken in Lake Illawarra (34.5°S, 150.9°E; Fig. 2), a wave-dominated estuary on the south coast of New South Wales (NSW), Australia. The estuary has a waterway area of 36 km2, and primarily urban and agricultural catchment of area ∼240 km2. The average water depth is ∼2 m, and the estuary has extensive intertidal and shallow subtidal sand/mud flats and seagrass beds around its perimeter. The estuary is commercially fished, experiences substantial recreational fishing for the species, and has been a site of Aboriginal cultural fishing for thousands of years (Bursill, Donaldson & Jacobs, 2015).",
+   "printed": true
+  },
+  {
+   "para_id": 8,
+   "loc": "body",
+   "sec_title": "Data analysis",
+   "text": "The spatial scale of variation in cockle count per quadrat was portrayed by a variogram based on distance between the survey strata, as described in Webster et al. (2006). A generalised linear mixed model (GLMM) was constructed (Eq. 1) to estimate components of variance in each stratum of the survey (Fig. 3). (1)\\documentclass[12pt]{minimal} \\usepackage{amsmath} \\usepackage{wasysym} \\usepackage{amsfonts} \\usepackage{amssymb} \\usepackage{amsbsy} \\usepackage{upgreek} \\usepackage{mathrsfs} \\setlength{\\oddsidemargin}{-69pt} \\begin{document} \\begin{eqnarray*}\\log \\nolimits ({Y}_{ijkl})=\\mu +{M}_{i}+{S}_{ij}+{T}_{ijk}+{Q}_{ijkl}\\end{eqnarray*}\\end{document}logYijkl=μ+Mi+Sij+Tijk+Qijkl where log(Yijkl) is the natural logarithm of the expected number of cockles captured in quadrat (Q) l within transect (T) k in subsite (S) j in main site (M) i, and µ is the survey mean count per quadrat (log scale). The GLMM was assumed to be robust to the slightly unbalanced design created from the missingness of two adjacent quadrats, outlined earlier. The observed counts per quadrat were assumed to be drawn from a Poisson distribution and the variables M, S, T and Q were assumed to be random samples drawn from normal distributions with mean zero and variances \\documentclass[12pt]{minimal} \\usepackage{amsmath} \\usepackage{wasysym} \\usepackage{amsfonts} \\usepackage{amssymb} \\usepackage{amsbsy} \\usepackage{upgreek} \\usepackage{mathrsfs} \\setlength{\\oddsidemargin}{-69pt} \\begin{document} ${\\sigma }_{M}^{2},{\\sigma }_{S}^{2},{\\sigma }_{T}^{2},{\\sigma }_{Q}^{2}$\\end{document}σM2,σS2,σT2,σQ2 respectively. As shown in Webster et al. (2006) an approximate variogram can be calculated by plotting the cumulated percentage of total variance (\\documentclass[12pt]{minimal} \\usepackage{amsmath} \\usepackage{wasysym} \\usepackage{amsfonts} \\usepackage{amssymb} \\usepackage{amsbsy} \\usepackage{upgreek} \\usepackage{mathrsfs} \\setlength{\\oddsidemargin}{-69pt} \\begin{document} ${\\sigma }^{2}={\\sigma }_{M}^{2}+{\\sigma }_{S}^{2}+{\\sigma }_{T}^{2}+{\\sigma }_{Q}^{2}$\\end{document}σ2=σM2+σS2+σT2+σQ2) for each stratum against the average distance between sampling unit centres (Fig. 3). A model allowing for the nesting of 3 quadrats within 3 positions in each transect was tested but gave no improvement based on the Akaike information criterion. A Monte-Carlo simulation study was used to demonstrate that the observed data was no more dispersed (p = 0.7) than expected under the fitted model (Hartig, 2024).",
+   "printed": false
+  },
+  {
+   "para_id": 9,
+   "loc": "body",
+   "sec_title": "Spatial variability and contributing factors",
+   "text": "In relation to our original hypotheses of strong small-scale patchiness and increasing divergence across larger distances, abundance was found to vary mostly across intermediate scales. Much of the observed variation actually occurred within contiguous beds, and the semi-variance rapidly accumulated across spatial scales that nested wholly within subsites. While no directly comparable surveys were identified for Anadara spp., this pattern is similar to outcomes from hierarchical surveys for other cockle species, which have reported peaks in variability across scales of hundreds of metres (e.g., Clemente & Thomsen, 2024; Meyer et al., 2021). Previous work on abundance patterns in Anadara spp. does however highlight a range of variables that contribute to spatial variation, including fishing pressure, sedimentary composition, habitat, spatially variable recruitment and settlement driven by estuarine hydrology, and underlying environmental gradients. Silina (2006) found fishing pressure to be the proximal factor influencing abundance of Anadara broughtoni, but also noted salinity and suspended particulate matter as drivers of abundance. Ramadhan, Pursetyo & Dewi (2019) highlighted the influence of various water quality variables on the abundance of Anadara sp., whereas Strafella et al. (2017) noted sediment characteristics as the most important driver. For Sydney Cockle, Gribben & Wright (2006) showed that macrophytes were important in driving abundance of young cockles, with the highest densities occurring in sparsely vegetated beds of invasive seaweed.",
+   "printed": true
+  },
+  {
+   "para_id": 10,
+   "loc": "body",
+   "sec_title": "Spatial variability and contributing factors",
+   "text": "Further to Silina (2006), more recent work highlights the impact of harvesting and its potential influence on abundance (Aswani, Flores & Broitman, 2015; Beukema & Dekker, 2018). We can only speculate on the impact of fishing on the patterns observed in our study, as no data on targeted fishing effort are available. Subsite B was characterised by almost no cockles, despite being at similar depths and on the same contiguous sand flat as subsite A. Subsite B is easier to access by foot and is adjacent to a foreshore park, and may thus be more accessible to hand gatherers, which raises the possibility of fishing impacting abundance at this location. However, reliable information on small-scale patterns in fishing effort are required to properly account for this. Such data may provide a useful covariate to aid interpretation of patterns in abundance in future studies.",
+   "printed": true
+  },
+  {
+   "para_id": 11,
+   "loc": "body",
+   "sec_title": "Spatial variability and contributing factors",
+   "text": "Much of the literature highlights the importance of abiotic environmental gradients in structuring the distribution and abundance of sedimentary bivalves in estuarine systems. Evaluation of nested sampling designs in shallow coastal lakes, however, provides novel insight into the components of spatial variation in bivalve abundance under conditions where strong environmental gradients are less influential. Coastal lakes are typically shallow and experience strong wind- and tide-driven mixing (Kjerfve & Magill, 1989), which can reduce stratification. Coupled with limited freshwater input, gradients in water quality may therefore be weaker than in more riverine estuaries (Roy et al., 2001), potentially decreasing their overall influence on cockles and other benthic fauna. Consequently, our results are likely to be more influenced by other drivers of abundance, such as habitat and sediment characteristics, and the influence of hydrology and circulation on recruitment and settlement. These represent important variables to consider in future surveys, particularly where environmental gradients are likely to be weak and spatial variation in abundance may be more heavily driven by local-scale processes.",
+   "printed": true
+  },
+  {
+   "para_id": 12,
+   "loc": "body",
+   "sec_title": "Recommendations for future surveys",
+   "text": "The variogram analysis supports a clear recommendation on the spatial arrangement of sampling units—under the guideline to focus sampling at intervals of less than half the variogram range (Kerry & Oliver, 2004), spatial resolution could be captured by setting shorter transects with fewer quadrats on a grid with <350 m centres. We also note that our design provides an efficient approach to refining the spatial arrangement of sampling units, as employment of a nested sampling structure can produce an approximate variogram in exchange for modest effort compared to grid-based sampling (Webster et al., 2006).",
+   "printed": true
+  },
+  {
+   "para_id": 13,
+   "loc": "body",
+   "sec_title": "Recommendations for future surveys",
+   "text": "The sampling locations selected should also be representative of the various strata of interest, as well as the life-history stage being investigated. Considering variables that are known or suspected to influence abundance (outlined above) will be important if patterns are to be compared across broader spatial scales. While there is potential for seagrass and macrophytes to impact abundance of Sydney Cockle (e.g., Gribben & Wright, 2006), incorporating these variables in nested longitudinal survey designs may prove challenging. Some of the main species of seagrass (e.g., Zostera, Halophila and Ruppia) encountered in southeastern Australian estuaries display substantial seasonal and inter-annual variability (West & Glasby, 2022). For this reason, it may be best to incorporate seagrass-related variables as covariates in long-term longitudinal surveys, rather than as a specific habitat class.",
+   "printed": true
+  },
+  {
+   "para_id": 14,
+   "loc": "body",
+   "sec_title": "Suitability of proxies of abundance",
+   "text": "While often employed in surveys of benthic macrofauna (e.g., Magorrian & Service, 1998; Selin, 2011; Zhao et al., 2024), abundance proxies are rarely validated. This is a notable limitation, as proxies can be influenced by animal behaviour and site-specific habitat characteristics, which means that relationships between observed and actual densities may be inconsistent across spatiotemporal scales. For bivalves, the performance of proxy measures (e.g., visual, video-based, and other indicators like cockle weed) may vary among habitats and conditions, highlighting the importance of quantitative validation. For example, visual surveys of the mussel Unio crassus detected only ∼10% of individuals present, and full excavation was required for informative data (Lamand & Beisel, 2014). In our study, the presence of cockle weed provided neither an indicator of abundance, nor even a useful indicator of presence for Sydney Cockle. This was possibly due to local-scale influences on settlement and mortality of algal epiphytes on cockle shells (Inglis, 1994).",
+   "printed": true
+  },
+  {
+   "para_id": 15,
+   "loc": "body",
+   "sec_title": "Suitability of proxies of abundance",
+   "text": "While visible animals provided an informative proxy for Sydney Cockle, variable deviations between visible search and finger dredge counts suggests that there may be site-specific factors that influence the extent of cockle burial. Similar size compositions among sites indicates that this was unlikely to be a size-related effect, but other variables such as water quality are known to impact position in the sediment in Sydney Cockle (Wright et al., 2010). Coupled with the effect of dense seagrass on visible counts encountered at subsite D, relying on counts of visible cockles should be applied with caution, and may be most appropriate as site-specific abundance indices, rather than to support comparison across spatial strata. Careful validation of proxy measures is essential to ensure that they provide reliable and consistent estimates across spatial and temporal scales.",
+   "printed": true
+  },
+  {
+   "para_id": 16,
+   "loc": "body",
+   "sec_title": "Conclusion",
+   "text": "Abundance surveys are essential for robust resource assessment, and are especially important for informing harvest strategies for bivalve species (Gorman et al., 2011). In addition, sedimentary bivalves integrate conditions in the surrounding environment and are widely used as bioindicators of water quality and pollution (Ochoa-Esteso et al., 2024; Vaughn & Hoellein, 2018). Estimation of robust abundance indices is thus also critical for monitoring ecosystem health. However, efficacious sampling requires consideration of variance components across relevant spatial strata such that sampling effort can be appropriately targeted. Pilot studies are important for quantifying the extent of variation across different spatial strata, and while they provide valuable guidance for designing larger longitudinal surveys, such preliminary work is infrequently published (Andrew & Mapstone, 1987). Our results provide a quantitative basis to support development of future surveys for Sydney Cockle, but are also broadly applicable to other similar taxa. Specifically, (1) Use of quadrats and the finger dredge is highly efficient for capturing cockles, and large numbers of quadrats can be completed in a comparatively short period of time, even within seagrass habitats; (2) the presence of epiphytic macroalgae is a poor indicator for cockle presence or abundance; (3) visible cockles provide a reasonable proxy for total cockle abundance, however site-specific attributes may have a confounding effect on this; (4) when planning longitudinal surveys for cockles, sampling effort should prioritise a greater number of shorter transects with fewer quadrats. These findings provide useful information to aid the design of efficient and robust monitoring programs for sedimentary bivalves.",
+   "printed": true
+  }
+ ],
+ "links": [
+  {
+   "link_id": 1,
+   "url": "zenodo.org/records/19341874",
+   "url_raw": "https://doi.org/10.5281/zenodo.19341874",
+   "href_jats": "https://doi.org/10.5281/zenodo.19341874",
+   "repo_key": "zenodo:19341874",
+   "host_class": "zenodo",
+   "loc": "body",
+   "sec_title": "Data analysis",
+   "source": "tagged",
+   "para_id": 1
+  },
+  {
+   "link_id": 2,
+   "url": "zenodo.org/records/20652010",
+   "url_raw": "https://doi.org/10.5281/zenodo.20652010",
+   "href_jats": "https://doi.org/10.5281/zenodo.20652010",
+   "repo_key": "zenodo:20652010",
+   "host_class": "zenodo",
+   "loc": "fn",
+   "sec_title": "Data Availability",
+   "source": "tagged",
+   "para_id": 2
+  }
+ ],
+ "links_optional": [
+  "creativecommons.org/licenses/by/4.0",
+  "doi:10.1002/aqc.4040",
+  "doi:10.1002/ece3.70088",
+  "doi:10.1002/ecs2.4834",
+  "doi:10.1006/ecss.2001.0796",
+  "doi:10.1007/bf00385241",
+  "doi:10.1007/bf00627749",
+  "doi:10.1007/bf03020624",
+  "doi:10.1007/s00442-010-1608-2",
+  "doi:10.1007/s11160-014-9376-4",
+  "doi:10.1007/s12237-021-01026-w",
+  "doi:10.1016/0025-3227(89)90097-2",
+  "doi:10.1016/0044-8486(86)90079-7",
+  "doi:10.1016/0198-0254(88)92605-2",
+  "doi:10.1016/j.cageo.2005.12.002",
+  "doi:10.1016/j.fishres.2023.106874",
+  "doi:10.1016/j.fishres.2026.107675",
+  "doi:10.1016/j.jag.2004.07.005",
+  "doi:10.1016/j.seares.2018.07.013",
+  "doi:10.1016/s0025-326x(97)00192-6",
+  "doi:10.1051/kmae/2014009",
+  "doi:10.1088/1755-1315/236/1/012039",
+  "doi:10.1088/1755-1315/236/1/012062",
+  "doi:10.1111/j.1365-2400.2010.00781.x",
+  "doi:10.1134/s1063074011030096",
+  "doi:10.1146/annurev-ecolsys-110617-062703",
+  "doi:10.12681/mms.1933",
+  "doi:10.18637/jss.v067.i01",
+  "doi:10.2307/3565407",
+  "doi:10.32614/cran.package.dharma",
+  "doi:10.3354/meps07994",
+  "doi:10.3354/meps244105",
+  "doi:10.3354/meps318177",
+  "doi:10.3389/fmars.2021.698467",
+  "doi:10.37349/eff.2024.00062",
+  "peerj.com/articles/21665",
+  "r-project.org",
+  "ro.uow.edu.au/asdpapers/581"
+ ],
+ "own_doi": "doi:10.7717/peerj.21665",
+ "citations": [
+  {
+   "cite_id": 1,
+   "para_id": 3,
+   "bib_id": 31,
+   "marker": "Squires et al., 1975",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 2,
+   "para_id": 3,
+   "bib_id": 6,
+   "marker": "Broom, 1983",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 3,
+   "para_id": 4,
+   "bib_id": 21,
+   "marker": "MacKenzie, 2001",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 4,
+   "para_id": 4,
+   "bib_id": 34,
+   "marker": "Taylor & Chick, 2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 5,
+   "para_id": 4,
+   "bib_id": 5,
+   "marker": "Borrero, 1986",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 6,
+   "para_id": 4,
+   "bib_id": 7,
+   "marker": "Broom, 1985",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 7,
+   "para_id": 4,
+   "bib_id": 10,
+   "marker": "Catterall & Poiner, 1987",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 8,
+   "para_id": 4,
+   "bib_id": 33,
+   "marker": "Tawake, Vuki & Aalbersberg, 2007",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 9,
+   "para_id": 4,
+   "bib_id": 12,
+   "marker": "Dewi et al., 2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 10,
+   "para_id": 4,
+   "bib_id": 8,
+   "marker": "Brotohadikusomo, 1994",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 11,
+   "para_id": 5,
+   "bib_id": 19,
+   "marker": "Kraan et al., 2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 12,
+   "para_id": 5,
+   "bib_id": 40,
+   "marker": "Ysebaert & Herman, 2002",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 13,
+   "para_id": 5,
+   "bib_id": 27,
+   "marker": "Reamon et al., 2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 14,
+   "para_id": 5,
+   "bib_id": 22,
+   "marker": "Magorrian & Service, 1998",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 15,
+   "para_id": 5,
+   "bib_id": 41,
+   "marker": "Zhao et al., 2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 16,
+   "para_id": 6,
+   "bib_id": 35,
+   "marker": "Taylor et al., 2026",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 17,
+   "para_id": 6,
+   "bib_id": 16,
+   "marker": "Inglis, 1994",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 18,
+   "para_id": 7,
+   "bib_id": 9,
+   "marker": "Bursill, Donaldson & Jacobs, 2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 19,
+   "para_id": 8,
+   "bib_id": 37,
+   "marker": "Webster et al. (2006)",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 20,
+   "para_id": 8,
+   "bib_id": 37,
+   "marker": "Webster et al. (2006)",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 21,
+   "para_id": 8,
+   "bib_id": 15,
+   "marker": "Hartig, 2024",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 22,
+   "para_id": 1,
+   "bib_id": 26,
+   "marker": "R Core Team, 2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 23,
+   "para_id": 1,
+   "bib_id": 3,
+   "marker": "Bates et al., 2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 24,
+   "para_id": 1,
+   "bib_id": 15,
+   "marker": "Hartig, 2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 25,
+   "para_id": 9,
+   "bib_id": 11,
+   "marker": "Clemente & Thomsen, 2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 26,
+   "para_id": 9,
+   "bib_id": 23,
+   "marker": "Meyer et al., 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 27,
+   "para_id": 9,
+   "bib_id": 30,
+   "marker": "Silina (2006)",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 28,
+   "para_id": 9,
+   "bib_id": 25,
+   "marker": "Ramadhan, Pursetyo & Dewi (2019)",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 29,
+   "para_id": 9,
+   "bib_id": 32,
+   "marker": "Strafella et al. (2017)",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 30,
+   "para_id": 9,
+   "bib_id": 14,
+   "marker": "Gribben & Wright (2006)",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 31,
+   "para_id": 10,
+   "bib_id": 30,
+   "marker": "Silina (2006)",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 32,
+   "para_id": 10,
+   "bib_id": 2,
+   "marker": "Aswani, Flores & Broitman, 2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 33,
+   "para_id": 10,
+   "bib_id": 4,
+   "marker": "Beukema & Dekker, 2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 34,
+   "para_id": 11,
+   "bib_id": 18,
+   "marker": "Kjerfve & Magill, 1989",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 35,
+   "para_id": 11,
+   "bib_id": 28,
+   "marker": "Roy et al., 2001",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 36,
+   "para_id": 12,
+   "bib_id": 17,
+   "marker": "Kerry & Oliver, 2004",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 37,
+   "para_id": 12,
+   "bib_id": 37,
+   "marker": "Webster et al., 2006",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 38,
+   "para_id": 13,
+   "bib_id": 14,
+   "marker": "Gribben & Wright, 2006",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 39,
+   "para_id": 13,
+   "bib_id": 38,
+   "marker": "West & Glasby, 2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 40,
+   "para_id": 14,
+   "bib_id": 22,
+   "marker": "Magorrian & Service, 1998",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 41,
+   "para_id": 14,
+   "bib_id": 29,
+   "marker": "Selin, 2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 42,
+   "para_id": 14,
+   "bib_id": 41,
+   "marker": "Zhao et al., 2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 43,
+   "para_id": 14,
+   "bib_id": 20,
+   "marker": "Lamand & Beisel, 2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 44,
+   "para_id": 14,
+   "bib_id": 16,
+   "marker": "Inglis, 1994",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 45,
+   "para_id": 15,
+   "bib_id": 39,
+   "marker": "Wright et al., 2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 46,
+   "para_id": 16,
+   "bib_id": 13,
+   "marker": "Gorman et al., 2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 47,
+   "para_id": 16,
+   "bib_id": 24,
+   "marker": "Ochoa-Esteso et al., 2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 48,
+   "para_id": 16,
+   "bib_id": 36,
+   "marker": "Vaughn & Hoellein, 2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 49,
+   "para_id": 16,
+   "bib_id": 1,
+   "marker": "Andrew & Mapstone, 1987",
+   "expanded": false,
+   "scored": true
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-ext-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "v1_bib_count": 41
+ }
+}

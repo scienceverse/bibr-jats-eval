@@ -1,0 +1,1680 @@
+{
+ "paper_id": "10.7554_elife.106692",
+ "paras": [
+  {
+   "para_id": 1,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Neurons are structurally unique cells with synapses–sites where neurons connect with each other— often located far from the cell body. For example, hippocampal pyramidal dendrites span an average of 13.5 mm (Ishizuka et al., 1995), while axonal tips can extend up to a meter away from the cell body (Debanne et al., 2011). To maintain and adapt the local proteome in response to local neuronal activity, neurons rely on the ability to produce proteins locally. Indeed, local protein synthesis has been shown to be critical for many aspects of neuronal function, including growth cone guidance (Yoon et al., 2009), homeostasis (Holt et al., 2019), aspects of presynaptic firing (Wong et al., 2024), and certain forms of synaptic plasticity (Holt et al., 2019).",
+   "printed": true
+  },
+  {
+   "para_id": 2,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Local protein synthesis relies on coordinated mechanisms that couple mRNA transport with translational repression. Two major mechanisms have been proposed to regulate this process in neurons (Kiebler and Bassell, 2006; Sossin and DesGroseillers, 2006). In one mechanism, mRNAs are stalled during initiation and transported within RNA transport particles. In this case, the completion of initiation and onset of elongation depends on the removal of the repression mechanisms and availability of ribosomes, which must be transported separately. In contrast, mRNAs can be transported along with ribosomes when elongation stalls, with stalled ribosomes serving as the transport unit. Both mechanisms are likely to be utilized for neurons. While RNA transport particles appear to facilitate the transport of individual mRNAs (Batish et al., 2012), stalled ribosomes are found within large RNA granules that appear to contain multiple different mRNAs (Langille et al., 2019). The RNA binding protein (RBP) FMRP has been implicated in both types of transport (Richter et al., 2015).",
+   "printed": true
+  },
+  {
+   "para_id": 3,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Loss of FMRP causes Fragile X syndrome. In humans, the loss of FMRP results from expansion of a CGG repeat, leading to excessive methylation and transcriptional inhibition. Since CGG expansion is relatively common compared to de novo mutations and the gene is X-linked, Fragile X syndrome is a relatively common neurodevelopmental disorder and is the leading genetic cause of autism (Yu and Berry-Kravis, 2014). FMRP is an RBP and thus plays a role in various aspects of RNA biology. Several of these functions have been implicated in Fragile X syndrome, including FMRP’s regulation of miRNA repression, splicing, translation initiation, and translational elongation (Richter et al., 2015; Richter and Zhao, 2021). Another proposed cause of Fragile X syndrome is the loss of protein-protein interactions mediated by FMRP, including the direct regulation of ion channels (Deng and Klyachko, 2021).",
+   "printed": true
+  },
+  {
+   "para_id": 4,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "A common finding in Fragile X models is that the loss of FMRP increases translation (Huber et al., 2002; Qin et al., 2005). This increase may result from the direct effects of FMRP on translation initiation or elongation, or from the loss of specific FMRP targets, which in turn lead to changes in signal transduction that ultimately increase protein synthesis (Bagni and Zukin, 2019). A major finding regarding how FMRP regulates translation is that, unlike most RBPs, FMRP exhibits strong association with the coding region in cross-linking immunoprecipitation (CLIP) studies, implicating FMRP in stalling elongation (Darnell et al., 2011). Consistent with a role in ribosomal stalling, loss of FMRP caused shifts in polysome profiles of CLIP-identified FMRP targets in Neuro2A translational extracts (Darnell et al., 2011). Additionally, elongation rates are also increased in mouse models of Fragile X, where FMRP is knocked out (Udagawa et al., 2013). While initial studies suggested that FMRP associates non-discriminatively throughout the coding region, more comprehensive bioinformatic analyses have revealed consensus sequences that were enriched in FMRP CLIP data (Ascano et al., 2012; Anderson et al., 2016). FMRP has also been shown to bind to specific motifs such as G quadruplexes and the kissing complex due to the specificity of the RNA-binding domains in the protein (Darnell et al., 2005), but the sequences enriched in FMRP CLIP data do not necessarily contain these motifs (Anderson et al., 2016).",
+   "printed": true
+  },
+  {
+   "para_id": 5,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Ribosomes from neuronal RNA granules have been enriched through sedimentation and biochemically and structurally characterized (Krichevsky et al., 2001; Elvira et al., 2006; El Fatimy et al., 2016; Kipper et al., 2022; Anadolu et al., 2023). These ribosomes are stalled in the hybrid state (Kipper et al., 2022; Anadolu et al., 2023) and may possess other modifications that distinguish them from most ribosomes: For example, unlike most ribosomes, puromycylated peptides do not dissociate from neuronal stalled ribosomes (Anadolu et al., 2024). Additionally, anisomycin competes poorly with puromycin for puromycylation, a property not observed in most ribosomes (Anadolu et al., 2024). Examination of RPFs from these ribosomes have also shown differences from standard preparations. The RPFs are larger than expected and the motifs previously identified in FMRP CLIPs are enriched in the RPF sequences (Anadolu et al., 2023). It is not clear whether the enrichment of FMRP CLIP-associated sequences in RPFs from stalled ribosomes occurs because FMRP determines where ribosomes stall, or whether FMRP associates with stalled ribosomes that were already paused at these specific sequences.",
+   "printed": true
+  },
+  {
+   "para_id": 6,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "To determine whether FMRP is directly involved in the formation of stalled ribosomes through sequence recognition, we compared RPFs from stalled ribosomes in mice lacking FMRP protein to those in WT mice of the same strain. We also tested whether the larger protected fragments could be reduced in size by higher nuclease treatment. Our findings show that stronger nuclease treatment does reduce the size of RPFs to a normal size. Despite its enrichment in RNA granules containing stalled ribosomes, FMRP does not appear to be important for the formation of stalled ribosomes since the loss of FMRP did not affect the association of other proteins with stalled ribosomes, the state of the stalled ribosomes, and, most importantly, where the ribosomes stall. However, using ribopuromycylation (RPM) to detect RNA granules containing stalled ribosomes (Graber et al., 2013), we found that the loss of FMRP decreased the number of RPM puncta. Thus, FMRP may contribute to stabilizing RNA granules.",
+   "printed": true
+  },
+  {
+   "para_id": 7,
+   "loc": "body",
+   "sec_title": "Comparing RNA binding protein enrichment in WT and FMR1 KO RNA granules",
+   "text": "Stalled ribosomes are found in neuronal RNA granules (Graber et al., 2013). Previous studies have demonstrated that in brain homogenates, a substantial number of ribosomes sediment in sucrose gradients used to separate monosomes from polysomes, and these have been suggested to be the ribosomes in neuronal RNA granules (Krichevsky et al., 2001; Aschrafi et al., 2005; Elvira et al., 2006). This sedimentation was further optimized to separate the ribosomes found in the pellet from heavy polysomes (Figure 1A; El Fatimy et al., 2016; Anadolu et al., 2023). To determine whether the pellet from C57BL/6 mice is comparable to the pellet from rat brains in a previous study (Anadolu et al., 2023), we examined the protein distribution across all collected fractions from each species’ brain homogenate using Coomassie blue staining. The protein distribution was similar between rat brain and WT mouse brain with considerable amounts of proteins in both WT-mouse pellet and rat pellet (Figure 1B).",
+   "printed": true
+  },
+  {
+   "para_id": 8,
+   "loc": "body",
+   "sec_title": "Comparing RNA binding protein enrichment in WT and FMR1 KO RNA granules",
+   "text": "We compared fractionation between WT and FMR1 knockout mice (FMR1 KO). FMR1 KO mice are the most common model for studying FMRP’s function (Richter and Zhao, 2021). There was no change in the distribution of UV absorbance in the fractions in the presence or absence of FMRP (Figure 1C). We specifically compared fractions 5 and 6 from the gradient to the pellet to be consistent with previous studies (El Fatimy et al., 2016; Anadolu et al., 2023) comparing ribosomes in clusters that pellet and ones that do not. EM of fraction 5/6 and the pellet showed an abundance of ribosome clusters in both fractions in the presence or absence of FMRP (Figure 1D). We examined the distribution of proteins in three fractions: the starting material after the first spin to remove non-soluble material, fraction 5/6, and the pellet, similar to the fractions examined in earlier studies (El Fatimy et al., 2016; Anadolu et al., 2023). We confirmed previous results from rat (Anadolu et al., 2023) that in WT mice FMRP (1.9±0.54 S.D., n=4, p<0.05 one-sample t-test against 1) and UPF1 (1.5±0.57 S.D., n=8, p<0.05, one-sample t-test against 1) were enriched in the pellet fraction vs fraction 5/6. As well, both Staufen 2 bands quantified (upper; 59 kDa and lower; 52 kDa) (Duchaîne et al., 2000) were enriched in the pellet fraction vs fraction 5/6 (59 kDa; 3.9±1.8 S.D., n=8, p<0.01, one-sample t-test against 1; 52 kDa; 3.4±1.8 S.D., n=8, p<0.01, one-sample t-test against 1).",
+   "printed": true
+  },
+  {
+   "para_id": 9,
+   "loc": "body",
+   "sec_title": "Comparing RNA binding protein enrichment in WT and FMR1 KO RNA granules",
+   "text": "We next compared the level of ribosomal protein S6 as a marker of ribosomes between WT and FMR1 KO mice. If FMRP was critical for the formation of the clustered ribosomes in the pellet, there should be fewer ribosomes in the pellet compared to fraction 5/6 in the absence of FMRP. However, we observed no significant difference in the ratio of S6 between these two fractions in the presence or absence of FMRP (Figure 1E, quantified in Figure 1F). We also compared the fractionation of proteins implicated in RNA transport in neurons between WT and FMR1 KO mice: UPF1 (Graber et al., 2017); Stau2 (Tang et al., 2001; Heraud-Farlow and Kiebler, 2014; Graber et al., 2017); Zip code binding protein 1 (ZBP1) (Hüttelmaier et al., 2005), Pur alpha (Kanai et al., 2004), G3BP1 (Anadolu and Sossin, 2020), and hnRNP A2/B1 (Gao et al., 2008; Lo et al., 2025). No significant differences in fractionation for any of these proteins were observed in the presence or absence of FMRP (Figure 1E, quantified in Figure 1F). TIA-1, a protein present in stress granules, but not neuronal RNA granules (Anadolu and Sossin, 2020; Sun et al., 2025), was mainly in the starter fraction. We examined eEF2 and confirmed previous results (Anadolu et al., 2023) that there was little eEF2 in either fraction 5/6 or the pellet under these conditions (Figure 1E). We also examined the rough ER marker ribophorin. While previous results showed that secretory mRNAs showed low abundance in the pellet compared to most mRNAs, the secretory mRNAs were enriched in the pellet compared to fraction 5/6 (Anadolu et al., 2023). To determine if this is due to increased presence of rough ER in the pellet fraction vs fraction 5/6, we examined the distribution of the rough ER marker ribophorin. We observe ribophorin protein in the pellet, but not in fraction 5/6, and this was not affected by FMRP (Figure 1E).",
+   "printed": true
+  },
+  {
+   "para_id": 10,
+   "loc": "body",
+   "sec_title": "Loss of FMRP does not alter anisomycin puromycin competition",
+   "text": "Previous cryo-EM studies of ribosomes isolated from dense ribosome clusters showed that most of these ribosomes are in the hybrid A/P and P/E configuration (Kipper et al., 2022; Anadolu et al., 2023). Puromycin and anisomycin are both translational inhibitors that bind to the A site of the ribosomes (Hansen et al., 2003; Garreau de Loubresse et al., 2014). Due to their overlapping binding sites, anisomycin inhibits puromycin from binding to the ribosomes when both are present. However, we previously showed that puromycylation of neuronal ribosomes in cell culture and puromycylation of ribosomes in the pellet from rats are resistant to anisomycin inhibition (Anadolu et al., 2024). This suggested that the binding site for these translational inhibitors is altered in the neuronal stalled ribosome, either due to the enrichment of the hybrid state or due to other differences in these ribosomes.",
+   "printed": true
+  },
+  {
+   "para_id": 11,
+   "loc": "body",
+   "sec_title": "Loss of FMRP does not alter anisomycin puromycin competition",
+   "text": "We performed these experiments on the ribosomes that were sedimented through the sucrose gradient (Figure 2A). We first validated that puromycylation in non-neuronal ribosomes, in this case, rat liver ribosomes, were not resistant to anisomycin. Indeed, we saw a total inhibition of puromycylation by anisomycin in sedimented rat liver ribosomes (Figure 2B), much like the effect previously seen on HEK cell culture (Anadolu et al., 2024). This indicated that neither homogenization in our buffer nor high centrifugation is sufficient to confer puromycin’s resistance to anisomycin and further confirmed the neuronal specificity of this ribosomal state. If FMRP was important for generating the state of the ribosome required for anisomycin-resistant puromycylation, we should observe less resistance to anisomycin in FMR1 KO mice. We found that resistance of puromycylation to anisomycin was not different in ribosomes from the pellet of WT and FMR1 KO mice (Figure 2B, quantified in Figure 2C). Thus, FMRP does not seem to be important for the formation of this state of the ribosome.",
+   "printed": true
+  },
+  {
+   "para_id": 12,
+   "loc": "body",
+   "sec_title": "Effects of digestion on RPF size",
+   "text": "To explore if the stalling sites of the ribosomes are altered by the loss of FMRP, we examined RPFs (Figure 3A). RPFs generated from the rat pellet were generally above 35 nt (Anadolu et al., 2023), while RPFs have a canonical size between 28 nt and 32 nt (Ingolia, 2014). It was unclear whether the extension at the 3’ end from the RPF generated from the pelleted rat ribosomes was due to an extended conformation of the ribosome to protect a larger fragment or due to altered nuclease resistance in this region (Anadolu et al., 2023). Thus, we investigated whether this extended region could be cleaved off with more effective nuclease treatment. To determine whether the extending nucleotides could be removed by increasing nuclease efficiency, we digested at room temperature rather than 4°C, and in addition, the concentration of RNase was adjusted to the sample RNA concentration (see ‘Materials and methods’).",
+   "printed": true
+  },
+  {
+   "para_id": 13,
+   "loc": "body",
+   "sec_title": "Higher MgCl2 concentrations did not affect ribosomal structure",
+   "text": "An additional change from the previous protocol was in the concentration of MgCl2. Most ribosome isolation protocols use 10 mM MgCl2, but the previous protocol had a more physiological concentration of 2.5 mM MgCl2. Higher levels of MgCl2 in most protocols that purify ribosomes are presumably due to the finding that bacterial ribosomes dissociate in lower concentrations of MgCl2, but this has not been observed in eukaryotic ribosomes. A cryo-electron microscopy (cryo-EM) characterization of RNase I-treated pellet fraction under this low magnesium concentration Anadolu et al., 2023 found that 85% of the ribosomes contained in the pellet exhibited tRNA molecules in hybrid A/P and P/E states. The remaining 15% of the ribosome population in this sample contained a tRNA in the P/P state. To test whether increasing the magnesium concentration had any effect on the percentage of ribosomes in hybrid A/P and P/E states, we repeated the cryo-EM and image classification analysis (Figure 4—figure supplement 1) after the purification was performed in a buffer containing 20 mM Tris-HCl, pH 7.4; 150 mM NaCl; 10 mM MgCl2. We found that high MgCl2 did not impact the percentages of hybrid A/P and P/E state (83%) and P/P (17%) state ribosomes (Figure 4). The cryo-EM maps for the hybrid and P/P state ribosomes were refined to 2.7 Å and 3.2 Å, respectively (Figure 4—figure supplement 2 and Figure 4—source data 1).",
+   "printed": true
+  },
+  {
+   "para_id": 14,
+   "loc": "fig",
+   "sec_title": "Higher MgCl2 concentrations did not affect ribosomal structure",
+   "text": "Consensus cryo-EM maps (left panels) were initially calculated for class 1 (A) and class 2 (B) from the RNase I-treated pellet fraction purified under high magnesium buffer conditions. These maps were subsequently refined by local refinement by dividing the 80S ribosome into two major bodies, the 60S and the 40S particles. The top panels in (A) and (B) show the local resolution analysis of the 80S consensus and composite maps obtained using local refinement. Composite maps were obtained by aligning them and merging the 60S and 40S cryo-EM maps obtained by local refinement using the command 'vop add' in Chimera. Maps are colored according to their local resolution using the color coding indicated in the scale bars. The Fourier shell correlation (FSC) curves for the consensus maps and each one of the subunits after the maps were subjected to local refinement are shown for classes 1 and 2. For each class, we show the following FSC plots: ‘No mask’: the raw FSC calculated between two independent half-maps reconstructed from the data and no masking applied. ‘Loose’: FSC calculated after applying a loose soft solvent mask to both half maps. The loose mask is calculated by thresholding the density map at 50% of the maximum density value. The resulting volume is dilated to create a soft mask. Voxels in the mask within 25 angstroms of the thresholded region receive a mask value of 1.0. Voxels between 25 and 40 angstroms fall off with a soft cosine edge, and voxels outside 40 angstroms receive a value of 0.0. ‘Tight’: FSC calculated after applying a tight soft solvent mask to both half maps. The tight mask is calculated by the same procedure as the loose mask, except that the dilation distances are 6 angstroms for the value 1.0 distance and 12 angstroms for the value 0.0 distance. ‘Corrected’: FSC curve calculated using the tight mask with correction by noise substitution as described in Chen et al., 2013. In brief, the two half maps have their phases randomized beyond a certain resolution, then the tight mask is applied to both, and an FSC is calculated. This FSC is used along with the original FSC before phase randomization to compute the corrected FSC. This accounts for correlation effects induced by masking. The resolution at which phase randomization begins is the resolution at which the no-mask FSC drops below the FSC = 0.143 criterion. We used a FSC threshold of 0.143 to report the overall resolution of the maps. The ‘Viewing direction distribution’ plot in panels (A) and (B) shows the orientation distribution of the particles contributing to the cryo-EM map for each one of the classes. These plots are 2D histograms that show the number of particles with a viewing direction at a particular elevation/azimuth bin. The number of particles can be inferred by the color code scale bar to the right of each plot.",
+   "printed": false
+  },
+  {
+   "para_id": 15,
+   "loc": "body",
+   "sec_title": "Characterization of the RPFs of mRNAs in WT and FMR1 KO pellet through DEG, GO, and GSEA",
+   "text": "To analyze the mRNAs in the WT and FMR1 KO pellet, we mapped the data from RNA-seq and the RPFs to their corresponding mRNAs (Figure 5A), similar to our previous analysis of RPFs from rat (Anadolu et al., 2023). PCA shows that the variation between samples was similar to the difference between WT and FMR1 KO and that there was a large difference between the sequences in the RPFs and RNA-seq (Figure 5—figure supplement 1). To compare the samples across different biological preparations, we calculated the reads per kilobase per million mapped reads (RPKM), which normalized the mRNA count against the total mapped count and gene length (Figure 5—source data 1). We use the term abundance for the RPKM of RPFs found in the pellet fraction. The number of RPFs normalized against total mRNA obtained from whole brain homogenate with RNA-seq, often termed translational efficiency, was also calculated as the log(fold change) log (FC) (Figure 5—source data 2). We refer to this measure as ribosome occupancy (Anadolu et al., 2023) since the subject of this study is stalled ribosomes and thus the number of ribosomes/mRNA is related not only to translational efficiency, but also to stalling. Lastly, we normalized the RPKM of the RPFs in the pellet against the RPKM of RPFs in fraction 5/6 as log (FC) to determine the extent to which mRNAs are selectively found in the pellet fraction (Figure 5—source data 2). We call this value enrichment (Anadolu et al., 2023) to reflect enrichment in the pellet fraction.",
+   "printed": true
+  },
+  {
+   "para_id": 16,
+   "loc": "body",
+   "sec_title": "Characterization of the RPFs of mRNAs in WT and FMR1 KO pellet through DEG, GO, and GSEA",
+   "text": "We used DEG analysis to determine differences in RPFs between WT and FMR1 KO. Only a few differences were observed between RKPM values in WT and FMR1 KO RNA-seq samples (Figure 5—source data 3). Similarly, there were very few differences using DEG analysis for abundance, occupancy, or enrichment between WT and FMR1 KO (Figure 5—source data 2). GO analysis of the top 500 abundant or occupied mRNAs gave similar results in WT and FMR1 KO mice, and these results (increased abundance of cytoskeletal mRNAs and increased occupancy of mRNAs encoding proteins involved in RNA processing) were similar to previous results in rats (Figure 5—figure supplement 2 and Figure 5—source data 3; Anadolu et al., 2023).",
+   "printed": true
+  },
+  {
+   "para_id": 17,
+   "loc": "body",
+   "sec_title": "Characterization of the RPFs of mRNAs in WT and FMR1 KO pellet through DEG, GO, and GSEA",
+   "text": "As another way to compare mRNAs between the two groups we used gene set enrichment analysis (GSEA) comparing WT and FMR1 KO samples (Figure 5A, Figure 5—source data 4). In the RNA-seq analysis, this revealed several gene sets whose levels increased or decreased upon loss of FMRP (Figure 5B, Figure 5—source data 4). This analysis revealed a decrease of the abundance of gene sets in FMR1 KO samples (Figure 5C). GSEA sets identified as decreased in abundance in the pellet included postsynapse, neuron, spine, dendritic tree, and protein kinases (Figure 5C, Figure 5—source data 4). There were also some gene sets that had decreased occupancy, including cell component structural component of the ribosome, and nervous system development. There were no GSEA sets identified as changed in enrichment (Figure 5—source data 4). We determined whether the modified mRNAs identified in the GSEA were enriched for FMRP targets as defined by RNA CLIP studies (Darnell et al., 2011). Approximately 4% of the total mRNAs are FMRP targets and approximately this percentage of the gene sets identified in RNA-seq or measuring occupancy matched this expected number (Figure 5—source data 4). In contrast, the gene sets decreased in abundance by the loss of FMRP had about 30% FMRP target mRNAs in the mRNAs changed (Figure 5—source data 4). This suggested that there may be a decrease in the levels of FMRP target mRNAs in the pellet.",
+   "printed": true
+  },
+  {
+   "para_id": 18,
+   "loc": "body",
+   "sec_title": "Comparison of the mRNAs in the WT and FMR1 KO to selected datasets",
+   "text": "Previously, we showed that specific mRNA subsets are enriched in the pellet (Anadolu et al., 2023). We first examined the abundant mRNAs associated with ribosomes resistant to ribosome runoff (Shah et al., 2020; Figure 6—source data 1). Similar to previous experiments with rats (Anadolu et al., 2023), the mRNAs resistant to run off were significantly abundant, occupied, and enriched in both WT and FMR1 KO pellet RPFs (Figure 6). Next, we investigated FMRP-associated mRNAs (FMRP targets) through assessing mRNAs identified by cross-linking FMRP with mRNA (Darnell et al., 2011; Maurin et al., 2018; Figure 6—source data 1). We found that FMRP targets were highly abundant and enriched in the WT and FMR1 KO pellet (Figure 6A and C, Figure 6E), but the increase in occupancy was less than that observed for the mRNAs resistant to run-off. The increase in occupancy compared to total mRNAs was even less in the FMR1 KO samples.",
+   "printed": true
+  },
+  {
+   "para_id": 19,
+   "loc": "fig",
+   "sec_title": "Comparison of the mRNAs in the WT and FMR1 KO to selected datasets",
+   "text": "Comparison of mRNAs associated with ribosome resistant to initiation inhibitor mediated run-off (Shah et al., 2020) and FMRP-CLIPped mRNAs (Maurin et al., 2018; Darnell et al., 2011) to all other mRNAs. (A) WT pellet abundance, (B) FMR1 KO pellet abundance, (C) WT pellet occupancy, (D) FMR1 KO pellet occupancy, (E) WT enrichment, and (F) FMR1 KO enrichment. All analyses used an N of 3 for WT and FMR1 KO samples. As the N of the All mRNAs (13,079) were much larger than for the selected groups: Shah (185), Maurin (264), and Darnell (757) (Figure 6—source data 1) a random set from the total RNA group that matched the number in the selected group was generated for a two-tailed Welch’s t-test with Bonferroni correction for multiple t-tests. The median p-value from 10 random sets was used (Figure 6—source data 1). ****p<0.0001, ***p<0.001, **p<0.01, *p<0.05.",
+   "printed": true
+  },
+  {
+   "para_id": 20,
+   "loc": "fig",
+   "sec_title": "Comparison of the mRNAs in the WT and FMR1 KO to selected datasets",
+   "text": "Comparison of mRNAs associated with ribosome resistance of initiation inhibitor run-off (Shah et al., 2020) and FMRP-CLIPped mRNAs (Maurin et al., 2018; Darnell et al., 2011) to all other mRNAs. The fold change between WT and FMR1 KO was calculated using DEG with an N of 3 for WT and FMR1 KO samples (see ‘Materials and methods’). These fold changes were then compared between the selected groups and all mRNas for (A) pellet abundance, (B) pellet occupancy, and (C) pellet enrichment. As the N of the All mRNAs (13,079) were much larger than for the selected groups: Shah (185), Maurin (264), and Darnell (757) (Figure 7—source data 1), a random set from the total RNA group that matched the number in the selected group was generated for a two-tailed Welch’s t-test with Bonferroni correction for multiple t-tests. The median p-value from 10 random sets was used (Figure 7—source data 1). ****, p<0.0001, ***p<0.001, **p<0.01, *p<0.05.",
+   "printed": true
+  },
+  {
+   "para_id": 21,
+   "loc": "fig",
+   "sec_title": "Comparison of the mRNAs in the WT and FMR1 KO to selected datasets",
+   "text": "The mRNAs found to be resistant to ribosome run-off (Shah et al., 2020) were divided into two sets consisting of mRNAs that are also FMRP targets (identified in Maurin et al., 2018 or Darnell et al., 2011) or not. The FMRP targets were divided into two sets consisting of mRNAs identified as one of the 200 most abundant mRNAs resistant to run-off (Shah et al., 2020) or not. Box and Whisker plots are shown with line for mean. Different from the total RNA group using two-tailed Welch’s t-test with Bonferroni correction for multiple t-tests. Differences between the two sets was evaluated with a two-tailed Welch’s t-test. (A) Occupancy in WT pellet. (B) Occupancy in FMR1 KO pellet. (C) Difference in occupancy between WT and FMR1 KO pellet. The Ns (number of mRNAs) used for all the comparisons can be found in Figure 7—source data 1.",
+   "printed": false
+  },
+  {
+   "para_id": 22,
+   "loc": "body",
+   "sec_title": "Peak analysis of RPFs in the WT and FMR1 KO pellet",
+   "text": "The distribution of RPFs in stalled ribosomes is dominated by peaks, presumably representing stalling sites. Our previous result showed that RPFs in the peaks from the pellet were enriched with FMRP-related mRNA motifs (Anadolu et al., 2023). Thus, to inquire if the loss of FMRP altered the location of stalled ribosomes, peaks were identified in each of the six pellet preparations (three WT and three FMR1 KO) (Figure 8A).",
+   "printed": true
+  },
+  {
+   "para_id": 23,
+   "loc": "body",
+   "sec_title": "Peak analysis of RPFs in the WT and FMR1 KO pellet",
+   "text": "We identified 615 peaks that were present in all six samples. In contrast, there were many fewer peaks solely present in WT or solely FMR1 KO: 181 peaks for WT and 125 peaks for FMR1 KO (Figure 8—source data 1, Figure 8B). Thus, most peaks were present in both the WT and FMR1 KO pellets. In general, the distribution of RPF peaks is quite similar in different biological preparations, as exemplified by the Tubb2b mRNAs (Figure 8C), a cytoskeletal mRNA that shows high ribosomal occupancy in our samples and that was also examined in the previous manuscript (Anadolu et al., 2023).",
+   "printed": true
+  },
+  {
+   "para_id": 24,
+   "loc": "body",
+   "sec_title": "Loss of FMRP decreases the number of RNA granules containing stalled ribosomes",
+   "text": "Since FMRP did not appear to affect the location on mRNAs where the ribosomes were stalled, we next examined the number and size of neuronal RNA granules containing stalled ribosomes in WT and FMR1 KO hippocampal cultures (Figure 9A). FMRP is localized to neuronal RNA granules in hippocampal neuronal cultures (Graber et al., 2013; El Fatimy et al., 2016). We examine neuronal RNA granules containing stalled ribosomes in hippocampal neurons using a technique called ribopuromycylation (RPM) (David et al., 2013). The ribosomes covalently link puromycin to nascent peptide chains on ribosomes in a process called puromycylation, and these ribosomes are then identified with an antibody to puromycin. Stalled ribosomes are identified by incubating with an initiation inhibitor, in this case homoharringtonine (HHT), to run off translating ribosomes before puromycylation. While in non-neuronal cells, puromycylated peptides leave the ribosome (Enam et al., 2020; Hobson et al., 2020), puromycylated nascent chains are retained on neuronal stalled ribosomes, perhaps due to a peptide-mediated ribosomal stall (Anadolu et al., 2024). Thus, RPM remains appropriate for localizing stalled ribosomes in neurons.",
+   "printed": true
+  },
+  {
+   "para_id": 25,
+   "loc": "body",
+   "sec_title": "Loss of FMRP decreases the number of RNA granules containing stalled ribosomes",
+   "text": "We examined RPM puncta (Figure 9A) in neurites >50 microns from the cell soma as there was too much RPM signal proximal to this to distinguish puncta clearly. We found that the number of RPM puncta was significantly decreased in hippocampal cultures from mice lacking FMRP (Figure 9B, quantified in Figure 9C). There were no differences in the average size of the remaining puncta (Figure 9B, quantified in Figure 9D), and the RPM puncta were equally resistant to both run-off with HHT and competition with anisomycin (Figure 9—figure supplement 1), consistent with these puncta representing large collections of neuronal stalled ribosomes. Previously, we showed that dihydroxyphenylglycine (DHPG), an agonist of metabotropic glutamate receptors (mGluRs), can reduce the number of RPM puncta in these cultures (Graber et al., 2013). The decrease of these RPM puncta is coincident with the reactivation of translation from stalled ribosomes by DHPG at this time point (DIV8-10) (Graber et al., 2013; Graber et al., 2017). Moreover, long-term depression (LTD) induced by DHPG is blocked by elongation inhibitors, but not initiation inhibitors, consistent with DHPG activating protein synthesis required for mGluR-LTD by reactivating stalled ribosomes (Graber et al., 2013; Graber et al., 2017). We replicated this result; DHPG significantly decreased the number of RPM puncta in WT cultures. However, DHPG had no significant effect on the decreased number of puncta in cultures from FMRP- mice (Figure 9B and C). This is consistent with a loss of DHPG-sensitive RPM puncta in the absence of FMRP.",
+   "printed": true
+  },
+  {
+   "para_id": 26,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "We did not observe major changes in a DEG analysis of RNA-seq between control and FMR1 KO mice in P5 brains, although some changes were observed using GSEA. This differs from many studies that do show differences in RNA-seq between these two groups at other stages of development or examining specific brain regions (Thomson et al., 2017; Sawicka et al., 2019; Kurosaki et al., 2022; Ntoulas et al., 2024). It is likely that our use of whole brains, a specific time point, and a relatively small number of biological replicates decreased our ability to see FMRP-related changes in mRNAs that are observed at a more cell-type-specific level and at different developmental times.",
+   "printed": true
+  },
+  {
+   "para_id": 27,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "In the GSEA of RPFs in the pellet (abundance), there were a number of gene sets that were decreased in the absence of FMRP. These gene sets were enriched in FMRP targets (Figure 5). Indeed, if we focused just on the FMRP targets, there was a small but highly significant decrease in the relative abundance, occupancy, and enrichment of these mRNAs in the absence of FMRP. Interestingly, the mRNAs identified in FMRP Clips could be divided into two classes based on whether they were also identified as mRNAs resistant to run-off. Only the FMRP targets that were also identified as mRNAs resistant to run-off showed increased occupancy compared to other mRNAs. mRNAs resistant to run-off that were not FMRP targets were still significantly decreased in abundance and enrichment, but unlike FMRP targets, loss of FMRP did not affect their occupancy. These results and the finding that peaks of RPFs are not affected by the loss of FMRP are consistent with FMRP not directly regulating stalling, but rather affecting whether stalled mRNAs are found in the pellet. This may be partly due to the role of FMRP in regulating the initiation of FMRP target mRNAs, as only initiated mRNAs can be stalled. Indeed, there is considerable evidence that FMRP regulates the initiation of a subset of mRNAs (Santini and Klann, 2014; Bagni and Zukin, 2019).",
+   "printed": true
+  },
+  {
+   "para_id": 28,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "In contrast to the examination of the number of ribosomes and RBPs present in the ribosome clusters in the pellet, we did find a decrease in RPM puncta in hippocampal cultures, and the remaining puncta were insensitive to DHPG (Figure 9). FMRP contains a low-complexity domain that allows phase separation to form spontaneously (Zhang et al., 2022). FMRP is subject to post-translational modification by neuronal stimuli, such as mGluR-LTD (Niere et al., 2012; Khayachi et al., 2018), that reactivates translation from stalled ribosomes (Graber et al., 2013; Graber et al., 2017). Loss of FMRP leads to an increase in the amount of mGluR-LTD and removes the protein synthesis requirement for mGluR-LTD (Hou et al., 2006; Nosyreva and Huber, 2006). One possibility is that FMRP plays a role in retaining stalled ribosomes within RNA granules by maintaining their liquid–liquid phase, while post-translational modifications of FMRP participate in the controlled disassembly of these granules, enabling translational reactivation. In the absence of FMRP, premature disassembly of RNA granules may lead to premature production of proteins from mRNAs stalled in neuronal RNA granules.",
+   "printed": true
+  },
+  {
+   "para_id": 29,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "The pellet and the RPM labeled granules are linked by the fact that both the ribosomes in the isolated clusters and in RPM puncta in hippocampal neurites can be puromycylated without dissociation of the puromycylated peptide, and in both, puromycylation is less resistant to anisomycin (Graber et al., 2013; Anadolu et al., 2024; Figure 9—figure supplement 1). However, while stalled ribosomes are enriched in the pellet, it is not clear that only stalled ribosomes from neuronal RNA granules are present in the pellet. Moreover, it is not clear that all stalled ribosomes are sedimented in the pellet. FMRP may be more important in stabilizing ribosome clusters in RNA granules than for forming them. A better understanding of how ribosome clusters move in and out of RNA granules is required to address this issue in more detail.",
+   "printed": true
+  },
+  {
+   "para_id": 30,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Our previous results showed a larger protected fragment in RPFs from the pellet, but here we showed that this was due to incomplete nuclease protection. This incomplete digest was much more obvious at the entry site of the ribosome than at the exit site, as the difference in cleavage is mainly at the 3’ end of the protected mRNA (Anadolu et al., 2023; Figure 3). It is still unclear whether this is due to increased nuclease resistance of the mRNA near the entrance site of the ribosome due to secondary structures or just differences in nuclease accessibility to the region near the entrance site that is not neuronal specific. Further research on the mechanism of stalling may make this clearer.",
+   "printed": true
+  },
+  {
+   "para_id": 31,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Ribosomes containing secretory mRNA are stalled by the signal recognition protein and then co-translationally inserted into the ER. There is evidence that ribosomes attached to the ER can be transported in neuronal processes (Carter et al., 2020; Martin-Solana et al., 2024). Some local mRNAs hitchhike with mitochondria or endosomes (Fernandopulle et al., 2021). Differences in RNA composition between fraction 5/6 and the pellet may be due to increased sedimentation of these other forms of neuronal transport. Indeed, ribophorin, a rough ER protein that associates with ribosomes, is enriched in the pellet compared to fraction 5/6 (Figure 1). However, examination of our standard EM pictures shows few examples of ribosomes attached to membranes (Carter et al., 2020; Martin-Solana et al., 2024), and the clustered ribosomes that make up most of the pellet and fraction 5/6 (Figure 1) do not resemble ribosomes in transit in these other structures.",
+   "printed": true
+  },
+  {
+   "para_id": 32,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "A major caveat of the present study is that the biochemical studies are only done at a single developmental point (P5 brains), and similarly, the hippocampal neurite studies use a single comparable time point. P5 brains were chosen due to their relative enrichment in neurons (Bandeira et al., 2009) and their lack of myelin. Myelin interferes with the sedimentation of ribosomal clusters (Khandjian et al., 2004; El Fatimy et al., 2016), and the detergents required to remove this interference also interfere with the sedimentation of ribosome clusters (Khandjian et al., 2004; El Fatimy et al., 2016), making comparable studies at later developmental time points not experimentally feasible at the present time. Thus, whether FMRP may play a more important role in determining stalling positions at later developmental time points cannot be ruled out.",
+   "printed": true
+  },
+  {
+   "para_id": 33,
+   "loc": "body",
+   "sec_title": "Conclusions",
+   "text": "We previously showed that the peaks of RPFs in ribosomes in the pellet contain sequences enriched in FMRP CLIP experiments (Anadolu et al., 2023). Here we show that this is independent of FMRP since the enrichment of these sequences is observed even when FMRP is lost. This suggests that, rather than FMRP driving the recognition of stalling sites, the sequences direct ribosome stalling, and that FMRP associates with stalled ribosomes. Moreover, FMRP does not affect anisomycin-resistant puromycylation of stalled ribosomes, nor does it alter the proteins associated with stalled ribosomes. There is a small decrease in the relative abundance, ribosome occupancy, and enrichment in the pellet of the FMRP clipped mRNAs (FMRP targets), suggesting that these mRNAs do have some specific relationship to FMRP that is independent of FMRP stalling these mRNAs. FMRP also plays a role in RNA granules containing stalled ribosomes since their number is decreased in the absence of FMRP, and the remaining granules are not reactivated by DHPG. We propose that FMRP is important for the regulated dissociation of the liquid–liquid phase neuronal RNA granules containing stalled ribosomes.",
+   "printed": true
+  },
+  {
+   "para_id": 34,
+   "loc": "body",
+   "sec_title": "Purification of the RNA granule-enriched fraction",
+   "text": "All preparations used brains that were flash frozen using either liquid nitrogen or ethanol dry ice bath after dissection. Either three livers, five rat brains (Sprague–Dawley; Charles River Laboratory) or 10 mouse brains (C57Bl/6) from WT and FMR1 KO mouse were used. All animal experiments were carried out in strict compliance with protocols approved by the Montreal Neurologic Institute animal committee (Protocol MNI-7285). All animals were 5-day old. Samples were homogenized in either the previous (Anadolu et al., 2023) RNA Granule Buffer (20 mM Tris-HCl pH 7.4 [catalog# BP152-1, Thermo Fisher Scientific], 150 mM NaCl [catalog# BP358-212, Thermo Fisher Scientific], 2.5 mM MgCl2 [catalog# M33-500, Thermo Fisher Scientific]) or high Mg2+ RNA Granule Buffer (20 mM Tris-HCl pH 7.4, 150 mM NaCl, 10 mM MgCl2). These buffers were supplemented with 1 mM DTT (catalog# D9163, Sigma-Aldrich), and 1 mM EGTA (catalog# E8145 Sigma-Aldrich) for homogenization. The homogenate was centrifuged 15 min in a Thermo Fisher Scientific T865 fixed-angle rotor at 6117 × g at 4°C to separate debris, such as lipid and extracellular matrix, from the ribosomes. The supernatant was collected with some set aside as starter fraction. The rest of the supernatant was then clarified with 1% IGEPAL CA-630 (catalog# 04693132001, Roche) for 5 min at 4°C Sucrose solution was produced by suspending sucrose (catalog# 8550, Calbiochem) with RNA Granule buffer. The samples were loaded onto a 60% sucrose pad in a Sorvall 36 ml tube (Kendro, catalog# 3141, Thermo Fisher Scientific) and centrifuged at 56,660 × g for 2 h in AH-629 swing-bucket rotor to retrieve the ribosomes. The ribosomes were resuspended in RNA Granule buffer then reloaded onto 15–60% sucrose gradient and centrifuged at 56,660 × g for 45 min. Each fraction was 3.5 ml and collected from the top.",
+   "printed": true
+  },
+  {
+   "para_id": 35,
+   "loc": "body",
+   "sec_title": "Linker ligation",
+   "text": "The protocols follow improvements in RPF ligation (McGlincy and Ingolia, 2017). The concentration from the RNA footprint was calculated from Bioanalyzer small RNA kit (catalog# 5067-1548, Agilent). An equal amount of RNA was calculated and transferred to a new tube for each sample to ensure each sample has a relatively equal amount after pooling. Three different linkers (NI-810, NI-811, BI-812) were attached to each of the replicates. The samples were first dephosphorylated with T4PNK linker (catalog# M0351L, NEB), and then pre-adenylated linkers were attached through T4 Rnl2 (catalog# M0351L, NEB). The linked RNA was purified through excision of urea gel between 50 bp and 70 bp. Samples with the same variables were then pooled together with their gel fragment combined. The RNA was extracted from the gel with the steps stated previously containing all three replicates, followed by reverse transcription. MyOne Streptavidin C1 DynaBeads (catalog# 65001, Thermo Fisher) was used for rRNA depletion. Lastly, PCR was performed. The samples were sequenced through the McGill University Genome Center on NovaSeq S1/2 flow cells.",
+   "printed": true
+  },
+  {
+   "para_id": 36,
+   "loc": "body",
+   "sec_title": "RPF and RNA-seq data analysis",
+   "text": "The differential expression gene analysis was performed via RStudio packages in edgeR from Bioconductor adapted for RNA-seq (Wu et al., 2021). Data were normalized for library size differences and filtered to remove lowly expressed genes. Results were ranked and evaluated based on adjusted p-value (FDR), which was calculated through the Benjamini–Hochberg method. To visualize sample clustering and data quality, principal component analysis (PCA) was performed on log-transformed counts-per-million (CPM) values using the stats and edgeR packages; low expression gene was filtered and normalized. For GSEA, resulting gene lists were ranked and processed for gene set enrichment analysis (GSEA) using the fgsea package against MSigDB C5 (GO) mouse gene sets. Pathway enrichment was restricted to sets containing 10–500 genes, with significance prioritized by the Benjamini–Hochberg adjusted p-value. GO enrichment analysis was performed with clusterprofiler (Wu et al., 2021) and org.Mm.eg.db from Biomanager using RStudio (Yu, 2024). Comparison to data online was performed via Jupyter Notebook and graphed by boxplot in matplotlib. The significance of each dataset comparison was done through performing a t-test between the overlapped genes in our data and non-overlapped genes through the statistics function from Python. The p-value was Bonferroni corrected.",
+   "printed": true
+  },
+  {
+   "para_id": 37,
+   "loc": "body",
+   "sec_title": "RPF and RNA-seq data analysis",
+   "text": "We used transcript coordinate Bam files for peak analysis. Regions of the mRNA that have an abundant amount of RPFs were referred to as peaks (Anadolu et al., 2023). The peaks previously were selected through marking the inflection point within the abundances of RPFs. Here, we identify the highest point (zenith) in the peak after mapping RPFs to transcripts. To be identified as a peak, the zenith of an abundance site for the reads must be 4× higher than the average of the total transcript. Moreover, this zenith must be detected in all the biological samples (zenith within 6 nucleotides for each replicate). We first determine total peaks in all six samples (WT and FMR1 KO) and then determine peaks that were in all WT samples, but not in FMR1 KO samples (WT peaks; peaks lost in the absence of FMRP) and peaks that were present only in the FMR1 KO samples, but not in any WT samples (FMRP peaks).",
+   "printed": true
+  },
+  {
+   "para_id": 38,
+   "loc": "body",
+   "sec_title": "RPF and RNA-seq data analysis",
+   "text": "For identification of motifs in the peaks, the zenith was extended on both sides by 17 nt. Motif occurrences in the peaks were identified using FIMO from the MEME suite (Bailey et al., 2015) and universalmotif (Tremblay, 2024). Percentage peaks with FXS-related motifs were identifying only the positive strand and limiting the score, or log-likelihood ratio, to 5, and normalizing against the total peaks. Biopython was utilized to convert peak sequences to amino acids.",
+   "printed": true
+  },
+  {
+   "para_id": 39,
+   "loc": "body",
+   "sec_title": "Cryo-electron microscopy",
+   "text": "The purified fractions were treated with nuclease as described (Anadolu et al., 2023) before being applied to the electron microscopy grids. The samples were applied to the grid in buffer containing 20 mM Tris-HCl, pH 7.4; 150 mM NaCl; 10 mM MgCl2+, and they were applied at a concentration of 180 nM. Cryo-EM grids (c-flat CF-2/2-2C-T) used for these samples were washed in chloroform for 2 h and treated with glow discharge in air at 15 mA for 20 s. A volume of 3.6 μl was applied to the grid before vitrification in liquid ethane using a Vitrobot Mark IV (Thermo Fisher Scientific Inc). The Vitrobot parameters used for vitrification were blotting time 3 s and a blot force +1. The Vitrobot chamber was set to 25°C and 100% relative humidity.",
+   "printed": true
+  },
+  {
+   "para_id": 40,
+   "loc": "body",
+   "sec_title": "Cryo-electron microscopy",
+   "text": "All datasets were collected at FEMR-McGill using a Titan Krios microscope operated at 300 kV and equipped with a Gatan BioQuantum LS K3 direct electron detector. The software used for data collection was SerialEM (Schorb et al., 2019). Images were collected in counting mode at a nominal magnification of 81,000×, producing images with a calibrated pixel size of 1.09 Å. Movies for all datasets were collected using 30 frames with a total dose of 40 e-/Å2.",
+   "printed": true
+  },
+  {
+   "para_id": 41,
+   "loc": "body",
+   "sec_title": "Image processing",
+   "text": "All the image processing steps were done using cryoSPARC v4.5 software (Punjani et al., 2017). A total of 10,866 cryo-EM movies were corrected for beam-induced motion correction using Patch Motion Correction using default settings that included using information up to 5 Å resolution when aligning frames, a B-factor of 500, and a 0.5 calibrated smoothing constant applied to the trajectories. CTF parameter estimation was done using Patch CTF estimation with default settings. The minimum and maximum resolution considered to estimate the CTF parameters were 25 Å and 4 Å, and the minimum and maximum defocus values were set up at 1000 and 50,000 Å. The corrected micrographs were then curated by Manually Curate Exposures. For the particle-picking step, the Blob Picker program was first applied to 2000 obtained micrographs using a circular blob with a minimum and maximum particle diameter of 200 Å and 480 Å. The maximum resolution considered during picking was 20 Å. The angular sampling used was 5 degrees, and the minimum particle separation distance was 0.5 (in units of particle diameters). The picked particles were extracted with a box size of 448 pixels, which was reduced to 112 pixels, and then subjected to 2D classification to generate the 2D templates for subsequent Template Picker using the 2000 micrographs. In the 2D Classification step, we requested 50 classes, and we selected 0.85 and 0.99 as inner and outer window radius. The maximum resolution considered in the images was 9 Å, and we used an initial uncertainty factor of 2. The remaining settings were used with their default parameters. The particles obtained from the Template Picker were curated again by 2D classification to remove the bad particles using the same job parameters. The curated particles were selected and used to train a model using Topaz (Bepler et al., 2019) with default settings, including a minibatch size of 128 and an expected number of particles of 165 per micrograph. The trained model was then used to pick particles from all the micrographs. The selected particles underwent two cycles of 2D classification to remove junk particles. The obtained particles were then subjected to the subsequent particle curation step, which combined Ab Initio Reconstruction and Heterogeneous Refinement programs using default settings. For the ab initio step, we selected 0.85 and 0.99 as inner and outer window radius, requested three classes, and a maximum and minimum resolution to consider of 35 Å and 12 Å. All other parameters for this routine were used with the default settings and values. The three initial ab initio models generated were subsequently used in a Heterogeneous Refinement using default parameters to separate the particles into multiple classes. The particles assigned to the class with unidentifiable features were discarded, whereas the particles assigned to reconstructions with ribosomal features were merged for subsequent processing. The total number of good particles after particle curation was 890,644.",
+   "printed": true
+  },
+  {
+   "para_id": 42,
+   "loc": "body",
+   "sec_title": "Image processing",
+   "text": "To explore the structural heterogeneity, the curated set of particles was used to generate a consensus map with Non-Uniform Refinement at default settings and C1 symmetry. The aligned particles were then subjected to 3D Variability Analysis requesting three orthogonal principal modes, and the subsequent 3D Variability Display 3D job was run in cluster mode with all settings at default values. The number of clusters requested across experiments, ranging from 3 to 5. Results were filtered at 9 Å. Overall, we performed two rounds of the 3D Variability Analysis combined with 3D Variability Display to address sample heterogeneity. Resulting maps from the exhaustive 3D classification were visually inspected in Pettersen et al., 2004; Pettersen et al., 2021 and groups of particles representing similar structural features were merged. To obtain high-resolution structures, the particles from each class were extracted with a box size of 448 pixels and refined with Non-Uniform Refinement. The refinement jobs were run under default settings with C1 symmetry, optimized per-particle defocus, optimized per-exposure group CTF parameters, and options ‘Fit Spherical Aberration’, ‘Fit tetrafoil’, and ‘Fit anisotropic Magnification’ activated. To improve local resolution, Local Refinement was performed under default settings to refine the two subunits (40S and 60S) independently for all the classes. Particle Subtraction run under default settings was used before Local Refinement to subtract the signal from the particle stacks that will not be used for Local Refinement. Composite maps were obtained by aligning them to the consensus maps of the 80S ribosome and merging the 60S and 40S cryo-EM maps from local refinement using the 'vop add' command in Chimera.",
+   "printed": true
+  },
+  {
+   "para_id": 43,
+   "loc": "body",
+   "sec_title": "Image processing",
+   "text": "Average resolution estimation and local resolution analysis were done with cryoSPARC using the gold-standard approach (Henderson et al., 2012). For each map, we calculated the following FSC plots: ‘No mask’: the raw FSC calculated between two independent half-maps reconstructed from the data and no masking applied. ‘Loose’: FSC calculated after applying a loose soft solvent mask to both half maps. The loose mask is calculated by thresholding the density map at 50% of the maximum density value. The resulting volume is dilated to create a soft mask. Voxels in the mask within 25 angstroms of the thresholded region receive a mask value of 1.0. Voxels between 25 and 40 angstroms fall off with a soft cosine edge, and voxels outside 40 angstroms receive a value of 0.0. ‘Tight’: FSC calculated after applying a tight soft solvent mask to both half maps. The tight mask is calculated by the same procedure as the loose mask, except that the dilation distances are 6 angstroms for the value 1.0 distance and 12 angstroms for the value 0.0 distance. ‘Corrected’: FSC curve calculated using the tight mask with correction by noise substitution (Chen et al., 2013). In brief, the two half maps have their phases randomized beyond a certain resolution, then the tight mask is applied to both, and an FSC is calculated. This FSC is used along with the original FSC before phase randomization to compute the corrected FSC. This accounts for correlation effects induced by masking. The resolution at which phase randomization begins is the resolution at which the no-mask FSC drops below the FSC = 0.143 criterion. Cryo-EM map visualization was performed in UCSF Chimera and Chimera X (Pettersen et al., 2004; Pettersen et al., 2021).",
+   "printed": true
+  },
+  {
+   "para_id": 44,
+   "loc": "body",
+   "sec_title": "Ribopuromycylation assay",
+   "text": "WT mouse and FMR1 KO mouse hippocampal neurons were dissected from P0 mouse and cultured onto poly-L-lysine (PLL)-coated 18 mm coverslips as previously described (Langille et al., 2019). The hippocampal neurons were incubated with Neurobasal media supplemented with 1% (vol/vol) N2 and penicillin/streptomycin, 2% (vol/vol) B27, and 0.5 mM GlutaMAX (Life Technologies). Treatment groups: +puro (puromycin), -puro, +puro + anisomycin, +puro + HHT (homoharringtonine), and +puro + HHT+DHPG (S)–3,5-dihydroxyphenylglycine were assigned to cells and added to the culture on day 8. Cells that were assigned to HHT or HHT +DHPG conditions were preincubated with supplemented neural basal media as stated above with 5 µM HHT (catalog# 1416, Tocris Bioscience) or with 5 µM HHT and 100 µM DHPG (catalog# 0805, Tocris Bioscience) for 15 min in 37°C to ensure sufficient time for ribosomes to runoff and for DHPG to reactivate stalled ribosomes. The control +puro, -puro, and +puro + Aniso groups were incubated with supplemented neural basal media. The solution was then removed from all groups and replaced with new supplemented neural basal medium for the control group and supplemented neural basal medium with 100 µM puromycin or 100 µM Puro and 100 µM anisomycin. All groups were incubated at 37°C for 5 min similar to previous experiments (Graber et al., 2013; Langille et al., 2019). The cultures were then placed on ice and washed with HBS supplemented with 0.0003% digitonin for 2 min, followed by 3× wash with HBS. The cultures were then placed at room temperature and fixed with 4% paraformaldehyde for 30 min. Upon completion, the cell cultures were washed with PBS three times, sealed in the 1x PBS, and placed at 4°C till immunocytochemistry.",
+   "printed": true
+  }
+ ],
+ "links": [],
+ "links_optional": [
+  "creativecommons.org/licenses/by/4.0",
+  "doi:10.1002/cne.903620103",
+  "doi:10.1002/jcc.20084",
+  "doi:10.1002/pro.3943",
+  "doi:10.1007/400_2009_5",
+  "doi:10.1007/s00418-012-1063-8",
+  "doi:10.1016/j.cell.2011.06.013",
+  "doi:10.1016/j.celrep.2020.02.076",
+  "doi:10.1016/j.jmb.2022.167801",
+  "doi:10.1016/j.molcel.2022.10.018",
+  "doi:10.1016/j.neuron.2004.07.022",
+  "doi:10.1016/j.neuron.2006.07.005",
+  "doi:10.1016/j.neuron.2006.08.021",
+  "doi:10.1016/j.neuron.2017.07.013",
+  "doi:10.1016/j.neuron.2019.02.041",
+  "doi:10.1016/j.neuron.2023.06.009",
+  "doi:10.1016/j.neuron.2023.10.011",
+  "doi:10.1016/j.str.2011.12.014",
+  "doi:10.1016/j.tins.2014.05.009",
+  "doi:10.1016/j.ultramic.2013.06.004",
+  "doi:10.1016/j.xinn.2021.100141",
+  "doi:10.1016/j.xinn.2024.100722",
+  "doi:10.1016/j.ymeth.2017.05.028",
+  "doi:10.1016/s0022-2836(03)00668-5",
+  "doi:10.1016/s0896-6273(01)00493-7",
+  "doi:10.1016/s0896-6273(01)00508-6",
+  "doi:10.1038/nature04115",
+  "doi:10.1038/nature11737",
+  "doi:10.1038/nature13737",
+  "doi:10.1038/nm.3353",
+  "doi:10.1038/nmeth.4169",
+  "doi:10.1038/nrg3645",
+  "doi:10.1038/nrn4001",
+  "doi:10.1038/s41398-024-02815-0",
+  "doi:10.1038/s41467-018-03222-y",
+  "doi:10.1038/s41467-022-28547-7",
+  "doi:10.1038/s41583-021-00432-0",
+  "doi:10.1038/s41583-021-00445-9",
+  "doi:10.1038/s41592-019-0396-9",
+  "doi:10.1038/s41592-019-0575-8",
+  "doi:10.1038/s41593-020-00785-2",
+  "doi:10.1038/s41594-019-0263-5",
+  "doi:10.1042/bst20253066",
+  "doi:10.1055/s-0034-1386764",
+  "doi:10.1073/pnas.0405398101",
+  "doi:10.1073/pnas.0409803102",
+  "doi:10.1073/pnas.0804650106",
+  "doi:10.1073/pnas.1111226109",
+  "doi:10.1073/pnas.122205699",
+  "doi:10.1073/pnas.1307747110",
+  "doi:10.1073/pnas.2306993121",
+  "doi:10.1074/mcp.m500255-mcp200",
+  "doi:10.1091/mbc.e07-09-0914",
+  "doi:10.1091/mbc.e25-08-0383",
+  "doi:10.1093/nar/gkv416",
+  "doi:10.1093/nar/gkw593",
+  "doi:10.1093/nar/gky267",
+  "doi:10.1093/oxfordhb/9780190686307.013.20",
+  "doi:10.1101/2024.06.07.598007",
+  "doi:10.1101/2025.02.21.639553",
+  "doi:10.1101/lm.049965.119",
+  "doi:10.1111/j.1600-0854.2006.00500.x",
+  "doi:10.1111/j.1601-183x.2005.00144.x",
+  "doi:10.1126/sciadv.aay9572",
+  "doi:10.1126/scisignal.2005832",
+  "doi:10.1128/mcb.20.15.5592-5601.2000",
+  "doi:10.1152/jn.01316.2005",
+  "doi:10.1152/physrev.00048.2009",
+  "doi:10.1371/journal.pgen.1006192",
+  "doi:10.1523/jneurosci.0088-17.2017",
+  "doi:10.1523/jneurosci.0093-05.2005",
+  "doi:10.1523/jneurosci.1002-22.2023",
+  "doi:10.1523/jneurosci.4650-11.2012",
+  "doi:10.21105/joss.07012",
+  "doi:10.7554/elife.106692",
+  "doi:10.7554/elife.106692.1",
+  "doi:10.7554/elife.106692.1.sa1",
+  "doi:10.7554/elife.106692.1.sa2",
+  "doi:10.7554/elife.106692.1.sa3",
+  "doi:10.7554/elife.106692.1.sa4",
+  "doi:10.7554/elife.106692.2",
+  "doi:10.7554/elife.106692.2.sa1",
+  "doi:10.7554/elife.106692.2.sa2",
+  "doi:10.7554/elife.106692.2.sa3",
+  "doi:10.7554/elife.106692.2.sa4",
+  "doi:10.7554/elife.46919",
+  "doi:10.7554/elife.60048",
+  "doi:10.7554/elife.60303",
+  "identifiers.org/rrid:ab_10693546",
+  "identifiers.org/rrid:ab_11018813",
+  "identifiers.org/rrid:ab_1903978",
+  "identifiers.org/rrid:ab_2201427",
+  "identifiers.org/rrid:ab_2253242",
+  "identifiers.org/rrid:ab_228307",
+  "identifiers.org/rrid:ab_228341",
+  "identifiers.org/rrid:ab_2535708",
+  "identifiers.org/rrid:ab_2619605",
+  "identifiers.org/rrid:ab_331355",
+  "identifiers.org/rrid:ab_628221",
+  "identifiers.org/rrid:ab_790226",
+  "identifiers.org/rrid:mgi:5651135",
+  "identifiers.org/rrid:scr_001783",
+  "identifiers.org/rrid:scr_002105",
+  "identifiers.org/rrid:scr_002865",
+  "identifiers.org/rrid:scr_003070",
+  "identifiers.org/rrid:scr_004463",
+  "identifiers.org/rrid:scr_006442",
+  "identifiers.org/rrid:scr_006525",
+  "identifiers.org/rrid:scr_011841",
+  "identifiers.org/rrid:scr_012802",
+  "identifiers.org/rrid:scr_015872",
+  "identifiers.org/rrid:scr_016368",
+  "identifiers.org/rrid:scr_016501",
+  "pubmed.ncbi.nlm.nih.gov/12140260",
+  "pubmed.ncbi.nlm.nih.gov/32881101",
+  "pubmed.ncbi.nlm.nih.gov/34557778"
+ ],
+ "own_doi": "doi:10.7554/elife.106692",
+ "citations": [
+  {
+   "cite_id": 1,
+   "para_id": 1,
+   "bib_id": 37,
+   "marker": "Ishizuka et al., 1995",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 2,
+   "para_id": 1,
+   "bib_id": 17,
+   "marker": "Debanne et al., 2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 3,
+   "para_id": 1,
+   "bib_id": 71,
+   "marker": "Yoon et al., 2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 4,
+   "para_id": 1,
+   "bib_id": 32,
+   "marker": "Holt et al., 2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 5,
+   "para_id": 1,
+   "bib_id": 69,
+   "marker": "Wong et al., 2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 6,
+   "para_id": 1,
+   "bib_id": 32,
+   "marker": "Holt et al., 2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 7,
+   "para_id": 2,
+   "bib_id": 41,
+   "marker": "Kiebler and Bassell, 2006",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 8,
+   "para_id": 2,
+   "bib_id": 63,
+   "marker": "Sossin and DesGroseillers, 2006",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 9,
+   "para_id": 2,
+   "bib_id": 10,
+   "marker": "Batish et al., 2012",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 10,
+   "para_id": 2,
+   "bib_id": 45,
+   "marker": "Langille et al., 2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 11,
+   "para_id": 2,
+   "bib_id": 57,
+   "marker": "Richter et al., 2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 12,
+   "para_id": 3,
+   "bib_id": 72,
+   "marker": "Yu and Berry-Kravis, 2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 13,
+   "para_id": 3,
+   "bib_id": 57,
+   "marker": "Richter et al., 2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 14,
+   "para_id": 3,
+   "bib_id": 58,
+   "marker": "Richter and Zhao, 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 15,
+   "para_id": 3,
+   "bib_id": 18,
+   "marker": "Deng and Klyachko, 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 16,
+   "para_id": 4,
+   "bib_id": 34,
+   "marker": "Huber et al., 2002",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 17,
+   "para_id": 4,
+   "bib_id": 56,
+   "marker": "Qin et al., 2005",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 18,
+   "para_id": 4,
+   "bib_id": 7,
+   "marker": "Bagni and Zukin, 2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 19,
+   "para_id": 4,
+   "bib_id": 15,
+   "marker": "Darnell et al., 2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 20,
+   "para_id": 4,
+   "bib_id": 15,
+   "marker": "Darnell et al., 2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 21,
+   "para_id": 4,
+   "bib_id": 68,
+   "marker": "Udagawa et al., 2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 22,
+   "para_id": 4,
+   "bib_id": 5,
+   "marker": "Ascano et al., 2012",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 23,
+   "para_id": 4,
+   "bib_id": 4,
+   "marker": "Anderson et al., 2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 24,
+   "para_id": 4,
+   "bib_id": 14,
+   "marker": "Darnell et al., 2005",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 25,
+   "para_id": 4,
+   "bib_id": 4,
+   "marker": "Anderson et al., 2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 26,
+   "para_id": 5,
+   "bib_id": 43,
+   "marker": "Krichevsky et al., 2001",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 27,
+   "para_id": 5,
+   "bib_id": 21,
+   "marker": "Elvira et al., 2006",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 28,
+   "para_id": 5,
+   "bib_id": 20,
+   "marker": "El Fatimy et al., 2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 29,
+   "para_id": 5,
+   "bib_id": 42,
+   "marker": "Kipper et al., 2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 30,
+   "para_id": 5,
+   "bib_id": 2,
+   "marker": "Anadolu et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 31,
+   "para_id": 5,
+   "bib_id": 42,
+   "marker": "Kipper et al., 2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 32,
+   "para_id": 5,
+   "bib_id": 2,
+   "marker": "Anadolu et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 33,
+   "para_id": 5,
+   "bib_id": 3,
+   "marker": "Anadolu et al., 2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 34,
+   "para_id": 5,
+   "bib_id": 3,
+   "marker": "Anadolu et al., 2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 35,
+   "para_id": 5,
+   "bib_id": 2,
+   "marker": "Anadolu et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 36,
+   "para_id": 6,
+   "bib_id": 26,
+   "marker": "Graber et al., 2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 37,
+   "para_id": 7,
+   "bib_id": 26,
+   "marker": "Graber et al., 2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 38,
+   "para_id": 7,
+   "bib_id": 43,
+   "marker": "Krichevsky et al., 2001",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 39,
+   "para_id": 7,
+   "bib_id": 6,
+   "marker": "Aschrafi et al., 2005",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 40,
+   "para_id": 7,
+   "bib_id": 21,
+   "marker": "Elvira et al., 2006",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 41,
+   "para_id": 7,
+   "bib_id": 20,
+   "marker": "El Fatimy et al., 2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 42,
+   "para_id": 7,
+   "bib_id": 2,
+   "marker": "Anadolu et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 43,
+   "para_id": 7,
+   "bib_id": 2,
+   "marker": "Anadolu et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 44,
+   "para_id": 8,
+   "bib_id": 58,
+   "marker": "Richter and Zhao, 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 45,
+   "para_id": 8,
+   "bib_id": 20,
+   "marker": "El Fatimy et al., 2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 46,
+   "para_id": 8,
+   "bib_id": 2,
+   "marker": "Anadolu et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 47,
+   "para_id": 8,
+   "bib_id": 20,
+   "marker": "El Fatimy et al., 2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 48,
+   "para_id": 8,
+   "bib_id": 2,
+   "marker": "Anadolu et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 49,
+   "para_id": 8,
+   "bib_id": 2,
+   "marker": "Anadolu et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 50,
+   "para_id": 8,
+   "bib_id": 19,
+   "marker": "Duchaîne et al., 2000",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 51,
+   "para_id": 9,
+   "bib_id": 27,
+   "marker": "Graber et al., 2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 52,
+   "para_id": 9,
+   "bib_id": 65,
+   "marker": "Tang et al., 2001",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 53,
+   "para_id": 9,
+   "bib_id": 30,
+   "marker": "Heraud-Farlow and Kiebler, 2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 54,
+   "para_id": 9,
+   "bib_id": 27,
+   "marker": "Graber et al., 2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 55,
+   "para_id": 9,
+   "bib_id": 35,
+   "marker": "Hüttelmaier et al., 2005",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 56,
+   "para_id": 9,
+   "bib_id": 38,
+   "marker": "Kanai et al., 2004",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 57,
+   "para_id": 9,
+   "bib_id": 1,
+   "marker": "Anadolu and Sossin, 2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 58,
+   "para_id": 9,
+   "bib_id": 24,
+   "marker": "Gao et al., 2008",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 59,
+   "para_id": 9,
+   "bib_id": 46,
+   "marker": "Lo et al., 2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 60,
+   "para_id": 9,
+   "bib_id": 1,
+   "marker": "Anadolu and Sossin, 2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 61,
+   "para_id": 9,
+   "bib_id": 64,
+   "marker": "Sun et al., 2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 62,
+   "para_id": 9,
+   "bib_id": 2,
+   "marker": "Anadolu et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 63,
+   "para_id": 9,
+   "bib_id": 2,
+   "marker": "Anadolu et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 64,
+   "para_id": 10,
+   "bib_id": 42,
+   "marker": "Kipper et al., 2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 65,
+   "para_id": 10,
+   "bib_id": 2,
+   "marker": "Anadolu et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 66,
+   "para_id": 10,
+   "bib_id": 28,
+   "marker": "Hansen et al., 2003",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 67,
+   "para_id": 10,
+   "bib_id": 25,
+   "marker": "Garreau de Loubresse et al., 2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 68,
+   "para_id": 10,
+   "bib_id": 3,
+   "marker": "Anadolu et al., 2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 69,
+   "para_id": 11,
+   "bib_id": 3,
+   "marker": "Anadolu et al., 2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 70,
+   "para_id": 12,
+   "bib_id": 2,
+   "marker": "Anadolu et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 71,
+   "para_id": 12,
+   "bib_id": 36,
+   "marker": "Ingolia, 2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 72,
+   "para_id": 12,
+   "bib_id": 2,
+   "marker": "Anadolu et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 73,
+   "para_id": 13,
+   "bib_id": 2,
+   "marker": "Anadolu et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 74,
+   "para_id": 14,
+   "bib_id": 13,
+   "marker": "Chen et al., 2013",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 75,
+   "para_id": 15,
+   "bib_id": 2,
+   "marker": "Anadolu et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 76,
+   "para_id": 15,
+   "bib_id": 2,
+   "marker": "Anadolu et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 77,
+   "para_id": 15,
+   "bib_id": 2,
+   "marker": "Anadolu et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 78,
+   "para_id": 16,
+   "bib_id": 2,
+   "marker": "Anadolu et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 79,
+   "para_id": 17,
+   "bib_id": 15,
+   "marker": "Darnell et al., 2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 80,
+   "para_id": 18,
+   "bib_id": 2,
+   "marker": "Anadolu et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 81,
+   "para_id": 18,
+   "bib_id": 62,
+   "marker": "Shah et al., 2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 82,
+   "para_id": 18,
+   "bib_id": 2,
+   "marker": "Anadolu et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 83,
+   "para_id": 18,
+   "bib_id": 15,
+   "marker": "Darnell et al., 2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 84,
+   "para_id": 18,
+   "bib_id": 48,
+   "marker": "Maurin et al., 2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 85,
+   "para_id": 19,
+   "bib_id": 62,
+   "marker": "Shah et al., 2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 86,
+   "para_id": 19,
+   "bib_id": 48,
+   "marker": "Maurin et al., 2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 87,
+   "para_id": 19,
+   "bib_id": 15,
+   "marker": "Darnell et al., 2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 88,
+   "para_id": 20,
+   "bib_id": 62,
+   "marker": "Shah et al., 2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 89,
+   "para_id": 20,
+   "bib_id": 48,
+   "marker": "Maurin et al., 2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 90,
+   "para_id": 20,
+   "bib_id": 15,
+   "marker": "Darnell et al., 2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 91,
+   "para_id": 21,
+   "bib_id": 62,
+   "marker": "Shah et al., 2020",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 92,
+   "para_id": 21,
+   "bib_id": 48,
+   "marker": "Maurin et al., 2018",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 93,
+   "para_id": 21,
+   "bib_id": 15,
+   "marker": "Darnell et al., 2011",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 94,
+   "para_id": 21,
+   "bib_id": 62,
+   "marker": "Shah et al., 2020",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 95,
+   "para_id": 22,
+   "bib_id": 2,
+   "marker": "Anadolu et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 96,
+   "para_id": 23,
+   "bib_id": 2,
+   "marker": "Anadolu et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 97,
+   "para_id": 24,
+   "bib_id": 26,
+   "marker": "Graber et al., 2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 98,
+   "para_id": 24,
+   "bib_id": 20,
+   "marker": "El Fatimy et al., 2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 99,
+   "para_id": 24,
+   "bib_id": 16,
+   "marker": "David et al., 2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 100,
+   "para_id": 24,
+   "bib_id": 22,
+   "marker": "Enam et al., 2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 101,
+   "para_id": 24,
+   "bib_id": 31,
+   "marker": "Hobson et al., 2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 102,
+   "para_id": 24,
+   "bib_id": 3,
+   "marker": "Anadolu et al., 2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 103,
+   "para_id": 25,
+   "bib_id": 26,
+   "marker": "Graber et al., 2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 104,
+   "para_id": 25,
+   "bib_id": 26,
+   "marker": "Graber et al., 2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 105,
+   "para_id": 25,
+   "bib_id": 27,
+   "marker": "Graber et al., 2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 106,
+   "para_id": 25,
+   "bib_id": 26,
+   "marker": "Graber et al., 2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 107,
+   "para_id": 25,
+   "bib_id": 27,
+   "marker": "Graber et al., 2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 108,
+   "para_id": 26,
+   "bib_id": 66,
+   "marker": "Thomson et al., 2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 109,
+   "para_id": 26,
+   "bib_id": 60,
+   "marker": "Sawicka et al., 2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 110,
+   "para_id": 26,
+   "bib_id": 44,
+   "marker": "Kurosaki et al., 2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 111,
+   "para_id": 26,
+   "bib_id": 52,
+   "marker": "Ntoulas et al., 2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 112,
+   "para_id": 27,
+   "bib_id": 59,
+   "marker": "Santini and Klann, 2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 113,
+   "para_id": 27,
+   "bib_id": 7,
+   "marker": "Bagni and Zukin, 2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 114,
+   "para_id": 28,
+   "bib_id": 74,
+   "marker": "Zhang et al., 2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 115,
+   "para_id": 28,
+   "bib_id": 50,
+   "marker": "Niere et al., 2012",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 116,
+   "para_id": 28,
+   "bib_id": 40,
+   "marker": "Khayachi et al., 2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 117,
+   "para_id": 28,
+   "bib_id": 26,
+   "marker": "Graber et al., 2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 118,
+   "para_id": 28,
+   "bib_id": 27,
+   "marker": "Graber et al., 2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 119,
+   "para_id": 28,
+   "bib_id": 33,
+   "marker": "Hou et al., 2006",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 120,
+   "para_id": 28,
+   "bib_id": 51,
+   "marker": "Nosyreva and Huber, 2006",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 121,
+   "para_id": 29,
+   "bib_id": 26,
+   "marker": "Graber et al., 2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 122,
+   "para_id": 29,
+   "bib_id": 3,
+   "marker": "Anadolu et al., 2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 123,
+   "para_id": 30,
+   "bib_id": 2,
+   "marker": "Anadolu et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 124,
+   "para_id": 31,
+   "bib_id": 12,
+   "marker": "Carter et al., 2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 125,
+   "para_id": 31,
+   "bib_id": 47,
+   "marker": "Martin-Solana et al., 2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 126,
+   "para_id": 31,
+   "bib_id": 23,
+   "marker": "Fernandopulle et al., 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 127,
+   "para_id": 31,
+   "bib_id": 12,
+   "marker": "Carter et al., 2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 128,
+   "para_id": 31,
+   "bib_id": 47,
+   "marker": "Martin-Solana et al., 2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 129,
+   "para_id": 32,
+   "bib_id": 9,
+   "marker": "Bandeira et al., 2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 130,
+   "para_id": 32,
+   "bib_id": 39,
+   "marker": "Khandjian et al., 2004",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 131,
+   "para_id": 32,
+   "bib_id": 20,
+   "marker": "El Fatimy et al., 2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 132,
+   "para_id": 32,
+   "bib_id": 39,
+   "marker": "Khandjian et al., 2004",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 133,
+   "para_id": 32,
+   "bib_id": 20,
+   "marker": "El Fatimy et al., 2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 134,
+   "para_id": 33,
+   "bib_id": 2,
+   "marker": "Anadolu et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 135,
+   "para_id": 34,
+   "bib_id": 2,
+   "marker": "Anadolu et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 136,
+   "para_id": 35,
+   "bib_id": 49,
+   "marker": "McGlincy and Ingolia, 2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 137,
+   "para_id": 36,
+   "bib_id": 70,
+   "marker": "Wu et al., 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 138,
+   "para_id": 36,
+   "bib_id": 70,
+   "marker": "Wu et al., 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 139,
+   "para_id": 36,
+   "bib_id": 73,
+   "marker": "Yu, 2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 140,
+   "para_id": 37,
+   "bib_id": 2,
+   "marker": "Anadolu et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 141,
+   "para_id": 38,
+   "bib_id": 8,
+   "marker": "Bailey et al., 2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 142,
+   "para_id": 38,
+   "bib_id": 67,
+   "marker": "Tremblay, 2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 143,
+   "para_id": 39,
+   "bib_id": 2,
+   "marker": "Anadolu et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 144,
+   "para_id": 40,
+   "bib_id": 61,
+   "marker": "Schorb et al., 2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 145,
+   "para_id": 41,
+   "bib_id": 55,
+   "marker": "Punjani et al., 2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 146,
+   "para_id": 41,
+   "bib_id": 11,
+   "marker": "Bepler et al., 2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 147,
+   "para_id": 42,
+   "bib_id": 53,
+   "marker": "Pettersen et al., 2004",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 148,
+   "para_id": 42,
+   "bib_id": 54,
+   "marker": "Pettersen et al., 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 149,
+   "para_id": 43,
+   "bib_id": 29,
+   "marker": "Henderson et al., 2012",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 150,
+   "para_id": 43,
+   "bib_id": 13,
+   "marker": "Chen et al., 2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 151,
+   "para_id": 43,
+   "bib_id": 53,
+   "marker": "Pettersen et al., 2004",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 152,
+   "para_id": 43,
+   "bib_id": 54,
+   "marker": "Pettersen et al., 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 153,
+   "para_id": 44,
+   "bib_id": 45,
+   "marker": "Langille et al., 2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 154,
+   "para_id": 44,
+   "bib_id": 26,
+   "marker": "Graber et al., 2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 155,
+   "para_id": 44,
+   "bib_id": 45,
+   "marker": "Langille et al., 2019",
+   "expanded": false,
+   "scored": true
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-ext-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "v1_bib_count": 74
+ }
+}

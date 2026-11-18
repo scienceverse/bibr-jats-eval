@@ -1,0 +1,1439 @@
+{
+ "paper_id": "10.1371_journal.pcbi.1013017",
+ "paras": [
+  {
+   "para_id": 1,
+   "loc": "front",
+   "sec_title": "",
+   "text": "REvolutionH-tl is a fast, scalable, and integrated software platform for inferring orthology relationships, gene trees, species trees, and reconciled evolutionary scenarios directly from sequence data. Built upon the formal framework of best match graphs (BMGs), REvolutionH-tl predicts orthogroups and orthologous gene pairs with high accuracy, requiring neither precomputed trees nor multiple external tools. The software reconstructs event-labeled gene and species trees, seamlessly integrating reconciliation to produce fast, accurate, and biologically insightful evolutionary scenarios. Through extensive benchmarking on synthetic datasets with known ground truth, REvolutionH-tl outperforms or matches the accuracy of established tools such as OrthoFinder, Proteinortho, RAxML, GeneRax, and RANGER-DTL, while achieving significantly lower runtimes. A key innovation of REvolutionH-tl is its built-in support for detailed, publication-ready visualizations, which allow users to explore genome evolution dynamics, orthogroup composition, and reconciliation results with clarity and ease. These visual features position REvolutionH-tl as the first platform of its kind to combine analytical precision with intuitive interpretability. The software is open-source, cross-platform, and freely available at https://pypi.org/project/revolutionhtl/, providing a robust solution for large-scale evolutionary analyses in comparative genomics.",
+   "printed": true
+  },
+  {
+   "para_id": 2,
+   "loc": "front",
+   "sec_title": "",
+   "text": "The software is freely available at https://pypi.org/project/revolutionhtl/. All the data and scripts used for benchmarking can be found at https://osf.io/jehmg.",
+   "printed": true
+  },
+  {
+   "para_id": 3,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Phylogenetics reconstructs evolutionary histories by tracing shared characteristics in descendant lineages back to a common ancestor. The best-supported hypotheses of evolutionary histories are usually represented with phylogenetic trees, where each node depicts the emergence of a new lineage, while each branch represents the preservation of a genetic lineage over time. In particular, if a tree represents the evolutionary relationship among a group of species, then the branching points represent a speciation event. On the other hand, if a tree represents the evolution of genes, then the internal nodes represent speciation, duplication, or other events the genes went through [1].",
+   "printed": true
+  },
+  {
+   "para_id": 4,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Reconstructing the evolutionary history between genomic entities helps to understand the evolution of morphological characteristics, reconstruct demographic changes in recently diverged species, and infer, in particular, the function of newly discovered genes. Functional gene annotation relies on identifying which homologous genes are orthologs, as they tend to preserve functions that were present in their ancestors [2]. In this context, a gene represents either a nucleotide or amino acid sequence, and a set of homologous genes share a common ancestor. Two genes are orthologs if they diverge from a single ancestral gene amid the speciation process of the last common ancestor of the species in which such genes reside.",
+   "printed": true
+  },
+  {
+   "para_id": 5,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Although genetic material may be transferred between species, giving rise to xenologous genes, in this contribution we assume the evolutionary histories are free of horizontal gene transfers (HGT), i.e., the nodes in the gene tree represent either duplication or speciation events. We refer the reader to [3] for further details on gene transfers. Moreover, our approach aims to reconstruct macro-evolutionary relationships among genes and species, focusing on speciation and gene duplication events represented in phylogenetic trees. Population-level processes such as incomplete lineage sorting (ILS), which is the preservation of gene polymorphisms during a speciation event, are not explicitly modeled. These kinds of evolutionary processes take less relevance in this study, as the time between speciation events increases relative to the effective population size of ancestral species, and thus becomes less influential over longer evolutionary timescales relevant to macroevolutionary inference [4].",
+   "printed": true
+  },
+  {
+   "para_id": 6,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "With increasing attention regarding genome and transcriptome annotation, the development of computational methods to infer orthologous relations and reconstruct the gene and corresponding species trees have gained considerable interest [5,6]; despite the increasing availability of phylogenetic data, the process of accurately reconstructing evolutionary histories is not always straightforward. Methods for orthology detection are either tree-based or graph-based. Tree-based methods identify orthologs by reconciling an explicit tree model of the genes’ history to one of the species where they reside. Orthologs are then set to be genes that group with members from other species in the tree reconciliation, as in [5]; in [7] this approach is formalized in an algorithm that assigns gene duplication and speciation events in polynomial time. In principle, tree-based methods are the most appropriate for orthologous detection; however, such methods are precluded when the number of leaves is large, as trees are computationally expensive to produce [5].",
+   "printed": true
+  },
+  {
+   "para_id": 7,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Our main interest is in graph-based orthology methods, which model homologous genes as nodes in a graph and infer orthology relations as edges based on sequence similarity and the assumption of underlying gene and species trees. In scenarios without horizontal gene transfer, orthologous genes are expected to be best matches, meaning homologs from different species whose lineages diverged most recently. However, the converse is not guaranteed: gene loss can lead to situations in which two genes are best matches even though they are not orthologs; such genes diverged by a duplication event followed by speciation and differential gene loss in the descendant species [8].",
+   "printed": true
+  },
+  {
+   "para_id": 8,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Moreover, if evolutionary closeness is estimated by means of sequence similarity, orthologs are detected as best hits, i.e., the genes with the highest similarity score match. Pairwise sequence similarity scores are usually computed as bit-scores using all-vs-all BLAST search [9] or DIAMOND [10,11] as an accelerated alternative to BLAST. It is worthy to highlight the difference between a best match and a best hit: the former is a theoretical relation based on the assumption that two genes belong to different species in the same species tree, while the later is a data-driven approximation.",
+   "printed": true
+  },
+  {
+   "para_id": 9,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Bidirectional best hits is the most widely used graph-based approach to orthology inference. The method is based on the assumption that orthology is a reciprocal evolutionary relationship: two genes are inferred to be orthologs if each is the best scoring hit for the other in different species. This approach limits one ortholog per gene and species, which is false when a gene undergoes duplication after speciation. Methods that allow multiple orthologs (co-orthologs) are available; in particular, ProteinOrtho [12] selects the orthologs whose score is above a dynamical score that depends on the gene and species considered. Moreover, “bidirectional best hits” is theoretically incomplete: even when the inference of bidirectional best hits coincides exactly with the true bidirectional best matches for a collection of genes, these relations only form a superset of orthologs and thus require further processing [13,14]. Refer to S1 Appendix for examples. Graph-based approaches are computationally efficient and scale well with large datasets compared to tree-based approaches. However, as in tree-based approaches, orthologs paired with reconciled gene trees provide more information to the user than sets of orthologs. An alternative to the classical methods for assessing orthology in sequenced transcriptomes is comparing newly discovered sequences to a set of reference orthologs from dedicated databases [15].",
+   "printed": true
+  },
+  {
+   "para_id": 10,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Phylogeny reconstruction methods are either distance-based or character-based. Distance-based methods iteratively build a tree using a distance matrix between every pair of taxa. Neighbour joining [16] is the most popular of such methods, and recent implementations typically run approximately to the square of the number of taxa; however, the correctness of the output relies on an additive and unbiased distance matrix, which cannot be guaranteed. Maximum parsimony (MP), maximum likelihood (ML), and Bayesian inference (BI) are the main types of character-based methods [17]. BI and ML rely on an explicit evolutionary model and the likelihood function L(θ), which is the probability of observing the data given that the parameter θ includes a substitution model and branch length parameters. The ML tree estimates the topology with the highest likelihood. BI tree estimate is instead the maximum posterior probability tree among all topologies simulated via the Markov chain Monte Carlo algorithm, where the posterior probability is obtained by multiplying a prior distribution and the likelihood. To avoid parameter estimations of a given evolutionary model, recently, phylogenetic invariants have been used to estimate the tree topology [18,19]. All these methods are computationally expensive and require specific evolutionary model assumptions, which may negatively affect the tree estimate. On the other hand, the maximum parsimony (MP) approach, which is the one of interest in this paper, is not susceptible to the drawbacks of likelihood-based models; indeed, MP tree estimation involves the minimum number of events among the taxa. However, MP is more susceptible to the long-branch attraction artifact (LBA) in the case of heterogeneous rates [20].",
+   "printed": true
+  },
+  {
+   "para_id": 11,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "The practical superiority of graph-based methods over phylogenetic approaches for the accurate prediction of orthology relations motivated a recent mathematical interest [21–25] in detecting orthology through best match graphs (BMGs), which group the most closely related genes between species in directed graphs called BMGs. In [26], a theoretical pipeline for inferring orthologous relationships and tree phylogenies was proposed but remained unimplemented until recently. Ramírez-Rafael et al. [27] introduced REvolutionH-tl (Reconstruction of Evolutionary Histories tool), a novel bioinformatics tool that applies the BMG theoretical framework to identify orthologous genes and groups (orthogroups) and to reconstruct and reconcile event-labeled gene and species trees in the presence of duplications and losses.",
+   "printed": true
+  },
+  {
+   "para_id": 12,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "We evaluated REvolutionH-tl 2.0 against established tools such as ProteinOrtho [12,28,29], OrthoFinder [30,31], GeneRax [32], ASTRAL-Pro [33], RAxML [34], and RANGER-DTL [35]. Our benchmarking demonstrates that most of the time REvolutionH-tl outperforms other methods in orthology inference, gene and species tree reconstruction while significantly reducing computational time. Furthermore, we assessed the precision of our orthology predictions using the Quest for Orthologs benchmark service [36], confirming the strength of REvolutionH-tl for prediction of precise orthology relations with meaningful biological information. Its combination of accuracy, efficiency, and scalability makes REvolutionH-tl a powerful tool for evolutionary analyses, helping researchers uncover the complexities of gene and species evolution with precision and ease.",
+   "printed": true
+  },
+  {
+   "para_id": 13,
+   "loc": "body",
+   "sec_title": "Graph theory preliminaries",
+   "text": "A directed acyclic graph (DAG) is a directed graph without directed cycles. A rooted tree T is a DAG that does not contain nodes v with degG−(v)>1 and that has a unique root ρT, i.e., a vertex ρT with degG−(v)=0 and from which all nodes v are reachable via a directed path from ρT to v. By definition, if |V| > 1, then for each v∈V⧵{ρT} there is a unique incoming edge uv and we call u the parent of v and v a child of u. We collect in childT(u) all childen of u in T. The nodes of a rooted tree can be classified as leaves, L(T), which are terminal nodes (nodes with no children), and internal nodes, V0(T), which have at least one child. If there is a directed path from u to v, then u is an ancestor of v and v a descendant of u, denoted by v⪯Tu. We write u∥v if neither v⪯Tu nor u⪯Tv holds and say that u and v are incomparable in T. Furthermore, in [37,38] the ⪯T relationship has been extended to consider edges within T as follows. Let e = uv be an edge and x be a node in T. Then, we put x≺Te if and only if x⪯Tv. Moreover, we put e≺Tx if and only if u⪯Tx. For edges e=(u,v) and f=(a,b) in T we put e⪯Tf if and only if v⪯Tb.",
+   "printed": true
+  },
+  {
+   "para_id": 14,
+   "loc": "body",
+   "sec_title": "Graph theory preliminaries",
+   "text": "A phylogenetic tree is a rooted tree where each internal node has at least two children. Since gene duplications, losses or other events may predate the root of a phylogenetic tree (in particular, in the context of tree reconciliations [8]), we define a planted tree that is formed by adding a new node 0T to a phylogenetic tree T and an edge 0TρT. In a planted tree, the node 0T has degree one, with its only neighbor being ρT, and this property remains unchanged during any subsequent modifications, such as resolving ’polytomies’ as explained next. A polytomy in a phylogenetic tree is a node with more than two children. Resolving a polytomy involves converting it into a binary tree, a tree where each internal node has exactly two children. This may introduce additional internal nodes to maintain the tree’s structure. Given a gene tree T and a subset of leaves L′⊆L(T), the restriction T|L′ of T to the set L′ is obtained from the minimal subtree of T connecting all the leaves in L′ by suppressing all the vertices with a single child.",
+   "printed": true
+  },
+  {
+   "para_id": 15,
+   "loc": "body",
+   "sec_title": "Triples, the Aho graph and BUILD",
+   "text": "We now introduce the concept of triples, which form the fundamental basis for inferring gene and species trees directly from genomic sequence data. A triple xy|z is a phylogenetic tree T on three leaves x, y, and z such that lcaT(x,y)≺TlcaT({x,y,z}). Similarly, a rooted tree T displays a triple xy|z if lcaT(x,y)≺TlcaT({x,y,z}). Such triples are crucial for reconstructing phylogenetic trees; see, e.g., [39–41]. For any rooted tree T, let R(T) denote the collection of triples displayed by T. An arbitrary set R of triples is compatible if there exists a rooted tree T such that R⊆R(T). A polynomial-time procedure to verify the compatibility of a set R and, if compatible, to construct a tree that displays all triples in R is provided by the BUILD algorithm [39,42]. This algorithm constructs an auxiliary graph GR,L, commonly referred to as the Aho graph, where the nodes correspond to all leaves in L, and edges xy exist for each triple xy|z∈R with x,y,z∈L. This algorithm begins with the set L of all leaves in R and recurses on the connected components L1,...,Lk of the Aho graph, repeating the process for the graphs GR,L1,...,GR,Lk. If, at any step, one of the Aho graphs GR,L′ is connected and contains more than one node, the initial set R is declared as not compatible. In the following, we let Aho(R) be the function that takes as input a triples set R, and outputs either the tree T constructed by BUILD or the sentence the set of triples R is not compatible.",
+   "printed": true
+  },
+  {
+   "para_id": 16,
+   "loc": "body",
+   "sec_title": "Evolutionary scenarios",
+   "text": "Genes evolve within genomes, i.e., species. We denote by σ:L(T)→L(S) the map that assigns each leaf in the gene tree to the species in which it resides. Moreover, we can assign evolutionary events or mechanisms to the nodes of a gene tree T that act on genes through evolution. Specifically, the map t:V(T)→{•,◻,×} classifies nodes in the gene tree based on evolutionary events: t(x)=• for speciation, t(x)=◻ for duplication, and t(x)=× for gene loss (see [37,38], for further details see Fig 1). Two distinct genes x,y∈L(T) are orthologs if t(lcaT(x,y))=•. Conversely, they are paralogs if t(lcaT(x,y))=◻. The inference of such evolutionary events can be approached in two ways. On the one hand, methods based on reconciling the gene tree with a known species tree are used [31,32,35,43]. On the other hand, tree-free methods enable the inference of orthologous and paralogous gene pairs without requiring knowledge of the gene tree or species tree, see [26] for an overview.",
+   "printed": true
+  },
+  {
+   "para_id": 17,
+   "loc": "body",
+   "sec_title": "Evolutionary scenarios",
+   "text": "Following definitions 1, 7, and 4 of [26,37], and [8] correspondingly, an evolutionary scenario (S,T,t,σ,μ) consists of a species tree S, a labeled gene tree (T,t,σ) and a reconciliation map between S and T, that is, a map μ:V(T)→V(S)∪E(S) that satisfies:",
+   "printed": true
+  },
+  {
+   "para_id": 18,
+   "loc": "body",
+   "sec_title": "Evolutionary scenarios",
+   "text": "The existence of a reconciliation map between a labeled gene tree (T,t,σ) and a species tree is characterized by the compatibility of particular triples displayed in T. To be more precise, let ℜ(T)={r∈R(T)∣t(lcaT(L(r)))=• and |σ(L(r))|=3} be the set of all triples ab|c that are rooted at a speciation event, where the species σ(a), σ(b), and σ(c) are pairwise distinct. Given a triple ab|c∈ℜ(T), the corresponding color triple is σ(ab|c)=σ(a)σ(b)|σ(c). Finally, let 𝔖(T,t,σ)={σ(r)∣r∈ℜ(T)} be the set of color triples of the gene tree. The following result has been proven in [37, Thm 8] and later generalized in [38, Thm 5.4].",
+   "printed": true
+  },
+  {
+   "para_id": 19,
+   "loc": "body",
+   "sec_title": "Best match graphs and gene trees",
+   "text": "The structure of BMGs has been extensively studied in recent years [8,22,24,44]. In particular, as shown by Schaller et al. [23], best matches and their “symmetrized” versions paved the way to infer orthologs decreasing false-positive assignments, provided that the evolutionary history is not distorted by so-called horizontal gene transfer. Geiß et al. [8], showed that, for evolutionary scenarios that involve only speciations, gene duplications, and gene losses, there are no false-negative orthology assignments in the true bidirectional best matches. This is the case because no gene in species A can be more closely related to a gene in B than gene pairs that arose from the speciation event separating A and B. By the latter arguments, if species B contains an ortholog z of x, then z is guaranteed to be a (bidirectional) best match of x, assuming no horizontal gene transfer. However, not every bidirectional best matches x and y are orthologs; if an ortholog of x has been lost in B, x will still have a best match in B, provided that B contains any homolog of x, see, e.g., [23, Fig 2]. For further discussions and, in particular, a complete characterization of incorrect orthology assignments in best match graphs see [23].",
+   "printed": true
+  },
+  {
+   "para_id": 20,
+   "loc": "body",
+   "sec_title": "Best match graphs and gene trees",
+   "text": "A key property of best match graphs is that they encode information about gene tree topology in the so called informative triples; for any directed graph G and a node-coloring map σ:V(G)→M, we say that ℛ(G,σ) is the set of informative triples r=xy|y′ with σ(x)≠σ(y)=σ(y′) such that xy∈E(G), xy′∉E(G). Furthermore, if the gene tree is assumed to be binary, ℛ(G,σ) also includes those triples yy′|x whenever xy,xy′∈E(G). The following theorem was proved in [44, Thm 1] and provides a theoretical strategy to go from a data-inferred BMG, to a gene tree explaining the graph.",
+   "printed": true
+  },
+  {
+   "para_id": 21,
+   "loc": "body",
+   "sec_title": "Best match graphs and gene trees",
+   "text": "This result allows us to first, identify if a colored digraph G is a BMG. In the affirmative case, we can reconstruct a gene tree by running the BUILD algorithm with the informative triples ℛ(G,σ), and in the negative case, the Aho-graph is helpful to define an heuristic for editing G into a BMG with minimal editions, as proposed in [24] and made more precise in the subsequent sections.",
+   "printed": true
+  },
+  {
+   "para_id": 22,
+   "loc": "body",
+   "sec_title": "Computation of alignment hits",
+   "text": "The aim of this step is to compute sequence similarity between genes of different species. The input is a collection of FASTA files, each of them corresponding to one species and containing a list of sequences. Alignments are computed using Diamond [10,11] for amino acid sequences or BLAST [45,46] for DNA sequences. As output, REvolutionH-tl generates a directory containing the alignment hits for each pair of species.",
+   "printed": true
+  },
+  {
+   "para_id": 23,
+   "loc": "body",
+   "sec_title": "Estimation of best hit graph and orthogroup detection",
+   "text": "REvolutionH-tl takes the alignment hits between genes from different species and calculates a normalized bit score to approximate evolutionary relatedness. Following the method in [28], a gene y in species B is considered a best hit of x if its bit score falls within an adaptive threshold relative to the top-scoring hit. In particular, we consider nearly co-optimal best hits by considering for a given gene x in species σ(x) all those genes y∈B having a normalized bit score not less than f times the score of the most similar gene in B [28]; by default, we set f = 0.95. This process produces a directed best hit graph (H,σ), which reflects the sequence similarity relationships.",
+   "printed": true
+  },
+  {
+   "para_id": 24,
+   "loc": "body",
+   "sec_title": "Estimation of best hit graph and orthogroup detection",
+   "text": "The connected components of a best hit graph are interpreted as orthogroups, and each of the orthogroups will be represented by a single gene tree. In practice, merging two connected components is likely to introduce false positive homology relations. From the theoretical side, if we consider the tree of a disconnected best match graph (see for example [47, Fig 3]), each connected component is contained in a different sub-tree rooted at a child of the root and all the species are represented in the members of the connected component [47, Thm 1]. Thus, given the orthogroup A and a gene a∈A, all the orthologs of a are contained in A. We expect the best hit graphs to resemble this property, because best hits are a data-driven approximation for best matches. Furthermore, if all the orthologs of x in a species are lost, another homolog y in such species will be part of the orthogroup if it exists. Note that this does not implies y is ortholog of any member of A.",
+   "printed": true
+  },
+  {
+   "para_id": 25,
+   "loc": "body",
+   "sec_title": "Estimation of best hit graph and orthogroup detection",
+   "text": "Traditionally, orthogroups are defined as sets of genes descended from a single gene in the last common ancestor of the species under consideration, e.g., [30]. This definition implies that for an orthogroup A, the last common ancestor of A in the gene tree corresponds to a speciation event (in the absence of HGT). Our definition is more relaxed, while still providing essentially the same information about the evolutionary relations between genes, as explained in the following section. In particular, a duplication appears as last common ancestor of a connected component of a best match graph if there is a pair of species in which no orthologs have survived and thus ancestral paralogs are the only surviving homologs. Using this information, it is easy to recover ‘classical orthogroups’ as a subset of connected components of best match graphs.",
+   "printed": true
+  },
+  {
+   "para_id": 26,
+   "loc": "body",
+   "sec_title": "BMG estimation, gene tree reconstruction and orthology assignment",
+   "text": "For a given gene x in species A, a gene y in species B is defined as a best match if it is evolutionarily the most closely related gene to x among all genes in species B [47]. Note that a gene may have more than one best match and, moreover, it is important to distinguish between best hits and true best matches, as illustrated in Fig 3.",
+   "printed": true
+  },
+  {
+   "para_id": 27,
+   "loc": "body",
+   "sec_title": "BMG estimation, gene tree reconstruction and orthology assignment",
+   "text": "We follow the approach described in [21,24] to approximate best matches using the best hit graph. Recall that an orthogroup corresponds to a connected component of the best hit graph (H,σ). We examine each orthogroup individually, assuming that the orthogroup in question corresponds to the connected component (G,σ) of (H,σ). For each orthogroup, we extract the set ℛ≔ℛ(G,σ) of informative triples from (G,σ). If the best hit graph coincides with the true BMG, then ℛ(G,σ) must be compatible, and we can apply the BUILD algorithm [39,42] to construct a gene tree T=Aho(ℛ) for the orthogroup. In this case, Theorem 2 guarantees that the BMG (G,σ) coincides with the BMG derived from (T,σ). However, since the best hit graph is only an approximation of the true BMG, the resulting triple set ℛ might not be compatible. To address this, following [24,48], REvolutionH-tl applies a heuristic to identify a maximum subset of compatible triples, denoted ℛ^. This heuristic modifies the behavior of BUILD by enforcing a partition of the auxiliary Aho graph whenever it remains connected, thereby ensuring progress even in the presence of conflicts or inconsistencies. The gene tree (T,σ) is then reconstructed from ℛ^ using the BUILD algorithm, and the graph G(T,σ) serves as the estimated BMG of the corresponding orthogroup. Note that T is not necessarily fully resolved.",
+   "printed": true
+  },
+  {
+   "para_id": 28,
+   "loc": "body",
+   "sec_title": "BMG estimation, gene tree reconstruction and orthology assignment",
+   "text": "Up to this point, we have reconstructed a gene tree (T,σ) for each orthogroup, which we now use to infer orthologs within the orthogroup. To this end, we must first assign evolutionary events, such as speciations and duplications, to the internal nodes of (T,σ). Following [8,49], an internal node v of T is labeled as a speciation event if the sets of species in its child subtrees are pairwise disjoint, and as a duplication event otherwise. This yields an event-labeled gene tree (T,t,σ), where t assigns to each internal node v of T its corresponding event, that is, t(v) is either a speciation or a duplication.",
+   "printed": true
+  },
+  {
+   "para_id": 29,
+   "loc": "body",
+   "sec_title": "BMG estimation, gene tree reconstruction and orthology assignment",
+   "text": "The gene tree T obtained by the BUILD algorithm is not expected to be fully resolved. Here, the event labeling we use introduces the possibility of wrongly labeling polytomies as duplication events. We address this issue using the approach proposed in [23,50] by constructing an augmented tree where some polytomies marked as duplication are resolved into an speciation event followed by duplications. This approach assumes the least resolved gene tree explaining the best match graph while minimizing gene duplication and loss.",
+   "printed": true
+  },
+  {
+   "para_id": 30,
+   "loc": "body",
+   "sec_title": "BMG estimation, gene tree reconstruction and orthology assignment",
+   "text": "From the event-labeled tree, we can readily obtain orthologous gene pairs that are identified as those whose least common ancestor in T is labeled as a speciation event. A key strength of this relation-based approach is its robustness, i.e., we do not require fully resolved gene trees since orthology assignments are determined by the discriminating tree [51], which is obtained by collapsing consecutive internal nodes with the same event label. Thus, even a partially resolved gene tree with a few incorrect branches can yield accurate orthology predictions, as long as the overall structure captures the correct evolutionary splits.",
+   "printed": true
+  },
+  {
+   "para_id": 31,
+   "loc": "body",
+   "sec_title": "Resolving polytomies for duplication nodes in the gene trees",
+   "text": "For now we focus on duplication nodes. For polytomies labeled as duplication events, we apply a distance-based clustering strategy that incrementally builds a binary subtree using a neighbor joining (NJ) criterion, as described in Algorithm 1. The distances used for NJ are score-distances, cf. [52].",
+   "printed": true
+  },
+  {
+   "para_id": 32,
+   "loc": "body",
+   "sec_title": "Resolving polytomies for duplication nodes in the gene trees",
+   "text": "With the star tree T′ and the distance matrix d in place, the algorithm proceeds iteratively. At each step, the pair yi,yj∈N(x′) minimizing the NJ criterion is selected. These nodes are merged into a new internal node yij: the edges x′yi and x′yj are removed, and new edges x′yij, yijyi, and yijyj are added. The distance matrix is updated using standard NJ rules to reflect the distances between yij and the remaining neighbors of x′. This iterative process continues until T′ is fully resolved. A root is then added to T′ using the midpoint rooting method [53]. We use the Biopython implementation of NJ and midpoint rooting algorithms [54]. The resulting binary subtree T′ is then grafted back into the original gene tree T as follows. Let x′ be the parent of x in T and Yi=childT(yi) for all yi∈childT(x), we update T by deleting the nodes x,y1,y2,... together with the adjacent edges, and adding the edge x′ρT′ connecting x′ with the root of T′ as well as the edges yiyi′ for all yi∈L(T′) and yi′∈Yi. Because the method relies solely on distance information and does not impose external biological constraints, it is particularly suitable for resolving duplication nodes in cases where topological refinement is needed independently of additional annotations.",
+   "printed": true
+  },
+  {
+   "para_id": 33,
+   "loc": "body",
+   "sec_title": "Species tree reconstruction",
+   "text": "Event-labeled gene trees (T,t,σ) contain implicit information about the underlying species tree S in the form of gene triples of type uv| w, where u, v, and w are genes from three different species. If their least common ancestor lca(u, w) = lca(v, w) is labeled as a speciation event, then the corresponding color triple σ(u)σ(v)|σ(w) is displayed by the species tree [37,38,55]. Let us denote with 𝔖≔𝔖(T,t,σ) the collection of all such color triples derived from (T,t,σ).",
+   "printed": true
+  },
+  {
+   "para_id": 34,
+   "loc": "body",
+   "sec_title": "Species tree reconstruction",
+   "text": "In the absence of noise (e.g., measurement errors or horizontal gene transfer) the set 𝔖 is compatible, and (T,t,σ) is always reconcilable with the species tree S=Aho(𝔖) (cf. Theorem 1). Note that S is not necessarily binary; however, any refinement of S yields a tree S′ with which (T,t,σ) remains reconcilable [37,38]. Because we follow a heuristic approach, we cannot guarantee that 𝔖 is always compatible. Analogous to the treatment of gene triples, we therefore follow [24,48], where REvolutionH-tl applies a heuristic to identify a maximum subset of compatible triples, denoted by 𝔖^. The species tree is then defined as S=Aho(𝔖^).",
+   "printed": true
+  },
+  {
+   "para_id": 35,
+   "loc": "body",
+   "sec_title": "Visualization of reconciliation results",
+   "text": "All visualizations are generated using custom R scripts (v4.4.0) integrated into the REvolutionH-tl framework. The layout and design were inspired by visualization strategies proposed in [56].",
+   "printed": true
+  },
+  {
+   "para_id": 36,
+   "loc": "body",
+   "sec_title": "Synthetic dataset.",
+   "text": "We use SaGePhy [57] to simulate evolutionary histories under three main parameters: the number of species N∈{5,10,15,...,50}, duplication rate d, and loss rate l. The parameters d and l are independently and uniformly sampled from the set {i/10∣i∈ℕ, 0≤i≤10}, resulting in a total of 1,210 distinct parameter combinations (N, d, l).",
+   "printed": true
+  },
+  {
+   "para_id": 37,
+   "loc": "body",
+   "sec_title": "Synthetic dataset.",
+   "text": "For each parameter triple, we simulate five independent evolutionary scenarios on a species tree S, resulting in five gene trees that evolve within S. The simulated trees include branch lengths, which reflect evolutionary rates under the assumption of a constant mutation rate across all genes. Protein sequences are then generated based on these trees using the LG substitution model [58], one of the models provided by SaGePhy.",
+   "printed": true
+  },
+  {
+   "para_id": 38,
+   "loc": "body",
+   "sec_title": "Empirical genomic datasets.",
+   "text": "To demonstrate the application of our tool on real biological data, we selected five species from the (PhyId 500) [QfO] Reference Model Species Metaphylome dataset available in the PhylomeDB database [49]. The selected species are: Homo sapiens, Mus musculus, Rattus norvegicus, Danio rerio, and Drosophila melanogaster. For each species, we obtained FASTA files containing protein sequences. To ensure a consistent representation of gene loci, we excluded protein variants and isoforms, retaining only a single representative sequence per gene. It is important to note that, because we use proteome data, the sequences in these FASTA files correspond exclusively to protein-coding genes. We refer to this dataset as Phylome05, and use it to evaluate the behavior and outputs of REvolutionH-tl on high-quality, curated genomic data.",
+   "printed": true
+  },
+  {
+   "para_id": 39,
+   "loc": "body",
+   "sec_title": "Empirical genomic datasets.",
+   "text": "To evaluate scalability, we used the dataset prt10–250 from the benchmarking study of Proteinortho6 [12]. We also compare running times on this dataset for OMA, Proteinortho, and SonicParanoid. The prt10–250 dataset comprises three collections of randomly selected bacterial genomes containing 10, 100, and 250 species, respectively. These collections were used as input for REvolutionH-tl to assess performance as the number of species increases.",
+   "printed": true
+  },
+  {
+   "para_id": 40,
+   "loc": "body",
+   "sec_title": "Reconciliation distance.",
+   "text": "To assess the quality of gene tree reconstructions, we reconciled the event-labeled gene trees inferred by all methods with the true species tree. This enabled us to apply the PLR dissimilarity measure [59], which estimates the confidence in reconciliation results by comparing evolutionary scenarios.",
+   "printed": true
+  },
+  {
+   "para_id": 41,
+   "loc": "body",
+   "sec_title": "Reconciliation distance.",
+   "text": "In our experiments, we set α=1/n, as recommended in [59], where n is the number of species in the species tree.",
+   "printed": true
+  },
+  {
+   "para_id": 42,
+   "loc": "body",
+   "sec_title": "Quest for orthologs benchmark",
+   "text": "We further evaluate the precision of orthology prediction by running the gold standard benchmarking service Quest for Orthologs (QfO) with the dataset 2022_02, consisting of 78 curated proteomes from all domains of life [60,61].",
+   "printed": true
+  },
+  {
+   "para_id": 43,
+   "loc": "body",
+   "sec_title": "Quest for orthologs benchmark",
+   "text": "This service offers 13 different challenges and 34 charts for measuring performance, publicly available at [62]. Since the dataset comprises true genomes sequenced from living organisms, there is no ground truth for orthologous relations or evolutionary scenarios. For this reason, the QfO pipeline offers three surrogate measurements of the correctness of orthology prediction, which are described below; further details are in [60].",
+   "printed": true
+  },
+  {
+   "para_id": 44,
+   "loc": "body",
+   "sec_title": "Quest for orthologs benchmark",
+   "text": "However, there is a bias in the QfO tool with respect to the recall metric; in benchmark types (1) and (3), recall is approximated as the number of trees that can be sampled and the number of inferred orthologs, respectively [60]. These metrics outperform those tools that produce large sets of orthology predictions, even if the correctness of those predictions is questionable [12]. Consequently, we report only the precision results for these types of benchmarks.",
+   "printed": true
+  },
+  {
+   "para_id": 45,
+   "loc": "body",
+   "sec_title": "Quest for orthologs benchmark",
+   "text": "Among the 34 different charts for measuring orthology precision, approximately half yielded identical precision results. We therefore removed duplicates and report only 19 benchmark datasets with unique average precision. Specifically, we remove 7 tests among those using the fraction of incorrect trees as the metric and 7 among those using the RF average as the metric. Each benchmark chart in [62] corresponds to a combination of two metrics. For example, STD_Fungi in Fig 10 stands for the Species Tree Discordance benchmark in Fungi, with four tests run on this dataset. These tests are visualized in a Pareto plot (see S2 Appendix), where the y-axis measures average precision (i.e., average fraction of incorrect trees or average RF distance). Among the four STD_Fungi tests, two share the same average precision.",
+   "printed": true
+  },
+  {
+   "para_id": 46,
+   "loc": "body",
+   "sec_title": "Results",
+   "text": "Our primary contribution is REvolutionH-tl, an open-source, cross-platform Python tool [63] developed for fast and accurate orthology prediction, as well as the inference and reconciliation of gene and species trees. The design and functionality of REvolutionH-tl make it particularly well-suited for large-scale comparative genomics analyses.",
+   "printed": true
+  },
+  {
+   "para_id": 47,
+   "loc": "body",
+   "sec_title": "Results",
+   "text": "Since its initial release [27], we have introduced several enhancements to both the software and the accompanying benchmarking framework to further validate the correctness of our inferences. Methodological improvements include the integration of a novel module for polytomy resolution. This module complements the existing best-match strategy by enabling the binarization of polytomies labeled as duplication events, thereby improving the biological realism of the inferred gene trees.",
+   "printed": true
+  },
+  {
+   "para_id": 48,
+   "loc": "body",
+   "sec_title": "High accuracy of orthology prediction",
+   "text": "This performance trend remains consistent when results are stratified by the simulation parameters used to generate the evolutionary scenarios, particularly the rates of gene duplication and loss. For a more comprehensive analysis of orthology prediction under varying evolutionary conditions, we refer the reader to [27, Fig 5].",
+   "printed": true
+  },
+  {
+   "para_id": 49,
+   "loc": "body",
+   "sec_title": "High accuracy of orthology prediction",
+   "text": "Additionally, REvolutionH-tl is the second most precise tool assessing orthology prediction using the Quest for Orthologs (QfO) web service [61]. Fig 10 shows that the precision of REvolutionH-tl predictions lies 12 times in the top 25% tools, and once in the top 50%, for a total of 13 tests and 19 tools. Among the other tools, only OMA-Groups outperforms REvolutionH-tl, lying 17 times in the top 25% of tools. However, REvolutionH-tl underperforms in the reference gene tree tests. Because these benchmarks evaluate orthology predictions against orthology relations derived from reference gene trees in public databases, discrepancies do not necessarily imply low precision of REvolutionH-tl. Reference gene trees are themselves inferred evolutionary hypotheses and may contain reconstruction errors that propagate to the derived orthology relations. Consequently, differences between REvolutionH-tl and these benchmarks may also reflect alternative phylogenetic reconstructions rather than absolute inference failures.",
+   "printed": true
+  },
+  {
+   "para_id": 50,
+   "loc": "body",
+   "sec_title": "Accuracy for gene and species tree reconstruction",
+   "text": "Additionally, we measured tree distance using the Robinson–Foulds (RF) metric [64] for the same datasets as above (see S3 Appendix). Under this metric, REvolutionH-tl exhibits greater discordance with the true gene trees, indicating larger differences in terms of bipartitions (splits). In contrast, the rooted triplet analysis shows a low false positive rate, indicating that most local ancestor–descendant relationships are correctly recovered. This discrepancy reflects the fact that RF distance captures global topological differences, whereas triplet-based metrics evaluate local phylogenetic relationships, suggesting that revolutionhtl preserves local evolutionary structure while differing more at the level of overall tree topology.",
+   "printed": true
+  },
+  {
+   "para_id": 51,
+   "loc": "body",
+   "sec_title": "Fast reconstruction of evolution",
+   "text": "The runtime performance of the tools for gene tree reconstruction included in our benchmarking analysis is shown in Fig 11A. REvolutionH-tl successfully completes the full analysis of genomes from the SaGePhy5–50 dataset. Notably, even for the largest dataset, REvolutionH-tl completes the analysis in under one hour. This represents a substantial improvement over the previous release of the tool, where the same analysis required several hours to complete [27].",
+   "printed": true
+  },
+  {
+   "para_id": 52,
+   "loc": "body",
+   "sec_title": "Supporting information",
+   "text": "This panel illustrates the superiority of best match graphs for identifying evolutionary relationships and enabling early detection of errors in orthology and best hit inference by graph-based methods. Each node represents a gene, and the color indicates the species in which it is found. (A) shows a best match graph whose symmetric edges form a path on four nodes. Assuming these reciprocal relations correspond to orthology leads to a well-known contradiction: orthology relations cannot form a path on four genes [51]. Furthermore, the informative triples described in Section Best match graphs and gene trees allow reconstruction of the gene tree shown in (B), demonstrating that genes x and v are paralogs rather than orthologs. When inferring bidirectional best hits from sequence similarity data, it is possible to obtain a graph across three species such as the one shown in (C). This graph not only fails to represent valid orthology (since it forms a path on four nodes), but also cannot be explained by any gene tree. More generally, data-driven best hit inference may produce graphs like (C), whose informative triples reveal inconsistencies with any gene tree, indicating that the graph must be edited to restore phylogenetic consistency. Examples (A–C) were adapted from [47].",
+   "printed": true
+  }
+ ],
+ "links": [
+  {
+   "link_id": 1,
+   "url": "pypi.org/project/revolutionhtl",
+   "url_raw": "https://pypi.org/project/revolutionhtl/",
+   "href_jats": "https://pypi.org/project/revolutionhtl/",
+   "repo_key": null,
+   "host_class": "other",
+   "loc": "front",
+   "sec_title": "",
+   "source": "tagged",
+   "para_id": 1
+  },
+  {
+   "link_id": 2,
+   "url": "osf.io/jehmg",
+   "url_raw": "https://osf.io/jehmg",
+   "href_jats": "https://osf.io/jehmg",
+   "repo_key": "osf:jehmg",
+   "host_class": "osf",
+   "loc": "front",
+   "sec_title": "",
+   "source": "tagged",
+   "para_id": 2
+  }
+ ],
+ "links_optional": [
+  "creativecommons.org/licenses/by/4.0",
+  "doi:10.1007/978-1-0716-3838-5_1",
+  "doi:10.1007/978-1-4020-2330-9",
+  "doi:10.1007/s00285-012-0525-x",
+  "doi:10.1007/s00285-019-01332-9",
+  "doi:10.1007/s00285-019-01444-2",
+  "doi:10.1007/s00285-020-01469-y",
+  "doi:10.1007/s00285-021-01564-8",
+  "doi:10.1007/s00285-021-01601-6",
+  "doi:10.1016/0025-5564(81)90043-2",
+  "doi:10.1016/j.dam.2023.01.015",
+  "doi:10.1016/j.tree.2009.01.009",
+  "doi:10.1016/s0022-2836(05)80360-2",
+  "doi:10.1023/b:joco.0000021936.04215.68",
+  "doi:10.1038/nmeth.3176",
+  "doi:10.1038/nmeth.3830",
+  "doi:10.1038/nrg3456",
+  "doi:10.1038/s41576-020-0233-0",
+  "doi:10.1038/s41576-023-00620-x",
+  "doi:10.1038/s41592-021-01101-x",
+  "doi:10.1073/pnas.1412770112",
+  "doi:10.1093/bib/bbr030",
+  "doi:10.1093/bioinformatics/17.9.821",
+  "doi:10.1093/bioinformatics/btac620",
+  "doi:10.1093/bioinformatics/btp163",
+  "doi:10.1093/bioinformatics/bts225",
+  "doi:10.1093/bioinformatics/btu033",
+  "doi:10.1093/bioinformatics/btu463",
+  "doi:10.1093/bioinformatics/btw105",
+  "doi:10.1093/bioinformatics/btz081",
+  "doi:10.1093/gbe/evs003",
+  "doi:10.1093/molbev/msaa141",
+  "doi:10.1093/molbev/msn067",
+  "doi:10.1093/nar/25.17.3389",
+  "doi:10.1093/nar/gkac330",
+  "doi:10.1093/nargab/lqae167",
+  "doi:10.1093/oxfordjournals.molbev.a040454",
+  "doi:10.1093/sysbio/syv086",
+  "doi:10.1109/tcbb.2022.3143870",
+  "doi:10.1137/0210030",
+  "doi:10.1137/23m1605302",
+  "doi:10.1186/1471-2105-12-124",
+  "doi:10.1186/1471-2105-13-s19-s6",
+  "doi:10.1186/1471-2105-6-108",
+  "doi:10.1186/gb-2007-8-6-r109",
+  "doi:10.1186/s12859-017-1529-8",
+  "doi:10.1186/s13015-017-0114-z",
+  "doi:10.1186/s13015-020-00165-2",
+  "doi:10.1186/s13015-021-00196-3",
+  "doi:10.1186/s13059-015-0721-2",
+  "doi:10.1186/s13059-019-1832-y",
+  "doi:10.1371/journal.pbio.1001014",
+  "doi:10.1371/journal.pone.0105015",
+  "doi:10.2307/2412923",
+  "doi:10.3389/fbinf.2023.1322477",
+  "drops.dagstuhl.de/entities/document/10.4230/lipics.wabi.2024.20",
+  "openebench.bsc.es/benchmarking/oebc002?event=oebe0020000003",
+  "python.org"
+ ],
+ "own_doi": "doi:10.1371/journal.pcbi.1013017",
+ "citations": [
+  {
+   "cite_id": 1,
+   "para_id": 3,
+   "bib_id": 1,
+   "marker": "1",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 2,
+   "para_id": 4,
+   "bib_id": 2,
+   "marker": "2",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 3,
+   "para_id": 5,
+   "bib_id": 3,
+   "marker": "3",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 4,
+   "para_id": 5,
+   "bib_id": 4,
+   "marker": "4",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 5,
+   "para_id": 6,
+   "bib_id": 5,
+   "marker": "5",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 6,
+   "para_id": 6,
+   "bib_id": 6,
+   "marker": "6",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 7,
+   "para_id": 6,
+   "bib_id": 5,
+   "marker": "5",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 8,
+   "para_id": 6,
+   "bib_id": 7,
+   "marker": "7",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 9,
+   "para_id": 6,
+   "bib_id": 5,
+   "marker": "5",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 10,
+   "para_id": 7,
+   "bib_id": 8,
+   "marker": "8",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 11,
+   "para_id": 8,
+   "bib_id": 9,
+   "marker": "9",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 12,
+   "para_id": 8,
+   "bib_id": 10,
+   "marker": "10",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 13,
+   "para_id": 8,
+   "bib_id": 11,
+   "marker": "11",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 14,
+   "para_id": 9,
+   "bib_id": 12,
+   "marker": "12",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 15,
+   "para_id": 9,
+   "bib_id": 13,
+   "marker": "13",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 16,
+   "para_id": 9,
+   "bib_id": 14,
+   "marker": "14",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 17,
+   "para_id": 9,
+   "bib_id": 15,
+   "marker": "15",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 18,
+   "para_id": 10,
+   "bib_id": 16,
+   "marker": "16",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 19,
+   "para_id": 10,
+   "bib_id": 17,
+   "marker": "17",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 20,
+   "para_id": 10,
+   "bib_id": 18,
+   "marker": "18",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 21,
+   "para_id": 10,
+   "bib_id": 19,
+   "marker": "19",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 22,
+   "para_id": 10,
+   "bib_id": 20,
+   "marker": "20",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 23,
+   "para_id": 11,
+   "bib_id": 21,
+   "marker": "21",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 24,
+   "para_id": 11,
+   "bib_id": 22,
+   "marker": "21–25",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 25,
+   "para_id": 11,
+   "bib_id": 23,
+   "marker": "21–25",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 26,
+   "para_id": 11,
+   "bib_id": 24,
+   "marker": "21–25",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 27,
+   "para_id": 11,
+   "bib_id": 25,
+   "marker": "25",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 28,
+   "para_id": 11,
+   "bib_id": 26,
+   "marker": "26",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 29,
+   "para_id": 11,
+   "bib_id": 27,
+   "marker": "27",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 30,
+   "para_id": 12,
+   "bib_id": 12,
+   "marker": "12",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 31,
+   "para_id": 12,
+   "bib_id": 28,
+   "marker": "28",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 32,
+   "para_id": 12,
+   "bib_id": 29,
+   "marker": "29",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 33,
+   "para_id": 12,
+   "bib_id": 30,
+   "marker": "30",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 34,
+   "para_id": 12,
+   "bib_id": 31,
+   "marker": "31",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 35,
+   "para_id": 12,
+   "bib_id": 32,
+   "marker": "32",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 36,
+   "para_id": 12,
+   "bib_id": 33,
+   "marker": "33",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 37,
+   "para_id": 12,
+   "bib_id": 34,
+   "marker": "34",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 38,
+   "para_id": 12,
+   "bib_id": 35,
+   "marker": "35",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 39,
+   "para_id": 12,
+   "bib_id": 36,
+   "marker": "36",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 40,
+   "para_id": 13,
+   "bib_id": 37,
+   "marker": "37",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 41,
+   "para_id": 13,
+   "bib_id": 38,
+   "marker": "38",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 42,
+   "para_id": 14,
+   "bib_id": 8,
+   "marker": "8",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 43,
+   "para_id": 15,
+   "bib_id": 39,
+   "marker": "39",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 44,
+   "para_id": 15,
+   "bib_id": 40,
+   "marker": "39–41",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 45,
+   "para_id": 15,
+   "bib_id": 41,
+   "marker": "41",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 46,
+   "para_id": 15,
+   "bib_id": 39,
+   "marker": "39",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 47,
+   "para_id": 15,
+   "bib_id": 42,
+   "marker": "42",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 48,
+   "para_id": 16,
+   "bib_id": 37,
+   "marker": "37",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 49,
+   "para_id": 16,
+   "bib_id": 38,
+   "marker": "38",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 50,
+   "para_id": 16,
+   "bib_id": 31,
+   "marker": "31",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 51,
+   "para_id": 16,
+   "bib_id": 32,
+   "marker": "32",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 52,
+   "para_id": 16,
+   "bib_id": 35,
+   "marker": "35",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 53,
+   "para_id": 16,
+   "bib_id": 43,
+   "marker": "43",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 54,
+   "para_id": 16,
+   "bib_id": 26,
+   "marker": "26",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 55,
+   "para_id": 17,
+   "bib_id": 26,
+   "marker": "26",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 56,
+   "para_id": 17,
+   "bib_id": 37,
+   "marker": "37",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 57,
+   "para_id": 17,
+   "bib_id": 8,
+   "marker": "8",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 58,
+   "para_id": 18,
+   "bib_id": 37,
+   "marker": "37",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 59,
+   "para_id": 18,
+   "bib_id": 38,
+   "marker": "38",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 60,
+   "para_id": 19,
+   "bib_id": 8,
+   "marker": "8",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 61,
+   "para_id": 19,
+   "bib_id": 22,
+   "marker": "22",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 62,
+   "para_id": 19,
+   "bib_id": 24,
+   "marker": "24",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 63,
+   "para_id": 19,
+   "bib_id": 44,
+   "marker": "44",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 64,
+   "para_id": 19,
+   "bib_id": 23,
+   "marker": "23",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 65,
+   "para_id": 19,
+   "bib_id": 8,
+   "marker": "8",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 66,
+   "para_id": 19,
+   "bib_id": 23,
+   "marker": "23",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 67,
+   "para_id": 19,
+   "bib_id": 23,
+   "marker": "23",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 68,
+   "para_id": 20,
+   "bib_id": 44,
+   "marker": "44",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 69,
+   "para_id": 21,
+   "bib_id": 24,
+   "marker": "24",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 70,
+   "para_id": 22,
+   "bib_id": 10,
+   "marker": "10",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 71,
+   "para_id": 22,
+   "bib_id": 11,
+   "marker": "11",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 72,
+   "para_id": 22,
+   "bib_id": 45,
+   "marker": "45",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 73,
+   "para_id": 22,
+   "bib_id": 46,
+   "marker": "46",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 74,
+   "para_id": 23,
+   "bib_id": 28,
+   "marker": "28",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 75,
+   "para_id": 23,
+   "bib_id": 28,
+   "marker": "28",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 76,
+   "para_id": 24,
+   "bib_id": 47,
+   "marker": "47",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 77,
+   "para_id": 24,
+   "bib_id": 47,
+   "marker": "47",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 78,
+   "para_id": 25,
+   "bib_id": 30,
+   "marker": "30",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 79,
+   "para_id": 26,
+   "bib_id": 47,
+   "marker": "47",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 80,
+   "para_id": 27,
+   "bib_id": 21,
+   "marker": "21",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 81,
+   "para_id": 27,
+   "bib_id": 24,
+   "marker": "24",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 82,
+   "para_id": 27,
+   "bib_id": 39,
+   "marker": "39",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 83,
+   "para_id": 27,
+   "bib_id": 42,
+   "marker": "42",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 84,
+   "para_id": 27,
+   "bib_id": 24,
+   "marker": "24",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 85,
+   "para_id": 27,
+   "bib_id": 48,
+   "marker": "48",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 86,
+   "para_id": 28,
+   "bib_id": 8,
+   "marker": "8",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 87,
+   "para_id": 28,
+   "bib_id": 49,
+   "marker": "49",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 88,
+   "para_id": 29,
+   "bib_id": 23,
+   "marker": "23",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 89,
+   "para_id": 29,
+   "bib_id": 50,
+   "marker": "50",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 90,
+   "para_id": 30,
+   "bib_id": 51,
+   "marker": "51",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 91,
+   "para_id": 31,
+   "bib_id": 52,
+   "marker": "52",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 92,
+   "para_id": 32,
+   "bib_id": 53,
+   "marker": "53",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 93,
+   "para_id": 32,
+   "bib_id": 54,
+   "marker": "54",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 94,
+   "para_id": 33,
+   "bib_id": 37,
+   "marker": "37",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 95,
+   "para_id": 33,
+   "bib_id": 38,
+   "marker": "38",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 96,
+   "para_id": 33,
+   "bib_id": 55,
+   "marker": "55",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 97,
+   "para_id": 34,
+   "bib_id": 37,
+   "marker": "37",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 98,
+   "para_id": 34,
+   "bib_id": 38,
+   "marker": "38",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 99,
+   "para_id": 34,
+   "bib_id": 24,
+   "marker": "24",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 100,
+   "para_id": 34,
+   "bib_id": 48,
+   "marker": "48",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 101,
+   "para_id": 35,
+   "bib_id": 56,
+   "marker": "56",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 102,
+   "para_id": 36,
+   "bib_id": 57,
+   "marker": "57",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 103,
+   "para_id": 37,
+   "bib_id": 58,
+   "marker": "58",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 104,
+   "para_id": 38,
+   "bib_id": 49,
+   "marker": "49",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 105,
+   "para_id": 39,
+   "bib_id": 12,
+   "marker": "12",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 106,
+   "para_id": 40,
+   "bib_id": 59,
+   "marker": "59",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 107,
+   "para_id": 41,
+   "bib_id": 59,
+   "marker": "59",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 108,
+   "para_id": 42,
+   "bib_id": 60,
+   "marker": "60",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 109,
+   "para_id": 42,
+   "bib_id": 61,
+   "marker": "61",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 110,
+   "para_id": 43,
+   "bib_id": 62,
+   "marker": "62",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 111,
+   "para_id": 43,
+   "bib_id": 60,
+   "marker": "60",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 112,
+   "para_id": 44,
+   "bib_id": 60,
+   "marker": "60",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 113,
+   "para_id": 44,
+   "bib_id": 12,
+   "marker": "12",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 114,
+   "para_id": 45,
+   "bib_id": 62,
+   "marker": "62",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 115,
+   "para_id": 46,
+   "bib_id": 63,
+   "marker": "63",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 116,
+   "para_id": 47,
+   "bib_id": 27,
+   "marker": "27",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 117,
+   "para_id": 48,
+   "bib_id": 27,
+   "marker": "27",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 118,
+   "para_id": 49,
+   "bib_id": 61,
+   "marker": "61",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 119,
+   "para_id": 50,
+   "bib_id": 64,
+   "marker": "64",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 120,
+   "para_id": 51,
+   "bib_id": 27,
+   "marker": "27",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 121,
+   "para_id": 52,
+   "bib_id": 51,
+   "marker": "51",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 122,
+   "para_id": 52,
+   "bib_id": 47,
+   "marker": "47",
+   "expanded": false,
+   "scored": true
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-ext-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "v1_bib_count": 64
+ }
+}

@@ -1,0 +1,866 @@
+{
+ "paper_id": "10.1017_s0033291726105182",
+ "paras": [
+  {
+   "para_id": 1,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "With the accelerating pace of global aging, cognitive impairment has emerged as a critical public health challenge, especially in China, where the older adult population is growing at an unprecedented rate (The Lancet, 2022). Cognitive function encompasses multiple domains – such as memory, attention, executive function, language, and processing speed (Harvey, 2019) – which are intrinsically interconnected and generally decline with advancing age (Murman, 2015). Epidemiological studies highlight a substantial burden of cognitive impairment among older adults in China: mild cognitive impairment (MCI) and dementia affect an estimated 15.5% and 6% of the population aged 60 and older, respectively (Jia et al., 2020). The number of people living with dementia is projected to 48.98 million by 2050 (Li, Qin, Zhu, & Jia, 2021). Cognitive decline imposes a multifaceted burden encompassing not only direct healthcare costs but also substantial informal caregiving demands, reduced quality of life, and profound psychosocial effects on both patients and their families (Gläser et al., 2025; Pérez Palmer, Trejo Ortega, & Joshi, 2022; Wimo et al., 2023). Notably, rural older adults experience a higher prevalence of cognitive decline and impose additional burden on family caregivers compared to their urban counterparts (Jia et al., 2020; Wiese et al., 2023). Previous studies have identified several risk factors for cognitive impairment, including female sex, depressive symptoms, and poor sleep quality (Jia et al., 2021; Li, Wang, & Dupre, 2022).",
+   "printed": true
+  },
+  {
+   "para_id": 2,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Sleep disorders, psychological distress, and cognitive impairment frequently co-occur in older adults. Sleep disorders are common in this population and typically present as altered sleep architecture, reduced sleep duration, and fragmented sleep patterns (Pavlova & Latreille, 2019; Yaremchuk, 2018). Poor sleep quality has been linked to increased risk of neurodegenerative processes and cognitive decline (Casagrande, Forte, Favieri, & Corbo, 2022; Leng et al., 2020). Liu et al. reported that both sleep initiation difficulties and daytime sleepiness increased the risk of MCI, with daytime sleepiness further linked to a higher risk of dementia (Liu et al., 2025). Similarly, psychological distress, especially symptoms of depression and anxiety, is prevalent among older adults and often accelerates cognitive deterioration (Sutin, Stephan, & Terracciano, 2018). Previous studies have demonstrated bidirectional associations between sleep quality and psychological distress (Alimoradi et al., 2021; Madrid-Valero et al., 2023). Moreover, the complex interplay among sleep, psychological distress, and cognitive function has been supported by evidence suggesting that impaired sleep and heightened psychological distress synergistically contribute to cognitive impairment (Kim, Park, Zhu, & Fritschi, 2021). Despite these findings, much of the existing literature relies on cross-sectional designs or short-term follow-ups, limiting insights into temporal and causal dynamics, particularly in under-researched rural populations.",
+   "printed": true
+  },
+  {
+   "para_id": 3,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Scarring theory posits that adverse experiences can leave lasting ‘scars’ on an individual’s psychological and physiological well-being, leading to long-term functional impairment (Allemand, Grünenfelder-Steiger, & Flückiger, 2018). Over time, psychological issues may not only affect current cognitive function but can also exert persistent effects on future cognitive abilities (Farina et al., 2020; Gulpers et al., 2019). Moreover, sleep alterations have been recently conceptualized as biological ‘scars’ of depression (Palagini et al., 2013). In parallel, vulnerability models theorize those impairments in cognitive functioning (e.g. executive functioning deficits) act as predisposing factors that heighten susceptibility to psychological difficulties like fear and worry. For instance, Zainal et al. found that difficulties in working memory and inductive reasoning predict increased levels of uncontrollable worry (Zainal & Newman, 2018). Taken together, these two theoretical frameworks generate distinct directional predictions. Determining which predominates requires longitudinal examination of symptom temporal ordering to identify primary drivers and intervention targets.",
+   "printed": true
+  },
+  {
+   "para_id": 4,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Traditional studies have largely focused on syndrome-level associations, often relying on total scores of neuropsychological symptoms (Zainal & Newman, 2023). However, such aggregate measures may obscure meaningful interactions between individual symptoms and functional domains. According to the network theory of psychopathology (Borsboom, 2017), psychiatric disorders are not latent entities that cause symptoms, but rather systems of causally interconnected symptoms that mutually reinforce one another. In this framework, sleep disturbances, psychological distress, and cognitive function are interconnected. Importantly, symptoms across different disorders can reciprocally influence one another, creating vicious cycles that contribute to the development and maintenance of comorbid conditions (Cramer, Waldorp, van der Maas, & Borsboom, 2010). The strength and influence of these symptom relationships can be quantified through centrality indices and edge weights. Centrality measures help identify which symptoms act as key drivers of network-wide activation (Robinaugh, Millner, & McNally, 2016). Consequently, pinpointing central and bridging symptoms within such networks offers critical insights into the mechanisms underlying comorbid disorders (Fried & Cramer, 2017).",
+   "printed": true
+  },
+  {
+   "para_id": 5,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Recently, network analysis methods have seen growing application in psychiatric and psychological research involving older adults. For instance, Lin et al. identified core and bridge symptoms linking emergent neuropsychiatric symptoms and sleep problems (Lin et al., 2025). Bai explored bridge symptoms – specifically ‘Naming’ and ‘Language’ – between depressive symptoms and cognitive performance, noting that improved sleep quality may enhance quality of life in older adults (Bai et al., 2023). However, a major limitation of prior network-based studies lies in their predominant use of cross-sectional designs, which offer limited evidence for causality (Bai et al., 2023). Cross-lagged panel network (CLPN) analysis combines cross-lagged panel models (CLPMs) with network analytic techniques, enabling a nuanced examination of how changes in one symptom at an earlier time point predict subsequent changes in others (Rhemtulla, Wysocki, Bork, & Cramer, 2022). This method helps uncover potential directional influences and feedback loops among symptoms. By clarifying temporal relationships while controlling for prior symptom levels and confounding factors, longitudinal data can strengthen causal inference (McNally, 2021) and provide a more detailed understanding of dynamic symptom interactions over time.",
+   "printed": true
+  },
+  {
+   "para_id": 6,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Emerging evidence indicates that the relationship between sleep quality, psychological distress, and cognitive function may differ by sex among older adults. Research has shown that males and females often exhibit different patterns of sleep disturbances: females are more likely to report insomnia and sleep quality complaints (Madrid-Valero et al., 2017; Zhang & Wing, 2006), whereas males show a higher prevalence of sleep-disordered breathing (Peppard et al., 2013). Similarly, well-documented sex differences exist in the manifestation and prevalence of psychological distress. Females generally report higher rates of depression and anxiety (Albert, 2015; Salk, Hyde, & Abramson, 2017), while males may often exhibit different symptom profiles and help-seeking behaviors (Seidler et al., 2016). These disparities may also extend to cognitive domains, where sex-specific vulnerabilities and protective factors could shape the trajectories of cognitive decline (Hajali, Andersen, Negah, & Sheibani, 2019; Podcasy & Epperson, 2016). Given established sex differences, it is crucial to examine whether the network structure and symptom interactions differ between males and females. Sex-stratified network analysis can reveal sex-specific pathways between sleep disturbances, psychological distress, and cognitive impairment. This approach can help to identify targeted intervention strategies and inform tailored approaches for promoting cognitive health in rural older adults.",
+   "printed": true
+  },
+  {
+   "para_id": 7,
+   "loc": "body",
+   "sec_title": "Participant recruitment and selection",
+   "text": "Multistage stratified random sampling method was used to select participants. Details of the study methodology are described in detail elsewhere (Wang et al., 2021; Yuan et al., 2022). Exclusion criteria included: (1) individuals with neurodegenerative disorders (e.g., dementia, Parkinson’s disease) or severe psychiatric conditions (e.g., schizophrenia, bipolar disorder); (2) participants with hearing or speech impairments preventing normal interpersonal communication and (3) individuals who refused to participate in the questionnaire survey.",
+   "printed": true
+  },
+  {
+   "para_id": 8,
+   "loc": "body",
+   "sec_title": "Sleep quality",
+   "text": "Sleep quality symptoms were assessed using the Pittsburgh Sleep Quality Index (PSQI) (Buysse et al., 1989), a validated 19-item self-report questionnaire widely used in older adult populations (Qiu et al., 2016). The PSQI measures seven dimensions of sleep over the past month: subjective sleep quality, sleep latency, sleep duration, sleep efficiency, sleep disturbances, use of sleep medication, and daytime dysfunction. Each dimension is scored from 0 (no difficulty) to 3 (severe difficulty). The total score ranges from 0 to 21, with higher scores indicating poorer sleep quality. The Cronbach’s alpha coefficients for the PSQI were 0.765 (T1), 0.746 (T2), and 0.747 (T3).",
+   "printed": true
+  },
+  {
+   "para_id": 9,
+   "loc": "body",
+   "sec_title": "Psychological distress",
+   "text": "Psychological distress was measured using the Kessler Psychological Distress Scale (K10), a 10-item screening tool assessing nonspecific symptoms of anxiety and depression over the past 4 weeks (Kessler et al., 2002; Zhou et al., 2008). Responses are rated on a 5-point Likert scale (1 = ‘none of the time’ to 5 = ‘all of the time’). The total score ranges from 10 to 50, with higher scores indicating greater psychological distress. The Cronbach’s alpha coefficients for this scale were 0.902 (T1), 0.911 (T2), and 0.905 (T3).",
+   "printed": true
+  },
+  {
+   "para_id": 10,
+   "loc": "body",
+   "sec_title": "Cognitive function",
+   "text": "Cognitive function was assessed using the Mini-Mental State Examination (MMSE), a widely used 30-item screening tool adapted for older adults with varying education levels (Pangman, Sloan, & Guse, 2000). The MMSE evaluates six cognitive domains (Truong et al., 2024): orientation, registration, attention, recall, language, and visuospatial. Individual domain scores were calculated by summing responses to relevant items, with maximum scores varying by domain (detailed information is presented in Supplementary Table S1). The total score ranges from 0 to 30, with higher scores indicating better cognitive function. The Cronbach’s alpha coefficients for the questionnaire were 0.717 (T1), 0.761 (T2), and 0.760 (T3).",
+   "printed": true
+  },
+  {
+   "para_id": 11,
+   "loc": "body",
+   "sec_title": "Statistical analysis",
+   "text": "Initial data cleaning and descriptive statistical analyses were performed using Stata MP 17.0 (Stata Corp, College Station, TX, USA). The longitudinal relationships between sleep quality, psychological distress, and cognitive function were examined using a CLPN analysis across three time points (T1, T2, and T3). The analysis was conducted using R version 4.4.2, following established methodological guidelines for CLPN modeling (Rhemtulla et al., 2022). The analysis controlled for covariates including age, sex, marital status, and educational level at T1 (in T1–T2 network) and T2 (in T2–T3 network).",
+   "printed": true
+  },
+  {
+   "para_id": 12,
+   "loc": "body",
+   "sec_title": "Statistical analysis",
+   "text": "The CLPN analysis was implemented using regularized regressions to estimate the complex relationships between variables across three time points. The estimation process focused on calculating both autoregressive effects (coefficients of a variable at T1/T2 predicting itself at T2/T3) and cross-lagged effects (coefficients of a variable at T1/T2 predicting different variables at T2/T3). Key R packages were instrumental in this process: glmnet for calculating regularized regressions (Friedman, Hastie, & Tibshirani, 2010), qgraph for network visualization (Epskamp et al., 2012), and bootnet for assessing network stability and accuracy (Epskamp, Borsboom, & Fried, 2018). The coefficients of logistic regressions (edge weights) were converted to odds ratios to facilitate interpretability, with edge weights smaller than 1 reflecting negative relations and edge weights greater than 1 denoting positive relations.",
+   "printed": true
+  },
+  {
+   "para_id": 13,
+   "loc": "body",
+   "sec_title": "Accuracy and stability of network parameters",
+   "text": "For the total sample (Supplementary Figure S3) and sex-stratified networks (Supplementary Figure S4), bootstrapped CIs around the edge weights demonstrated adequate accuracy. The results of the stability test are shown in Supplementary Figures S5 and S6. Following established guidelines (Epskamp et al., 2018), where CS coefficients above 0.25 indicate acceptable stability and above 0.5 indicate good stability. CS coefficients exceeded 0.25 for all metrics, confirming sufficient stability. Female networks consistently demonstrated higher centrality stability across both time periods, particularly for In-EI measures.",
+   "printed": true
+  },
+  {
+   "para_id": 14,
+   "loc": "body",
+   "sec_title": "Discussions",
+   "text": "The CLPN network analysis revealed distinct temporal dynamics linking sleep quality, cognitive function, and psychological distress among rural older adults. The temporal architecture of these findings illuminates the mechanism through which Scarring Theory operates in late-life aging. Over time, PSQI demonstrated distinct predictive patterns across intervals: primarily influencing psychological distress (e.g., PSQI1 → K5, PSQI6 → K10) during T1–T2, whereas increasingly predicted cognitive functions (e.g., PSQI6 → MMSE1) during T2–T3. This shift suggests that sleep disorders might manifest as mood-related symptoms before progressively affecting cognitive functioning with advancing age (J. Wang, Chen, & Xue, 2024). Such an interpretation aligns with prior longitudinal network studies showing that persistent sleep problems are often associated with chronic health conditions, including comorbidities and cognitive impairment (Feng et al., 2025). Poor PSQI domains may affect aging through interconnected neurobiological mechanisms. From a biological mechanism, poor PSQI can contribute to psychological distress through dysregulation of the hypothalamic–pituitary–adrenal (HPA) axis and overactivation of the sympathetic nervous system. Concurrently, low sleep efficiency may lead to accelerated atrophy in the frontal, temporal, and parietal regions of the brain, which are crucial for memory and executive functions (Fjell et al., 2020; Stickgold & Walker, 2007). This temporal ordering is theoretically significant, as early adversity such as poor sleep leaves neurobiological scars that accumulate progressively across psychological and cognitive systems. Thus, early identification and intervention targeting sleep disturbances may help prevent the downstream cascade of psychological distress and cognitive decline in rural older adults.",
+   "printed": true
+  },
+  {
+   "para_id": 15,
+   "loc": "body",
+   "sec_title": "Discussions",
+   "text": "The strong within-community associations among MMSE subscales suggest that cognitive functions operate as an interconnected system, in which impairments in one domain can cascade to others (Li, He, Hsu, & Li, 2025; Truong et al., 2024). For example, ‘Registration’ primarily drives impairments in ‘Recall’ (MMSE2 → MMSE4) and orientation (MMSE2 → MMSE1) in T1–T2, whereas ‘Visuospatial processing’ becomes the primary driver, influencing ‘Language’ functions (MMSE6 → MMSE5) and ‘Attention/calculation’ abilities (MMSE6 → MMSE3) in T2–T3. Although Henneges et al. observed that MMSE domains decline at different rates, they did not further examine the mutual influences among these domains (Henneges et al., 2016). Theoretical frameworks such as Cattell–Horn–Carroll (CHC) theory (McGrew, 2009) help explain these within-domain cognitive associations. During the T1–T2 period, impairment begins with basic memory processes: deficits in registration (MMSE2) prevent proper initial encoding of information, thereby hindering effective storage and retrieval, which subsequently leads to deterioration in recall (MMSE4) and orientation (MMSE1). As the condition progresses into T2–T3, the pattern shifts, with visuospatial processing (MMSE6) becoming the primary driver and affecting both language functions (MMSE5) and attention/calculation abilities (MMSE3). Rather than focusing on isolated cognitive domains, clinicians should adopt a network perspective that acknowledges the interconnected nature of cognitive functions. Early identification and targeted intervention for high-centrality cognitive symptoms may exert protective effects across the cognitive network.",
+   "printed": true
+  },
+  {
+   "para_id": 16,
+   "loc": "body",
+   "sec_title": "Discussions",
+   "text": "The consistent identification of subjective sleep quality (PSQI1) as the node with the highest Out-EI and BEI across both time periods underscores its pivotal role as a temporal predictor within the aging-related symptom network. Compared with other sleep dimensions, the prominence of subjective sleep quality highlights its unique value in predicting perceived sleep satisfaction among rural older adults, reflecting sleep-related concerns that may drive downstream health outcomes (Buysse, 2014). This dominance over more objective sleep dimensions such as sleep duration and sleep efficiency may be partly explained by the broader health burden that subjective sleep complaints capture beyond sleep physiology alone (Vitiello, Larsen, & Moe, 2004). Prior study found that subjectively perceived poor sleep is linked to an increased risk of developing depression, and this might be related to slow wave sleep (McCarter et al., 2022). Additionally, sleep medication use (PSQI6) and sleep efficiency (PSQI4) also play certain predictive roles in psychological distress and cognitive function, aligning with existing studies (Blackwell et al., 2014; Cipriani, Bartoli, & Amanzio, 2021; Goldstein, Gaston, McGrath, & Jackson, 2020; Spira, Chen-Edinboro, Wu, & Yaffe, 2014). These findings highlight the need to move beyond conventional sleep duration metrics toward a more multidimensional assessment of sleep quality in aging research. Future longitudinal studies should investigate whether targeted sleep interventions implemented at earlier stages could help prevent or delay subsequent cognitive decline.",
+   "printed": true
+  },
+  {
+   "para_id": 17,
+   "loc": "body",
+   "sec_title": "Discussions",
+   "text": "The identification of cognitive components – especially orientation, attention and calculation, and language functions – as highly influential In-EI nodes highlights their particular vulnerability within the aging symptom network. Orientation depends on the complex integration of vestibular–visual–proprioceptive systems, involving precise coordination among the vestibular nuclei, thalamus, parahippocampal gyrus, medial prefrontal cortex, and parietal regions (Denise, Harris, & Clément, 2022; Hanes & McCollum, 2006). This multi-system architecture renders spatial orientation particularly susceptible to sleep disturbances and psychological stress (Lupien, McEwen, Gunnar, & Heim, 2009; Ma et al., 2020). Attention and calculation rely on prefrontal executive networks, which have high metabolic demands and are among the first to decline with aging (Truong et al., 2024). These functions require intact working memory systems and precise frontoparietal connectivity, making them vulnerable to sleep-related neurophysiological disruptions (Dai et al., 2020). Language functions are affected more frequently, which may be related to the early appearance of language deficits in cognitive impairment (Verma & Howard, 2012; Woodward, 2013). Recognizing these three cognitive domains as central points of vulnerability within the aging network carries important clinical implications. Consequently, healthcare policies should prioritize comprehensive screening protocols targeting these specific cognitive domains.",
+   "printed": true
+  },
+  {
+   "para_id": 18,
+   "loc": "body",
+   "sec_title": "Discussions",
+   "text": "Our analysis revealed that although the overall structure of male and female networks remained similar across both time periods, a temporal trend toward increasing differentiation was observed. The Jaccard similarity index decreased from 0.439 in T1–T2 to 0.352 in T2–T3, suggesting that sex-specific patterns may become more pronounced over time. This finding aligns with existing evidence indicating that sex differences in cognitive decline may become more pronounced at later stages of aging or in the context of more severe cognitive impairment (Arenaza-Urquijo et al., 2024). The observed decrease in network similarity further supports this interpretation. Longer follow-up durations or larger sample sizes could help uncover more substantial sex differences in aging populations. Additionally, methodological considerations inherent to network analysis may influence the detection of sex differences. While partial correlation networks offer insights into conditional relationships among symptoms, they may obscure sex differences that could be more apparent under other analytical frameworks.",
+   "printed": true
+  }
+ ],
+ "links": [],
+ "links_optional": [
+  "creativecommons.org/licenses/by/4.0",
+  "doi:10.1001/jamanetworkopen.2020.13573",
+  "doi:10.1002/alz.12901",
+  "doi:10.1002/alz.13104",
+  "doi:10.1002/alz.13844",
+  "doi:10.1002/gps.3766",
+  "doi:10.1002/wps.20375",
+  "doi:10.1007/978-3-319-28099-8_855-1",
+  "doi:10.1016/0165-1781(89)90047-4",
+  "doi:10.1016/j.amjmed.2018.09.021",
+  "doi:10.1016/j.cger.2018.01.008",
+  "doi:10.1016/j.cpr.2016.09.002",
+  "doi:10.1016/j.eclinm.2021.100916",
+  "doi:10.1016/j.gaceta.2016.05.013",
+  "doi:10.1016/j.intell.2008.08.004",
+  "doi:10.1016/j.jad.2022.02.039",
+  "doi:10.1016/j.jad.2022.09.159",
+  "doi:10.1016/j.jad.2025.119825",
+  "doi:10.1016/j.jagp.2018.09.006",
+  "doi:10.1016/j.jamda.2020.11.014",
+  "doi:10.1016/j.psc.2022.07.010",
+  "doi:10.1016/j.sleep.2007.03.011",
+  "doi:10.1016/j.smrv.2012.11.001",
+  "doi:10.1016/j.smrv.2022.101657",
+  "doi:10.1016/j.yhbeh.2018.12.013",
+  "doi:10.1016/s0022-3999(04)00023-6",
+  "doi:10.1016/s0140-6736(22)02410-2",
+  "doi:10.1016/s2468-2667(20)30185-7",
+  "doi:10.1017/s0033291702006074",
+  "doi:10.1017/s0033291717003579",
+  "doi:10.1017/s0033291722000848",
+  "doi:10.1017/s0033291726105182",
+  "doi:10.1017/s0140525x09991567",
+  "doi:10.1017/s1041610213000318",
+  "doi:10.1037/abn0000181",
+  "doi:10.1037/bul0000102",
+  "doi:10.1038/nrn2639",
+  "doi:10.1038/s41598-024-72159-8",
+  "doi:10.1053/apnr.2000.9231",
+  "doi:10.1055/s-0035-1555115",
+  "doi:10.1080/13607863.2019.1636203",
+  "doi:10.1093/aje/kws342",
+  "doi:10.1093/sleep/29.1.85",
+  "doi:10.1093/sleep/zsz280",
+  "doi:10.1097/nmd.0000000000001137",
+  "doi:10.1097/yco.0000000000000106",
+  "doi:10.1111/jan.14624",
+  "doi:10.1111/jsr.13714",
+  "doi:10.1111/psyg.13069",
+  "doi:10.1146/annurev-clinpsy-081219-092850",
+  "doi:10.1155/da/8078557",
+  "doi:10.1177/13872877251353119",
+  "doi:10.1177/1745691617705892",
+  "doi:10.1186/s12888-021-03495-6",
+  "doi:10.1186/s12889-022-12773-1",
+  "doi:10.1186/s13195-025-01785-9",
+  "doi:10.1503/jpn.150205",
+  "doi:10.16128/j.cnki.1005-3611.2008.06.026",
+  "doi:10.18637/jss.v033.i01",
+  "doi:10.18637/jss.v048.i04",
+  "doi:10.2147/nss.s268087",
+  "doi:10.2196/67632",
+  "doi:10.31234/osf.io/vjr8z",
+  "doi:10.31887/dcns.2016.18.4/cepperson",
+  "doi:10.31887/dcns.2019.21.3/pharvey",
+  "doi:10.3233/jad-150852",
+  "doi:10.3233/jad-180119",
+  "doi:10.3233/jad-210493",
+  "doi:10.3233/ves-2006-16301",
+  "doi:10.3389/fnhum.2020.00360",
+  "doi:10.3389/fnint.2022.1067425",
+  "doi:10.3390/ijerph182010676",
+  "doi:10.3390/ijerph19148457",
+  "doi:10.3758/s13428-017-0862-1",
+  "doi:10.5665/sleep.3298",
+  "doi:10.5665/sleep.3562"
+ ],
+ "own_doi": "doi:10.1017/s0033291726105182",
+ "citations": [
+  {
+   "cite_id": 1,
+   "para_id": 1,
+   "bib_id": 61,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 2,
+   "para_id": 1,
+   "bib_id": 27,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 3,
+   "para_id": 1,
+   "bib_id": 46,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 4,
+   "para_id": 1,
+   "bib_id": 29,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 5,
+   "para_id": 1,
+   "bib_id": 34,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 6,
+   "para_id": 1,
+   "bib_id": 22,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 7,
+   "para_id": 1,
+   "bib_id": 51,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 8,
+   "para_id": 1,
+   "bib_id": 68,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 9,
+   "para_id": 1,
+   "bib_id": 29,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 10,
+   "para_id": 1,
+   "bib_id": 67,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 11,
+   "para_id": 1,
+   "bib_id": 30,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 12,
+   "para_id": 1,
+   "bib_id": 36,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 13,
+   "para_id": 2,
+   "bib_id": 49,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 14,
+   "para_id": 2,
+   "bib_id": 70,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 15,
+   "para_id": 2,
+   "bib_id": 10,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 16,
+   "para_id": 2,
+   "bib_id": 33,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 17,
+   "para_id": 2,
+   "bib_id": 38,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 18,
+   "para_id": 2,
+   "bib_id": 60,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 19,
+   "para_id": 2,
+   "bib_id": 2,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 20,
+   "para_id": 2,
+   "bib_id": 41,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 21,
+   "para_id": 2,
+   "bib_id": 32,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 22,
+   "para_id": 3,
+   "bib_id": 3,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 23,
+   "para_id": 3,
+   "bib_id": 17,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 24,
+   "para_id": 3,
+   "bib_id": 24,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 25,
+   "para_id": 3,
+   "bib_id": 47,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 26,
+   "para_id": 3,
+   "bib_id": 72,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 27,
+   "para_id": 4,
+   "bib_id": 73,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 28,
+   "para_id": 4,
+   "bib_id": 7,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 29,
+   "para_id": 4,
+   "bib_id": 12,
+   "marker": "2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 30,
+   "para_id": 4,
+   "bib_id": 55,
+   "marker": "2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 31,
+   "para_id": 4,
+   "bib_id": 20,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 32,
+   "para_id": 5,
+   "bib_id": 37,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 33,
+   "para_id": 5,
+   "bib_id": 5,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 34,
+   "para_id": 5,
+   "bib_id": 5,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 35,
+   "para_id": 5,
+   "bib_id": 54,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 36,
+   "para_id": 5,
+   "bib_id": 45,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 37,
+   "para_id": 6,
+   "bib_id": 42,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 38,
+   "para_id": 6,
+   "bib_id": 74,
+   "marker": "2006",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 39,
+   "para_id": 6,
+   "bib_id": 50,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 40,
+   "para_id": 6,
+   "bib_id": 1,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 41,
+   "para_id": 6,
+   "bib_id": 56,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 42,
+   "para_id": 6,
+   "bib_id": 57,
+   "marker": "2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 43,
+   "para_id": 6,
+   "bib_id": 25,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 44,
+   "para_id": 6,
+   "bib_id": 52,
+   "marker": "2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 45,
+   "para_id": 7,
+   "bib_id": 66,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 46,
+   "para_id": 7,
+   "bib_id": 71,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 47,
+   "para_id": 8,
+   "bib_id": 9,
+   "marker": "1989",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 48,
+   "para_id": 8,
+   "bib_id": 53,
+   "marker": "2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 49,
+   "para_id": 9,
+   "bib_id": 31,
+   "marker": "2002",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 50,
+   "para_id": 9,
+   "bib_id": 75,
+   "marker": "2008",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 51,
+   "para_id": 10,
+   "bib_id": 48,
+   "marker": "2000",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 52,
+   "para_id": 10,
+   "bib_id": 62,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 53,
+   "para_id": 11,
+   "bib_id": 54,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 54,
+   "para_id": 12,
+   "bib_id": 21,
+   "marker": "2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 55,
+   "para_id": 12,
+   "bib_id": 16,
+   "marker": "2012",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 56,
+   "para_id": 12,
+   "bib_id": 15,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 57,
+   "para_id": 13,
+   "bib_id": 15,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 58,
+   "para_id": 14,
+   "bib_id": 65,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 59,
+   "para_id": 14,
+   "bib_id": 18,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 60,
+   "para_id": 14,
+   "bib_id": 19,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 61,
+   "para_id": 14,
+   "bib_id": 59,
+   "marker": "2007",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 62,
+   "para_id": 15,
+   "bib_id": 35,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 63,
+   "para_id": 15,
+   "bib_id": 62,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 64,
+   "para_id": 15,
+   "bib_id": 28,
+   "marker": "2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 65,
+   "para_id": 15,
+   "bib_id": 44,
+   "marker": "2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 66,
+   "para_id": 16,
+   "bib_id": 8,
+   "marker": "2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 67,
+   "para_id": 16,
+   "bib_id": 64,
+   "marker": "2004",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 68,
+   "para_id": 16,
+   "bib_id": 43,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 69,
+   "para_id": 16,
+   "bib_id": 6,
+   "marker": "2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 70,
+   "para_id": 16,
+   "bib_id": 11,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 71,
+   "para_id": 16,
+   "bib_id": 23,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 72,
+   "para_id": 16,
+   "bib_id": 58,
+   "marker": "2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 73,
+   "para_id": 17,
+   "bib_id": 14,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 74,
+   "para_id": 17,
+   "bib_id": 26,
+   "marker": "2006",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 75,
+   "para_id": 17,
+   "bib_id": 39,
+   "marker": "2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 76,
+   "para_id": 17,
+   "bib_id": 40,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 77,
+   "para_id": 17,
+   "bib_id": 62,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 78,
+   "para_id": 17,
+   "bib_id": 13,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 79,
+   "para_id": 17,
+   "bib_id": 63,
+   "marker": "2012",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 80,
+   "para_id": 17,
+   "bib_id": 69,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 81,
+   "para_id": 18,
+   "bib_id": 4,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-ext-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "v1_bib_count": 75
+ }
+}

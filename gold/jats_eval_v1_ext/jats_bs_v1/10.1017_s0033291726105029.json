@@ -1,0 +1,980 @@
+{
+ "paper_id": "10.1017_s0033291726105029",
+ "paras": [
+  {
+   "para_id": 1,
+   "loc": "back",
+   "sec_title": "Data availability statement",
+   "text": "Due to the sensitive nature of the data and data protection requirements, the data are not publicly available. The complete analytical R script is available here: https://github.com/libpot/Loneliness_Health_Factors.",
+   "printed": true
+  },
+  {
+   "para_id": 2,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Loneliness has gained increasing recognition as a major societal and public health challenge in recent years (Goldman et al., 2024). Previous research has demonstrated associations between loneliness and a range of adverse health outcomes, most notably depression (Abdellaoui et al., 2019; Goosby, Bellatorre, Walsemann, & Cheadle, 2013), severe infections (Elovainio et al., 2023), cardiovascular disease (Abdellaoui et al., 2019; Hakulinen et al., 2018), and all-cause mortality (Elovainio et al., 2017; Wang et al., 2023; Yu et al., 2023). However, the mechanisms underlying these associations remain incompletely understood.",
+   "printed": true
+  },
+  {
+   "para_id": 3,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Adverse health behaviors represent a potential mechanism through which loneliness might affect health (Christiansen, Larsen, & Lasgaard, 2016). The evolutionary theory of loneliness offers a useful theoretical framework, proposing that individuals who feel lonely may display hypervigilance to social threats (Hawkley & Cacioppo, 2010; Qualter et al., 2015). Over time, this sustained alertness may impair executive functioning and self-regulation, thereby heightening susceptibility to impulsive coping strategies and maladaptive health behaviors (Hawkley & Cacioppo, 2010). Consistent with this perspective, cohort studies in older adults and genetic evidence demonstrate that loneliness is associated with physical inactivity (Hawkley, Thisted, & Cacioppo, 2009; Pengpid, Peltzer, & Anantanasuwong, 2023; Shankar, McMunn, Banks, & Steptoe, 2011), smoking (Shankar et al., 2011; Wootton et al., 2021), and underweight (Pengpid et al., 2023). Among adults experiencing loneliness, such adverse health behaviors might contribute to multiple negative health outcomes, including an increased risk of depression (Liang et al., 2024), severe infections (Elovainio et al., 2023), cardiovascular disease (Hakulinen et al., 2018; Liang et al., 2024), obesity (Liang et al., 2024), and premature mortality (Elovainio et al., 2017). However, recent cohort studies of older adults that adjusted for a broad range of confounders have found no evidence for links between loneliness and subsequent physical activity (Hong et al., 2023; Kobayashi & Steptoe, 2018; Schrempft, Jackowska, Hamer, & Steptoe, 2019), alcohol use (Hong et al., 2023; Kobayashi & Steptoe, 2018), smoking (Hong et al., 2023; Kobayashi & Steptoe, 2018), and overweight (Hong et al., 2023; Kobayashi & Steptoe, 2018). These findings suggest earlier findings may partly reflect bias, such as residual confounding. Moreover, research on loneliness-health behavior linkages predominantly focused on older adults (Hawkley & Capitanio, 2015; Kobayashi & Steptoe, 2018), failing to systematically examine these behavioral precursors of disease and disability across the first half of life.",
+   "printed": true
+  },
+  {
+   "para_id": 4,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Adolescence is a crucial developmental period when future adult behaviors are dynamically shaped, and in which loneliness is particularly prevalent (Luhmann & Hawkley, 2016; von Soest, Luhmann, & Gerstorf, 2020). However, findings from older adult populations may not directly generalize to earlier life stages, as risky health behaviors such as alcohol use, physical exercise, and smoking in adolescence and emerging adulthood are often socially embedded and shaped by peer norms, social network processes, and identity formation (Montgomery et al., 2020), potentially reducing the relative importance of loneliness as an independent driver of these behaviors. Across early life stages, prior research has linked loneliness and lack of social connections to poorer self-rated health and cardiometabolic risk factors such as high blood pressure, elevated body mass index (BMI), cholesterol, and inflammation (Goosby et al., 2013; Rangul et al., 2025; Yang et al., 2016). A large-scale Danish study further demonstrated associations between loneliness and health behaviors among young people (Jensen et al., 2025); yet its cross-sectional design precluded it from establishing the temporal ordering and directionality of these associations. By contrast, a recent US longitudinal cohort study applying a causal inference framework found no support for causal associations between adolescent loneliness and multiple health behaviors in adulthood, including smoking, alcohol use, physical activity, and overweight/obesity (Kim, Wilkinson, Holt-Lunstad, & VanderWeele, 2025). Such causal inference approaches involve adjustment for preexisting levels of the exposure, the outcome, and a wide range of confounders to minimize the risk of reverse causality and residual confounding (Mulder, Usami, & Hamaker, 2025; VanderWeele, 2017, 2021), consequently providing more robust insights into potential causal linkages. However, systematic investigations into links between loneliness and adverse health behaviors across the first half of life – from adolescence through emerging adulthood and young adulthood – remain scarce.",
+   "printed": true
+  },
+  {
+   "para_id": 5,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "The reverse direction has received even less attention, despite prior work suggesting that adverse health behaviors may shape social connections and loneliness. For example, as certain health behaviors such as smoking have become increasingly more stigmatized, individuals who engage in these behaviors face social exclusion and marginalization (Christakis & Fowler, 2008; von Soest & Pedersen, 2014). Supporting this notion, a British cohort study demonstrated that smoking was prospectively associated with increased loneliness in older adults (Philip et al., 2022). Mendelian randomization studies further showed bidirectional loneliness–smoking effects (Wootton et al., 2021), as well as the effects of body fat and BMI on loneliness (Abdellaoui et al., 2019). In contrast, some evidence suggests that some health behaviors may also have protective effects on psychosocial outcomes. A US cohort study employing causal inference methodology showed that moderate alcohol use in young adulthood was associated with a lower risk of depression in midlife (Visontay et al., 2023), while an Australian household panel study showed reciprocal linkages between physical activity and loneliness (Groß & Haffa, 2025). Together, these findings suggest that health behaviors may influence psychosocial functioning in complex and potentially bidirectional ways across the life course. Yet, no study has systematically investigated the dynamic interplay between loneliness and a broader range of health behaviors across the first half of life.",
+   "printed": true
+  },
+  {
+   "para_id": 6,
+   "loc": "body",
+   "sec_title": "Open science practices",
+   "text": "The study was preregistered on the Open Science Framework (OSF) before conducting statistical analyses (OSF, 2025). To inform the study design, we inspected frequencies and distributions of loneliness and health behavior measures before preregistration. All deviations from the preregistered protocol are documented in the Supplementary Materials (p. 3).",
+   "printed": true
+  },
+  {
+   "para_id": 7,
+   "loc": "body",
+   "sec_title": "Loneliness",
+   "text": "At all five waves, loneliness was assessed by a four-item short version of the revised UCLA Loneliness scale (Russell, Peplau, & Cutrona, 1980) (example item: ‘People are around me but not with me’). Responses were recorded on a four-point rating scale, ranging from ‘Never’ to ‘Often’. Composite mean scores were calculated and standardized (mean = 0, standard deviation [SD] = 1) to facilitate interpretation. McDonald’s omega (ω) ranged from 0.66 at T1 to 0.81 at T4, indicating satisfactory to very good scale reliability.",
+   "printed": true
+  },
+  {
+   "para_id": 8,
+   "loc": "body",
+   "sec_title": "Confounders",
+   "text": "To increase the confidence that the exchangeability assumption holds (i.e. no unmeasured confounding), we selected a comprehensive set of baseline and time-varying confounders based on previous studies on loneliness and health (Kim et al., 2025; Kobayashi & Steptoe, 2018; Pengpid et al., 2023; Shankar et al., 2011) and theoretical considerations. Baseline, time-invariant confounders (C 0, measured at T0) included sociodemographic characteristics (age, gender, migration background, and parental education), early family environment (parental warmth, overcontrol, and behavioral monitoring), parental health behaviors (parental alcohol use and smoking), and chronic health conditions (physical disability, asthma, and reading/writing disability). Time-varying confounders (Lt -1, measured from T0 to T3) comprised socioeconomic characteristics (employment status and educational attainment), indicators of social integration (living situation, relationship status, and number of friends), perceived social support, and depressive symptoms. For a directed acyclic graph showing the assumed causal structure, see Supplementary Figure S2, and detailed information on confounder measurement is provided in the Supplementary Materials (p. 6).",
+   "printed": true
+  },
+  {
+   "para_id": 9,
+   "loc": "body",
+   "sec_title": "Statistical analysis",
+   "text": "To examine reciprocal longitudinal associations between loneliness and health behaviors from adolescence to midlife, we applied structural mean modeling (SMM) (Mulder et al., 2025). This causal modeling approach, developed within the potential outcomes framework, is a propensity-score-based, doubly robust modeling approach that allows estimation of causal effects. By accounting for previous levels of loneliness and health behaviors, as well as a comprehensive set of baseline and time-varying confounders, SMM allowed us to minimize the possibility of reverse causation and residual confounding, and examine the effect of changes in exposure on subsequent changes in the outcome. Because links between health behaviors and psychosocial outcomes may be nonlinear, with adverse outcomes potentially emerging at both very high and very low levels of behavior, a U- or J-shaped relationship is plausible (Visontay et al., 2023). Continuous health behaviors (alcohol use, BMI, and physical exercise) were therefore modeled using natural (restricted cubic) splines, a semi-parametric approach widely used in biomedical research for capturing complex, nonlinear dose–response relationships (Desquilbet & Mariotti, 2010; Ho & Cole, 2023). A detailed description of the overall modeling strategy is provided in the Supplementary Materials (p. 7).",
+   "printed": true
+  },
+  {
+   "para_id": 10,
+   "loc": "body",
+   "sec_title": "Statistical analysis",
+   "text": "We examined prespecified exposure contrasts informed by the WHO (World Health Organization, 2020, 2024) and US (National Institute on Alcohol Abuse and Alcoholism, 2024) guidelines:smoking (daily or occasional) versus nonsmoking (dichotomized);adiposity (BMI = 30) and underweight (BMI = 17) versus normative BMI (BMI = 21.75) (continuous);abstinence (0 units/4 weeks) and heavy alcohol use (60 units/4 weeks) versus moderate drinking (10 units/4 weeks) (continuous);moderate physical exercise (150 minutes/week) versus no physical exercise (0 minutes/week) (continuous); andhigh loneliness level (1 SD above the mean) versus the mean level (SD = 0) (continuous).",
+   "printed": false
+  },
+  {
+   "para_id": 11,
+   "loc": "body",
+   "sec_title": "Results",
+   "text": "Given the substantial number of null findings for associations between loneliness and subsequent health behaviors, we performed post hoc positive control analyses to assess the validity of our analytical approach. Using the same modeling framework, we examined the well-established longitudinal associations between loneliness and depressive symptoms (Goosby et al., 2013; Kim et al., 2025). Results showed a consistent pattern of prospective associations between loneliness and depressive symptoms across all life stages (see Supplementary Figure S12 in the Supplementary Materials), supporting the robustness and sensitivity of our analytical approach to detect effects when present. Bivariate associations (i.e. unadjusted/crude estimates) between loneliness and subsequent health behaviors are shown in Supplementary Figure S13.",
+   "printed": true
+  },
+  {
+   "para_id": 12,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Our findings, providing limited support for causal effects of loneliness on subsequent health behaviors, are broadly in line with a recent US cohort study employing a causal inference framework, reporting no prospective associations between adolescent loneliness and adult health behaviors, including smoking, alcohol use, physical activity, and overweight/obesity (Kim et al., 2025). Similarly, these findings align with longitudinal studies demonstrating no loneliness-health behavior linkages in older adults (Hong et al., 2023; Kobayashi & Steptoe, 2018; Schrempft et al., 2019) and evidence showing weak genetic loneliness-obesity linkages (Liang et al., 2024). However, our findings contrast with longitudinal studies showing that loneliness is longitudinally associated with physical inactivity (Hawkley et al., 2009; Pengpid et al., 2023; Shankar et al., 2011) and smoking (Shankar et al., 2011) among older adults. Two complementary explanations may account for these discrepancies. First, unlike most previous cohort studies, we applied a causal inference approach that adjusted for prior levels of loneliness and health behaviors, as well as a comprehensive set of baseline and time-varying confounders. This approach enabled estimation of the effects of incident increases in loneliness on subsequent changes in health behaviors, thereby reducing the risk of residual confounding and reverse causation, leading to less biased estimates than in conventional approaches. Second, whereas previous studies largely focused on older adults (Hong et al., 2023; Kobayashi & Steptoe, 2018; Pengpid et al., 2023; Shankar et al., 2011), our study examined the first half of life, a period when smoking, alcohol use, and physical exercise are more socially embedded. During adolescence and emerging adulthood, health behaviors may be shaped primarily by peer and social contexts (Montgomery et al., 2020) rather than by internal psychological states such as loneliness. By contrast, in older age, when solitary smoking and alcohol use tend to be more commonly endorsed and socially accepted, loneliness may have a more pronounced effect on these adverse health behaviors.",
+   "printed": true
+  },
+  {
+   "para_id": 13,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Given the limited support for the causal effects of loneliness on health behaviors, other pathways may underlie the links between loneliness and subsequent physical health and mortality. In our positive control outcome analysis, elevated loneliness was consistently associated with increases in depressive symptoms across all examined life stages, aligning with prior evidence demonstrating robust links between loneliness and subsequent depressive symptomatology (Goosby et al., 2013; Kim et al., 2025). Importantly, depression and other mental health problems are linked to increased risk of a wide range of adverse physical health conditions (Momen et al., 2020), and these conditions are in turn related to higher mortality among individuals with preexisting mental health conditions (Formánek et al., 2022, 2024). One plausible interpretation is therefore that loneliness in young people may primarily contribute to poorer mental health, which, in turn, may increase vulnerability to adverse physical health outcomes and premature mortality later in life.",
+   "printed": true
+  },
+  {
+   "para_id": 14,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "When examining the effect of health behaviors on loneliness, we demonstrated that moderate physical exercise, moderate alcohol use, and smoking during adolescence and emerging adulthood were related to lower levels of loneliness. These findings suggest that health behaviors in young people – whether health-promoting or risky – may contribute to reducing loneliness. This pattern contrasts with a recent cohort study in England, showing that smoking among older adults was associated with increased loneliness (Philip et al., 2022). However, our results align with a US cohort study employing a causal inference approach, which demonstrated that moderate alcohol use in young adulthood was associated with a reduced risk of depression (Visontay et al., 2023) and an Australian household panel study showing longitudinal links between physical activity and reduced loneliness (Groß & Haffa, 2025). One potential explanation for these conflicting findings relates again to the social embeddedness of health behaviors. During adolescence and emerging adulthood, behaviors such as smoking, alcohol use, and physical exercise often occur in peer contexts, where they may facilitate socializing, provide social validation, and strengthen a sense of belonging (Montgomery et al., 2020), thereby reducing loneliness. These mechanisms may be less relevant at later life stages. Period and cohort effects may also help to explain the results. Our participants were adolescents in the 1990s, when smoking and alcohol use were common and socially accepted in Norway. In this socio-historical context, engaging in these behaviors may have aligned with prevailing norms and fostered social connectedness. By contrast, as some of these behaviors have become less common and increasingly stigmatized, they may now contribute to social marginalization (Christakis & Fowler, 2008; von Soest & Pedersen, 2014) and heightened loneliness (Philip et al., 2022).",
+   "printed": true
+  },
+  {
+   "para_id": 15,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Gender-stratified analyses showed that elevated loneliness during adolescence was related to increased BMI, whereas both underweight in emerging adulthood and adiposity in young adulthood were longitudinally associated with increased loneliness among women. These findings are consistent with longitudinal evidence suggesting an effect of loneliness on BMI (Goosby et al., 2013) and Mendelian randomization evidence indicating effects of BMI on loneliness (Abdellaoui et al., 2019). Given pervasive norms around the female body, women with nonnormative BMI may be more likely than men to experience body dissatisfaction and feelings of shame and guilt, potentially leading to social withdrawal or rejection by others. Such mechanisms may be particularly salient during emerging and young adulthood, when key social and romantic relationships are established. Among adolescent men, consistent with prior evidence (Groß & Haffa, 2025), we showed that loneliness was prospectively associated with decreased levels of physical exercise, whereas moderate physical exercise was linked to lowered loneliness. This suggests that sports and physical activity may serve as important and socially valued arenas for male adolescent socialization.",
+   "printed": true
+  },
+  {
+   "para_id": 16,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "The present study has several strengths, including the use of nationally representative cohort data spanning nearly three decades from adolescence to midlife, as well as the application of a causal inference approach designed to minimize residual confounding and reverse causation. However, several limitations should be acknowledged. First, the relatively long time intervals between data collection waves might have been suboptimal for capturing short-term causal dynamics (Groß & Haffa, 2025). Longitudinal designs with more frequent assessments may better reflect the temporal fluctuations in loneliness and health behaviors. Second, future research should consider the social context in which health behaviors occur – specifically, whether they are socially or solitarily enacted – as this may moderate their associations with loneliness. Third, while our study examined situational changes in loneliness, more persistent feelings of social disconnection may have stronger and more enduring effects on health. Investigating the long-term impact of chronic loneliness across the first half of life is therefore warranted. Fourth, alcohol use was not legal for most respondents at the first examined life stage (in adolescence, mean age = 17 years). Although we cannot rule out underreporting bias, the pattern of associations with subsequent loneliness at this life stage was largely similar to that in emerging adulthood (mean age = 22 years), when alcohol consumption is legal. This consistency suggests that reporting bias is unlikely to fully explain the observed findings. Fifth, this study was conducted in Norway, an egalitarian welfare state with a high standard of living, which may limit the generalizability to non-Western or less affluent countries. Finally, the single-cohort design precluded disentangling age (e.g. adolescence), period (e.g. the 1990s), and cohort (e.g. Millennials) effects. Future research should therefore examine whether associations vary across birth cohorts, geographical and historical contexts, and examine how shifting social norms influence the relationship between loneliness and health behaviors.",
+   "printed": true
+  }
+ ],
+ "links": [
+  {
+   "link_id": 1,
+   "url": "github.com/libpot/loneliness_health_factors",
+   "url_raw": "https://github.com/libpot/Loneliness_Health_Factors",
+   "href_jats": "https://github.com/libpot/Loneliness_Health_Factors",
+   "repo_key": "github:libpot/loneliness_health_factors",
+   "host_class": "github",
+   "loc": "back",
+   "sec_title": "Data availability statement",
+   "source": "tagged",
+   "para_id": 1
+  }
+ ],
+ "links_optional": [
+  "creativecommons.org/licenses/by/4.0",
+  "doi:10.1001/jamapsychiatry.2020.2588",
+  "doi:10.1002/sim.3841",
+  "doi:10.1007/s12160-010-9210-8",
+  "doi:10.1016/j.jadohealth.2024.12.011",
+  "doi:10.1016/j.lanepe.2021.100302",
+  "doi:10.1016/j.socscimed.2016.01.020",
+  "doi:10.1016/j.ssmph.2023.101459",
+  "doi:10.1016/j.ypmed.2019.105900",
+  "doi:10.1016/s2215-0366(22)00335-2",
+  "doi:10.1016/s2468-2667(17)30075-0",
+  "doi:10.1016/s2468-2667(22)00253-5",
+  "doi:10.1017/s0033291726105029",
+  "doi:10.1037/0022-3514.39.3.472",
+  "doi:10.1037/a0014400",
+  "doi:10.1037/a0022826",
+  "doi:10.1037/dev0000117",
+  "doi:10.1037/dev0001102",
+  "doi:10.1038/s41562-023-01617-6",
+  "doi:10.1038/s41562-024-01970-0",
+  "doi:10.1056/nejmoa1915784",
+  "doi:10.1056/nejmsa0706154",
+  "doi:10.1073/pnas.1511085112",
+  "doi:10.1073/pnas.2306819120",
+  "doi:10.1080/10705511.2024.2355579",
+  "doi:10.1093/abm/kax033",
+  "doi:10.1093/aje/kwaf077",
+  "doi:10.1093/hmg/ddz219",
+  "doi:10.1093/ntr/ntu058",
+  "doi:10.1097/ede.0000000000000641",
+  "doi:10.1098/rstb.2014.0114",
+  "doi:10.1111/add.15142",
+  "doi:10.1111/soin.12018",
+  "doi:10.1136/bmjmed-2022-000396",
+  "doi:10.1136/heartjnl-2017-312663",
+  "doi:10.1176/appi.ajp.22010043",
+  "doi:10.1177/1745691615568999",
+  "doi:10.1186/s12888-023-05263-0",
+  "doi:10.1186/s12889-019-6424-y",
+  "doi:10.1186/s12889-024-18370-8",
+  "doi:10.1186/s12889-025-21490-4",
+  "doi:10.1186/s12889-025-23872-0",
+  "doi:10.1192/bjp.2024.110",
+  "niaaa.nih.gov/alcohol-health/overview-alcohol-consumption/moderate-binge-drinking",
+  "osf.io/bnfuj",
+  "who.int/news-room/fact-sheets/detail/obesity-and-overweight",
+  "who.int/publications/i/item/9789240015128"
+ ],
+ "own_doi": "doi:10.1017/s0033291726105029",
+ "citations": [
+  {
+   "cite_id": 1,
+   "para_id": 2,
+   "bib_id": 9,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 2,
+   "para_id": 2,
+   "bib_id": 1,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 3,
+   "para_id": 2,
+   "bib_id": 10,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 4,
+   "para_id": 2,
+   "bib_id": 6,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 5,
+   "para_id": 2,
+   "bib_id": 1,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 6,
+   "para_id": 2,
+   "bib_id": 12,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 7,
+   "para_id": 2,
+   "bib_id": 5,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 8,
+   "para_id": 2,
+   "bib_id": 40,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 9,
+   "para_id": 2,
+   "bib_id": 45,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 10,
+   "para_id": 3,
+   "bib_id": 3,
+   "marker": "2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 11,
+   "para_id": 3,
+   "bib_id": 13,
+   "marker": "2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 12,
+   "para_id": 3,
+   "bib_id": 30,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 13,
+   "para_id": 3,
+   "bib_id": 13,
+   "marker": "2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 14,
+   "para_id": 3,
+   "bib_id": 15,
+   "marker": "2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 15,
+   "para_id": 3,
+   "bib_id": 28,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 16,
+   "para_id": 3,
+   "bib_id": 34,
+   "marker": "2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 17,
+   "para_id": 3,
+   "bib_id": 34,
+   "marker": "2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 18,
+   "para_id": 3,
+   "bib_id": 41,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 19,
+   "para_id": 3,
+   "bib_id": 28,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 20,
+   "para_id": 3,
+   "bib_id": 21,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 21,
+   "para_id": 3,
+   "bib_id": 6,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 22,
+   "para_id": 3,
+   "bib_id": 12,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 23,
+   "para_id": 3,
+   "bib_id": 21,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 24,
+   "para_id": 3,
+   "bib_id": 21,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 25,
+   "para_id": 3,
+   "bib_id": 5,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 26,
+   "para_id": 3,
+   "bib_id": 17,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 27,
+   "para_id": 3,
+   "bib_id": 20,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 28,
+   "para_id": 3,
+   "bib_id": 33,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 29,
+   "para_id": 3,
+   "bib_id": 17,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 30,
+   "para_id": 3,
+   "bib_id": 20,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 31,
+   "para_id": 3,
+   "bib_id": 17,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 32,
+   "para_id": 3,
+   "bib_id": 20,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 33,
+   "para_id": 3,
+   "bib_id": 17,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 34,
+   "para_id": 3,
+   "bib_id": 20,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 35,
+   "para_id": 3,
+   "bib_id": 14,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 36,
+   "para_id": 3,
+   "bib_id": 20,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 37,
+   "para_id": 4,
+   "bib_id": 22,
+   "marker": "2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 38,
+   "para_id": 4,
+   "bib_id": 38,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 39,
+   "para_id": 4,
+   "bib_id": 24,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 40,
+   "para_id": 4,
+   "bib_id": 10,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 41,
+   "para_id": 4,
+   "bib_id": 31,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 42,
+   "para_id": 4,
+   "bib_id": 44,
+   "marker": "2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 43,
+   "para_id": 4,
+   "bib_id": 18,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 44,
+   "para_id": 4,
+   "bib_id": 19,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 45,
+   "para_id": 4,
+   "bib_id": 25,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 46,
+   "para_id": 4,
+   "bib_id": 35,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 47,
+   "para_id": 4,
+   "bib_id": 36,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 48,
+   "para_id": 5,
+   "bib_id": 2,
+   "marker": "2008",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 49,
+   "para_id": 5,
+   "bib_id": 39,
+   "marker": "2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 50,
+   "para_id": 5,
+   "bib_id": 29,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 51,
+   "para_id": 5,
+   "bib_id": 41,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 52,
+   "para_id": 5,
+   "bib_id": 1,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 53,
+   "para_id": 5,
+   "bib_id": 37,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 54,
+   "para_id": 5,
+   "bib_id": 11,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 55,
+   "para_id": 6,
+   "bib_id": 27,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 56,
+   "para_id": 7,
+   "bib_id": 32,
+   "marker": "1980",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 57,
+   "para_id": 8,
+   "bib_id": 19,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 58,
+   "para_id": 8,
+   "bib_id": 20,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 59,
+   "para_id": 8,
+   "bib_id": 28,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 60,
+   "para_id": 8,
+   "bib_id": 34,
+   "marker": "2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 61,
+   "para_id": 9,
+   "bib_id": 25,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 62,
+   "para_id": 9,
+   "bib_id": 37,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 63,
+   "para_id": 9,
+   "bib_id": 4,
+   "marker": "2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 64,
+   "para_id": 9,
+   "bib_id": 16,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 65,
+   "para_id": 10,
+   "bib_id": 42,
+   "marker": "2020",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 66,
+   "para_id": 10,
+   "bib_id": 43,
+   "marker": "2024",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 67,
+   "para_id": 10,
+   "bib_id": 26,
+   "marker": "2024",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 68,
+   "para_id": 11,
+   "bib_id": 10,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 69,
+   "para_id": 11,
+   "bib_id": 19,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 70,
+   "para_id": 12,
+   "bib_id": 19,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 71,
+   "para_id": 12,
+   "bib_id": 17,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 72,
+   "para_id": 12,
+   "bib_id": 20,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 73,
+   "para_id": 12,
+   "bib_id": 33,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 74,
+   "para_id": 12,
+   "bib_id": 21,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 75,
+   "para_id": 12,
+   "bib_id": 15,
+   "marker": "2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 76,
+   "para_id": 12,
+   "bib_id": 28,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 77,
+   "para_id": 12,
+   "bib_id": 34,
+   "marker": "2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 78,
+   "para_id": 12,
+   "bib_id": 34,
+   "marker": "2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 79,
+   "para_id": 12,
+   "bib_id": 17,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 80,
+   "para_id": 12,
+   "bib_id": 20,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 81,
+   "para_id": 12,
+   "bib_id": 28,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 82,
+   "para_id": 12,
+   "bib_id": 34,
+   "marker": "2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 83,
+   "para_id": 12,
+   "bib_id": 24,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 84,
+   "para_id": 13,
+   "bib_id": 10,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 85,
+   "para_id": 13,
+   "bib_id": 19,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 86,
+   "para_id": 13,
+   "bib_id": 23,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 87,
+   "para_id": 13,
+   "bib_id": 7,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 88,
+   "para_id": 13,
+   "bib_id": 8,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 89,
+   "para_id": 14,
+   "bib_id": 29,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 90,
+   "para_id": 14,
+   "bib_id": 37,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 91,
+   "para_id": 14,
+   "bib_id": 11,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 92,
+   "para_id": 14,
+   "bib_id": 24,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 93,
+   "para_id": 14,
+   "bib_id": 2,
+   "marker": "2008",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 94,
+   "para_id": 14,
+   "bib_id": 39,
+   "marker": "2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 95,
+   "para_id": 14,
+   "bib_id": 29,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 96,
+   "para_id": 15,
+   "bib_id": 10,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 97,
+   "para_id": 15,
+   "bib_id": 1,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 98,
+   "para_id": 15,
+   "bib_id": 11,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 99,
+   "para_id": 16,
+   "bib_id": 11,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-ext-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "v1_bib_count": 45
+ }
+}

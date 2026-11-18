@@ -1,0 +1,1720 @@
+{
+ "paper_id": "10.7554_elife.103956",
+ "paras": [
+  {
+   "para_id": 1,
+   "loc": "body",
+   "sec_title": "MRI data preprocessing",
+   "text": "Results included in this manuscript come from preprocessing performed using fMRIPrep 21.0.4 (Esteban et al., 2020; Esteban et al., 2019), which is based on Nipype 1.6.1 (Gorgolewski et al., 2011). Many internal operations of fMRIPrep use Nilearn 0.8.1 (Abraham et al., 2014), mostly within the functional processing workflow. For more details of the pipeline, see https://fmriprep.readthedocs.io/en/latest/workflows.html.",
+   "printed": true
+  },
+  {
+   "para_id": 2,
+   "loc": "body",
+   "sec_title": "Conversion of data to the brain imaging data structure standard",
+   "text": "To facilitate further analysis and sharing of data, all study data were arranged according to the Brain Imaging Data Structure (BIDS) specification using dcm2bids tool, which is freely available from https://unfmontreal.github.io/Dcm2Bids/.",
+   "printed": true
+  },
+  {
+   "para_id": 3,
+   "loc": "body",
+   "sec_title": "Open-ended cognitive state functional decoding",
+   "text": "For functional decoding, we followed the approach in Margulies et al., 2016. We used the NeuroSynth (Yarkoni et al., 2011) meta-analytic database (https://www.neurosynth.org) to assess topic terms associated with the sleep rhythms activation patterns. ROI masks were created from the whole-brain activation patterns associated with the three sleep rhythms in Figure 3b–d. These activation patterns were binarized using a threshold of p<0.001, forming a brain mask for each sleep rhythm.",
+   "printed": true
+  },
+  {
+   "para_id": 4,
+   "loc": "back",
+   "sec_title": "Data availability",
+   "text": "The processed data are publicly available at https://doi.org/10.5061/dryad.2fqz612x0. Raw data can be requested from the corresponding author Y.L, and J.G, pending scientific review and a completed material transfer agreement due to privacy considerations. The study-specific analysis code is publicly available at https://gitlab.com/liu_lab/eeg-fmri-sleep (copy archived at Wang, 2026).",
+   "printed": true
+  },
+  {
+   "para_id": 5,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "During sleep, the human brain engages in highly synchronized activity driven by distinct neural rhythms. In non-rapid eye movement (NREM) sleep, the emergence and coordination of slow oscillations (SOs) and sleep spindles are key features (Hahn et al., 2020; Helfrich et al., 2018; Ngo et al., 2020; Schreiner et al., 2022; Staresina et al., 2015; Staresina et al., 2023). However, the brain activation patterns associated with these rhythms, and especially their coordination, remain largely unexplored, and their functional implications are even less understood.",
+   "printed": true
+  },
+  {
+   "para_id": 6,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "SOs (~1 Hz) are characterized by fluctuations in neuronal membrane potential between periods of silence ('hyperpolarization', or ‘DOWN’ state) and excitation ('depolarization', or ‘UP’ state; Amzica and Steriade, 2002; Steriade et al., 1993). These oscillations originate in neocortical regions, particularly the medial prefrontal cortex (mPFC), during NREM sleep (Dang-Vu et al., 2008; Massimini et al., 2004; Nir et al., 2011). The depolarization phase of SOs is believed to trigger sleep spindles in the thalamus, producing 11–16 Hz oscillations (Fernandez and Lüthi, 2020; Mak-McCully et al., 2017). Thalamic spindles tend to align with the excitable UP-states of SOs and can synchronize with hippocampal ripples (Buzsáki, 2015; Helfrich et al., 2019; Joo and Frank, 2018; Ngo et al., 2020). Rodent optogenetics studies have shown that only thalamic spindles phase-locked to the UP-state of cortical SOs enhance memory consolidation, while out-of-phase spindles do not (Latchoumane et al., 2017). This finding is consistent with intracranial evidence from human epilepsy patients, suggesting that the thalamus acts as a key relay between the hippocampus and cortex, coordinating their interaction (Coulon et al., 2012; Ferraris et al., 2021; Schreiner et al., 2022; Staresina et al., 2015).",
+   "printed": true
+  },
+  {
+   "para_id": 7,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "The triple coupling of SOs, spindles, and ripples is believed to facilitate memory consolidation by synchronizing neuronal activity across brain regions and replaying memory traces from the hippocampus to the neocortex (Diekelmann and Born, 2010; Latchoumane et al., 2017; Liu et al., 2022; Singh et al., 2022; Staresina et al., 2015; Staresina et al., 2023), possibly through relay from thalamic spindles. Consistent with this view, prior human electroencephalography-functional magnetic resonance imaging (EEG-fMRI) studies have reported spindle-related activation not only in the thalamus but also in the hippocampus and adjacent parahippocampal gyrus (Bergmann et al., 2012; Schabus et al., 2007). Spindle-related activity has also been linked to striatal engagement, suggesting a broader network that may support memory-related processing during sleep (Fogel et al., 2017). However, the exact mechanisms of this inter-regional communication during coordinated sleep rhythms remain unclear. Understanding the brain-wide activation associated with these rhythms is crucial, as it reveals how information flows among brain regions, especially during the critical time windows when these rhythms align.",
+   "printed": true
+  },
+  {
+   "para_id": 8,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Investigating these sleep-related neural processes in humans is challenging because it requires tracking transient sleep rhythms while simultaneously assessing their widespread brain activation. Recent advances in simultaneous EEG-fMRI techniques provide a unique opportunity to explore these processes. EEG allows for precise event-based detection of neural signals, whereas fMRI provides insight into the broader spatial patterns of brain activation and functional connectivity (FC; Horovitz et al., 2008; Huang et al., 2024; Laufs, 2008; Laufs et al., 2007; Spoormaker et al., 2010). Previous EEG-fMRI studies on sleep have examined both global sleep characteristics (Hale et al., 2016; Moehlman et al., 2019) and the neural correlates of specific waves, including SOs and spindles. These studies have generally shown that SOs are associated with widespread cortical and subcortical blood oxygen level-dependent (BOLD) changes (Czisch et al., 2009; Ilhan-Bayrakcı et al., 2022; Picchioni et al., 2011), whereas spindles have been linked not only to thalamic activation but also to cortical and paralimbic regions, including the hippocampus and parahippocampal gyrus (Bergmann et al., 2012; Caporro et al., 2012; Fogel et al., 2017; Schabus et al., 2007). Although these findings provide important insight into the BOLD correlates of sleep rhythms, most previous studies have focused on individual oscillatory events rather than explicitly modeling their temporal interaction (Bergmann et al., 2012; Caporro et al., 2012; Fogel et al., 2017; Picchioni et al., 2011). Only a few recent studies have begun to examine coupling between rhythms directly, for example Huang et al., 2024.",
+   "printed": true
+  },
+  {
+   "para_id": 9,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Understanding sleep rhythm-related brain activation is also essential for uncovering its potential cognitive functions. Since performing cognitive tasks during sleep is limited, most neuroimaging studies on human sleep rely on the targeted memory reactivation (TMR) paradigm, where participants are re-exposed to sensory cues during sleep to trigger associated memory reactivation (Cousins et al., 2016; Hu et al., 2020; Oudiette and Paller, 2013; Siefert et al., 2024). For instance, fMRI studies have shown significant hippocampal activation in response to odor re-exposure during sleep (Rasch et al., 2007), whereas EEG studies suggest that this reactivation is more likely during the UP-state of SOs (Cousins et al., 2016; Göldi et al., 2019; Xia et al., 2023). However, while TMR provides insight into externally induced memory processing during sleep, it offers limited understanding of the endogenous neural mechanisms underlying natural sleep rhythms.",
+   "printed": true
+  },
+  {
+   "para_id": 10,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "To address this gap, our study investigates brain-wide activation and FC patterns associated with SO-spindle coupling and employs a cognitive state decoding approach (Margulies et al., 2016; Yarkoni et al., 2011) – albeit indirectly – to infer potential cognitive functions. In the current study, we used simultaneous EEG-fMRI recordings during nocturnal naps (detailed sleep staging results are provided in the Methods and Supplementary file 1) in 107 participants. Although directly detecting hippocampal ripples using scalp EEG or fMRI is challenging, we expected that hippocampal activation in fMRI would coincide with SO-spindle coupling detected by EEG, given that SOs, spindles, and ripples frequently co-occur during NREM sleep. We also anticipated a critical role of the thalamus, particularly thalamic spindles, in coordinating hippocampal–cortical communication.",
+   "printed": true
+  },
+  {
+   "para_id": 11,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "We found significant coupling between SOs and spindles during NREM sleep (N2/3), with spindle peaks occurring slightly before the SO peak. This coupling was associated with increased activation in both the thalamus and hippocampus, with FC patterns suggesting thalamic coordination of hippocampal–cortical communication, in line with prior EEG-fMRI studies of spindle-related activity (Bergmann et al., 2012; Caporro et al., 2012; Fogel et al., 2017; Schabus et al., 2007). These findings highlight the key role of the thalamus in coordinating hippocampal–cortical interactions during human sleep and provide new insights into the neural mechanisms underlying sleep-dependent brain communication. A deeper understanding of these mechanisms may contribute to future neuromodulation approaches aimed at enhancing sleep-dependent cognitive function and treating sleep-related disorders.",
+   "printed": true
+  },
+  {
+   "para_id": 12,
+   "loc": "body",
+   "sec_title": "Results",
+   "text": "Simultaneous EEG-fMRI data during nocturnal sleep were collected from 138 healthy subjects (age, 22.56±0.30; 81 females). After excluding subjects due to excessive head motion (mean framewise displacement >0.5) or insufficient scanning sleep duration (<10 min), 107 participants (age, 22.40±0.34; 63 females) were retained for subsequent analysis, with an average scanning time of sleep of 3.01±0.14 hr (see Methods and Supplementary file 1). Since NREM sleep predominantly occurs in early sleep (Carskadon and Dement, 2005), we conducted our scans during the first half of the night to ensure sufficient coverage of NREM sleep; this is also the period when sleep rhythms are most consistently observed and studied in relation to memory consolidation (Maingret et al., 2016; Mölle et al., 2011; Schreiner et al., 2021; Staresina et al., 2015; Staresina et al., 2023).",
+   "printed": true
+  },
+  {
+   "para_id": 13,
+   "loc": "body",
+   "sec_title": "Sleep stages and sleep rhythms",
+   "text": "We first removed magnetic resonance imaging (MRI) gradient noise from the EEG signal (detailed in Methods, see Figure 1—figure supplement 1) and then applied an automated sleep staging algorithm (Vallat and Walker, 2021). The staging results were manually reviewed by two sleep experts to ensure the accurate classification of each sleep stage (Figure 1b). Upon validation, we confirmed that N2/3 stages predominated in the dataset, with a significantly higher proportion of N2/3 sleep (75.77% ± 1.50%) compared to N1 (14.57% ± 1.06%, t(106) = 25.04, p<1e-4, paired-samples t test) and REM sleep (9.66% ± 0.90%, t(106) = 29.60, p<1e-4, Figure 1d, Supplementary file 1).",
+   "printed": true
+  },
+  {
+   "para_id": 14,
+   "loc": "fig",
+   "sec_title": "Sleep stages and sleep rhythms",
+   "text": "(a) Sleep rhythms and task schematic. Subjects slept the first half of the night with simultaneous EEG-fMRI recordings. Since detecting hippocampal ripples directly from scalp EEG is challenging, our focus was on capturing SOs, spindles, and their couplings. Regions of interest (ROIs) are color-coded: green for the thalamus (spindle), purple for the mPFC (SOs), and orange for the hippocampus (ripples). (b) Sleep staging and EEG spectrogram. N2/3 sleep stages (red line) were initially identified using an offline automatic sleep staging algorithm (Vallat and Walker, 2021) and then manually validated. (c) Schematic of EEG data across different sleep stages, using preprocessed data from the C3 electrode. (d) Proportion of each sleep stage in the dataset. (e) Amplitudes (μV) of detected SOs (left) and spindles (right) across sleep stages. SO and spindle detection thresholds were defined from N2/3 sleep within each participant and then applied unchanged to N1 and REM for descriptive comparison. Detections in N1 and REM should therefore be interpreted as detector outputs under this fixed N2/3-derived criterion. The SO amplitudes were measured from the 0.16–1.25 Hz filtered EEG data, and spindle amplitudes were measured from the 12–16 Hz filtered EEG data. Each dot represents an individual participant. Error bars indicate SEM. Paired t-test, *** p<0.001.",
+   "printed": true
+  },
+  {
+   "para_id": 15,
+   "loc": "body",
+   "sec_title": "Sleep stages and sleep rhythms",
+   "text": "This aligns with the established understanding that N2/3 stages feature more pronounced slow-wave activity and robust spindles (Gaillard and Blois, 1981). Furthermore, we found that the amplitude of the SO DOWN-state (13.62±0.67 μV) was significantly higher than the UP-state (12.98±0.66 μV, t(106) = 4.82, p<1e-4), consistent with previous work (Cash et al., 2009; Dang-Vu et al., 2008). Based on this, we used the DOWN-state to lock the timing of SOs for subsequent EEG-informed fMRI analysis. Descriptive information on sleep rhythms during these stages for all 107 subjects can be found in Supplementary files 2–4.",
+   "printed": true
+  },
+  {
+   "para_id": 16,
+   "loc": "body",
+   "sec_title": "SO-spindle coupling",
+   "text": "SO-spindle coupling is considered important for sleep-dependent memory consolidation. In the current study, using the same N2/3-derived detection thresholds described above, we found that SO-spindle coupling occurred most frequently during N2/3 sleep (2.46±0.06 events/min). Coupling density was significantly lower in N1 (0.75±0.05 events/min, t(106) = 23.54, p<1e-4) and REM sleep (0.43±0.04 events/min, t(106) = 31.24, p<1e-4; Figure 2b, Supplementary files 2–4), consistent with the expected predominance of SO-spindle coupling in NREM sleep (Ngo et al., 2013; Staresina et al., 2015). As with the individual SO and spindle detections, coupling events detected in N1 and REM were retained only for descriptive stage-wise reporting (see Supplementary files 2 and 4). They were not used to support physiological claims about SO-spindle coupling in these stages, and they were not entered into the EEG-informed fMRI analyses. All subsequent fMRI general linear model (GLM) and PPI analyses were restricted to N2/3 sleep.",
+   "printed": true
+  },
+  {
+   "para_id": 17,
+   "loc": "body",
+   "sec_title": "SO-spindle coupling",
+   "text": "After extracting all N2/3 EEG epochs in which SO-spindle coupling occurred, we analyzed their spectral and phase characteristics. The spindles were most likely to occur slightly before the UP-state peak of SOs (Figure 2a and e), aligning with results from both animal studies (Maingret et al., 2016) and human research (Staresina et al., 2015). In our data, this pattern was consistent across subjects (Figure 2d, Rayleigh test: z=9.51, p<1e-4), with the peak of the spindle aligned at an SO phase of −41.61±0.86° (the SO UP-state peak is 0°).",
+   "printed": true
+  },
+  {
+   "para_id": 18,
+   "loc": "body",
+   "sec_title": "Sleep rhythms associated with brain activation",
+   "text": "To investigate brain-wide activity during sleep rhythms, we modeled the fMRI BOLD signal based on EEG-identified timing of SOs and spindle events during N2/3 sleep stages. The design matrix included the main effects of SOs, spindles, and their coupling (Figure 3a, detailed in Methods). This method is validated in our previous work to effectively capture replay-aligned brain activation during rest (Huang et al., 2024). We found that SOs were associated with positive activation in the thalamus (ROI analysis, t(106) = 2.38, p=0.0096, one-sample t test) and significant deactivation in the neocortex (Figure 3b, see also Figure 3—figure supplement 1), particularly in the default mode network (DMN), which includes the mPFC and posterior cingulate cortex (PCC), consistent with previous research (Dang-Vu et al., 2008; Picchioni et al., 2011; Tagliazucchi et al., 2013). This deactivation of the neocortex, particularly the DMN, at the trough of SOs is intriguing, given that the DMN is thought to encode the internal model of the world or cognitive map (Baldassano et al., 2018; Constantinescu et al., 2016; Park et al., 2021).",
+   "printed": true
+  },
+  {
+   "para_id": 19,
+   "loc": "body",
+   "sec_title": "Sleep rhythms associated with brain activation",
+   "text": "To understand the functional implications of these sleep rhythm-related brain activations, we performed open-ended cognitive state decoding using the NeuroSynth database (Yarkoni et al., 2011), examining associations between topic terms and regions of interest derived from the activation patterns of the sleep rhythms. Topic terms were ranked by their z-scores across the rhythms to assess overall functional relevance (see Methods for details). For positive activation patterns (Figure 3—figure supplement 3a), SOs were associated with declarative (z=6.31, p<1e-4) and episodic memory (z=5.08, p<1e-4), while spindles aligned most with working memory (z=4.08, p<1e-4). SO-spindle coupling showed the strongest similarity to episodic (z=3.66, p=0.0003) and declarative memory (z=2.21, p=0.0271). For negative (deactivation) patterns (Figure 3—figure supplement 3b), SOs were linked to declarative memory (z=7.61, p<1e-4), while spindles resembled task-related activations (z=7.05, p<1e-4). SO-spindle coupling had the highest similarity to task-related (z=9.40, p<1e-4) and working memory (z=9.15, p<1e-4). These findings suggest that internal memory-related regions are more likely to reactivate during SO-spindle coupling, whereas task-related activations, like working memory, are less prominent.",
+   "printed": true
+  },
+  {
+   "para_id": 20,
+   "loc": "body",
+   "sec_title": "Functional connectivity during SO-spindle coupling",
+   "text": "Previous studies have indicated that the hippocampal–cortical dialogue during sleep memory consolidation relies on the thalamus (Coulon et al., 2012; Ferraris et al., 2021; Latchoumane et al., 2017). To explore this in the human brain, we examined how FC changes when spindles couple (versus not) with SOs during sleep, using psychophysiological interaction (PPI) analysis (Friston et al., 1997). Building on the previous GLM (Figure 3a), this model incorporated two additional regressors: the BOLD signal of the ROI seed and its interaction with SO-spindle events (Figure 4a, detailed in Methods).",
+   "printed": true
+  },
+  {
+   "para_id": 21,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Our data provide insights into the neurobiological underpinnings of these sleep rhythms. SOs, originating mainly in neocortical areas such as the mPFC, alternate between DOWN- and UP-states. The thalamus generates sleep spindles, which in turn couple with SOs. Our finding that spindle peaks consistently occurred slightly before the UP-state peak of SOs (in 83 out of 107 participants), concurs with prior studies, including Schreiner et al., 2021. Yet it differs from some results suggesting spindles might peak right at the SO UP-state (Hahn et al., 2020; Helfrich et al., 2018). Such discrepancies could arise from differences in detection algorithms, participant age (Helfrich et al., 2018), or subtle variations in cortical-thalamic timing. Nonetheless, these results underscore the importance of coordinated SO-spindle interplay in supporting sleep-dependent processes.",
+   "printed": true
+  },
+  {
+   "para_id": 22,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "When modeling the timing of these sleep rhythms in the fMRI, we observed hippocampal activation selectively during SO-spindle events. This suggests the possibility of triple coupling (SOs–spindles–ripples), even though our scalp EEG was not sufficiently sensitive to detect hippocampal ripples – key markers of memory replay (Buzsáki, 2015). Recent iEEG evidence indicates that ripples often co-occur with both spindles (Ngo et al., 2020) and SOs (Staresina et al., 2015; Staresina et al., 2023). Therefore, the hippocampal involvement during SO-spindle events in our study may reflect memory replay from the hippocampus, propagated via thalamic spindles to distributed cortical regions.",
+   "printed": true
+  },
+  {
+   "para_id": 23,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "The thalamus, known to generate spindles (Halassa et al., 2011), plays a key role in producing and coordinating sleep rhythms (Coulon et al., 2012; Crunelli et al., 2018), while the hippocampus is found essential for memory consolidation (Buzsáki, 2015; Diba and Buzsáki, 2007; Singh et al., 2022). The increased hippocampal and thalamic activity, along with strengthened connectivity between these regions and the mPFC during SO-spindle events, underscores a hippocampal-thalamic-neocortical information flow. This aligns with recent findings suggesting that the thalamus orchestrates neocortical oscillations during sleep (Schreiner et al., 2022). The thalamus and hippocampus thus appear central to memory consolidation during sleep, guiding information transfer to the neocortex, for example mPFC.",
+   "printed": true
+  },
+  {
+   "para_id": 24,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "An intriguing aspect of our findings is the reduced DMN activity during SOs when modeled at the SO trough (DOWN-state). This reduced DMN activity may reflect large-scale neural inhibition characteristic of the SO trough. The DMN is typically active during internally oriented cognition (e.g. self-referential processing or mind-wandering) and is suppressed during external stimuli processing (Yeshurun et al., 2021). It is unlikely, however, that this suppression of DMN during SO events is related to a shift from internal cognition to external responses given it is during deep sleep time. Instead, it could be driven by the inherent rhythmic pattern of SOs, which makes it difficult to separate UP- from DOWN-states (the two temporal regressors were highly correlated, and similar brain activation during SOs events was obtained if modeled at the SO peak instead, Figure 3—figure supplement 1). Since the amplitude at the SO trough is consistently larger than that at the SO peak, the neural activation we detected may primarily capture the large-scale inhibition from DOWN-state. Interestingly, no such DMN reduction was found during SO-spindle coupling, implying that coupling may involve distinct neural dynamics that partially re-engage DMN-related processes, possibly reflecting memory-related reactivation. Future research using high-temporal-resolution techniques like iEEG could clarify these possibilities.",
+   "printed": true
+  },
+  {
+   "para_id": 25,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "To explore functional relevance, we employed an open-ended cognitive state decoding approach using meta-analytic data (NeuroSynth: Yarkoni et al., 2011). Although this method usefully generates hypotheses about potential cognitive processes, particularly in the absence of a pre- and post-sleep memory task, it is inherently indirect. Many cognitive terms showed significant associations (16 of 50), such as ‘episodic memory’, ‘declarative memory’, and ‘working memory’. We focused on episodic/declarative memory given the known link with hippocampal reactivation (Diekelmann and Born, 2010; Staresina et al., 2015; Staresina et al., 2023). Nonetheless, these inferences regarding memory reactivation should be interpreted cautiously without direct behavioral measures. Future research incorporating explicit tasks before and after sleep would more rigorously validate these potential functional claims.",
+   "printed": true
+  },
+  {
+   "para_id": 26,
+   "loc": "body",
+   "sec_title": "MRI data acquisition",
+   "text": "Then, the ‘sleep’ session began after the participants were instructed to try and fall asleep. For the functional scans, whole-brain images were acquired using a T2*-weighted gradient echo-planar imaging (EPI) sequence sensitive to the BOLD contrast. The sequence parameters were as follows: 33 slices in interleaved ascending order, TR = 2000 ms, TE = 30 ms, voxel size = 3.5 × 3.5 × 4.2 mm3, FA = 90°, matrix = 64 × 64, gap = 0.7 mm. A relatively large voxel size was chosen to preserve SNR while maintaining whole-brain coverage within a feasible repetition time. This compromise was important for the prolonged overnight EEG-fMRI sleep protocol, where head motion, physiological noise, participant comfort, and sustained acquisition stability are substantial practical constraints (Bodurka et al., 2007; Laufs et al., 2008). A smaller voxel size would have improved spatial specificity, but would have required either a longer repetition time, reduced brain coverage, or lower SNR.",
+   "printed": true
+  },
+  {
+   "para_id": 27,
+   "loc": "body",
+   "sec_title": "EEG data preprocessing and sleep stage scoring",
+   "text": "The automated processing was carried out using custom Python scripts and the MNE toolkit (Gramfort et al., 2013). This encompassed the following procedures: (1) The raw EEG data were downsampled from 5000 Hz to 2048 Hz. This downsampled rate accelerates subsequent analyses while retaining the necessary precision to distinguish MR noise. (2) Imaging artifacts were removed using the Average Artefact Subtraction method (Allen et al., 2000). (3) We then applied 0.1–30 Hz band-pass finite impulse response (FIR) filters to all channels. The EEG and EOG electrodes were re-referenced by subtracting the value from the M1 or M2 electrode (whichever was from the opposite hemisphere). The outer EMG electrodes were re-referenced to the middle one. (4) The signal space projection algorithm was applied to extract all epochs based on TRs and remove residual MR noise, as well as automatically extracting all heartbeat epochs using ECG electrode data for the removal of BCG noise. (5) The data were further downsampled to 100 Hz and subjected to Independent Component Analysis (ICA).",
+   "printed": true
+  },
+  {
+   "para_id": 28,
+   "loc": "body",
+   "sec_title": "EEG data preprocessing and sleep stage scoring",
+   "text": "Following this, the manual processing is carried out with labeling and removing the physiological artifacts ICs belonging to eye, muscle, and residual BCG through the use of custom MATLAB scripts and the EEGLAB toolkit (Delorme and Makeig, 2004). Sleep stages were then scored by YASA toolkit (Vallat and Walker, 2021) after preprocessing, necessitating data from electrodes C3, left EOG, and left EMG. The classification of N2/3 stages were further verified by experts for validity.",
+   "printed": true
+  },
+  {
+   "para_id": 29,
+   "loc": "body",
+   "sec_title": "Anatomical data preprocessing",
+   "text": "The T1-weighted (T1w) image was corrected for intensity non-uniformity with N4BiasFieldCorrection (Tustison et al., 2010), distributed with ANTs 2.3.3 (Avants et al., 2008), and used as T1w-reference throughout the workflow. The T1w-reference was then skull-stripped with a Nipype implementation of the antsBrainExtraction.sh workflow (from ANTs), using OASIS30ANTs as target template. Brain tissue segmentation of CSF, white-matter (WM), and gray-matter (GM) was performed on the brain-extracted T1w using fast (FSL 6.0.5.1:57b01774, RRID:SCR_002823; Zhang et al., 2001). Volume-based spatial normalization to one standard space (MNI152NLin2009cAsym) was performed through nonlinear registration with antsRegistration (ANTs 2.3.3), using brain-extracted versions of both T1w reference and the T1w template. The following template was selected for spatial normalization: ICBM 152 Nonlinear Asymmetrical template version 2009c (Fonov et al., 2009) [RRID:SCR_008796; TemplateFlow ID: MNI152NLin2009cAsym].",
+   "printed": true
+  },
+  {
+   "para_id": 30,
+   "loc": "body",
+   "sec_title": "Functional data preprocessing",
+   "text": "First, a reference volume and its skull-stripped version were generated using a custom methodology of fMRIPrep. Head-motion parameters with respect to the BOLD reference (transformation matrices, and six corresponding rotation and translation parameters) are estimated before any spatiotemporal filtering using mcflirt (Jenkinson et al., 2002) [FSL 6.0.5.1:57b01774]. BOLD runs were slice-time corrected to 0.96 s (0.5 of slice acquisition range 0 s-1.92s) using 3dTshift from AFNI (Cox and Hyde, 1997). The BOLD time-series (including slice-timing correction when applied) were resampled onto their original, native space by applying the transforms to correct for head-motion. These resampled BOLD time-series will be referred to as preprocessed BOLD in original space, or just preprocessed BOLD. The BOLD reference was then co-registered to the T1w reference using mri_coreg (FreeSurfer) followed by flirt (Jenkinson and Smith, 2001) [FSL 6.0.5.1:57b01774] with the boundary-based registration (Greve and Fischl, 2009) cost-function. Co-registration was configured with six degrees of freedom. Several confounding time-series were calculated based on the preprocessed BOLD: framewise displacement (FD), DVARS, and three region-wise global signals. FD was computed using two formulations following Power (absolute sum of relative motions; Power et al., 2014) and Jenkinson (relative root mean square [RMS] displacement between affines, Jenkinson et al., 2002). FD and DVARS are calculated for each functional run, both using their implementations in Nipype (following the definitions by Power et al., 2014). The three global signals are extracted within the CSF, the WM, and the whole-brain masks. Additionally, a set of physiological regressors was extracted to allow for component-based noise correction (CompCor; Behzadi et al., 2007). Principal components are estimated after high-pass filtering the preprocessed BOLD time-series (using a discrete cosine filter with 128 s cut-off) for the two CompCor variants: temporal (tCompCor) and anatomical (aCompCor). tCompCor components are then calculated from the top 2% variable voxels within the brain mask. For aCompCor, three probabilistic masks (CSF, WM, and combined CSF +WM) are generated in anatomical space. The implementation differs from that of Behzadi et al., 2007 in that instead of eroding the masks by 2 pixels on BOLD space, the aCompCor masks are subtracted a mask of pixels that likely contain a volume fraction of GM. This mask is obtained by thresholding the corresponding partial volume map at 0.05, and it ensures components are not extracted from voxels containing a minimal fraction of GM. Finally, these masks are resampled into BOLD space and binarized by thresholding at 0.99 (as in the original implementation). Components are also calculated separately within the WM and CSF masks. For each CompCor decomposition, the k components with the largest singular values are retained, such that the retained components’ time series are sufficient to explain 50% of variance across the nuisance mask (CSF, WM, combined, or temporal). The remaining components are dropped from consideration. Frames that exceeded a threshold of 0.5 mm FD or 1.5 standardized DVARS were annotated as motion outliers.",
+   "printed": true
+  },
+  {
+   "para_id": 31,
+   "loc": "body",
+   "sec_title": "Functional data preprocessing",
+   "text": "The BOLD time-series were resampled into standard space, generating a preprocessed BOLD run in MNI152NLin2009cAsym space. First, a reference volume and its skull-stripped version were generated using a custom methodology of fMRIPrep. All resamplings can be performed with a single interpolation step by composing all the pertinent transformations (i.e. head-motion transform matrices, susceptibility distortion correction when available, and co-registrations to anatomical and output spaces). Gridded (volumetric) resamplings were performed using antsApplyTransforms (ANTs), configured with Lanczos interpolation to minimize the smoothing effects of other kernels (Lanczos, 1964). Non-gridded (surface) resamplings were performed using mri_vol2surf (FreeSurfer).",
+   "printed": true
+  },
+  {
+   "para_id": 32,
+   "loc": "body",
+   "sec_title": "EEG sleep rhythms analysis",
+   "text": "In line with other studies examining the coordination between SOs and spindles, particularly their spatial distribution (Massimini et al., 2004; Mölle et al., 2011), EEG data from the F3 electrode were used to quantify the occurrence of SOs and spindles. Using the established detection algorithms (detailed below), we identified SOs and sleep spindles for each subject.",
+   "printed": true
+  },
+  {
+   "para_id": 33,
+   "loc": "body",
+   "sec_title": "Detection of SOs",
+   "text": "Data were first bandpass-filtered between 0.16 and 1.25 Hz (Butterworth filter, order 3, bidirectional filtering for zero phase). After identifying all positive-to-negative zero crossings, potential SOs were defined based on the interval between consecutive zero crossings, ranging from 0.8 s to 3 s. For each potential SO, we calculated the amplitude range as the peak minus the trough. For each participant, the amplitude threshold was defined as the 75th percentile of candidate SO amplitude ranges observed during N2/3 sleep. This fixed N2/3-derived threshold was then applied unchanged across the recording for descriptive stage-wise summaries. Detected events were assigned to N1, N2/3, or REM according to the sleep-stage label at the event time. Only candidates exceeding this threshold were labeled as SOs, following previous work (Schreiner et al., 2021).",
+   "printed": true
+  },
+  {
+   "para_id": 34,
+   "loc": "body",
+   "sec_title": "Detection of sleep spindles",
+   "text": "Detection of sleep spindles. Data were bandpass-filtered between 12 and 16 Hz (Butterworth filter, order 3, bidirectional filtering for zero phase). The RMS of the filtered signal was computed with a 200ms sliding time window. For each participant, the spindle threshold was defined as the 75th percentile of RMS values observed during N2/3 sleep. This fixed N2/3-derived threshold was then applied unchanged across the recording for descriptive stage-wise summaries. Detected events were assigned to N1, N2/3, or REM according to the sleep-stage label at the event time. RMS segments exceeding this threshold for 0.5–3 s were identified as spindles (Staresina et al., 2015).",
+   "printed": true
+  },
+  {
+   "para_id": 35,
+   "loc": "body",
+   "sec_title": "Detection of SO-spindle couplings",
+   "text": "From the detected SOs and spindles, we identified the peak time of each spindle. Within each SO interval, we checked whether a spindle peak occurred; if so, that SO was labeled as an SO-spindle coupling event. For descriptive stage-wise summaries, coupling events were assigned to the sleep stage of the corresponding SO trough. For every SO-spindle coupling event, an epoch was created time-locked to the SO trough as the central reference, following Schreiner et al., 2021. We extracted data in a [−4 s to 4 s] window around this point, forming the epoch for each coupling event. For the EEG-informed fMRI analyses, only SO, spindle, and SO-spindle coupling events detected during N2/3 sleep were used.",
+   "printed": true
+  },
+  {
+   "para_id": 36,
+   "loc": "body",
+   "sec_title": "Detection of SO-spindle couplings",
+   "text": "The detection procedures described above were developed primarily for N2 and N3 sleep, where SOs, spindles, and their coupling are physiologically expected and most reliably observed (Hahn et al., 2020; Helfrich et al., 2019; Helfrich et al., 2018; Ngo et al., 2020; Schreiner et al., 2022; Schreiner et al., 2021; Staresina et al., 2015; Staresina et al., 2023). Because percentile-based thresholds can otherwise force the detector to label events in every sleep stage, we did not estimate separate thresholds within N1 or REM. Instead, for each participant, all SO and spindle thresholds were defined from N2/3 sleep and then applied uniformly across the recording. Supplementary files 1 and 3 report detailed statistical information on sleep rhythm and N2/3 events detection. The N1 and REM events detection reported in Supplementary files 2 and 4, and illustrated in Figure 2—figure supplements 1–3, should therefore be interpreted as descriptive detector outputs under this fixed N2/3-derived criterion, rather than as evidence for canonical N2/3 SOs, spindles, or physiological SO-spindle complexes in those stages. These detections were not used in the EEG-informed fMRI GLM or PPI analyses, which were restricted to N2/3 sleep.",
+   "printed": true
+  },
+  {
+   "para_id": 37,
+   "loc": "body",
+   "sec_title": "Time-frequency analysis",
+   "text": "We performed this analysis on the SO-spindle coupling epochs using the FieldTrip toolbox (Oostenveld et al., 2011). Fourier analysis was executed on the data, utilizing a sliding time window with a forward shift of 50ms. The window length was defined as five cycles of the present frequency (frequency range: 1–30 Hz, step size: 1 Hz). Before Fourier analysis, windowed data segments underwent multiplication by a Hanning taper. Subsequently, power values were normalized to z-scores within the time range of [–4 s to 4 s], selecting a longer duration to prevent edge artifacts from low-frequency activity in the target time window of [–1.5 s to 1.5 s].",
+   "printed": true
+  },
+  {
+   "para_id": 38,
+   "loc": "body",
+   "sec_title": "fMRI GLM analysis",
+   "text": "The fMRI GLM analysis was designed to look for brain activations pertinent to SO, spindle, and SO-spindle coupling. Drawing from the EEG results concerning the timing of SO and spindle, we identified the trough of the SO as the onset for SO events and the peak of the spindle as the onset for spindle events. We chose the trough of the SO and the peak of the spindle as the onset points, primarily due to the larger amplitudes observed at these moments (thereby more robust to noise). This was also the common choice in previous EEG studies on SO and spindles (Ngo et al., 2020; Staresina et al., 2015; Staresina et al., 2023). To model SO-spindle coupling in fMRI, we followed Schreiner et al., 2021, and defined SO-spindle complex as the peak of spindle that appeared within 1.5 s after SO trough. When such a peak was found, that particular SO was labeled as an SO-spindle event, with its SO trough labeled as the event onset. After convolving these events with the canonical Hemodynamic Response Function (HRF) of SPM and downsampling them to align with the fMRI time resolution, they were integrated as regressors in the design matrix for GLM analysis, allowing us to determine the effects of SO and spindle, as well as the SO-spindle coupling (Figure 3b–d).",
+   "printed": true
+  },
+  {
+   "para_id": 39,
+   "loc": "body",
+   "sec_title": "ROI analysis",
+   "text": "The objective of our ROI analysis was to test the activation of specific brain regions during distinct sleep rhythms. Within each ROI, the beta values at the subject-level were averaged across all voxels to facilitate subsequent statistical inferences (one-sample t test). We defined the mDMN and mPFC ROIs functionally based on the meta-analysis results in Neurosynth (Yarkoni et al., 2011), by the keyword ‘medial DMN’ and ‘ventromedial prefrontal cortex’, respectively. In addition to mDMN and mPFC, we defined other ROIs anatomically, using the high-resolution Harvard-Oxford Atlas probabilistic atlas (Desikan et al., 2006).",
+   "printed": true
+  }
+ ],
+ "links": [
+  {
+   "link_id": 1,
+   "url": "fmriprep.readthedocs.io/en/latest/workflows.html",
+   "url_raw": "https://fmriprep.readthedocs.io/en/latest/workflows.html",
+   "href_jats": "https://fmriprep.readthedocs.io/en/latest/workflows.html",
+   "repo_key": null,
+   "host_class": "other",
+   "loc": "body",
+   "sec_title": "MRI data preprocessing",
+   "source": "tagged",
+   "para_id": 1
+  },
+  {
+   "link_id": 2,
+   "url": "unfmontreal.github.io/dcm2bids",
+   "url_raw": "https://unfmontreal.github.io/Dcm2Bids/",
+   "href_jats": "https://unfmontreal.github.io/Dcm2Bids/",
+   "repo_key": null,
+   "host_class": "other",
+   "loc": "body",
+   "sec_title": "Conversion of data to the brain imaging data structure standard",
+   "source": "tagged",
+   "para_id": 2
+  },
+  {
+   "link_id": 3,
+   "url": "neurosynth.org",
+   "url_raw": "https://www.neurosynth.org",
+   "href_jats": "https://www.neurosynth.org",
+   "repo_key": null,
+   "host_class": "other",
+   "loc": "body",
+   "sec_title": "Open-ended cognitive state functional decoding",
+   "source": "tagged",
+   "para_id": 3
+  },
+  {
+   "link_id": 4,
+   "url": "doi:10.5061/dryad.2fqz612x0",
+   "url_raw": "https://doi.org/10.5061/dryad.2fqz612x0",
+   "href_jats": "https://doi.org/10.5061/dryad.2fqz612x0",
+   "repo_key": "doi:10.5061/dryad.2fqz612x0",
+   "host_class": "doi",
+   "loc": "back",
+   "sec_title": "Data availability",
+   "source": "tagged",
+   "para_id": 4
+  },
+  {
+   "link_id": 5,
+   "url": "gitlab.com/liu_lab/eeg-fmri-sleep",
+   "url_raw": "https://gitlab.com/liu_lab/eeg-fmri-sleep",
+   "href_jats": "https://gitlab.com/liu_lab/eeg-fmri-sleep",
+   "repo_key": null,
+   "host_class": "other",
+   "loc": "back",
+   "sec_title": "Data availability",
+   "source": "tagged",
+   "para_id": 4
+  }
+ ],
+ "links_optional": [
+  "archive.softwareheritage.org/swh:1:dir:08546ed18cfa6f8e33dd73c71c803ecfeeb8524c;origin=https://gitlab.com/liu_lab/eeg-fmri-sleep;visit=swh:1:snp:ead1d12b19d3becf100315207408a03a7e03506e;anchor=swh:1:rev:1b16df6943d77837bb07093f0b812d3f6f92c40e",
+  "creativecommons.org/licenses/by/4.0",
+  "doi:10.1002/(sici)1099-1492(199706/08)10:4/5<171::aid-nbm453>3.0.co;2-l",
+  "doi:10.1002/hbm.20428",
+  "doi:10.1002/hbm.20600",
+  "doi:10.1002/hipo.22488",
+  "doi:10.1006/nimg.1997.0291",
+  "doi:10.1006/nimg.2000.0599",
+  "doi:10.1006/nimg.2002.1132",
+  "doi:10.1007/s00424-011-1014-6",
+  "doi:10.1016/b0-72-160797-7/50009-4",
+  "doi:10.1016/j.brainres.2010.12.035",
+  "doi:10.1016/j.clinph.2011.06.018",
+  "doi:10.1016/j.jneumeth.2003.10.009",
+  "doi:10.1016/j.jneumeth.2018.09.019",
+  "doi:10.1016/j.media.2007.06.004",
+  "doi:10.1016/j.neubiorev.2021.02.025",
+  "doi:10.1016/j.neuroimage.2006.01.021",
+  "doi:10.1016/j.neuroimage.2006.09.039",
+  "doi:10.1016/j.neuroimage.2007.04.042",
+  "doi:10.1016/j.neuroimage.2007.11.039",
+  "doi:10.1016/j.neuroimage.2009.06.060",
+  "doi:10.1016/j.neuroimage.2011.10.036",
+  "doi:10.1016/j.neuroimage.2013.08.048",
+  "doi:10.1016/j.neuroimage.2015.10.041",
+  "doi:10.1016/j.neuron.2011.02.043",
+  "doi:10.1016/j.neuron.2013.03.006",
+  "doi:10.1016/j.neuron.2017.06.025",
+  "doi:10.1016/j.neuron.2017.11.020",
+  "doi:10.1016/j.tics.2013.01.006",
+  "doi:10.1016/s1053-8119(09)70884-5",
+  "doi:10.1016/s1361-8415(01)00036-6",
+  "doi:10.1037/bul0000223",
+  "doi:10.1038/ncomms15499",
+  "doi:10.1038/nmeth.1635",
+  "doi:10.1038/nn.2880",
+  "doi:10.1038/nn.4119",
+  "doi:10.1038/nn.4304",
+  "doi:10.1038/nn1961",
+  "doi:10.1038/nrn.2017.151",
+  "doi:10.1038/nrn2762",
+  "doi:10.1038/s41467-019-11444-x",
+  "doi:10.1038/s41467-021-23520-2",
+  "doi:10.1038/s41467-022-32840-w",
+  "doi:10.1038/s41467-024-51582-5",
+  "doi:10.1038/s41583-018-0077-1",
+  "doi:10.1038/s41583-020-00420-w",
+  "doi:10.1038/s41583-022-00570-z",
+  "doi:10.1038/s41592-018-0235-4",
+  "doi:10.1038/s41593-021-00916-3",
+  "doi:10.1038/s41593-023-01381-w",
+  "doi:10.1038/s41596-020-0327-3",
+  "doi:10.1038/s41598-019-39178-2",
+  "doi:10.1053/smrv.2001.0181",
+  "doi:10.1073/pnas.0703084104",
+  "doi:10.1073/pnas.0801819105",
+  "doi:10.1073/pnas.1312848110",
+  "doi:10.1073/pnas.1608282113",
+  "doi:10.1073/pnas.2123432119",
+  "doi:10.1093/brain/awm084",
+  "doi:10.1093/cercor/bhab516",
+  "doi:10.1093/sleep/4.4.385",
+  "doi:10.1101/2024.10.14.618165",
+  "doi:10.1109/42.906424",
+  "doi:10.1109/tmi.2010.2046908",
+  "doi:10.1111/psyp.14224",
+  "doi:10.1126/science.1138581",
+  "doi:10.1126/science.1169626",
+  "doi:10.1126/science.8235588",
+  "doi:10.1126/science.aaf0941",
+  "doi:10.1137/0701007",
+  "doi:10.1152/physrev.00042.2018",
+  "doi:10.1155/2011/156869",
+  "doi:10.1371/journal.pbio.1002451",
+  "doi:10.1371/journal.pone.0006749",
+  "doi:10.1371/journal.pone.0174755",
+  "doi:10.1523/jneurosci.0022-24.2024",
+  "doi:10.1523/jneurosci.0251-18.2018",
+  "doi:10.1523/jneurosci.1318-04.2004",
+  "doi:10.1523/jneurosci.2015-10.2010",
+  "doi:10.3389/fninf.2011.00013",
+  "doi:10.3389/fninf.2014.00014",
+  "doi:10.3389/fnins.2013.00267",
+  "doi:10.5665/sleep.1290",
+  "doi:10.7554/elife.103956.1",
+  "doi:10.7554/elife.103956.1.sa0",
+  "doi:10.7554/elife.103956.1.sa1",
+  "doi:10.7554/elife.103956.1.sa2",
+  "doi:10.7554/elife.103956.1.sa3",
+  "doi:10.7554/elife.103956.1.sa4",
+  "doi:10.7554/elife.103956.2",
+  "doi:10.7554/elife.103956.2.sa0",
+  "doi:10.7554/elife.103956.2.sa1",
+  "doi:10.7554/elife.103956.2.sa2",
+  "doi:10.7554/elife.103956.2.sa3",
+  "doi:10.7554/elife.103956.2.sa4",
+  "doi:10.7554/elife.103956.3",
+  "doi:10.7554/elife.103956.3.sa0",
+  "doi:10.7554/elife.103956.3.sa1",
+  "doi:10.7554/elife.103956.3.sa2",
+  "doi:10.7554/elife.53730",
+  "doi:10.7554/elife.57011",
+  "doi:10.7554/elife.70092",
+  "github.com/neuroanatomyandconnectivity/gradient_analysis/blob/master/gradient_data/neurosynth/v3-topics-50-keys.txt",
+  "identifiers.org/rrid:scr_002823",
+  "identifiers.org/rrid:scr_008796"
+ ],
+ "own_doi": "doi:10.7554/elife.103956",
+ "citations": [
+  {
+   "cite_id": 1,
+   "para_id": 5,
+   "bib_id": 36,
+   "marker": "Hahn et al., 2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 2,
+   "para_id": 5,
+   "bib_id": 39,
+   "marker": "Helfrich et al., 2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 3,
+   "para_id": 5,
+   "bib_id": 61,
+   "marker": "Ngo et al., 2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 4,
+   "para_id": 5,
+   "bib_id": 71,
+   "marker": "Schreiner et al., 2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 5,
+   "para_id": 5,
+   "bib_id": 75,
+   "marker": "Staresina et al., 2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 6,
+   "para_id": 5,
+   "bib_id": 76,
+   "marker": "Staresina et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 7,
+   "para_id": 6,
+   "bib_id": 3,
+   "marker": "Amzica and Steriade, 2002",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 8,
+   "para_id": 6,
+   "bib_id": 77,
+   "marker": "Steriade et al., 1993",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 9,
+   "para_id": 6,
+   "bib_id": 19,
+   "marker": "Dang-Vu et al., 2008",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 10,
+   "para_id": 6,
+   "bib_id": 57,
+   "marker": "Massimini et al., 2004",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 11,
+   "para_id": 6,
+   "bib_id": 62,
+   "marker": "Nir et al., 2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 12,
+   "para_id": 6,
+   "bib_id": 26,
+   "marker": "Fernandez and Lüthi, 2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 13,
+   "para_id": 6,
+   "bib_id": 55,
+   "marker": "Mak-McCully et al., 2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 14,
+   "para_id": 6,
+   "bib_id": 9,
+   "marker": "Buzsáki, 2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 15,
+   "para_id": 6,
+   "bib_id": 40,
+   "marker": "Helfrich et al., 2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 16,
+   "para_id": 6,
+   "bib_id": 47,
+   "marker": "Joo and Frank, 2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 17,
+   "para_id": 6,
+   "bib_id": 61,
+   "marker": "Ngo et al., 2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 18,
+   "para_id": 6,
+   "bib_id": 49,
+   "marker": "Latchoumane et al., 2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 19,
+   "para_id": 6,
+   "bib_id": 14,
+   "marker": "Coulon et al., 2012",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 20,
+   "para_id": 6,
+   "bib_id": 27,
+   "marker": "Ferraris et al., 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 21,
+   "para_id": 6,
+   "bib_id": 71,
+   "marker": "Schreiner et al., 2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 22,
+   "para_id": 6,
+   "bib_id": 75,
+   "marker": "Staresina et al., 2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 23,
+   "para_id": 7,
+   "bib_id": 23,
+   "marker": "Diekelmann and Born, 2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 24,
+   "para_id": 7,
+   "bib_id": 49,
+   "marker": "Latchoumane et al., 2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 25,
+   "para_id": 7,
+   "bib_id": 53,
+   "marker": "Liu et al., 2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 26,
+   "para_id": 7,
+   "bib_id": 73,
+   "marker": "Singh et al., 2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 27,
+   "para_id": 7,
+   "bib_id": 75,
+   "marker": "Staresina et al., 2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 28,
+   "para_id": 7,
+   "bib_id": 76,
+   "marker": "Staresina et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 29,
+   "para_id": 7,
+   "bib_id": 7,
+   "marker": "Bergmann et al., 2012",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 30,
+   "para_id": 7,
+   "bib_id": 69,
+   "marker": "Schabus et al., 2007",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 31,
+   "para_id": 7,
+   "bib_id": 28,
+   "marker": "Fogel et al., 2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 32,
+   "para_id": 8,
+   "bib_id": 41,
+   "marker": "Horovitz et al., 2008",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 33,
+   "para_id": 8,
+   "bib_id": 43,
+   "marker": "Huang et al., 2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 34,
+   "para_id": 8,
+   "bib_id": 51,
+   "marker": "Laufs, 2008",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 35,
+   "para_id": 8,
+   "bib_id": 50,
+   "marker": "Laufs et al., 2007",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 36,
+   "para_id": 8,
+   "bib_id": 74,
+   "marker": "Spoormaker et al., 2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 37,
+   "para_id": 8,
+   "bib_id": 38,
+   "marker": "Hale et al., 2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 38,
+   "para_id": 8,
+   "bib_id": 58,
+   "marker": "Moehlman et al., 2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 39,
+   "para_id": 8,
+   "bib_id": 18,
+   "marker": "Czisch et al., 2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 40,
+   "para_id": 8,
+   "bib_id": 44,
+   "marker": "Ilhan-Bayrakcı et al., 2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 41,
+   "para_id": 8,
+   "bib_id": 66,
+   "marker": "Picchioni et al., 2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 42,
+   "para_id": 8,
+   "bib_id": 7,
+   "marker": "Bergmann et al., 2012",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 43,
+   "para_id": 8,
+   "bib_id": 10,
+   "marker": "Caporro et al., 2012",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 44,
+   "para_id": 8,
+   "bib_id": 28,
+   "marker": "Fogel et al., 2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 45,
+   "para_id": 8,
+   "bib_id": 69,
+   "marker": "Schabus et al., 2007",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 46,
+   "para_id": 8,
+   "bib_id": 7,
+   "marker": "Bergmann et al., 2012",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 47,
+   "para_id": 8,
+   "bib_id": 10,
+   "marker": "Caporro et al., 2012",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 48,
+   "para_id": 8,
+   "bib_id": 28,
+   "marker": "Fogel et al., 2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 49,
+   "para_id": 8,
+   "bib_id": 66,
+   "marker": "Picchioni et al., 2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 50,
+   "para_id": 8,
+   "bib_id": 43,
+   "marker": "Huang et al., 2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 51,
+   "para_id": 9,
+   "bib_id": 15,
+   "marker": "Cousins et al., 2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 52,
+   "para_id": 9,
+   "bib_id": 42,
+   "marker": "Hu et al., 2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 53,
+   "para_id": 9,
+   "bib_id": 64,
+   "marker": "Oudiette and Paller, 2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 54,
+   "para_id": 9,
+   "bib_id": 72,
+   "marker": "Siefert et al., 2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 55,
+   "para_id": 9,
+   "bib_id": 68,
+   "marker": "Rasch et al., 2007",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 56,
+   "para_id": 9,
+   "bib_id": 15,
+   "marker": "Cousins et al., 2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 57,
+   "para_id": 9,
+   "bib_id": 32,
+   "marker": "Göldi et al., 2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 58,
+   "para_id": 9,
+   "bib_id": 82,
+   "marker": "Xia et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 59,
+   "para_id": 10,
+   "bib_id": 56,
+   "marker": "Margulies et al., 2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 60,
+   "para_id": 10,
+   "bib_id": 83,
+   "marker": "Yarkoni et al., 2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 61,
+   "para_id": 11,
+   "bib_id": 7,
+   "marker": "Bergmann et al., 2012",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 62,
+   "para_id": 11,
+   "bib_id": 10,
+   "marker": "Caporro et al., 2012",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 63,
+   "para_id": 11,
+   "bib_id": 28,
+   "marker": "Fogel et al., 2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 64,
+   "para_id": 11,
+   "bib_id": 69,
+   "marker": "Schabus et al., 2007",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 65,
+   "para_id": 12,
+   "bib_id": 11,
+   "marker": "Carskadon and Dement, 2005",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 66,
+   "para_id": 12,
+   "bib_id": 54,
+   "marker": "Maingret et al., 2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 67,
+   "para_id": 12,
+   "bib_id": 59,
+   "marker": "Mölle et al., 2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 68,
+   "para_id": 12,
+   "bib_id": 70,
+   "marker": "Schreiner et al., 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 69,
+   "para_id": 12,
+   "bib_id": 75,
+   "marker": "Staresina et al., 2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 70,
+   "para_id": 12,
+   "bib_id": 76,
+   "marker": "Staresina et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 71,
+   "para_id": 13,
+   "bib_id": 80,
+   "marker": "Vallat and Walker, 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 72,
+   "para_id": 14,
+   "bib_id": 80,
+   "marker": "Vallat and Walker, 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 73,
+   "para_id": 15,
+   "bib_id": 31,
+   "marker": "Gaillard and Blois, 1981",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 74,
+   "para_id": 15,
+   "bib_id": 12,
+   "marker": "Cash et al., 2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 75,
+   "para_id": 15,
+   "bib_id": 19,
+   "marker": "Dang-Vu et al., 2008",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 76,
+   "para_id": 16,
+   "bib_id": 60,
+   "marker": "Ngo et al., 2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 77,
+   "para_id": 16,
+   "bib_id": 75,
+   "marker": "Staresina et al., 2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 78,
+   "para_id": 17,
+   "bib_id": 54,
+   "marker": "Maingret et al., 2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 79,
+   "para_id": 17,
+   "bib_id": 75,
+   "marker": "Staresina et al., 2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 80,
+   "para_id": 18,
+   "bib_id": 43,
+   "marker": "Huang et al., 2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 81,
+   "para_id": 18,
+   "bib_id": 19,
+   "marker": "Dang-Vu et al., 2008",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 82,
+   "para_id": 18,
+   "bib_id": 66,
+   "marker": "Picchioni et al., 2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 83,
+   "para_id": 18,
+   "bib_id": 78,
+   "marker": "Tagliazucchi et al., 2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 84,
+   "para_id": 18,
+   "bib_id": 5,
+   "marker": "Baldassano et al., 2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 85,
+   "para_id": 18,
+   "bib_id": 13,
+   "marker": "Constantinescu et al., 2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 86,
+   "para_id": 18,
+   "bib_id": 65,
+   "marker": "Park et al., 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 87,
+   "para_id": 19,
+   "bib_id": 83,
+   "marker": "Yarkoni et al., 2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 88,
+   "para_id": 20,
+   "bib_id": 14,
+   "marker": "Coulon et al., 2012",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 89,
+   "para_id": 20,
+   "bib_id": 27,
+   "marker": "Ferraris et al., 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 90,
+   "para_id": 20,
+   "bib_id": 49,
+   "marker": "Latchoumane et al., 2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 91,
+   "para_id": 20,
+   "bib_id": 30,
+   "marker": "Friston et al., 1997",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 92,
+   "para_id": 21,
+   "bib_id": 70,
+   "marker": "Schreiner et al., 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 93,
+   "para_id": 21,
+   "bib_id": 36,
+   "marker": "Hahn et al., 2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 94,
+   "para_id": 21,
+   "bib_id": 39,
+   "marker": "Helfrich et al., 2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 95,
+   "para_id": 21,
+   "bib_id": 39,
+   "marker": "Helfrich et al., 2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 96,
+   "para_id": 22,
+   "bib_id": 9,
+   "marker": "Buzsáki, 2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 97,
+   "para_id": 22,
+   "bib_id": 61,
+   "marker": "Ngo et al., 2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 98,
+   "para_id": 22,
+   "bib_id": 75,
+   "marker": "Staresina et al., 2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 99,
+   "para_id": 22,
+   "bib_id": 76,
+   "marker": "Staresina et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 100,
+   "para_id": 23,
+   "bib_id": 37,
+   "marker": "Halassa et al., 2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 101,
+   "para_id": 23,
+   "bib_id": 14,
+   "marker": "Coulon et al., 2012",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 102,
+   "para_id": 23,
+   "bib_id": 17,
+   "marker": "Crunelli et al., 2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 103,
+   "para_id": 23,
+   "bib_id": 9,
+   "marker": "Buzsáki, 2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 104,
+   "para_id": 23,
+   "bib_id": 22,
+   "marker": "Diba and Buzsáki, 2007",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 105,
+   "para_id": 23,
+   "bib_id": 73,
+   "marker": "Singh et al., 2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 106,
+   "para_id": 23,
+   "bib_id": 71,
+   "marker": "Schreiner et al., 2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 107,
+   "para_id": 24,
+   "bib_id": 84,
+   "marker": "Yeshurun et al., 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 108,
+   "para_id": 25,
+   "bib_id": 83,
+   "marker": "Yarkoni et al., 2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 109,
+   "para_id": 25,
+   "bib_id": 23,
+   "marker": "Diekelmann and Born, 2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 110,
+   "para_id": 25,
+   "bib_id": 75,
+   "marker": "Staresina et al., 2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 111,
+   "para_id": 25,
+   "bib_id": 76,
+   "marker": "Staresina et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 112,
+   "para_id": 26,
+   "bib_id": 8,
+   "marker": "Bodurka et al., 2007",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 113,
+   "para_id": 26,
+   "bib_id": 52,
+   "marker": "Laufs et al., 2008",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 114,
+   "para_id": 27,
+   "bib_id": 34,
+   "marker": "Gramfort et al., 2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 115,
+   "para_id": 27,
+   "bib_id": 2,
+   "marker": "Allen et al., 2000",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 116,
+   "para_id": 28,
+   "bib_id": 20,
+   "marker": "Delorme and Makeig, 2004",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 117,
+   "para_id": 28,
+   "bib_id": 80,
+   "marker": "Vallat and Walker, 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 118,
+   "para_id": 1,
+   "bib_id": 25,
+   "marker": "Esteban et al., 2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 119,
+   "para_id": 1,
+   "bib_id": 24,
+   "marker": "Esteban et al., 2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 120,
+   "para_id": 1,
+   "bib_id": 33,
+   "marker": "Gorgolewski et al., 2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 121,
+   "para_id": 1,
+   "bib_id": 1,
+   "marker": "Abraham et al., 2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 122,
+   "para_id": 29,
+   "bib_id": 79,
+   "marker": "Tustison et al., 2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 123,
+   "para_id": 29,
+   "bib_id": 4,
+   "marker": "Avants et al., 2008",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 124,
+   "para_id": 29,
+   "bib_id": 85,
+   "marker": "Zhang et al., 2001",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 125,
+   "para_id": 29,
+   "bib_id": 29,
+   "marker": "Fonov et al., 2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 126,
+   "para_id": 30,
+   "bib_id": 46,
+   "marker": "Jenkinson et al., 2002",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 127,
+   "para_id": 30,
+   "bib_id": 16,
+   "marker": "Cox and Hyde, 1997",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 128,
+   "para_id": 30,
+   "bib_id": 45,
+   "marker": "Jenkinson and Smith, 2001",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 129,
+   "para_id": 30,
+   "bib_id": 35,
+   "marker": "Greve and Fischl, 2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 130,
+   "para_id": 30,
+   "bib_id": 67,
+   "marker": "Power et al., 2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 131,
+   "para_id": 30,
+   "bib_id": 46,
+   "marker": "Jenkinson et al., 2002",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 132,
+   "para_id": 30,
+   "bib_id": 67,
+   "marker": "Power et al., 2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 133,
+   "para_id": 30,
+   "bib_id": 6,
+   "marker": "Behzadi et al., 2007",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 134,
+   "para_id": 30,
+   "bib_id": 6,
+   "marker": "Behzadi et al., 2007",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 135,
+   "para_id": 31,
+   "bib_id": 48,
+   "marker": "Lanczos, 1964",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 136,
+   "para_id": 32,
+   "bib_id": 57,
+   "marker": "Massimini et al., 2004",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 137,
+   "para_id": 32,
+   "bib_id": 59,
+   "marker": "Mölle et al., 2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 138,
+   "para_id": 33,
+   "bib_id": 70,
+   "marker": "Schreiner et al., 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 139,
+   "para_id": 34,
+   "bib_id": 75,
+   "marker": "Staresina et al., 2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 140,
+   "para_id": 35,
+   "bib_id": 70,
+   "marker": "Schreiner et al., 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 141,
+   "para_id": 36,
+   "bib_id": 36,
+   "marker": "Hahn et al., 2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 142,
+   "para_id": 36,
+   "bib_id": 40,
+   "marker": "Helfrich et al., 2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 143,
+   "para_id": 36,
+   "bib_id": 39,
+   "marker": "Helfrich et al., 2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 144,
+   "para_id": 36,
+   "bib_id": 61,
+   "marker": "Ngo et al., 2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 145,
+   "para_id": 36,
+   "bib_id": 71,
+   "marker": "Schreiner et al., 2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 146,
+   "para_id": 36,
+   "bib_id": 70,
+   "marker": "Schreiner et al., 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 147,
+   "para_id": 36,
+   "bib_id": 75,
+   "marker": "Staresina et al., 2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 148,
+   "para_id": 36,
+   "bib_id": 76,
+   "marker": "Staresina et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 149,
+   "para_id": 37,
+   "bib_id": 63,
+   "marker": "Oostenveld et al., 2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 150,
+   "para_id": 38,
+   "bib_id": 61,
+   "marker": "Ngo et al., 2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 151,
+   "para_id": 38,
+   "bib_id": 75,
+   "marker": "Staresina et al., 2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 152,
+   "para_id": 38,
+   "bib_id": 76,
+   "marker": "Staresina et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 153,
+   "para_id": 38,
+   "bib_id": 70,
+   "marker": "Schreiner et al., 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 154,
+   "para_id": 39,
+   "bib_id": 83,
+   "marker": "Yarkoni et al., 2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 155,
+   "para_id": 39,
+   "bib_id": 21,
+   "marker": "Desikan et al., 2006",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 156,
+   "para_id": 3,
+   "bib_id": 56,
+   "marker": "Margulies et al., 2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 157,
+   "para_id": 3,
+   "bib_id": 83,
+   "marker": "Yarkoni et al., 2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 158,
+   "para_id": 4,
+   "bib_id": 81,
+   "marker": "Wang, 2026",
+   "expanded": false,
+   "scored": true
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-ext-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "v1_bib_count": 85
+ }
+}

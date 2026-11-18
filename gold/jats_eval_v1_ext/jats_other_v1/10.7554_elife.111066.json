@@ -1,0 +1,1407 @@
+{
+ "paper_id": "10.7554_elife.111066",
+ "paras": [
+  {
+   "para_id": 1,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Novel functional approaches applied to culture systems that allow reliable and reproducible in vitro establishment of sexual dimorphism will shine new light into molecular mechanisms underlying schistosome intra-mammalian development. We aimed at optimising a platform to study intra-mammalian schistosomes that supports in vitro sexual dimorphism establishment and consequently leading to an overall positive impact in the 3Rs (reduction, replacement, and refinement) on animal research (https://nc3rs.org.uk/) (Louis-Maerten et al., 2024). Here, we refined a protocol for LTC of newly transformed cercariae by assessing the effects of two different sera, FBS and human serum (HS), added to the medium supplemented with human red blood cells (hRBCs). Striking differences were evident between parasites maintained in either FBS or HS. First, phenotypic differences between FBS- and HS-cultured parasites became evident as early as 48 hr in culture, with HS-cultured parasites exhibiting higher rates of cell proliferation resulting in larger worms in the HS condition. Second, hRBC were digested and hemozoin became apparent in the intestines of HS-cultured parasites within a day in contrast to FBS-cultured parasites that mostly lacked visible hemozoin. Finally, while most of the FBS-cultured parasites did not progress beyond lung and early liver stage, HS-cultured parasites reached sexually dimorphic stages by week 6, albeit at a slightly delayed rate compared to in vivo development. In the mouse model, parasites become dimorphic by day 21 post-infection (~3 weeks; Wangwiwatsin et al., 2020). Taken together, this protocol allows early sexual development of schistosomes to be studied in vitro, provides a method for high-throughput drug screening targeting parasite development, and reduces the reliance on animals in research.",
+   "printed": true
+  },
+  {
+   "para_id": 2,
+   "loc": "table",
+   "sec_title": "Materials and methods",
+   "text": "https://www.cvat.ai/",
+   "printed": true
+  },
+  {
+   "para_id": 3,
+   "loc": "body",
+   "sec_title": "Measurement of parasite area",
+   "text": "Images of in vitro developing parasites were taken at weeks 1, 2, 3, 4, 6, 8, and 10 after cercariae transformation with an Euromex camera fitted to an Olympus CK2 optical microscope at ×4 and ×10 magnification. For these magnifications, images of scale bars were captured for pixel to area values (µm²). Parasites from five independent LTC experiments were masked in COCO format from captured images using the CVAT (Computer Vision Annotation Tool) online server (https://www.cvat.ai/). Area metrics were then calculated for each parasite by leveraging the pycocotools package in a customised Python script (DOI 10.5281/zenodo.21992371). Raw and processed data is provided in Supplementary file 1C. Normal distribution was checked using Shapiro test and Mann Whitney tests performed with a significant value set up for p≤0.05 (Supplementary file 1F).",
+   "printed": true
+  },
+  {
+   "para_id": 4,
+   "loc": "fn",
+   "sec_title": "Ethics",
+   "text": "The complete life cycle of S. mansoni (NMRI strain) was maintained at the Wellcome Sanger Institute (WSI) and Aberystwyth University (AU), by infecting Biomphalaria glabrata snails and outbred mice (TO strain). All the animal regulated procedures were conducted under Home Office Project Licences P77E8A062 (WSI) and PP2955700 (AU), following the ARRIVE guidelines (https://arriveguidelines.org) and in accordance with guidelines and regulations stated by the UK Animals (Scientific Procedures) Act 1986 Amendment Regulations 2012. All the protocols were presented and approved by the Animal Welfare and Ethical Review Bodies (AWERB) of the WSI and AU. The AWERB is constituted as required by the UK Animals (Scientific Procedures) Act 1986 Amendment Regulations 2012. Human blood products, including serum and RBCs, were obtained from NHS Blood and Transplant (NHSBT), Non-Clinical Issue (NCI) services for research purposes. NHSBT-NCI provides donated material surplus to clinical requirements or unsuitable for therapeutic use that has been appropriately consented. The supply chain complies with all statutory and regulatory obligations including (but not limited to) the Human Tissue Act (2004) and associated Codes of Practice. The NHSBT-NCI products were acquired under the Study ‘In vitro development of the human parasite Schistosoma’, Integrated Research Application System (IRAS) project ID 319400, protocol number AU/DLS/011, Research Ethics Committee (REC) reference number 23/SS/0017.",
+   "printed": true
+  },
+  {
+   "para_id": 5,
+   "loc": "back",
+   "sec_title": "Funding Information",
+   "text": "https://ror.org/029chgv08Wellcome Trust 10.35802/098051 to Matthew Berriman.",
+   "printed": false
+  },
+  {
+   "para_id": 6,
+   "loc": "back",
+   "sec_title": "Funding Information",
+   "text": "https://ror.org/029chgv08Wellcome Trust 10.35802/206194 to Matthew Berriman.",
+   "printed": false
+  },
+  {
+   "para_id": 7,
+   "loc": "back",
+   "sec_title": "Funding Information",
+   "text": "https://ror.org/019w4f821European Union 10.3030/101080784 to Karl F Hoffmann.",
+   "printed": false
+  },
+  {
+   "para_id": 8,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Schistosomiasis, a major neglected tropical disease (NTD) affecting >250 million people worldwide, is caused by the infection with blood flukes (class Trematoda) in the genus Schistosoma (LoVerde, 2024). The pathology associated with schistosomiasis is largely driven by egg trapping in different tissues depending on the species. Infection with Schistosoma mansoni leads to eggs lodged mainly in the liver, inducing inflation, fibrosis, and granuloma formation (Buonfrate et al., 2025). This suggests that interfering with the sexual development of schistosome intra-mammalian stages could potentially restrict human pathology. Currently, the complete reliance on a single drug (Praziquantel) to treat the infection and its use in drug mass administration programmes in endemic areas threatens the development of drug resistance (Berger et al., 2024; Crellen et al., 2016). Therefore, novel control strategies are urgently needed, and identifying original targets for drug/vaccine development became a priority. A better understanding of the mechanisms underlying schistosome development, including sexual dimorphism establishment, will pave the way to achieve this goal.",
+   "printed": true
+  },
+  {
+   "para_id": 9,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "While most parasitic flatworms are hermaphrodites, schistosomes are dioecious with genetically determined female (2n=16, ZW) and male (2n=16, ZZ) individuals. Whilst male and female parasites are morphologically indistinguishable across most developmental stages, sexual dimorphism becomes apparent by adulthood within the mammalian host (Loker and Brant, 2006). Male and female worms undergo separate but concurrent sexual differentiation of their gonads and somatic tissues that eventually allows intersexual pairing, a critical step for female maturation, egg production, and life cycle propagation (Chen et al., 2022; Shakir et al., 2023). Transcriptomic studies, at both bulk (Elkrewi et al., 2021; Fitzpatrick and Hoffmann, 2006; Lu et al., 2016; Picard et al., 2016; Wangwiwatsin et al., 2020) and single cell (Diaz Soria et al., 2020; Li et al., 2021; Wendt et al., 2020) levels for intra-mammalian stages in vivo and ex vivo, have revealed key pathways and molecular mediators underlying the critical process of female sexual maturation induced by pairing. However, the cellular and molecular mechanisms driving sexual dimorphism prior to pairing remain poorly characterised, partly due to intrinsic challenges in assessing the development of the parasite in vivo (Wangwiwatsin et al., 2020).",
+   "printed": true
+  },
+  {
+   "para_id": 10,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Approaches to better understand the biology of parasites at large have been developed and optimised using in vitro or ex vivo refined culture systems (Pance and Rinaldi, 2024; Sutrave and Richter, 2023). Combinations of culture media components, sera from different sources and additives have been tested (Ahmed, 2014; Mann et al., 2010). In addition, organ-on-a-chip systems and organoid-based 2D and 3D culture platforms Mellin and Boddey, 2020; Zorrinho-Almeida et al., 2025 have first been implemented for protozoa parasites such as Plasmodium, Toxoplasma, and Cryptosporidium species. These methods have facilitated the molecular dissection of processes underlying single-cell parasite development and interaction with the host (Faral-Tello et al., 2023; Korwin-Mihavics et al., 2023; Zhou et al., 2024). Recently, these technologies have started to be transferred to metazoan parasites to study host–parasite interaction and immune response in the context of helminth infections (Britton et al., 2023; Duque-Correa et al., 2022; Faber et al., 2022; Vitkauskaite et al., 2025; White et al., 2022). In vitro cultivation of both larval tapeworms (cestodes) and stem cells isolated from cestodes, coupled with ‘omic’ and imaging analyses, have unveiled the role of stem cells in parasite development (Herz et al., 2024; Koziol and Brehm, 2015). However, despite these significant developments in the field, reproducing the natural development of trematodes under controlled in vitro conditions remains extremely challenging (Sutrave and Richter, 2023).",
+   "printed": true
+  },
+  {
+   "para_id": 11,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Significant progress was achieved in culturing schistosomes when, more than 40 years ago, Paul F. Basch developed and optimised comprehensive culture protocols for intra-mammalian developmental stages of schistosomes (Basch, 1981b; Basch, 1981a; Basch and Humbert, 1981c). Basch reported for the first time the development of male and female parasites from cercariae, with worm pairing and production of infertile eggs entirely in vitro (Basch, 1981b). Remarkably, to the best of our knowledge, these results have not been replicated and no further attempt to obtain egg-laying worm pairs developed in vitro from cercariae has been reported since Basch’s seminal studies (Sutrave and Richter, 2023). More recently, in vitro culture protocols for schistosomes have been refined either to maintain ex vivo parasites collected from infected mice to study parasite reproduction biology (Wang et al., 2019; You et al., 2024), or to culture juvenile parasites from cercariae and develop drug screening approaches (Frahm et al., 2021; Buchter et al., 2021; Maharjan et al., 2021). However, no long-term culture (LTC) conditions to specifically assess schistosome sexual differentiation have been reported since 1981 (Basch, 1981a). Despite one research group referring to the in-vitro development of egg-laying adult worms from cercariae (Abla et al., 2017), there has been no detailed description and no widespread adoption. In fact, published culturing studies have continued to utilise foetal bovine serum (FBS) (Wang et al., 2019; Milligan and Jolly, 2011).",
+   "printed": true
+  },
+  {
+   "para_id": 12,
+   "loc": "body",
+   "sec_title": "Sexually dimorphic schistosomes developed entirely in vitro from cercariae",
+   "text": "Searching for culture media able to cultivate parasites from cercariae to maturity, we decided to test HS compared to the commonly used FBS. This rationale was based both on the fact that humans are the definitive host of S. mansoni, and that two previous reports in 1981 showed that HS was capable of producing mature schistosomes in vitro (Basch, 1981b; Basch, 1981a), but they were never fully replicated. More recently, culture media were complemented with HS in studies focused on early stages of parasite development for drug testing (Frahm et al., 2021; Buchter et al., 2021; Maharjan et al., 2021); however, these worms did not progress beyond the liver stage (Frahm et al., 2019). Therefore, to ascertain the in vitro sexual dimorphism establishment of schistosomes entirely developed from cercariae, we compared the effect of two different sources of blood serum: FBS and HS. The development of schistosomula derived from mechanically transformed cercariae was assessed in at least 15 independent experiments, five of which were maintained over a period of at least 10 weeks to assess parasite survival and ability to mate and produce fertile eggs (Figure 1A; Supplementary file 1A).",
+   "printed": true
+  },
+  {
+   "para_id": 13,
+   "loc": "body",
+   "sec_title": "Sexually dimorphic schistosomes developed entirely in vitro from cercariae",
+   "text": "No morphological differences were observed between parasites cultured either in FBS or HS within the first week in culture; in both conditions, most parasites were classified as early schistosomula (category 1: 76%±30 [average ± SD] in FBS and 73%±29 [average ± SD] in HS) with few lung (category 2) and early liver schistosomula (category 3; Figure 1B, week 1; Figure 1—figure supplement 1). The mean mortality (category 0) at week 1 was slightly higher, but not statistically significant (p=0.42), in worms cultured in HS (9.75%±2.76 [average ± SD]) compared to the mortality registered in FBS-cultured parasites (5.52%±5.18 [average ± SD], Figure 1—figure supplement 2; Supplementary file 1B), consistent with previous findings (Maharjan et al., 2021).",
+   "printed": true
+  },
+  {
+   "para_id": 14,
+   "loc": "body",
+   "sec_title": "Sexually dimorphic schistosomes developed entirely in vitro from cercariae",
+   "text": "Differences in parasite development between the two conditions became apparent by week 2 (Figure 1B). At this time point, 14.8%±24.9 (average ± SD, excluding dead worms) or 36%±33.6 (average ± SD, excluding dead worms) of the parasites cultured in FBS or HS, respectively, have reached category 3, that is early liver schistosomulum. Parasites in FBS rarely progressed beyond this stage during the 10-week experiment, with very few parasites (<0.1% ± 0.2, average ± SD) reaching category 4, that is late liver schistosomulum. In contrast, worms cultured in HS developed over time across all categories, achieving marked sexual dimorphism by week 6 (13.4%±18.6, average ± SD; Figure 1B; Figure 1—figure supplement 3), as confirmed by PCR (Figure 1—figure supplement 3; Supplementary file 1C). No differences in the timing for sexual dimorphism establishment were observed between male and female parasites. The mortality rate of FBS-cultured parasites reached an average of 76.24%±23.46 (average ± SD) by week 10, after which the experiments under this condition were stopped as most parasites were dead (Figure 1—figure supplement 2). From that time point onwards only parasites in HS were kept in culture. As previously described for the in vivo development of schistosomes (Wangwiwatsin et al., 2020), in vitro cultured parasites showed developmental asynchrony in agreement with Basch’s observations (Basch, 1981a); however, by week 10 most of the worms in HS (73.7%±25.4, average ± SD) acquired an evident sexual dimorphism (Figure 1B).",
+   "printed": true
+  },
+  {
+   "para_id": 15,
+   "loc": "body",
+   "sec_title": "Parasites developed in human serum readily digest red blood cells",
+   "text": "It is widely accepted that within the mammalian host, schistosomes begin to feed on blood cells through their digestive tract at 10 days post-infection; at this time, the majority of the parasites have left the lungs and started to colonise the portal system veins in the liver (Nation et al., 2020). Based on both previous reports (Correnti et al., 2007) and pilot experiments in which adding hRBCs to the culture before day ~10 did not show obvious haemoglobin digestion, we decided to supplement the culture media with hRBCs at day 13. The addition of hRBCs allowed the parasites to feed and thus continue their development (Mann et al., 2010). At this point, they began to swallow and degrade erythrocytes, producing hemozoin, a black pigment derived from host haemoglobin degradation and visible in the worms' intestines. Even though few parasites in FBS reached the early liver stage (category 3) within the first week in culture, a minority of them were able to digest hRBCs (3.6%±4.7, average ± SD), indicated by displaying black guts (BG; Figure 3). In contrast, a significant proportion of HS-cultured parasites (36.2%±33.6, average ± SD) had already reached the early liver stage by the second week in three out of five experiments (Figure 1B, week 2). Moreover, parasites cultured in HS displayed a functional digestive system capable of assimilating hRBCs; more than half of the HS-cultured parasites (65%±6, average ± SD, p-value <0.05) showed BG in comparison to FBS-cultured parasites (3.7 ± 4.7 %; Figure 3; Supplementary file 1E).",
+   "printed": true
+  },
+  {
+   "para_id": 16,
+   "loc": "body",
+   "sec_title": "Development of parasites in human serum may be driven by stem cell proliferation",
+   "text": "The growth and development of an organism is driven by a finely regulated combination of cell hyperplasia, hypertrophy, and apoptosis across different tissues (Canepa et al., 2024). In schistosomes, a complex stem cell system consisting of both somatic and germline stem cells has been described by leveraging recent single-cell transcriptomic data across different developmental stages, including schistosomula and adult worms (Nanes Sarfati et al., 2021). Therefore, we decided to investigate whether the differences in development, growth, and feeding capacity between parasites cultured in either FBS- or HS-complemented medium were associated with distinct cellular proliferation rates. EdU pulse experiments revealed notably lower cell proliferation in FBS-cultured parasites as early as 2 days post-transformation compared to HS-cultured parasites (Figure 4). It has previously been demonstrated that a group of five well-defined somatic stem cells is the only set of cells that actively proliferate in 2-day schistosomula (Wang et al., 2018). Hence, the proliferating cells observed and quantified in our study were most likely stem cells (Figure 4—figure supplement 1; Videos 1 and 2). The difference between the number of proliferating stem cells in parasites cultured in FBS or HS increased significantly over time. HS-cultured schistosomula showed higher numbers of proliferating stem cells, with a median of >48 and>60 EdU + cells per worm at days 8 and 15, respectively (Figure 4). On the other hand, most FBS-cultured parasites displayed no more than an average of 20 EdU + cells per worm (Figure 4). hRBCs were added at day 13 post-cercarial transformation to both FBS- and HS-complemented culture media. Worms kept in FBS or HS in the absence of hRBCs were included as controls. Regardless of the serum employed, no significant differences in the numbers of proliferating cells were observed between worms cultured in the presence or absence of hRBCs (Supplementary file 1B and F).",
+   "printed": true
+  },
+  {
+   "para_id": 17,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Recent progress in culture systems and functional genomic tools is allowing researchers to address long standing questions in helminth biology that were previously inaccessible to experimentation (Arunsan et al., 2019; Kalinna et al., 2024; Quinzo et al., 2022; Stephens et al., 2025; Xie et al., 2025). Among these enduring questions stand those related to the unique sexual biology of the trematode family Schistosomatidae. Schistosomes are dioecious with genetically determined female and male individuals, which is unusual for flatworms (Loker and Brant, 2006; Loker et al., 2025). However, the sexual dimorphism of male and female schistosome worms only becomes established within the mammalian host and represents a critical step towards worm maturation, intersexual pairing, and egg production (Moné and Boissier, 2004). A better understanding of the molecular and cellular basis underlying sexual dimorphism establishment in schistosomes would lead to approaches to block parasite development and life cycle propagation. Studying the sexual development of schistosomes by performing controlled experiments in which parasites can be co-cultured, genetically manipulated or treated with different compounds requires robust and reproducible protocols for long-term in vitro culture.",
+   "printed": true
+  },
+  {
+   "para_id": 18,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Culture protocols have recently been developed to maintain ex vivo schistosomes collected from infected mice (Wang et al., 2019; You et al., 2024), or to obtain juvenile parasites from cercariae for drug screening experiments (Frahm et al., 2021; Buchter et al., 2021; Maharjan et al., 2021; Reimers et al., 2015). However, no LTC conditions have been successfully refined to experimentally assess sexual differentiation and dimorphism establishment in schistosomes. Here, aiming to refine a culture medium formulation that supports in vitro parasite development and establishment of sexual dimorphism, we compared the effect of modified Basch’s media (Mann et al., 2010), supplemented with hRBCs and 20% of either FBS or HS. While initial parasite survival and development appeared comparable in both conditions during the first week in culture, striking morphological differences emerged from week 2 onwards. Parasites cultured in HS progressed through all developmental categories and acquired sexual dimorphism by week 6. On the other hand, parasites maintained in FBS were stunted at early stages (mainly lung stage). These experimental outcomes were consistent with the findings reported by Paul F. Basch (Basch, 1981b) in 1980. Probably, from the 1980s onwards a combination of factors that include ethical concerns, variability associated with human-derived products and safety considerations related to blood borne viruses such as HIV and Hepatitis B and C determined that parasitologists favoured the use of FBS over HS for helminth culture. FBS has been extensively used in cell culture media, refined and adapted to diverse human and animal cell types since 1958 (Puck et al., 1958) providing a reliable source of amino acids, carbohydrates, hormones, lipids, proteins, vitamins, and growth factors (van der Valk et al., 2018). Nevertheless, the scientific community is increasingly advocating for the replacement of FBS as a supplement in tissue culture (Gstraunthaler et al., 2013). This trend is driven by limitations associated with FBS, including the presence of undefined tentatively harmful factors for the cells in culture, lack of reproducibility, lack of transparency in its production and critically ethical concerns related to animal welfare (Weber et al., 2025). Our protocol that supports the full in vitro development of schistosomes will also positively impact the 3Rs (Louis-Maerten et al., 2024) by minimising the use of animals for research and serum production (Rosolowski et al., 2025; Subbiahanadar Chelladurai et al., 2021).",
+   "printed": true
+  },
+  {
+   "para_id": 19,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Parasites cultured in the presence of HS not only developed into sexually dimorphic male and female worms but strikingly were able to digest hRBCs and process haemoglobin within 1 day after the addition of the cells. These findings may reflect differences in gastrodermis and oesophageal gland development; worms cultured in the presence of HS displayed a differentiated gastrodermis that enabled haemoglobin digestion and accumulation of hemozoin within the intestines (Xiao and Sun, 2017). In contrast, most parasites cultured in FBS were unable to produce hemozoin in the presence of hRBCs. This may be due to impaired gastrodermis differentiation that ultimately would lead to stunted development and death. Haematophagous parasites including Plasmodium species and schistosomes obtain key nutrients via the proteolysis of host haemoglobin. However, this process leads to the production of free-haem groups which in turn generate highly toxic oxygen free radicals and lipid peroxidation (Sun et al., 2025). These toxic free-haem derivatives become inactive when aggregated into an inert crystalline polymer, named hemozoin, observed as dark pigment within the intestines of schistosome intra-mammalian stages (Xiao and Sun, 2017). In addition, increasing evidence shows that hemozoin may play critical roles during parasite development by supplying iron for egg production (Xiao and Sun, 2017) and interaction with the mammalian host by an immune modulatory role (Truscott et al., 2013). In the mouse model, schistosomula begin to feed on blood once they have left the lungs and reached the portal system 9–11 days post-infection (Nation et al., 2020; Miller and Wilson, 1980). Moreover, schistosomula collected from experimentally infected mice at day 13 post-infection already show hemozoin in their guts (Wangwiwatsin et al., 2020). Similarly, HS-developed schistosomula were able to feed on blood in vitro within a comparable time window; hRBCs were added in the medium on day 13 in culture, and within 24 hr, most of the parasites’ gut contained hemozoin. These findings suggest that our in vitro culture system successfully recapitulates in vivo gastrodermis development of schistosomula. A better understanding of the in vitro development of the parasite oesophageal gland and gastrodermis and its role in the production of hemozoin will expose tentative novel targets for control (Corrêa Soares et al., 2009).",
+   "printed": true
+  },
+  {
+   "para_id": 20,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Although previous reports have shown that it is possible to cultivate parasites in cell-free environments (Maharjan et al., 2021; Frahm et al., 2019), adding hRBC has proven essential for long-term maintenance of parasites and for establishing sexual dimorphism. EdU pulse experiments suggested that schistosome in vitro development in the presence of HS may be driven by the proliferation and differentiation of stem cells. The stem cell system in schistosomes has been extensively studied since the first description of somatic stem cells in adult worms (Collins III et al., 2013), followed by single-cell transcriptomic identification and functional characterisation of three key stem cell populations in intra-snail stages (Wang et al., 2018). Two of these stem cell types, maintained in intra-mammalian stages, proliferate and differentiate into precursors of somatic and germ line cells throughout development (Li et al., 2021). Although we have not performed transcriptomic analyses in this study, the positive correlation between number of EdU+ cells and growth (determined by increasing worm areas) and gross development in HS-developed parasites was evident already within the first 48 hr in culture. These findings indicate that stem cells may play a central role in driving organised growth, tissue differentiation, and ultimately the establishment of the sexual dimorphism in HS-developed parasites. Conversely, FBS-cultured parasites displayed no more than 20 EdU + cells per worm on average, reaching a plateau in the number of proliferating cells from day 8 in culture, which probably underlie the arrested development of these worms. Overall, the FBS-cultured parasites did not progress beyond the lung stage. Consistent with these findings, confocal microscopy imaging revealed in HS-developed parasites clear somatic and reproductive anatomical structures, including male gynaecophoric canals and testes with sperm cells, as well as female ovary primordia, oviducts, ootypes, and uteri. These developmental features illustrate the capacity of our culture system to capture key biological transitions previously only accessible from experimentally infected animal models. That said, while our system was highly efficient in producing sexually dimorphic worms, spontaneous pairing between male and female parasites was extremely rare, mainly in aged in vitro cultures (from 80 to 100 days in culture) indicating that other factors, for example cholesterol, may be missing (Wang et al., 2019). In any case, we decided to test the pairing capacity of the dimorphic worms by conducting pairing experiments between in vitro-developed females and ex vivo-collected males, and vice versa. Strikingly, couples were observed within 24 hr after co-cultivating in vivo and ex vivo opposite sex parasites, albeit no eggs were produced. However, we observed evidence of pairing-trigger oocyte maturation in in vitro-developed females paired with ex vivo-collected male worms. Our research group has recently been involved in the discovery and functional characterisation of a transcription factor of the retinoic acid receptor family, SmRAR, and related genes (Moescheid et al., 2025). SmRAR and associated genes may play a key role in oocyte differentiation triggered by pairing. Our pairing experiments and confocal imaging analyses suggested that in vitro developed female oocytes started to differentiate after pairing with an in vivo developed male worm, probably mediated by the activation of the SmRAR pathway (Moescheid et al., 2025). Moreover, the involvement of a male-derived nonribosomal peptide pheromone, that is β-alanyl-tryptamine or ‘BATT’, in the pairing-driven female sexual maturation was demonstrated (Chen et al., 2022). In addition, soluble factors produced by the worms with effect on the opposite sex cannot be ruled out (Shakir et al., 2023). It has been suggested that host-derived factors, such as the cytokine transforming growth factor β (TGF-β) may be critical for female reproductive development and embryogenesis (Doenhoff et al., 2019). More recently, other host-derived factors that include cholesterol and ascorbic acid have been shown to be critical for maintaining ex vivo fully mature females collected from infected mice (Wang et al., 2019). Considering these elements in future experiments will help overcome the limitations encountered in this study, including the low rate of spontaneous pairing between in vitro-developed male and female worms and the requirement for extended culture periods (>70 days). In addition, further research is needed to assess the role of host- and parasite-derived cues in schistosome development (Walker et al., 2025).",
+   "printed": true
+  },
+  {
+   "para_id": 21,
+   "loc": "table",
+   "sec_title": "Materials and methods",
+   "text": "Geyer et al., 2017",
+   "printed": true
+  },
+  {
+   "para_id": 22,
+   "loc": "table",
+   "sec_title": "Materials and methods",
+   "text": "Grevelding, 1999",
+   "printed": true
+  },
+  {
+   "para_id": 23,
+   "loc": "table",
+   "sec_title": "Materials and methods",
+   "text": "Grevelding, 1999",
+   "printed": true
+  },
+  {
+   "para_id": 24,
+   "loc": "table",
+   "sec_title": "Materials and methods",
+   "text": "Rinaldi et al., 2009",
+   "printed": true
+  },
+  {
+   "para_id": 25,
+   "loc": "table",
+   "sec_title": "Materials and methods",
+   "text": "Rinaldi et al., 2009",
+   "printed": true
+  },
+  {
+   "para_id": 26,
+   "loc": "body",
+   "sec_title": "Cercariae transformation and culture of schistosomula",
+   "text": "S. mansoni (NMRI strain) schistosomula were obtained and cultured as previously described with minor modifications (Mann et al., 2010). In brief, patent mix strain of B. glabrata snails (Geyer et al., 2017) experimentally infected en masse with ~20 miracidia per snail, were thoroughly rinsed, transferred to Lepple water (~100 ml) and exposed to light for 2 hr at 26 °C to induce cercarial shedding. Cercariae were collected, passed through a 100 μm filter into 50 ml tubes to remove snail debris and faeces, placed 1 hy on ice, and concentrated by centrifugation (300 × g for 3 min at 4 °C with half break deceleration). Cercariae were washed three times in 1 X PBS supplemented with 200 U/ml penicillin, 200 μg/ml streptomycin, and 500 ng/ml amphotericin B (Merck). During the washes, the cercarial pellets were successively combined and finally resuspended in ‘Schistosomula wash medium’ (Dulbecco’s modified Eagle medium – DMEM, supplemented with 10 mM Hepes, 200 U/ml penicillin, 200 g/ml streptomycin, and 500 ng/ml amphotericin B). Cercariae were vortexed full speed for 30 s and placed on ice for 1 min. Thereafter, the cercarial tails were sheared off by ~10 back and forth passes through a 19-gauge (19 G) needle, an ~3 μl aliquot of parasites inspected under microscope to confirm that >90% of cercariae had their tail removed, and the cercarial heads were separated from the tails by a Percoll (Merck) gradient (1.5:1 percoll:DMEM) and centrifugation (300 × g for 15 min at 4 °C, half break deceleration). The pellet containing purified cercarial heads, was collected and washed three times by centrifugation (300 × g for 3 min at 4 °C) in ‘Schistosomula wash medium’. Newly transformed schistosomula were counted in twelve 5-μl aliquots under the microscope. To reduce parasite mortality due to a high density of worms, ~8000 schistosomula were transferred to each well of a six-well tissue culture plate (Thermo Fisher Scientific, Loughborough, UK) containing 5 ml of modified Basch’s medium supplemented with additives and FBS or HS heat-inactivated FBS or HS serum, that is ‘LTC medium’ as indicated in Table 1. The number of parasites cultured per well (~8000 schistosomula) was determined empirically, as no formal titration experiments were performed. At higher densities (>10,000 per well), more frequent media changes were required, and parasite development appeared to be impaired. Parasites were cultured in a tissue culture incubator at 37 °C under 5% CO2 in air. LTC medium was replaced twice a week and washed hRBCs added to a final concentration of 0.02% v/v at day 13 after transformation. Washed hRBCs were replaced every 2 weeks, or sooner if their numbers decreased due to consumption.",
+   "printed": true
+  },
+  {
+   "para_id": 27,
+   "loc": "body",
+   "sec_title": "Cercariae transformation and culture of schistosomula",
+   "text": "All human blood products, obtained from NHSBT-NCI, were handled with universal precautions within a biosafety cabinet class II and suitable PPE. The HS was heat-inactivated at 56 °C for 30 min in an incubator, aliquoted, and stored at –20 °C until use. The hRBC were washed in ‘Schistosomula wash medium’ and stored at 4 °C until use as previously described (Mann et al., 2010). Briefly, the hRBCs were transferred from the pack to 50 ml tubes and washed by centrifugation at 500 × g for 5 min at 4 °C. Half the supernatant was removed, tubes’ content combined, centrifuged as above and resuspended in ~25 ml of ‘Schistosomula wash medium’. The washes were repeated four more times.",
+   "printed": true
+  },
+  {
+   "para_id": 28,
+   "loc": "body",
+   "sec_title": "Phenotype scoring of developing schistosomula",
+   "text": "To analyse the in vitro development of schistosomula, images and videos were taken at regular intervals of at least once a week in >10 independent culture experiments, using a digital Euromex camera connected to an Olympus CK2 optical microscope. Up to 18 pictures per experiment with an average of ~400 worms per picture were used for parasite staging from at least five independent experiments (Supplementary file 1A). The investigators who assigned categories were blinded to experimental conditions. Based on a well-defined staging system (Wangwiwatsin et al., 2020; Basch, 1981a), the parasites were classified into six developmental categories as described (Maharjan et al., 2021; Figure 1—figure supplement 1); category 0: dead parasites showing granulation, rounded shape and degraded or broken tegument – the number of dead parasites may be underestimated due to the loss of some dead worms during the media change; category 1: newly transformed schistosomula, corresponding to the in vivo ‘skin stage’, these worms retain the cercarial head shape with no visible internal structures such as gut; category 2: lung stage schistosomula, elongated and slim worms, usually with a bulged end; category 3: early liver stage, bigger and wider worms compared to the previous stage, with hemozoin pigment (i.e. haemoglobin degradation product) and two caeca gut; category 4: late liver stage, in which the gut is further developed, the two intestinal caeca have fused behind the ventral sucker, and the parasites started to acquire an evident vermiform shape; category 5: sexually dimorphic stage, comprising large, vermiform male- and female-looking worms. The females are longer and thinner than males, the caeca fusion localises closer to the anterior end of the worm (i.e. ~⅓ of the worm length from the anterior end), and both suckers are smaller compared to the male suckers. The male worms are characterised by a larger and wider head, larger suckers, the caeca fusion closer to the posterior end of the animal (i.e. ~⅔ of the worm length from the anterior end), and a clearly visible gynaecophoral groove (Wangwiwatsin et al., 2020; Basch, 1981a). To evaluate differences in mortality between HS- and FBS-cultured parasites, data from five experiments were combined and analysed using a Shapiro-Wilk normality test to test normality of the data and a non-parametric Wilcoxon rank sum exact test (Supplementary file 1A and F).",
+   "printed": true
+  },
+  {
+   "para_id": 29,
+   "loc": "body",
+   "sec_title": "PCR for sexing and confirmation of sexual dimorphism",
+   "text": "To confirm the in vitro establishment of sexual dimorphism, parasites were individually collected from culture by day ~80, for blind sex assignment by bright-field microscopy and confirmation by sex-specific PCR (Buddenborg et al., 2023; Figure 1—figure supplement 3). Briefly, pictures from individual in vitro developed parasites were taken and sex assigned based on morphological features. Thereafter, genomic DNA from the sex-assigned individual parasites was extracted by lysing the worms at 95 °C for 1 hr in 50 mM NaOH, 0.4 mM disodium ethylenediaminetetraacetic acid (EDTA), followed by the addition of neutralising buffer (80 mM Tris–HCl in water). Samples were stored at 4 °C until use. PCR reactions were performed in a final volume of 10 μl consisting of 5 μl Platinum 2 X hot start PCR master mix (Invitrogen, California, USA), 0.5 μl (10 μM stock) of forward and reverse primers targeting W1 repeat (Grevelding, 1999) and actin (Rinaldi et al., 2009 Supplementary file 1B), 1 μl of template DNA and 3 μl of water. The PCR program comprised an initial denature step at 94 °C for 2 min followed by 30 cycles of denature at 98 °C for 5 s, and annealing/elongation at 60 °C for 15 s. The PCR products were resolved on a 1% agarose gel using 1% TAE buffer and 1 kb GeneRuler DNA ladder (Thermo Fisher Scientific, UK).",
+   "printed": true
+  },
+  {
+   "para_id": 30,
+   "loc": "body",
+   "sec_title": "Pairing experiments",
+   "text": "S. mansoni adult male and female worms were collected from experimentally infected mice at 47 days post infection (Mann et al., 2010). Briefly, mice were euthanised by intraperitoneal injection of 200 μl of 200 mg/ml pentobarbital supplemented with 100 U/ml heparin, and worms collected by portal perfusion (the hepatic portal vein was sectioned followed by intracardiac perfusion with phenol-red-free DMEM, containing 10 U/ml heparin) and washed in DMEM. In 24-well plates, in vitro developed female worms were cultured in the presence of in vivo developed male worms and vice versa at a ratio of one female every two males in the well containing culture medium (Table 1) supplemented with 20% HS. The parasites were cultured for several days in an incubator at 37 °C, 5% CO2 and checked daily under microscope for the presence of pairing.",
+   "printed": true
+  }
+ ],
+ "links": [
+  {
+   "link_id": 1,
+   "url": "nc3rs.org.uk",
+   "url_raw": "https://nc3rs.org.uk/",
+   "href_jats": "https://nc3rs.org.uk/",
+   "repo_key": null,
+   "host_class": "other",
+   "loc": "body",
+   "sec_title": "Introduction",
+   "source": "tagged",
+   "para_id": 1
+  },
+  {
+   "link_id": 2,
+   "url": "cvat.ai",
+   "url_raw": "https://www.cvat.ai/",
+   "href_jats": "https://www.cvat.ai/",
+   "repo_key": null,
+   "host_class": "other",
+   "loc": "table",
+   "sec_title": "Materials and methods",
+   "source": "tagged",
+   "para_id": 2
+  },
+  {
+   "link_id": 3,
+   "url": "zenodo.org/records/21992371",
+   "url_raw": "10.5281/zenodo.21992371",
+   "href_jats": "https://doi.org/10.5281/zenodo.21992371",
+   "repo_key": "zenodo:21992371",
+   "host_class": "zenodo",
+   "loc": "body",
+   "sec_title": "Measurement of parasite area",
+   "source": "tagged",
+   "para_id": 3
+  },
+  {
+   "link_id": 4,
+   "url": "arriveguidelines.org",
+   "url_raw": "https://arriveguidelines.org",
+   "href_jats": "https://arriveguidelines.org",
+   "repo_key": null,
+   "host_class": "other",
+   "loc": "fn",
+   "sec_title": "Ethics",
+   "source": "tagged",
+   "para_id": 4
+  },
+  {
+   "link_id": 5,
+   "url": "doi:10.35802/098051",
+   "url_raw": "10.35802/098051",
+   "href_jats": "",
+   "repo_key": "doi:10.35802/098051",
+   "host_class": "doi",
+   "loc": "back",
+   "sec_title": "Funding Information",
+   "source": "regex",
+   "para_id": 5
+  },
+  {
+   "link_id": 6,
+   "url": "doi:10.35802/206194",
+   "url_raw": "10.35802/206194",
+   "href_jats": "",
+   "repo_key": "doi:10.35802/206194",
+   "host_class": "doi",
+   "loc": "back",
+   "sec_title": "Funding Information",
+   "source": "regex",
+   "para_id": 6
+  },
+  {
+   "link_id": 7,
+   "url": "doi:10.3030/101080784",
+   "url_raw": "10.3030/101080784",
+   "href_jats": "",
+   "repo_key": "doi:10.3030/101080784",
+   "host_class": "doi",
+   "loc": "back",
+   "sec_title": "Funding Information",
+   "source": "regex",
+   "para_id": 7
+  }
+ ],
+ "links_optional": [
+  "creativecommons.org/licenses/by/4.0",
+  "doi:10.1007/978-3-031-60121-7_3",
+  "doi:10.1007/978-3-662-67962-3_3",
+  "doi:10.1007/s10616-013-9633-8",
+  "doi:10.1016/j.cell.2022.03.017",
+  "doi:10.1016/j.heliyon.2021.e07686",
+  "doi:10.1016/j.ijpara.2006.06.007",
+  "doi:10.1016/j.ijpara.2007.02.011",
+  "doi:10.1016/j.ijpara.2016.10.005",
+  "doi:10.1016/j.ijpara.2019.05.004",
+  "doi:10.1016/j.ijpara.2020.12.009",
+  "doi:10.1016/j.ijpara.2022.11.012",
+  "doi:10.1016/j.molbiopara.2009.05.002",
+  "doi:10.1016/j.pt.2006.09.001",
+  "doi:10.1016/j.pt.2019.12.003",
+  "doi:10.1016/j.pt.2021.03.005",
+  "doi:10.1016/j.pt.2024.11.008",
+  "doi:10.1016/j.vetpar.2015.07.031",
+  "doi:10.1016/s0065-308x(04)57002-1",
+  "doi:10.1016/s0140-6736(24)02814-9",
+  "doi:10.1016/s0166-6851(99)00078-x",
+  "doi:10.1017/awf.2024.39",
+  "doi:10.1017/s0031182000000743",
+  "doi:10.1017/s0031182009991211",
+  "doi:10.1038/nature11924",
+  "doi:10.1038/s41467-020-20092-5",
+  "doi:10.1038/s41467-020-20794-w",
+  "doi:10.1038/s41467-022-29334-0",
+  "doi:10.1038/s41597-023-02674-2",
+  "doi:10.1038/s42003-023-05333-9",
+  "doi:10.1038/srep31150",
+  "doi:10.1073/pnas.2505710122",
+  "doi:10.1080/21505594.2025.2482159",
+  "doi:10.1084/jem.108.6.945",
+  "doi:10.1093/cid/ciw506",
+  "doi:10.1093/molbev/msab178",
+  "doi:10.1093/nar/gkae1228",
+  "doi:10.1101/2023.09.29.560165",
+  "doi:10.1101/2024.08.29.610291",
+  "doi:10.1126/science.abb7709",
+  "doi:10.1128/iai.00701-12",
+  "doi:10.1186/s12936-024-05079-7",
+  "doi:10.1186/s13071-022-05211-z",
+  "doi:10.1186/s13071-024-06191-y",
+  "doi:10.1186/s13071-025-06699-x",
+  "doi:10.1371/journal.pbio.3000254",
+  "doi:10.1371/journal.pntd.0000477",
+  "doi:10.1371/journal.pntd.0003593",
+  "doi:10.1371/journal.pntd.0004930",
+  "doi:10.1371/journal.pntd.0005246",
+  "doi:10.1371/journal.pntd.0005942",
+  "doi:10.1371/journal.pntd.0006590",
+  "doi:10.1371/journal.pntd.0007743",
+  "doi:10.1371/journal.pntd.0007951",
+  "doi:10.1371/journal.pntd.0009313",
+  "doi:10.1371/journal.ppat.1013014",
+  "doi:10.1371/journal.ppat.1013088",
+  "doi:10.14573/altex.1705101",
+  "doi:10.1645/25-27",
+  "doi:10.2307/3280632",
+  "doi:10.2307/3280633",
+  "doi:10.2307/3280634",
+  "doi:10.3389/fcimb.2022.904606",
+  "doi:10.3389/fcimb.2022.976017",
+  "doi:10.3389/fcimb.2023.1130901",
+  "doi:10.3389/fcimb.2024.1335946",
+  "doi:10.3389/fcimb.2024.1411728",
+  "doi:10.3389/fimmu.2021.635622",
+  "doi:10.3389/ftox.2025.1612903",
+  "doi:10.3389/ftox.2025.1664209",
+  "doi:10.3390/biology13010048",
+  "doi:10.3390/microorganisms11071708",
+  "doi:10.3791/3191",
+  "doi:10.4103/2229-5070.138534",
+  "doi:10.64898/2026.01.20.700612",
+  "doi:10.7554/elife.111066.1",
+  "doi:10.7554/elife.111066.1.sa0",
+  "doi:10.7554/elife.111066.1.sa1",
+  "doi:10.7554/elife.111066.1.sa2",
+  "doi:10.7554/elife.111066.1.sa3",
+  "doi:10.7554/elife.111066.1.sa4",
+  "doi:10.7554/elife.111066.2",
+  "doi:10.7554/elife.111066.2.sa0",
+  "doi:10.7554/elife.111066.2.sa1",
+  "doi:10.7554/elife.111066.2.sa2",
+  "doi:10.7554/elife.111066.2.sa3",
+  "doi:10.7554/elife.35449",
+  "doi:10.7554/elife.41463"
+ ],
+ "own_doi": "doi:10.7554/elife.111066",
+ "citations": [
+  {
+   "cite_id": 1,
+   "para_id": 8,
+   "bib_id": 38,
+   "marker": "LoVerde, 2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 2,
+   "para_id": 8,
+   "bib_id": 11,
+   "marker": "Buonfrate et al., 2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 3,
+   "para_id": 8,
+   "bib_id": 7,
+   "marker": "Berger et al., 2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 4,
+   "para_id": 8,
+   "bib_id": 17,
+   "marker": "Crellen et al., 2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 5,
+   "para_id": 9,
+   "bib_id": 35,
+   "marker": "Loker and Brant, 2006",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 6,
+   "para_id": 9,
+   "bib_id": 13,
+   "marker": "Chen et al., 2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 7,
+   "para_id": 9,
+   "bib_id": 56,
+   "marker": "Shakir et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 8,
+   "para_id": 9,
+   "bib_id": 21,
+   "marker": "Elkrewi et al., 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 9,
+   "para_id": 9,
+   "bib_id": 24,
+   "marker": "Fitzpatrick and Hoffmann, 2006",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 10,
+   "para_id": 9,
+   "bib_id": 39,
+   "marker": "Lu et al., 2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 11,
+   "para_id": 9,
+   "bib_id": 50,
+   "marker": "Picard et al., 2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 12,
+   "para_id": 9,
+   "bib_id": 67,
+   "marker": "Wangwiwatsin et al., 2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 13,
+   "para_id": 9,
+   "bib_id": 18,
+   "marker": "Diaz Soria et al., 2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 14,
+   "para_id": 9,
+   "bib_id": 34,
+   "marker": "Li et al., 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 15,
+   "para_id": 9,
+   "bib_id": 69,
+   "marker": "Wendt et al., 2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 16,
+   "para_id": 9,
+   "bib_id": 67,
+   "marker": "Wangwiwatsin et al., 2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 17,
+   "para_id": 10,
+   "bib_id": 49,
+   "marker": "Pance and Rinaldi, 2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 18,
+   "para_id": 10,
+   "bib_id": 60,
+   "marker": "Sutrave and Richter, 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 19,
+   "para_id": 10,
+   "bib_id": 2,
+   "marker": "Ahmed, 2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 20,
+   "para_id": 10,
+   "bib_id": 41,
+   "marker": "Mann et al., 2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 21,
+   "para_id": 10,
+   "bib_id": 42,
+   "marker": "Mellin and Boddey, 2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 22,
+   "para_id": 10,
+   "bib_id": 75,
+   "marker": "Zorrinho-Almeida et al., 2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 23,
+   "para_id": 10,
+   "bib_id": 23,
+   "marker": "Faral-Tello et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 24,
+   "para_id": 10,
+   "bib_id": 32,
+   "marker": "Korwin-Mihavics et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 25,
+   "para_id": 10,
+   "bib_id": 74,
+   "marker": "Zhou et al., 2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 26,
+   "para_id": 10,
+   "bib_id": 8,
+   "marker": "Britton et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 27,
+   "para_id": 10,
+   "bib_id": 20,
+   "marker": "Duque-Correa et al., 2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 28,
+   "para_id": 10,
+   "bib_id": 22,
+   "marker": "Faber et al., 2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 29,
+   "para_id": 10,
+   "bib_id": 63,
+   "marker": "Vitkauskaite et al., 2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 30,
+   "para_id": 10,
+   "bib_id": 70,
+   "marker": "White et al., 2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 31,
+   "para_id": 10,
+   "bib_id": 30,
+   "marker": "Herz et al., 2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 32,
+   "para_id": 10,
+   "bib_id": 33,
+   "marker": "Koziol and Brehm, 2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 33,
+   "para_id": 10,
+   "bib_id": 60,
+   "marker": "Sutrave and Richter, 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 34,
+   "para_id": 11,
+   "bib_id": 5,
+   "marker": "Basch, 1981b",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 35,
+   "para_id": 11,
+   "bib_id": 4,
+   "marker": "Basch, 1981a",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 36,
+   "para_id": 11,
+   "bib_id": 6,
+   "marker": "Basch and Humbert, 1981c",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 37,
+   "para_id": 11,
+   "bib_id": 5,
+   "marker": "Basch, 1981b",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 38,
+   "para_id": 11,
+   "bib_id": 60,
+   "marker": "Sutrave and Richter, 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 39,
+   "para_id": 11,
+   "bib_id": 66,
+   "marker": "Wang et al., 2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 40,
+   "para_id": 11,
+   "bib_id": 73,
+   "marker": "You et al., 2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 41,
+   "para_id": 11,
+   "bib_id": 26,
+   "marker": "Frahm et al., 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 42,
+   "para_id": 11,
+   "bib_id": 9,
+   "marker": "Buchter et al., 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 43,
+   "para_id": 11,
+   "bib_id": 40,
+   "marker": "Maharjan et al., 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 44,
+   "para_id": 11,
+   "bib_id": 4,
+   "marker": "Basch, 1981a",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 45,
+   "para_id": 11,
+   "bib_id": 1,
+   "marker": "Abla et al., 2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 46,
+   "para_id": 11,
+   "bib_id": 66,
+   "marker": "Wang et al., 2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 47,
+   "para_id": 11,
+   "bib_id": 44,
+   "marker": "Milligan and Jolly, 2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 48,
+   "para_id": 1,
+   "bib_id": 37,
+   "marker": "Louis-Maerten et al., 2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 49,
+   "para_id": 1,
+   "bib_id": 67,
+   "marker": "Wangwiwatsin et al., 2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 50,
+   "para_id": 12,
+   "bib_id": 5,
+   "marker": "Basch, 1981b",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 51,
+   "para_id": 12,
+   "bib_id": 4,
+   "marker": "Basch, 1981a",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 52,
+   "para_id": 12,
+   "bib_id": 26,
+   "marker": "Frahm et al., 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 53,
+   "para_id": 12,
+   "bib_id": 9,
+   "marker": "Buchter et al., 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 54,
+   "para_id": 12,
+   "bib_id": 40,
+   "marker": "Maharjan et al., 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 55,
+   "para_id": 12,
+   "bib_id": 25,
+   "marker": "Frahm et al., 2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 56,
+   "para_id": 13,
+   "bib_id": 40,
+   "marker": "Maharjan et al., 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 57,
+   "para_id": 14,
+   "bib_id": 67,
+   "marker": "Wangwiwatsin et al., 2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 58,
+   "para_id": 14,
+   "bib_id": 4,
+   "marker": "Basch, 1981a",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 59,
+   "para_id": 15,
+   "bib_id": 48,
+   "marker": "Nation et al., 2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 60,
+   "para_id": 15,
+   "bib_id": 16,
+   "marker": "Correnti et al., 2007",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 61,
+   "para_id": 15,
+   "bib_id": 41,
+   "marker": "Mann et al., 2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 62,
+   "para_id": 16,
+   "bib_id": 12,
+   "marker": "Canepa et al., 2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 63,
+   "para_id": 16,
+   "bib_id": 47,
+   "marker": "Nanes Sarfati et al., 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 64,
+   "para_id": 16,
+   "bib_id": 65,
+   "marker": "Wang et al., 2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 65,
+   "para_id": 17,
+   "bib_id": 3,
+   "marker": "Arunsan et al., 2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 66,
+   "para_id": 17,
+   "bib_id": 31,
+   "marker": "Kalinna et al., 2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 67,
+   "para_id": 17,
+   "bib_id": 52,
+   "marker": "Quinzo et al., 2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 68,
+   "para_id": 17,
+   "bib_id": 57,
+   "marker": "Stephens et al., 2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 69,
+   "para_id": 17,
+   "bib_id": 72,
+   "marker": "Xie et al., 2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 70,
+   "para_id": 17,
+   "bib_id": 35,
+   "marker": "Loker and Brant, 2006",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 71,
+   "para_id": 17,
+   "bib_id": 36,
+   "marker": "Loker et al., 2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 72,
+   "para_id": 17,
+   "bib_id": 46,
+   "marker": "Moné and Boissier, 2004",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 73,
+   "para_id": 18,
+   "bib_id": 66,
+   "marker": "Wang et al., 2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 74,
+   "para_id": 18,
+   "bib_id": 73,
+   "marker": "You et al., 2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 75,
+   "para_id": 18,
+   "bib_id": 26,
+   "marker": "Frahm et al., 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 76,
+   "para_id": 18,
+   "bib_id": 9,
+   "marker": "Buchter et al., 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 77,
+   "para_id": 18,
+   "bib_id": 40,
+   "marker": "Maharjan et al., 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 78,
+   "para_id": 18,
+   "bib_id": 53,
+   "marker": "Reimers et al., 2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 79,
+   "para_id": 18,
+   "bib_id": 41,
+   "marker": "Mann et al., 2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 80,
+   "para_id": 18,
+   "bib_id": 5,
+   "marker": "Basch, 1981b",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 81,
+   "para_id": 18,
+   "bib_id": 51,
+   "marker": "Puck et al., 1958",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 82,
+   "para_id": 18,
+   "bib_id": 62,
+   "marker": "van der Valk et al., 2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 83,
+   "para_id": 18,
+   "bib_id": 29,
+   "marker": "Gstraunthaler et al., 2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 84,
+   "para_id": 18,
+   "bib_id": 68,
+   "marker": "Weber et al., 2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 85,
+   "para_id": 18,
+   "bib_id": 37,
+   "marker": "Louis-Maerten et al., 2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 86,
+   "para_id": 18,
+   "bib_id": 55,
+   "marker": "Rosolowski et al., 2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 87,
+   "para_id": 18,
+   "bib_id": 58,
+   "marker": "Subbiahanadar Chelladurai et al., 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 88,
+   "para_id": 19,
+   "bib_id": 71,
+   "marker": "Xiao and Sun, 2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 89,
+   "para_id": 19,
+   "bib_id": 59,
+   "marker": "Sun et al., 2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 90,
+   "para_id": 19,
+   "bib_id": 71,
+   "marker": "Xiao and Sun, 2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 91,
+   "para_id": 19,
+   "bib_id": 71,
+   "marker": "Xiao and Sun, 2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 92,
+   "para_id": 19,
+   "bib_id": 61,
+   "marker": "Truscott et al., 2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 93,
+   "para_id": 19,
+   "bib_id": 48,
+   "marker": "Nation et al., 2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 94,
+   "para_id": 19,
+   "bib_id": 43,
+   "marker": "Miller and Wilson, 1980",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 95,
+   "para_id": 19,
+   "bib_id": 67,
+   "marker": "Wangwiwatsin et al., 2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 96,
+   "para_id": 19,
+   "bib_id": 15,
+   "marker": "Corrêa Soares et al., 2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 97,
+   "para_id": 20,
+   "bib_id": 40,
+   "marker": "Maharjan et al., 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 98,
+   "para_id": 20,
+   "bib_id": 25,
+   "marker": "Frahm et al., 2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 99,
+   "para_id": 20,
+   "bib_id": 14,
+   "marker": "Collins III et al., 2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 100,
+   "para_id": 20,
+   "bib_id": 65,
+   "marker": "Wang et al., 2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 101,
+   "para_id": 20,
+   "bib_id": 34,
+   "marker": "Li et al., 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 102,
+   "para_id": 20,
+   "bib_id": 66,
+   "marker": "Wang et al., 2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 103,
+   "para_id": 20,
+   "bib_id": 45,
+   "marker": "Moescheid et al., 2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 104,
+   "para_id": 20,
+   "bib_id": 45,
+   "marker": "Moescheid et al., 2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 105,
+   "para_id": 20,
+   "bib_id": 13,
+   "marker": "Chen et al., 2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 106,
+   "para_id": 20,
+   "bib_id": 56,
+   "marker": "Shakir et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 107,
+   "para_id": 20,
+   "bib_id": 19,
+   "marker": "Doenhoff et al., 2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 108,
+   "para_id": 20,
+   "bib_id": 66,
+   "marker": "Wang et al., 2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 109,
+   "para_id": 20,
+   "bib_id": 64,
+   "marker": "Walker et al., 2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 110,
+   "para_id": 21,
+   "bib_id": 27,
+   "marker": "Geyer et al., 2017",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 111,
+   "para_id": 22,
+   "bib_id": 28,
+   "marker": "Grevelding, 1999",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 112,
+   "para_id": 23,
+   "bib_id": 28,
+   "marker": "Grevelding, 1999",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 113,
+   "para_id": 24,
+   "bib_id": 54,
+   "marker": "Rinaldi et al., 2009",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 114,
+   "para_id": 25,
+   "bib_id": 54,
+   "marker": "Rinaldi et al., 2009",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 115,
+   "para_id": 26,
+   "bib_id": 41,
+   "marker": "Mann et al., 2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 116,
+   "para_id": 26,
+   "bib_id": 27,
+   "marker": "Geyer et al., 2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 117,
+   "para_id": 27,
+   "bib_id": 41,
+   "marker": "Mann et al., 2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 118,
+   "para_id": 28,
+   "bib_id": 67,
+   "marker": "Wangwiwatsin et al., 2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 119,
+   "para_id": 28,
+   "bib_id": 4,
+   "marker": "Basch, 1981a",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 120,
+   "para_id": 28,
+   "bib_id": 40,
+   "marker": "Maharjan et al., 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 121,
+   "para_id": 28,
+   "bib_id": 67,
+   "marker": "Wangwiwatsin et al., 2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 122,
+   "para_id": 28,
+   "bib_id": 4,
+   "marker": "Basch, 1981a",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 123,
+   "para_id": 29,
+   "bib_id": 10,
+   "marker": "Buddenborg et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 124,
+   "para_id": 29,
+   "bib_id": 28,
+   "marker": "Grevelding, 1999",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 125,
+   "para_id": 29,
+   "bib_id": 54,
+   "marker": "Rinaldi et al., 2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 126,
+   "para_id": 30,
+   "bib_id": 41,
+   "marker": "Mann et al., 2010",
+   "expanded": false,
+   "scored": true
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-ext-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "v1_bib_count": 75
+ }
+}

@@ -1,0 +1,2909 @@
+{
+ "paper_id": "10.1038_s41467-026-76886-6",
+ "paras": [
+  {
+   "para_id": 1,
+   "loc": "body",
+   "sec_title": "Spatial assessment of LptD*/newly inserted LPS via cross-correlation analysis of two-colour dSTORM data outputs",
+   "text": "Radial cross-correlation values were exported as g(r) profiles (Fig. 1c and Supplementary Fig. 1d,e) and further summarised using biologically interpretable parameters, including the radial distance at which the correlation drops to half-maximal (r_half-max) and the corresponding g(r) value (half-max), as measures of the strength and spatial extent of association between LptD and newly inserted LPS. All pairwise data and g(r) outputs were exported per cell for population-level summary construction and figure generation using OriginPro 2024b (64-bit) software. Two-colour dSTORM input files and analysis outputs are provided in Supplementary Fig. 10 and in the accompanying indexed Figure Source Data and Analysis Workbook. The custom MATLAB scripts used for these analyses, together with the associated README files, are available through the Persistent_LPS_insertion_OM_OMVs GitHub repository at https://github.com/joenabarro-OM/Persistent_LPS_insertion_OM_OMVs/releases/tag/v1.0.2 and have been permanently archived on Zenodo at https://doi.org/10.5281/zenodo.21326870105.",
+   "printed": true
+  },
+  {
+   "para_id": 2,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "The asymmetric outer membrane (OM) of Gram-negative bacteria provides an innate permeability barrier that provides protection against toxic compounds, large antibiotics (typically >500 Da), and host immune defence molecules such as antimicrobial peptides and antibodies1–4. In addition to this protective role, the OM contributes to the structural integrity of the bacterial cell envelope, providing rigidity and mechanical stability5,6. These functions are dependent on OM molecular organisation, whose outer leaflet comprises a densely packed layer of lipopolysaccharide (LPS) molecules interspersed with a range of transmembrane β-barrel outer membrane proteins (OMPs). While OMPs enable selective permeability and impart key functionalities such as intercellular signalling and toxin secretion7,8, it is LPS, as the major constituent of the OM outer leaflet, that intrinsically underpins the barrier and load-bearing functional roles of the OM4,9. Extreme lateral confinement of LPS in the OM, governed by a network of cooperative intermolecular interactions10,11, reinforces its rigidity and creates a highly-ordered glycolipid matrix that restricts the lateral mobility of all OM components, supporting both permeability resistance and mechanical robustness11,12. A direct implication of this solid-like behaviour is that OM expansion during growth cannot be achieved by rapid lateral equilibration but instead must rely on spatially localised insertion of new material into an otherwise diffusion-limited outer leaflet. In line with this growth-and-displacement mechanism, using a covalently labelled LamB trimeric maltoporin derivative as a surface reporter, Ursell et al. combined time lapse fluorescence microscopy with mathematical modelling to infer that Escherichia coli (E. coli) OM expansion occurs through stochastic, spatially localised insertion of new material along the cylindrical cell surface13. Under restricted lateral mobility, growth driven displacement then predicts progressive enrichment of older OM material at the poles13.",
+   "printed": true
+  },
+  {
+   "para_id": 3,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Despite its accepted functional significance, little is known about how LPS organisation in the OM is maintained after insertion and the subsequent fate of LPS molecules after it is incorporated into the OM outer leaflet. Existing models largely assume that LPS remains in the OM indefinitely, diluted only by bacterial envelope area expansion during cell growth and partitioning during cell division10,14. Thus, whether LPS can be turned over independently of cell growth, or preferentially removed from the OM to enable adaptive remodelling of the primary interface of the cell with its environment, has yet to be established.",
+   "printed": true
+  },
+  {
+   "para_id": 4,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "This represents a blind spot in our understanding of bacterial envelope homoeostasis and adaptation, particularly in non-dividing or slow-growing cells in stationary-phase that occupy pathologically relevant, nutrient-limited niches. These include, for example, the uroepithelium, the viscous, hypoxic mucus of cystic fibrosis airways, and membrane-bound intracellular compartments within host cells such as macrophage phagosomes/phagolysosomes15–18. These environments can impose strong OM stress by perturbing key stabilising interactions in the LPS-rich outer leaflet, for example, fluctuations in divalent cation availability and exposure to cationic antimicrobial peptides can weaken LPS–LPS cross-bridging18–21, while temperature shifts require rapid remodelling of lipid packing to preserve barrier function22,23. In growing cells, continuous envelope synthesis and dilution by growth/division can help buffer such perturbations; however, in growth-arrested cells, these routes are constrained, raising the question of how OM integrity is preserved or actively maintained.",
+   "printed": true
+  },
+  {
+   "para_id": 5,
+   "loc": "body",
+   "sec_title": "Dual metabolic and fluorescent labelling reveals discrete colocalisation of LptD and newly inserted LPS in the E. coli outer membrane",
+   "text": "To investigate the spatial dynamics of LPS insertion within the Gram-negative OM, we implemented a dual-labelling strategy in combination with two-colour SRM analysis enabling detection of newly inserted LPS and the OM LPS translocon LptD (LptDE), used here as a marker of putative LPS delivery/insertion sites24 (Fig. 1a and Supplementary Fig. 1). Newly synthesised LPS was metabolically tagged via the incorporation of 8-azido-3,8-dideoxy-D-manno-oct-2-ulosonic acid (Kdo-N3) within its inner core oligosaccharide domain, while LptD was site-specifically labelled at residue position D600 (LptD*, Fig. 1a and Supplementary Fig. 1b,c) using genetic code expansion11,25–27. We verified that the ncAA-labelled LptD* forms the expected LptD*/LptE complex and shows no evidence of gross assembly disruption (Supplementary Fig. 1c), supporting its use as a reporter for LptD-associated sites. As LptD is essential28–31, cells necessarily retain the endogenous chromosomal LptD pool; thus, direct stochastic reconstruction microscopy (dSTORM) localisations report the plasmid-expressed ncAA-containing LptD* subpopulation. To minimise perturbation of total LptD abundance and LPS transport dynamics, lptD* was expressed from a pBADcLIC vector under non-induced (leaky) conditions (without L-arabinose), since induction would drive total LptD levels far above native.Fig. 1In situ bio-orthogonal dual labelling in combination with two-colour dSTORM revealed that LptD and newly inserted LPS colocalise at discrete sites across the OM in E. coli.a Schematic illustrating the dual LptD*/newly inserted LPS labelling strategy. Newly synthesised LPS was metabolically labelled via incorporation of 8-azido-3,8-dideoxy-D-manno-oct-2-ulosonic acid (Kdo-N3) into its inner core oligosaccharide domain, while LptD* was site-specifically labelled at position D600 with propargyl-L-lysine. Dual-colour differential fluorescent labelling was performed by sequential CuAAC reactions using appropriately functionalised dyes (see Supplementary Table 6). Glycan symbols follow the SNFG convention. b Representative two-colour dSTORM single-cell (left) and widefield (right) images showing co-localised punctate distributions of fluorescently labelled newly inserted LPS (AF647, magenta) and LptD* (AF488, green) across the OM of E. coli BW25113 cells. Newly inserted LPS appears in discrete patches that spatially coincide with LptD* puncta. Dashed outlines indicate cell boundaries. Single-cell scale bars: 0.5 µm. Widefield scale bars: 5 µm. c Mean ( ± S.E.M.) cross-correlation function (g(r)) calculated across 30 cells for newly inserted LPS and LptD* (N = 3 biological replicates, includes both dye combinations). A maximum g(r) value at short radii indicates nanoscale co-enrichment of newly inserted LPS and LptD*. d Demograph of LptD and newly inserted LPS distribution along the longitudinal cell axis. Heatmaps show normalised signal intensity of LptD* (left) and newly inserted LPS (right) along the longitudinal axis of individual E. coli cells (n = 30 cells). Each horizontal row corresponds to a single cell, aligned by PCA and sorted by cell length. Localisation intensity is normalised within each cell to visualise relative enrichment patterns. e PCC distributions in different regions (polar and mid-cell) of individual E. coli cells and for the entire OM surface. Consistent positive PCC values support LptD*/new LPS colocalisation (no significant statistical difference between distributions by two-tailed Mann-Whitney U-test, p = 0.07 – 0.97, median PCC = 0.34–0.52, see Supplementary Table 11). Each data point represents the PCC value for a single cell, with the box, horizontal line and whiskers representing upper/lower quartile, median and interquartile range of the data, respectively (n = 30 cells, N = 3 biological replicates).",
+   "printed": true
+  },
+  {
+   "para_id": 6,
+   "loc": "body",
+   "sec_title": "Dual metabolic and fluorescent labelling reveals discrete colocalisation of LptD and newly inserted LPS in the E. coli outer membrane",
+   "text": "These LPS-rich patches of varying intensity colocalised with LptD* signals, suggesting that LPS insertion may be spatially restricted, and involve LptD-incorporating sites with different associated LPS insertion rates (Fig. 1b,d), in line with previous studies visualising new LPS insertion in the OM10,12. This co-patterning is in line with LptDE-mediated delivery but does not by itself establish that LptD activity is the sole determinant of the observed insertion pattern. The distribution of LptD*–LPS colocalisation sites across the OM indicates that LPS insertion occurs at discrete locations over the entire OM (Fig. 1d,e), rather than being concentrated within specific regions of the OM, such as the division septum, as is the case for β-barrel assembly machinery (BAM)-mediated OMP insertion32. Given that LptDE is the established OM translocon for LPS insertion, we interpret LptD* puncta as markers of discrete delivery sites.",
+   "printed": true
+  },
+  {
+   "para_id": 7,
+   "loc": "body",
+   "sec_title": "Dual metabolic and fluorescent labelling reveals discrete colocalisation of LptD and newly inserted LPS in the E. coli outer membrane",
+   "text": "To quantify colocalisation between newly inserted LPS and LptD*, we performed pairwise cross-correlation analysis across 30 cells from 3 biological replicates. The resulting mean cross-correlation function, g(r), showed a clear peak at short radii, confirming sub-diffraction co-enrichment of the two signals (Fig. 1c and Supplementary Fig. 1d,e). The r1/2 max value, representing the radius at which g(r) drops to half of its peak height, was 181 nm, indicating the typical size of co-enriched regions, which is in line with previous LPS patch and confinement diameter characterisations10,12,33. The half-max line value (g(r) = 2.12) further supports a strong local enrichment of new LPS near LptD*, significantly above the random expectation of 1.",
+   "printed": true
+  },
+  {
+   "para_id": 8,
+   "loc": "body",
+   "sec_title": "Dual metabolic and fluorescent labelling reveals discrete colocalisation of LptD and newly inserted LPS in the E. coli outer membrane",
+   "text": "To investigate whether LPS insertion follows any stereotyped spatial pattern equivalent to BAM-mediated OMP insertion in the OM32, we generated demographs of LptD* and newly inserted LPS along the longitudinal axis of individual cells (n = 30), aligning and sorting cells by length following principal component analysis (PCA)-based axis normalisation (Fig. 1d). While both signals were spatially confined, they exhibited heterogeneous distributions between cells with no consistent macrodomain localisation or polar enrichment. Instead, puncta appeared distributed yet spatially constrained, suggesting that LPS insertion occurs at discrete but stochastically positioned sites. However, not all LptD*-dense regions were accompanied by proportionally dense newly inserted LPS signal suggesting that not all LptD*/E complexes are simultaneously engaged in LPS insertion at once, aligned with the transient nature of some Lpt-mediated LPS transport bridges that form between the sites of LPS production at the inner membrane and its insertion into the OM (Fig. 1b,d)10,32,34–36.",
+   "printed": true
+  },
+  {
+   "para_id": 9,
+   "loc": "body",
+   "sec_title": "Dual metabolic and fluorescent labelling reveals discrete colocalisation of LptD and newly inserted LPS in the E. coli outer membrane",
+   "text": "We further quantified LptD*–LPS spatial relationships using their associated Pearson correlation coefficient (PCC) across the full OM, and within discrete polar and mid-cell regions of individual cells (Fig. 1e). Box plots revealed consistently positive PCC values across all regions, with no statistically significant differences between the regional PCC values (two-tailed Mann–Whitney U test, p > 0.05, Supplementary Table 11), indicating that the mechanism of LPS insertion and its spatial relationship with LptD is maintained across the OM surface (Fig. 1e), in agreement with the results of previous studies10,12. These analyses constrain the spatial scale of LptD*–new LPS co-enriched insertion regions (r1/2 max = 181 nm) and reveal heterogeneous site activity across the OM, supporting dynamic engagement of Lpt complexes. In keeping with this interpretation, recent single-molecule tracking of Lpt transport components supports highly dynamic bridge states that persist for a few seconds, providing a framework for future live-cell measurements of insertion-site dwell times and patch growth kinetics36.",
+   "printed": true
+  },
+  {
+   "para_id": 10,
+   "loc": "body",
+   "sec_title": "Spatial segregation of newly inserted and background LPS persists over time",
+   "text": "To further investigate the spatiotemporal dynamics of LPS insertion and specific LPS subpopulations within the OM of E. coli, we developed a pulse-chase metabolic labelling strategy utilising differentially functionalised 3-deoxy-D-manno-oct-2-ulosonic acid (Kdo) sugar analogues, 8-azido-3,8-dideoxy-D-manno-oct-2-ulosonic acid (Kdo-N3) and 8-(4-pentynoylamido)-3-deoxy-D-manno-oct-2-ulosonic acid (Kdo-alkyne) that we combined with two-colour dSTORM37. A schematic overview of this approach is presented in Fig. 2a. Preliminary control experiments were performed to verify that both Kdo-analogues are incorporated in the inner core oligosaccharide domain of E. coli K12 LPS and enable equivalent levels of in situ fluorescent labelling (Supplementary Fig. 2a,c). To probe spatiotemporal LPS dynamics, cells were pulse-labelled with a Kdo-alkyne probe to generate what we designated as the pre-existing or background LPS population (Fig. 2a)38. After thorough washing to remove residual Kdo-alkyne, the cells were chased with Kdo-N3 to specifically label newly synthesised LPS molecules. Differential fluorescent labelling was performed by two sequential CuAAC reactions (one dye type per reaction, with washes between reactions) using distinct azide (-N3) and alkyne functionalised fluorescent dyes, enabling simultaneous two-colour visualisation of both LPS subpopulations in separate fluorescence channels. Control reactions in wild-type E. coli BW25113 cells cultured with native Kdo (no bio-orthogonal handle) and processed with the corresponding fluorescent azide(-N3)/alkyne reagents under identical CuAAC conditions showed minimal non-specific cell-surface staining when imaged via 3D-SIM2 (Supplementary Fig. 15). Two-colour 2D dSTORM imaging was performed on aliquots of the growing cells isolated at 15-min intervals over a 2-h period, which had been dual-labelled with the functionalized dyes to facilitate precise spatiotemporal tracking of the LPS subpopulations at the single-cell level.Fig. 2Pulse-chase metabolic labelling and two-colour dSTORM showed that newly inserted and pre-existing LPS form persistent, spatially discrete domains in OM of E. coli BW25113 cells.a Schematic overview of the experimental strategy. Kdo-alkyne probe (Step 1) was incorporated into the inner core of pre-existing (background/old) LPS. After removal of residual Kdo-alkyne, cells presenting background Kdo-alkyne-containing LPS at their surfaces are chased with Kdo-N3 probe (Step 2). Cells are sampled at 15 min intervals post Kdo-analogue exchange after which (Step 3) background/old Kdo-alkyne-LPS and newly inserted Kdo-N3-LPS are fluorescently labelled by sequential CuAAC reactions using appropriately functionalised dyes (see Supplementary Table 12). Two-colour dSTORM (Step 4) was used to visualise background and newly inserted LPS distributions at the single-cell level. Subsequent DBSCAN-based segmentation quantifies OM coverage by each LPS population. Blue indicates the intersection region between the background and newly inserted LPS cluster masks. Glycan symbols follow the SNFG convention. Scale bars: 0.5 µm. b, c Representative two-colour dSTORM images from Kdo-alkyne/Kdo-N3 pulse–chase experiments visualising the evolution of background LPS (middle rows) and newly inserted LPS (bottom rows) regions in OM at 15 min intervals post Kdo-analogue exchange. In (b), the dye identities were swapped for the sequential labelling reactions (see Supplementary Fig. 2d). Dashed outlines indicate cell boundaries. Scale bars: 0.5 µm. d Box plots showing the PCC values for background/old LPS and newly inserted LPS as a function of time. For comparison, PCC values were calculated for OmpA* protein and LPS-rich patches (yellow box), which are known to have anti-correlated distributions in OM. Each data point represents the PCC value for a single cell, with the box, horizontal line and whiskers representing upper/lower quartile, median and interquartile range of the data, respectively (n ≥ 21 cells, N = 3 biological replicates). e Percentage of OM area occupied by DBSCAN-defined background/old LPS-rich (green) and newly inserted LPS-rich (magenta) clusters over 120 min time course. Values represent mean ± S.E.M. from individual cells (n ≥ 10 cells per timepoint). f Normalised DBSCAN (with ε = 30 nm) cluster-mask intersection between background/old LPS and newly inserted LPS. Values represent mean ± S.E.M. from individual cells (n ≥ 10 cells per timepoint).",
+   "printed": true
+  },
+  {
+   "para_id": 11,
+   "loc": "body",
+   "sec_title": "Spatial segregation of newly inserted and background LPS persists over time",
+   "text": "PCC values calculated from dSTORM data outputs were consistently negative (Fig. 2d), confirming sustained spatial segregation between background and newly inserted LPS. These anti-correlation values were comparable to those we calculated for labelled OmpA*-rich domains and LPS-dense patches in a previous study11, supporting a diffusion-limited organisation rather than an equilibrium-like compositional ordering regime in the E. coli OM over these timescales. Instead, our data support a distinct organisational model based on a stochastic distribution of LPS insertion sites (LptDE complexes in the OM) with variable insertion rates, combined with restricted lateral diffusion within the OM.",
+   "printed": true
+  },
+  {
+   "para_id": 12,
+   "loc": "body",
+   "sec_title": "Spatial segregation of newly inserted and background LPS persists over time",
+   "text": "To quantify the spatial relationships between labelled background and newly inserted LPS-rich clusters, we applied a density-based clustering nonparametric algorithm (DBSCAN) to our dSTORM-derived datasets39 (Supplementary Fig. 2e). Quantitative analysis of OM coverage by DBSCAN-defined LPS clusters further reinforced our findings (Fig. 2e and Supplementary Fig. 2d). Background LPS cluster coverage gradually decreased over the 120 min time course, concomitant with a reciprocal increase in coverage by newly inserted LPS clusters (Fig. 2e and Supplementary Fig. 2d). To complement this coverage analysis with a cluster co-occurrence metric, we quantified the normalised DBSCAN cluster-area intersection (cluster-mask intersection fraction; geometric intersection of the two independently segmented cluster masks) for labelled background and newly inserted LPS (Fig. 2f and Supplementary Fig. 2e), calculated as the intersection area divided by the sum of the background- and newly inserted-cluster areas. Because this metric is defined at the cluster-mask/analysis scale (set by ε and localisation precision), it reports cluster-mask co-occurrence or proximity rather than molecular co-occupancy. This cluster-area intersection metric remained low throughout the time course, showing only a modest transient maximum around 60 min before decreasing again, indicating persistent spatial segregation and limited cluster-mask co-occurrence (Fig. 2f). Collectively, these results demonstrate that spatial segregation of newly inserted and background LPS domains persist over time. Therefore, once inserted into the OM, LPS molecules are effectively constrained with minimal lateral diffusion, matching prior findings that LPS mobility in the OM is tightly confined10–12, which we define as an insertion-trapping mechanism.",
+   "printed": true
+  },
+  {
+   "para_id": 13,
+   "loc": "body",
+   "sec_title": "Kdo-N3 pulse-chase experiments reveal continuous insertion of new LPS and removal of background LPS in a growth-independent manner",
+   "text": "Having shown that newly inserted LPS exists in discrete, spatially segregated patches located across the entire OM (Figs. 1 and 2), we adapted our pulse-chase methodology to examine the kinetics of LPS incorporation and turnover during exponential phase growth of the E. coli population and its transition to stationary phase. A related click-chemistry strategy was recently reported to estimate relative LPS synthesis rates in E. coli K-12 MG1655 by pulsing cells with Kdo-N3 followed by copper-free click labelling and in-gel fluorescence quantification14. In that study, fluorescence microscopy outputs suggested that newly synthesised LPS initially appears as discrete surface foci at short pulse times, becoming more evenly distributed with longer pulses14. Here, we build on this strategy by coupling a pulse-chase design to single-cell dSTORM (Fig. 3 and Supplementary Fig. 3a,b) and complementary population-scale biochemical readouts (Supplementary Fig. 6a,c) thereby enabling quantitative analysis of nanoscale new LPS insertion patterns and loss of preexisting (background/old) LPS across the exponential-to-stationary phase of growth transition (Fig. 4 and Supplementary Fig. 4).Fig. 3Pulse-chase metabolic labelling and dSTORM revealed continuous insertion of new LPS and removal of background LPS in a growth-independent manner.a Representative dSTORM images of AF488-labelled LPS in OM of single cells following termination (background LPS turnover; top row) and initiation (new LPS insertion; bottom row) of metabolic labelling with Kdo-N3. Newly inserted LPS appears as bright foci at discrete sites distributed across the OM, whereas pre-labelled background LPS remains in patchy domains that progressively diminish in intensity over time. Dashed outlines indicate cell boundaries. Scale bars: 0.5 μm. b Quantification of newly inserted LPS metabolically labelled with Kdo-N3 which is plotted as AF488-LPS localisation density per μm² of OM surface area for individual biological replicates (N = 3, coloured symbols) and the replicate mean (black hexagon) (n ≥ 30 cells per time point). The black line indicates the mean trendline (R2 = 0.99) with associated 95% confidence band (shaded), and the red dashed line marks the transition from exponential phase to stationary phase of growth (~135 min post Kdo-N3 addition). The transition point was derived from the growth curve where the OD600 begins to decrease towards an asymptote (see Supplementary Fig. 3c, d and Supplementary Tables 22, 23). c Quantification of background LPS loss following Kdo-N3 removal (chased with native Kdo), plotted as AF488-LPS localisation density per μm² of OM surface area for individual biological replicates (N = 3, coloured symbols) and the replicate mean (black hexagon) (n ≥ 30 cells per time point). The black line indicates the mean trendline (R2 = 0.94) with 95% confidence band (shaded), and the red dashed line marks the transition from exponential phase to stationary phase of growth (~135 min post Kdo-N3 removal) as described for (b).Fig. 4Cluster analysis of single-colour dSTORM data revealed that LPS-rich domains remain spatially discrete and do not coarsen over time in OM of E. coli cells.a Single-molecule localisations from dSTORM images were projected onto a half-rod cylindrical model of an E. coli cell to account for 3D curvature of OM surface and enable more accurate membrane-wide analysis of clustering. b Representative cluster maps (top row, scale bar: 0.5 µm) and quantification (bottom row) show that newly inserted Kdo-N3-containing, AF488-labelled LPS accumulates in discrete patches whose number, density and total area increase over time. Dashed outlines indicate cell boundaries. Each point on the graph represents the mean cluster value per cell (n ≥ 10 cells per time point, N = 3 biological replicates), while marker size and colour encode the mean cluster surface area and localisation density, respectively. The increase in cluster number was well described by an exponential growth-to-asymptote fit (R² = 0.98), consistent with continued LPS insertion after entry into stationary phase, without signatures of time-dependent domain coarsening. c Representative cluster maps (top row, scale bar: 0.5 µm) and quantification (bottom row) show that background Kdo-N3-containing, AF488-labelled LPS clusters steadily decrease in abundance, size and density over time. Data presented in the same way as (b) (n ≥ 10 cells per time point, N = 3 biological replicates). The decrease in cluster number followed an exponential decay-to-asymptote (R² = 0.97), consistent with dilution of the pre-labelled LPS pool during exponential phase followed by continued loss during stationary phase with no evidence of time-dependent domain coarsening.",
+   "printed": true
+  },
+  {
+   "para_id": 14,
+   "loc": "body",
+   "sec_title": "Kdo-N3 pulse-chase experiments reveal continuous insertion of new LPS and removal of background LPS in a growth-independent manner",
+   "text": "In both single-cell dSTORM and bulk biochemical assays fluorescent background/old LPS signal reduction persisted into stationary phase, despite cell elongation and division slowing significantly (Fig. 3b, Supplementary Figs. 3a, 6a and 16c). These results show that the decrease in Kdo-N3 background/old LPS fluorescent signal over time cannot be explained by the dilution alone that results from multiplying cells as previously postulated10 (Supplementary Fig. 16c). Notably, both single cell dSTORM and bulk biochemically derived rates of labelled background LPS fluorescent signal decline are faster than expected from dilution alone, consistent with growth-independent depletion or turnover of the background LPS pool (Supplementary Fig. 16c).",
+   "printed": true
+  },
+  {
+   "para_id": 15,
+   "loc": "body",
+   "sec_title": "LPS-rich clusters remain spatially discrete and heterogeneously distributed, inconsistent with phase ordering in the outer membrane",
+   "text": "To investigate the observed nanoscopic clustered organisation in the OM of E. coli cells, we analysed the spatiotemporal behaviour of background/old and newly inserted LPS by projecting single-molecule localisations from the dSTORM pulse-chase experiments onto a half-rod cylindrical model of each cell (Fig. 4a). This enabled identification of LPS clusters using a DBSCAN algorithm, with improved accuracy by accounting for projection distortion caused by cell-surface curvature40. This surface-based projection enabled the evolution of labelled newly inserted and background LPS clusters to be compared across cells over time (Fig. 4b,c).",
+   "printed": true
+  },
+  {
+   "para_id": 16,
+   "loc": "body",
+   "sec_title": "LPS-rich clusters remain spatially discrete and heterogeneously distributed, inconsistent with phase ordering in the outer membrane",
+   "text": "It has been proposed that organisation of the Gram-negative OM can involve phase separation or phase ordering, in which compositionally distinct regions (e.g., LPS-rich versus OMP-rich) emerge from thermodynamically favoured interactions under reduced membrane fluidity33,41. Here, we use phase separation and phase ordering in this compositional sense (rather than simply to denote restricted lateral diffusion). Because both LPS and OMPs exhibit very limited lateral mobility in vivo, any compositional ordering may be diffusion-limited and therefore slow to relax on experimental timescales10,11,32. Nevertheless, an equilibrium-like ordering regime makes the clear, testable prediction that once compositionally distinct regions form, classical models of phase-ordering kinetics predict coarsening, in which smaller regions disappear while larger regions grow through coalescence and Ostwald ripening, yielding fewer, larger regions at later time points42–48. Ursell et al. provided an early framework for interpreting growth-dependent patterning in the OM based on microscopy of an OMP reporter and modelling of this membrane as an incompressible 2D fluid13. More recent live-cell AFM and high-resolution imaging studies have described the E. coli OM as a spatially heterogeneous mixture of OMP-rich and LPS-rich regions and discussed this organisation in terms of phase separation or phase ordering10,13,33,49. We therefore tested for time-dependent coarsening signatures in both newly inserted and background LPS cluster populations (Fig. 4b,c and Supplementary Fig. 10). In our analysis of newly inserted LPS (Fig. 4b and Supplementary Fig. 10d,f), the number of clusters per cell increased steadily over the 210 min experiment, while the total area covered by LPS also expanded, yet the mean cluster size plateaued after approximately 90 min (Supplementary Fig. 10d,e).",
+   "printed": true
+  },
+  {
+   "para_id": 17,
+   "loc": "body",
+   "sec_title": "LPS-rich clusters remain spatially discrete and heterogeneously distributed, inconsistent with phase ordering in the outer membrane",
+   "text": "Together with the persistent segregation of labelled new and background LPS (Fig. 2), these trends indicate stable, spatially discrete LPS-rich patches that persist without coarsening, inconsistent with equilibrium phase-ordering expectations42–48. Analysis of background LPS clusters supported this conclusion, with cluster number, mean cluster size, and density decreasing over the same period (Fig. 4c and Supplementary Fig. 10a-c). The 60 and 90 min time points lie on the fitted trajectory within the 95% confidence intervals, with no evidence of an abrupt step change in the observables (Fig. 4c and Supplementary Fig. 10a-c). Rather than fusing into larger domains, these pre-existing LPS-rich patches gradually dissipated, reflecting dilution during OM expansion in growing cells. We observed no evidence of coarsening (in which smaller domains vanish as larger domains grow), as expected for Ostwald ripening or domain fusion45–47. For example, Benn et al. reported fusion and coalescence of LPS-rich patches under low-fluidity conditions compatible with an equilibrium-like phase-ordering regime33,41. In contrast, across our conditions and time window, both localisation-density-defined background and newly inserted LPS pools lacked any coarsening signature, indicating that LPS lateral mixing is strongly constrained and domain coalescence is suppressed. This behaviour is compatible with a solid-like, diffusion-limited regime in which LPS-rich patches are stabilised rather than undergoing fusion-driven growth10–13, arguing against equilibrium phase ordering as the dominant mechanism in our system.",
+   "printed": true
+  },
+  {
+   "para_id": 18,
+   "loc": "body",
+   "sec_title": "LPS-rich clusters remain spatially discrete and heterogeneously distributed, inconsistent with phase ordering in the outer membrane",
+   "text": "We did not observe progressive enrichment of the pre-labelled background/old LPS pool at the poles over time, arguing against the specific binary-partition/polar-sequestration scenario in which new OM material is inserted preferentially away from the poles and pre-existing material is displaced poleward during elongation. However, we note that an absence of old-pool polar enrichment could also, in principle, arise if new LPS were inserted at the poles, locally diluting or replacing the labelled pool. Our two-colour pulse-chase data do not support preferential polar insertion of new LPS; instead, newly inserted LPS appears in discrete patches distributed along the longitudinal axis. This contrasts with growth driven redistribution frameworks derived from OMP reporters, in which spatially localised insertion together with restricted lateral mobility leads to growth-driven redistribution and progressive accumulation of older OMPs at the poles13,32. Taken together with restricted lateral mixing of LPS on these timescales10–12, this indicates that LPS organisation is not well described by a polar-sequestration/binary-partition model during growth under our conditions.",
+   "printed": true
+  },
+  {
+   "para_id": 19,
+   "loc": "body",
+   "sec_title": "LPS-rich clusters remain spatially discrete and heterogeneously distributed, inconsistent with phase ordering in the outer membrane",
+   "text": "These results (Fig. 4 and Supplementary Fig. 4) argue against E. coli OM organisation being governed primarily by equilibrium phase ordering with domain coarsening. Instead, our data support a solid-like, diffusion-limited OM with persistent, insertion-patterned spatial heterogeneity. The Kdo-N3-labelled background LPS pool (as measured by fluorescence/localisation density) progressively decreases without large-scale mixing or coarsening of LPS-rich regions (Fig. 4c), while newly inserted LPS accumulates in discrete, stable patches (Fig. 4b). This behaviour is consistent with insertion trapping, in which newly inserted LPS becomes constrained upon incorporation rather than laterally redistributing to equilibrate the membrane. This restricted-mixing regime is directly observed for LPS10–13,33. While growth-driven redistribution frameworks inferred from OMP reporters similarly invoke restricted mobility, their predicted progressive polar enrichment additionally relies on spatially biased insertion13,32, which we do not detect for LPS under our conditions.",
+   "printed": true
+  },
+  {
+   "para_id": 20,
+   "loc": "body",
+   "sec_title": "Live-cell 3D-SIM² imaging reveals that background LPS turnover does not undergo binary partitioning or internal cytoplasmic recycling",
+   "text": "To identify the potential mechanisms responsible for LPS turnover in the OM of E. coli, we tested whether background LPS was recycled internally, or partitioned directionally during division, analogous to the behaviour of OMPs during cell elongation32. If LPS were partitioned in the same way as OMPs, one would expect its removal from the OM because of division via progressive polar enrichment of older material and dilution in progeny, without requiring any additional turnover mechanism such as OM shedding. Alternatively, old LPS could conceivably be internalised into the cell and recycled internally or redistributed within the envelope (for example, via envelope-spanning processes rather than direct cytoplasmic recycling)50. However, previous studies have suggested that buildup of LPS in the inner membrane is toxic to cells, making an active recycling pathway unlikely51–56. To investigate these possibilities, we performed time-lapse 3D-structured illumination super-resolution microscopy (3D-SIM) to track background LPS dynamics in the OM of growing cells after fluorescently labelling background Kdo-N3 containing LPS using copper-free click (SPAAC)57,58. After mounting on M9 CDM/agarose pads, viable cells with AF488-labelled LPS were imaged over multiple generations at 37 °C with 3D-SIM2, enabling optical sectioning in the z-direction and isolation of background fluorescent LPS signal in the upper cell envelope, cytoplasm and lower cell envelope (Fig. 5 and Supplementary Fig. 5). Rates of cell elongation and division were assessed (Supplementary Fig. 5d) to ensure that growth was unaffected by labelling or light exposure under the imaging conditions used. We found no evidence for intracellular accumulation or binary partitioning of background LPS during cell growth. Instead, fluorescently labelled LPS remained in discrete patches across the OM and was inherited uniformly by daughter cells without polar enrichment (Fig. 5, Supplementary Fig. 5 and Supplementary Movies 1-3). These live-cell observations are consistent with our fixed-cell dSTORM data (Figs. 1–3).Fig. 5Live-cell 3D-SIM² imaging showed that background LPS was not partitioned to cell poles or internalised during cell growth.Optical sections through the upper and lower OM did not provide any evidence for accumulation of fluorescently labelled background LPS at the poles. Cytoplasmic (mid-cell) sections showed no intracellular accumulation of fluorescence over time. Background LPS distributions are maintained in OM during cell elongation, which is consistent with the absence of both binary partitioning and internal recycling. Dashed outlines indicate cell boundaries. Scale bars: 1.0 µm.",
+   "printed": true
+  },
+  {
+   "para_id": 21,
+   "loc": "body",
+   "sec_title": "Live-cell 3D-SIM² imaging reveals that background LPS turnover does not undergo binary partitioning or internal cytoplasmic recycling",
+   "text": "To corroborate these imaging-based observations biochemically over the same period of growth (initiated at OD600 = 1.5 and sampled for 120 min thereafter) (Fig. 5, Supplementary Fig. 5 and 19), we fractionated identically labelled cultures into soluble, inner membrane and OM compartments. We observed AF488-labelled background LPS predominantly in the OM fraction, with no time-dependent enrichment in the soluble fraction (Supplementary Fig. 14). Together, these imaging and biochemical data indicate that the observed decline in background LPS signal is not explained by binary partitioning (as seen for OMPs) or by internal cytoplasmic recycling32",
+   "printed": true
+  },
+  {
+   "para_id": 22,
+   "loc": "body",
+   "sec_title": "Outer membrane vesicle biogenesis contributes to LPS turnover in stationary phase E. coli cells",
+   "text": "Our data show that in stationary phase, newly synthesised LPS insertion and background LPS turnover in the OM are maintained despite a slowing in cell elongation and division (Fig. 2–4, Supplementary Figs. 2 and 3c). Over the time window analysed, CFU mL−1 remained approximately stable (Supplementary Fig. 11, Supplementary Tables 2 and 3), indicating minimal net loss of viability; thus, stationary phase here reflects negligible net population growth rather than population stagnation dominated by cell death. Accordingly, cells with slowed growth must actively remove LPS to maintain OM homoeostasis and permit continued LPS insertion in the absence of cell elongation and associated OM expansion. Having excluded binary partitioning and intracellular recycling of background LPS, we next investigated whether OMV biogenesis might mediate LPS turnover in stationary-phase cells59–62.",
+   "printed": true
+  },
+  {
+   "para_id": 23,
+   "loc": "body",
+   "sec_title": "Outer membrane vesicle biogenesis contributes to LPS turnover in stationary phase E. coli cells",
+   "text": "dSTORM imaging provided complementary support for OMV biogenesis and background-LPS shedding in stationary phase (Fig. 6b,c and Supplementary Fig. 12c,d). Unlike 3D-SIM2, OMV-producing cells cannot be reliably identified during dSTORM acquisition, and vesicle-like protrusions and OMV-like structures are typically confirmed only after localisation and reconstruction, necessitating screening of multiple cells and fields of view to capture vesiculation events. Despite this constraint, single-colour dSTORM frequently revealed LPS-rich puncta and vesicle-like protrusions consistent with nascent or recently released OMVs on stationary-phase cells (Fig. 6b and Supplementary Fig. 12c). In two-colour dSTORM experiments where pre-existing background LPS and newly inserted LPS were differentially labelled, OMV-like protrusions were consistently enriched in labelled background LPS and depleted in labelled newly inserted LPS relative to the surrounding OM. This enrichment of background LPS was observed even after swapping the dye labels (Fig. 6c and Supplementary Fig. 12d). Supplementary Fig. 12d shows representative two-colour reconstructions (including with dye labels swapped), and Supplementary Fig. 13 presents region of interest (ROI)-based localisation-density quantification of OMV/bleb protrusions versus intact-cell ROIs across a larger dataset (n = 30 cells, N = 3 biological replicates) which confirmed strong enrichment of background/old LPS in OMV ROIs (median log2(Sold LPS) = +2.07; 4.2-fold enrichment) and depletion of newly inserted LPS (median log2(Snew LPS) = –0.55; 0.68-fold depletion) relative to the surrounding OM (Supplementary Fig. 13 and Supplementary Table 24). Together, these data support a model in which stationary phase cells preferentially shed OM regions that are enriched in older background LPS via OMVs as part of growth-independent OM remodelling. Similar preferential incorporation of older LPS into OMVs has been previously observed in E. coli63 and in Salmonella spp. responding to antimicrobial peptide stress62, suggestive of a conserved OMV-based mechanism among Gram-negative bacteria in which OMV-blebbing is used for remodelling of OM LPS content.",
+   "printed": true
+  },
+  {
+   "para_id": 24,
+   "loc": "body",
+   "sec_title": "Outer membrane vesicle biogenesis contributes to LPS turnover in stationary phase E. coli cells",
+   "text": "Native OMV production was also assessed by growing the E. coli BW25113 strain in the same M9 CDM used for LPS metabolic labelling, removing aliquots of the culture as a function of time, and measuring particle concentrations in these processed supernatants by nanoparticle tracking analysis (NTA)64–66. OMV particle concentrations per mL are shown in Supplementary Fig. 11c, and normalisation to viable cell concentration (CFU equivalents) enables per-cell quantification of extracellular OMV accumulation during stationary phase (Supplementary Fig. 11b,d). From these data, an apparent net accumulation rate per viable cell can be estimated from the slope of the OMVs/CFU trace (Supplementary Fig. 11d). Because this growth/NTA time course was initiated at a lower starting OD600 ( ≈ 0.1) than the pulse–chase experiments (initiated at OD600 ≈ 0.5, Figs. 2–4 and 6d,e), the absolute time to stationary phase onset differs between assays. The OMV concentration increased by ~14-fold during exponential growth (Fig. 6f), reflecting accumulation of vesicles in the culture as the population expands. This increase in OMV concentration coincided with the initial appearance of AF488-labelled background-LPS signal in the OMV fraction analysed by TSDS-PAGE (Fig. 6d,e). OMV release during exponential phase growth has been observed in wild-type Gram-negative bacterial strains67. However, during stationary phase the OMV particle concentration continued to rise by ~1.7-fold between 390 and 750 min post-inoculation and by a further ~2-fold between 750 and 1500 min (Fig. 6f), even though the bacterial cell density (OD600) and viable cell concentration in the culture did not change (Supplementary Table 23 and Supplementary Fig. 11b). Consistent with this, CFU mL−1 remained stable (within experimental variation) across stationary phase (390–1500 min post-inoculation) (Supplementary Table 23 and Supplementary Fig. 11b).",
+   "printed": true
+  },
+  {
+   "para_id": 25,
+   "loc": "body",
+   "sec_title": "Outer membrane vesicle biogenesis contributes to LPS turnover in stationary phase E. coli cells",
+   "text": "This OMV-mediated LPS turnover would allow stationary phase E. coli to continually remodel and rejuvenate their OM composition, independently of cell growth. Preferential export of the older, pre-labelled LPS pool through OMV shedding supports a mechanism of OM homoeostasis, likely crucial for adaptation and survival under diverse environmental stresses that affect OM integrity (e.g. changes in temperature, local divalent cation concentration or exposure to cationic antimicrobial peptides)11,68,69.",
+   "printed": true
+  },
+  {
+   "para_id": 26,
+   "loc": "body",
+   "sec_title": "Outer membrane buckling model predicts the critical OMV size",
+   "text": "The mean diameter of the OMVs produced during the different phases of bacterial growth was also determined by NTA (Supplementary Fig. 8a) and the size did not change appreciably across growth phases (≈80–95 nm, Supplementary Fig. 8b). This lack of dependence on growth phase for OMV size has been previously observed in Neisseria meningitidis66. The OMV size distribution obtained for stationary phase E. coli BW25113 cultures (Supplementary Fig. 8b, time = 1500 min) was also consistent with previous work on the same strain70. We have interpreted this observation as evidence that OMV biogenesis is governed by a characteristic (critical) vesicle size.",
+   "printed": true
+  },
+  {
+   "para_id": 27,
+   "loc": "body",
+   "sec_title": "Outer membrane buckling model predicts the critical OMV size",
+   "text": "Asymmetric growth of the OM relative to the peptidoglycan (PG) cell wall has previously been postulated to favour local outward bulging of the OM, perhaps biased towards regions where a paucity of bonds exists between the PG and Braun’s lipoprotein (Lpp)67. In-line with this framework, OMVs purified under our conditions were depleted in Coomassie-detectable proteins while remaining LPS-rich relative to matched OM fractions (Supplementary Fig. 18). We developed an OM buckling model (Fig. 7a) to test whether accumulation of compressive stress in these membrane regions due to asymmetric growth of the OM relative to the cell wall was sufficient to cause buckling given the intrinsic curvature and physical stiffness of the OM (see Methods). Because cell elongation slows on entry into stationary phase while LPS incorporation continues (Figs. 2, 3 and 6, Supplementary Fig. 11a,b), this compressive stress is expected to become more widespread. Continued LPS insertion elevates in-plane compressive stress within LPS-dense OM patches mechanically constrained at their boundaries by OMP-rich domains and OM–PG anchoring by Braun’s lipoprotein (Fig. 7a), aligning with the load-bearing role of the OM and known mechanics of OM-PG tethers5,71. Increased vesiculation is known to occur with weakened OM-PG tethers72,73.Fig. 7Modelling OMV formation and LPS turnover in the bacterial outer membrane.a Model for OMV formation in OM of a stationary phase E. coli cell. 1) Continuous insertion of new LPS (grey arrows) by LPS insertion machinery (LptDE) into LPS-rich region increases local packing density while PG expansion lags due to slow rate of cell elongation in stationary phase. This asymmetric expansion of OM relative to PG induces in-plane compressive stress in OM (orange arrows) resulting in a bulge in the old LPS-rich regions. LPS patch rims are pinned by OMP-rich regions and PG-anchored zones (e.g. by Braun’s lipoprotein). 2) Bulge grows into a bleb forming a neck between the surrounding OM and the protruding membrane. 3) Bleb pinches off to produce an OMV, thereby removing background (old) LPS locally and releasing compressive stress in OM. This stress-release results in flattening of the OM around the vesiculation site. b Particle-based simulations of OM under two different organisation models: insertion-trapping model (top) and phase-separation model (bottom). Newly inserted LPS (magenta) and background LPS (green) regions are colour coded as in Fig. 2b. Dashed outlines indicate cell boundaries. LPS-inaccessible, OMP-rich regions (black) and OMV biogenesis events (white arrowheads/circles) are also indicated. Scale bars: 0.5 µm. c DICE analysis of newly inserted and background LPS co-clustering in both OM organisation models: phase-separation model (orange) and insertion-trapping model (blue). DICE coefficient values for each time point are a mean ( ± S.E.M.) calculated from five independent simulation runs per model. DICE is unitless (ranging from 0 to 1) and denotes the normalised old-new overlap. d Zero-lag coverage-normalised excess overlap of cluster masks (gNB(0)) quantifying colocalisation of newly inserted and background LPS relative to random placement in OM (horizontal dashed line at 0). Phase-separation model (orange) yields positive gNB(0) values that increase and saturate, reflecting growing co-location. gNB(0) values for insertion-trapping model (blue) remain near or below zero and become more negative with time, indicating anti-association. gNB(0) values for each time point are a mean ( ± S.E.M.) calculated from five independent simulation runs per model.",
+   "printed": true
+  },
+  {
+   "para_id": 28,
+   "loc": "body",
+   "sec_title": "Outer membrane buckling model predicts the critical OMV size",
+   "text": "The OM buckling model (Fig. 7a) was used to predict the critical size of the OMV released in background LPS-rich regions (see Methods for model calculations), which can be compared to our experimentally determined diameters (Supplementary Fig. 8b, see Methods for model calculations). When a bulging LPS-rich OM patch exceeds a characteristic radius (Rb), a bleb forms and is released as an OMV with a critical diameter (d). We estimated d ≈ 73-122 nm for OMVs released by this membrane buckling mechanism which agrees with our experimental results (Supplementary Fig. 8b, grey shaded region). This compressive stress-release by OM blebbing is consistent with bilayer-coupled, leaflet-asymmetry routes to OMV formation74,75 and with broad OMV biogenesis frameworks59,60.",
+   "printed": true
+  },
+  {
+   "para_id": 29,
+   "loc": "body",
+   "sec_title": "Particle-based simulations of LPS spatiotemporal dynamics distinguish the insertion-trapping mechanism from phase separation in the OM",
+   "text": "To test whether the spatiotemporal LPS behaviour observed by pulse-chase dSTORM (Figs. 2 and 4, Supplementary Fig. 2) requires equilibrium phase separation, we compared two particle-based simulations of the E. coli OM that share identical, experimentally-derived LPS turnover rates (Figs. 2, 3 and 6) but differ in their organising rules (Fig. 7). The simulated field covers half of the OM surface of the cell (2.6 µm × 1.1 µm) and contains a static allowed mask (75% of the area) representing LPS-accessible membrane76–78. The remaining area (25%) is treated as OMP-rich, LPS-inaccessible voids (black regions in schematics), thereby recapitulating the heterogeneous, clustered OMP/LPS organisation observed in previous experimental studies10,11,33. The total LPS in the accessible area is held approximately constant (target N ≈ 8 × 104 LPS simulation particles, ~9-fold coarse-graining of the expected biological copy number77–79). LPS turnover and insertion rates were informed by experimental data (Figs. 2, 3 and 6). Background (old) LPS decays with a half-life of ~90 min, newly inserted (new) LPS rises to ~65% by 120 min; and OMV events are placed stochastically at LPS-density maxima with realistic footprints (80–90 nm diameters) and at frequencies matched to experimental data (Fig. 6 and 7a,b). These constraints reproduce the measured turnover (reciprocal changes in old and new LPS coverage, and weak old-new co-clustering around ~60 min, Fig. 2f) and ensure that any divergence between models reflects organisation rather than bulk turnover/insertion rates. To facilitate robust quantitative comparison with the imaging analyses, cluster masks were defined by DBSCAN using identical cluster-defining parameters (ε = 30 nm; minPts = 7; core points only). We tracked the normalised old–new overlap (DICE, Sørensen–Dice coefficient) and zero-lag coverage-normalised excess overlap of cluster masks (gNB(0)), where values near 0 indicate overlap expected under random colocalisation, negative values indicate segregation (anti-association), and positive values indicate co-localisation (Fig. 7c,d).",
+   "printed": true
+  },
+  {
+   "para_id": 30,
+   "loc": "body",
+   "sec_title": "Particle-based simulations of LPS spatiotemporal dynamics distinguish the insertion-trapping mechanism from phase separation in the OM",
+   "text": "The insertion-trapping model was designed to reproduce our experimental observations and incorporated the restricted diffusion of LPS in the OM (Fig. 7b and Supplementary Fig. 9a). The organising rule is conceptually consistent with the stochastic, spatially localised insertion and growth-dependent patterning previously observed for LamB dynamics by Ursell et al.13. Here, it is constrained and tested using direct nanoscale measurements of LPS turnover and old/new LPS segregation, and it incorporates growth-independent loss via OMV shedding. New LPS is inserted in short bursts at a changing subset of pre-sampled hotspots located across the entire OM surface (consistent with the mapped LptD-linked LPS delivery sites characterised in Fig. 1d)10,36, while both background and newly inserted LPS undergo strongly confined lateral diffusion in-line with previous observations10,11.",
+   "printed": true
+  },
+  {
+   "para_id": 31,
+   "loc": "body",
+   "sec_title": "Particle-based simulations of LPS spatiotemporal dynamics distinguish the insertion-trapping mechanism from phase separation in the OM",
+   "text": "The phase separation model was used to emulate old and new LPS co-clustering in the OM due to phase separation while keeping all bulk rates and the restricted lateral diffusion of LPS particles identical to the insertion-trapping model (Fig. 7b, Supplementary Fig. 9 and Supplementary Movie 4). We introduced a short-range like–like coupling constant (Ising/Cahn–Hilliard-style drift up the density gradient of each LPS type)43 with strength tuned so that global densities and OMV statistics match the output from the insertion-trapping model. In contrast to the insertion-trapping model and our experimental data, this model predicts the opposite time dependencies. The simulation shows a monotonic increase in the overlap of background and newly inserted LPS (Fig. 7c) a rise in gNB(0) above zero (Fig. 7d) and a gradual right-shift in domain-size distribution indicative of coarsening, which are hallmarks of phase ordering. These behaviours were not observed in our experimental data (Figs. 2 and 4)43.",
+   "printed": true
+  },
+  {
+   "para_id": 32,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "This work reshapes the way we consider OM organisation, while reinforcing the limited lateral mobility of LPS in the OM10,11. Using two-colour SRM, we directly visualised that newly inserted LPS molecules remain spatially segregated from older LPS-rich patches even after hours of incubation (Fig. 2). The persistence of distinct, newly inserted and background LPS patches in our pulse-chase experiments indicate minimal mixing between the two populations (Figs. 2–4). This provides a visual confirmation of what earlier single-particle tracking data had detected: LPS lateral diffusion in the OM is very slow (~10−2 μm²/s or lower)10,11 and constrained such that a LPS molecule essentially remains near its point of insertion. Our data show that even across multiple generations, LPS does not redistribute to homogeneity in the OM. Instead, each cohort of LPS inserted at a given time retains its identity as a cluster, frozen in place. Consequently, LPS does not undergo binary partitioning in the manner of OMPs13,32, which are inserted at mid-cell and become apportioned to new cell poles during cell elongation and division32. This means that in the absence of growth and division, old LPS could be expected to accumulate progressively in the OM, limiting the ability of the bacterium to remodel its lipid composition in response to environmental change. Our data indicate that E. coli can mitigate this by shedding older, background LPS via OMVs, enabling OM renewal and adaptation even in growth-limited cells. This process appears to be a fundamental aspect of OM maintenance in non-elongating E. coli cells. By generating OMVs, the bacterium can shed portions of its OM that are enriched in background or old LPS (Fig. 6c, Supplementary Fig. 13 and Supplementary Table 24), in line with prior observations in enteric bacteria62,63,74,80.",
+   "printed": true
+  },
+  {
+   "para_id": 33,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Our data indicate that OMVs are enriched for the pre-labelled (background/old) LPS pool, consistent with vesiculation contributing to background LPS turnover (Fig. 6a-d and Supplementary Fig. 12c,d for representative reconstructions, Supplementary Fig. 13 for ROI-based quantification, and Supplementary Table 24), but this enrichment does not imply exclusive packaging or an active old-versus-new sorting mechanism. At present, we have no evidence for the existence of cellular mechanisms capable of distinguishing between LPS cohorts based on their relative age; instead, an explanation consistent with our data is that this background LPS enrichment in OMVs emerges from OM spatial organisation and envelope mechanics. Newly inserted LPS is delivered at discrete LptD-associated insertion sites (Fig. 1b-e) and remains spatially confined and segregated from the pre-existing LPS pool (Figs. 2, 3a and 4b), which would bias the background LPS population to become relatively concentrated over time within LPS-rich regions that are spatially separated from highly tethered OMP-rich zones. In the context of our OM buckling model (Fig. 7a), such LPS-rich regions being comparatively less constrained would make them prone to membrane deformation and budding, providing a physical basis for preferential enrichment of the background LPS pool in released vesicles without requiring a means to actively discriminate between different LPS subpopulations (Fig. 7a)5,6,32. Consistent with this view, OMV production increases as stationary phase ensues (Fig. 6f and Supplementary Fig. 11c,d), coincident with continued new LPS insertion and decrease of the background-labelled pool (Figs. 3 and 4, Supplementary Fig. 10). This behaviour aligns with prior work linking vesiculation with envelope remodelling and stress responses, including LPS remodelling-associated vesiculation in enteric bacteria60–62. Moreover, our simulations, incorporating buckling-driven vesiculation reproduce key qualitative features of our experimental data; loss of the background-labelled LPS without domain coalescence and preservation of spatially discrete patches, supporting a model in which OMV shedding, driven by compressive stress, can contribute to background LPS turnover in non-growing stationary-phase cells (Fig. 7, Supplementary Figs. 9 and 12, Supplementary Movie 4).",
+   "printed": true
+  },
+  {
+   "para_id": 34,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Our time-lapse imaging (Fig. 6a-c and Supplementary Fig. 12) captured nascent vesicles with old LPS budding off cells, and our bulk fractionation experiments showed a clear transfer of background LPS from the OM of cells to vesicles, with both events occurring as stationary phase ensued (Fig. 6d and Supplementary Fig. 6c). We observed a substantial increase in OMV production as bacterial growth slowed (Fig. 6f and Supplementary Fig. 11c,d), which suggests that vesicle shedding is increased in response to entry into stationary phase, consistent with prior reports of elevated OMV formation under stress or nutrient limitation81–83. This vesicle-mediated LPS turnover allows the cell to maintain OM homoeostasis by removing background LPS and replacing it with newly synthesised molecules, even when the cell is not dividing. Such a mechanism is likely important for preserving OM integrity and functionality during a prolonged period in the stationary phase, and for facilitating adaptation in situations where growth is arrested due to nutrient-limited conditions when the environment may still be challenging (for example, in host tissues, acidic lysosomes post-phagocytosis or in biofilms). By discarding a portion of its endotoxin via OMVs, a bacterial cell might also modulate its interactions with the host immune system or neighbouring microbes84, though the specific consequences of shedding background-enriched LPS remain to be explored.",
+   "printed": true
+  },
+  {
+   "para_id": 35,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "To test whether the observed spatiotemporal dynamics arise from phase separation or kinetic-trapping, we built simulations of OM dynamics constrained by experimental rates of LPS turnover (Fig. 7, Supplementary Fig. 9 and Supplementary Movie 4). Ursell et al. combined time-lapse fluorescence microscopy of an OMP reporter with mathematical modelling to infer that stochastic, spatially localised OMP insertion and growth-driven displacement can generate polar enrichment of older material when lateral mobility is restricted13. Our insertion-trapping model is conceptually consistent with localised insertion and constrained redistribution11,13,32, but here it is constrained by experimentally quantified parameters and evaluated using two-colour single-molecule nanoscopic measurements of LPS turnover and old/new LPS segregation in the outer leaflet, incorporating growth-independent LPS loss through OMV shedding. The insertion-trapping model (Fig. 7b and Supplementary Fig. 9) yielded stable, discrete patches of newly inserted and background LPS (Figs. 1, 2 and 7, Supplementary Figs. 9 and 10, Supplementary Movie 4), loss of background LPS without coarsening, and sustained spatial segregation, quantified by a weak maximum in the old-new LPS overlap, and gNB(0) ≤ 0 across 0–120 min (Figs. 2, 4 and 7c,d). Therefore, this model closely reproduced the hallmark features seen in the outputs of the pulse-chase / dSTORM experiments (Figs. 2–4).",
+   "printed": true
+  },
+  {
+   "para_id": 36,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "In sharp contrast, a phase separation model with identical bulk LPS insertion rates (Fig. 7b and Supplementary Fig. 9a) showed contrasting LPS spatiotemporal dynamics, yielding instead characteristics typical of phase ordering and liquid–liquid demixing in model membranes85,86. These included a monotonic rise in colocalisation (gNB(0) > 0)43,44, and growth of the LPS domain size (Fig. 7c,d). This phase separation model was implemented with the same restricted lateral membrane diffusion and matched LPS turnover constraints as the insertion-trapping model, differing only in the organising rules. Incorporation of bleb-driven OM vesiculation into the simulations (Fig. 7a) provided a biophysical mechanism for how an increase in local compressive membrane stress due to continued LPS insertion could drive OMV release. Poisson distributed vesiculation events nucleated at LPS particle density maxima, away from OMP-rich patches (black areas) where LPS-rich patch centres are weakly anchored to PG, resulting in the removal of old LPS content from the OM whilst relieving the compressive stress associated with continuous LPS insertion into the OM of a non-elongating cell without leaving persistent voids. The simulation outputs from the kinetic trapping model mirrored our cell-by-cell dSTORM image analyses and population scale biochemical experimental outputs (Figs. 2, 3 and 6), and aligned with established OM mechanics and OMV biogenesis paradigms59,60,72–75. Together, these particle-based simulations support a kinetically-trapped, non-equilibrium OM organisation, the properties of which are dictated by site-specific insertion of LPS, restricted lateral diffusion of OM components10,11,32 and OMV-mediated preferential removal of older LPS. The concept of a kinetically-trapped OM organisation, recapitulated by the simulations, also explains the stable coexistence of LPS-rich and OMP-rich domains without the need for equilibrium (thermodynamically-driven) phase separation10,11. In classical phase separation, one would expect coarsening over time with small domains merging into fewer, larger domains to minimise interfacial energy.",
+   "printed": true
+  },
+  {
+   "para_id": 37,
+   "loc": "body",
+   "sec_title": "Bacterial strains and plasmids",
+   "text": "Details of strains used in this study are provided in Supplementary Table 1. The Keio collection mutant of Escherichia coli K12 subsp. BW25113 used in this work (ΔompA) was validated previously via PCR, confirming the presence of a kanamycin resistance cassette within the open-reading frame of interest32,87,88.",
+   "printed": true
+  },
+  {
+   "para_id": 38,
+   "loc": "body",
+   "sec_title": "Bacterial strains and plasmids",
+   "text": "pBAD-lptD* and pBAD-ompA* plasmids were produced via Gibson isothermal assembly89. PCR was used to amplify the lptD and ompA gene inserts (see Supplementary Table 2 for primers) from purified E. coli K12 subsp. MG1655 genomic DNA. The amplified genes were cloned into pBADcLIC vectors using a commercial Gibson isothermal assembly kit (NEBuilder® HiFi DNA Assembly). The pBADcLIC vector system was selected because its araBAD promoter provides tight regulation yet permits low-level basal (leaky) expression in the absence of inducer (L-arabinose), allowing sufficient outer membrane protein production while minimising toxicity and misfolding that can occur under the strong induction conditions typical of IPTG-inducible recombinant expression systems; no L-arabinose was added in any experiment, lptD* and ompA* expression relied on basal araBAD promoter activity (leaky expression). PCR site-directed mutagenesis (Supplementary Table 2) was then used to incorporate the amber stop codon TAG in place of the codon for the D600 residue in lptD (Supplementary Fig. 1b) and E89 residue in ompA. Successful cloning and mutagenesis were verified via DNA sequencing (Eurofins Genomics LLC). The pEVOL-pylRS plasmid, encoding the pyrrolysyl-tRNA synthetase/pyrrolysyl-tRNA pair from Methanosarcina mazei was obtained from Dr. Edward Lemke (EMBL Heidelberg) under MTA25,90.",
+   "printed": true
+  },
+  {
+   "para_id": 39,
+   "loc": "body",
+   "sec_title": "Production of 8-azido-3,8-dideoxy-D-manno-oct-2-ulosonic acid (Kdo-N3)",
+   "text": "Kdo-N3 was synthesised and purified following established protocols26,38. The synthesised Kdo-N3 was utilised for all super-resolution fluorescence microscopy experiments (dSTORM and 3D-SIM2) and yielded the same results as commercially available Kdo-N3 (Click Chemistry Tools, Vector Laboratories, Inc.) used in more recent work. Freeze-dried stocks of the synthesised compound and the purchased compound were resuspended to a concentration of 400 mM in sterile, deionised water and stored at −20 °C until required.",
+   "printed": true
+  },
+  {
+   "para_id": 40,
+   "loc": "body",
+   "sec_title": "Production of 8-(4-pentynoylamido)-3-deoxy-D-manno-oct-2-ulosonic acid (Kdo-alkyne)",
+   "text": "Kdo-alkyne was synthesised and purified following established protocols from commercially available Kdo-N3 and synthesised Kdo-N326,38. The synthesised Kdo-N3 was utilised for all super-resolution fluorescence microscopy experiments (dSTORM and 3D-SIM2). Freeze-dried stocks of the synthesised compound were resuspended to a concentration of 400 mM in sterile, deionised water and stored at −20 °C until required.",
+   "printed": true
+  },
+  {
+   "para_id": 41,
+   "loc": "body",
+   "sec_title": "LptD fluorescent labelling via ncAA incorporation followed by CuAAC",
+   "text": "Sites for ncAA incorporation into LptD in E. coli BW25113 were selected based on in silico modelling of E. coli LptD crystal structure deposited in the PDB database [PDB: 4RHB] (Supplementary Fig. 1b). Four sites for propargyl-L-Lysine ncAA incorporation were selected based on criteria designed to minimise the impact of ncAA incorporation on LptD function and structure, whilst maximising the probability of ncAA incorporation at an accessible site to enable efficient downstream bio-orthogonal fluorophore coupling and minimise dynamic quenching of the coupled extrinsic probe by certain amino acids (e.g. tryptophan, histidine, methionine and tyrosine)91. We selected two lysine (K473 and K602) and two aspartic acid (D592 and D600) residues located on two unstructured, exposed extracellular loops of LptD. These selections were informed by results from published structural, computational and biochemical studies of LptD24,92,93. By avoiding the extracellular loops, residues and regions implicated in LptD function by these previous studies, we were able to minimise the probability that ncAA incorporation would have a deleterious impact on LptD structure and function.",
+   "printed": true
+  },
+  {
+   "para_id": 42,
+   "loc": "body",
+   "sec_title": "LptD fluorescent labelling via ncAA incorporation followed by CuAAC",
+   "text": "In the absence of L-arabinose, basal araBAD promoter activity drove low-level expression of the recombinant amber-stop codon-containing lptD gene (lptD*); addition of propargyl-L-Lysine enabled amber suppression by the pylRS and tRNAPyl pair and incorporation of the ncAA into full-length LptD with the ncAA integrated at one of four positions in its extracellular surface loops (LptD*). Because LptD is essential, cells retain an endogenous chromosomal LptD pool; therefore, dSTORM localisations reported only the plasmid-expressed ncAA-containing LptD* subpopulation. The accessible alkyne groups in the surface loops of LptD* enabled conjugation of an azide(-N3)-functionalised, extrinsic fluorescent organic dye molecule via CuAAC94,95. LptD* fluorescent labelling enabled in vitro characterisation of the recombinant protein by fluorescence imaging of LptD-containing protein bands after SDS-PAGE (Supplementary Fig. 1c).",
+   "printed": true
+  },
+  {
+   "para_id": 43,
+   "loc": "body",
+   "sec_title": "OmpA fluorescent labelling via ncAA incorporation followed by CuAAC",
+   "text": "To investigate the spatial distribution and organisation of LPS and OMPs relative to one another in the outer leaflet of the OM, OmpA was selected for labelling via adaptation of the strategy used for LptD having demonstrated in a previous study that OmpA and LPS are organised in discrete clusters in the OM of E. coli BW25113 cells11. OmpA is one of the most abundant OMPs in E. coli with approximately 100,000 molecules per cell96,97, and lateral confinement of OmpA in the OM does not depend on its peptidoglycan-binding domain98. A three-dimensional model of the E. coli OmpA structure was produced using AlphaFold299. We then identified regions of the OmpA primary sequence predicted to form unstructured extracellular loops. We selected an accessible glutamic acid (E89) residue in extracellular loop 2 for propargyl-L-Lysine incorporation via mutation of the respective codon in the ompA gene sequence to the amber stop codon (TAG)100–102. After isolation and amplification of the E. coli BW25113 ompA gene sequence from the purified bacterial chromosomal DNA via PCR (Supplementary Table 2), we incorporated the wild-type ompA gene into a pBADcLIC expression vector. The target codon in the ompA gene was mutated to TAG via PCR mutagenesis (Supplementary Table 2). Under standard laboratory culture conditions, OmpA is a non-essential OMP. Therefore, we were able to co-transform the TAG-containing ompA expression vector into an E. coli ∆ompA strain (Supplementary Table 1) along with the pEVOL-pylRS vector88. Full-length ncAA-containing OmpA (OmpA*) production via leaky expression was initiated by charging cell cultures with 1 mM N-propargyl-L-Lysine-OH. OmpA* fluorescent labelling with a functionalised small extrinsic organic dye molecule was done in situ via CuAAC.",
+   "printed": true
+  },
+  {
+   "para_id": 44,
+   "loc": "body",
+   "sec_title": "Mounting of fixed fluorescently labelled cell samples using poly-D-Lysine-coated coverslips for imaging by dSTORM",
+   "text": "The washed, fixed, and labelled cell pellet in a microcentrifuge tube was placed on ice to cool to 4 °C and resuspended in degassed, pre-chilled glucose oxidase (GluOx) (Sigma Aldrich)/catalase (Cat) (Sigma-Aldrich) O2 scavenging buffer to an OD600 of 1.5 via repeated gentle pipetting (Supplementary Table 7)103,104. 45.5 µL of the suspension was transferred to a pre-chilled, sterile 500 µL microcentrifuge tube on ice. 2.5 µL of 1 M β-mercaptoethylamine hydrochloride (β-MEA) (50 mM final concentration), 2 µL of 0.5% (w/v) 5 µm diameter silica bead slurry (final bead concentration of 0.02% (w/v)) and 0.5 µL TetraSpeckTM 0.2 µm microsphere standard solution (stock concentration ~1.5 × 109 particles mL−1, final concentration ~ 1.5 × 107 particles mL−1, Invitrogen Ltd.) were added. TetraSpeckTM beads were added to enable accurate AF488 and AZ647 channel alignment during two-colour dSTORM image processing. 10 µL of the suspension was then pipetted onto the centre of a pre-chilled (to minimise O2 scavenging buffer enzyme activity), clean 1.0–1.2 mm thick glass slide. The slide was covered with a poly-D-lysine-coated, 18 mm × 18 mm high precision (Zeiss), no. 1.5 glass coverslip, ensuring no bubbles were present in the slide chamber. The chamber was sealed with clear nail varnish. The slide was then incubated at 4 °C for 20 min while protected from light to allow the nail varnish to dry and the cells to adhere to the poly-D-lysine-coated coverslip surface.",
+   "printed": true
+  },
+  {
+   "para_id": 45,
+   "loc": "body",
+   "sec_title": "Two-colour dSTORM data acquisition with AF488- and AF647-labelled samples",
+   "text": "dSTORM imaging was done on a Zeiss Elyra 7 super-resolution imaging platform in laser widefield beam path mode using ZEN Black 3.0 SR FP2 software (Biosciences Technology Facility, University of York). Experiments were carried out using a Plan-Apochromat 63×/1.46 NA Korr oil immersion objective Var 2 lens together with TIRF uHP (ultra-high power) laser power density setting. Image areas were set to 128 pixels × 128 pixels for two cells or 64 pixels × 64 pixels for a single cell and saved in 16-bit format. Initial excitation and intersystem crossing of all fluorophores in the target cell(s) from their ground singlet state to an excited triplet dark state was achieved via application of a short (200–300 frames, 50 ms exposure time), high intensity laser pulse (488 nm: 20-25% laser power, 642 nm: 10–15% laser power) with the microscope in epifluorescence (EPI) mode. dSTORM time series image sequences were then collected using highly inclined and laminated optical sheet (HILO) illumination for 10,000 frames (50 ms exposure time) using reduced laser powers (488 nm: starting at 1% increasing to 10% over the time series, 642 nm: starting at 0.7% and increasing to 5% over the time series). To propagate fluorophore blinking in the latter 5000 frames, 405 nm light was introduced during the transfer phase of individual image collection to reduce fluorophore photobleaching resulting from simultaneous exposure to both 488 nm/642 nm and 405 nm light104. HILO illumination mode was used to enable excitation of fluorophores in the outer membrane furthest from the coverslip thereby maximising the signal to noise (S:N) ratio. Additional dSTORM image acquisition settings are summarised in Supplementary Table 8.",
+   "printed": true
+  },
+  {
+   "para_id": 46,
+   "loc": "body",
+   "sec_title": "LptD* and newly inserted LPS demograph generator from two-colour dSTORM coordinates",
+   "text": "To visualise the spatial distribution of LptD and newly inserted LPS across individual E. coli cells (n = 30), demographs were generated from two-colour dSTORM localisation data using MATLAB R2024b (64-bit) software (Fig. 1d). Localisation co-ordinates for LptD* and newly inserted LPS channels exported from processed two-colour dSTORM data in .csv table formats were grouped by Cell_ID ( = 1–30) and rotated using PCA such that the long axis of each cell was aligned with the x-axis. This geometric standardisation ensured consistent longitudinal orientation. Coordinates were then binned along the x-axis using a fine bin width of 25 nm, chosen to balance spatial resolution with noise reduction based on typical bacterial cell length scales and localisation precision (10–40 nm). Each binned intensity profile was normalised to its own maximum, enabling relative comparison of spatial enrichment patterns between cells of varying brightness or size. Demographs were centre-aligned by aligning the mid-point of the localisation distribution for each cell to a common reference. A missing value (NaN) due to uneven cell lengths or edge effects was rendered black to distinguish absent data from low signal. This approach was used to highlight population-wide trends while preserving per-cell spatial heterogeneity. dSTORM input and analysis output data are provided in the accompanying indexed Figure Source Data and Analysis Workbook, MATLAB script and associated README file are available through the Persistent_LPS_insertion_OM_OMVs GitHub repository at https://github.com/joenabarro-OM/Persistent_LPS_insertion_OM_OMVs/releases/tag/v1.0.2 and have been permanently archived on Zenodo at https://doi.org/10.5281/zenodo.21326870105.",
+   "printed": true
+  },
+  {
+   "para_id": 47,
+   "loc": "body",
+   "sec_title": "Pearson correlation coefficient calculation from processed two-colour LptD*/newly inserted LPS dSTORM data",
+   "text": "To quantify spatial correlation between LptD* and newly inserted LPS in the OM of individual E. coli cells, a photon-weighted Pearson correlation coefficient (PCC) was calculated. Two-colour dSTORM localisations were segmented by cell and assigned to either the LptD* or newly inserted LPS channel, according to the channel in which they were observed. Coordinates were mean-centred and aligned along the principal cell axis using PCA. Localisations were binned along the longitudinal axis in 25 nm intervals, and photon counts per bin were used to construct channel-specific intensity profiles. These were smoothed using a Gaussian kernel (σ = 1.5 bins) to reduce noise. Each cell was divided into three equal-length regions (two poles and mid-cell), and the PCC was calculated for each region and across the full cell length using MATLAB 2024b (64-bit). This approach enabled region-specific quantification of LptD–LPS co-localisation dynamics (Fig. 1e). The input data and analysis output source data are provided in the accompanying indexed Figure Source Data and Analysis Workbook, MATLAB scripts and associated README files are available through the Persistent_LPS_insertion_OM_OMVs GitHub repository at https://github.com/joenabarro-OM/Persistent_LPS_insertion_OM_OMVs/releases/tag/v1.0.2 and have been permanently archived on Zenodo at https://doi.org/10.5281/zenodo.21326870105.",
+   "printed": true
+  },
+  {
+   "para_id": 48,
+   "loc": "body",
+   "sec_title": "DBSCAN cluster segmentation and cluster-area intersection analysis of two-colour dSTORM localisation data",
+   "text": "Spatial domains of background, (pre-existing) and newly inserted LPS were identified independently using a tailored Density-Based Spatial Clustering of Applications with Noise (DBSCAN) algorithm (ε = 30 nm, min_samples = 7)106, widely adopted for co-localisation analysis of multi-channel SMLM data107. The ε value equals 1.5× the median nearest-neighbour distance between LPS localisations under our imaging conditions (median = 22 nm) and reflects the average precision associated with individual localisations ( ~ 30 nm), balancing sensitivity to genuine nanoscale domains with robustness to photon shot noise. A min_samples threshold of seven exceeds the upper quartile localisation count for single fluorophore bursts, limiting false positive clusters. Cluster polygons were clipped to the OM boundary and combined to obtain total old and new LPS cluster areas; their geometric intersection (background LPS ∩ newly inserted LPS) defined the cluster-area intersection (mask-intersection) region. Because ε is set on the order of the effective localisation precision, this mask-intersection metric reports cluster-mask co-occurrence/proximity at the analysis scale, rather than molecular co-occupancy. The script produces several output files. LPS_output_summary.csv contains numerical values for the OM area, individual and combined LPS areas, localisation counts within the mask-intersection region, and normalised coverage metrics; these underpin the quantitative time course displayed in Fig. 2e,f and are reproduced in Supplementary Table 13. A high resolution composite image (combined_overlap_map.png) was produced showing all localisation points, their DBSCAN assigned clusters and the spatial overlap; the map provides morphological context for the representative cells provided in Supplementary Fig. 2e (note that overlap in these outputs refers to geometric overlap of independently segmented cluster masks at the analysis scale, not physical co-occupancy of LPS molecules). Cluster size distributions are exported as separate files (.csv format), enabling independent verification that old and new clusters are sampled from comparable size ranges.",
+   "printed": true
+  },
+  {
+   "para_id": 49,
+   "loc": "body",
+   "sec_title": "DBSCAN cluster segmentation and cluster-area intersection analysis of two-colour dSTORM localisation data",
+   "text": "Examples of individual channel input dSTORM data for each time point, individual cell OM output data files and summary data output tables are provided in the Figure Source Data and Analysis Workbook. Python script and associated README file are available through the Persistent_LPS_insertion_OM_OMVs GitHub repository at https://github.com/joenabarro-OM/Persistent_LPS_insertion_OM_OMVs/releases/tag/v1.0.2 and have been permanently archived on Zenodo at https://doi.org/10.5281/zenodo.21326870105.",
+   "printed": true
+  },
+  {
+   "para_id": 50,
+   "loc": "body",
+   "sec_title": "LPS extraction",
+   "text": "LPS was extracted via adaption of the hot phenol – aqueous method developed by Westphal (1965)108. The cell pellet was re-suspended to an OD600 of 0.5 in PBS pH 7.4 plus 0.5 mM MgCl2 and 0.15 mM CaCl2 and pelleted via centrifugation (10,000 x g, 10 min, 4 °C). The washed cell pellets were then resuspended to the same OD600 in ultrapure deionised water (resistivity = 18.2 MΩ cm) and transferred to a glass dram with Teflon-coated lid. An equal volume of 90% (w/v) phenol, pre-warmed to 65 °C was added and the emulsion stirred vigorously at 65 °C for 15 min. Drams were then transferred to ice for 15 min to cool. Emulsions were then transferred to microcentrifuge tubes and centrifuged (8,500 x g, 15 °C 10 min). The LPS-containing aqueous fraction was transferred to a 50 mL screw-cap polypropylene tube. A second aqueous extraction was then carried out on the remaining phenol layer and the aqueous fractions were pooled in a 50 mL screw-cap polypropylene tube. Sodium acetate was added to the pooled aqueous fractions to a final concentration of 0.5 M to ensure LPS precipitation. 10 volumes of 95% (v/v) ethanol, pre-chilled to -20 °C was then added and after mixing via repeated inversions the suspension was incubated overnight at -20 °C to maximise LPS precipitation. The following day LPS was pelleted via centrifugation (2,000 x g, 4 °C, 10 min,). After supernatant aspiration, the LPS pellet was dried under a steady stream of nitrogen gas. The dried LPS pellet was resuspended in 100 µL ultrapure deionised water and transferred to a 1.5 mL microcentrifuge tube. Sodium acetate was added to a final concentration of 0.5 M and 1.1 mL pre-chilled 95% (v/v) ethanol was added. After mixing the tube contents via repeated inversion, the LPS was re-precipitated via overnight incubation at -20 °C. Precipitated LPS was pelleted via centrifugation. The pellet was dried again under nitrogen gas and finally resuspended in 50 µL PBS pH 7.4.",
+   "printed": true
+  },
+  {
+   "para_id": 51,
+   "loc": "body",
+   "sec_title": "LPS tricine-sodium dodecyl sulfate-polyacrylamide gel electrophoresis (TSDS-PAGE)",
+   "text": "A volume (15 µL) of the purified LPS was mixed with a volume (5 µL) of 4x loading buffer (Supplementary Table 14) plus 2% (v/v) β-mercaptoethanol (β-ME). After vortex mixing and a brief centrifugation, the samples were incubated for 1 h at 40 °C. The samples were then re-vortexed and centrifuged briefly before loading the entire sample volume into the well of a 10 cm×10 cm x 1 mm 15% (w/v) acrylamide resolving/6% (w/v) acrylamide stacking Tricine-SDS gel prepared according to the protocol published by Schägger (2006)109.",
+   "printed": true
+  },
+  {
+   "para_id": 52,
+   "loc": "body",
+   "sec_title": "Single-colour dSTORM imaging",
+   "text": "dSTORM imaging was done on a Zeiss Elyra 7 microscope in the laser widefield beam path mode using ZEN Black 3.0 SR FP2 software (Biosciences Technology Facility, University of York). Experiments were carried out using a Plan-Apochromat 63 x / 1.46 NA Korr oil immersion objective Var 2 lens together with TIRF uHP (ultra-high power) laser power density setting. Image areas were set to 128 pixels x 128 pixels for two cells or 64 pixels x 64 pixels for a single cell and saved in 16-bit format. Initial excitation and intersystem crossing of all fluorophores in the target cell(s) from their ground singlet state to an excited triplet dark state was achieved via application of a short (200 – 300 frames, 50 ms exposure time), high intensity 488 nm laser pulse (15% laser power) with the microscope in epifluorescence (EPI) mode. dSTORM time series image sequences were then collected using highly inclined and laminated optical sheet (HILO) illumination for 5,000 frames (50 ms exposure time) in total. For the first 1000 frames a laser power of 1.5% was applied, this was increased to 2.5% for frames 1000 – 2000, 3.5% for frames 2000 – 3000, 4.5% for frames 3000 – 4000 and finally to 5.5% for frames 4000 - 5000. To propagate fluorophore blinking in the latter 3000 frames, 405 nm light was introduced during the transfer phase of individual image collection to reduce fluorophore photobleaching resulting from simultaneous exposure to both 488 nm and 405 nm light104. HILO illumination mode was used to enable excitation of fluorophores in the outer membrane furthest from the coverslip thereby maximising the S:N ratio. Additional dSTORM image acquisition settings are summarised in Supplementary Table 8.",
+   "printed": true
+  },
+  {
+   "para_id": 53,
+   "loc": "body",
+   "sec_title": "Fluorescence recovery after photobleaching (FRAP) and confocal fluorescence microscopy",
+   "text": "Fluorescence confocal microscopy analyses and FRAP experiments were conducted using either an upright Zeiss LSM710 confocal fluorescence microscope or an inverted Zeiss LSM 780 multiphoton confocal fluorescence microscope (Biosciences Technology Facility, University of York). Confocal imaging and FRAP quantitative and statistical analyses of FRAP data were done according to protocols used in a previous study11.",
+   "printed": true
+  },
+  {
+   "para_id": 54,
+   "loc": "body",
+   "sec_title": "DBSCAN analysis of single-colour dSTORM data using half-rod surface projection in LPS pulse–chase experiments",
+   "text": "Clustering was performed using DBSCAN parameters (ε = 30 nm, minPts = 7) chosen to match those used previously for two-colour overlap analyses, and to reflect the spatial resolution and labelling density typical of our dSTORM datasets. For each identified cluster, 2D convex hulls were computed in the aligned rod frame to calculate area and per-cluster localisation density (points per nm²). A z-height threshold was used to exclude clusters located near the edge of the projected rod surface (z < 20% of cell radius), which are more susceptible to projection artefacts. Global cluster density was calculated as the total number of clusters divided by the estimated surface area of the half-rod model, accounting for both cylindrical and hemispherical components. The pipeline was designed to be both modular and robust, with adjustable geometric and clustering parameters. It was designed for reproducible batch processing of individual cell datasets. The outputs of the pipeline were used to quantify temporal trends in LPS insertion and loss at both whole-cell and subcellular levels over the experimental time course, and summary output tables (Supplementary Tables 18 and 19) are provided in the Figure Source and Analysis Workbook. MATLAB scripts and associated README files are available through the Persistent_LPS_insertion_OM_OMVs GitHub repository at https://github.com/joenabarro-OM/Persistent_LPS_insertion_OM_OMVs/releases/tag/v1.0.2 and have been permanently archived on Zenodo at https://doi.org/10.5281/zenodo.21326870105.",
+   "printed": true
+  },
+  {
+   "para_id": 55,
+   "loc": "body",
+   "sec_title": "Region-resolved visualisation of LPS clusters across OM of single cells",
+   "text": "To investigate whether cluster properties for newly inserted or background LPS varied between distinct spatial domains in the OM of E. coli cells, we implemented a MATLAB script to generate globally scaled, region-coloured cluster maps for individual E. coli cells. DBSCAN-derived cluster centroids identified in the previous analyses were classified as mid-cell or polar based on their x-coordinate relative to the cell midpoint (with poles defined as ±1.5× the cell radius). Cluster marker sizes were scaled globally by the square root of cluster area, enabling direct visual comparison across cells and timepoints. This visualisation allowed interrogation of spatial patterning in both background LPS and newly inserted LPS clusters following Kdo-N3 / native Kdo pulse–chase labelling. By applying a consistent classification scheme across all timepoints, the script enabled robust per-cell assessment of whether cluster distribution or size varied systematically between mid-cell and polar regions, and whether this organisation changed over time. The resulting maps provided an essential complement to global metrics, clarifying that distinct regional distributions of LPS clusters were maintained over time despite OM turnover. The MATLAB script and associated README files are available through the Persistent_LPS_insertion_OM_OMVs GitHub repository at https://github.com/joenabarro-OM/Persistent_LPS_insertion_OM_OMVs/releases/tag/v1.0.2 and have been permanently archived on Zenodo at https://doi.org/10.5281/zenodo.21326870105.",
+   "printed": true
+  },
+  {
+   "para_id": 56,
+   "loc": "body",
+   "sec_title": "Preparation of unsupplemented M9 pH 7.2 / agarose pads",
+   "text": "The optimised protocol was based on a method published previously110. Slides were cleaned without exposure to any type of detergent. Briefly, slides were washed twice in acetone, washed twice in propan-2-ol and rinsed for 10 minutes under slow flowing deionised water. They were then placed in a drying oven, protected from dust overnight. The following day a 125 µL gene frame (Thermo Fisher Scientific) was placed flat at the centre of the slide and left overnight to set.",
+   "printed": true
+  },
+  {
+   "para_id": 57,
+   "loc": "body",
+   "sec_title": "Mounting of live E. coli BW25113 cells with fluorescently labelled background LPS for time-lapse 3D-SIM2 imaging",
+   "text": "Post SPAAC labelling, the cells were resuspended to an OD600 of 2.0 in pre-warmed (to 37 °C) supplemented M9 CDM and incubated for 5 – 10 min at 37 °C. The agarose / M9 pad was incubated at 37 °C for 30 min after which a 1.5 cm×1.5 cm slice was cut using an ethanol cleaned scalpel and placed flat at the centre of a cleaned, pre-warmed glass slide. 10 µL of the labelled cell suspension was pipetted onto the centre of the pad and left for one minute in a laminar flow hood for the cells to adsorb. An additional 5 µL pre-warmed, supplemented M9 was deposited around the edges of the pad. A pre-warmed, cleaned (without detergent) glass, high-precision 18 mm×18 mm no. 1.5 glass coverslip (Zeiss) was then gently placed over the pad. The slide was sealed with a molten VALAP (1: 1: 1 mixture of Vaseline, lanolin, and paraffin) bead to prevent agarose pad desiccation during time course imaging111.",
+   "printed": true
+  },
+  {
+   "para_id": 58,
+   "loc": "body",
+   "sec_title": "Derivation of outer membrane buckling model for OMV formation",
+   "text": "The load bearing properties of the OM, including its ability to sustain compressive stress, have been demonstrated previously5. When the patch radius exceeds Rc, the buckled state becomes unstable, leading to membrane blebbing. The equation for Rc is consistent with the published literature112. However, using this expression to predict critical OMV size is challenging because the value of σ is generally unknown.",
+   "printed": true
+  },
+  {
+   "para_id": 59,
+   "loc": "body",
+   "sec_title": "Derivation of outer membrane buckling model for OMV formation",
+   "text": "It has been shown that during exponential phase growth, the OM bears little or no load, and consequently the value of σ is relatively small5. Based on the equation for Rc, we would expect membrane blebbing to be a relatively rare event during early to mid-exponential phase growth, and this conclusion is consistent with our time-dependent measurements of OMV concentration for wild-type E. coli BW25113 cells (Fig. 6f). To understand the dynamics of σ during stationary phase, we note that while the membrane area (As) anchored to the peptidoglycan cell wall by OmpA and Braun’s lipoprotein remains constant, LPS continues to be inserted at approximately a constant rate. Continued insertion of LPS leads to a time-dependent increase in σ as follows:16\\documentclass[12pt]{minimal} \\usepackage{amsmath} \\usepackage{wasysym} \\usepackage{amsfonts} \\usepackage{amssymb} \\usepackage{amsbsy} \\usepackage{mathrsfs} \\usepackage{upgreek} \\setlength{\\oddsidemargin}{-69pt} \\begin{document}$$\\sigma \\left(t\\right)={\\kappa }_{a}\\frac{{Qt}}{{A}_{s}}$$\\end{document}σt=κaQtAswhere κa is the membrane stretch modulus, Q is the inserted membrane area flux, and t is time.",
+   "printed": false
+  },
+  {
+   "para_id": 60,
+   "loc": "body",
+   "sec_title": "Derivation of outer membrane buckling model for OMV formation",
+   "text": "During late exponential phase and the stationary phase growth, asymmetric expansion of the OM relative to the cell wall would arise and lead to a time-dependent increase in σ. In a steady state, the rate of LPS insertion must balance the rate of OM area loss due to blebbing. The radius of a blebbing LPS patch (Rb) at steady state was estimated using literature values of κa (=0.03–0.24 N/m113) and our experimentally determined value of As (=12.6 µm2 for a typical cell size). Estimates of κb and κa were made by fitting atomic force microscopy measurements of membrane stiffness to a thin-shell membrane model5,114 where the characteristic length scale (w) is related to the shell thickness (h) by w = h/23/2115. The characteristic diameter (d) of the OMV formed from the membrane bleb would be equal to Rb. We obtain d = 73–122 nm for an OMV released by this blebbing mechanism assuming h is equivalent to the OM thickness and using a range of experimentally determined OM thicknesses ( = 7.5–21 nm116,117) and l = 2 µm as measured for a typical cell. This estimate of d is in good agreement with our experimental results (Supplementary Fig. 8b, shaded region), considering the simplicity of the model and the absence of fitting parameters.",
+   "printed": true
+  },
+  {
+   "para_id": 61,
+   "loc": "body",
+   "sec_title": "Simulation domain, mask and coarse-graining",
+   "text": "We simulated a half-cell field (2.6 µm × 1.1 µm; total area, \\documentclass[12pt]{minimal} \\usepackage{amsmath} \\usepackage{wasysym} \\usepackage{amsfonts} \\usepackage{amssymb} \\usepackage{amsbsy} \\usepackage{mathrsfs} \\usepackage{upgreek} \\setlength{\\oddsidemargin}{-69pt} \\begin{document}$${A}_{{field}}$$\\end{document}Afield = 2.86 µm2) mapped to a 780 pixels × 330 pixels grid (pixel size = 3.33 nm). A static allowed-area mask that covered a fraction (\\documentclass[12pt]{minimal} \\usepackage{amsmath} \\usepackage{wasysym} \\usepackage{amsfonts} \\usepackage{amssymb} \\usepackage{amsbsy} \\usepackage{mathrsfs} \\usepackage{upgreek} \\setlength{\\oddsidemargin}{-69pt} \\begin{document}$${f}_{{allow}}$$\\end{document}fallow = 75%) of the field was defined to approximate the LPS-accessible outer leaflet (allowed area, \\documentclass[12pt]{minimal} \\usepackage{amsmath} \\usepackage{wasysym} \\usepackage{amsfonts} \\usepackage{amssymb} \\usepackage{amsbsy} \\usepackage{mathrsfs} \\usepackage{upgreek} \\setlength{\\oddsidemargin}{-69pt} \\begin{document}$${A}_{{allow}}=0.75{x}2.86=2.145\\,$$\\end{document}Aallow=0.75x2.86=2.145µm²)76–78. The remaining 25% represented OMP-occupied, LPS-inaccessible excluded/obstacle regions (rendered as black in figures; sometimes referred to as voids in the simulation mask) consistent with OMP islands and the confined lateral mobility of OMPs and LPS in the OM of E. coli11,32. The number of simulated LPS molecules in the allowed area was held approximately constant at Nsim = 8 × 104 per frame. This Nsim is a coarse-grained representation of the biological copy number expected in this field. In the insertion-trapping simulation (Model 1), the allowed-area mask is static. In the phase-separation simulation (Model 2), the mask undergoes a gentle, area-preserving annealing at discrete 10 min intervals that increases its correlation length and produces the slow coalescence of voids, simulating the slow OMP-domain merging expected in a membrane system where the evolution of component organisation is driven principally by phase separation33,41,42.",
+   "printed": false
+  },
+  {
+   "para_id": 62,
+   "loc": "body",
+   "sec_title": "Simulation domain, mask and coarse-graining",
+   "text": "To relate simulated counts to an estimate of the numbers of LPS molecules within \\documentclass[12pt]{minimal} \\usepackage{amsmath} \\usepackage{wasysym} \\usepackage{amsfonts} \\usepackage{amssymb} \\usepackage{amsbsy} \\usepackage{mathrsfs} \\usepackage{upgreek} \\setlength{\\oddsidemargin}{-69pt} \\begin{document}$${A}_{{allow}}$$\\end{document}Aallow, we estimated the area density of LPS as follows:23\\documentclass[12pt]{minimal} \\usepackage{amsmath} \\usepackage{wasysym} \\usepackage{amsfonts} \\usepackage{amssymb} \\usepackage{amsbsy} \\usepackage{mathrsfs} \\usepackage{upgreek} \\setlength{\\oddsidemargin}{-69pt} \\begin{document}$${\\rho }_{{LPS}}\\approx \\frac{{N}_{{LPS}}}{{f}_{{LPS}}\\,{A}_{{OM}}}$$\\end{document}ρLPS≈NLPSfLPSAOMwhere \\documentclass[12pt]{minimal} \\usepackage{amsmath} \\usepackage{wasysym} \\usepackage{amsfonts} \\usepackage{amssymb} \\usepackage{amsbsy} \\usepackage{mathrsfs} \\usepackage{upgreek} \\setlength{\\oddsidemargin}{-69pt} \\begin{document}$${{N}}_{{LPS}}$$\\end{document}NLPS is the total number of LPS molecules per cell (with \\documentclass[12pt]{minimal} \\usepackage{amsmath} \\usepackage{wasysym} \\usepackage{amsfonts} \\usepackage{amssymb} \\usepackage{amsbsy} \\usepackage{mathrsfs} \\usepackage{upgreek} \\setlength{\\oddsidemargin}{-69pt} \\begin{document}$${N}_{{LPS}}\\in \\left[1.4,\\,2.0\\right]\\,\\times {10}^{6}$$\\end{document}NLPS∈1.4,2.0×106 molecules per cell77–79,118), \\documentclass[12pt]{minimal} \\usepackage{amsmath} \\usepackage{wasysym} \\usepackage{amsfonts} \\usepackage{amssymb} \\usepackage{amsbsy} \\usepackage{mathrsfs} \\usepackage{upgreek} \\setlength{\\oddsidemargin}{-69pt} \\begin{document}$${A}_{{OM}}$$\\end{document}AOM is the OM surface area per cell ( = 4.31 µm2119), \\documentclass[12pt]{minimal} \\usepackage{amsmath} \\usepackage{wasysym} \\usepackage{amsfonts} \\usepackage{amssymb} \\usepackage{amsbsy} \\usepackage{mathrsfs} \\usepackage{upgreek} \\setlength{\\oddsidemargin}{-69pt} \\begin{document}$${\\rho }_{{LPS}}$$\\end{document}ρLPS is the area density of LPS molecules (LPS µm−2), and \\documentclass[12pt]{minimal} \\usepackage{amsmath} \\usepackage{wasysym} \\usepackage{amsfonts} \\usepackage{amssymb} \\usepackage{amsbsy} \\usepackage{mathrsfs} \\usepackage{upgreek} \\setlength{\\oddsidemargin}{-69pt} \\begin{document}$${f}_{{LPS}}$$\\end{document}fLPS is the fraction of the OM surface occupied by LPS (\\documentclass[12pt]{minimal} \\usepackage{amsmath} \\usepackage{wasysym} \\usepackage{amsfonts} \\usepackage{amssymb} \\usepackage{amsbsy} \\usepackage{mathrsfs} \\usepackage{upgreek} \\setlength{\\oddsidemargin}{-69pt} \\begin{document}$${f}_{{LPS}}$$\\end{document}fLPS = 0.7576–78). Numerically, this yields the following:24\\documentclass[12pt]{minimal} \\usepackage{amsmath} \\usepackage{wasysym} \\usepackage{amsfonts} \\usepackage{amssymb} \\usepackage{amsbsy} \\usepackage{mathrsfs} \\usepackage{upgreek} \\setlength{\\oddsidemargin}{-69pt} \\begin{document}$${\\rho }_{{LPS}}\\in \\left[4.33,\\,6.19\\right]\\,\\times {10}^{5}{\\rm{LPS}}\\; {\\rm{\\mu }}{{{m}}}^{-2}$$\\end{document}ρLPS∈4.33,6.19×105LPSμm−2and the simulation field is as follows:25\\documentclass[12pt]{minimal} \\usepackage{amsmath} \\usepackage{wasysym} \\usepackage{amsfonts} \\usepackage{amssymb} \\usepackage{amsbsy} \\usepackage{mathrsfs} \\usepackage{upgreek} \\setlength{\\oddsidemargin}{-69pt} \\begin{document}$${A}_{{field}}=2.6{\\rm{\\mu }}m\\,\\times 1.1{\\rm{\\mu }}m=2.86\\,{\\rm{\\mu }}{m}^{2}.$$\\end{document}Afield=2.6μm×1.1μm=2.86μm2.The allowed (LPS-accessible) area is calculated as follows:26\\documentclass[12pt]{minimal} \\usepackage{amsmath} \\usepackage{wasysym} \\usepackage{amsfonts} \\usepackage{amssymb} \\usepackage{amsbsy} \\usepackage{mathrsfs} \\usepackage{upgreek} \\setlength{\\oddsidemargin}{-69pt} \\begin{document}$${A}_{{allow}}={f}_{{\\!allow}}{A}_{{field}}=0.75\\,x\\,2.86=2.145{\\rm{\\mu }}{m}^{2}$$\\end{document}Aallow=fallowAfield=0.75x2.86=2.145μm2and the expected number of LPS molecules within \\documentclass[12pt]{minimal} \\usepackage{amsmath} \\usepackage{wasysym} \\usepackage{amsfonts} \\usepackage{amssymb} \\usepackage{amsbsy} \\usepackage{mathrsfs} \\usepackage{upgreek} \\setlength{\\oddsidemargin}{-69pt} \\begin{document}$${A}_{{allow}}$$\\end{document}Aallow (\\documentclass[12pt]{minimal} \\usepackage{amsmath} \\usepackage{wasysym} \\usepackage{amsfonts} \\usepackage{amssymb} \\usepackage{amsbsy} \\usepackage{mathrsfs} \\usepackage{upgreek} \\setlength{\\oddsidemargin}{-69pt} \\begin{document}$$\\left\\langle {N}_{{field}}\\right\\rangle$$\\end{document}Nfield) is calculated as follows:27\\documentclass[12pt]{minimal} \\usepackage{amsmath} \\usepackage{wasysym} \\usepackage{amsfonts} \\usepackage{amssymb} \\usepackage{amsbsy} \\usepackage{mathrsfs} \\usepackage{upgreek} \\setlength{\\oddsidemargin}{-69pt} \\begin{document}$$\\left\\langle {N}_{{field}}\\right\\rangle=\\,{\\rho }_{{LPS}}{A}_{{allow}}\\Rightarrow \\left\\langle {N}_{{field}}\\right\\rangle \\in \\left[9.29,13.27\\right]\\times {10}^{5}{\\rm{LPS\\; molecules}}.$$\\end{document}Nfield=ρLPSAallow⇒Nfield∈9.29,13.27×105LPS molecules.Given the number of simulated particles restricted to the allowed area Nsim = 8 × 104, the corresponding coarse-graining factor (γ) relative to the biological count is given by:28\\documentclass[12pt]{minimal} \\usepackage{amsmath} \\usepackage{wasysym} \\usepackage{amsfonts} \\usepackage{amssymb} \\usepackage{amsbsy} \\usepackage{mathrsfs} \\usepackage{upgreek} \\setlength{\\oddsidemargin}{-69pt} \\begin{document}$$\\gamma=\\frac{\\left\\langle {N}_{{field}}\\right\\rangle }{{N}_{{sim}}}\\in \\left[11.6,16.6\\right]$$\\end{document}γ=NfieldNsim∈11.6,16.6thus one simulated LPS particle represents between 12 and 17 LPS molecules.",
+   "printed": false
+  },
+  {
+   "para_id": 63,
+   "loc": "body",
+   "sec_title": "Burst-like new LPS insertion and restricted lateral diffusion of LPS (common settings for both models)",
+   "text": "Within the allowed area, we pre-sampled 300 candidate insertion hotspots and, at each 5 min simulation step, randomly activated 110–150 sites. Newly synthesised LPS was inserted as compact two-dimensional Gaussian (typical σ ≈ 20–40 nm, with light ellipticity jitter), consistent with discrete LptDE-linked delivery to the outer leaflet24,36,120.",
+   "printed": true
+  },
+  {
+   "para_id": 64,
+   "loc": "body",
+   "sec_title": "Burst-like new LPS insertion and restricted lateral diffusion of LPS (common settings for both models)",
+   "text": "Between updates, both LPS particle types attempted highly restricted lateral displacements (σ ≈ 40 nm per 5 min) in-line with experimental observations that have shown LPS in E. coli BW25113 undergoes tightly restricted lateral diffusion10,11. Any LPS particle proposed movements that resulted in their entry into voids or crossing boundaries were rejected, reflecting the very low lateral mobility in the outer leaflet of the OM and confinement by OMP assemblies10,11,32. Diffusive step sizes were matched across both models (per-step standard deviation on the order of a few nm at 5 min cadence); only Model 2 adds an interaction-driven drift term. Since turnover, insertion, lateral diffusion and OMV biogenesis were identical in both the insertion-trapping and phase separation models, the observed variations in newly inserted versus background LPS distributions arose from differences in the principles underpinning organisation (i.e. insertion-trapping versus phase separation).",
+   "printed": true
+  },
+  {
+   "para_id": 65,
+   "loc": "body",
+   "sec_title": "OMV biogenesis via OM buckling (release of OM compressive stress by vesiculation)",
+   "text": "We modelled OMV biogenesis identically in both models, as a means of releasing compressive stress in LPS-rich patches whose rims are pinned by OM–peptidoglycan (PG) anchoring (for example, by Braun’s lipoprotein), and where patch centres are comparatively weakly anchored (Fig. 7a). Continued new LPS insertion elevates in-plane compressive stress until a patch bulges and blebs to release an OMV. At each 5 min simulation step, we drew a Poisson number of events corresponding to ~3 per 30 min on average and placed them at peaks of total LPS density (top 10%) at locations away from OMP voids. Each event removed only a fraction of the local LPS within a radius of 80–90 nm footprint and re-packed remaining LPS particles with a small jitter (re-packing jitter ~20 nm), so no persistent hole remained thereby mimicking OMV pinching (Fig. 7a) and membrane reshaping, rather than perforation. This implementation aligns with the load-bearing role of the OM and OM–PG tethering mechanics5,71 along with the observed hyper-vesiculating phenotypes observed in E. coli mutant strains (Δtol-pal and Δlpp) with weakened OM-PG tethers72. The white circles used in the figures are visual markers only and do not reflect OMV dimensions.",
+   "printed": true
+  },
+  {
+   "para_id": 66,
+   "loc": "body",
+   "sec_title": "Insertion-trapping model",
+   "text": "To emulate the compressive stress at highly active insertion sites without creating artefacts, recent newly inserted LPS bursts nudge background LPS slightly outward within a 50–60 nm neighbourhood in small, isotropic displacements, preserving local LPS packing density in background LPS-rich patches. The Python script and associated README file are available through the Persistent_LPS_insertion_OM_OMVs GitHub repository and have been permanently archived on Zenodo at https://doi.org/10.5281/zenodo.21326870105.",
+   "printed": true
+  },
+  {
+   "para_id": 67,
+   "loc": "body",
+   "sec_title": "Phase separation model",
+   "text": "Model 2 incorporated the same LPS insertion and turnover schedule, confined lateral diffusion and OMV biogenesis module as Model 1, but replaced the insertion-trapping rules with like-like interactions and slow OMP void coalescence. The phase separation-specific rules were as follows: (i) At each step, we computed smooth density fields and added a weak drift up the gradient of each particle’s own density (Metropolis/Cahn–Hilliard-style), increasing co-locating (co-clustering) and promoting domain coarsening while conserving particle numbers. No explicit newly inserted versus background LPS avoidance rules were applied. (ii) The allowed-area mask was lightly annealed at each 5 min simulation step (diffuse-threshold cycle) to increase the mask’s correlation length whilst preserving \\documentclass[12pt]{minimal} \\usepackage{amsmath} \\usepackage{wasysym} \\usepackage{amsfonts} \\usepackage{amssymb} \\usepackage{amsbsy} \\usepackage{mathrsfs} \\usepackage{upgreek} \\setlength{\\oddsidemargin}{-69pt} \\begin{document}$${f}_{{allow}}$$\\end{document}fallow, yielding the slow merging of OMP-rich island voids expected in a membrane system undergoing demixing43,44,85,86.",
+   "printed": false
+  },
+  {
+   "para_id": 68,
+   "loc": "body",
+   "sec_title": "Phase separation model",
+   "text": "Since all global kinetics matched those applied in Model 1, the distinctive signatures of this model (increasing DICE coefficient and gNB(0) > 0) arise from its intrinsic phase separation characteristics and not from differences in lateral diffusion, or LPS insertion and turnover rates. The Python script and associated README file are available through the Persistent_LPS_insertion_OM_OMVs GitHub repository at https://github.com/joenabarro-OM/Persistent_LPS_insertion_OM_OMVs/releases/tag/v1.0.2 and have been permanently archived on Zenodo at https://doi.org/10.5281/zenodo.21326870105.",
+   "printed": true
+  },
+  {
+   "para_id": 69,
+   "loc": "back",
+   "sec_title": "",
+   "text": "The custom MATLAB and Python codes used for dSTORM image analysis, data interrogation and particle-based simulations are available in the Persistent_LPS_insertion_OM_OMVs GitHub repository at https://github.com/joenabarro-OM/Persistent_LPS_insertion_OM_OMVs/releases/tag/v1.0.2. This version, release v1.0.2, has been permanently archived on Zenodo at https://doi.org/10.5281/zenodo.21326870105. The code is released under the MIT License.",
+   "printed": true
+  }
+ ],
+ "links": [
+  {
+   "link_id": 1,
+   "url": "github.com/joenabarro-om/persistent_lps_insertion_om_omvs/releases/tag/v1.0.2",
+   "url_raw": "https://github.com/joenabarro-OM/Persistent_LPS_insertion_OM_OMVs/releases/tag/v1.0.2",
+   "href_jats": "https://github.com/joenabarro-OM/Persistent_LPS_insertion_OM_OMVs/releases/tag/v1.0.2",
+   "repo_key": "github:joenabarro-om/persistent_lps_insertion_om_omvs",
+   "host_class": "github",
+   "loc": "body",
+   "sec_title": "Spatial assessment of LptD*/newly inserted LPS via cross-correlation analysis of two-colour dSTORM data outputs",
+   "source": "tagged",
+   "para_id": 1
+  },
+  {
+   "link_id": 2,
+   "url": "zenodo.org/records/21326870",
+   "url_raw": "https://doi.org/10.5281/zenodo.21326870",
+   "href_jats": "10.5281/zenodo.21326870",
+   "repo_key": "zenodo:21326870",
+   "host_class": "zenodo",
+   "loc": "body",
+   "sec_title": "Spatial assessment of LptD*/newly inserted LPS via cross-correlation analysis of two-colour dSTORM data outputs",
+   "source": "tagged",
+   "para_id": 1
+  }
+ ],
+ "links_optional": [
+  "creativecommons.org/licenses/by/4.0",
+  "doi:10.1002/anie.196305651",
+  "doi:10.1002/anie.201008178",
+  "doi:10.1002/anie.201108127",
+  "doi:10.1007/s11095-010-0073-2",
+  "doi:10.1016/0022-3697(61)90054-3",
+  "doi:10.1016/j.bbalip.2019.05.018",
+  "doi:10.1016/j.bbamcr.2005.06.010",
+  "doi:10.1016/j.bbapap.2008.11.005",
+  "doi:10.1016/j.biotechadv.2017.05.003",
+  "doi:10.1016/j.bpj.2014.04.024",
+  "doi:10.1016/j.bpj.2016.01.002",
+  "doi:10.1016/j.cell.2005.02.015",
+  "doi:10.1016/j.chembiol.2004.07.011",
+  "doi:10.1016/j.crhy.2015.02.005",
+  "doi:10.1016/j.jbc.2024.107754",
+  "doi:10.1016/s0006-3495(03)74726-2",
+  "doi:10.1016/s0006-3495(98)74061-5",
+  "doi:10.1016/s0021-9258(19)45127-2",
+  "doi:10.1016/s0092-8674(00)81003-x",
+  "doi:10.1016/s0966-842x(97)81773-8",
+  "doi:10.1021/bi400164t",
+  "doi:10.1021/bm400356m",
+  "doi:10.1021/ja021381e",
+  "doi:10.1021/ja044996f",
+  "doi:10.1021/ja100500k",
+  "doi:10.1021/ja104609m",
+  "doi:10.1021/ja210587q",
+  "doi:10.1021/ja900553w",
+  "doi:10.1021/jp8027963",
+  "doi:10.1038/msb4100050",
+  "doi:10.1038/nature13464",
+  "doi:10.1038/nature14461",
+  "doi:10.1038/ncomms10515",
+  "doi:10.1038/nmeth.1318",
+  "doi:10.1038/nmeth.3612",
+  "doi:10.1038/nmicrobiol.2017.1",
+  "doi:10.1038/nprot.2006.4",
+  "doi:10.1038/nprot.2011.336",
+  "doi:10.1038/nprot.2013.066",
+  "doi:10.1038/nri3837",
+  "doi:10.1038/nrmicro3525",
+  "doi:10.1038/s41467-018-03521-4",
+  "doi:10.1038/s41467-019-09901-8",
+  "doi:10.1038/s41467-020-15489-1",
+  "doi:10.1038/s41467-026-76886-6",
+  "doi:10.1038/s41579-019-0201-x",
+  "doi:10.1038/s41579-021-00638-0",
+  "doi:10.1038/s41586-018-0344-3",
+  "doi:10.1038/s41586-019-1025-6",
+  "doi:10.1038/s41586-020-2597-x",
+  "doi:10.1038/s41586-021-03819-2",
+  "doi:10.1038/s41586-023-06709-x",
+  "doi:10.1038/s41598-019-41233-x",
+  "doi:10.1038/s44318-026-00711-5",
+  "doi:10.1039/c4ra07851a",
+  "doi:10.1039/d0ob00972e",
+  "doi:10.1046/j.1365-2958.2000.01983.x",
+  "doi:10.1046/j.1365-2958.2002.03091.x",
+  "doi:10.1063/1.1744102",
+  "doi:10.1073/pnas.0903229106",
+  "doi:10.1073/pnas.0912872107",
+  "doi:10.1073/pnas.1015617108",
+  "doi:10.1073/pnas.120163297",
+  "doi:10.1073/pnas.1601375113",
+  "doi:10.1073/pnas.2112237118",
+  "doi:10.1073/pnas.2414725122",
+  "doi:10.1074/jbc.m117.814962",
+  "doi:10.1080/00018739400101505",
+  "doi:10.1080/00018739700101488",
+  "doi:10.1080/20013078.2017.1333883",
+  "doi:10.1093/jmicro/dfx019",
+  "doi:10.1103/physreva.20.595",
+  "doi:10.1103/physreve.96.042405",
+  "doi:10.1103/physrevlett.107.158101",
+  "doi:10.1111/febs.16358",
+  "doi:10.1111/j.1365-2958.1992.tb01487.x",
+  "doi:10.1111/j.1365-2958.1992.tb02197.x",
+  "doi:10.1111/j.1365-2958.2006.05522.x",
+  "doi:10.1111/j.1432-1033.1974.tb03440.x",
+  "doi:10.1111/tra.12488",
+  "doi:10.1126/sciadv.adc9566",
+  "doi:10.1128/aac.24.1.114",
+  "doi:10.1128/aac.33.11.1831",
+  "doi:10.1128/jb.01651-09",
+  "doi:10.1128/jb.169.5.1960-1966.1987",
+  "doi:10.1128/jb.180.18.4872-4878.1998",
+  "doi:10.1128/jb.181.12.3688-3694.1999",
+  "doi:10.1128/jb.185.20.6112-6118.2003",
+  "doi:10.1128/mbio.00297-11",
+  "doi:10.1128/mbio.00379-18",
+  "doi:10.1128/mbio.00940-16",
+  "doi:10.1128/mbio.01532-16",
+  "doi:10.1128/mbio.01541-16",
+  "doi:10.1128/mmbr.67.4.593-656.2003",
+  "doi:10.1146/annurev.biophys.093008.131238",
+  "doi:10.1146/annurev.micro.091208.073413",
+  "doi:10.1155/2015/153561",
+  "doi:10.1186/1471-2180-11-258",
+  "doi:10.1186/1471-2180-13-66",
+  "doi:10.1371/journal.pcbi.1002680",
+  "doi:10.1371/journal.pone.0127700",
+  "doi:10.1371/journal.pone.0139200",
+  "doi:10.1371/journal.pone.0160918",
+  "doi:10.1371/journal.pone.0325589",
+  "doi:10.15252/embj.2021109800",
+  "doi:10.3389/fmicb.2021.628801",
+  "doi:10.3389/fphy.2014.00046",
+  "doi:10.3390/ijms22115985",
+  "doi:10.3390/proteomes10020015",
+  "doi:10.3402/jev.v2i0.19671",
+  "doi:10.5217/ir.2014.12.2.90",
+  "doi:10.7554/elife.65836"
+ ],
+ "own_doi": "doi:10.1038/s41467-026-76886-6",
+ "citations": [
+  {
+   "cite_id": 1,
+   "para_id": 2,
+   "bib_id": 1,
+   "marker": "1",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 2,
+   "para_id": 2,
+   "bib_id": 2,
+   "marker": "1–4",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 3,
+   "para_id": 2,
+   "bib_id": 3,
+   "marker": "1–4",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 4,
+   "para_id": 2,
+   "bib_id": 4,
+   "marker": "4",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 5,
+   "para_id": 2,
+   "bib_id": 5,
+   "marker": "5",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 6,
+   "para_id": 2,
+   "bib_id": 6,
+   "marker": "6",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 7,
+   "para_id": 2,
+   "bib_id": 7,
+   "marker": "7",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 8,
+   "para_id": 2,
+   "bib_id": 8,
+   "marker": "8",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 9,
+   "para_id": 2,
+   "bib_id": 4,
+   "marker": "4",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 10,
+   "para_id": 2,
+   "bib_id": 9,
+   "marker": "9",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 11,
+   "para_id": 2,
+   "bib_id": 10,
+   "marker": "10",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 12,
+   "para_id": 2,
+   "bib_id": 11,
+   "marker": "11",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 13,
+   "para_id": 2,
+   "bib_id": 11,
+   "marker": "11",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 14,
+   "para_id": 2,
+   "bib_id": 12,
+   "marker": "12",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 15,
+   "para_id": 2,
+   "bib_id": 13,
+   "marker": "13",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 16,
+   "para_id": 2,
+   "bib_id": 13,
+   "marker": "13",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 17,
+   "para_id": 3,
+   "bib_id": 10,
+   "marker": "10",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 18,
+   "para_id": 3,
+   "bib_id": 14,
+   "marker": "14",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 19,
+   "para_id": 4,
+   "bib_id": 15,
+   "marker": "15",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 20,
+   "para_id": 4,
+   "bib_id": 16,
+   "marker": "15–18",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 21,
+   "para_id": 4,
+   "bib_id": 17,
+   "marker": "15–18",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 22,
+   "para_id": 4,
+   "bib_id": 18,
+   "marker": "18",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 23,
+   "para_id": 4,
+   "bib_id": 18,
+   "marker": "18",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 24,
+   "para_id": 4,
+   "bib_id": 19,
+   "marker": "18–21",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 25,
+   "para_id": 4,
+   "bib_id": 20,
+   "marker": "18–21",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 26,
+   "para_id": 4,
+   "bib_id": 21,
+   "marker": "21",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 27,
+   "para_id": 4,
+   "bib_id": 22,
+   "marker": "22",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 28,
+   "para_id": 4,
+   "bib_id": 23,
+   "marker": "23",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 29,
+   "para_id": 5,
+   "bib_id": 24,
+   "marker": "24",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 30,
+   "para_id": 5,
+   "bib_id": 11,
+   "marker": "11",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 31,
+   "para_id": 5,
+   "bib_id": 25,
+   "marker": "25",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 32,
+   "para_id": 5,
+   "bib_id": 26,
+   "marker": "25–27",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 33,
+   "para_id": 5,
+   "bib_id": 27,
+   "marker": "27",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 34,
+   "para_id": 5,
+   "bib_id": 28,
+   "marker": "28",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 35,
+   "para_id": 5,
+   "bib_id": 29,
+   "marker": "28–31",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 36,
+   "para_id": 5,
+   "bib_id": 30,
+   "marker": "28–31",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 37,
+   "para_id": 5,
+   "bib_id": 31,
+   "marker": "31",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 38,
+   "para_id": 6,
+   "bib_id": 10,
+   "marker": "10",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 39,
+   "para_id": 6,
+   "bib_id": 12,
+   "marker": "12",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 40,
+   "para_id": 6,
+   "bib_id": 32,
+   "marker": "32",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 41,
+   "para_id": 7,
+   "bib_id": 10,
+   "marker": "10",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 42,
+   "para_id": 7,
+   "bib_id": 12,
+   "marker": "12",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 43,
+   "para_id": 7,
+   "bib_id": 33,
+   "marker": "33",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 44,
+   "para_id": 8,
+   "bib_id": 32,
+   "marker": "32",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 45,
+   "para_id": 8,
+   "bib_id": 10,
+   "marker": "10",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 46,
+   "para_id": 8,
+   "bib_id": 32,
+   "marker": "32",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 47,
+   "para_id": 8,
+   "bib_id": 34,
+   "marker": "34",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 48,
+   "para_id": 8,
+   "bib_id": 35,
+   "marker": "34–36",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 49,
+   "para_id": 8,
+   "bib_id": 36,
+   "marker": "36",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 50,
+   "para_id": 9,
+   "bib_id": 10,
+   "marker": "10",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 51,
+   "para_id": 9,
+   "bib_id": 12,
+   "marker": "12",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 52,
+   "para_id": 9,
+   "bib_id": 36,
+   "marker": "36",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 53,
+   "para_id": 10,
+   "bib_id": 37,
+   "marker": "37",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 54,
+   "para_id": 10,
+   "bib_id": 38,
+   "marker": "38",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 55,
+   "para_id": 11,
+   "bib_id": 11,
+   "marker": "11",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 56,
+   "para_id": 12,
+   "bib_id": 39,
+   "marker": "39",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 57,
+   "para_id": 12,
+   "bib_id": 10,
+   "marker": "10",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 58,
+   "para_id": 12,
+   "bib_id": 11,
+   "marker": "10–12",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 59,
+   "para_id": 12,
+   "bib_id": 12,
+   "marker": "12",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 60,
+   "para_id": 13,
+   "bib_id": 14,
+   "marker": "14",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 61,
+   "para_id": 13,
+   "bib_id": 14,
+   "marker": "14",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 62,
+   "para_id": 14,
+   "bib_id": 10,
+   "marker": "10",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 63,
+   "para_id": 15,
+   "bib_id": 40,
+   "marker": "40",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 64,
+   "para_id": 16,
+   "bib_id": 33,
+   "marker": "33",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 65,
+   "para_id": 16,
+   "bib_id": 41,
+   "marker": "41",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 66,
+   "para_id": 16,
+   "bib_id": 10,
+   "marker": "10",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 67,
+   "para_id": 16,
+   "bib_id": 11,
+   "marker": "11",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 68,
+   "para_id": 16,
+   "bib_id": 32,
+   "marker": "32",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 69,
+   "para_id": 16,
+   "bib_id": 42,
+   "marker": "42",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 70,
+   "para_id": 16,
+   "bib_id": 43,
+   "marker": "42–48",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 71,
+   "para_id": 16,
+   "bib_id": 44,
+   "marker": "42–48",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 72,
+   "para_id": 16,
+   "bib_id": 45,
+   "marker": "42–48",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 73,
+   "para_id": 16,
+   "bib_id": 46,
+   "marker": "42–48",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 74,
+   "para_id": 16,
+   "bib_id": 47,
+   "marker": "42–48",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 75,
+   "para_id": 16,
+   "bib_id": 48,
+   "marker": "48",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 76,
+   "para_id": 16,
+   "bib_id": 13,
+   "marker": "13",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 77,
+   "para_id": 16,
+   "bib_id": 10,
+   "marker": "10",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 78,
+   "para_id": 16,
+   "bib_id": 13,
+   "marker": "13",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 79,
+   "para_id": 16,
+   "bib_id": 33,
+   "marker": "33",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 80,
+   "para_id": 16,
+   "bib_id": 49,
+   "marker": "49",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 81,
+   "para_id": 17,
+   "bib_id": 42,
+   "marker": "42",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 82,
+   "para_id": 17,
+   "bib_id": 43,
+   "marker": "42–48",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 83,
+   "para_id": 17,
+   "bib_id": 44,
+   "marker": "42–48",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 84,
+   "para_id": 17,
+   "bib_id": 45,
+   "marker": "42–48",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 85,
+   "para_id": 17,
+   "bib_id": 46,
+   "marker": "42–48",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 86,
+   "para_id": 17,
+   "bib_id": 47,
+   "marker": "42–48",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 87,
+   "para_id": 17,
+   "bib_id": 48,
+   "marker": "48",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 88,
+   "para_id": 17,
+   "bib_id": 45,
+   "marker": "45",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 89,
+   "para_id": 17,
+   "bib_id": 46,
+   "marker": "45–47",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 90,
+   "para_id": 17,
+   "bib_id": 47,
+   "marker": "47",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 91,
+   "para_id": 17,
+   "bib_id": 33,
+   "marker": "33",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 92,
+   "para_id": 17,
+   "bib_id": 41,
+   "marker": "41",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 93,
+   "para_id": 17,
+   "bib_id": 10,
+   "marker": "10",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 94,
+   "para_id": 17,
+   "bib_id": 11,
+   "marker": "10–13",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 95,
+   "para_id": 17,
+   "bib_id": 12,
+   "marker": "10–13",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 96,
+   "para_id": 17,
+   "bib_id": 13,
+   "marker": "13",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 97,
+   "para_id": 18,
+   "bib_id": 13,
+   "marker": "13",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 98,
+   "para_id": 18,
+   "bib_id": 32,
+   "marker": "32",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 99,
+   "para_id": 18,
+   "bib_id": 10,
+   "marker": "10",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 100,
+   "para_id": 18,
+   "bib_id": 11,
+   "marker": "10–12",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 101,
+   "para_id": 18,
+   "bib_id": 12,
+   "marker": "12",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 102,
+   "para_id": 19,
+   "bib_id": 10,
+   "marker": "10",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 103,
+   "para_id": 19,
+   "bib_id": 11,
+   "marker": "10–13",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 104,
+   "para_id": 19,
+   "bib_id": 12,
+   "marker": "10–13",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 105,
+   "para_id": 19,
+   "bib_id": 13,
+   "marker": "13",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 106,
+   "para_id": 19,
+   "bib_id": 33,
+   "marker": "33",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 107,
+   "para_id": 19,
+   "bib_id": 13,
+   "marker": "13",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 108,
+   "para_id": 19,
+   "bib_id": 32,
+   "marker": "32",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 109,
+   "para_id": 20,
+   "bib_id": 32,
+   "marker": "32",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 110,
+   "para_id": 20,
+   "bib_id": 50,
+   "marker": "50",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 111,
+   "para_id": 20,
+   "bib_id": 51,
+   "marker": "51",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 112,
+   "para_id": 20,
+   "bib_id": 52,
+   "marker": "51–56",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 113,
+   "para_id": 20,
+   "bib_id": 53,
+   "marker": "51–56",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 114,
+   "para_id": 20,
+   "bib_id": 54,
+   "marker": "51–56",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 115,
+   "para_id": 20,
+   "bib_id": 55,
+   "marker": "51–56",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 116,
+   "para_id": 20,
+   "bib_id": 56,
+   "marker": "56",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 117,
+   "para_id": 20,
+   "bib_id": 57,
+   "marker": "57",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 118,
+   "para_id": 20,
+   "bib_id": 58,
+   "marker": "58",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 119,
+   "para_id": 21,
+   "bib_id": 32,
+   "marker": "32",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 120,
+   "para_id": 22,
+   "bib_id": 59,
+   "marker": "59",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 121,
+   "para_id": 22,
+   "bib_id": 60,
+   "marker": "59–62",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 122,
+   "para_id": 22,
+   "bib_id": 61,
+   "marker": "59–62",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 123,
+   "para_id": 22,
+   "bib_id": 62,
+   "marker": "62",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 124,
+   "para_id": 23,
+   "bib_id": 63,
+   "marker": "63",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 125,
+   "para_id": 23,
+   "bib_id": 62,
+   "marker": "62",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 126,
+   "para_id": 24,
+   "bib_id": 64,
+   "marker": "64",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 127,
+   "para_id": 24,
+   "bib_id": 65,
+   "marker": "64–66",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 128,
+   "para_id": 24,
+   "bib_id": 66,
+   "marker": "66",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 129,
+   "para_id": 24,
+   "bib_id": 67,
+   "marker": "67",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 130,
+   "para_id": 25,
+   "bib_id": 11,
+   "marker": "11",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 131,
+   "para_id": 25,
+   "bib_id": 68,
+   "marker": "68",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 132,
+   "para_id": 25,
+   "bib_id": 69,
+   "marker": "69",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 133,
+   "para_id": 26,
+   "bib_id": 66,
+   "marker": "66",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 134,
+   "para_id": 26,
+   "bib_id": 70,
+   "marker": "70",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 135,
+   "para_id": 27,
+   "bib_id": 67,
+   "marker": "67",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 136,
+   "para_id": 27,
+   "bib_id": 5,
+   "marker": "5",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 137,
+   "para_id": 27,
+   "bib_id": 71,
+   "marker": "71",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 138,
+   "para_id": 27,
+   "bib_id": 72,
+   "marker": "72",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 139,
+   "para_id": 27,
+   "bib_id": 73,
+   "marker": "73",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 140,
+   "para_id": 28,
+   "bib_id": 74,
+   "marker": "74",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 141,
+   "para_id": 28,
+   "bib_id": 75,
+   "marker": "75",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 142,
+   "para_id": 28,
+   "bib_id": 59,
+   "marker": "59",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 143,
+   "para_id": 28,
+   "bib_id": 60,
+   "marker": "60",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 144,
+   "para_id": 29,
+   "bib_id": 76,
+   "marker": "76",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 145,
+   "para_id": 29,
+   "bib_id": 77,
+   "marker": "76–78",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 146,
+   "para_id": 29,
+   "bib_id": 78,
+   "marker": "78",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 147,
+   "para_id": 29,
+   "bib_id": 10,
+   "marker": "10",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 148,
+   "para_id": 29,
+   "bib_id": 11,
+   "marker": "11",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 149,
+   "para_id": 29,
+   "bib_id": 33,
+   "marker": "33",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 150,
+   "para_id": 29,
+   "bib_id": 77,
+   "marker": "77",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 151,
+   "para_id": 29,
+   "bib_id": 78,
+   "marker": "77–79",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 152,
+   "para_id": 29,
+   "bib_id": 79,
+   "marker": "79",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 153,
+   "para_id": 30,
+   "bib_id": 13,
+   "marker": "13",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 154,
+   "para_id": 30,
+   "bib_id": 10,
+   "marker": "10",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 155,
+   "para_id": 30,
+   "bib_id": 36,
+   "marker": "36",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 156,
+   "para_id": 30,
+   "bib_id": 10,
+   "marker": "10",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 157,
+   "para_id": 30,
+   "bib_id": 11,
+   "marker": "11",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 158,
+   "para_id": 31,
+   "bib_id": 43,
+   "marker": "43",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 159,
+   "para_id": 31,
+   "bib_id": 43,
+   "marker": "43",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 160,
+   "para_id": 32,
+   "bib_id": 10,
+   "marker": "10",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 161,
+   "para_id": 32,
+   "bib_id": 11,
+   "marker": "11",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 162,
+   "para_id": 32,
+   "bib_id": 10,
+   "marker": "10",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 163,
+   "para_id": 32,
+   "bib_id": 11,
+   "marker": "11",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 164,
+   "para_id": 32,
+   "bib_id": 13,
+   "marker": "13",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 165,
+   "para_id": 32,
+   "bib_id": 32,
+   "marker": "32",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 166,
+   "para_id": 32,
+   "bib_id": 32,
+   "marker": "32",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 167,
+   "para_id": 32,
+   "bib_id": 62,
+   "marker": "62",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 168,
+   "para_id": 32,
+   "bib_id": 63,
+   "marker": "63",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 169,
+   "para_id": 32,
+   "bib_id": 74,
+   "marker": "74",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 170,
+   "para_id": 32,
+   "bib_id": 80,
+   "marker": "80",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 171,
+   "para_id": 33,
+   "bib_id": 5,
+   "marker": "5",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 172,
+   "para_id": 33,
+   "bib_id": 6,
+   "marker": "6",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 173,
+   "para_id": 33,
+   "bib_id": 32,
+   "marker": "32",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 174,
+   "para_id": 33,
+   "bib_id": 60,
+   "marker": "60",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 175,
+   "para_id": 33,
+   "bib_id": 61,
+   "marker": "60–62",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 176,
+   "para_id": 33,
+   "bib_id": 62,
+   "marker": "62",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 177,
+   "para_id": 34,
+   "bib_id": 81,
+   "marker": "81",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 178,
+   "para_id": 34,
+   "bib_id": 82,
+   "marker": "81–83",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 179,
+   "para_id": 34,
+   "bib_id": 83,
+   "marker": "83",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 180,
+   "para_id": 34,
+   "bib_id": 84,
+   "marker": "84",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 181,
+   "para_id": 35,
+   "bib_id": 13,
+   "marker": "13",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 182,
+   "para_id": 35,
+   "bib_id": 11,
+   "marker": "11",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 183,
+   "para_id": 35,
+   "bib_id": 13,
+   "marker": "13",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 184,
+   "para_id": 35,
+   "bib_id": 32,
+   "marker": "32",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 185,
+   "para_id": 36,
+   "bib_id": 85,
+   "marker": "85",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 186,
+   "para_id": 36,
+   "bib_id": 86,
+   "marker": "86",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 187,
+   "para_id": 36,
+   "bib_id": 43,
+   "marker": "43",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 188,
+   "para_id": 36,
+   "bib_id": 44,
+   "marker": "44",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 189,
+   "para_id": 36,
+   "bib_id": 59,
+   "marker": "59",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 190,
+   "para_id": 36,
+   "bib_id": 60,
+   "marker": "60",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 191,
+   "para_id": 36,
+   "bib_id": 72,
+   "marker": "72",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 192,
+   "para_id": 36,
+   "bib_id": 73,
+   "marker": "72–75",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 193,
+   "para_id": 36,
+   "bib_id": 74,
+   "marker": "72–75",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 194,
+   "para_id": 36,
+   "bib_id": 75,
+   "marker": "75",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 195,
+   "para_id": 36,
+   "bib_id": 10,
+   "marker": "10",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 196,
+   "para_id": 36,
+   "bib_id": 11,
+   "marker": "11",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 197,
+   "para_id": 36,
+   "bib_id": 32,
+   "marker": "32",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 198,
+   "para_id": 36,
+   "bib_id": 10,
+   "marker": "10",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 199,
+   "para_id": 36,
+   "bib_id": 11,
+   "marker": "11",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 200,
+   "para_id": 37,
+   "bib_id": 32,
+   "marker": "32",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 201,
+   "para_id": 37,
+   "bib_id": 87,
+   "marker": "87",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 202,
+   "para_id": 37,
+   "bib_id": 88,
+   "marker": "88",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 203,
+   "para_id": 38,
+   "bib_id": 89,
+   "marker": "89",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 204,
+   "para_id": 38,
+   "bib_id": 25,
+   "marker": "25",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 205,
+   "para_id": 38,
+   "bib_id": 90,
+   "marker": "90",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 206,
+   "para_id": 39,
+   "bib_id": 26,
+   "marker": "26",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 207,
+   "para_id": 39,
+   "bib_id": 38,
+   "marker": "38",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 208,
+   "para_id": 40,
+   "bib_id": 26,
+   "marker": "26",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 209,
+   "para_id": 40,
+   "bib_id": 38,
+   "marker": "38",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 210,
+   "para_id": 41,
+   "bib_id": 91,
+   "marker": "91",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 211,
+   "para_id": 41,
+   "bib_id": 24,
+   "marker": "24",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 212,
+   "para_id": 41,
+   "bib_id": 92,
+   "marker": "92",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 213,
+   "para_id": 41,
+   "bib_id": 93,
+   "marker": "93",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 214,
+   "para_id": 42,
+   "bib_id": 94,
+   "marker": "94",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 215,
+   "para_id": 42,
+   "bib_id": 95,
+   "marker": "95",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 216,
+   "para_id": 43,
+   "bib_id": 11,
+   "marker": "11",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 217,
+   "para_id": 43,
+   "bib_id": 96,
+   "marker": "96",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 218,
+   "para_id": 43,
+   "bib_id": 97,
+   "marker": "97",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 219,
+   "para_id": 43,
+   "bib_id": 98,
+   "marker": "98",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 220,
+   "para_id": 43,
+   "bib_id": 99,
+   "marker": "99",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 221,
+   "para_id": 43,
+   "bib_id": 100,
+   "marker": "100",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 222,
+   "para_id": 43,
+   "bib_id": 101,
+   "marker": "100–102",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 223,
+   "para_id": 43,
+   "bib_id": 102,
+   "marker": "102",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 224,
+   "para_id": 43,
+   "bib_id": 88,
+   "marker": "88",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 225,
+   "para_id": 44,
+   "bib_id": 103,
+   "marker": "103",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 226,
+   "para_id": 44,
+   "bib_id": 104,
+   "marker": "104",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 227,
+   "para_id": 45,
+   "bib_id": 104,
+   "marker": "104",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 228,
+   "para_id": 1,
+   "bib_id": 105,
+   "marker": "105",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 229,
+   "para_id": 46,
+   "bib_id": 105,
+   "marker": "105",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 230,
+   "para_id": 47,
+   "bib_id": 105,
+   "marker": "105",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 231,
+   "para_id": 48,
+   "bib_id": 106,
+   "marker": "106",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 232,
+   "para_id": 48,
+   "bib_id": 107,
+   "marker": "107",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 233,
+   "para_id": 49,
+   "bib_id": 105,
+   "marker": "105",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 234,
+   "para_id": 50,
+   "bib_id": 108,
+   "marker": "108",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 235,
+   "para_id": 51,
+   "bib_id": 109,
+   "marker": "109",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 236,
+   "para_id": 52,
+   "bib_id": 104,
+   "marker": "104",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 237,
+   "para_id": 53,
+   "bib_id": 11,
+   "marker": "11",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 238,
+   "para_id": 54,
+   "bib_id": 105,
+   "marker": "105",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 239,
+   "para_id": 55,
+   "bib_id": 105,
+   "marker": "105",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 240,
+   "para_id": 56,
+   "bib_id": 110,
+   "marker": "110",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 241,
+   "para_id": 57,
+   "bib_id": 111,
+   "marker": "111",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 242,
+   "para_id": 58,
+   "bib_id": 5,
+   "marker": "5",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 243,
+   "para_id": 58,
+   "bib_id": 112,
+   "marker": "112",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 244,
+   "para_id": 59,
+   "bib_id": 5,
+   "marker": "5",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 245,
+   "para_id": 60,
+   "bib_id": 113,
+   "marker": "113",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 246,
+   "para_id": 60,
+   "bib_id": 5,
+   "marker": "5",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 247,
+   "para_id": 60,
+   "bib_id": 114,
+   "marker": "114",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 248,
+   "para_id": 60,
+   "bib_id": 115,
+   "marker": "115",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 249,
+   "para_id": 60,
+   "bib_id": 116,
+   "marker": "116",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 250,
+   "para_id": 60,
+   "bib_id": 117,
+   "marker": "117",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 251,
+   "para_id": 61,
+   "bib_id": 76,
+   "marker": "76",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 252,
+   "para_id": 61,
+   "bib_id": 77,
+   "marker": "76–78",
+   "expanded": true,
+   "scored": false
+  },
+  {
+   "cite_id": 253,
+   "para_id": 61,
+   "bib_id": 78,
+   "marker": "78",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 254,
+   "para_id": 61,
+   "bib_id": 11,
+   "marker": "11",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 255,
+   "para_id": 61,
+   "bib_id": 32,
+   "marker": "32",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 256,
+   "para_id": 61,
+   "bib_id": 33,
+   "marker": "33",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 257,
+   "para_id": 61,
+   "bib_id": 41,
+   "marker": "41",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 258,
+   "para_id": 61,
+   "bib_id": 42,
+   "marker": "42",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 259,
+   "para_id": 62,
+   "bib_id": 77,
+   "marker": "77",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 260,
+   "para_id": 62,
+   "bib_id": 78,
+   "marker": "77–79",
+   "expanded": true,
+   "scored": false
+  },
+  {
+   "cite_id": 261,
+   "para_id": 62,
+   "bib_id": 79,
+   "marker": "79",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 262,
+   "para_id": 62,
+   "bib_id": 118,
+   "marker": "118",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 263,
+   "para_id": 62,
+   "bib_id": 119,
+   "marker": "119",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 264,
+   "para_id": 62,
+   "bib_id": 76,
+   "marker": "76",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 265,
+   "para_id": 62,
+   "bib_id": 77,
+   "marker": "76–78",
+   "expanded": true,
+   "scored": false
+  },
+  {
+   "cite_id": 266,
+   "para_id": 62,
+   "bib_id": 78,
+   "marker": "78",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 267,
+   "para_id": 63,
+   "bib_id": 24,
+   "marker": "24",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 268,
+   "para_id": 63,
+   "bib_id": 36,
+   "marker": "36",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 269,
+   "para_id": 63,
+   "bib_id": 120,
+   "marker": "120",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 270,
+   "para_id": 64,
+   "bib_id": 10,
+   "marker": "10",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 271,
+   "para_id": 64,
+   "bib_id": 11,
+   "marker": "11",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 272,
+   "para_id": 64,
+   "bib_id": 10,
+   "marker": "10",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 273,
+   "para_id": 64,
+   "bib_id": 11,
+   "marker": "11",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 274,
+   "para_id": 64,
+   "bib_id": 32,
+   "marker": "32",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 275,
+   "para_id": 65,
+   "bib_id": 5,
+   "marker": "5",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 276,
+   "para_id": 65,
+   "bib_id": 71,
+   "marker": "71",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 277,
+   "para_id": 65,
+   "bib_id": 72,
+   "marker": "72",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 278,
+   "para_id": 66,
+   "bib_id": 105,
+   "marker": "105",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 279,
+   "para_id": 67,
+   "bib_id": 43,
+   "marker": "43",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 280,
+   "para_id": 67,
+   "bib_id": 44,
+   "marker": "44",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 281,
+   "para_id": 67,
+   "bib_id": 85,
+   "marker": "85",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 282,
+   "para_id": 67,
+   "bib_id": 86,
+   "marker": "86",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 283,
+   "para_id": 68,
+   "bib_id": 105,
+   "marker": "105",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 284,
+   "para_id": 69,
+   "bib_id": 105,
+   "marker": "105",
+   "expanded": false,
+   "scored": true
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-ext-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "v1_bib_count": 120
+ }
+}

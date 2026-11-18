@@ -1,0 +1,1853 @@
+{
+ "paper_id": "10.1162_opmi.a.374",
+ "paras": [
+  {
+   "para_id": 1,
+   "loc": "body",
+   "sec_title": "Procedure.",
+   "text": "Movements of the right eye were recorded, sampling at 1,000 Hz, using an EyeLink 1000 (SR Research, Toronto, ON, Canada) eyetracker, interfaced with a PC computer. Sentences were displayed on a CRT monitor 55 cm from subjects, in 10-point Monaco font. Each sentence was displayed on a single line of text. The resolution of the eyetracker was less than one character. The experiment was implemented with EyeTrack software, and initial stages of data analysis were carried out with Robodoc and EyeDry (https://websites.umass.edu/eyelab/software/).",
+   "printed": true
+  },
+  {
+   "para_id": 2,
+   "loc": "body",
+   "sec_title": "Implications for Theories of Agreement Attraction",
+   "text": "In the Introduction, we described two current accounts of agreement attraction in comprehension: a continuous number valuation account (Hammerly et al., 2019), which posits that attraction arises because a subject phrase such as The editor of the magazines is represented as neither fully singular nor fully plural, and an account incorporating a cue-based retrieval mechanism for agreement checking (Engelmann et al., 2019; Wagers et al., 2009), which posits that attraction arises because the singular subject and the plural local noun each provides a partial match to a plural verb’s retrieval cues. Importantly, neither of these accounts makes explicit predictions about processing difficulty conditional on acceptance or rejection of a sentence. Hammerly et al. (2019) simulate predictions of an evidence accumulation model of a judgment task, where the continuously-represented value of the subject’s number determines the rate of evidence accumulation toward either a ‘grammatical’ or ‘ungrammatical’ judgment, and show that judgment latency is predicted to be generally slow in attraction configurations. However, this simulation does not explicitly distinguish RT for ‘grammatical’ and ‘ungrammatical’ judgments. Hammerly et al.’s Appendix A also provides a simulation of cue-based retrieval latency, showing that retrieval time with ungrammatical agreement is predicted to be very slow; see also the shiny app developed in association with Engelmann et al. (2019): https://engelmann.shinyapps.io/inter-act/. But again, these simulations do not distinguish between trials with ‘grammatical’ and ‘ungrammatical’ judgments. To our knowledge, there is no consensus regarding how to relate online memory retrieval processes and offline grammaticality judgments, making it difficult to specify the theory’s predictions about behavior in the two types of trials (but see Parker, 2019; Vasishth et al., 2008; Wagers, 2008, for some perspectives on this issue).",
+   "printed": true
+  },
+  {
+   "para_id": 3,
+   "loc": "body",
+   "sec_title": "DATA AVAILABILITY STATEMENT",
+   "text": "Materials, item statistics, eye movement data, and analysis scripts are available in the following OSF repository: https://osf.io/4xzf5/overview. The experiments were not pre-registered.",
+   "printed": true
+  },
+  {
+   "para_id": 4,
+   "loc": "front",
+   "sec_title": "",
+   "text": "Sentence processing models posit that syntactic processing difficulty contributes to the processing time of each word (e.g., Lewis & Vasishth, 2005). On the other hand, the E-Z Reader 10 model of eye movements in reading (Reichle et al., 2009) proposes that syntactic processing affects eye movements only when integration of an input word fails. We present two eye movement experiments designed to address this tension. Readers were presented with ungrammatical sentences with a singular subject and a plural verb, but with a plural local noun that often induces an illusion of grammaticality, e.g., *The editor of the magazines are reviewing the articles before publication. After each critical sentence was removed from the screen, the reader made a binary acceptability judgment. When readers rejected the ungrammatical critical sentences, there was also pronounced disruption to incremental reading. However, on the majority of trials readers accepted these sentences, and on those trials the eye movement record revealed only a very small increase in reading time compared to corresponding grammatical sentences; critically, this small effect was entirely explained by the difference between conditions in the lexical surprisal of the verb. Thus, as predicted by E-Z Reader 10, an effect of agreement computation above and beyond the effect of surprisal was in evidence only when agreement computation failed, i.e., the sentence was rejected. We discuss implications for models of incremental sentence processing and reading.",
+   "printed": true
+  },
+  {
+   "para_id": 5,
+   "loc": "body",
+   "sec_title": "Eye Movements in Reading",
+   "text": "The eyes’ forward progress in reading is affected by a range of linguistic factors. A word’s frequency (e.g., Rayner & Duffy, 1986; Staub et al., 2010) and predictability (e.g., Ehrlich & Rayner, 1981; Staub, 2011) influence the duration of eye fixations, and syntactic factors influence both the duration of the eyes’ inspection of a word or phrase and the probability of a regressive eye movement to an earlier location in the text (e.g., Frazier & Rayner, 1982; see Clifton & Staub, 2011, for review). Perhaps the best known demonstrations of such syntactic effects come from experiments with garden path sentences, in which the reader encounters input that disambiguates a syntactically ambiguous sentence toward an analysis that was initially dispreferred; in this case, regressive eye movements to an earlier sentence region are common (e.g., Frazier & Rayner, 1982; von der Malsburg & Vasishth, 2011). Many other varieties of syntactic effects have been investigated, including effects attributable to complexity or memory demands rather than syntactic disambiguation (Bartek et al., 2011; Demberg & Keller, 2008), as well as effects of outright ungrammaticality (Pearlmutter et al., 1999; Sturt, 2003).",
+   "printed": true
+  },
+  {
+   "para_id": 6,
+   "loc": "body",
+   "sec_title": "Eye Movements in Reading",
+   "text": "Early computational models of eye movements in reading such as SWIFT (e.g., Engbert et al., 2005) and E-Z Reader (Reichle et al., 2003) accounted for the effects of perceptual and lexical factors on fixation durations and locations. We focus here on the E-Z Reader model, in which effects of both lexical frequency and predictability arise due to a mechanism in which a saccade is programmed to leave a currently fixated word when a critical stage of lexical processing (termed L1) is complete, with frequency and predictability directly modulating the duration of the L1 stage. As frequency and predictability each increase, the duration of the L1 stage decreases monotonically. (In the earliest versions of E-Z Reader, L1 was identified as a ‘familiarity check’, but in later versions even this informal description was dropped, as the L1 stage was identified only in terms of its eye movement consequences.)",
+   "printed": true
+  },
+  {
+   "para_id": 7,
+   "loc": "body",
+   "sec_title": "Eye Movements in Reading",
+   "text": "Notably, neither early versions of the E-Z Reader model nor any other contemporaneous model attempted to account for syntactic effects, or other ‘post-lexical’ effects such as the effect of encountering an implausible word (e.g., Rayner et al., 2004). The first eye movement model to explicitly address effects of syntactic processing, or other post-lexical processing, was an updated version of E-Z Reader known as E-Z Reader 10 (Reichle et al., 2009). E-Z Reader 10 introduced a post-lexical integration stage (I), whose duration reflects the time required for integration of a word into its syntactic and semantic context. However, the model posits that the duration of the I stage usually has no influence on eye movements. Reichle et al. suggested that “a postlexical stage of language processing can run invisibly in the background of ongoing lexical processing” (p. 12); the postlexical processing that is typically required has “no discernable effects on the progression of the eyes through the text” (p. 16). Postlexical processing is assumed to influence eye movements only on those occasions when an input word is not successfully attached into the developing syntactic or semantic representation of the sentence; the model terms this integration failure. Though E-Z Reader 10 is agnostic as to what underlying psycholinguistic processes result in integration failure, it proposed two distinct varieties of failure: Either postlexical integration lags very far behind ongoing lexical processing (specifically, the I stage for word n is still not complete once word n + 1 has been identified), triggering an error signal, or the I stage fails outright; separate model parameters govern the duration of I and the probability of outright failure. Either kind of failure is likely to result in a regression to an earlier text region.",
+   "printed": true
+  },
+  {
+   "para_id": 8,
+   "loc": "body",
+   "sec_title": "Eye Movements in Reading",
+   "text": "The all-or-none nature of syntactic influence on eye movements in E-Z Reader 10 is notable in light of the fact that many sentence processing models with psycholinguistic origins posit that a word’s processing time is an essentially continuous function of syntactic processing difficulty. For example, in the highly influential activation-based model of Lewis and Vasishth (2005), the processing time of a word is a function of (among other things) the time required to retrieve from working memory the elements that are related to the currently processed word by means of a syntactic dependency (but see Nicenboim & Vasishth, 2018). To take another example, Gibson’s Dependency Locality Theory (Gibson, 1998, 2001) also proposed that there is a syntactic contribution to each word’s processing time, determined by the number of ‘discourse units’ intervening between that word and the previous word to which it is related by a syntactic dependency (for broad coverage evaluation of similar ideas using reading data, see Demberg & Keller, 2008; Isono, 2024).",
+   "printed": true
+  },
+  {
+   "para_id": 9,
+   "loc": "body",
+   "sec_title": "Eye Movements in Reading",
+   "text": "One intuitive way of deriving reading time predictions from these models is to assume a simple correspondence between reading time and processing time: More processing time means more reading time. This assumption is, we would argue, implicit in many psycholinguistic studies, and is explicit in the famous ‘eye-mind’ hypothesis of Just and Carpenter (1980), which states that, “the eye remains fixated on a word as long as the word is being processed” (p. 330). But this intuitive linking theory is clearly in tension with the all-or-none nature of syntactic processing effects in E-Z Reader 10, where syntactic processing of an input word often makes no contribution to reading time. Engelmann et al. (2013) recognized this tension, and proposed a model of eye movement control wherein continuous memory retrieval times are linked to reading time via a probabilistic and discrete ‘failure’ or ‘error’ signal like one of E-Z Reader 10’s failure mechanisms: When the memory retrievals required to attach a given word are not complete by the time the next word has been identified, a regression to the previous word is initiated. It is worth noting that Engelmann et al. see failures arising in this way as quite common, and they explicitly distinguish these events from the rarer and potentially more catastrophic failures that might arise in an ungrammatical sentence, or upon disambiguation of a garden path sentence, which are not modeled by Engelmann et al. (see Nicenboim & Vasishth, 2018, for a related discussion). What we wish to emphasize in the present context, however, is that in the sentence processing literature as a whole it is common to assume that syntactic processing difficulty generally makes some contribution to word-by-word reading time, rather than only when syntactic attachment (or ‘integration’) fails, or an error is otherwise registered.",
+   "printed": true
+  },
+  {
+   "para_id": 10,
+   "loc": "body",
+   "sec_title": "The Intermittent Judgment Paradigm",
+   "text": "Previous results using what we will term the Intermittent Judgment Paradigm (IJP) provide background for the present study (Huang & Staub, 2021; Staub et al., 2019, 2024). In this paradigm, readers’ eye movements are tracked as they read individual sentences, and after each sentence is removed from the screen, the subject responds by button press to a two-alternative question about that sentence. In a large number of filler trials—larger than the number of experimental trials—these are comprehension questions about the preceding sentence. After the experimental trials, however, the subject is asked, “Was there anything wrong with that sentence?” with the response options yes and no. Subjects do not know in advance whether a sentence will be followed by a comprehension question or a judgment question. A critical difference from standard linguistic judgment tasks, therefore, is that the subject can be presumed to read the stimulus in a fairly (if not completely) natural manner, as judging the acceptability of sentences is not presented as the main task. A critical difference from the standard eye tracking paradigm, on the other hand, is that for the critical trials it is possible to analyze eye movements contingent on the subject’s acceptance (a no response) or rejection (a yes response) of the sentence.",
+   "printed": true
+  },
+  {
+   "para_id": 11,
+   "loc": "body",
+   "sec_title": "The Intermittent Judgment Paradigm",
+   "text": "Using the IJP, readers have been presented with ungrammatical sentences in which a word is repeated or omitted (Staub et al., 2019, 2024), or two words are transposed (Huang & Staub, 2021). Unsurprisingly, on the trials on which these errors are consciously noticed, eye movement disruption is clearly evident. But readers very often fail to detect the critical errors, and the trials on which readers accept the sentence do not show any sign of eye movement disruption, compared to reading of grammatical control sentences. Staub et al. (2024) argued that this result implicates a form of perceptual (as opposed to post-perceptual) inference in readers’ failure to notice these errors; on many trials, readers’ grammatical knowledge is used to ‘correct’ these errors so rapidly and so unconsciously that the forward movement of the eyes is completely unperturbed.",
+   "printed": true
+  },
+  {
+   "para_id": 12,
+   "loc": "body",
+   "sec_title": "Agreement Processing and Agreement Attraction",
+   "text": "Consider sentence (1):(1) *The editor of the magazines are reviewing the articles before publication.This sentence contains an agreement error: The subject editor is singular, while the verb are is plural. But in judgment tasks, subjects tend to accept a sentence like (1) much more often than a sentence like (2), which is also ungrammatical, and differs from (1) only in that the non-subject noun magazine is singular:(2) *The editor of the magazine are reviewing the articles before publication.For example, in three experiments reported by Hammerly et al. (2019), subjects judged sentences like (1) to be unacceptable between 60% and 72% of the time, while judging sentences like (2) to be unacceptable between 80% and 88% of the time; we refer the interested reader to Table 1 of Hammerly et al. (2019) for an extensive list of studies that have presented acceptability judgment data with these (or similar) constructions. The increased acceptability of (1) relative to (2) is referred to as an ‘illusion of grammaticality.’ Note that the illusion is only partial; sentences like (1) are still rejected at a much higher rate than a grammatical control such as (3). The effect of a local noun on agreement computation in both production and comprehension is known as agreement attraction.(3) The editor of the magazine is reviewing the articles before publication.",
+   "printed": true
+  },
+  {
+   "para_id": 13,
+   "loc": "body",
+   "sec_title": "Agreement Processing and Agreement Attraction",
+   "text": "Sentences like (1) have been investigated not only using judgment tasks, but also in incremental comprehension paradigms such as self-paced reading (e.g., Pearlmutter et al., 1999; Wagers et al., 2009) and eyetracking during reading (Dillon et al., 2013; Parker & Phillips, 2017; Pearlmutter et al., 1999). Reading is, on average, less disrupted in a sentence like (1) than in a sentence like (2). Thus, not only does the presence of a plural local noun increase the probability that a reader will incorrectly judge a sentence with a singular subject and plural verb to be grammatical, but the plural local noun also reduces the disruption caused by the agreement violation in the course of incremental processing. But again, this reduction is only partial; reading is still somewhat disrupted, on average, in a sentence like (1) compared to a grammatical control such as (3); in the reading time studies referenced above that tested all of the relevant conditions (Dillon et al., 2013; Pearlmutter et al., 1999; Wagers et al., 2009), reading times for attraction sentences like (1) fell between those of reading times for ungrammatical sentences without an attractor, like (2), and reading times for grammatical sentences, like (3); Figures 1 and 3 of Pearlmutter et al. (1999) provide particularly clear examples of this pattern.",
+   "printed": true
+  },
+  {
+   "para_id": 14,
+   "loc": "body",
+   "sec_title": "Agreement Processing and Agreement Attraction",
+   "text": "There is substantial debate about why sentence (1) is accepted more often than, and is read faster than, sentence (2). The present study does not attempt to arbitrate between accounts of agreement attraction, but it is nevertheless useful to lay out the theoretical alternatives; we return to these accounts in the General Discussion. According to a feature distortion account, the plural noun magazines in (1) influences the encoding of the subject phrase’s number. Two distinct variants of the feature distortion account are an older percolation account (Bock & Eberhard, 1993; Franck et al., 2002), and a version that we refer to as continuous number valuation, originally embodied in the Marking and Morphing model (Eberhard et al., 2005), and developed further by Hammerly et al. (2019) and Staub (2009). On a continuous number valuation account, the plural feature on magazines influences a continuously valued number feature associated with the subject phrase as a whole; the entire subject phrase the editor of the magazines is encoded as being not entirely singular or entirely plural, but something in between. Thus, when the verb are is encountered in (1), there is a partial match between the number marking of the verb and the subject phrase, rather than a complete mismatch as in (2). Hammerly et al. (2019) illustrated how this representational assumption, combined with an evidence accumulation model of the acceptability judgment process, predicts that (1) should elicit both more variable judgments of acceptability and longer decision latencies than (2), consistent with the data that Hammerly et al. obtained in a series of judgment experiments.",
+   "printed": true
+  },
+  {
+   "para_id": 15,
+   "loc": "body",
+   "sec_title": "Agreement Processing and Agreement Attraction",
+   "text": "According to a theory grounded in cue-based retrieval (e.g., Wagers et al., 2009), on the other hand, the local noun magazines exerts its influence not by means of feature distortion, but because of a process of memory retrieval that searches for the agreement controller once the verb has been encountered. In (1) and (2), the verb are triggers a search for a noun with the features +subject and +plural. In neither case is there a noun that matches both cues. In (2), editor matches the +subject cue, but there is no noun that matches the +plural cue. In (1), however, each of the preceding nouns matches one cue; the two nouns are fairly evenly matched as potential agreement controllers, and the local noun, rather than the true subject, is retrieved a substantial proportion of the time.",
+   "printed": true
+  },
+  {
+   "para_id": 16,
+   "loc": "body",
+   "sec_title": "The Present Study",
+   "text": "In evaluating this question statistically, we address head-on an important complication related to assessing whether agreement processing per se results in any difficulty in (5b) compared to (5a). The word are after the left context in (5a) is likely to be more predictable (i.e., have lower surprisal; Levy, 2008) than the word are after the left context in (5b); the large language model GPT-2 (Radford et al., 2019) estimates the probability of are to be .046 and .003 in (5a) and (5b), respectively. Thus, the verb may elicit longer reading times on the basis of surprisal alone, even if agreement computation itself causes no difficulty in (5b) (Arehalli & Linzen, 2020, 2024). The critical question in the present context is whether, on the trials on which there is no conscious detection of ungrammaticality in sentences like (5b), there is evidence of processing slowdown or disruption in the comparison with (5a) that is more pronounced than would be expected entirely on the basis of differences in lexical surprisal.",
+   "printed": true
+  },
+  {
+   "para_id": 17,
+   "loc": "body",
+   "sec_title": "Materials.",
+   "text": "An initial set of critical items was generated with a prompt to ChatGPT (OpenAI, 2024) to generate sentences that begin with a subject modified by a prepositional phrase followed by a form of the verb be. In order to create structural variety in the critical items, we also asked ChatGPT to generate another set of sentences in which the same sentence type was preceded by additional material such as an adverbial phrase.2 Sentences generated by ChatGPT were selected, and modified as needed, to create a total of 20 items in which the matrix subject phrase began the sentence (as in 5a–b), and another 20 in which it did not, as in (6a–b):(6) a. After several delays, the managers of the projects were eventually called in for a meeting. b. *After several delays, the manager of the projects were eventually called in for a meeting.Thirty-five of the forty items were in the present tense, with the remaining five in the past tense. The length of the material after the critical verb varied across items, but all included at least two words after this verb.",
+   "printed": true
+  },
+  {
+   "para_id": 18,
+   "loc": "body",
+   "sec_title": "Materials.",
+   "text": "One hundred filler sentences, with a wide range of structures and on a wide range of topics, were selected from the materials in Staub (2024); these sentences were originally taken from the Corpus of Contemporary American English (COCA; Davies, 2009). An example is in (7).(7) Either way I think he’s a prime candidate for a breakout season next year.A two-alternative comprehension question was included for each filler sentence; in the case of (7) the question asked, “When will the breakout be?,” followed by the alternatives “next year” and “this year”.",
+   "printed": true
+  },
+  {
+   "para_id": 19,
+   "loc": "body",
+   "sec_title": "Results",
+   "text": "Previous experiments using the IJP (Huang & Staub, 2021; Staub et al., 2019, 2024) found that subjects’ reading time on the filler sentences and accuracy on the filler questions is modestly correlated with detection of errors on critical judgment trials; slower readers are somewhat better at detecting errors, and readers who perform better on the comprehension questions are also somewhat better at detecting errors. Those patterns are present here as well, as shown in Figure 2. Filler comprehension accuracy and filler reading time happen to demonstrate essentially identical correlation with the error detection rate in the critical sentences (r = .32, p < .01). It is notable that filler accuracy and reading time are themselves only modestly correlated (r = .20, p = .09).",
+   "printed": true
+  },
+  {
+   "para_id": 20,
+   "loc": "body",
+   "sec_title": "Results",
+   "text": "Our statistical analysis, which follows Huang and Staub (2021), directly addresses two questions. First, is there disruption on the trials on which readers accept an ungrammatical sentence, compared to when they accept a grammatical sentence? Second, is there disruption on the trials on which readers reject an ungrammatical sentence, compared to when they accept an ungrammatical sentence? To carry out our analyses, we first excluded the small number of trials on which subjects rejected a grammatical sentence. We then labeled the remaining trials as accept grammatical (AG), accept ungrammatical (AU), and reject ungrammatical (RU). Figure 3 shows the by-subject means and standard errors for each eye movement measure, for each region, as well as total sentence reading time, for each of these three subsets of trials. (Note that the RU means do not reflect data from all subjects; as shown in Figures 1 and 2, several subjects rejected none of the ungrammatical sentences.)",
+   "printed": true
+  },
+  {
+   "para_id": 21,
+   "loc": "body",
+   "sec_title": "Results",
+   "text": "In our statistical models, we coded these three levels with backward difference contrasts. The reference level was AG, the first contrast compared AU to AG, and the second compared RU to AU. For each reading time measure on each region, as well as for total sentence reading time, we computed Bayesian linear mixed-effects models with log transformed reading time as the dependent variable, using the brms package (Bürkner, 2017) in the R statistical programming environment (version 4.4.3). For regressions out, we computed a Bayesian mixed-effects logistic regression model. Each model included random by-subject and by-item intercepts, as well as random slopes by subjects and items for each of the two contrasts. For all models, we use the default priors implemented in brms; for the fixed effects, these are flat priors, which result in posterior distributions that are determined primarily by the likelihood rather than the prior. Each chain ran for 4000 iterations. For all parameters of all models, Rhat was no greater than 1.01.",
+   "printed": true
+  },
+  {
+   "para_id": 22,
+   "loc": "body",
+   "sec_title": "Results",
+   "text": "Table 1 reports the model estimates for the AG level (i.e., the model’s intercept), as well as the estimate for each contrast (the mean of the posterior distribution), the lower and upper bounds of the 95% credible interval, and the proportion of the posterior distribution that is in the same direction as the mean, computed using the p_direction function from the bayestestR package (Makowski et al., 2019). As a heuristic, we treat an effect as credible when the probability on one side of 0 is greater than .975.",
+   "printed": true
+  },
+  {
+   "para_id": 23,
+   "loc": "body",
+   "sec_title": "EXPERIMENT 2",
+   "text": "Experiment 2 was identical to Experiment 1 except that the 40 judgment trials from the separate experiment with prepositional dative and double object sentences were removed, and these were replaced with 20 judgment trials that contained simple agreement errors. In half of these, a singular verb followed a plural subject, and in half a plural verb followed a singular subject. Examples are in (10) and (11):(10) *Before the war, the ships was used for commercial transport.(11) *The driveway were slick from the freezing rain that fell during the night.We predicted that adding these simple agreement violations, which we assumed would be highly salient and would usually elicit a rejection of the sentence, would reduce readers’ bias to treat sentences as grammatical (Hammerly et al., 2019). We expected that this would result in substantially more rejections of the ungrammatical critical trials. In addition to testing this prediction, Experiment 2 provided an opportunity to replicate the eye movement results from Experiment 1.",
+   "printed": true
+  },
+  {
+   "para_id": 24,
+   "loc": "body",
+   "sec_title": "SURPRISAL GENERALIZATION ANALYSIS",
+   "text": "Our combined analysis revealed evidence for an ungrammaticality-related slowdown in accepted trials, i.e., a modest difference between AU and AG trials in both go-past and total time. A critical question is whether this slowdown is of a magnitude that could be accounted for by the difference in the surprisal of the verb between the two conditions, or if it is larger than expected based on this difference. In other words: Is there evidence that the slowdown observed in AU compared to AG trials reflects a cost beyond what is expected due to surprisal? To address this question, we performed a surprisal generalization analysis inspired by van Schijndel and Linzen (2021) and Huang et al. (2024). This analysis leverages the data from the filler items (not including the implausible/ungrammatical items that also had judgment questions) from both experiments, to build a statistical model of the effect of surprisal on different reading time measures in our experiment, and then uses this model to generate quantitative predictions for a surprisal-related slowdown in the AU-AG contrast in the combined data.",
+   "printed": true
+  },
+  {
+   "para_id": 25,
+   "loc": "body",
+   "sec_title": "SURPRISAL GENERALIZATION ANALYSIS",
+   "text": "To quantify surprisal, we used an English-language LSTM language model from Gulordava et al. (2018)3. We extracted in-context surprisal values for all the words in our 100 filler sentences, along with the surprisal of the words in the critical region in our target stimuli. When a single orthographic word corresponded to more than one subword token in the language model, the surprisals of the constituent subword tokens were summed. The average surprisal of the critical auxiliary was 2.5 bits in the grammatical condition, corresponding to a probability of approximately .18 (ranging between 1.3 and 4.8 bits across items), and 5.6 bits in the ungrammatical condition, corresponding to a probability of approximately .02 (ranging between 3.1 and 9.0 bits). The average surprisal of the following participial was 5.5 bits in the grammatical condition (ranging between 1.5 and 10.9 bits) and 5.7 bits in the ungrammatical condition (ranging between 2.0 and 11.3 bits). Thus, we expected that any differences between conditions associated with surprisal should be driven by differences in the surprisal of the auxiliary itself.",
+   "printed": true
+  },
+  {
+   "para_id": 26,
+   "loc": "body",
+   "sec_title": "SURPRISAL GENERALIZATION ANALYSIS",
+   "text": "Next, we implemented a Bayesian variant of van Schijndel and Linzen (2021)’s methodology.4 A full specification of this model can be found in Appendix A. The goal of this analysis is to provide an estimate of the predicted agreement cost, or the difference between reading times in the Accepted Ungrammatical and Accepted Grammatical conditions in our experiment (the AU-AG contrast).",
+   "printed": true
+  },
+  {
+   "para_id": 27,
+   "loc": "body",
+   "sec_title": "SURPRISAL GENERALIZATION ANALYSIS",
+   "text": "To estimate this cost, we follow van Schijndel and Linzen in estimating a surprisal-to-RT conversion model from our fillers. These models were implemented as Bayesian hiearchical linear regressions, fitted to the combined eye movement data on first-pass, go-past, and total reading times from both experiments (for full details of the fitted models, see Appendix A). To prevent the influence of wrap-up effects, we excluded the two final words of every filler sentence from this model (inspired by Smith & Levy, 2013). We modeled word-level reading times as a function of the surprisal of that word and the two preceding words, in addition to lexical-level control predictors (centered and scaled log frequency and length of the target word and two preceding words, as well as their interaction). Because raw RT is expected to scale linearly with surprisal, we modeled raw reading times for each measure (see Huang et al., 2024 for further discussion of the impact of this design choice). The fitted conversion factors for each model are presented in Table 4; the lexical control variables are omitted for space.",
+   "printed": true
+  },
+  {
+   "para_id": 28,
+   "loc": "body",
+   "sec_title": "SURPRISAL GENERALIZATION ANALYSIS",
+   "text": "Although the close alignment between the means of the predicted and observed agreement costs is suggestive, the significant uncertainty in the observed estimates precludes any strong conclusions about equivalence between predicted and observed costs. However, it does suggest an answer to the main question we sought to answer with this analysis: Is there evidence that the slowdown observed in AU compared to AG trials reflects a cost beyond what is expected due to predictability? The results of this analysis suggest that answer is ‘no.’ The observed empirical cost is never clearly greater than the predicted cost; the predicted reading-time slowdown due to the surprisal does not underpredict the observed processing difficulty. In this respect, the present analysis diverges distinctly from similar analyses on different datasets (Arehalli et al., 2022; Huang et al., 2024; van Schijndel & Linzen, 2021; Wilcox et al., 2021).",
+   "printed": true
+  },
+  {
+   "para_id": 29,
+   "loc": "body",
+   "sec_title": "GENERAL DISCUSSION",
+   "text": "When comparing sentences with ungrammatical agreement that were ultimately accepted to sentences with grammatical agreement that were accepted, we observed much smaller reading time effects on the critical region, which were credible in go-past and total time in the combined analysis. A surprisal generalization analysis (e.g., van Schijndel & Linzen, 2021) revealed that the slowdown in the ungrammatical accepted trials is no larger than what would be expected given the differences in the surprisal of the critical verb across the two conditions. There were no credible effects on other regions, or in the total reading time measure.",
+   "printed": true
+  },
+  {
+   "para_id": 30,
+   "loc": "body",
+   "sec_title": "Agreement Processing, Bias, and the Role of the Task",
+   "text": "We begin by discussing the implications of the acceptability judgment results. The rate at which agreement attraction errors are noticed when acceptability judgment is not the primary explicit task is far lower than might be expected. Comprehenders noticed an agreement error in Experiment 1 in only 21.7% of ungrammatical sentences. While Wagers et al. (2009) reported a 45% rejection rate for similar sentence types in a speeded binary grammaticality judgment task, we do not know of any study with a rejection rate as low as the rate obtained in Experiment 1. But the rate at which errors are detected in the IJP is also impacted by the salience and/or prevalence of other agreement errors in the experiment: The rejection rate increased to 35.5% in Experiment 2, when an additional twenty sentences with simple agreement errors were included.",
+   "printed": true
+  },
+  {
+   "para_id": 31,
+   "loc": "body",
+   "sec_title": "Agreement Processing, Bias, and the Role of the Task",
+   "text": "These results illustrate the critical role of decisional parameters in acceptability judgment tasks. Both of the critical observations—the low rate of rejection of these sentences in Experiment 1, and the increase in Experiment 2—are consistent with the proposal by Hammerly et al. (2019) that judgments of the acceptability of subject-verb agreement involve two critical parameters: (a) a continuously-valued representation of subject number, which is affected by the local noun’s number; and (b) the participant’s bias to respond ‘grammatical’ in the decision task. In the terms of Hammerly et al.’s evidence accumulation model, the bias parameter determines the relative quantity of evidence that is required in order for the participant to conclude that there is a number match or mismatch between subject and verb. Hammerly et al. observed a substantial bias toward a ‘grammatical’ response in a standard judgment task, but also observed that this bias could be reduced or even eliminated by making the majority of sentences in an experimental session ungrammatical.",
+   "printed": true
+  },
+  {
+   "para_id": 32,
+   "loc": "body",
+   "sec_title": "Agreement Processing, Bias, and the Role of the Task",
+   "text": "Laurinavichyute and von der Malsburg (2024) presented a recent demonstration of the role of task demands in agreement attraction that dovetails with the present results. These authors focused on agreement attraction effects in grammatical sentences; the effect of the local noun’s number would be to potentially reduce the acceptability of a grammatical sentence, rather than to increase the acceptability of an ungrammatical sentence. In an experiment in which subjects expected to make a numerical acceptability rating after reading the critical grammatical sentences, there was an effect of the local noun’s number on these numerical ratings. But in a separate experiment in which subjects expected only comprehension questions, but were then asked to rate acceptability as well, this effect was absent altogether; notably, an effect on reading times was also eliminated when subjects expected comprehension rather than judgment questions. Laurinavichyute and von der Malsburg interpreted these results as reflecting the role of grammaticality bias, as proposed by Hammerly et al. (2019); they write, “The acceptability rating but not the question answering task prepares participants for encountering ill-formed sentences” (p. 14). We make a similar observation with regard to the IJP: The task is presented as a comprehension task, and participants are only occasionally asked to make a judgment, so they are generally not expecting ill-formed sentences. In sum, the present results, together with previous results presented by Hammerly et al. (2019) and Laurinavichyute and von der Malsburg (2024), illustrate that whether agreement is judged to be grammatical may depend heavily on the task context. We assume that judgments of other sentence types may also be modified by changing the task context and the nature of the filler trials.",
+   "printed": true
+  },
+  {
+   "para_id": 33,
+   "loc": "body",
+   "sec_title": "Theoretical Consequences of Our Eye Movement Results",
+   "text": "We now turn to the implications of the eye movement results. As noted in the Introduction, we assume that ‘integration failure,’ in E-Z Reader 10’s sense, leads to a report of an error in the IJP. If this linking hypothesis is correct, then the present results straightforwardly support the E-Z Reader 10 post-lexical processing mechanism, whereby such processing impacts the forward progression of the eyes only when there is integration failure, or more generally, when an error is detected in the unfolding linguistic stimulus. On trials where no error is reported—and hence, by hypothesis, no integration failure has occurred—the localized, modest increase in reading time of the critical region is entirely predicted by differences between conditions in the predictability of the verb. Within the E-Z Reader framework, effects of predictability are understood as effects on lexical, not post-lexical, processing; other eye movement models (e.g., Engbert et al., 2005) make similar assumptions. This is consistent with interpretations of the effect of surprisal that emphasize its utility for efficient perceptual processes and optimally efficient word recognition (Smith & Levy, 2013). On the other hand, when an error is reported—when, by hypothesis, an integration failure has occurred—reading disruption is much more pronounced than is predicted by differences in predictability, and is characterized by an increase in regressive eye movements. In short, there seem to be two qualitatively distinct types of trials in our data: trials where integration fails and difficulty is pronounced, and trials where integration is successful and the small reading time effect is explicable on the basis of lexical predictability.",
+   "printed": true
+  },
+  {
+   "para_id": 34,
+   "loc": "body",
+   "sec_title": "Theoretical Consequences of Our Eye Movement Results",
+   "text": "Our surprisal generalization results stand in stark contrast to the results of other surprisal generalization analyses (Arehalli et al., 2022; Huang et al., 2024; van Schijndel & Linzen, 2021; Wilcox et al., 2021), which have generally found that surprisal substantially underpredicts the processing costs associated with various structural processing phenomena, including the processing of mismatched verbal agreement (Huang et al., 2024; Slaats et al., 2026; see also Wilcox et al., 2021). A critical difference between these previous studies and the current study, however, is that the use of the IJP in the current study allowed sorting of trials into ‘reject’ and ‘accept’ trials. The surprisal generalization analysis we carried out suggests that surprisal only explains the magnitude of the observed processing difficulty in ‘accept’ trials. This conclusion is consonant with the more recent findings of Timkey et al. (2025), who showed that large language model surprisal has impressive predictive power for early eye movement measures on material disambiguating a garden-path, but only for those trials on which readers do not execute a regression at the critical region. This plausibly reflects an effect parallel to the one we see here: When no error is detected (or no regression is triggered), language model surprisal is able to predict almost all of the difficulty in reading, even in structurally complex sentences.",
+   "printed": true
+  },
+  {
+   "para_id": 35,
+   "loc": "body",
+   "sec_title": "Theoretical Consequences of Our Eye Movement Results",
+   "text": "Our empirical conclusion that ungrammatical stimuli result in two categorically distinct kinds of trials in reading—failure on some occasions, success on others—is also consistent with a broader range of findings. For example, this conclusion is broadly consistent with the finding that regressive eye movements associated with ungrammaticality are associated with the P600 ERP component, an electrophysiological index of error detection or correction (Metzner et al., 2017). It is also consistent with the finding that the RT distribution of processing difficulty in syntactically challenging configurations is well modeled by a mixture distribution that posits multiple, categorically distinct types of trials (Paape & Vasishth, 2022). Indeed, Paape and Vasishth’s (2022) multinomial processing tree model explicitly proposes that the difficulty associated with garden pathing can be decomposed into the surprisal cost levied by disambiguating words (Hale, 2001; Levy, 2008) and an additional cost associated with the recognition and reanalysis of syntactic errors that impacts only a subset of trials. Interestingly, such a bimodal distribution is less evident in numerical acceptability judgment measures of garden path processing, raising the counterintuitive possibility that judgment measures, rather than online reading measures, more directly reflect the underlying processes (Dillon et al., 2019).",
+   "printed": true
+  },
+  {
+   "para_id": 36,
+   "loc": "body",
+   "sec_title": "Theoretical Consequences of Our Eye Movement Results",
+   "text": "We conclude on the basis of the present results that there are two major underlying processes reflected in the eye movements associated with subject-verb agreement violations, and plausibly other structurally complex phenomena like garden paths. The first is predictability or lexical surprisal, the role of which in word-by-word processing is supported by a very large body of empirical results (e.g., Shain et al., 2024; Smith & Levy, 2013), and which plausibly reflects the centrality of prediction as a driving factor in language comprehension (Hale, 2001; Kuperberg & Jaeger, 2016; Levy, 2008; Ryskin & Nieuwland, 2023; Slaats & Martin, 2025; Staub, 2025). The second refers to the underlying cognitive processes that we might associate with EZ Reader’s notion of integration failure: a categorical but stochastic error signal that often leads to regressions and rereading, and is associated with conscious awareness of ill-formedness, which can be reported in a post-sentence judgment.",
+   "printed": true
+  },
+  {
+   "para_id": 37,
+   "loc": "body",
+   "sec_title": "Theoretical Consequences of Our Eye Movement Results",
+   "text": "A range of underlying processes might contribute to such an error signal. It may simply be the outcome of a failure of normal processing mechanisms to reach a successful, coherent parse of the input. This could arise, for instance, if the beam width of a limited capacity parser simply lacks any analysis able to accommodate the current input, an outcome sometimes conceived of as ‘parser failure’ (Frazier & Rayner, 1982; Levy et al., 2008), or if the input is insufficiently harmonic or well-formed (Cho et al., 2017; Smith, 2018; Tabor et al., 1997; Wagers & Pendleton, 2015). But it could also reflect a more ‘active’ error monitoring mechanism, such as an online conflict detection mechanism (Kolk et al., 2003; Ness et al., 2025; van Herten et al., 2006), or an online ‘noisy channel’ error correction process (Bicknell & Levy, 2010; Gibson et al., 2013; Levy et al. 2009; Li & Ettinger, 2023; Li & Futrell, 2024; Ryskin et al., 2021). On this view, ‘integration failure’ in EZ Reader’s terms would represent a functionally significant error signal that triggers downstream conflict resolution or Bayesian inference mechanisms necessary to resolve the interpretation of the input. For example, on a ‘noisy channel’ account, the mismatched verbal agreement could lead to the probabilistic inference that the speaker had intended an alternative sentence where the subject of the sentence is plural, instead of singular (see Ryskin et al., 2021). A third and final possibility is that this reflects a simple ‘time out’ on the post-lexical processes that integrate a word into a larger sentence representation. As noted in the Introduction, Engelmann et al. (2013; following Bartek et al., 2011; Mitchell et al., 2008) proposed that integration failure reflects a time-out on an underlying processing operation, such as when the integration of word n has not been completed when the integration of word n + 1 has begun (see also Nicenboim & Vasishth, 2018). The present data do not let us cleanly arbitrate between these possibilities, but they do significantly limit the underlying syntactic processing mechanisms that we would expect to be reflected in eye movements. To wit, we expect eye movements to reflect discrete states of parser failure, parser time-out, or explicit error detection.",
+   "printed": true
+  },
+  {
+   "para_id": 38,
+   "loc": "body",
+   "sec_title": "Theoretical Consequences of Our Eye Movement Results",
+   "text": "The present results dovetail in an interesting way with recent neurolinguistic results. For example, Stanojević et al. (2023) have shown that surprisal and structure-building networks can be dissociated in fMRI data, implying that they reflect distinct processes that can be spatially separated in the brain (see also Brennan & Pylkkänen, 2017). In a similar way, our own results show that behavioral measures can be decomposed into surprisal and a separate signal associated with processing ungrammaticality. What remains to be explored is whether there is any direct relationship between the various indices of structural processing explored in the neurolinguistic literature and the ‘failure’ or ‘error signal’ that seems to be present in the eye movement data.",
+   "printed": true
+  },
+  {
+   "para_id": 39,
+   "loc": "body",
+   "sec_title": "Theoretical Consequences of Our Eye Movement Results",
+   "text": "Although the present results do not, on their own, implicate a unique underlying mechanism, a consideration of the wider literature makes both parser failure and explicit error detection tempting proposals. It is plausible that the mismatch between the agreement features of the verb and the subject in our stimuli could contribute to a drop in well-formedness or harmony of the overall structure that could drive an integration failure (e.g., Smith, 2018; Smith & Tabor, 2018). At the same time, there is evidence that mismatched agreement can trigger updates to the representation of the sentence, as expected on a ‘noisy-channel’ account (Ryskin et al., 2021): Keshev and Meltzer-Asscher (2021) and Molinaro et al. (2011) show that mismatched verbal agreement in Italian and Hebrew leads comprehenders to revise the number features of the subject, consistent with the view that error detection at the verb serves a functional role in allowing Bayesian inference processes to correct possible errors in the signal. And Keshev and Meltzer-Asscher (2021) show that agreement cues trade off probabilistically with other cues, like the probability of the underlying syntactic structures, in a way that is predicted by such an online ‘noisy-channel’ inference process.",
+   "printed": true
+  },
+  {
+   "para_id": 40,
+   "loc": "body",
+   "sec_title": "Theoretical Consequences of Our Eye Movement Results",
+   "text": "One broader implication of our findings is that explicitly theorizing the conditions that contribute to failure, resulting in a signal to interrupt processing as usual, should be considered an integral part of any psycholinguistic theory. Importantly, this is in tension with intuitive linking theories that draw a simple alignment between fixation durations and the time cost of syntactic processing operations. It is common for researchers to predict a correlation between eye movement measures and the time cost of (say) retrieving a syntactic dependent (Lewis & Vasishth, 2005; Lewis et al., 2006) or resolving syntactic ambiguity (MacDonald et al., 1994; Trueswell et al., 1993), which implies an intuitive linking hypothesis in which the time cost of processing operations is directly reflected in eye movements (e.g., the eye-mind hypothesis of Just & Carpenter, 1980). However, as reviewed above, attempts to directly align processing theories with models of eye movements during reading typically do not feature such a transparent relationship between processing time and fixation durations (e.g., Engelmann et al., 2013; Nicenboim & Vasishth, 2018; Rabe et al., 2024; Reichle et al., 2009). The results presented here provide some general constraints on the alignment between processing theories and eye movement data during free reading.",
+   "printed": true
+  },
+  {
+   "para_id": 41,
+   "loc": "body",
+   "sec_title": "Implications for Theories of Agreement Attraction",
+   "text": "We also note the possibility that when the reader does not explicitly notice the agreement violation in The editor of the magazines are, this is because she has rapidly and automatically made an inference that the subject was actually plural, not singular. Some previous studies (Brehm et al., 2021; Patson & Husband, 2016) have found that comprehenders do sometimes make this inference in this ungrammatical attraction configuration. However, it has also been argued that such ‘noisy channel’ inference (Gibson et al., 2013) would be expected to show a cost in the eye movement record (Cutter et al., 2024). Thus, the lack of cost is arguably no less surprising on this inference-based view of failure to notice agreement errors.",
+   "printed": true
+  },
+  {
+   "para_id": 42,
+   "loc": "body",
+   "sec_title": "Incremental Processing Disruption and Recognition of Grammatical Errors",
+   "text": "It is striking that the explicit conscious recognition of a grammatical error is so tightly associated with immediate and pronounced disruption during free reading. We note that this tight relationship is evident not only in the experiments we report here, but in previous experiments using the IJP (Huang & Staub, 2021; Staub et al., 2024). One obvious question about this relationship, however, is about the nature of the temporal and causal connection. Does eye movement disruption result from, and temporally follow, initial conscious awareness of an error? Or, do both conscious awareness of an error and eye movement disruption result from the failure of unconscious syntactic parsing processes, such as a process of agreement checking, with no direct causal link between the two? We cannot answer this question at present. Nevertheless, the close relationship between incremental processing disruption and subsequent acceptability judgments could prove useful for understanding the cognitive processes that culminate in linguistic acceptability judgments. Our data support a view of conscious acceptability judgments as reflecting in part an error signal that spontaneously arises during the processing of linguistic stimuli (Barrios, 2012; Sprouse, 2008).",
+   "printed": true
+  },
+  {
+   "para_id": 43,
+   "loc": "body",
+   "sec_title": "Can ‘Integration Failure’ Account for All Syntactic Processing Effects on Eye Movements?",
+   "text": "In the present study we have shown that eye movement effects in ungrammatical agreement attraction sentences can be understood as arising entirely from integration failure on some trials, with no eye movement effects appearing on other trials. We have also suggested above that garden path effects on eye movements plausibly arise from a similar mechanism. However, we acknowledge that there are other examples of syntactic effects on eye movements that may challenge this framework. For example, Bartek et al. (2011) observed that increasing subject-verb distance can slow down reading. It is not clear that such locality effects can be explained in terms of integration failure or error detection, nor that they can be reduced to surprisal. More broadly, locality and related principles governing memory retrieval have been shown to predict reading times above and beyond surprisal in several independent studies (Demberg & Keller, 2008; Isono, 2024; Ryu & Lewis, 2025). Thus, we do not, at present, commit to the complete absence of syntactic effects on eye movement in reading in the absence of integration failure; instead, we only offer evidence that at least some well-established syntactic effects can be understood in terms of an all-or-none integration failure mechanism.",
+   "printed": true
+  },
+  {
+   "para_id": 44,
+   "loc": "body",
+   "sec_title": "CONCLUSION",
+   "text": "Two experiments investigated the relationship between explicit, conscious recognition of a subject-verb agreement error and incremental eye movement measures. The main conclusion of these experiments is very clear: An eye movement disruption associated with computing agreement is present when, and only when, the reader recognizes the error. Together with previous studies using a similar paradigm (e.g., Staub et al., 2024), the present study confirms the assumption made by the E-Z Reader 10 model (Reichle et al., 2009) that post-lexical processing affects eye movements in reading only when such post-lexical processing fails. While it remains possible that this conclusion does not hold for all types of post-lexical processing, the present data already call for reconsideration of the intuitive notion that syntactic processing difficulty is straightforwardly reflected in incremental reading time measures.",
+   "printed": true
+  },
+  {
+   "para_id": 45,
+   "loc": "fn",
+   "sec_title": "Notes",
+   "text": "Gulordava et al.’s English language model is a two-layer LSTM model trained on 90 M tokens of English Wikipedia text. A limitation of the present analysis is that we use only a single language model, making it possible that the results would not generalize beyond this specific choice. However, we note that studies that have used a greater diversity of language models, like Wilcox et al. (2021) and Huang et al. (2024), have not observed large differences in the magnitude of RT predictions for targeted experimental contrasts across models.",
+   "printed": true
+  },
+  {
+   "para_id": 46,
+   "loc": "back",
+   "sec_title": "APPENDIX A: BAYESIAN SURPRISAL GENERALIZATION ANALYSIS",
+   "text": "van Schijndel and Linzen (2021) proposed a method for generating reading time predictions from surprisal values of a language model. Their method involves training a linear regression model on a set of training or filler data to estimate the effect of surprisal on reading times for a given set of participants in a given experimental setting. The regression coefficients associated with the surprisal predictors are referred to as conversion factors. The conversion factors are the basis for generating predictions about reading time data in a set of held-out test data. These held-out test data typically come from factorial experimental contrasts, such as the difference between two experimental conditions in a test set of data. The result of this surprisal generalization analysis is a prediction of the effect size of such an experimental manipulation conditioned on the surprisal from a given language model alone.",
+   "printed": true
+  },
+  {
+   "para_id": 47,
+   "loc": "back",
+   "sec_title": "APPENDIX A: BAYESIAN SURPRISAL GENERALIZATION ANALYSIS",
+   "text": "Here we describe a method for implementing this core analysis in a fully Bayesian framework. We note that this analysis departs in several places from the original van Schijndel and Linzen (2021) analysis pipeline, but provides qualitatively similar results on our experimental data.",
+   "printed": true
+  },
+  {
+   "para_id": 48,
+   "loc": "back",
+   "sec_title": "Step 1: Estimate Pˆ(θf|F)",
+   "text": "We follow Huang et al. (2024) and van Schijndel and Linzen (2021) in fitting a linear mixed effects regression model to the reading times in F, with predictor variables that include surprisal from a given language model, as well as lexical control variables for the current word and two previous words.",
+   "printed": true
+  }
+ ],
+ "links": [
+  {
+   "link_id": 1,
+   "url": "websites.umass.edu/eyelab/software",
+   "url_raw": "https://websites.umass.edu/eyelab/software/",
+   "href_jats": "http://websites.umass.edu/eyelab/software/",
+   "repo_key": null,
+   "host_class": "other",
+   "loc": "body",
+   "sec_title": "Procedure.",
+   "source": "tagged",
+   "para_id": 1
+  },
+  {
+   "link_id": 2,
+   "url": "engelmann.shinyapps.io/inter-act",
+   "url_raw": "https://engelmann.shinyapps.io/inter-act/",
+   "href_jats": "https://engelmann.shinyapps.io/inter-act/",
+   "repo_key": null,
+   "host_class": "other",
+   "loc": "body",
+   "sec_title": "Implications for Theories of Agreement Attraction",
+   "source": "tagged",
+   "para_id": 2
+  },
+  {
+   "link_id": 3,
+   "url": "osf.io/4xzf5/overview",
+   "url_raw": "https://osf.io/4xzf5/overview",
+   "href_jats": "https://osf.io/4xzf5/overview",
+   "repo_key": "osf:4xzf5",
+   "host_class": "osf",
+   "loc": "body",
+   "sec_title": "DATA AVAILABILITY STATEMENT",
+   "source": "tagged",
+   "para_id": 3
+  }
+ ],
+ "links_optional": [
+  "chat.openai.com",
+  "creativecommons.org/licenses/by/4.0",
+  "digitalcommons.lib.uconn.edu/dissertations/2007",
+  "doi:10.1006/jmla.1999.2653",
+  "doi:10.1007/s42113-025-00237-9",
+  "doi:10.1016/0010-0285(82)90008-1",
+  "doi:10.1016/j.cognition.2007.05.006",
+  "doi:10.1016/j.cognition.2008.07.008",
+  "doi:10.1016/j.cognition.2013.02.013",
+  "doi:10.1016/j.cognition.2021.104846",
+  "doi:10.1016/j.cognition.2022.105359",
+  "doi:10.1016/j.cognition.2024.105766",
+  "doi:10.1016/j.cognition.2026.106476",
+  "doi:10.1016/j.cogpsych.2019.01.001",
+  "doi:10.1016/j.cogpsych.2020.101359",
+  "doi:10.1016/j.cogpsych.2024.101691",
+  "doi:10.1016/j.jml.2008.06.002",
+  "doi:10.1016/j.jml.2008.11.002",
+  "doi:10.1016/j.jml.2009.04.002",
+  "doi:10.1016/j.jml.2010.12.002",
+  "doi:10.1016/j.jml.2011.02.004",
+  "doi:10.1016/j.jml.2013.04.003",
+  "doi:10.1016/j.jml.2017.01.002",
+  "doi:10.1016/j.jml.2017.08.004",
+  "doi:10.1016/j.jml.2023.104496",
+  "doi:10.1016/j.jml.2024.104510",
+  "doi:10.1016/j.jml.2024.104513",
+  "doi:10.1016/j.jml.2024.104525",
+  "doi:10.1016/j.jml.2025.104670",
+  "doi:10.1016/j.neuropsychologia.2021.107855",
+  "doi:10.1016/j.tics.2006.08.007",
+  "doi:10.1016/j.tics.2023.08.003",
+  "doi:10.1016/s0010-0277(98)00034-1",
+  "doi:10.1016/s0022-5371(81)90220-6",
+  "doi:10.1016/s0093-934x(02)00548-5",
+  "doi:10.1016/s0749-596x(02)00536-3",
+  "doi:10.1017/s0140525x03000104",
+  "doi:10.1037/0033-295x.101.4.676",
+  "doi:10.1037/0033-295x.112.3.531",
+  "doi:10.1037/0033-295x.112.4.777",
+  "doi:10.1037/0033-295x.87.4.329",
+  "doi:10.1037/0278-7393.19.3.528",
+  "doi:10.1037/0278-7393.30.6.1290",
+  "doi:10.1037/a0016896",
+  "doi:10.1037/a0024194",
+  "doi:10.1037/xlm0000649",
+  "doi:10.1037/xlm0001301",
+  "doi:10.1073/pnas.0907664106",
+  "doi:10.1073/pnas.1216438110",
+  "doi:10.1073/pnas.2307876121",
+  "doi:10.1075/ijcl.14.2.02dav",
+  "doi:10.1080/01690960143000254",
+  "doi:10.1080/01690969308406949",
+  "doi:10.1080/016909697386853",
+  "doi:10.1080/03640210802066865",
+  "doi:10.1080/17470218.2014.992445",
+  "doi:10.1080/23273798.2015.1102299",
+  "doi:10.1080/23273798.2021.1900579",
+  "doi:10.1093/bjps/axr040",
+  "doi:10.1093/oxfordhb/9780199539789.013.0049",
+  "doi:10.1111/cogs.12384",
+  "doi:10.1111/cogs.12445",
+  "doi:10.1111/cogs.12800",
+  "doi:10.1111/cogs.12988",
+  "doi:10.1111/cogs.13186",
+  "doi:10.1111/cogs.13312",
+  "doi:10.1111/tops.12026",
+  "doi:10.1146/annurev-linguistics-011724-121517",
+  "doi:10.1162/jocn.2006.18.7.1181",
+  "doi:10.1162/ling.2008.39.4.686",
+  "doi:10.1162/opmi.a.374",
+  "doi:10.1162/opmi_a_00137",
+  "doi:10.1177/17456916231197122",
+  "doi:10.1207/s15516709cog0000_25",
+  "doi:10.1515/lingvan-2016-0105",
+  "doi:10.18637/jss.v080.i01",
+  "doi:10.18653/v1/2022.conll-1.20",
+  "doi:10.21105/joss.01541",
+  "doi:10.31234/osf.io/eq2ra_v1",
+  "doi:10.3758/bf03197692",
+  "doi:10.3758/pbr.16.1.1",
+  "doi:10.3758/s13423-010-0046-9",
+  "doi:10.3758/s13423-018-1492-z",
+  "doi:10.48550/arxiv.1803.11138",
+  "doi:10.48550/arxiv.2106.03232",
+  "doi:10.48550/arxiv.2409.06803",
+  "doi:10.5334/gjgl.766",
+  "doi:10.7551/mitpress/3654.003.0008"
+ ],
+ "own_doi": "doi:10.1162/opmi.a.374",
+ "citations": [
+  {
+   "cite_id": 1,
+   "para_id": 4,
+   "bib_id": 42,
+   "marker": "2005",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 2,
+   "para_id": 4,
+   "bib_id": 64,
+   "marker": "2009",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 3,
+   "para_id": 5,
+   "bib_id": 61,
+   "marker": "1986",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 4,
+   "para_id": 5,
+   "bib_id": 82,
+   "marker": "2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 5,
+   "para_id": 5,
+   "bib_id": 19,
+   "marker": "1981",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 6,
+   "para_id": 5,
+   "bib_id": 77,
+   "marker": "2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 7,
+   "para_id": 5,
+   "bib_id": 24,
+   "marker": "1982",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 8,
+   "para_id": 5,
+   "bib_id": 12,
+   "marker": "2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 9,
+   "para_id": 5,
+   "bib_id": 24,
+   "marker": "1982",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 10,
+   "para_id": 5,
+   "bib_id": 90,
+   "marker": "2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 11,
+   "para_id": 5,
+   "bib_id": 5,
+   "marker": "2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 12,
+   "para_id": 5,
+   "bib_id": 15,
+   "marker": "2008",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 13,
+   "para_id": 5,
+   "bib_id": 58,
+   "marker": "1999",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 14,
+   "para_id": 5,
+   "bib_id": 83,
+   "marker": "2003",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 15,
+   "para_id": 6,
+   "bib_id": 20,
+   "marker": "2005",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 16,
+   "para_id": 6,
+   "bib_id": 63,
+   "marker": "2003",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 17,
+   "para_id": 7,
+   "bib_id": 62,
+   "marker": "2004",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 18,
+   "para_id": 7,
+   "bib_id": 64,
+   "marker": "2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 19,
+   "para_id": 8,
+   "bib_id": 42,
+   "marker": "2005",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 20,
+   "para_id": 8,
+   "bib_id": 52,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 21,
+   "para_id": 8,
+   "bib_id": 25,
+   "marker": "1998",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 22,
+   "para_id": 8,
+   "bib_id": 26,
+   "marker": "2001",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 23,
+   "para_id": 8,
+   "bib_id": 15,
+   "marker": "2008",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 24,
+   "para_id": 8,
+   "bib_id": 33,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 25,
+   "para_id": 9,
+   "bib_id": 34,
+   "marker": "1980",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 26,
+   "para_id": 9,
+   "bib_id": 22,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 27,
+   "para_id": 9,
+   "bib_id": 52,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 28,
+   "para_id": 10,
+   "bib_id": 32,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 29,
+   "para_id": 10,
+   "bib_id": 80,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 30,
+   "para_id": 10,
+   "bib_id": 81,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 31,
+   "para_id": 11,
+   "bib_id": 80,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 32,
+   "para_id": 11,
+   "bib_id": 81,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 33,
+   "para_id": 11,
+   "bib_id": 32,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 34,
+   "para_id": 11,
+   "bib_id": 81,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 35,
+   "para_id": 12,
+   "bib_id": 30,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 36,
+   "para_id": 12,
+   "bib_id": 30,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 37,
+   "para_id": 13,
+   "bib_id": 58,
+   "marker": "1999",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 38,
+   "para_id": 13,
+   "bib_id": 92,
+   "marker": "2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 39,
+   "para_id": 13,
+   "bib_id": 17,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 40,
+   "para_id": 13,
+   "bib_id": 56,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 41,
+   "para_id": 13,
+   "bib_id": 58,
+   "marker": "1999",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 42,
+   "para_id": 13,
+   "bib_id": 17,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 43,
+   "para_id": 13,
+   "bib_id": 58,
+   "marker": "1999",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 44,
+   "para_id": 13,
+   "bib_id": 92,
+   "marker": "2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 45,
+   "para_id": 13,
+   "bib_id": 58,
+   "marker": "1999",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 46,
+   "para_id": 14,
+   "bib_id": 7,
+   "marker": "1993",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 47,
+   "para_id": 14,
+   "bib_id": 23,
+   "marker": "2002",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 48,
+   "para_id": 14,
+   "bib_id": 18,
+   "marker": "2005",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 49,
+   "para_id": 14,
+   "bib_id": 30,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 50,
+   "para_id": 14,
+   "bib_id": 76,
+   "marker": "2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 51,
+   "para_id": 14,
+   "bib_id": 30,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 52,
+   "para_id": 15,
+   "bib_id": 92,
+   "marker": "2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 53,
+   "para_id": 16,
+   "bib_id": 39,
+   "marker": "2008",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 54,
+   "para_id": 16,
+   "bib_id": 60,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 55,
+   "para_id": 16,
+   "bib_id": 2,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 56,
+   "para_id": 16,
+   "bib_id": 3,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 57,
+   "para_id": 17,
+   "bib_id": 53,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 58,
+   "para_id": 18,
+   "bib_id": 78,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 59,
+   "para_id": 18,
+   "bib_id": 14,
+   "marker": "2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 60,
+   "para_id": 19,
+   "bib_id": 32,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 61,
+   "para_id": 19,
+   "bib_id": 80,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 62,
+   "para_id": 19,
+   "bib_id": 81,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 63,
+   "para_id": 20,
+   "bib_id": 32,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 64,
+   "para_id": 21,
+   "bib_id": 10,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 65,
+   "para_id": 22,
+   "bib_id": 47,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 66,
+   "para_id": 23,
+   "bib_id": 30,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 67,
+   "para_id": 24,
+   "bib_id": 88,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 68,
+   "para_id": 24,
+   "bib_id": 31,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 69,
+   "para_id": 25,
+   "bib_id": 28,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 70,
+   "para_id": 26,
+   "bib_id": 88,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 71,
+   "para_id": 27,
+   "bib_id": 73,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 72,
+   "para_id": 27,
+   "bib_id": 31,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 73,
+   "para_id": 28,
+   "bib_id": 1,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 74,
+   "para_id": 28,
+   "bib_id": 31,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 75,
+   "para_id": 28,
+   "bib_id": 88,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 76,
+   "para_id": 28,
+   "bib_id": 94,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 77,
+   "para_id": 29,
+   "bib_id": 88,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 78,
+   "para_id": 30,
+   "bib_id": 92,
+   "marker": "2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 79,
+   "para_id": 31,
+   "bib_id": 30,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 80,
+   "para_id": 32,
+   "bib_id": 38,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 81,
+   "para_id": 32,
+   "bib_id": 30,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 82,
+   "para_id": 32,
+   "bib_id": 30,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 83,
+   "para_id": 32,
+   "bib_id": 38,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 84,
+   "para_id": 33,
+   "bib_id": 20,
+   "marker": "2005",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 85,
+   "para_id": 33,
+   "bib_id": 73,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 86,
+   "para_id": 34,
+   "bib_id": 1,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 87,
+   "para_id": 34,
+   "bib_id": 31,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 88,
+   "para_id": 34,
+   "bib_id": 88,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 89,
+   "para_id": 34,
+   "bib_id": 94,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 90,
+   "para_id": 34,
+   "bib_id": 31,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 91,
+   "para_id": 34,
+   "bib_id": 70,
+   "marker": "2026",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 92,
+   "para_id": 34,
+   "bib_id": 94,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 93,
+   "para_id": 34,
+   "bib_id": 85,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 94,
+   "para_id": 35,
+   "bib_id": 48,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 95,
+   "para_id": 35,
+   "bib_id": 54,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 96,
+   "para_id": 35,
+   "bib_id": 54,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 97,
+   "para_id": 35,
+   "bib_id": 29,
+   "marker": "2001",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 98,
+   "para_id": 35,
+   "bib_id": 39,
+   "marker": "2008",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 99,
+   "para_id": 35,
+   "bib_id": 16,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 100,
+   "para_id": 36,
+   "bib_id": 68,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 101,
+   "para_id": 36,
+   "bib_id": 73,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 102,
+   "para_id": 36,
+   "bib_id": 29,
+   "marker": "2001",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 103,
+   "para_id": 36,
+   "bib_id": 37,
+   "marker": "2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 104,
+   "para_id": 36,
+   "bib_id": 39,
+   "marker": "2008",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 105,
+   "para_id": 36,
+   "bib_id": 65,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 106,
+   "para_id": 36,
+   "bib_id": 69,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 107,
+   "para_id": 36,
+   "bib_id": 79,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 108,
+   "para_id": 37,
+   "bib_id": 24,
+   "marker": "1982",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 109,
+   "para_id": 37,
+   "bib_id": 41,
+   "marker": "2008",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 110,
+   "para_id": 37,
+   "bib_id": 11,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 111,
+   "para_id": 37,
+   "bib_id": 71,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 112,
+   "para_id": 37,
+   "bib_id": 84,
+   "marker": "1997",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 113,
+   "para_id": 37,
+   "bib_id": 93,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 114,
+   "para_id": 37,
+   "bib_id": 36,
+   "marker": "2003",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 115,
+   "para_id": 37,
+   "bib_id": 51,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 116,
+   "para_id": 37,
+   "bib_id": 87,
+   "marker": "2006",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 117,
+   "para_id": 37,
+   "bib_id": 6,
+   "marker": "2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 118,
+   "para_id": 37,
+   "bib_id": 27,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 119,
+   "para_id": 37,
+   "bib_id": 40,
+   "marker": "2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 120,
+   "para_id": 37,
+   "bib_id": 44,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 121,
+   "para_id": 37,
+   "bib_id": 45,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 122,
+   "para_id": 37,
+   "bib_id": 66,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 123,
+   "para_id": 37,
+   "bib_id": 66,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 124,
+   "para_id": 37,
+   "bib_id": 22,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 125,
+   "para_id": 37,
+   "bib_id": 5,
+   "marker": "2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 126,
+   "para_id": 37,
+   "bib_id": 49,
+   "marker": "2008",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 127,
+   "para_id": 37,
+   "bib_id": 52,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 128,
+   "para_id": 38,
+   "bib_id": 75,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 129,
+   "para_id": 38,
+   "bib_id": 9,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 130,
+   "para_id": 39,
+   "bib_id": 71,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 131,
+   "para_id": 39,
+   "bib_id": 72,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 132,
+   "para_id": 39,
+   "bib_id": 66,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 133,
+   "para_id": 39,
+   "bib_id": 35,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 134,
+   "para_id": 39,
+   "bib_id": 50,
+   "marker": "2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 135,
+   "para_id": 39,
+   "bib_id": 35,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 136,
+   "para_id": 40,
+   "bib_id": 42,
+   "marker": "2005",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 137,
+   "para_id": 40,
+   "bib_id": 43,
+   "marker": "2006",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 138,
+   "para_id": 40,
+   "bib_id": 46,
+   "marker": "1994",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 139,
+   "para_id": 40,
+   "bib_id": 86,
+   "marker": "1993",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 140,
+   "para_id": 40,
+   "bib_id": 34,
+   "marker": "1980",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 141,
+   "para_id": 40,
+   "bib_id": 22,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 142,
+   "para_id": 40,
+   "bib_id": 52,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 143,
+   "para_id": 40,
+   "bib_id": 59,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 144,
+   "para_id": 40,
+   "bib_id": 64,
+   "marker": "2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 145,
+   "para_id": 2,
+   "bib_id": 30,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 146,
+   "para_id": 2,
+   "bib_id": 21,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 147,
+   "para_id": 2,
+   "bib_id": 92,
+   "marker": "2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 148,
+   "para_id": 2,
+   "bib_id": 30,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 149,
+   "para_id": 2,
+   "bib_id": 21,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 150,
+   "para_id": 2,
+   "bib_id": 55,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 151,
+   "para_id": 2,
+   "bib_id": 89,
+   "marker": "2008",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 152,
+   "para_id": 2,
+   "bib_id": 91,
+   "marker": "2008",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 153,
+   "para_id": 41,
+   "bib_id": 8,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 154,
+   "para_id": 41,
+   "bib_id": 57,
+   "marker": "2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 155,
+   "para_id": 41,
+   "bib_id": 27,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 156,
+   "para_id": 41,
+   "bib_id": 13,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 157,
+   "para_id": 42,
+   "bib_id": 32,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 158,
+   "para_id": 42,
+   "bib_id": 81,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 159,
+   "para_id": 42,
+   "bib_id": 4,
+   "marker": "2012",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 160,
+   "para_id": 42,
+   "bib_id": 74,
+   "marker": "2008",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 161,
+   "para_id": 43,
+   "bib_id": 5,
+   "marker": "2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 162,
+   "para_id": 43,
+   "bib_id": 15,
+   "marker": "2008",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 163,
+   "para_id": 43,
+   "bib_id": 33,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 164,
+   "para_id": 43,
+   "bib_id": 67,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 165,
+   "para_id": 44,
+   "bib_id": 81,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 166,
+   "para_id": 44,
+   "bib_id": 64,
+   "marker": "2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 167,
+   "para_id": 45,
+   "bib_id": 94,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 168,
+   "para_id": 45,
+   "bib_id": 31,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 169,
+   "para_id": 46,
+   "bib_id": 88,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 170,
+   "para_id": 47,
+   "bib_id": 88,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 171,
+   "para_id": 48,
+   "bib_id": 31,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 172,
+   "para_id": 48,
+   "bib_id": 88,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-ext-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "v1_bib_count": 94
+ }
+}

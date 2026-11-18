@@ -1,0 +1,448 @@
+{
+ "paper_id": "10.1017_s0033291726105005",
+ "paras": [
+  {
+   "para_id": 1,
+   "loc": "body",
+   "sec_title": "ALPS index calculation",
+   "text": "Diffusion metric images, including DxDx , DyDy , DzDz , and fractional anisotropy (FA) maps, were generated using DSI Studio software (https://dsi-studio.labsolver.org/). To avoid bias from manual region of interest (ROI) drawing, this study employed a template-based algorithm (Yokota et al., 2019), which minimizes operator-dependent variability and enhances reproducibility. Briefly, each subject’s FA map was nonlinearly registered to the ICBM-DTI-81 template FA map using SPM12 software (Wellcome Trust Centre of Cognitive Neurology, University College London, UK, http://www.fil.ion.ucl.ac.uk/spm/). Registration accuracy was further confirmed through manual inspection. Other diffusion metric images from individual subjects were transformed according to the FA map registration matrix. Additionally, left and right brain projection fiber and association fiber ROIs were extracted based on template labels. ROI range in the cranial-caudal direction was limited to the area where the x-axis line is perpendicular to the lateral ventricular body. According to formula (1), ALPS indices for the left and right hemispheres were automatically calculated.",
+   "printed": true
+  },
+  {
+   "para_id": 2,
+   "loc": "body",
+   "sec_title": "Statistical analysis",
+   "text": "All statistical analyses were performed using SPSS 19.0 (SPSS Inc., Chicago) and R software version 3.5.2 (R Core Team, www.R-project.org). Continuous and categorical variables were expressed as mean ± standard deviation and number/frequency (%), respectively. Analysis of variance (ANOVA) and chi-square tests were used to compare demographic characteristics between groups, with post-hoc Bonferroni multiple comparisons to examine between-group differences in HC, SCD, MCI, and AD. Using age, sex, education level, and APOE 4 carrier status as covariates, partial correlation analysis was employed to analyze independent relationships between plasma Aβ levels, regional WMH, and the ALPS. We used the PROCESS plugin in SPSS 19.0 (SPSS Inc., Chicago) for mediation analysis. Statistical significance was set at P < 0.05 for all analyses. To account for multiple comparisons, the Benjamini–Hochberg false discovery rate (FDR) procedure was applied to all correlation analyses. For plasma amyloid measures, FDR correction was applied only within that set of variables. P values reported in the results and figures reflect FDR-corrected values unless otherwise noted.",
+   "printed": true
+  },
+  {
+   "para_id": 3,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "The extracellular accumulation of amyloid-β (Aβ) is a pathological hallmark of Alzheimer’s disease (AD), typically beginning more than 15 years before the onset of dementia symptoms (Sperling, Karlawish, & Johnson, 2013). This abnormal deposition results from impairment of multiple brain clearance mechanisms (Hampel et al., 2021). Rodent studies have shown that the brain glymphatic system is a key pathway involved in Aβ clearance from the brain (Hampel et al., 2021). Animal studies have found that glymphatic dysfunction is associated with Aβ accumulation(Peng et al., 2016; Simon et al., 2022), and human population studies have also demonstrated impaired glymphatic function in AD patients, suggesting that glymphatic function may contribute to AD-related cognitive dysfunction (Hsu et al., 2023). However, research on factors affecting glymphatic function in AD remains limited.",
+   "printed": true
+  },
+  {
+   "para_id": 4,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Alzheimer’s disease pathology commonly coexists with cerebral small vessel disease (CSVD), which is a common pathogenic mechanism contributing to AD. Studies show that over 80% of AD patients have coexisting small vessel disease (Toledo et al., 2013). White matter hyperintensities (WMH) are commonly used as imaging markers to represent CSVD. Previous studies have shown that WMH are associated with other glymphatic biomarkers such as enlarged perivascular spaces and choroid plexus volume (Huang et al., 2021; Li et al., 2023). However, most studies have only examined the relationship between total cerebral WMH volume and the glymphatic system, and it remains unclear whether WMH in different anatomical regions play distinct roles in glymphatic dysfunction. Kim et al. divided white matter hyperintensities into juxtaventricular (within 3 mm of the ventricular surface), periventricular (in the marginal zone 3-13 mm between ventricles and cortex), deep (between periventricular and subcortical), and juxtacortical (within 4 mm of the cortical-medullary junction) WMH, representing different pathologies and pathogenic mechanisms (Kim, MacFall, & Payne, 2008). Understanding the relationship between regional WMH and the glymphatic system may help us further understand the mechanisms of glymphatic circulation abnormalities and provide new targets for precision intervention in diseases such as AD.",
+   "printed": true
+  },
+  {
+   "para_id": 5,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Recently, Taoka et al. proposed a non-invasive in vivo method called diffusion tensor imaging along the perivascular space (DTI-ALPS) for non-invasively assessing human glymphatic function (Taoka et al., 2017). DTI-ALPS evaluates the movement of water molecules along perivascular spaces in different directions by measuring diffusivity along deep medullary veins at the level of the lateral ventricular body, which is a key process in brain glymphatic circulation. Furthermore, a study has found a significant correlation between the ALPS index and cerebrospinal fluid clearance function assessed by contrast imaging, supporting its validity as a surrogate marker of brain glymphatic function (Zhang et al., 2021). Therefore, DTI-ALPS has become a valuable tool for non-invasively assessing glymphatic system function and has been applied to various diseases such as Parkinson’s disease (Shen et al., 2022), frontotemporal dementia (Jiang et al., 2023), AD (Huang et al., 2024), and neuromyelitis optica (Cacciaguerra et al., 2022). Studies have shown that the ALPS index is reduced in AD patients compared with normal controls (Hsu et al., 2023) and is related to cognitive function. Some studies have also found that the ALPS index is associated with amyloid and tau deposition in the brain (Hsu et al., 2023; Ota et al., 2022), potentially predicting amyloid deposition, neurodegeneration, and clinical progression in AD (Huang et al., 2024). However, the relationship between the plasma biomarker Aβ and glymphatic function remains unclear.",
+   "printed": true
+  },
+  {
+   "para_id": 6,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Consistent with previous reports (Hsu et al., 2023; Kamagata et al., 2022), our results further confirm that AD patients exhibit impaired glymphatic system function, specifically manifested as a significantly reduced ALPS index. This reduction may reflect reduced brain metabolic waste clearance, which could contribute to AD pathologenesis. Compared with prior studies, the innovation of this study lies in including the SCD group as a control, thereby encompassing the full cognitive spectrum from HC to AD. Through this design, MCI patients tended to have lower ALPS index than the SCD group, although this difference did not reach statistical significance after correction for multiple comparisons, highlighting potential early involvement of glymphatic dysfunction. These results support the potential utility of the ALPS index as a promising candidate biomarker for early AD diagnosis. Previous research by Huang et al. also reported that ALPS decline can be detected in the preclinical stage of AD (Huang et al., 2024), with evidence suggesting that glymphatic dysfunction may precede amyloid pathology (Huang et al., 2024). This temporal relationship provides important insights into AD pathogenesis and opportunities for early intervention.",
+   "printed": true
+  },
+  {
+   "para_id": 7,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Our analysis of the correlation between the ALPS index and cognitive function is consistent with multiple previous studies (Kamagata et al., 2022; Steward et al., 2021; Taoka et al., 2017). This broad pattern of correlations suggests that glymphatic system functional impairment may influence neuronal health and contribute to global cognitive decline. Notably, this correlation is not limited to any specific cognitive domain but encompasses multiple domains, indicating that glymphatic system dysfunction may exert widespread effects across diverse brain regions. These findings collectively support glymphatic system dysfunction as a potential contributor to AD progression and provide an empirical basis for using the ALPS index as a biomarker for assessing AD severity and prognosis.",
+   "printed": true
+  },
+  {
+   "para_id": 8,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Further analysis showed that the ALPS index was significantly correlated with WMH volumes in specific brain regions, particularly the juxtaventricular, periventricular, and juxtacortical regions. These regions are adjacent to cerebrospinal fluid flow pathways, where the glymphatic system is active, suggesting that white matter structural damage may affect glymphatic function. Juxtaventricular WMH has been associated with cerebrospinal fluid leakage, periventricular WMH is associated with hypoperfusion and ischemic states, while juxtacortical WMH may be closely related to small vessel disease and ischemia-hypoxia (Kim, MacFall, & Payne, 2008). These regions are located in key areas of the brain, typically at the intersection of cerebrospinal fluid and plasma flow. Juxtaventricular and periventricular regions are located around the ventricles and are often pathways for cerebrospinal fluid and metabolic waste elimination through the glymphatic system. Juxtacortical regions are located at the junction between cortex and white matter, and WMH in this location may be related to cerebrospinal fluid flow obstruction in these layers. Therefore, the regional specificity of WMH associations with ALPS suggests that lesions from different mechanisms may all adversely affect glymphatic function.",
+   "printed": true
+  },
+  {
+   "para_id": 9,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "This study found that the plasma Aβ42/Aβ40 ratio was significantly correlated with the ALPS index. In recent years, plasma Aβ42/Aβ40 has been recognized as a peripheral biomarker reflecting AD pathology (Janelidze et al., 2021; Schindler et al., 2019). Although Aβ primarily accumulates as β-amyloid plaques in the brain, plasma Aβ levels can also reflect cerebral metabolic changes. Studies show that the plasma Aβ42/Aβ40 relates to brain Aβ deposition, especially in early AD (Janelidze et al., 2016; Pérez-Grijalba et al., 2019) and discriminates abnormal from normal amyloid-β positron emission tomography (Aβ-PET) states (Janelidze et al., 2024). The observed correlation between the plasma Aβ42/Aβ40 ratio and the ALPS index may reflect multi-level pathophysiological associations. On one hand, glymphatic system dysfunction may be associated with reduced Aβ clearance efficiency, potentially increasing brain and plasma Aβ. On the other hand, peripheral Aβ levels may reflect systemic metabolic alterations, which could indirectly affect cerebral blood flow dynamics and glymphatic system function. Taken together, these processes may form a bidirectional feedback loop between glymphatic dysfunction and Aβ pathology, which could potentially contribute to disease progression. However, this remains a hypothesized mechanism and was not directly tested in the present study. Crucially, mediation analysis showed that ALPS significantly mediated the relationships between plasma Aβ42/Aβ40 ratio and overall cognition, memory, and language performance, supporting the functional relevance of glymphatic activity in AD-related cognitive function. These findings provide further evidence that glymphatic dysfunction may contribute to AD pathogenesis and underscore the clinical potential of the ALPS index as a potential biomarker for brain metabolic waste clearance capacity. Future research can further explore the combined application of the ALPS index with other AD-related biomarkers to improve early diagnostic accuracy and longitudinal disease monitoring.",
+   "printed": true
+  },
+  {
+   "para_id": 10,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "This study has some limitations. First, this study did not include cerebrospinal fluid examination or PET imaging data, limiting our ability to directly assess the relationship between the ALPS index and cerebrospinal fluid biomarkers or Aβ/Tau deposition. This limits a comprehensive understanding of glymphatic dysfunction in relation to classic AD pathology. Second, although the ALPS index has been preliminarily validated through glymphatic MRI studies, its effectiveness in assessing human glymphatic system function still lacks direct pathophysiological evidence. In addition, formal reliability analyses (e.g. intra- or inter-rater reproducibility or test–retest reliability) were not performed, which may affect measurements robustness. Third, the ALPS index, as a global indicator of lymphatic activity, cannot capture regional heterogeneity, and dysfunction in different brain regions may have differential impacts on cognitive function. Fourth, as a cross-sectional study, causal relationships and temporal sequences between ALPS decline, WMH development, and cognitive deterioration cannot be determined, and the sequence of cerebrovascular lesions relative to glymphatic dysfunction should be interpreted cautiously. Fifth, ALPS measurements reflect local diffusion characteristics rather than direct flow. Sixth, this study’s moderate sample size and single-center recruitment may have limited statistical power and generalizability. Future studies should include larger cohorts, multi-center cohorts, and conduct longitudinal studies to track ALPS changes over time. In addition, integrating multimodal imaging with data-driven analytic strategies, including machine learning or deep learning, may help improve the robustness, automation, and biological interpretability of glymphatic-related imaging markers (Cai et al., 2025; Lin et al., 2026; Zhang, Wang, Qi, & Peng, 2024). Finally, key modulators of glymphatic function, including sleep quality, blood pressure variability, and other vascular factors, were not assessed. These unmeasured variables may have influenced the observed associations and should be considered in future studies to more comprehensively evaluate glymphatic function.",
+   "printed": true
+  }
+ ],
+ "links": [
+  {
+   "link_id": 1,
+   "url": "dsi-studio.labsolver.org",
+   "url_raw": "https://dsi-studio.labsolver.org/",
+   "href_jats": "https://dsi-studio.labsolver.org/",
+   "repo_key": null,
+   "host_class": "other",
+   "loc": "body",
+   "sec_title": "ALPS index calculation",
+   "source": "tagged",
+   "para_id": 1
+  },
+  {
+   "link_id": 2,
+   "url": "fil.ion.ucl.ac.uk/spm",
+   "url_raw": "http://www.fil.ion.ucl.ac.uk/spm/",
+   "href_jats": "http://www.fil.ion.ucl.ac.uk/spm/",
+   "repo_key": null,
+   "host_class": "other",
+   "loc": "body",
+   "sec_title": "ALPS index calculation",
+   "source": "tagged",
+   "para_id": 1
+  },
+  {
+   "link_id": 3,
+   "url": "r-project.org",
+   "url_raw": "www.R-project.org",
+   "href_jats": "http://www.R-project.org",
+   "repo_key": null,
+   "host_class": "other",
+   "loc": "body",
+   "sec_title": "Statistical analysis",
+   "source": "tagged",
+   "para_id": 2
+  }
+ ],
+ "links_optional": [
+  "creativecommons.org/licenses/by/4.0",
+  "doi:10.1001/jamaneurol.2021.3180",
+  "doi:10.1001/jamaneurol.2024.2619",
+  "doi:10.1002/alz.13789",
+  "doi:10.1002/ana.26419",
+  "doi:10.1002/ana.26516",
+  "doi:10.1002/ana.26648",
+  "doi:10.1002/ana.26710",
+  "doi:10.1007/s11604-017-0617-z",
+  "doi:10.1016/j.biopsych.2008.03.024",
+  "doi:10.1016/j.ebiom.2026.106133",
+  "doi:10.1016/j.nbd.2016.05.015",
+  "doi:10.1016/j.neuroimage.2021.118257",
+  "doi:10.1017/s0033291726105005",
+  "doi:10.1038/nrneurol.2012.241",
+  "doi:10.1038/s41380-021-01249-0",
+  "doi:10.1038/s41531-022-00437-1",
+  "doi:10.1038/srep26801",
+  "doi:10.1093/brain/awt188",
+  "doi:10.1111/jon.12837",
+  "doi:10.1155/2019/5675014",
+  "doi:10.1177/0271678x211002279",
+  "doi:10.1186/s13195-022-00999-5",
+  "doi:10.1212/wnl.0000000000008081",
+  "doi:10.1212/wnl.0000000000201300",
+  "doi:10.14283/jpad.2018.41",
+  "doi:10.3233/jad-220534",
+  "doi:10.34133/cbsystems.0087",
+  "doi:10.34133/cbsystems.0448"
+ ],
+ "own_doi": "doi:10.1017/s0033291726105005",
+ "citations": [
+  {
+   "cite_id": 1,
+   "para_id": 3,
+   "bib_id": 21,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 2,
+   "para_id": 3,
+   "bib_id": 3,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 3,
+   "para_id": 3,
+   "bib_id": 3,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 4,
+   "para_id": 3,
+   "bib_id": 16,
+   "marker": "2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 5,
+   "para_id": 3,
+   "bib_id": 20,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 6,
+   "para_id": 3,
+   "bib_id": 4,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 7,
+   "para_id": 4,
+   "bib_id": 24,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 8,
+   "para_id": 4,
+   "bib_id": 5,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 9,
+   "para_id": 4,
+   "bib_id": 13,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 10,
+   "para_id": 4,
+   "bib_id": 12,
+   "marker": "2008",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 11,
+   "para_id": 5,
+   "bib_id": 23,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 12,
+   "para_id": 5,
+   "bib_id": 26,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 13,
+   "para_id": 5,
+   "bib_id": 19,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 14,
+   "para_id": 5,
+   "bib_id": 10,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 15,
+   "para_id": 5,
+   "bib_id": 6,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 16,
+   "para_id": 5,
+   "bib_id": 1,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 17,
+   "para_id": 5,
+   "bib_id": 4,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 18,
+   "para_id": 5,
+   "bib_id": 4,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 19,
+   "para_id": 5,
+   "bib_id": 15,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 20,
+   "para_id": 5,
+   "bib_id": 6,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 21,
+   "para_id": 1,
+   "bib_id": 25,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 22,
+   "para_id": 6,
+   "bib_id": 4,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 23,
+   "para_id": 6,
+   "bib_id": 11,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 24,
+   "para_id": 6,
+   "bib_id": 6,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 25,
+   "para_id": 6,
+   "bib_id": 6,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 26,
+   "para_id": 7,
+   "bib_id": 11,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 27,
+   "para_id": 7,
+   "bib_id": 22,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 28,
+   "para_id": 7,
+   "bib_id": 23,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 29,
+   "para_id": 8,
+   "bib_id": 12,
+   "marker": "2008",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 30,
+   "para_id": 9,
+   "bib_id": 9,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 31,
+   "para_id": 9,
+   "bib_id": 18,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 32,
+   "para_id": 9,
+   "bib_id": 8,
+   "marker": "2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 33,
+   "para_id": 9,
+   "bib_id": 17,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 34,
+   "para_id": 9,
+   "bib_id": 7,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 35,
+   "para_id": 10,
+   "bib_id": 2,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 36,
+   "para_id": 10,
+   "bib_id": 14,
+   "marker": "2026",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 37,
+   "para_id": 10,
+   "bib_id": 27,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-ext-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "v1_bib_count": 27
+ }
+}

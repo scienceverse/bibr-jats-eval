@@ -1,0 +1,1837 @@
+{
+ "paper_id": "10.1002_ece3.73999",
+ "paras": [
+  {
+   "para_id": 1,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Climate change is already causing widespread shifts in the composition and range of plant communities worldwide (Scheffers et al. 2016). In Europe, the effects of climate change on forests include changes in forest productivity (Reyer et al. 2014), changes in the distribution of tree species (Dyderski et al. 2018; Thurm et al. 2018), the economic value of forests (Hanewinkel et al. 2013), and intensified disturbances (Seidl et al. 2011, 2014) and droughts (Allen et al. 2010). Climate change‐induced disturbance regimes, combined with legacies of past management, such as monoculture and increasing growing stock, are likely to severely impede the ability of European forests to provide multiple ecosystem services, including quality of life and health (Desvars‐Larrive et al. 2024; Neumann et al. 2017; Schelhaas et al. 2003; Seidl et al. 2011, 2014; Thom and Seidl 2016).",
+   "printed": true
+  },
+  {
+   "para_id": 2,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Climate change is also expected to cause widespread shifts in the potential ranges of major native tree species across Europe (Chakraborty, Móricz, et al. 2021; Dyderski et al. 2018, 2025; Koch et al. 2022; Noce et al. 2023; Thurm et al. 2018), sparking discussion on the need for alternative tree species (Bolte et al. 2023; Konic et al. 2024; Lévesque et al. 2023; Lindner et al. 2010; Schelhaas et al. 2015). To add to this complexity, Europe also has a limited pool of alternative native tree species compared to North America and Asia due to migration barriers presented by the geographic orientation of the mountain ranges, limiting post‐glacial redistribution of tree genera (Albrecht et al. 2024; Latham and Ricklefs 1993; Svenning and Skov 2004, 2007). Therefore, Non‐native tree species (NNTs) have been discussed as an option to support adaptive forest management and compensate for the potential loss in the provision of ecosystem services resulting from the ongoing reduction in the range of native European tree species (Castro‐Díez et al. 2019; Frischbier et al. 2019; Hazarika et al. 2024; Konic et al. 2024; Spiecker et al. 2019; Thurm et al. 2018).",
+   "printed": true
+  },
+  {
+   "para_id": 3,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "NNTs have been an integral part of European forestry for a long time (Brundu et al. 2020; Frischbier et al. 2019; Lapin et al. 2023). Brus et al. (2019) documented about 145 NNTs in Europe, mostly originating from North America, Asia, and Australia, dominated by Robinia pseudoacacia , Picea sitchensis , and Pseudotsuga menziesii . A recent estimate by Lapin et al. (2020) identified 530 NNTs in forests and urban areas of the European Alpine space. Although NNTs are widespread in European forests and urban habitats, their introduction and potential spread raise concerns about their negative impacts on native biodiversity (Castro‐Díez et al. 2019; Essl et al. 2020; Kracke et al. 2021; Novoa et al. 2024). These concerns have led to policies such as the European legislation on Invasive alien species calling for their control and management (Langmaier and Lapin 2020; Lapin et al. 2023; Pötzelsberger et al. 2020).",
+   "printed": true
+  },
+  {
+   "para_id": 4,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Despite strong arguments against their introduction, several NNTs, such as P. menziesii, P. sitchensis, Pinus contorta, and Thuja plicata, are cultivated in several parts of Europe (Carrillo‐Gavilán et al. 2012; Nygaard and Øyen 2017; Sykes 2001). Recent pan‐European stakeholder surveys found that several NNTs, including potentially invasive ones like R. pseudoacacia and Q. rubra , were perceived as valuable for delivering diverse ecosystem services, including disturbance protection, agroforestry, climate adaptation, land improvement, and urban greening (Dimitrova et al. 2022; Hazarika et al. 2024).",
+   "printed": true
+  },
+  {
+   "para_id": 5,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Large uncertainties were reported in the extent of available scientific knowledge and public perception to manage the risks and benefits of NNTs in Europe (Dimitrova et al. 2022; Hazarika et al. 2024), highlighting the need for site‐specific risk assessments (Bindewald et al. 2021). A basic requirement of such a site‐specific assessment is the reliable estimate of the potential distribution or climatic suitability of NNTs. Estimating the potential distribution of NNTs is also crucial for assessing their climatically suitable ranges and identifying NNTs that can potentially replace vulnerable native species.",
+   "printed": true
+  },
+  {
+   "para_id": 6,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Few recent studies have examined the potential distribution of NNTs across Europe (Albrecht et al. 2024; Puchałka et al. 2023). However, Albrecht et al. (2024) assessed only six NNTs, while Puchałka et al. (2023) relied exclusively on the MaxEnt model. Moreover, both studies produced projections at a spatial resolution of approximately 4 × 4 km, which limits their applicability for practical forest management decisions. Importantly, neither study compared projected range shifts between native and NNT species to evaluate their potential as climate‐resilient alternatives under future climate conditions.",
+   "printed": true
+  },
+  {
+   "para_id": 7,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "In this study, we address these gaps by (i) estimating the climatically suitable ranges and projected range shifts of 15 NNTs across Europe and (ii) comparing climate suitability between native and NNT species to identify potential alternatives for climate‐resilient forest management. Specifically, we extend previous work (Albrecht et al. 2024; Puchałka et al. 2023) by applying a multimodel ensemble species distribution modeling framework at a finer spatial resolution (1 km). In addition, we include three NNTs, Acacia dealbata, Picea pungens, and Pinus radiata , that were not considered in earlier continental‐scale analyses.",
+   "printed": true
+  },
+  {
+   "para_id": 8,
+   "loc": "body",
+   "sec_title": "Potential Distribution Maps of Non Native Trees (NNTs) and Native Tree Species",
+   "text": "To estimate the climatically suitable range and range shifts, we used published maps of the potential distribution of 15 NNTs (Chakraborty et al. 2025; Chakraborty, Dobor, et al. 2021) and 13 widely occurring native species (Chakraborty et al. 2024; Chakraborty, Móricz, et al. 2021) (Table S1). These maps depict the climatically suitable potential distribution of the target species as probability of occurrence (0–1), predicted by ensemble Species Distribution Models (SDMs) at a spatial resolution of 30‐arc secs, which is roughly equivalent to 1 km depending on latitude.",
+   "printed": true
+  },
+  {
+   "para_id": 9,
+   "loc": "body",
+   "sec_title": "Species Occurrence Data",
+   "text": "The occurrence data for the native species were from (Mauri et al. 2017), while the occurrence data for the 15 NNTs in their native range and introduced range in Europe were obtained from various sources, such as National Forest Inventories (Mauri et al. 2017) and data collected by the EU COST Action NNEXT (Table S2). This occurrence data includes records from both the native and introduced range of the target NNTs, representing a wide range of environmental conditions (Figure S1). These datasets have a spatial precision of around 1 km. (see detailed description of the SDMs in Supporting Information). The occurrence data were treated to reduce sampling bias and to match the climate data's resolution (Tables S3 and S4).",
+   "printed": true
+  },
+  {
+   "para_id": 10,
+   "loc": "body",
+   "sec_title": "Bioclimatic Variables",
+   "text": "The bioclimatic variables to calibrate the SDMs for NNTs comprised annual, seasonal, and monthly variables from Worldclim2.0 (Fick and Hijmans 2017), while the bioclimatic variables for SDMs of native species were from the ECLIPS 2.0 dataset (Chakraborty, Dobor, et al. 2021), both with a spatial resolution of 30 arc‐sec (Tables S5 and S6). These bioclimatic variables represent historical climate (1961–1990) and two Shared Socioeconomic Pathways (SSP) scenarios used in IPCC's Sixth Assessment Report, SSP2‐4.5 and SSP5‐8.5, for the period 2041–2060, 2061–2080, and 2081–2100 (IPCC 2021; Riahi et al. 2017). To represent likely future climate scenarios, the bioclimatic variables projected by 13 Global Circulation Models (GCMs) available in the Worldclim2.0 dataset (Fick and Hijmans 2017) and 5 GCMs from the ECLIPS.2.0 (Chakraborty, Dobor, et al. 2021), the dataset was used.",
+   "printed": true
+  },
+  {
+   "para_id": 11,
+   "loc": "body",
+   "sec_title": "Ensemble Species Distribution Models (SDMs)",
+   "text": "The SDMs for both NNTs and native species were calibrated with observed occurrence locations (presence and absence) as dependent variables and bioclimatic variables as independent variables, implemented with the R package biomod2 (Thuiller et al. 2016). The biomod2 offers a computational platform for 10 modeling algorithms to calibrate SDMs for each target species.",
+   "printed": true
+  },
+  {
+   "para_id": 12,
+   "loc": "body",
+   "sec_title": "Ensemble Species Distribution Models (SDMs)",
+   "text": "We used the 10 species distribution modeling (SDM) algorithms implemented in biomod2 (Thuiller et al. 2016) along with an ensemble approach, to predict the potential distributions of both native species and non‐native tree species (NNTs). For each species, ensemble predictions were generated by calculating the median probability across models that met a performance threshold of True Skill Statistic (TSS > 0.7). The individual SDMs and the resulting ensemble models were first used to map potential distributions under historical climate conditions (1961–1990). The ensemble models were then projected to map the potential distribution in the future climate scenarios SSP2‐4.5 and SSP5‐8.5 for 2041–2060, 2061–2080 and 2081–2100 using the 13 GCMs from the WorldClim 2.0 dataset (Fick and Hijmans 2017) for NNTs and 5 GCMs from the ECLIPS 2.0 dataset (Chakraborty, Dobor, et al. 2021).",
+   "printed": true
+  },
+  {
+   "para_id": 13,
+   "loc": "body",
+   "sec_title": "Ensemble Species Distribution Models (SDMs)",
+   "text": "For comprehensive reporting, we restricted our analysis to historic (1961–1990) and one future time frame, 2061–2080 for SSP2‐4.5 and SSP5‐8.5 scenarios. In this study, the maps of the potential distributions of native and NNTs were restricted to only those grid cells of Europe where at least 50% of the area is covered by forest according to European Forest Cover data (Gunia et al. 2016). We termed these grid cells the “forested grid cells” of Europe.",
+   "printed": true
+  },
+  {
+   "para_id": 14,
+   "loc": "body",
+   "sec_title": "Ensemble Species Distribution Models (SDMs)",
+   "text": "Detailed description of the SDMs for both native species and NNTs in Supporting Information, along with model evaluation statistics (Tables S7–S10). In addition, detailed information on the SDMs according to the ODMAP framework: Overview, Data, Model, Assessment, and Prediction (Zurell et al. 2020) is also available in (Chakraborty et al. 2025) and (Chakraborty et al. 2024) for the NNT and native species, respectively.",
+   "printed": true
+  },
+  {
+   "para_id": 15,
+   "loc": "body",
+   "sec_title": "Estimation of the Range Shift of NNT Species",
+   "text": "To estimate the shift in climatically suitable ranges of the 15 NNTs, we converted the probabilities of occurrence predicted by the ensemble SDMs to binary: presence and absence (1 or 0), following thresholds of probability or cutoff values based on True Skill Statistics (TSS) reported by (Chakraborty et al. 2025) (Table S11). To convert continuous probability of occurrence values into binary presence–absence predictions, biomod2 identifies the cutoff value that maximizes TSS on the evaluation dataset (i.e., where the sum of sensitivity and specificity is highest). This “maximum TSS threshold” is then used to classify model outputs into predicted presences (probability ≥ cutoff) and absences (probability < cutoff). This approach balances omission and commission errors, offering an optimal, prevalence‐independent threshold for binarizing SDMs, and is now standard in ensemble modeling frameworks such as biomod2 (Allouche et al. 2006; Liu et al. 2005; Thuiller et al. 2016).",
+   "printed": true
+  },
+  {
+   "para_id": 16,
+   "loc": "body",
+   "sec_title": "Comparing the Climatically Suitable Areas of the Best‐Suited NNT and Native Species",
+   "text": "This analysis focused only on NNTs such as Abies grandis, P. menziesii, Juglans nigra, P. contorta, Fraxinus pennsylvanica, P. pungens, P. sitchensis, Pinus strobus, P. radiata, Q. rubra, R. pseudoacacia, and T. plicata, which have been discussed as potential alternatives to vulnerable native tree species and are perceived to offer multiple ecosystem services by a wide range of stakeholders in Europe (Hazarika et al. 2024; Lapin et al. 2023; Pötzelsberger et al. 2020).",
+   "printed": true
+  },
+  {
+   "para_id": 17,
+   "loc": "body",
+   "sec_title": "Comparing the Climatically Suitable Areas of the Best‐Suited NNT and Native Species",
+   "text": "Since the estimation of the climatic suitability of all target species within all the 25 million forested grid cells at 30 arc‐sec resolution of Europe is computationally intensive and difficult to comprehend, we summarized the climatic suitability of all the species within each bioclimatic zone of Europe (Metzger et al. 2005). For each target species, we focused on forested grid cells with climatic probability values at or above the species‐specific threshold, which were considered climatically suitable for that species (Table S11). For each species‐bioclimatic region and climate scenario combination, zonal statistics were computed using exact area weighting via the exactextractr R package (Baston 2025) which accounts for partial pixel overlap with polygon boundaries, yielding more accurate estimates than centroid‐based approaches. Thereafter, we computed statistics, including the mean, median, minimum, and maximum of climatic suitability values per bioclimatic region.",
+   "printed": true
+  },
+  {
+   "para_id": 18,
+   "loc": "body",
+   "sec_title": "Comparing the Climatically Suitable Areas of the Best‐Suited NNT and Native Species",
+   "text": "Within each region, native and NNT species were ranked based on their composite scores. This composite score ranks the species that are both highly suitable and widely distributed, while down‐weighting species that are suitable only in small areas. Similar area‐weighted approaches have been used in previous European tree suitability assessments (Buras and Menzel 2019; Hanewinkel et al. 2013).",
+   "printed": true
+  },
+  {
+   "para_id": 19,
+   "loc": "body",
+   "sec_title": "Uncertainty in the Range Shift of NNTs and Best‐Suited Species",
+   "text": "To account for uncertainty in projected range shifts of NNTs, as well as the area covered by the best‐suited native and NNT species, we derived the standard deviation of the potential distribution of the 10 SDM algorithms and corresponding ensemble models under historical climate (Thuiller et al. 2016). Uncertainty in the future estimation of range shift and area covered by best‐suited species was based on standard deviation from 13 GCMs from the WorldClim 2.0 dataset and 5 GCMs from the ECLIPS 2.0 dataset for the period 2061–2080 under the SSP2‐4.5 and SSP5‐8.5 scenarios. Maps of standard deviation in the potential distribution of the NNTs are presented in Figures S9–S23.",
+   "printed": true
+  },
+  {
+   "para_id": 20,
+   "loc": "body",
+   "sec_title": "Uncertainty in the Range Shift of NNTs and Best‐Suited Species",
+   "text": "All statistical analyses and data visualizations were performed using R (R Core Team 2024).",
+   "printed": true
+  },
+  {
+   "para_id": 21,
+   "loc": "body",
+   "sec_title": "Range Shift of the NNTs in Europe",
+   "text": "Under both climate scenarios, SSP2‐4.5 and SSP5‐8.5, the NNTs follow a similar trend in their ranks of range contraction, overlap, and expansion (Figure 1). In general, the broadleaved NNTs have higher range expansion compared to range contraction (Figure 1), as also reported by previous studies (Albrecht et al. 2024; Puchałka et al. 2023; Thurm et al. 2018).",
+   "printed": true
+  },
+  {
+   "para_id": 22,
+   "loc": "body",
+   "sec_title": "Range Shift of the NNTs in Europe",
+   "text": "Among the conifers, P. menziesii, P. radiata, T. plicata, and P. strobus ranked among the species with the highest range expansion in the future (Figure 1). This is not surprising, as these conifer species are extensively cultivated NNTs in Europe for timber production, owing to their rapid growth and high drought tolerance (Carrillo‐Gavilán and Vilà 2010; Hermann and Lavender 1999; Puchałka et al. 2023; Salinas‐Bonillo et al. 2024; Spiecker et al. 2019; Wilczyński et al. 2025). Consequently, they are frequently employed in reforestation and commercial forestry, particularly as substitutes for Norway spruce within climate adaptation strategies (Hermann and Lavender 1999; Klimo et al. 2000; Nicolescu et al. 2023; Schüler and Chakraborty 2021; Spiecker et al. 2019). While not widely invasive, concerns exist about its natural regeneration in parts of Germany, Austria, and the UK. Studies in southwestern Germany indicate limited spread beyond plantations, but monitoring is ongoing (Bauhus and Bindewald 2017; Bindewald and Michiels 2018; Lange et al. 2022). Although fairly resilient to drought and pests, the climatic distribution of P. menziesii (Figure 2) and recent studies suggest that frequent drought will lead to P. menziesii losing substantial range in Central Europe, where it has been widely planted (Chakraborty et al. 2015; Thurm et al. 2018; Schüler and Chakraborty 2021; Jastrzębowski et al. 2021; Puchałka et al. 2023). Under climate change, all coniferous NNTs are predicted to experience contraction or loss of their historical range, particularly in the south and southeast Europe, while a range expansion is predicted in the northeast (Figure 2), which was also reported by Puchałka et al. (2023). Although concerns about several coniferous NNTs persist among forest and conservation stakeholders in Europe (Hazarika et al. 2024), scientific evidence indicates that the majority of these species pose a relatively low risk of invasion (Carrillo‐Gavilán and Vilà 2010). This is also because the cultivation of coniferous NNTs in Europe is associated with significant damage by native and introduced pests and pathogens (Nicolescu et al. 2023; Pietras et al. 2018; Pötzelsberger et al. 2021).",
+   "printed": true
+  },
+  {
+   "para_id": 23,
+   "loc": "body",
+   "sec_title": "Range Shift of the NNTs in Europe",
+   "text": "Among the broadleaved NNTs, J. nigra , A. dealbata, A. negundo, R. pseudoacacia, Q. rubra, and F. pennsylvanica are predicted to retain most of their historic range in the south while expanding into new ranges in central and northern Europe in the future (Figures 1 and 2), as also confirmed by Thurm et al. (2018) and Puchałka et al. (2023). Despite concerns for invasion (Langmaier and Lapin 2020; Pötzelsberger et al. 2020), J. nigra, R. pseudoacacia, and Q. rubra are considered important NNTs, providing a wide range of ecosystem services (Hazarika et al. 2024; Konic et al. 2024).",
+   "printed": true
+  },
+  {
+   "para_id": 24,
+   "loc": "body",
+   "sec_title": "Can NNTs Replace Vulnerable Native Species Under Climate Change",
+   "text": "The rise in climate‐driven forest disturbances in Europe (Grünig et al. 2026) combined with maladapted post‐disturbance regeneration (Potterf et al. 2026) and a narrow pool of suitable native species (Wessely et al. 2024), highlights the urgent need for alternative species to ensure forest resilience. Our projections indicate a pronounced vulnerability of native conifers to climate change, with substantially greater losses of climatically suitable areas compared to native broadleaved species at a continental scale (Table 1), corroborating earlier findings (Chakraborty et al. 2024; Dyderski et al. 2018, 2025; Hanewinkel et al. 2013). Except for P. sylvestris and P. halepensis , economically important and widely distributed conifers, including A. alba , P. abies , L. decidua , Pinus nigra , and Pinus pinea , are projected to undergo marked range contractions (Table 1). In contrast, broadleaved species such as F. sylvatica and native oaks ( Q. robur , Q. pubescens) are projected to expand their climatically suitable areas. Such native broadleaved species could offset approximately 62%–66% of the projected range losses of native conifers, particularly in central, Atlantic, and northern Europe (Table 2, Figure 5). At the European continent level, a mere 17%–21% of the lost range of native species can be replaced by NNTs, especially in south‐southeastern, continental, and nemoral regions (Figure 5, Table 2). At the regional level, we also observed an overall dominance of native species across most bioclimatic regions of Europe. Under climate change, despite a gradual gain in prominence of NNTs, especially in the Atlantic central, Mediterranean mountains, and Pannonian regions, the native species still tend to top the list of climatically best‐suited (Figure 5).",
+   "printed": true
+  },
+  {
+   "para_id": 25,
+   "loc": "body",
+   "sec_title": "Can NNTs Replace Vulnerable Native Species Under Climate Change",
+   "text": "Despite the relatively higher climatic suitability of the native broadleaved species under climate change, their ability to colonize the lost ranges of native conifers will depend on dispersal constraints and management interventions (Meier et al. 2012; Svenning and Skov 2004). Climatic suitability alone does not guarantee natural colonization, and in some regions, assisted migration may be required (Svenning and Skov 2004). Even where native broadleaves replace declining conifers, such compositional shifts would entail considerable ecological and economic consequences, particularly for timber supply and associated ecosystem services implications (Hanewinkel et al. 2013; Mina et al. 2017; Gustafson et al. 2023).",
+   "printed": true
+  },
+  {
+   "para_id": 26,
+   "loc": "body",
+   "sec_title": "Can NNTs Replace Vulnerable Native Species Under Climate Change",
+   "text": "Only a small subset of NNTs, A. grandis , J. nigra , P. menziesii , and P. radiata qualify as potential alternatives under climate change, further emphasizing the tree species bottleneck highlighted by Wessely et al. (2024). Among alternative non‐native trees (NNTs), P. menziesii stands out as a prominent example, having been introduced to Europe over a century ago (Hermann and Lavender 1999). This species is projected to experience substantially greater range expansion than the native P. abies (Figures S6 and S7), highlighting its potential as a climate‐resilient alternative, particularly when site‐adapted provenances are employed (Isaac‐Renton et al. 2014; Krakowski and Stoehr 2009; Nicolescu et al. 2023; Schüler and Chakraborty 2021; Spiecker et al. 2019). Moreover, regulatory frameworks and concerns about invasiveness further constrain the deployability of NNTs as viable alternative species under climate change. Furthermore, the contribution of NNTs to sustaining ecosystem services is not widely known (Cantarello et al. 2017; Castro‐Díez et al. 2019; Konic et al. 2024; Mina et al. 2017).",
+   "printed": true
+  },
+  {
+   "para_id": 27,
+   "loc": "body",
+   "sec_title": "Limitations of the Study and the Way Forward",
+   "text": "Modeling species distribution is associated with uncertainties arising from basic assumptions behind the SDMs, presence‐absence data, model algorithms, and climate change scenarios. SDMs assume that occurrence data represent the full range of environments where a species can exist. It is also known that the locations and species compositions of forests in Europe reflect the results of human influence and forest management, indicating that the forests have undergone a strong transformation throughout history (Boivin et al. 2016; Serra‐Diaz et al. 2017). The SDMs used in this study (Chakraborty, Móricz, et al. 2021; Chakraborty et al. 2024) tried to address this issue by using the presence data of native species from a large‐scale harmonized NFI dataset in Europe (Mauri et al. 2017) and by combining presence data from both the introduced range and native range of the target NNTs (Chakraborty et al. 2025). In addition, the pseudo‐absences used in the SDMs are sampled from geographically and climatically distant locations from the presences to remove sampling bias.",
+   "printed": true
+  },
+  {
+   "para_id": 28,
+   "loc": "body",
+   "sec_title": "Limitations of the Study and the Way Forward",
+   "text": "Alien species often undergo ecological niche shifts and exhibit non‐equilibrium occupancy patterns when introduced to new environments, such that neither native nor introduced ranges alone fully capture the realized climatic niche (Broennimann and Guisan 2008; Ørsted and Ørsted 2019). Relying solely on native‐range data may therefore miss these shifts and lead to underestimation of potential distributions in the introduced range, whereas calibrating SDMs only with introduced‐range data risks anchoring models to a truncated niche shaped by introduction history, dispersal lags, and intensive management booth (Booth and Jovanovic 2025; Canelles et al. 2021). In line with this, Liu et al. (2022) showed that models developed with combined native and introduced occurrences often exhibit higher predictive performance and improved transferability when niche changes occur, while Davis et al. (2024) found that SDMs using both native and non‐native data more effectively support risk assessment and management planning for alien species.",
+   "printed": true
+  },
+  {
+   "para_id": 29,
+   "loc": "body",
+   "sec_title": "Limitations of the Study and the Way Forward",
+   "text": "Thus, higher TSS values from models calibrated with combined native and introduced data (Figure S2) should not be interpreted as evidence of greater ecological realism or guaranteed transferability, as they can partly reflect sampling artifacts and the mixing of heterogeneous, non‐equilibrium records. Therefore, we use TSS as a relative model performance metric to compare alternative calibrations (native‐only, introduced‐only, combined) within a uniform ensemble framework, not as proof of “true” niche recovery (Thuiller et al. 2016). In our case, all NNTs showed higher TSS when calibrated with combined native and introduced occurrences (Figure S2), which we interpret as an indication that pooled data provide the best fit among the three tested options, rather than as a guarantee of perfect ecological accuracy. This contrasts with recent continent‐scale analyses of NNTs in Europe, such as Puchałka et al. (2023), which did not exploit combined native & introduced datasets and may therefore under‐represent parts of the realized niche occurring outside the current European range.",
+   "printed": true
+  },
+  {
+   "para_id": 30,
+   "loc": "body",
+   "sec_title": "Limitations of the Study and the Way Forward",
+   "text": "Due to genetic bottlenecks, drift, and silvicultural practices, the full genotypic and phenotypic variability of the NNTs expressed in their native range is unlikely to have been transferred to Europe (Chakraborty et al. 2015; Dyderski et al. 2018). Consequently, even using combined native and introduced occurrences and achieving higher TSS, our models should be interpreted as estimates of potential climatic suitability at the species level, conditional on appropriate genetic material and management, rather than as predictions that all climatically suitable areas will be occupied by the genotypes currently present in Europe (Isaac‐Renton et al. 2014).",
+   "printed": true
+  },
+  {
+   "para_id": 31,
+   "loc": "body",
+   "sec_title": "Limitations of the Study and the Way Forward",
+   "text": "The thresholds to convert continuous probability values to binary can strongly influence predicted distributions, adding to their uncertainty (Hellegers et al. 2025). In this study, we based thresholds on maximizing TSS, which is commonly used (Albrecht et al. 2024; Koch et al. 2022; Mauri et al. 2022) because it balances sensitivity and specificity, minimizing omission and commission errors. TSS‐based thresholds can potentially inflate predicted ranges, especially for rare species or low‐prevalence datasets; its use for defining thresholds for widespread species is reasonable since the risk of overprediction due to sparse occurrence data is lower (Hellegers et al. 2025). Moreover, using TSS aligns with the default approach in biomod2, ensuring reproducibility and comparability with other ensemble SDM studies. Performance‐based thresholds such as TSS are generally preferred over arbitrary cut‐offs like 0.5 because they explicitly consider both omission and commission errors (Liu et al. 2005). Nevertheless, predicted range sizes remain sensitive to the threshold choice, so binary maps should be interpreted cautiously.",
+   "printed": true
+  },
+  {
+   "para_id": 32,
+   "loc": "body",
+   "sec_title": "Limitations of the Study and the Way Forward",
+   "text": "For comprehensive reporting, we restricted the predictions for the underlying SDMs of native species and NNT only to forest areas defined by grids having at least 50% canopy cover based on (Gunia et al. 2016). Although the threshold of 50% canopy cover might miss potentially biodiversity‐rich areas with a lower canopy cover, a stricter threshold has been preferred to ensure a lower probability of classification errors, as forest areas are more strictly separated from agroforestry areas and urban parks (Friedl et al. 2002; Hansen et al. 2013).",
+   "printed": true
+  },
+  {
+   "para_id": 33,
+   "loc": "body",
+   "sec_title": "Limitations of the Study and the Way Forward",
+   "text": "Another source of uncertainty in our results arises from the fact that the underlying SDMs are based on climatic averages, while extreme meteorological conditions (e.g., frost, drought) and biotic factors (e.g., pests, pathogens) are known to influence the potential distribution of tree species (Seidl et al. 2011, 2014). Therefore, our results should also be interpreted with caution, as the underlying species distribution models (SDMs) do not account for other abiotic factors such as soil conditions, microclimate, or seed dispersal and intraspecific competition among tree species.",
+   "printed": true
+  },
+  {
+   "para_id": 34,
+   "loc": "back",
+   "sec_title": "Data Availability Statement",
+   "text": "The paper uses a publicly available dataset on the potential distribution of non‐native and native tree species and climate, as mentioned below. Dataset on the potential distribution of native species: Chakraborty et al. (2024) and Chakraborty, Móricz, et al. (2021). Dataset on the potential distribution of NNTs: Chakraborty et al. (2025). Dataset on the occurrence of NNTs: The majority of the occurrence data for NNT species are from the publicly available EU‐Forest dataset (Mauri et al. 2017). This dataset was extended by including National Forest Inventory data from several other countries, including the Balkan countries, listed in Table S2. This data was obtained by EU‐COST Action NNEXT and cannot be shared without a formal data sharing agreement with the individual countries. Climate Data: Chakraborty, Dobor, et al. (2021) and Fick and Hijmans (2017).",
+   "printed": true
+  }
+ ],
+ "links": [],
+ "links_optional": [
+  "cost.eu/actions/fp1403",
+  "cran.r-project.org/package=biomod2",
+  "creativecommons.org/licenses/by/4.0",
+  "doi:10.1002/ece3.3491",
+  "doi:10.1002/ece3.7476",
+  "doi:10.1002/ece3.8407",
+  "doi:10.1002/ecy.3719",
+  "doi:10.1002/gdj3.110",
+  "doi:10.1002/joc.5086",
+  "doi:10.1002/pan3.10670",
+  "doi:10.1007/s00572-018-0836-x",
+  "doi:10.1007/s10113-015-0788-z",
+  "doi:10.1007/s10342-019-01222-1",
+  "doi:10.1007/s10530-011-0155-z",
+  "doi:10.1007/s11027-024-10152-2",
+  "doi:10.1007/s11676-023-01607-4/tables/5",
+  "doi:10.1007/s13595-013-0306-8",
+  "doi:10.1007/s13595-021-01029-4",
+  "doi:10.1007/s40725-020-00129-0",
+  "doi:10.1016/j.agrformet.2023.109650",
+  "doi:10.1016/j.foreco.2009.09.001",
+  "doi:10.1016/j.foreco.2009.09.023",
+  "doi:10.1016/j.foreco.2018.08.028",
+  "doi:10.1016/j.foreco.2022.120723",
+  "doi:10.1016/j.foreco.2025.122769",
+  "doi:10.1016/j.gloenvcha.2016.05.009",
+  "doi:10.1016/j.jenvman.2024.123504",
+  "doi:10.1016/s0034-4257(02)00078-0",
+  "doi:10.1016/s0378-1127(00)00490-4",
+  "doi:10.1017/9781009157896.001",
+  "doi:10.1023/a:1006581028080",
+  "doi:10.1038/nclimate1687",
+  "doi:10.1038/nclimate2318",
+  "doi:10.1038/s41467-024-49967-7",
+  "doi:10.1038/s41558-024-02080-5",
+  "doi:10.1038/s41559-024-02406-8",
+  "doi:10.1038/s41597-021-00961-4",
+  "doi:10.1038/s41597-022-01128-5",
+  "doi:10.1038/sdata.2016.123",
+  "doi:10.1046/j.1365-2486.2003.00684.x",
+  "doi:10.1051/forest/2009069",
+  "doi:10.1073/pnas.1525200113",
+  "doi:10.1080/00049158.2025.2465225",
+  "doi:10.1080/02827581.2019.1676464",
+  "doi:10.1098/rsbl.2008.0254",
+  "doi:10.1111/1365-2664.12772",
+  "doi:10.1111/1365-2664.13285",
+  "doi:10.1111/brv.12193",
+  "doi:10.1111/brv.12511",
+  "doi:10.1111/ddi.70019",
+  "doi:10.1111/ecog.04960",
+  "doi:10.1111/gcb.12604",
+  "doi:10.1111/gcb.13724",
+  "doi:10.1111/gcb.13925",
+  "doi:10.1111/gcb.15199",
+  "doi:10.1111/gcb.70734",
+  "doi:10.1111/j.0906-7590.2005.03957",
+  "doi:10.1111/j.1365-2486.2011.02452.x",
+  "doi:10.1111/j.1365-2664.2006.01214.x",
+  "doi:10.1111/j.1461-0248.2004.00614.x",
+  "doi:10.1111/j.1461-0248.2007.01038.x",
+  "doi:10.1111/j.1466-822x.2005.00190.x",
+  "doi:10.1111/j.1466-8238.2011.00669.x",
+  "doi:10.1111/j.1472-4642.2010.00648.x",
+  "doi:10.1126/science.1244693/suppl_file/hansen.sm.pdf",
+  "doi:10.1126/science.aaf7671",
+  "doi:10.1126/science.adx6329",
+  "doi:10.1186/s13595-022-01172-6",
+  "doi:10.1186/s40663-017-0120-0",
+  "doi:10.1371/journal.pone.0136357",
+  "doi:10.2307/3545479",
+  "doi:10.2478/forj-2023-0001",
+  "doi:10.3188/szf.2018.0086",
+  "doi:10.3188/szf.2021.0084",
+  "doi:10.32614/cran.package.exactextractr",
+  "doi:10.3389/fevo.2022.908464/bibtex",
+  "doi:10.3389/fevo.2024.1148895/bibtex",
+  "doi:10.3389/ffgc.2022.844580/bibtex",
+  "doi:10.3389/ffgc.2023.1048971/pdf",
+  "doi:10.3389/ffgc.2023.1250651",
+  "doi:10.3389/fpls.2018.01986",
+  "doi:10.3389/fpls.2020.524969/pdf",
+  "doi:10.3389/fpls.2024.1402601/bibtex",
+  "doi:10.3390/f12060796/s1",
+  "doi:10.3390/f15010130",
+  "doi:10.3390/f8010024",
+  "doi:10.3390/su14095213",
+  "doi:10.3897/natureconservation.45.72554",
+  "doi:10.3897/neobiota.61.58380",
+  "doi:10.3897/neobiota.96.136154",
+  "doi:10.3897/rio.6.e53038",
+  "efi.int/portal/virtual_library/information_services/mapping_services/forest_map_of_europe",
+  "efi.int/sites/default/files/files/publication-bank/2018/proc33_net.pdf",
+  "r-project.org",
+  "zenodo.org/records/19564637"
+ ],
+ "own_doi": "doi:10.1002/ece3.73999",
+ "citations": [
+  {
+   "cite_id": 1,
+   "para_id": 1,
+   "bib_id": 79,
+   "marker": "2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 2,
+   "para_id": 1,
+   "bib_id": 76,
+   "marker": "2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 3,
+   "para_id": 1,
+   "bib_id": 28,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 4,
+   "para_id": 1,
+   "bib_id": 92,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 5,
+   "para_id": 1,
+   "bib_id": 37,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 6,
+   "para_id": 1,
+   "bib_id": 83,
+   "marker": "2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 7,
+   "para_id": 1,
+   "bib_id": 84,
+   "marker": "2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 8,
+   "para_id": 1,
+   "bib_id": 2,
+   "marker": "2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 9,
+   "para_id": 1,
+   "bib_id": 26,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 10,
+   "para_id": 1,
+   "bib_id": 64,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 11,
+   "para_id": 1,
+   "bib_id": 81,
+   "marker": "2003",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 12,
+   "para_id": 1,
+   "bib_id": 83,
+   "marker": "2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 13,
+   "para_id": 1,
+   "bib_id": 84,
+   "marker": "2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 14,
+   "para_id": 1,
+   "bib_id": 90,
+   "marker": "2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 15,
+   "para_id": 2,
+   "bib_id": 23,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 16,
+   "para_id": 2,
+   "bib_id": 28,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 17,
+   "para_id": 2,
+   "bib_id": 29,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 18,
+   "para_id": 2,
+   "bib_id": 46,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 19,
+   "para_id": 2,
+   "bib_id": 66,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 20,
+   "para_id": 2,
+   "bib_id": 92,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 21,
+   "para_id": 2,
+   "bib_id": 9,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 22,
+   "para_id": 2,
+   "bib_id": 47,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 23,
+   "para_id": 2,
+   "bib_id": 55,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 24,
+   "para_id": 2,
+   "bib_id": 56,
+   "marker": "2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 25,
+   "para_id": 2,
+   "bib_id": 80,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 26,
+   "para_id": 2,
+   "bib_id": 1,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 27,
+   "para_id": 2,
+   "bib_id": 54,
+   "marker": "1993",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 28,
+   "para_id": 2,
+   "bib_id": 87,
+   "marker": "2004",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 29,
+   "para_id": 2,
+   "bib_id": 88,
+   "marker": "2007",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 30,
+   "para_id": 2,
+   "bib_id": 19,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 31,
+   "para_id": 2,
+   "bib_id": 33,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 32,
+   "para_id": 2,
+   "bib_id": 39,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 33,
+   "para_id": 2,
+   "bib_id": 47,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 34,
+   "para_id": 2,
+   "bib_id": 86,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 35,
+   "para_id": 2,
+   "bib_id": 92,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 36,
+   "para_id": 3,
+   "bib_id": 12,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 37,
+   "para_id": 3,
+   "bib_id": 33,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 38,
+   "para_id": 3,
+   "bib_id": 52,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 39,
+   "para_id": 3,
+   "bib_id": 13,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 40,
+   "para_id": 3,
+   "bib_id": 53,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 41,
+   "para_id": 3,
+   "bib_id": 19,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 42,
+   "para_id": 3,
+   "bib_id": 30,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 43,
+   "para_id": 3,
+   "bib_id": 48,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 44,
+   "para_id": 3,
+   "bib_id": 67,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 45,
+   "para_id": 3,
+   "bib_id": 51,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 46,
+   "para_id": 3,
+   "bib_id": 52,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 47,
+   "para_id": 3,
+   "bib_id": 73,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 48,
+   "para_id": 4,
+   "bib_id": 17,
+   "marker": "2012",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 49,
+   "para_id": 4,
+   "bib_id": 68,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 50,
+   "para_id": 4,
+   "bib_id": 89,
+   "marker": "2001",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 51,
+   "para_id": 4,
+   "bib_id": 27,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 52,
+   "para_id": 4,
+   "bib_id": 39,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 53,
+   "para_id": 5,
+   "bib_id": 27,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 54,
+   "para_id": 5,
+   "bib_id": 39,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 55,
+   "para_id": 5,
+   "bib_id": 6,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 56,
+   "para_id": 6,
+   "bib_id": 1,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 57,
+   "para_id": 6,
+   "bib_id": 74,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 58,
+   "para_id": 6,
+   "bib_id": 1,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 59,
+   "para_id": 6,
+   "bib_id": 74,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 60,
+   "para_id": 7,
+   "bib_id": 1,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 61,
+   "para_id": 7,
+   "bib_id": 74,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 62,
+   "para_id": 8,
+   "bib_id": 22,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 63,
+   "para_id": 8,
+   "bib_id": 21,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 64,
+   "para_id": 8,
+   "bib_id": 20,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 65,
+   "para_id": 8,
+   "bib_id": 23,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 66,
+   "para_id": 9,
+   "bib_id": 60,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 67,
+   "para_id": 9,
+   "bib_id": 60,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 68,
+   "para_id": 10,
+   "bib_id": 31,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 69,
+   "para_id": 10,
+   "bib_id": 21,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 70,
+   "para_id": 10,
+   "bib_id": 42,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 71,
+   "para_id": 10,
+   "bib_id": 77,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 72,
+   "para_id": 10,
+   "bib_id": 31,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 73,
+   "para_id": 10,
+   "bib_id": 21,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 74,
+   "para_id": 11,
+   "bib_id": 91,
+   "marker": "2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 75,
+   "para_id": 12,
+   "bib_id": 91,
+   "marker": "2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 76,
+   "para_id": 12,
+   "bib_id": 31,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 77,
+   "para_id": 12,
+   "bib_id": 21,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 78,
+   "para_id": 13,
+   "bib_id": 35,
+   "marker": "2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 79,
+   "para_id": 14,
+   "bib_id": 95,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 80,
+   "para_id": 14,
+   "bib_id": 22,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 81,
+   "para_id": 14,
+   "bib_id": 20,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 82,
+   "para_id": 15,
+   "bib_id": 22,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 83,
+   "para_id": 15,
+   "bib_id": 3,
+   "marker": "2006",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 84,
+   "para_id": 15,
+   "bib_id": 57,
+   "marker": "2005",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 85,
+   "para_id": 15,
+   "bib_id": 91,
+   "marker": "2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 86,
+   "para_id": 16,
+   "bib_id": 39,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 87,
+   "para_id": 16,
+   "bib_id": 52,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 88,
+   "para_id": 16,
+   "bib_id": 73,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 89,
+   "para_id": 17,
+   "bib_id": 62,
+   "marker": "2005",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 90,
+   "para_id": 17,
+   "bib_id": 4,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 91,
+   "para_id": 18,
+   "bib_id": 14,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 92,
+   "para_id": 18,
+   "bib_id": 37,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 93,
+   "para_id": 19,
+   "bib_id": 91,
+   "marker": "2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 94,
+   "para_id": 20,
+   "bib_id": 75,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 95,
+   "para_id": 21,
+   "bib_id": 1,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 96,
+   "para_id": 21,
+   "bib_id": 74,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 97,
+   "para_id": 21,
+   "bib_id": 92,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 98,
+   "para_id": 22,
+   "bib_id": 18,
+   "marker": "2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 99,
+   "para_id": 22,
+   "bib_id": 41,
+   "marker": "1999",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 100,
+   "para_id": 22,
+   "bib_id": 74,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 101,
+   "para_id": 22,
+   "bib_id": 78,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 102,
+   "para_id": 22,
+   "bib_id": 86,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 103,
+   "para_id": 22,
+   "bib_id": 94,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 104,
+   "para_id": 22,
+   "bib_id": 41,
+   "marker": "1999",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 105,
+   "para_id": 22,
+   "bib_id": 45,
+   "marker": "2000",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 106,
+   "para_id": 22,
+   "bib_id": 65,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 107,
+   "para_id": 22,
+   "bib_id": 82,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 108,
+   "para_id": 22,
+   "bib_id": 86,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 109,
+   "para_id": 22,
+   "bib_id": 5,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 110,
+   "para_id": 22,
+   "bib_id": 7,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 111,
+   "para_id": 22,
+   "bib_id": 50,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 112,
+   "para_id": 22,
+   "bib_id": 24,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 113,
+   "para_id": 22,
+   "bib_id": 92,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 114,
+   "para_id": 22,
+   "bib_id": 82,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 115,
+   "para_id": 22,
+   "bib_id": 44,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 116,
+   "para_id": 22,
+   "bib_id": 74,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 117,
+   "para_id": 22,
+   "bib_id": 74,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 118,
+   "para_id": 22,
+   "bib_id": 39,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 119,
+   "para_id": 22,
+   "bib_id": 18,
+   "marker": "2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 120,
+   "para_id": 22,
+   "bib_id": 65,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 121,
+   "para_id": 22,
+   "bib_id": 70,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 122,
+   "para_id": 22,
+   "bib_id": 72,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 123,
+   "para_id": 23,
+   "bib_id": 92,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 124,
+   "para_id": 23,
+   "bib_id": 74,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 125,
+   "para_id": 23,
+   "bib_id": 51,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 126,
+   "para_id": 23,
+   "bib_id": 73,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 127,
+   "para_id": 23,
+   "bib_id": 39,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 128,
+   "para_id": 23,
+   "bib_id": 47,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 129,
+   "para_id": 24,
+   "bib_id": 34,
+   "marker": "2026",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 130,
+   "para_id": 24,
+   "bib_id": 71,
+   "marker": "2026",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 131,
+   "para_id": 24,
+   "bib_id": 93,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 132,
+   "para_id": 24,
+   "bib_id": 20,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 133,
+   "para_id": 24,
+   "bib_id": 28,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 134,
+   "para_id": 24,
+   "bib_id": 29,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 135,
+   "para_id": 24,
+   "bib_id": 37,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 136,
+   "para_id": 25,
+   "bib_id": 61,
+   "marker": "2012",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 137,
+   "para_id": 25,
+   "bib_id": 87,
+   "marker": "2004",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 138,
+   "para_id": 25,
+   "bib_id": 87,
+   "marker": "2004",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 139,
+   "para_id": 25,
+   "bib_id": 37,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 140,
+   "para_id": 25,
+   "bib_id": 63,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 141,
+   "para_id": 25,
+   "bib_id": 36,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 142,
+   "para_id": 26,
+   "bib_id": 93,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 143,
+   "para_id": 26,
+   "bib_id": 41,
+   "marker": "1999",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 144,
+   "para_id": 26,
+   "bib_id": 43,
+   "marker": "2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 145,
+   "para_id": 26,
+   "bib_id": 49,
+   "marker": "2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 146,
+   "para_id": 26,
+   "bib_id": 65,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 147,
+   "para_id": 26,
+   "bib_id": 82,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 148,
+   "para_id": 26,
+   "bib_id": 86,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 149,
+   "para_id": 26,
+   "bib_id": 16,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 150,
+   "para_id": 26,
+   "bib_id": 19,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 151,
+   "para_id": 26,
+   "bib_id": 47,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 152,
+   "para_id": 26,
+   "bib_id": 63,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 153,
+   "para_id": 27,
+   "bib_id": 8,
+   "marker": "2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 154,
+   "para_id": 27,
+   "bib_id": 85,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 155,
+   "para_id": 27,
+   "bib_id": 23,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 156,
+   "para_id": 27,
+   "bib_id": 20,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 157,
+   "para_id": 27,
+   "bib_id": 60,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 158,
+   "para_id": 27,
+   "bib_id": 22,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 159,
+   "para_id": 28,
+   "bib_id": 11,
+   "marker": "2008",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 160,
+   "para_id": 28,
+   "bib_id": 69,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 161,
+   "para_id": 28,
+   "bib_id": 10,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 162,
+   "para_id": 28,
+   "bib_id": 15,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 163,
+   "para_id": 28,
+   "bib_id": 58,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 164,
+   "para_id": 28,
+   "bib_id": 25,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 165,
+   "para_id": 29,
+   "bib_id": 91,
+   "marker": "2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 166,
+   "para_id": 29,
+   "bib_id": 74,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 167,
+   "para_id": 30,
+   "bib_id": 24,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 168,
+   "para_id": 30,
+   "bib_id": 28,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 169,
+   "para_id": 30,
+   "bib_id": 43,
+   "marker": "2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 170,
+   "para_id": 31,
+   "bib_id": 40,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 171,
+   "para_id": 31,
+   "bib_id": 1,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 172,
+   "para_id": 31,
+   "bib_id": 46,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 173,
+   "para_id": 31,
+   "bib_id": 59,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 174,
+   "para_id": 31,
+   "bib_id": 40,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 175,
+   "para_id": 31,
+   "bib_id": 57,
+   "marker": "2005",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 176,
+   "para_id": 32,
+   "bib_id": 35,
+   "marker": "2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 177,
+   "para_id": 32,
+   "bib_id": 32,
+   "marker": "2002",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 178,
+   "para_id": 32,
+   "bib_id": 38,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 179,
+   "para_id": 33,
+   "bib_id": 83,
+   "marker": "2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 180,
+   "para_id": 33,
+   "bib_id": 84,
+   "marker": "2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 181,
+   "para_id": 34,
+   "bib_id": 20,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 182,
+   "para_id": 34,
+   "bib_id": 23,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 183,
+   "para_id": 34,
+   "bib_id": 22,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 184,
+   "para_id": 34,
+   "bib_id": 60,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 185,
+   "para_id": 34,
+   "bib_id": 21,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 186,
+   "para_id": 34,
+   "bib_id": 31,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-ext-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "v1_bib_count": 95
+ }
+}

@@ -1,0 +1,1765 @@
+{
+ "paper_id": "10.7554_elife.107472",
+ "paras": [
+  {
+   "para_id": 1,
+   "loc": "back",
+   "sec_title": "Data availability",
+   "text": "The control-group data are openly available at OSF (https://osf.io/3ac5b), and the analysis code (MATLAB) is available at GitHub (https://github.com/ZhaoranZhang/Aiming_data_analysis, copy archived at Zhang, 2026). Group-level data for the astronauts, underlying all figures and statistical tests, are reported within the main text and Supplementary file 2. Individual-level data for the astronauts cannot be made publicly available, in accordance with the information security protocols of the China Astronaut Research and Training Center. In addition, the astronaut cohort is small and its members are publicly identifiable; individual-level data, therefore, cannot be effectively de-identified without an unacceptable risk of re-identification. For these reasons, a de-identified individual-level dataset cannot be released either. Researchers wishing to access these restricted data should submit a written request and a brief project proposal describing the intended use to the corresponding author (Kunlin Wei, wei.kunlin@pku.edu.cn). Requests are assessed by the Ethics Committee of the China Astronaut Research and Training Center, normally within 4–6 weeks. Access is at the Center's discretion and may be subject to a data-use agreement. Commercial use of the data is not permitted.",
+   "printed": true
+  },
+  {
+   "para_id": 2,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Successful space exploration fundamentally depends on efficient sensorimotor control under microgravity conditions, where both movement accuracy and speed are critical (Strangman et al., 2014). A consistently observed phenomenon is that astronauts exhibit slower movements during routine activities in space stations (Kubis et al., 1977). This general movement slowing persists even in controlled experimental settings where astronauts are securely fastened without concerns for postural stability or safety. Indeed, fast movements in microgravity can be disadvantageous, potentially destabilizing posture, complicating the arrest of accelerated body segments, and increasing collision risks in confined spacecraft environments (Bock, 1998; Layne et al., 2001; Paloski et al., 1992; Reschke et al., 1998; Tafforin et al., 1989). Yet even when body stability is ensured, well-practiced goal-directed actions consistently show prolonged movement durations (MDs) across various tasks, from hand pointing to visual targets (Berger et al., 1997; Bock et al., 2001; Bock et al., 2003; Mechtcheriakov et al., 2002) to step tracking with joysticks (Newman and Lathan, 1999; Sangals et al., 1999). This slowing manifests as reduced peak speeds in hand pointing (Mechtcheriakov et al., 2002; Sangals et al., 1999; Weber and Stelzer, 2022). Despite extensive documentation of this phenomenon, the underlying sensorimotor mechanisms remain unclear (Bock et al., 1996b; Weber et al., 2019), presenting a significant challenge for optimizing human performance in space.",
+   "printed": true
+  },
+  {
+   "para_id": 3,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Two primary hypotheses have emerged to explain the slowing of goal-directed actions in microgravity. The conservative control hypothesis suggests that the sensorimotor system adopts a generalized strategy prioritizing safety and postural stability over speed (Berger et al., 1997; Bock et al., 2010; Mechtcheriakov et al., 2002). This adaptation may arise from the novel challenges of movement control in microgravity, where even simple actions can propagate unexpected forces through body segments. The persistent application of this conservative strategy, as a generalized adaptation to the novel environment, could explain the movement slowing in microgravity. Alternatively, the body mass underestimation hypothesis builds on observations that humans consistently underestimate the mass of handheld objects in microgravity (Ross and Reschke, 1982), suggesting that similar perceptual biases might extend to the estimation of body segment properties (Bock et al., 1996b). Such misperception would directly impact the feedforward control of movement, potentially leading to systematic underactuation of initial movements (Elliott et al., 2010; Elliott et al., 2017).",
+   "printed": true
+  },
+  {
+   "para_id": 4,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Both hypotheses predict reduced peak speed and acceleration in microgravity, but they differ in their predictions about finer-grained movement kinematics. First, typical reaching movement exhibits a symmetrical bell-shaped speed profile, which minimizes energy expenditure while maximizing accuracy or smoothness according to optimal control principles (Flash and Hogan, 1985; Todorov, 2004). The conservative control hypothesis suggests a maintained temporal symmetry as longer durations are strategically planned for optimal performance; the peak speed and acceleration are thus delayed in time (Figure 1A). In contrast, the body mass underestimation hypothesis predicts that insufficient initial force generation, resulting from a systematic sensory bias in internal models that predict movement dynamics, would lead to earlier occurrence of peak speed and acceleration (Elliott et al., 2010; Elliott et al., 2017). Previously, the timing of these peaks has shown mixed results, with some studies reporting earlier peaks (Sangals et al., 1999), others finding delays (Fowler et al., 2008), and some showing no temporal shifts (Berger et al., 1997; Mechtcheriakov et al., 2002). Second, the hypotheses make distinct predictions about feedback-based corrections during late reaching. The conservative control hypothesis suggests that movements would remain well-planned with near-optimal execution, thus requiring minimal corrections. Instead, the mass underestimation hypothesis predicts that initial underactuation would necessitate subsequent feedback-based corrections to reach the target (Chua and Elliott, 1993; Smeets and Brenner, 1995). These corrections would manifest as additional submovements, contributing to asymmetric speed profiles (Figure 1A). Current evidence for increased feedback-based corrections in microgravity remains inconsistent: while some studies support their presence (Sangals et al., 1999), others show conflicting results (Mechtcheriakov et al., 2002) or opposite effects (Fowler et al., 2008). If present, these corrective submovements should predict MD prolongation, serving as important evidence favoring the mass underestimation account for the general slowing in microgravity.",
+   "printed": true
+  },
+  {
+   "para_id": 5,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "To help distinguish between these theories, we leveraged a unique biomechanical property of arm movements: the natural variation in effective limb mass across movement directions, known as anisotropic inertia (Mussa-Ivaldi et al., 1985). Based on a two-joint arm model (Li and Todorov, 2004), reaching movements toward targets in the frontal-medial direction involve greater effective mass compared to those in the frontal-lateral direction. Based on the motor utility theory, both the magnitude and timing of peak speed and acceleration should be systematically modulated by target direction (Shadmehr et al., 2016). Similarly, if astronauts underestimate their limb mass by approximately 30% in microgravity (Crevecoeur et al., 2014), we would expect reduced peak speed/acceleration and earlier occurrence of these peaks across all the directions. Here, we examined 12 taikonauts before, during, and after their 3- or 6-month missions on the China Space Station (CSS) and compared their performance to age-matched ground controls. Participants performed rapid reaching movements to targets specifically chosen to engage different effective masses. Our approach allows us to dissociate the effects of mass underestimation from strategic control by examining how movement kinematics vary with direction-dependent effective mass.",
+   "printed": true
+  },
+  {
+   "para_id": 6,
+   "loc": "body",
+   "sec_title": "Results",
+   "text": "We compared the performance of 12 taikonauts to that of age-matched ground controls across multiple test sessions (Figure 7 and Supplementary file 1). Participants performed rapid reaching movements toward one of three targets on a tablet, presented in pseudorandom order to minimize movement automation and ensure active planning for each reach. Participants were instructed to reach the target with both speed and accuracy, pausing briefly before initiating the return. The emphasized requirement of moving fast would critically test whether movement slowing is ubiquitous in microgravity. The three target directions (45°, 90°, and 135°) were chosen to vary the effective mass of the moving limb, as verified through biomechanical simulations based on the two-joint arm model (Li and Todorov, 2004; Figure 1B). Our model simulations not only demonstrated the direction-dependent variation in limb mass but also predicted how actual and misperceived limb mass would affect reaching kinematics (Figure 1C–H). These predictions were derived by combining the movement utility framework for estimating planned MD (Shadmehr et al., 2016; Figure 1—figure supplement 1A, B) with a forward optimal controller for simulating reaching trajectories (Todorov, 2005; Figure 1—figure supplement 1C, D). Notably, the model predicted that underestimating limb mass would lead to reduced and earlier peak speed/acceleration across directions (Figure 1C–H).",
+   "printed": true
+  },
+  {
+   "para_id": 7,
+   "loc": "body",
+   "sec_title": "Movement accuracy and reaction time remain intact in microgravity",
+   "text": "To introduce sufficient variability in reaction times (RTs) for assessing speed–accuracy trade-offs (Sutter et al., 2021), a beep sound was played upon the target appearance in half of the trials. The random auditory signal tended to accelerate responses, thereby widening the distribution of RTs in our dataset. The beep effectively reduced median RTs by approximately 38 ms (242 ± 49 ms vs. 281 ± 50 ms; Figure 2A; see control group data in Figure 2—figure supplement 1A). To evaluate microgravity effects, we pooled data from both beep conditions and conducted a 3 (direction) × 3 (phase) repeated-measures ANOVA. The experimental group showed significant main effects of direction (F(2,22) = 25.260, p < 0.001, partial η² = 0.697) and phase (F(2,22) = 5.820, p = 0.014, partial η² = 0.346), without interaction (F(4,44) = 2.246, p = 0.111). Post hoc analyses revealed slower RTs for the 45° direction compared to both 90° (p < 0.001, d = 1.473) and 135° (p = 0.003, d = 1.427). Contrary to the conservative-strategy hypothesis, taikonauts did not show generalized slowing in RT; they actually had faster RTs during spaceflight, incompatible with a generalized slowing strategy. Reactions were faster during the in-flight phase compared to pre-flight (p = 0.037, d = 0.803), with no significant difference between in- and post-flight phases (p = 0.127). Similar effects were observed in the control group (Figure 2—figure supplement 1A), suggesting that the reduced RTs likely reflect practice effects rather than microgravity influence. Thus, participants maintained, and even improved, their ability to rapidly initiate movements in microgravity with reaching accuracy.",
+   "printed": true
+  },
+  {
+   "para_id": 8,
+   "loc": "body",
+   "sec_title": "Microgravity leads to reduced peak acceleration/speed and advanced timing of these peaks",
+   "text": "The initial movement exhibited signs of underactuation during spaceflight, consistent with the body mass underestimation hypothesis (Figure 2—figure supplement 6). Peak acceleration and peak speed, established measures of feedforward control (Elliott et al., 2010; Elliott et al., 2017), both showed significant decreases during the in-flight phase (Figure 3). For peak acceleration, there were significant main effects of phase (F(2,22) = 6.401, p = 0.015, partial η² = 0.368) and direction (F(2,22) = 75.516, p < 0.001, partial η² = 0.873), along with an interaction effect (F(4,44) = 4.548, p = 0.016, partial η² = 0.293). Consistent with model simulations, the 45° direction, associated with a lower effective mass, showed significantly higher peak acceleration than the other two directions (Figure 3A; all p < 0.001 in pairwise comparisons). Peak acceleration decreased significantly during spaceflight across all three directions (simple main effects: 45°, p = 0.020, η² = 0.543; 90°, p = 0.004, η² = 0.673; 135°, p = 0.005, η² = 0.657). Planned contrasts further indicated lower peak acceleration in the in-flight phase compared to pre-flight (45°, p = 0.006, η² = 0.516; 90°, p = 0.008, η² = 0.485; 135°, p = 0.003, η² = 0.560), with marginal recovery in the post-flight phase for two directions (45°, p = 0.071, η² = 0.267; 90°, p = 0.062, η² = 0.282) and significant recovery for one direction (135°, p = 0.029, η² = 0.363). In contrast, the control group displayed only the direction effect (Figure 3—figure supplement 1A, B), confirming that the underactuation was specific to microgravity.",
+   "printed": true
+  },
+  {
+   "para_id": 9,
+   "loc": "body",
+   "sec_title": "Movement slowing is associated with corrective submovements",
+   "text": "The feedforward component of movement, captured by our model simulations, accounts for only the initial phase of reaching. With peak acceleration and speed occurring at approximately 80 and 150 ms after movement onset, and total MD spanning 300–400 ms, participants had ample opportunity for feedback-based corrections (Dimitriou et al., 2013). These corrections, if present, would manifest as secondary submovements (Meyer et al., 1988). While optimal reaching movements typically show symmetrical speed profiles (Flash and Hogan, 1985), the presence of corrective submovements creates characteristic right-skewed speed profiles (Elliott et al., 2010; Meyer et al., 1988; Woodworth, 1899). To identify such corrections, we employed an established decomposition method (Rohrer and Hogan, 2006) to detect trials containing both primary and secondary submovements (two-peak trials; Figure 5A).",
+   "printed": true
+  },
+  {
+   "para_id": 10,
+   "loc": "body",
+   "sec_title": "Movement slowing is associated with corrective submovements",
+   "text": "To understand how feedback corrections contribute to movement slowing, we analyzed the inter-peak interval (IPI) between primary and corrective submovements, an established measure of feedback-based control (Craik, 1947; Meyer et al., 2018; Meyer et al., 1988). The taikonauts showed markedly longer IPIs during spaceflight (Figure 5C), with a two-way ANOVA revealing significant effects of phase (F(2,22) = 11.150, p = 0.001, partial η² = 0.503), direction (F(2,22) = 4.721, p = 0.026, partial η² = 0.300), and their interaction (F(2,22) = 6.559, p = 0.002, partial η² = 0.374). Critically, IPI increases were confined to directions with greater effective mass (90°, F(2,10) = 11.573, p = 0.002, η² = 0.698; 135°, F(2,10) = 13.371, p = 0.001, η² = 0.728). The control group exhibited only directional effects (F(2,22) = 19.277, p < 0.001, partial η² = 0.637; Figure 5—figure supplement 1B) without phase-related changes (all p > 0.13).",
+   "printed": true
+  },
+  {
+   "para_id": 11,
+   "loc": "body",
+   "sec_title": "The microgravity effects on movement kinematics are directionally dependent",
+   "text": "Reaching movements are inherently directionally dependent due to anisotropies in limb dynamics (Gordon et al., 1994; Shadmehr et al., 2016). Even before microgravity exposure, key kinematic variables—peak speed, peak acceleration, and their timing—exhibited consistent directional differences, as shown in Figure 1C–H. This baseline direction-dependency suggests that effective mass varies across movement directions and influences movement execution under normal gravity. Building on this observation, we tested whether microgravity-induced changes would also follow a direction-specific pattern, as predicted by the mass underestimation hypothesis.",
+   "printed": true
+  },
+  {
+   "para_id": 12,
+   "loc": "body",
+   "sec_title": "The microgravity effects on movement kinematics are directionally dependent",
+   "text": "Overall, the direction-dependent changes were roughly consistent with model predictions based on the mass underestimation hypothesis (Figure 6, comparing left and right panels). The model simulation similarly indicates that amplitude changes (Δ peak speed, Δ peak acceleration) and timing advances are rank ordered by movement directions. While the absolute magnitudes differed between model and data, the directional trends were broadly aligned. To assess the overall consistency between model predictions and experimental measurements, we performed repeated-measures correlation analyses between simulated and observed Δ values across directions (Bakdash and Marusich, 2017). Significant within-subject correlations were found for Δ peak speed time (rₘ = 0.627, p < 0.001), Δ peak acceleration time (rₘ = 0.591, p = 0.002), and Δ peak acceleration (rₘ = 0.573, p = 0.003), while Δ peak speed did not reach significance (rₘ = 0.334, p = 0.103). Together, these results suggest that the microgravity effect is direction-specific and the rank ordering of directions is broadly aligned with the predictions of the mass underestimation model. We note that these correlations evaluate the directional trend rather than the absolute magnitude of the effects; a precise quantitative match is not expected given the simplifications of the two-joint arm model.",
+   "printed": true
+  },
+  {
+   "para_id": 13,
+   "loc": "body",
+   "sec_title": "Speed–accuracy trade-offs remain intact during spaceflight",
+   "text": "The speed–accuracy trade-off, a fundamental indicator of motor control efficiency, remained largely intact during spaceflight. We evaluated this trade-off using two complementary approaches. First, following the traditional Fitts’ framework, we examined the relationship between MD and endpoint dispersion, which was not negatively affected by microgravity (Figure 2—figure supplement 3). Second, we analyzed the trade-off between RT and initial movement variance (Figure 2—figure supplement 4), which reflects the quality of movement planning (Sutter et al., 2021). This relationship persisted across all phases in both groups. Thus, while microgravity altered movement execution through mass underestimation, it did not fundamentally disrupt the sensorimotor system’s capacity to regulate the speed–accuracy trade-off. Additionally, in both groups, we found a significant negative correlation between MD and RT, both across and within individuals (Figure 2—figure supplement 5). This finding indicates that participants moved faster when their RT was slower, and vice versa. This flexible motor adjustment, likely in response to the task requirement for rapid movements, remained consistent during spaceflight.",
+   "printed": true
+  },
+  {
+   "para_id": 14,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "The underactuation observed in initial movements under microgravity extends findings from parabolic flight studies (Crevecoeur et al., 2014; Papaxanthis et al., 2005). When individuals performed reaching movements with handheld weights during parabolic flight-induced gravity alterations, their reaching trajectories and grip forces showed systematic changes suggesting mass misperception (Bock, 1998; Bock et al., 1996a; Bock et al., 1996b; Crevecoeur et al., 2014; Papaxanthis et al., 2005). In zero-gravity conditions, goal-directed arm movements were slower (Papaxanthis et al., 2005), and grip-load force coordination was altered (Crevecoeur et al., 2010; Crevecoeur et al., 2014), consistent with mass underestimation. Conversely, hypergravity (1.8 g) induced increased peak acceleration and speed in reaching movements, along with elevated grip force during object manipulation, suggesting mass overestimation (Bock, 1998; Bock et al., 1996b; Bock et al., 1996a; Bock et al., 1992). Notably, modified grip-load force coordination reflects changes in feedforward control (Flanagan and Wing, 1997; Johansson and Edin, 1993), indicating that mass misestimation influences action planning. However, while parabolic flight studies capture only transient adaptations to rapid gravity transitions, our study targets general slowing during spaceflight and reveals the enduring effects of sustained microgravity exposure.",
+   "printed": true
+  },
+  {
+   "para_id": 15,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "We also considered alternative explanations beyond mass underestimation. First, we tested whether a change in the cost-function of our optimal control model, which simulates a more conservative control, could account for movement slowing. This was implemented as a uniform rescaling of the state and control weights (Q and R) in the cost function (Crevecoeur et al., 2010). Increasing the scaling factors (α) will simulate the increase in control effort penalty and a more conservative control. However, while this manipulation reduced peak velocity and acceleration, it also delayed their occurrence, a pattern opposite to the observed effect. Thus, a uniform change in the cost function alone does not reproduce the observed combination of reduced peak amplitudes and advanced peak timing. Details of the cost-function simulations are provided in Appendix 1 and Figure 1—figure supplements 2 and 3. Second, changes in neuromuscular properties may also contribute to the observed underactuation. In microgravity, tonic muscle activity is likely reduced due to the absence of sustained antigravity demands, and descending vestibular inputs to motor neurons are diminished (Fisk et al., 1993). These changes could lower motor neuron excitability and alter muscle activation dynamics, potentially resulting in a weaker and slower initial response to an otherwise equivalent motor command—even in the absence of mass misestimation. While our simplified model treats the actuators as ideal torque generators and therefore does not capture these neuromuscular factors, such factors alone do not straightforwardly explain the direction-dependent pattern observed here. In the absence of additional direction-specific mechanisms, changes in tonic muscle activity, vestibular drive, or reflex gain would be expected to influence movement more generally across directions. The stronger effects observed in directions involving higher effective mass are therefore more naturally captured by a misrepresentation of inertial properties, although neuromuscular changes may also have contributed to the overall underactuation. Third, muscle weakness, a common effect during prolonged spaceflight, might also contribute to movement slowing. However, recent large-sample studies suggest that muscle strength reduction is mainly in lower-limb muscles that counter gravitational pull, not in upper-body muscles (Scott et al., 2023). Furthermore, the torques required in our task (~2 N m for ~12 cm reaches) are relatively small, making it unlikely that muscle weakness is a primary factor of the observed kinematics, though a minor contribution cannot be excluded. Fourth, finger-screen friction might slow down the reaching movements, particularly in microgravity where astronauts must actively press on the screen to maintain contact in the absence of gravitational loading on the hand. However, during typical interaction with a touch screen, frictional forces are modest, generally ranging from 0.1 to 0.5 N (Ayyildiz et al., 2018), and directional variations are likely even smaller. These values are minimal compared to the 10–15 N required to accelerate the arm during reaching, making frictional anisotropy an unlikely source of the directional kinematic changes. Fifth, body stabilization in microgravity might also contribute to movement slowing in space. In fact, our participants were securely strapped at the feet and used the left hand to grasp a fixed bar for support, providing multi-point stabilization of the body. If trunk displacement were the primary source of the observed effects, it would be expected to uniformly attenuate all kinematic measures, particularly in directions where the reaction force exerts a larger torque on the trunk. However, the 45° direction—where trunk perturbation is expected to be minimal according to this account—showed significant changes in MD, peak acceleration, and peak speed, while not showing significant timing changes. This dissociation suggests that trunk instability alone cannot account for the observed pattern. Nonetheless, we did not directly measure trunk or shoulder kinematics during the experiment, and we cannot entirely rule out that small trunk displacements contributed to some extent. Future studies would benefit from recording trunk and shoulder motion to more definitively address this factor. Finally, Coriolis and centripetal torques, omitted from our simplified model, might also contribute to movement slowing or direction effect we observed. Previous work has suggested that such effects may be non-negligible in fast planar reaching (Hollerbach and Flash, 1982). To examine their potential contribution, we incorporated Coriolis and centripetal torques terms in our extended model (see Appendix 2 and Figure 1—figure supplements 4 and 5 for details). These torques were also directionally anisotropic, but their magnitudes were too small to meaningfully affect movement utility or effort computation in our model. Thus, Coriolis and centripetal torques are unlikely to explain the large and systematic effects we observed.",
+   "printed": true
+  },
+  {
+   "para_id": 16,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Our results challenge a simple uniform conservative-control account, which posits that movement slowing reflects a generalized adaptation to address stability or safety concerns during spaceflight (Bock, 1998). Arguing against a purely strategic account, taikonauts demonstrated faster RTs during spaceflight—inconsistent with a generalized slowing strategy. Furthermore, if the sensorimotor system adopted a conservative strategy with pre-planned longer MDs, the speed profile should maintain symmetry with delayed peak acceleration and speed. Instead, we observed left-skewed speed profiles with earlier peak occurrence for the 90° and 135° directions, where effective mass is greater. This pattern is more consistent with mass-dependent underactuation than with a uniform strategic adjustment, although we note that the 45° direction did not show a significant timing advance, leaving open the possibility that strategic factors may also play a role in some conditions. This temporal change was more pronounced when the primary submovement was isolated to pinpoint the feedforward control of the reaching since the overall speed profile is affected by the later feedback-based corrections. Previous studies reported inconsistent findings regarding speed profile symmetry, including advanced (Sangals et al., 1999), delayed (Fowler et al., 2008), or unchanged (Berger et al., 1997; Mechtcheriakov et al., 2002) peak speed timing during spaceflight. These discrepancies likely reflect methodological differences, including task variations and technical limitations. For example, two studies used joystick-based pointing tasks without involving limb movement (Fowler et al., 2008; Sangals et al., 1999), which arguably makes them less suitable for examining mass underestimation effects. Mechtcheriakov and colleagues used an outstretched arm task, but their limited sampling rate of 25 Hz may have hindered precise quantification of peak speed, preventing submovement analysis. Additionally, our larger sample size (n = 12) may have enhanced detection of microgravity effects compared to previous studies with typically three to seven participants (Berger et al., 1997; Bock et al., 2001; Bock et al., 2003; Bock et al., 2010; Fowler et al., 2008; Mechtcheriakov et al., 2002; Papaxanthis et al., 1998; Weber and Stelzer, 2022) or single-participant designs (Heuer et al., 2003; Manzey et al., 1998; Sangals et al., 1999).",
+   "printed": true
+  },
+  {
+   "para_id": 17,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "If mass underestimation contributes to the observed underactuation, it likely arises through two complementary mechanisms: degraded proprioceptive feedback and misinterpretation of weight-related cues. Microgravity impairs proprioception by reducing both muscle spindle sensitivity (Lackner and DiZio, 1992) and joint receptor responsiveness (Proske and Weber, 2023)—inputs that are crucial for weight perception (Proske and Gandevia, 2012). Furthermore, the sensorimotor system may interpret weight unloading as reduced body mass rather than environmental change (Bock et al., 1996b). Recent studies demonstrate that the sensorimotor system probabilistically infers body-versus-environment causality based on available sensory cues (Berniker and Kording, 2008; Fercho and Baugh, 2014; Kluzik et al., 2008; Kong et al., 2017; Wilke et al., 2013). In normal gravity, consistent mass–weight relationships lead to heavy reliance on weight-related cues for mass estimation (Bock, 1998; Bock et al., 1996b; Sangals et al., 1999). In microgravity, however, reduced weight cues become misleading and may systematically bias mass perception, affecting feedforward control of movement. We note, however, that the same proprioceptive degradation could also affect motor output through other pathways—for instance, by reducing tonic muscle activation or altering spinal reflex gains (Fisk et al., 1993)—independent of any explicit misrepresentation of body mass. Disentangling these mechanisms will require future experiments that can independently manipulate proprioceptive loading and limb inertia.",
+   "printed": true
+  },
+  {
+   "para_id": 18,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "The persistence of deviant feedforward control and the subsequent within-movement corrections appears intriguing from the theories of human motor learning. Humans demonstrate remarkable ability to adapt to environmental changes in terrestrial studies. For experimentally applied visual or force perturbations, individuals can recalibrate their sensorimotor control and restore baseline performance within minutes (Krakauer et al., 2019), a process often theorized as forming internal models of the new environment (Kawato, 1999; Wolpert et al., 1995). Relatedly, even when the body mass is perturbed by attaching a weight on the forearm, individuals can fully adapt their reaching movements within tens of trials (Wang and Sainburg, 2004). Previous studies on parabolic flights have also shown that the control of arm movements exhibited rapid adaptation to gravitational changes over the course of several parabolas (e.g., Gaveau et al., 2016). In contrast, our in-flight sessions were scheduled at least 3 weeks post-launch—even well beyond the 2–3 weeks window typically considered critical for sensorimotor adaptation in spaceflight (Kanas and Manzey, 2008), but the participants still exhibited unadapted feedforward control and internal model, suggesting that the underlying sensory bias was not corrected through experience.",
+   "printed": true
+  },
+  {
+   "para_id": 19,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "We believe this contrast stems from distinct natures of perturbation effects in microgravity when compared to in terrestrial environments. Previous studies on sensorimotor adaptation simulated environmental changes by imposing a perturbation to alter the relationship between motor commands and sensory consequences of motor commands. For reaching adaptation here, visuomotor perturbations change the spatial mapping between hand motion and its visual representation’s motion (Krakauer et al., 2000; Wolpert et al., 2011); force perturbations change the dynamic mapping between actual force outputs and hand motion (Lackner and Dizio, 1994; Shadmehr and Mussa-Ivaldi, 1994). These mapping changes, though novel, are consistent; thus, the sensorimotor system is capable of approximating them and adapting accordingly. Theories of sensorimotor adaptation conceptualize the formation of the new mapping as acquiring internal models, which link motor command and efference copy to sensory consequences of motor commands (Flanagan and Wing, 1997; Kurtzer et al., 2008; Wolpert et al., 1998; Wolpert and Miall, 1996). However, the novel environment of microgravity may alter the sensory estimate of motor apparatus (i.e., the body mass here), not merely the sensorimotor mapping. In normal gravity, weight-related sensory cues—mostly proprioceptive feedback—accurately represent body mass. In microgravity, however, these weight-related cues are substantially reduced due to the absence of gravitational pull, providing persistently biased information about body mass. In other words, the microgravity environment failed to provide veridical sensory cues for mass estimation, and reduced gravitational and proprioceptive cues persistently misinform the controller about body mass. Since body mass is a parametric input to the internal models, its bias would affect motor actions even when the internal models are well adapted. Hence, the unique environment of microgravity may reveal an important constraint of the sensorimotor system, that is, its quick adaptability is restricted to learning a novel sensorimotor mapping, not to persistent sensory bias of bodily property.",
+   "printed": true
+  },
+  {
+   "para_id": 20,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "The discrete nature of our reaching task may contribute to the persistence of sensory bias. Within-movement corrections indicate that the sensorimotor system learns about sensory bias of mass estimation (Dimitriou et al., 2013), possibly via kinesthetic feedback during movement (Papaxanthis et al., 2005; Proske and Weber, 2023; Weber and Stelzer, 2022). However, movement-related cues only become available after movement initiation. Once a movement ends and the hand returns to rest, microgravity continues to elicit misleading sensory cues that bias mass estimation between trials. This lack of between-trial adaptation parallels findings from a manual interception study aboard the International Space Station, where astronauts persistently initiated movements too early when attempting to intercept an object moving at constant speed (McIntyre et al., 2001). Although astronauts corrected their movements online within each trial, their initial timing error persisted across multiple trials and sessions during a 15-day spaceflight. Hence, discrete motor tasks, such as manual interception and reaching, rely heavily on feedforward control and are susceptible to sensory biases induced by microgravity. This would also be consistent with the observation that continuous reaching between targets, without stopping, shows quicker adaptation to zero gravity in parabolic flights (Papaxanthis et al., 2005) and does not exhibit prolonged MD during spaceflight (Fowler et al., 2008).",
+   "printed": true
+  },
+  {
+   "para_id": 21,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "What are the potential consequences of the underactuation observed in microgravity beyond the simple reaching movements examined here? The implications may be particularly significant given two key considerations. First, the majority of human movements are not deliberately controlled (Brooks, 1986; Marsden et al., 1976), suggesting that underactuated initial movements may be pervasive in microgravity—especially for actions involving larger body masses such as whole-body movements or object manipulation. Without the controlled conditions and explicit speed requirements of our experimental task, such underactuation might manifest even more prominently in natural movements during spaceflight. Second, our finding of increased reliance on feedback-based corrections points to a potentially costly compensatory mechanism. As feedforward control becomes systematically underactuated, whether due to mass underestimation, altered neuromuscular properties, or both, the sensorimotor system must depend more heavily on feedback control to achieve adequate performance. This increased reliance on feedback processes may demand additional cognitive resources for action regulation (Bock et al., 2010), potentially contributing to the nonspecific stressors that have been shown to impair human performance in space (Tian et al., 2024). The cognitive cost of these compensatory adjustments might be particularly relevant for complex motor tasks or situations requiring divided attention during spaceflight operations.",
+   "printed": true
+  },
+  {
+   "para_id": 22,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "The preservation of speed–accuracy trade-offs in our study extends previous findings from Fitts' task experiments performed during spaceflight (Fowler et al., 2008). Both the traditional speed–accuracy trade-off and action planning-dependent trade-off remained intact in microgravity (Figure 2—figure supplements 3 and 4), suggesting preserved fundamental motor control capacity. Motor performance during spaceflight typically degrades in tasks with high cognitive demands (Eddy et al., 1998; Manzey et al., 1998; Strangman et al., 2014), particularly those requiring sustained attention (Tian et al., 2024). Our findings suggest that while microgravity-induced underactuation affects movement execution, the underlying motor control capabilities remain robust in microgravity when cognitive demands are modest.",
+   "printed": true
+  },
+  {
+   "para_id": 23,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Our study presents four methodological limitations that warrant consideration. First, despite matching for age and gender, our ground controls exhibited faster movements than the taikonauts. This systematic difference, reflected in higher peak acceleration and speed, may stem from differing experience with the touchpad device used for movement recording. While taikonauts used touchpads regularly, 9 of 12 control participants had minimal experience, potentially leading to compensatory faster movements to avoid overtime errors. Second, the temporal evolution of mass underestimation effects remains unclear. Our earliest measurements occurred 3 weeks post-launch, though parabolic flight studies suggest these effects may emerge within hours of microgravity exposure (Crevecoeur et al., 2014; Papaxanthis et al., 2005). Additionally, incomplete post-flight recovery in some kinematic measures suggests either a mass overestimation due to exaggerated weight-related cues or neuromuscular deficiency typically observed shortly after returning to Earth (Tays et al., 2021). Third, while our hand-reaching task enabled us to use well-established analytical frameworks for studying motor control aspects of movements, the generalizability of mass underestimation effects to other movements, particularly whole-body actions, remains to be determined. Future research should address these limitations by implementing matched device training protocols, adding early- and post-flight measurements, and extending investigations to diverse motor tasks. We also notice that the microgravity effect was less consistent for the 45° reaching direction. This direction engages more single-joint, elbow-dominant reaches, whereas the 90° and 135° targets require greater multi-joint (shoulder + elbow) coordination. Consistent with this, an exploratory analysis of hand-path curvature (cumulative curvature; positive = counterclockwise) showed larger curvature at 45° (6.484° ± 0.841°) than at 90° (1.539° ± 0.462°) or 135° (2.819°±0.538°). The significantly larger curvature in the 45° condition suggests that these movements deviate more from a straight-line path, supporting a more elbow-dominant movement in this direction. Importantly, this curvature pattern was present in both the pre- and in-flight phases, indicating that it is a general movement characteristic rather than a microgravity-induced effect. We postulate that single-joint movements, more so than we considered in our ideal two-link model, made effective mass rather small in the 45° direction; hence, the mass underestimation and underactuation in feedforward planning had smaller effect, compared to model simulations, in this direction. Fourth, our interpretation of the observed underactuation relies on a simplified optimal control model that treats muscles as ideal torque generators. This model does not capture several neurophysiological factors that may be altered in microgravity, including changes in tonic muscle activation, spinal reflex modulation, and descending vestibular influences on motor neuron excitability (Fisk et al., 1993), nor potential alterations in the damping and natural frequency of the limb’s mechanical response. However, the available evidence suggests that upper limb muscle capacity is relatively preserved in microgravity: a systematic review found that upper limb maximal voluntary contraction remained mostly unchanged during unloading periods of up to 45 days, with upper limb muscles declining substantially more slowly than lower limb and trunk muscles (Winnard et al., 2019; Bosutti et al., 2025). While the direction-dependent pattern of our results is most parsimoniously explained by a misrepresentation of inertial properties, we cannot exclude that some portion of the observed underactuation arises from these other neuromuscular factors. Distinguishing between mass underestimation and other sources of underactuation would benefit from future studies that combine detailed musculoskeletal modeling with direct measurements of muscle activation, joint impedance, and trunk kinematics during spaceflight.",
+   "printed": true
+  },
+  {
+   "para_id": 24,
+   "loc": "body",
+   "sec_title": "Model simulation",
+   "text": "We simulated the peak speed, peak acceleration, and their corresponding times for reaching movements in different directions. We employed the classical two-joint arm model to demonstrate the effect of biomechanics (Li and Todorov, 2004; Figure 1B). This was combined with a movement utility model to estimate planned movement time (Shadmehr et al., 2016; Figure 1—figure supplement 1A, B) and a forward optimal controller to simulate reaching movements (Todorov, 2005; Figure 1C, F, Figure 1—figure supplement 1C, D). Our simulation is briefly outlined below in steps.",
+   "printed": true
+  },
+  {
+   "para_id": 25,
+   "loc": "body",
+   "sec_title": "Model simulation",
+   "text": "We used a two-joint planar arm model to estimate the effective mass of the hand moving in different directions (Figure 1B). The parameters of the upper arm (length l1\\begin{document}$l_{1}$\\end{document}, mass m1\\begin{document}$m_{1}$\\end{document}, center of mass lc1\\begin{document}$lc_{1}$\\end{document}, inertia I1\\begin{document}$I_{1}$\\end{document}) and the lower arm (length l2\\begin{document}$l_{2}$\\end{document}, mass m2\\begin{document}$m_{2}$\\end{document}, center of mass lc2\\begin{document}$lc_{2}$\\end{document}, inertia I2\\begin{document}$I_{2}$\\end{document}) are based on values from Shadmehr et al., 2016:l1=0.33,l2=0.43m\\begin{document}$$\\displaystyle l_1 = 0.33,\\, l_2 = 0.43\\, \\rm m$$\\end{document}m1=1.93,m2=1.52kg\\begin{document}$$\\displaystyle m_1 = 1.93,\\, m_2 = 1.52\\, \\rm kg$$\\end{document}lc1=l1/2lc2=2l2/3m\\begin{document}$$\\displaystyle l_{c1} = {l_1}/{2}\\quad l_{c2} = {2l_2}/{3}\\quad\\rm m$$\\end{document}I1=0.014,I2=0.019kgm2\\begin{document}$$\\displaystyle I_1 = 0.014,\\, I_2 = 0.019\\, \\mathrm{kg}\\,\\mathrm{m}^2$$\\end{document}",
+   "printed": false
+  },
+  {
+   "para_id": 26,
+   "loc": "body",
+   "sec_title": "Model simulation",
+   "text": "The elbow and shoulder angles are denoted by θe\\begin{document}$\\theta _{e}$\\end{document} and θs\\begin{document}$\\theta _{s}$\\end{document}, respectively. The initial arm configuration is set by θs=0.785\\begin{document}$\\theta _{s}\\mathrm{=}0.785$\\end{document} rad, and θe=1.571\\begin{document}$\\theta _{e}\\mathrm{=}1.571$\\end{document} rad, following the experimental conditions from Gordon et al., 1994. With a particular joint angle configuration, the endpoint hand position is:(1)x=[l1cosθs+l2cos(θs+θe);l1sinθs+l2sin(θs+θe)].\\begin{document}$$\\displaystyle x\\mathrm{=}\\left [l_{1}{\\rm cos}\\, \\theta _{s}+l_{2}{\\rm cos}\\left (\\theta _{s}+\\theta _{e}\\right);l_{1}{\\rm sin}\\,\\theta _{s}+l_{2}{\\rm sin}\\,\\left (\\theta _{s}+\\theta _{e}\\right)\\right ].$$\\end{document}",
+   "printed": false
+  },
+  {
+   "para_id": 27,
+   "loc": "body",
+   "sec_title": "Movement time determined by optimal utility",
+   "text": "Following Shadmehr et al., 2016, the utility of a reaching action is given by:(11)Jut=α−amT−bmdi/T21+γT\\begin{document}$$\\displaystyle J_{ut}{=}\\frac{\\alpha -amT-bmd^{i}\\mathrm{/}T^{2}}{1+\\gamma T}$$\\end{document}",
+   "printed": false
+  },
+  {
+   "para_id": 28,
+   "loc": "body",
+   "sec_title": "Movement time determined by optimal utility",
+   "text": "The parameter values used in the simulation of Figure 1—figure supplement 1B were taken from Shadmehr et al., 2016: α=1000\\begin{document}$\\alpha \\mathrm{=}1000$\\end{document}, a=15\\begin{document}$a\\mathrm{=}15$\\end{document}, b=100\\begin{document}$b\\mathrm{=}100$\\end{document}, i=1.1\\begin{document}$i\\mathrm{=}1.1$\\end{document}, γ=1\\begin{document}$\\gamma \\mathrm{=}1$\\end{document}. The movement distance d\\begin{document}$d$\\end{document} is set as 0.12 m, the target distance in the experiment. Figure 1—figure supplement 1B illustrates how the utility curves change with planned movement time in three experimental directions (45°, 90°, and 135°) under normal gravity, with colored dots indicating the optimal MDs.",
+   "printed": false
+  },
+  {
+   "para_id": 29,
+   "loc": "body",
+   "sec_title": "Movement kinematics simulated by optimal control theory",
+   "text": "After setting the movement time Topt\\begin{document}$T_{opt}$\\end{document}, the position, speed, and acceleration over time can be simulated based on an optimal control model (Todorov, 2005). The arm’s control operates as a second-order low-pass filter:(13)ut=τ1τ2f¨t+(τ1−τ2)f˙t+ft,\\begin{document}$$\\displaystyle u_t = \\tau_1\\tau_2\\,\\ddot{f}_t + (\\tau_1 - \\tau_2)\\,\\dot{f}_t + f_t,$$\\end{document}",
+   "printed": false
+  },
+  {
+   "para_id": 30,
+   "loc": "body",
+   "sec_title": "Movement kinematics simulated by optimal control theory",
+   "text": "Here, we used the penalty values from Todorov, 2005 for each state and control variable: wu=0.00001\\begin{document}$w_{u}=0.00001$\\end{document}, wp=2\\begin{document}$w_{p}=2$\\end{document}, wv=0.2\\begin{document}$w_{v}=0.2$\\end{document}, wf=0.02\\begin{document}$w_{f}=0.02$\\end{document}, σc=0.5\\begin{document}$\\sigma _{c}=0.5$\\end{document}, Ωω=(0.5diag[0.02m;0.2ms;1N])2\\begin{document}$\\Omega ^{\\omega }=\\left (0.5diag\\left [0.02m;\\frac{0.2m}{s};1N\\right ]\\right)^{2}$\\end{document}. We first estimated the time-varying gains {Lk\\begin{document}$L_{k}$\\end{document}, Kk\\begin{document}$K_{k}$\\end{document}} correspond to the feedforward mapping and the feedback correction gain, respectively. The control law can be expressed as: uk=ukff+ukfb=−Lkxknom−Kk(x^k−xknom)\\begin{document}$u_{k}=u_{k}^{ff}+u_{k}^{fb}=-L_{k}x_{k}^{nom}-K_{k}\\left (\\hat {x}_{k}-x_{k}^{nom}\\right)$\\end{document}, where uk\\begin{document}$u_{k}$\\end{document} is the control input, xknom\\begin{document}$x_{k}^{nom}$\\end{document} is the nominal planned state, x^k\\begin{document}$\\hat {x}_{k}$\\end{document} is the estimated state, Lk\\begin{document}$L_{k}$\\end{document} is the feedforward (nominal) control associated with the planned trajectory, and Kk\\begin{document}$K_{k}$\\end{document} is the time-varying feedback gain that corrects deviations from the plan. To define the motor plan for comparison with behavior, we then simulate the deterministic open-loop trajectory by turning off noise and disabling feedback corrections, i.e., uk=ukff=−Lkxknom\\begin{document}$u_{k}=u_{k}^{ff}=-L_{k}x_{k}^{nom}$\\end{document}. We then obtain the peak speed, peak acceleration, and their respective times.",
+   "printed": false
+  },
+  {
+   "para_id": 31,
+   "loc": "body",
+   "sec_title": "Submovement extraction",
+   "text": "To separate the primary submovement from the secondary corrective submovement, the speed profile of each reaching movement was decomposed into a sum of submovements. Following the optimization algorithm described by Rohrer and Hogan, 2006, the speed profile was fitted as a sum of support-bounded lognormal (LGNB) curves. Each LGNB curve is defined as:B(t)=(T1−T0)Dσ2π(t−T0)(T1−t)exp{(−12σ2)[ln(t−T0T1−t)−μ]2},\\begin{document}$$\\displaystyle B\\left (t\\right)=\\frac{\\left (T_{1}-T_{0}\\right)D}{\\sigma \\sqrt{2\\pi }\\left (t-T_{0}\\right)\\left (T_{1}-t\\right)}exp\\left \\{\\left (\\frac{-1}{2\\sigma ^{2}}\\right)\\left [ln\\left (\\frac{t-T_{0}}{T_{1}-t}\\right)-\\mu \\right ]^{2}\\right \\},$$\\end{document}",
+   "printed": false
+  },
+  {
+   "para_id": 32,
+   "loc": "body",
+   "sec_title": "Submovement extraction",
+   "text": "In theory, the number of submovements could be treated as a free parameter. However, to avoid overfitting, we limited each movement to two submovements, given the brevity of the movement (average duration approx. 350 ms). For each trial, we initially fit the data using both one and two LGNB curves and then determined the optimal number of submovements using the ‘reedy’ method from the previous study (Rohrer and Hogan, 2006). Briefly, the fitting error for each movement with one and two LGNB curves was calculated as:ε=∫|F(t)−G(t)|dt∫|G(t)|dt,\\begin{document}$$\\displaystyle \\varepsilon =\\frac{\\int |F\\left (t\\right)-G\\left (t\\right)|dt}{\\int |G\\left (t\\right)|dt},$$\\end{document}",
+   "printed": false
+  },
+  {
+   "para_id": 33,
+   "loc": "body",
+   "sec_title": "Statistical analysis",
+   "text": "Most dependent measures—including MD, peak acceleration, peak speed, time to peak acceleration/speed, relative time to peak acceleration/speed, the percentage of submovements, and IPIs—were analyzed using two-way repeated-measures ANOVAs with a 3 (phase) × 3 (movement direction) design. RT was analyzed using three-way repeated-measures ANOVAs with a 3 (phase) × 3 (movement direction) × 2 (beep/no beep) design. Greenhouse–Geisser corrections were applied when sphericity was violated (Kirk, 1968). Normality was assessed with Shapiro–Wilk tests, and if more than 10% of tests for a dependent variable violated normality, the Aligned Rank Transform (ART) procedure was applied before conducting repeated-measures ANOVA. Tukey’s HSD tests were used for pairwise comparisons.",
+   "printed": true
+  },
+  {
+   "para_id": 34,
+   "loc": "body",
+   "sec_title": "Statistical analysis",
+   "text": "For the directional dependent effects (Figure 6), we applied repeated measures correlation to quantify within-subject associations (Bakdash and Marusich, 2017). Each participant contributed three repeated measurements under different directions. The predictor variable was identical across conditions, and the outcome variables were the measured responses of interest. Repeated measures correlations were computed separately for each of the four metrics, controlling for between-subject differences by including subject-specific intercepts and estimating a single common slope across participants.",
+   "printed": true
+  },
+  {
+   "para_id": 35,
+   "loc": "back",
+   "sec_title": "Cost scaling alone cannot explain earlier timing with lower peaks",
+   "text": "Following Crevecoeur et al., 2010, we implemented a scaling parameter α by:Q′=Qα,R′=αR,\\begin{document}$$\\displaystyle Q' = \\frac{Q}{\\alpha}, \\; R' = \\alpha R,$$\\end{document}",
+   "printed": false
+  },
+  {
+   "para_id": 36,
+   "loc": "back",
+   "sec_title": "Cost scaling alone cannot explain earlier timing with lower peaks",
+   "text": "We simulated three movement directions (45°, 90°, and 135°) with alpha = 3.0 (increased effort penalty) and alpha = 0.3 (decreased effort penalty). With alpha = 3.0, peak velocity and acceleration decreased, but peak times were delayed (Figure 1—figure supplement 2); with α = 0.3, peak amplitudes increased and peak times occurred earlier (Figure 1—figure supplement 3). Across directions, no alpha produced the simultaneous combination of lower peak values and earlier peak times that we observed in microgravity. This pattern also mirrors the trade-off in Crevecoeur et al., 2010, Figure 7B, where lowering peak velocity via cost-function scaling is consistently accompanied by later peaks, not earlier ones. We therefore conclude that changes in optimal-control costs alone (via Q/R rescaling) cannot account for the microgravity pattern of reduced peak velocity/acceleration together with earlier peak times.",
+   "printed": true
+  },
+  {
+   "para_id": 37,
+   "loc": "back",
+   "sec_title": "Coriolis and centripetal torques have minimal impact",
+   "text": "To evaluate the potential contribution of Coriolis and centripetal torques, we examined how adding the Coriolis and centripetal torque term to the optimal control simulations affects the outcomes. Using the iLQR (iterative LQR) method of Li and Todorov, 2004, we generated OFC-based hand-movement trajectories (Figures R4 and R5) and computed the contributions of each torque component separately (Figure R6). Key methods and results are summarized below.",
+   "printed": true
+  },
+  {
+   "para_id": 38,
+   "loc": "back",
+   "sec_title": "Coriolis and centripetal torques have minimal impact",
+   "text": "Following Li and Todorov, 2004, the forward dynamics of joint angles are given by:θ¨=M(θ)−1(τ−C(θ,θ˙)),\\begin{document}$$\\displaystyle \\ddot{\\theta} {=}M\\left (\\theta \\right)^{-1}\\left (\\tau -C\\left (\\theta ,\\dot{\\theta} \\right)\\right),$$\\end{document}",
+   "printed": false
+  },
+  {
+   "para_id": 39,
+   "loc": "back",
+   "sec_title": "Coriolis and centripetal torques have minimal impact",
+   "text": "All mechanical parameters and muscle time constants were kept consistent with those used in the main text. Because the dynamics are nonlinear, we solved the OFC problem using the iLQR/iLQG trajectory optimization scheme (Li and Todorov, 2004), which fits a sequence of local LQR subproblems (backward Riccati pass and forward rollout) to obtain a locally optimal time-varying feedback controller for the nonlinear system.",
+   "printed": true
+  },
+  {
+   "para_id": 40,
+   "loc": "back",
+   "sec_title": "Coriolis and centripetal torques have minimal impact",
+   "text": "To further evaluate Coriolis and centripetal torque contributions, we followed Hollerbach and Flash, 1982 by decomposing net torque τ into inertial and CC components:τ=I(θ)θ¨+C(θ,θ˙)θ˙,τine=I(θ)θ¨,τcor=C(θ,θ˙)θ˙.\\begin{document}$$\\displaystyle \\tau = I(\\theta)\\ddot{\\theta} + C(\\theta,\\dot{\\theta})\\dot{\\theta}, \\quad \\tau_{\\mathrm{ine}} = I(\\theta)\\ddot{\\theta}, \\quad \\tau_{\\mathrm{cor}} = C(\\theta,\\dot{\\theta})\\dot{\\theta}.$$\\end{document}",
+   "printed": false
+  }
+ ],
+ "links": [
+  {
+   "link_id": 1,
+   "url": "osf.io/3ac5b",
+   "url_raw": "https://osf.io/3ac5b",
+   "href_jats": "https://osf.io/3ac5b",
+   "repo_key": "osf:3ac5b",
+   "host_class": "osf",
+   "loc": "back",
+   "sec_title": "Data availability",
+   "source": "tagged",
+   "para_id": 1
+  },
+  {
+   "link_id": 2,
+   "url": "github.com/zhaoranzhang/aiming_data_analysis",
+   "url_raw": "https://github.com/ZhaoranZhang/Aiming_data_analysis",
+   "href_jats": "https://github.com/ZhaoranZhang/Aiming_data_analysis",
+   "repo_key": "github:zhaoranzhang/aiming_data_analysis",
+   "host_class": "github",
+   "loc": "back",
+   "sec_title": "Data availability",
+   "source": "tagged",
+   "para_id": 1
+  }
+ ],
+ "links_optional": [
+  "archive.softwareheritage.org/swh:1:dir:be55798c8ca296119b30d5ac698360acc71593c1;origin=https://github.com/zhaoranzhang/aiming_data_analysis;visit=swh:1:snp:e80c2eeef4bd643a3ed523ed874d1c79d864eb33;anchor=swh:1:rev:72afaf5c1aec0da49ce503e2f3eee40f38e1b98a",
+  "creativecommons.org/licenses/by/4.0",
+  "doi:10.1002/cphy.c170043",
+  "doi:10.1007/978-1-4020-6770-9_2",
+  "doi:10.1007/bf00199544",
+  "doi:10.1007/bf00241416",
+  "doi:10.1007/bf00353957",
+  "doi:10.1007/s002210050423",
+  "doi:10.1007/s002210050906",
+  "doi:10.1007/s00421-002-0684-3",
+  "doi:10.1007/s00422-006-0055-y",
+  "doi:10.1016/0006-8993(92)91673-3",
+  "doi:10.1016/0167-9457(93)90026-l",
+  "doi:10.1016/j.cub.2008.02.053",
+  "doi:10.1016/j.cub.2016.05.065",
+  "doi:10.1016/j.neubiorev.2016.11.016",
+  "doi:10.1016/j.neuroscience.2005.06.063",
+  "doi:10.1016/s0094-5765(98)00154-4",
+  "doi:10.1016/s0165-0173(98)00031-9",
+  "doi:10.1016/s0165-0173(98)00035-6",
+  "doi:10.1016/s0893-6080(96)00035-4",
+  "doi:10.1016/s0959-4388(99)00028-8",
+  "doi:10.1016/s1364-6613(98)01221-2",
+  "doi:10.1037/0033-295x.95.3.340",
+  "doi:10.1037/a0020958",
+  "doi:10.1037/h0092992",
+  "doi:10.1038/89477",
+  "doi:10.1038/nn.2229",
+  "doi:10.1038/nn1309",
+  "doi:10.1038/nrn3112",
+  "doi:10.1038/s41526-023-00256-5",
+  "doi:10.1038/s41526-023-00318-8",
+  "doi:10.1038/s41526-024-00439-8",
+  "doi:10.1038/s41598-017-13889-w",
+  "doi:10.1073/pnas.1811750115",
+  "doi:10.1080/0014013031000107559",
+  "doi:10.1080/001401398186991",
+  "doi:10.1101/2025.05.12.653611",
+  "doi:10.1109/5326.777074",
+  "doi:10.1111/j.1749-6632.1992.tb25253.x",
+  "doi:10.1111/j.2044-8295.1947.tb01141.x",
+  "doi:10.1113/ep092345",
+  "doi:10.1113/jphysiol.1976.sp011481",
+  "doi:10.1126/science.7569931",
+  "doi:10.1152/jappl.2001.90.3.997",
+  "doi:10.1152/jn.00061.2014",
+  "doi:10.1152/jn.00087.2020",
+  "doi:10.1152/jn.00315.2010",
+  "doi:10.1152/jn.00960.2003",
+  "doi:10.1152/jn.1993.69.2.504",
+  "doi:10.1152/jn.1994.72.1.299",
+  "doi:10.1152/jn.90334.2008",
+  "doi:10.1152/physrev.00048.2011",
+  "doi:10.1162/0899766053491887",
+  "doi:10.1371/journal.pone.0054925",
+  "doi:10.1518/001872008x374965",
+  "doi:10.1523/jneurosci.05-07-01688.1985",
+  "doi:10.1523/jneurosci.05-10-02732.1985",
+  "doi:10.1523/jneurosci.14-05-03208.1994",
+  "doi:10.1523/jneurosci.17-04-01519.1997",
+  "doi:10.1523/jneurosci.20-23-08916.2000",
+  "doi:10.1523/jneurosci.5669-12.2013",
+  "doi:10.3357/asem.2608.2010",
+  "doi:10.3357/asem.3961.2014",
+  "doi:10.3389/fncir.2021.723504",
+  "doi:10.3389/fnhum.2014.00554",
+  "doi:10.3389/fnrgo.2022.959894",
+  "doi:10.3389/fphys.2019.01046",
+  "doi:10.3389/fpsyg.2017.00456",
+  "doi:10.3758/bf03204852",
+  "doi:10.4324/9780203772010-6",
+  "doi:10.7554/elife.107472.1",
+  "doi:10.7554/elife.107472.1.sa1",
+  "doi:10.7554/elife.107472.1.sa2",
+  "doi:10.7554/elife.107472.1.sa3",
+  "doi:10.7554/elife.107472.2",
+  "doi:10.7554/elife.107472.2.sa1",
+  "doi:10.7554/elife.107472.2.sa2",
+  "doi:10.7554/elife.107472.2.sa3",
+  "doi:10.7554/elife.107472.3",
+  "doi:10.7554/elife.107472.3.sa1",
+  "doi:10.7554/elife.107472.3.sa2",
+  "doi:10.7554/elife.107472.3.sa3",
+  "doi:10.7554/elife.16394"
+ ],
+ "own_doi": "doi:10.7554/elife.107472",
+ "citations": [
+  {
+   "cite_id": 1,
+   "para_id": 2,
+   "bib_id": 66,
+   "marker": "Strangman et al., 2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 2,
+   "para_id": 2,
+   "bib_id": 39,
+   "marker": "Kubis et al., 1977",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 3,
+   "para_id": 2,
+   "bib_id": 8,
+   "marker": "Bock, 1998",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 4,
+   "para_id": 2,
+   "bib_id": 43,
+   "marker": "Layne et al., 2001",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 5,
+   "para_id": 2,
+   "bib_id": 53,
+   "marker": "Paloski et al., 1992",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 6,
+   "para_id": 2,
+   "bib_id": 58,
+   "marker": "Reschke et al., 1998",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 7,
+   "para_id": 2,
+   "bib_id": 68,
+   "marker": "Tafforin et al., 1989",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 8,
+   "para_id": 2,
+   "bib_id": 3,
+   "marker": "Berger et al., 1997",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 9,
+   "para_id": 2,
+   "bib_id": 9,
+   "marker": "Bock et al., 2001",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 10,
+   "para_id": 2,
+   "bib_id": 10,
+   "marker": "Bock et al., 2003",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 11,
+   "para_id": 2,
+   "bib_id": 48,
+   "marker": "Mechtcheriakov et al., 2002",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 12,
+   "para_id": 2,
+   "bib_id": 52,
+   "marker": "Newman and Lathan, 1999",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 13,
+   "para_id": 2,
+   "bib_id": 61,
+   "marker": "Sangals et al., 1999",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 14,
+   "para_id": 2,
+   "bib_id": 48,
+   "marker": "Mechtcheriakov et al., 2002",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 15,
+   "para_id": 2,
+   "bib_id": 61,
+   "marker": "Sangals et al., 1999",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 16,
+   "para_id": 2,
+   "bib_id": 75,
+   "marker": "Weber and Stelzer, 2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 17,
+   "para_id": 2,
+   "bib_id": 7,
+   "marker": "Bock et al., 1996b",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 18,
+   "para_id": 2,
+   "bib_id": 74,
+   "marker": "Weber et al., 2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 19,
+   "para_id": 3,
+   "bib_id": 3,
+   "marker": "Berger et al., 1997",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 20,
+   "para_id": 3,
+   "bib_id": 11,
+   "marker": "Bock et al., 2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 21,
+   "para_id": 3,
+   "bib_id": 48,
+   "marker": "Mechtcheriakov et al., 2002",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 22,
+   "para_id": 3,
+   "bib_id": 60,
+   "marker": "Ross and Reschke, 1982",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 23,
+   "para_id": 3,
+   "bib_id": 7,
+   "marker": "Bock et al., 1996b",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 24,
+   "para_id": 3,
+   "bib_id": 20,
+   "marker": "Elliott et al., 2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 25,
+   "para_id": 3,
+   "bib_id": 21,
+   "marker": "Elliott et al., 2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 26,
+   "para_id": 4,
+   "bib_id": 25,
+   "marker": "Flash and Hogan, 1985",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 27,
+   "para_id": 4,
+   "bib_id": 71,
+   "marker": "Todorov, 2004",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 28,
+   "para_id": 4,
+   "bib_id": 20,
+   "marker": "Elliott et al., 2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 29,
+   "para_id": 4,
+   "bib_id": 21,
+   "marker": "Elliott et al., 2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 30,
+   "para_id": 4,
+   "bib_id": 61,
+   "marker": "Sangals et al., 1999",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 31,
+   "para_id": 4,
+   "bib_id": 26,
+   "marker": "Fowler et al., 2008",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 32,
+   "para_id": 4,
+   "bib_id": 3,
+   "marker": "Berger et al., 1997",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 33,
+   "para_id": 4,
+   "bib_id": 48,
+   "marker": "Mechtcheriakov et al., 2002",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 34,
+   "para_id": 4,
+   "bib_id": 14,
+   "marker": "Chua and Elliott, 1993",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 35,
+   "para_id": 4,
+   "bib_id": 65,
+   "marker": "Smeets and Brenner, 1995",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 36,
+   "para_id": 4,
+   "bib_id": 61,
+   "marker": "Sangals et al., 1999",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 37,
+   "para_id": 4,
+   "bib_id": 48,
+   "marker": "Mechtcheriakov et al., 2002",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 38,
+   "para_id": 4,
+   "bib_id": 26,
+   "marker": "Fowler et al., 2008",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 39,
+   "para_id": 5,
+   "bib_id": 51,
+   "marker": "Mussa-Ivaldi et al., 1985",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 40,
+   "para_id": 5,
+   "bib_id": 44,
+   "marker": "Li and Todorov, 2004",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 41,
+   "para_id": 5,
+   "bib_id": 64,
+   "marker": "Shadmehr et al., 2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 42,
+   "para_id": 5,
+   "bib_id": 17,
+   "marker": "Crevecoeur et al., 2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 43,
+   "para_id": 6,
+   "bib_id": 44,
+   "marker": "Li and Todorov, 2004",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 44,
+   "para_id": 6,
+   "bib_id": 64,
+   "marker": "Shadmehr et al., 2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 45,
+   "para_id": 6,
+   "bib_id": 72,
+   "marker": "Todorov, 2005",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 46,
+   "para_id": 7,
+   "bib_id": 67,
+   "marker": "Sutter et al., 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 47,
+   "para_id": 8,
+   "bib_id": 20,
+   "marker": "Elliott et al., 2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 48,
+   "para_id": 8,
+   "bib_id": 21,
+   "marker": "Elliott et al., 2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 49,
+   "para_id": 9,
+   "bib_id": 18,
+   "marker": "Dimitriou et al., 2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 50,
+   "para_id": 9,
+   "bib_id": 49,
+   "marker": "Meyer et al., 1988",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 51,
+   "para_id": 9,
+   "bib_id": 25,
+   "marker": "Flash and Hogan, 1985",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 52,
+   "para_id": 9,
+   "bib_id": 20,
+   "marker": "Elliott et al., 2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 53,
+   "para_id": 9,
+   "bib_id": 49,
+   "marker": "Meyer et al., 1988",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 54,
+   "para_id": 9,
+   "bib_id": 82,
+   "marker": "Woodworth, 1899",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 55,
+   "para_id": 9,
+   "bib_id": 59,
+   "marker": "Rohrer and Hogan, 2006",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 56,
+   "para_id": 10,
+   "bib_id": 15,
+   "marker": "Craik, 1947",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 57,
+   "para_id": 10,
+   "bib_id": 50,
+   "marker": "Meyer et al., 2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 58,
+   "para_id": 10,
+   "bib_id": 49,
+   "marker": "Meyer et al., 1988",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 59,
+   "para_id": 11,
+   "bib_id": 28,
+   "marker": "Gordon et al., 1994",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 60,
+   "para_id": 11,
+   "bib_id": 64,
+   "marker": "Shadmehr et al., 2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 61,
+   "para_id": 12,
+   "bib_id": 2,
+   "marker": "Bakdash and Marusich, 2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 62,
+   "para_id": 13,
+   "bib_id": 67,
+   "marker": "Sutter et al., 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 63,
+   "para_id": 14,
+   "bib_id": 17,
+   "marker": "Crevecoeur et al., 2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 64,
+   "para_id": 14,
+   "bib_id": 55,
+   "marker": "Papaxanthis et al., 2005",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 65,
+   "para_id": 14,
+   "bib_id": 8,
+   "marker": "Bock, 1998",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 66,
+   "para_id": 14,
+   "bib_id": 6,
+   "marker": "Bock et al., 1996a",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 67,
+   "para_id": 14,
+   "bib_id": 7,
+   "marker": "Bock et al., 1996b",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 68,
+   "para_id": 14,
+   "bib_id": 17,
+   "marker": "Crevecoeur et al., 2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 69,
+   "para_id": 14,
+   "bib_id": 55,
+   "marker": "Papaxanthis et al., 2005",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 70,
+   "para_id": 14,
+   "bib_id": 55,
+   "marker": "Papaxanthis et al., 2005",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 71,
+   "para_id": 14,
+   "bib_id": 16,
+   "marker": "Crevecoeur et al., 2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 72,
+   "para_id": 14,
+   "bib_id": 17,
+   "marker": "Crevecoeur et al., 2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 73,
+   "para_id": 14,
+   "bib_id": 8,
+   "marker": "Bock, 1998",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 74,
+   "para_id": 14,
+   "bib_id": 7,
+   "marker": "Bock et al., 1996b",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 75,
+   "para_id": 14,
+   "bib_id": 6,
+   "marker": "Bock et al., 1996a",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 76,
+   "para_id": 14,
+   "bib_id": 5,
+   "marker": "Bock et al., 1992",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 77,
+   "para_id": 14,
+   "bib_id": 24,
+   "marker": "Flanagan and Wing, 1997",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 78,
+   "para_id": 14,
+   "bib_id": 31,
+   "marker": "Johansson and Edin, 1993",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 79,
+   "para_id": 15,
+   "bib_id": 16,
+   "marker": "Crevecoeur et al., 2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 80,
+   "para_id": 15,
+   "bib_id": 23,
+   "marker": "Fisk et al., 1993",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 81,
+   "para_id": 15,
+   "bib_id": 62,
+   "marker": "Scott et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 82,
+   "para_id": 15,
+   "bib_id": 1,
+   "marker": "Ayyildiz et al., 2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 83,
+   "para_id": 15,
+   "bib_id": 30,
+   "marker": "Hollerbach and Flash, 1982",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 84,
+   "para_id": 16,
+   "bib_id": 8,
+   "marker": "Bock, 1998",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 85,
+   "para_id": 16,
+   "bib_id": 61,
+   "marker": "Sangals et al., 1999",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 86,
+   "para_id": 16,
+   "bib_id": 26,
+   "marker": "Fowler et al., 2008",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 87,
+   "para_id": 16,
+   "bib_id": 3,
+   "marker": "Berger et al., 1997",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 88,
+   "para_id": 16,
+   "bib_id": 48,
+   "marker": "Mechtcheriakov et al., 2002",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 89,
+   "para_id": 16,
+   "bib_id": 26,
+   "marker": "Fowler et al., 2008",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 90,
+   "para_id": 16,
+   "bib_id": 61,
+   "marker": "Sangals et al., 1999",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 91,
+   "para_id": 16,
+   "bib_id": 3,
+   "marker": "Berger et al., 1997",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 92,
+   "para_id": 16,
+   "bib_id": 9,
+   "marker": "Bock et al., 2001",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 93,
+   "para_id": 16,
+   "bib_id": 10,
+   "marker": "Bock et al., 2003",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 94,
+   "para_id": 16,
+   "bib_id": 11,
+   "marker": "Bock et al., 2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 95,
+   "para_id": 16,
+   "bib_id": 26,
+   "marker": "Fowler et al., 2008",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 96,
+   "para_id": 16,
+   "bib_id": 48,
+   "marker": "Mechtcheriakov et al., 2002",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 97,
+   "para_id": 16,
+   "bib_id": 54,
+   "marker": "Papaxanthis et al., 1998",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 98,
+   "para_id": 16,
+   "bib_id": 75,
+   "marker": "Weber and Stelzer, 2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 99,
+   "para_id": 16,
+   "bib_id": 29,
+   "marker": "Heuer et al., 2003",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 100,
+   "para_id": 16,
+   "bib_id": 45,
+   "marker": "Manzey et al., 1998",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 101,
+   "para_id": 16,
+   "bib_id": 61,
+   "marker": "Sangals et al., 1999",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 102,
+   "para_id": 17,
+   "bib_id": 41,
+   "marker": "Lackner and DiZio, 1992",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 103,
+   "para_id": 17,
+   "bib_id": 57,
+   "marker": "Proske and Weber, 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 104,
+   "para_id": 17,
+   "bib_id": 56,
+   "marker": "Proske and Gandevia, 2012",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 105,
+   "para_id": 17,
+   "bib_id": 7,
+   "marker": "Bock et al., 1996b",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 106,
+   "para_id": 17,
+   "bib_id": 4,
+   "marker": "Berniker and Kording, 2008",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 107,
+   "para_id": 17,
+   "bib_id": 22,
+   "marker": "Fercho and Baugh, 2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 108,
+   "para_id": 17,
+   "bib_id": 35,
+   "marker": "Kluzik et al., 2008",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 109,
+   "para_id": 17,
+   "bib_id": 36,
+   "marker": "Kong et al., 2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 110,
+   "para_id": 17,
+   "bib_id": 76,
+   "marker": "Wilke et al., 2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 111,
+   "para_id": 17,
+   "bib_id": 8,
+   "marker": "Bock, 1998",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 112,
+   "para_id": 17,
+   "bib_id": 7,
+   "marker": "Bock et al., 1996b",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 113,
+   "para_id": 17,
+   "bib_id": 61,
+   "marker": "Sangals et al., 1999",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 114,
+   "para_id": 17,
+   "bib_id": 23,
+   "marker": "Fisk et al., 1993",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 115,
+   "para_id": 18,
+   "bib_id": 38,
+   "marker": "Krakauer et al., 2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 116,
+   "para_id": 18,
+   "bib_id": 33,
+   "marker": "Kawato, 1999",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 117,
+   "para_id": 18,
+   "bib_id": 78,
+   "marker": "Wolpert et al., 1995",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 118,
+   "para_id": 18,
+   "bib_id": 73,
+   "marker": "Wang and Sainburg, 2004",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 119,
+   "para_id": 18,
+   "bib_id": 27,
+   "marker": "Gaveau et al., 2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 120,
+   "para_id": 18,
+   "bib_id": 32,
+   "marker": "Kanas and Manzey, 2008",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 121,
+   "para_id": 19,
+   "bib_id": 37,
+   "marker": "Krakauer et al., 2000",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 122,
+   "para_id": 19,
+   "bib_id": 81,
+   "marker": "Wolpert et al., 2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 123,
+   "para_id": 19,
+   "bib_id": 42,
+   "marker": "Lackner and Dizio, 1994",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 124,
+   "para_id": 19,
+   "bib_id": 63,
+   "marker": "Shadmehr and Mussa-Ivaldi, 1994",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 125,
+   "para_id": 19,
+   "bib_id": 24,
+   "marker": "Flanagan and Wing, 1997",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 126,
+   "para_id": 19,
+   "bib_id": 40,
+   "marker": "Kurtzer et al., 2008",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 127,
+   "para_id": 19,
+   "bib_id": 80,
+   "marker": "Wolpert et al., 1998",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 128,
+   "para_id": 19,
+   "bib_id": 79,
+   "marker": "Wolpert and Miall, 1996",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 129,
+   "para_id": 20,
+   "bib_id": 18,
+   "marker": "Dimitriou et al., 2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 130,
+   "para_id": 20,
+   "bib_id": 55,
+   "marker": "Papaxanthis et al., 2005",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 131,
+   "para_id": 20,
+   "bib_id": 57,
+   "marker": "Proske and Weber, 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 132,
+   "para_id": 20,
+   "bib_id": 75,
+   "marker": "Weber and Stelzer, 2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 133,
+   "para_id": 20,
+   "bib_id": 47,
+   "marker": "McIntyre et al., 2001",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 134,
+   "para_id": 20,
+   "bib_id": 55,
+   "marker": "Papaxanthis et al., 2005",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 135,
+   "para_id": 20,
+   "bib_id": 26,
+   "marker": "Fowler et al., 2008",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 136,
+   "para_id": 21,
+   "bib_id": 13,
+   "marker": "Brooks, 1986",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 137,
+   "para_id": 21,
+   "bib_id": 46,
+   "marker": "Marsden et al., 1976",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 138,
+   "para_id": 21,
+   "bib_id": 11,
+   "marker": "Bock et al., 2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 139,
+   "para_id": 21,
+   "bib_id": 70,
+   "marker": "Tian et al., 2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 140,
+   "para_id": 22,
+   "bib_id": 26,
+   "marker": "Fowler et al., 2008",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 141,
+   "para_id": 22,
+   "bib_id": 19,
+   "marker": "Eddy et al., 1998",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 142,
+   "para_id": 22,
+   "bib_id": 45,
+   "marker": "Manzey et al., 1998",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 143,
+   "para_id": 22,
+   "bib_id": 66,
+   "marker": "Strangman et al., 2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 144,
+   "para_id": 22,
+   "bib_id": 70,
+   "marker": "Tian et al., 2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 145,
+   "para_id": 23,
+   "bib_id": 17,
+   "marker": "Crevecoeur et al., 2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 146,
+   "para_id": 23,
+   "bib_id": 55,
+   "marker": "Papaxanthis et al., 2005",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 147,
+   "para_id": 23,
+   "bib_id": 69,
+   "marker": "Tays et al., 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 148,
+   "para_id": 23,
+   "bib_id": 23,
+   "marker": "Fisk et al., 1993",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 149,
+   "para_id": 23,
+   "bib_id": 77,
+   "marker": "Winnard et al., 2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 150,
+   "para_id": 23,
+   "bib_id": 12,
+   "marker": "Bosutti et al., 2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 151,
+   "para_id": 24,
+   "bib_id": 44,
+   "marker": "Li and Todorov, 2004",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 152,
+   "para_id": 24,
+   "bib_id": 64,
+   "marker": "Shadmehr et al., 2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 153,
+   "para_id": 24,
+   "bib_id": 72,
+   "marker": "Todorov, 2005",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 154,
+   "para_id": 25,
+   "bib_id": 64,
+   "marker": "Shadmehr et al., 2016",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 155,
+   "para_id": 26,
+   "bib_id": 28,
+   "marker": "Gordon et al., 1994",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 156,
+   "para_id": 27,
+   "bib_id": 64,
+   "marker": "Shadmehr et al., 2016",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 157,
+   "para_id": 28,
+   "bib_id": 64,
+   "marker": "Shadmehr et al., 2016",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 158,
+   "para_id": 29,
+   "bib_id": 72,
+   "marker": "Todorov, 2005",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 159,
+   "para_id": 30,
+   "bib_id": 72,
+   "marker": "Todorov, 2005",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 160,
+   "para_id": 31,
+   "bib_id": 59,
+   "marker": "Rohrer and Hogan, 2006",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 161,
+   "para_id": 32,
+   "bib_id": 59,
+   "marker": "Rohrer and Hogan, 2006",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 162,
+   "para_id": 33,
+   "bib_id": 34,
+   "marker": "Kirk, 1968",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 163,
+   "para_id": 34,
+   "bib_id": 2,
+   "marker": "Bakdash and Marusich, 2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 164,
+   "para_id": 1,
+   "bib_id": 83,
+   "marker": "Zhang, 2026",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 165,
+   "para_id": 35,
+   "bib_id": 16,
+   "marker": "Crevecoeur et al., 2010",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 166,
+   "para_id": 36,
+   "bib_id": 16,
+   "marker": "Crevecoeur et al., 2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 167,
+   "para_id": 37,
+   "bib_id": 44,
+   "marker": "Li and Todorov, 2004",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 168,
+   "para_id": 38,
+   "bib_id": 44,
+   "marker": "Li and Todorov, 2004",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 169,
+   "para_id": 39,
+   "bib_id": 44,
+   "marker": "Li and Todorov, 2004",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 170,
+   "para_id": 40,
+   "bib_id": 30,
+   "marker": "Hollerbach and Flash, 1982",
+   "expanded": false,
+   "scored": false
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-ext-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "v1_bib_count": 83
+ }
+}

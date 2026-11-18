@@ -1,0 +1,348 @@
+{
+ "paper_id": "10.1162_opmi.a.375",
+ "paras": [
+  {
+   "para_id": 1,
+   "loc": "body",
+   "sec_title": "INTRODUCTION",
+   "text": "Theory of Mind (ToM)—the capacity to attribute beliefs, desires, and intentions to oneself and others—forms the foundation of human social cognition (Premack & Woodruff, 1978). It enables us to predict behavior in dynamic, ambiguous settings by reasoning about others’ mental states, including what they can see, what they know, and what they want (Tomasello, 1999). Beyond its significance in developmental and cognitive science, ToM has emerged as a crucial goal in artificial intelligence (AI), particularly for systems designed to interact naturally and safely with humans (Dennett, 1987).",
+   "printed": true
+  },
+  {
+   "para_id": 2,
+   "loc": "body",
+   "sec_title": "INTRODUCTION",
+   "text": "A fundamental, first-principles requirement of ToM is that mental state inference is inherently grounded in physical reasoning. To understand what another person wants, an observer must represent the physical costs and rewards associated with possible courses of action. To understand what another person knows, the observer must reason about what information that person could have perceived (i.e., which objects were visible given the geometry of the environment, which were occluded by walls or obstacles, and what the agent’s line of sight permitted). To understand whether another person is in danger, the observer must simulate the physical consequences of their actions going forward. In short, attributing mental states requires grounded representations of the physical scene in which an agent acts. Recent theoretical and empirical work has articulated this dependence explicitly, arguing that naive psychology (the capacity to reason about minds) directly calls upon naive physics (the capacity to reason about objects, forces, and spatial relations) rather than operating as a fully autonomous system (Liu et al., 2026). This interdependence is not unique to sophisticated adult reasoning; it is detectable from the first months of life, when infants already integrate physical constraints on action into their inferences about agents’ goals, preferences, and knowledge (Luo & Baillargeon, 2007).",
+   "printed": true
+  },
+  {
+   "para_id": 3,
+   "loc": "body",
+   "sec_title": "INTRODUCTION",
+   "text": "Recent progress in cognitive modeling has yielded several influential computational frameworks for ToM. A landmark example is the Bayesian Theory of Mind (BToM) model introduced by Baker et al. (2017), which uses inverse planning in partially observable environments to infer beliefs, desires, and percepts based on agents’ actions in 2D spatial settings. This model was a major step forward, jointly modeling agents’ perceptual access and planning under uncertainty, and demonstrated strong alignment with human judgments across a range of scenarios.",
+   "printed": true
+  },
+  {
+   "para_id": 4,
+   "loc": "body",
+   "sec_title": "INTRODUCTION",
+   "text": "Our work therefore takes BToM as a foundation and extends it along two axes that the original framing set aside: the full geometric complexity of 3D line-of-sight and occlusion, and graded, probabilistic inference over the agent’s evolving knowledge state rather than a discretized hypothesis space. We also benchmark against current vision-language models (VLMs), such as Gemini 2.5 Pro and GPT-4o, which—despite their strong performance on multimodal reasoning tasks like image captioning and visual question answering (Comanici et al., 2025; OpenAI et al., 2024)—lack any structured representation of what an agent can or cannot see. As we demonstrate, this limitation leads them to fail on tasks requiring ToM-style reasoning under conditions of limited perceptual access: they do not accurately infer how being unable to see an event or object should constrain an agent’s beliefs, preferences, or future actions.",
+   "printed": true
+  },
+  {
+   "para_id": 5,
+   "loc": "body",
+   "sec_title": "INTRODUCTION",
+   "text": "This shortcoming arises not from lack of data or training scale, but from an architectural blind spot: VLMs lack explicit models of what agents can and cannot see, and how perceptual history constrains belief updating (Lee et al., 2025). They often conflate their own global view of the scene with the partial, egocentric view available to the agent in question (Gao et al., 2025; Wang et al., 2026). Moreover, unlike inverse planning models, VLMs do not simulate agentic decision-making under uncertainty, nor do they distinguish between knowledge, belief, and desire in the structured, causal way that human observers do (Chen et al., 2024).",
+   "printed": true
+  },
+  {
+   "para_id": 6,
+   "loc": "body",
+   "sec_title": "INTRODUCTION",
+   "text": "While Baker et al. (2017) demonstrated that inverse planning under partial observability can account for belief and desire inferences in controlled environments, our work highlights that real-world ToM demands richer visual and physical simulation, explicit 3D modeling of vision, and continual belief updating grounded in physical scene dynamics. In this way, AGENT+ and POPKI represent a significant step toward bridging symbolic cognitive modeling with the physical and perceptual richness of embodied AI.",
+   "printed": true
+  },
+  {
+   "para_id": 7,
+   "loc": "body",
+   "sec_title": "AGENT and AGENT+ Datasets",
+   "text": "AGENT (Action and Goal-based Evaluation for Theory of Mind) is a benchmark designed to evaluate ToM reasoning in machine agents (Shu et al., 2021). It assesses whether computational models can infer an agent’s goals, preferences, and efficiency in structured environments. The benchmark consists of animated scenarios where an agent interacts with objects, navigates obstacles, and selects goals based on inferred preferences. Models are evaluated on their ability to predict rational action planning and deviations from optimal behavior, with human ratings providing ground-truth data for comparison. However, AGENT assumes full perceptual access, meaning it does not test whether models can infer an agent’s beliefs under limited observability.",
+   "printed": true
+  },
+  {
+   "para_id": 8,
+   "loc": "body",
+   "sec_title": "AGENT and AGENT+ Datasets",
+   "text": "Each trial begins with a familiarization video in which an agent demonstrates a preference for a particular object by repeatedly approaching it. This is followed by a test video where the agent selects either the same object or a different one. As in Luo and Baillargeon (2007), familiarization establishes the agent’s preferences, while test trials introduce an unexpected or surprising choice depending on the agent’s perceptual access.",
+   "printed": true
+  },
+  {
+   "para_id": 9,
+   "loc": "body",
+   "sec_title": "Model Overview",
+   "text": "The core challenge is that an observer watching a video must simultaneously reason about what the agent can see (a function of 3D scene geometry), what the agent knows (accumulated over time from what it has seen), and what the agent prefers (inferred from its actions). These three quantities are interdependent and latent as they are not directly observable. Capturing their joint uncertainty and updating all three as new observations arrive calls for principled probabilistic inference. POPKI is therefore implemented in the probabilistic programming language Gen (Cusumano-Towner et al., 2019), which provides infrastructure for defining generative models over latent variables and running efficient inference algorithms (specifically, Sequential Monte Carlo; see Inference and Surprise Estimation section).",
+   "printed": true
+  },
+  {
+   "para_id": 10,
+   "loc": "body",
+   "sec_title": "Model Overview",
+   "text": "POPKI also uses PyBullet (Coumans & Bai, 2016–2019) as its physics engine and Rapidly-exploring Random Tree star (RRT*) (Karaman et al., 2011) for planning. RRT* is a sampling-based motion planning algorithm that finds near-optimal collision-free paths through 3D space—it generates the trajectories an agent would plausibly take to reach a goal. Together these two components ground the agent’s cognitive states in the physical structure of the scene.",
+   "printed": true
+  },
+  {
+   "para_id": 11,
+   "loc": "body",
+   "sec_title": "Model Overview",
+   "text": "The original AGENT paper (Shu et al., 2021) uses the BIPaCK (Bayesian Inverse Planning with Costs and Knowledge) model, which integrates a physics engine with deterministic planning to simulate agent actions and applies Bayesian inverse planning to infer preferences from observed behavior. It accounts for both action costs and object rewards, allowing it to model rational choice by comparing simulated optimal plans with actual actions.",
+   "printed": true
+  },
+  {
+   "para_id": 12,
+   "loc": "body",
+   "sec_title": "Evaluation Metric",
+   "text": "Following Csibra et al. (2003) and Shu et al. (2021), we defined a quantitative metric for surprise. Let r+ and r− denote the mean surprise ratings for the paired surprising and expected test videos, respectively. The surprise margin is given by:Δr=r+−r−.",
+   "printed": true
+  },
+  {
+   "para_id": 13,
+   "loc": "body",
+   "sec_title": "ToMnet-G (Modified)",
+   "text": "ToMnet-G (Rabinowitz et al., 2018; Shu et al., 2021) is a deep learning model that uses graph neural networks (GNNs) to infer an agent’s mental states (Figure 3). Entities such as objects and agents are represented as nodes with attributes like position and color, while edges capture spatial and relational structure.",
+   "printed": true
+  },
+  {
+   "para_id": 14,
+   "loc": "back",
+   "sec_title": "Training",
+   "text": "We train the network using Adam (Kingma & Ba, 2017), with a batch size of 16, and a learning rate of 0.001.",
+   "printed": true
+  }
+ ],
+ "links": [],
+ "links_optional": [
+  "creativecommons.org/licenses/by/4.0",
+  "doi:10.1016/j.cognition.2006.10.007",
+  "doi:10.1017/s0140525x00076512",
+  "doi:10.1038/s41562-017-0064",
+  "doi:10.1038/s44159-025-00514-1",
+  "doi:10.1109/icra.2011.5980479",
+  "doi:10.1145/3314221.3314642",
+  "doi:10.1162/opmi.a.375",
+  "doi:10.1207/s15516709cog2701_4",
+  "doi:10.4159/9780674044371",
+  "doi:10.48550/arxiv.1412.6980",
+  "doi:10.48550/arxiv.2303.08774",
+  "doi:10.48550/arxiv.2402.15052",
+  "doi:10.48550/arxiv.2410.00324",
+  "doi:10.48550/arxiv.2504.17207",
+  "doi:10.48550/arxiv.2507.06261",
+  "doi:10.48550/arxiv.2602.15892",
+  "pybullet.org"
+ ],
+ "own_doi": "doi:10.1162/opmi.a.375",
+ "citations": [
+  {
+   "cite_id": 1,
+   "para_id": 1,
+   "bib_id": 15,
+   "marker": "1978",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 2,
+   "para_id": 1,
+   "bib_id": 18,
+   "marker": "1999",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 3,
+   "para_id": 1,
+   "bib_id": 7,
+   "marker": "1987",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 4,
+   "para_id": 2,
+   "bib_id": 12,
+   "marker": "2026",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 5,
+   "para_id": 2,
+   "bib_id": 13,
+   "marker": "2007",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 6,
+   "para_id": 3,
+   "bib_id": 1,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 7,
+   "para_id": 4,
+   "bib_id": 3,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 8,
+   "para_id": 4,
+   "bib_id": 14,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 9,
+   "para_id": 5,
+   "bib_id": 11,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 10,
+   "para_id": 5,
+   "bib_id": 8,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 11,
+   "para_id": 5,
+   "bib_id": 19,
+   "marker": "2026",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 12,
+   "para_id": 5,
+   "bib_id": 2,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 13,
+   "para_id": 6,
+   "bib_id": 1,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 14,
+   "para_id": 7,
+   "bib_id": 17,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 15,
+   "para_id": 8,
+   "bib_id": 13,
+   "marker": "2007",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 16,
+   "para_id": 9,
+   "bib_id": 6,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 17,
+   "para_id": 10,
+   "bib_id": 4,
+   "marker": "2016–2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 18,
+   "para_id": 10,
+   "bib_id": 5,
+   "marker": "2016–2019",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 19,
+   "para_id": 10,
+   "bib_id": 6,
+   "marker": "2016–2019",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 20,
+   "para_id": 10,
+   "bib_id": 7,
+   "marker": "2016–2019",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 21,
+   "para_id": 10,
+   "bib_id": 9,
+   "marker": "2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 22,
+   "para_id": 11,
+   "bib_id": 17,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 23,
+   "para_id": 12,
+   "bib_id": 5,
+   "marker": "2003",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 24,
+   "para_id": 12,
+   "bib_id": 17,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 25,
+   "para_id": 13,
+   "bib_id": 16,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 26,
+   "para_id": 13,
+   "bib_id": 17,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 27,
+   "para_id": 14,
+   "bib_id": 10,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-ext-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "v1_bib_count": 19
+ }
+}

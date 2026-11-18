@@ -1,0 +1,523 @@
+{
+ "paper_id": "10.1038_s41467-026-75899-5",
+ "paras": [
+  {
+   "para_id": 1,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Laser beams with a squeezed quantum uncertainty of the electromagnetic field (“squeezed light”)1–3 have become a central resource for quantum technologies and quantum-correlated networks. They enable breakthroughs in photonic quantum computing4–7, quantum communications8–10, and enhance precision interferometry, including gravitational-wave detection11–21. The performance of squeezed states in these quantum-correlated networks is ultimately limited by decoherence. Typically, the dominant degradation channels are optical loss3,21 and phase noise22; corresponding mitigation strategies are well understood, enabling state-of-the-art squeezing levels23. Mode mismatch between spatial modes in an optical network is often approximated as an additional, incoherent loss channel. This approximation, however, can significantly underestimate the degradation, as first theoretically recognized in the context of gravitational-wave detection24–27.",
+   "printed": true
+  },
+  {
+   "para_id": 2,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Hyperloss sets a scaling limit for quantum-correlated networks that distribute squeezing—from photonic quantum processors to large-scale interferometers (Fig. 1a). So far, it has played a limited role because most existing systems operate with moderate quantum correlations and relatively low network complexity. As quantum systems move toward higher squeezing and increasingly complex multimode routing and interference, we expect hyperloss to become a central challenge. This includes platforms ranging from photonic boson sampling28 and quantum computing6,7, to squeezed-light distribution in multimode fibers29–31, and large-scale interferometers21,32.Fig. 1Mode mismatch in quantum-correlated networks.a Quantum optical network in a block diagram with multiple nodes that couple several optical modes, and three examples of such networks: a photonic quantum computer, a multimode fiber in a quantum communications or sensing system, and a gravitational-wave detector. b–d Two types of coupling nodes that act as spatial-mode mixers: a simple beam-splitter (b) and an optical cavity (d). In both cases, the two modes are ideally in the same spatial mode, but here spatially mismatched, e.g., displaced. As they interfere, the mismatch generates a residual component in orthogonal higher-order spatial modes upon reflection (c).",
+   "printed": true
+  },
+  {
+   "para_id": 3,
+   "loc": "body",
+   "sec_title": "Physical origin of hyperloss",
+   "text": "To illustrate the physical origin of hyperloss, we first examine the mechanisms of mode mismatch at a beam-splitter and a single-sided (overcoupled) optical cavity; see Fig. 1b–d. The fundamental mode (FM) of the laser beam is designed to match the target optical mode at the second port of the beam-splitter or inside the cavity. In practice, however, small imperfections—either due to deviations in the mode shape or slight misalignments of the optical axis—inevitably introduce mode mismatches. As a result, after the imperfect interference between the two modes, a fraction of the field is scattered into the higher-order spatial modes (HOMs). Both a beam-splitter and an optical cavity, therefore, act as couplers between the FM and HOMs. For small mismatches, this coupling typically involves a single HOM, so they effectively behave as two-mode beam splitters with one FM and one HOM channel. This analogy works both for a beam-splitter and an optical cavity, and allows to significantly simplify the treatment of the latter. For example, a simple network of two sequentially coupled cavities can be seen to form an effective Mach–Zehnder interferometer, where the FM couples into one HOM and back; see Fig. 2c–e. Upon the second interaction, two contributions to FM interfere depending on their relative phase, which defines whether the interference is constructive or destructive. This phase difference arises from two sources: (i) different propagation (Gouy) phase is accumulated by distinct spatial modes33; and (ii) different cavity phase response if two modes are not simultaneously resonant in the cavity34. As a result, the effective loss after propagating through two interfaces becomes significantly different from the baseline loss estimate, which treats spatial mode mismatch (SMM) as simple, phase-independent optical loss.Fig. 2Physical picture behind the hyperloss effect.The field amplitude of the vacuum (a) and the squeezed (b) states shows different noise behavior as a function of time. The corresponding uncertainties of the measurement record are plotted in the phase space with two orthogonal quadratures \\documentclass[12pt]{minimal} \\usepackage{amsmath} \\usepackage{wasysym} \\usepackage{amsfonts} \\usepackage{amssymb} \\usepackage{amsbsy} \\usepackage{mathrsfs} \\usepackage{upgreek} \\setlength{\\oddsidemargin}{-69pt} \\begin{document}$${\\hat{X}}_{0}$$\\end{document}X^0 and \\documentclass[12pt]{minimal} \\usepackage{amsmath} \\usepackage{wasysym} \\usepackage{amsfonts} \\usepackage{amssymb} \\usepackage{amsbsy} \\usepackage{mathrsfs} \\usepackage{upgreek} \\setlength{\\oddsidemargin}{-69pt} \\begin{document}$${\\hat{X}}_{\\pi /2}$$\\end{document}X^π/2. c–e Mode-coupling leading to interference between different modes and the resulting decoherence effects in the detected noise. c Illustrates the mode-mixing at two interference points (cavities or beam-splitters), forming an effective Mach–Zehnder interferometer. The squeezed field in the FM couples to the vacuum field in the higher-order mode (HOM). The green crosses are used to keep track of the phase of the state. Upon coupling to the HOM at the first interface, the squeezed field acquires a relative phase ϕ1, which depends on the parameters of the coupler. After propagation, HOM rotates in phase space due to the Gouy phase ϕG. Upon coupling at the second interface, the FM and HOM acquire a phase delay, leading to destructive or constructive interference between the coupled fields. Depending on the relative phase, we highlight three special cases for the interference effect (d): when the ellipses end up perfectly aligned, squeezing is fully coherently restored, despite experiencing two mismatches. Fully squeezed noise is observed upon detection (e). When the ellipses are exactly π relative to each other, correlations are completely canceled, and the measured state is at the shot noise level. When the phase is π/2, anti-squeezing from HOM couples to squeezed quadrature, producing a thermal-like state with increased noise on the detector. This is the hyperloss effect.",
+   "printed": true
+  },
+  {
+   "para_id": 4,
+   "loc": "body",
+   "sec_title": "Physical origin of hyperloss",
+   "text": "In the hot phase-dependent SMM case, the effect becomes even more dramatic, as quantum-correlated light is involved. Quantum squeezed light is produced in optical nonlinear processes that reduce (“squeeze”) the vacuum uncertainty in one quadrature, \\documentclass[12pt]{minimal} \\usepackage{amsmath} \\usepackage{wasysym} \\usepackage{amsfonts} \\usepackage{amssymb} \\usepackage{amsbsy} \\usepackage{mathrsfs} \\usepackage{upgreek} \\setlength{\\oddsidemargin}{-69pt} \\begin{document}$${\\hat{X}}_{0}$$\\end{document}X^0, at the expense of increasing the uncertainty in the orthogonal quadrature, \\documentclass[12pt]{minimal} \\usepackage{amsmath} \\usepackage{wasysym} \\usepackage{amsfonts} \\usepackage{amssymb} \\usepackage{amsbsy} \\usepackage{mathrsfs} \\usepackage{upgreek} \\setlength{\\oddsidemargin}{-69pt} \\begin{document}$${\\hat{X}}_{\\pi /2}$$\\end{document}X^π/2, in accordance with the Heisenberg uncertainty relation, \\documentclass[12pt]{minimal} \\usepackage{amsmath} \\usepackage{wasysym} \\usepackage{amsfonts} \\usepackage{amssymb} \\usepackage{amsbsy} \\usepackage{mathrsfs} \\usepackage{upgreek} \\setlength{\\oddsidemargin}{-69pt} \\begin{document}$${\\Delta }^{2}{\\hat{X}}_{0}{\\Delta }^{2}{\\hat{X}}_{\\pi /2}\\ge 1$$\\end{document}Δ2X^0Δ2X^π/2≥135, see Fig. 2a, b. The level of squeezing is quantified by the squeeze factor β = e2r, with r the squeeze parameter36, defined as the factor by which the variance of the squeezed quadrature is reduced below the ground state level. Higher squeeze factors, corresponding to higher quantum advantage23, are limited by quantum decoherence, most commonly arising from conventional optical loss. This process can be modeled as a beam-splitter which cross-couples the squeezed state with a ground state, thereby reducing the squeeze factor: 2\\documentclass[12pt]{minimal} \\usepackage{amsmath} \\usepackage{wasysym} \\usepackage{amsfonts} \\usepackage{amssymb} \\usepackage{amsbsy} \\usepackage{mathrsfs} \\usepackage{upgreek} \\setlength{\\oddsidemargin}{-69pt} \\begin{document}$${\\Delta }^{2}{\\hat{X}}_{{{{\\rm{meas}}}}}(\\Omega )=(1-{\\lambda }_{{{{\\rm{bs}}}}}){\\Delta }^{2}{\\hat{X}}_{{{{\\rm{in}}}}}(\\Omega )+{\\lambda }_{{{{\\rm{bs}}}}}{\\Delta }^{2}{\\hat{X}}_{{{{\\rm{vac}}}}}(\\Omega ),$$\\end{document}Δ2X^meas(Ω)=(1−λbs)Δ2X^in(Ω)+λbsΔ2X^vac(Ω), where \\documentclass[12pt]{minimal} \\usepackage{amsmath} \\usepackage{wasysym} \\usepackage{amsfonts} \\usepackage{amssymb} \\usepackage{amsbsy} \\usepackage{mathrsfs} \\usepackage{upgreek} \\setlength{\\oddsidemargin}{-69pt} \\begin{document}$${\\Delta }^{2}{\\hat{X}}_{{{{\\rm{in,}}}}\\,{{{\\rm{meas}}}}}(\\Omega )$$\\end{document}Δ2X^in,meas(Ω) are the uncertainties of the initial state and the measured decohered state at a Fourier frequency Ω, \\documentclass[12pt]{minimal} \\usepackage{amsmath} \\usepackage{wasysym} \\usepackage{amsfonts} \\usepackage{amssymb} \\usepackage{amsbsy} \\usepackage{mathrsfs} \\usepackage{upgreek} \\setlength{\\oddsidemargin}{-69pt} \\begin{document}$${\\Delta }^{2}{\\hat{X}}_{{{{\\rm{vac}}}}}(\\Omega )=1$$\\end{document}Δ2X^vac(Ω)=1 is the vacuum uncertainty; λbs is the power loss at the beam splitter. This changes for the SMM process. Similarly to the cold SMM, here a part of the squeezed field is scattered into the HOM at the first cavity, see Fig. 2. During propagation, the accumulated relative phase causes a rotation of the squeezed quadrature in phase space in one mode with respect to another. At the second interaction, this phase rotation can mix the anti-squeezed quadrature into the squeezed quadrature of the fundamental field, leading to a severe decoherence effect. The total detected noise in the squeezed quadrature can be expressed as: 3\\documentclass[12pt]{minimal} \\usepackage{amsmath} \\usepackage{wasysym} \\usepackage{amsfonts} \\usepackage{amssymb} \\usepackage{amsbsy} \\usepackage{mathrsfs} \\usepackage{upgreek} \\setlength{\\oddsidemargin}{-69pt} \\begin{document}$${\\Delta }^{2}{\\hat{X}}_{{{{\\rm{meas}}}}}(\\Omega )=(1-{\\lambda }_{{{{\\rm{smm}}}}}){\\Delta }^{2}{\\hat{X}}_{{{{\\rm{in}}}}}(\\Omega )+{\\lambda }_{{{{\\rm{smm}}}}}{\\Delta }^{2}{\\hat{X}}_{{{{\\rm{vac}}}}}(\\Omega )+T(\\Omega ).$$\\end{document}Δ2X^meas(Ω)=(1−λsmm)Δ2X^in(Ω)+λsmmΔ2X^vac(Ω)+T(Ω). The term T(Ω) arises from the projection of the anti-squeezed quadrature from the HOM onto the FM after the second mixing interface; it scales with the initial anti-squeezing and the mismatch phase ϕ. This corresponds to the coupling of one quadrature of the field to an effective hot bath. For cold SMM (T = 0), Eq. 3 reduces to Eq. 2 with λsmm being the source of loss as defined in Eq. 1. As the thermal contribution increases, the squeeze value reduces even for moderate levels of mismatch, ultimately reaching the point where the state becomes significantly mixed, exceeding the shot noise variance for all quadratures, \\documentclass[12pt]{minimal} \\usepackage{amsmath} \\usepackage{wasysym} \\usepackage{amsfonts} \\usepackage{amssymb} \\usepackage{amsbsy} \\usepackage{mathrsfs} \\usepackage{upgreek} \\setlength{\\oddsidemargin}{-69pt} \\begin{document}$${\\Delta }^{2}{\\hat{X}}_{{{{\\rm{meas}}}}}(\\Omega ) > 1$$\\end{document}Δ2X^meas(Ω)>1. The system enters the hyperloss regime. At the same time, the choice of the total phase between the two modes such that ϕ = π allows to recover the lost correlations, making the system effectively immune to the mode mismatch.",
+   "printed": false
+  },
+  {
+   "para_id": 5,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Our work identifies and experimentally demonstrates hyperloss: a phase-sensitive decoherence regime produced by coherent spatial-mode mixing in quantum-correlated networks. As quantum optical networks (including photonic circuits, links, and large-scale interferometers) scale in mode count and complexity, hyperloss becomes a practical design constraint unless explicitly mitigated. For example, current analyses for fault-tolerant continuous variable cluster-state quantum computers (CVQC) conclude that 15–17 dB of directly measured squeezing in the cluster state is a realistic experimental target for fault tolerance using Gottesman–Kitaev–Preskill (GKP) states and modern error-correction schemes37,38. Even with advanced analog error correction that tolerates 5–10% detection loss, fault-tolerant CVQC still requires ≈10–12 dB of squeezed GKP resources4,39,40. Interferometric visibilities for the nodes of such networks in state-of-the-art experiments reach 96–99%41, yet this does not guarantee that hyperloss will not arise when multiple spatial modes can propagate between nodes (for example, in free-space sections, cavities, multimode interferometers, or due to residual aberrations). As illustrated by the repeated-cell network model in Results “Hyperloss in Extended Quantum Networks,” even mismatch levels that appear tolerable within an incoherent loss budget can become incompatible with fault-tolerant CVQC once coherent spatial-mode mixing is taken into account.",
+   "printed": true
+  },
+  {
+   "para_id": 6,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "The coherent nature of hyperloss also enables mitigation. Hyperloss is highly phase-selective: by tuning differential phases between spatial modes, its impact can be strongly suppressed and, in idealized cases, canceled. Considering the example above of the chain of SMM cells with a realistic mismatch of 2% per node, the incoherent loss model predicts 7.4 dB of squeezing at the output, insufficient for fault-tolerant CVQC. Yet, by optimizing the differential phases between the modes, the output squeeze factor can be maintained at or above the 10 dB squeezing target for 25% of the phase values. This illustrates that phase-aware optical design can not only reduce SMM-induced degradation, but in some regimes exploit coherence to preserve quantum correlations. Practical routes include: (i) geometric and optical-layout optimization to control Gouy-phase accumulation in different paths; (ii) additional phase-tuning or mode-filtering cavities to compensate unwanted differential phase shifts; (iii) squeezing of HOMs to reduce the impact of hyperloss26; and (iv) active wavefront shaping or adaptive optics to control intermodal phases34.",
+   "printed": true
+  },
+  {
+   "para_id": 7,
+   "loc": "back",
+   "sec_title": "",
+   "text": "The data that support the findings of this study are available in ref. 42.",
+   "printed": true
+  },
+  {
+   "para_id": 8,
+   "loc": "back",
+   "sec_title": "",
+   "text": "The code for the theoretical simulations is available in ref. 43.",
+   "printed": true
+  }
+ ],
+ "links": [],
+ "links_optional": [
+  "creativecommons.org/licenses/by/4.0",
+  "doi:10.1002/lpor.201000034",
+  "doi:10.1016/j.physrep.2017.04.001",
+  "doi:10.1038/ncomms1122",
+  "doi:10.1038/nphys2083",
+  "doi:10.1038/s41467-024-51421-7",
+  "doi:10.1038/s41467-026-75899-5",
+  "doi:10.1038/s41534-024-00834-9",
+  "doi:10.1038/s41566-019-0553-9",
+  "doi:10.1038/s41586-022-04725-x",
+  "doi:10.1038/s41586-024-08406-9",
+  "doi:10.1063/5.0144385",
+  "doi:10.1088/1361-6455/ac489c",
+  "doi:10.1088/1367-2630/ae0512",
+  "doi:10.1103/physreva.100.010301",
+  "doi:10.1103/physreva.107.052414",
+  "doi:10.1103/physrevd.102.083020",
+  "doi:10.1103/physrevd.4.1925",
+  "doi:10.1103/physrevd.96.022006",
+  "doi:10.1103/physrevlett.110.181101",
+  "doi:10.1103/physrevlett.112.120504",
+  "doi:10.1103/physrevlett.117.110801",
+  "doi:10.1103/physrevlett.121.263602",
+  "doi:10.1103/physrevlett.123.231107",
+  "doi:10.1103/physrevlett.123.231108",
+  "doi:10.1103/physrevlett.97.150505",
+  "doi:10.1109/tqe.2022.3224686",
+  "doi:10.1126/science.aay2645",
+  "doi:10.1126/science.ado8069",
+  "doi:10.1364/oe.22.021106",
+  "doi:10.1364/ol.26.000485",
+  "doi:10.1364/ol.43.001267",
+  "doi:10.1364/optica.511924",
+  "doi:10.3390/galaxies13010011",
+  "doi:10.3390/photonics12080763"
+ ],
+ "own_doi": "doi:10.1038/s41467-026-75899-5",
+ "citations": [
+  {
+   "cite_id": 1,
+   "para_id": 1,
+   "bib_id": 1,
+   "marker": "1",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 2,
+   "para_id": 1,
+   "bib_id": 2,
+   "marker": "1–3",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 3,
+   "para_id": 1,
+   "bib_id": 3,
+   "marker": "3",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 4,
+   "para_id": 1,
+   "bib_id": 4,
+   "marker": "4",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 5,
+   "para_id": 1,
+   "bib_id": 5,
+   "marker": "4–7",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 6,
+   "para_id": 1,
+   "bib_id": 6,
+   "marker": "4–7",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 7,
+   "para_id": 1,
+   "bib_id": 7,
+   "marker": "7",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 8,
+   "para_id": 1,
+   "bib_id": 8,
+   "marker": "8",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 9,
+   "para_id": 1,
+   "bib_id": 9,
+   "marker": "8–10",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 10,
+   "para_id": 1,
+   "bib_id": 10,
+   "marker": "10",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 11,
+   "para_id": 1,
+   "bib_id": 11,
+   "marker": "11",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 12,
+   "para_id": 1,
+   "bib_id": 12,
+   "marker": "11–21",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 13,
+   "para_id": 1,
+   "bib_id": 13,
+   "marker": "11–21",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 14,
+   "para_id": 1,
+   "bib_id": 14,
+   "marker": "11–21",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 15,
+   "para_id": 1,
+   "bib_id": 15,
+   "marker": "11–21",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 16,
+   "para_id": 1,
+   "bib_id": 16,
+   "marker": "11–21",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 17,
+   "para_id": 1,
+   "bib_id": 17,
+   "marker": "11–21",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 18,
+   "para_id": 1,
+   "bib_id": 18,
+   "marker": "11–21",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 19,
+   "para_id": 1,
+   "bib_id": 19,
+   "marker": "11–21",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 20,
+   "para_id": 1,
+   "bib_id": 20,
+   "marker": "11–21",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 21,
+   "para_id": 1,
+   "bib_id": 21,
+   "marker": "21",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 22,
+   "para_id": 1,
+   "bib_id": 3,
+   "marker": "3",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 23,
+   "para_id": 1,
+   "bib_id": 21,
+   "marker": "21",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 24,
+   "para_id": 1,
+   "bib_id": 22,
+   "marker": "22",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 25,
+   "para_id": 1,
+   "bib_id": 23,
+   "marker": "23",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 26,
+   "para_id": 1,
+   "bib_id": 24,
+   "marker": "24",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 27,
+   "para_id": 1,
+   "bib_id": 25,
+   "marker": "24–27",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 28,
+   "para_id": 1,
+   "bib_id": 26,
+   "marker": "24–27",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 29,
+   "para_id": 1,
+   "bib_id": 27,
+   "marker": "27",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 30,
+   "para_id": 2,
+   "bib_id": 28,
+   "marker": "28",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 31,
+   "para_id": 2,
+   "bib_id": 6,
+   "marker": "6",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 32,
+   "para_id": 2,
+   "bib_id": 7,
+   "marker": "7",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 33,
+   "para_id": 2,
+   "bib_id": 29,
+   "marker": "29",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 34,
+   "para_id": 2,
+   "bib_id": 30,
+   "marker": "29–31",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 35,
+   "para_id": 2,
+   "bib_id": 31,
+   "marker": "31",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 36,
+   "para_id": 2,
+   "bib_id": 21,
+   "marker": "21",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 37,
+   "para_id": 2,
+   "bib_id": 32,
+   "marker": "32",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 38,
+   "para_id": 3,
+   "bib_id": 33,
+   "marker": "33",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 39,
+   "para_id": 3,
+   "bib_id": 34,
+   "marker": "34",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 40,
+   "para_id": 4,
+   "bib_id": 35,
+   "marker": "35",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 41,
+   "para_id": 4,
+   "bib_id": 36,
+   "marker": "36",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 42,
+   "para_id": 4,
+   "bib_id": 23,
+   "marker": "23",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 43,
+   "para_id": 5,
+   "bib_id": 37,
+   "marker": "37",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 44,
+   "para_id": 5,
+   "bib_id": 38,
+   "marker": "38",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 45,
+   "para_id": 5,
+   "bib_id": 4,
+   "marker": "4",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 46,
+   "para_id": 5,
+   "bib_id": 39,
+   "marker": "39",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 47,
+   "para_id": 5,
+   "bib_id": 40,
+   "marker": "40",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 48,
+   "para_id": 5,
+   "bib_id": 41,
+   "marker": "41",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 49,
+   "para_id": 6,
+   "bib_id": 26,
+   "marker": "26",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 50,
+   "para_id": 6,
+   "bib_id": 34,
+   "marker": "34",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 51,
+   "para_id": 7,
+   "bib_id": 42,
+   "marker": "42",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 52,
+   "para_id": 8,
+   "bib_id": 43,
+   "marker": "43",
+   "expanded": false,
+   "scored": true
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-ext-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "v1_bib_count": 43
+ }
+}

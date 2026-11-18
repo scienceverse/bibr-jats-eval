@@ -1,0 +1,1016 @@
+{
+ "paper_id": "10.1017_s0033291726104954",
+ "paras": [
+  {
+   "para_id": 1,
+   "loc": "back",
+   "sec_title": "Data availability statement",
+   "text": "Custom code used in this study and synthetic data are available at https://osf.io/5h932/.",
+   "printed": true
+  },
+  {
+   "para_id": 2,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Attention-deficit hyperactivity disorder (ADHD) is a neurodevelopmental disorder characterized by high levels of hyperactivity, impulsivity, and/or inattention (American Psychiatric Association, 2013). The precise etiology of ADHD has not been identified, but prevailing neurobiological ADHD theories assume that cortico-striatal dysfunction of the catecholamines dopamine (DA) and norepinephrine (NE) alters cognitive functioning and reward processing (Frank, Santamaria, O’Reilly, & Willcutt, 2007; Sagvolden, Johansen, Aase, & Russell, 2005; Sonuga-Barke, 2003; Tripp & Wickens, 2009), which in turn may cause ADHD symptoms. The central role of catecholamines in theories of ADHD is driven by the fact that ADHD symptoms and associated cognitive impairments are ameliorated with methylphenidate (MPH) (Coghill et al., 2014; Fredriksen & Peleikis, 2016), a central stimulant that increases synaptic availability of DA and NE (Del Campo, Chamberlain, Sahakian, & Robbins, 2011; Volkow, Wang, Fowler, & Ding, 2005).",
+   "printed": true
+  },
+  {
+   "para_id": 3,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "ADHD is associated with impaired real-life decisions, including reckless driving, substance abuse, and risky sexual behavior (Barkley, Murphy, Dupaul, & Bush, 2002; Faregh & Derevensky, 2011; Flory et al., 2006; Lee et al., 2011; Molina & Pelham, 2003; Sarver, McCart, Sheidow, & Letourneau, 2014). An important feature of most real-life decisions is the need to balance costs and benefits to determine the net value of actions. Upgrading to the newest phone is rewarding but comes with the cost of having less money for other expenses. It is unclear how participants with ADHD deviate from the normal population in balancing costs and benefits. Here we set out to investigate the mechanisms underlying cost-benefit decision-making in ADHD, and how these processes are influenced by MPH.",
+   "printed": true
+  },
+  {
+   "para_id": 4,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "There are several ways in which alterations in underlying cognitive processes could cause alterations in observed cost-benefit decision-making, including altered sensitivity to costs and/or benefits, or in the tradeoff between making fast but more erratic versus slow and more accurate decisions. Computational models can be used to identify and disentangle the cognitive processes underlying behavior (Kriegeskorte & Douglas, 2018), and further explore how these processes are affected in clinical groups (Huys, Michael Browning, Paulus, & Frank, 2021; Maia, Quentin, & Frank, 2017; Pedersen et al., 2021). Here, we apply the drift diffusion model (DDM) (Ratcliff, 1978; Ratcliff & McKoon, 2008), a computational model of decision-making, to capture the dynamic processes underlying choosing to accept or reject offers based on the associated costs and benefits of alternatives. The drift diffusion model decomposes choice and response times into components that make up a process model of decision-making supported by behavioral (Ratcliff & Smith, 2004) and neurobiological data (Forstmann, Ratcliff, & Wagenmakers, 2016; Gold & Shadlen, 2007; Steinemann et al., 2024). The model explains fast choosing between two alternatives as a process of continuous information accumulation until reaching a response threshold in favor of one of the alternatives (Ratcliff & McKoon, 2008) (Figure 1b). The drift rate captures the speed of evidence accumulation dependent on the quality of available evidence and the decision-makers’ ability, level of attention, and effort. The amount of evidence required to reach a decision is modeled by the decision threshold parameter, representing a tradeoff between speed and accuracy. The intercept of the drift process captures a priori preference for a decision alternative, while time spent on sensory encoding and motor execution is accounted for by the nondecision time parameter. In the current task, participants decided whether to accept or reject a stimulus based on its overall value (Figure 1), which was determined by learned associations between shapes and benefits, and colors and costs (or vice versa, counterbalanced across participants). For this cost-benefit decision-making task, the drift rate on each trial was estimated as a weighted combination of benefit and cost values, while decision thresholds represented choosing to either accept or reject the stimulus. The starting point parameter represented whether participants displayed tendencies to favor accepting or rejecting before seeing the stimulus on the current trial.Figure 1.(a). Learning and test phase of the cost-benefit decision-making task. Participants had to learn the benefit and cost values associated with six shapes and six colors stimuli, respectively (or vice versa). During the test phase, participants either accepted or rejected colored shape stimuli, dependent on whether they believed the overall value was positive or negative. (b). Graphical description of the drift diffusion model. Accumulation of evidence begins at the Starting point. The example sample path represents the accumulation of noisy evidence, which is collected until a decision threshold is reached (upper or lower threshold) and a response is initiated. The nondecision time parameter (NDT) accounts for time spent on sensory encoding and motor execution. In the current task, the upper and lower boundaries represented decisions to accept or reject, respectively, stimuli with a combined benefit and cost value. Trial-specific drift rates were modeled as the combination of these values and their estimated slopes. Note: MRI, magnetic resonance imaging cohort of the study; BEH, behavioral cohort of the study. Figure 1. long description.A two-panel diagram illustrating a value-based decision-making task and a corresponding drift diffusion model for evidence accumulation. See long description.",
+   "printed": true
+  },
+  {
+   "para_id": 5,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "We have previously derived specific predictions about the effect of ADHD on DDM parameters from neurobiological theories of ADHD (Ziegler, Pedersen, Mowinckel, & Biele, 2016). Based on assumptions of deficient DA (or both DA and NE) signaling, the theories predict that impaired decision-making in ADHD results from reduced drift rates and narrower decision thresholds (Frank et al., 2007; Sagvolden et al., 2005; Tripp & Wickens, 2009) due to inefficient accumulation of evidence and responding before having accumulated sufficient information. Meta-analyses support the prediction of drift rate reduction in ADHD, as both children (Karalunas et al., 2014) and adults (Mowinckel, Pedersen, Eilertsen, & Biele, 2015) show lower drift rates relative to peers. Further, studies have found that MPH improves information accumulation, that is, drift rate, in perceptual tasks for children with ADHD (Fosco, White, & Hawk, 2017) and healthy controls (Beste et al., 2018). It is less straightforward to deduce predictions on the implications of ADHD and central stimulants on the balancing of costs and benefits. DA increases tendencies to learn from positive compared to negative reinforcements (Frank, Seeberger, & O’Reilly, 2004) and is also predicted to increase focus on positive compared to negative values during choice (Collins & Frank, 2014). However, ADHD is associated with decreased sensitivity to losses in temporal discounting and gambling (Luman, Oosterlaan, Knol, & Sergeant, 2008; Tanaka et al., 2018). The observed effects of ADHD on decision thresholds do not consistently support the prediction of narrower decision thresholds. Although one study reported impaired speed-accuracy adjustment in ADHD (Mulder et al., 2010), results from meta-analyses are inconclusive as to whether participants with ADHD make decisions based on less information than their healthy peers (Karalunas et al., 2014; Mowinckel et al., 2015). Studies assessing the effect of MPH on decision parameters have reported a reduction of decision threshold following stimulant medication (Fosco et al., 2017; Loughnane et al., 2019; Weigard, Heathcote, & Sripada, 2019), which, accompanied by improved evidence accumulation, has been interpreted as an improved ability to optimize decision thresholds.",
+   "printed": true
+  },
+  {
+   "para_id": 6,
+   "loc": "body",
+   "sec_title": "ADHD participants",
+   "text": "Participants diagnosed with ADHD were recruited through an outpatient clinic at Vestfold Hospital Trust, Norway. All patient participants were diagnosed and currently receiving care at the clinic (see Supplementary Material S2 for diagnostic procedures) and taking methylphenidate (in the form of Ritalin™ extended-release capsules or immediate-release tablets). Sixty-one adults with ADHD were recruited to the study (see Supplementary Figure S1 for Consort flow diagram and Supplementary Material S4 for dates of first and last recruitment). Neuroimaging data from the MRI cohort is published in a separate article (Mowinckel et al., 2017).",
+   "printed": true
+  },
+  {
+   "para_id": 7,
+   "loc": "body",
+   "sec_title": "Controls",
+   "text": "The healthy control sample was not fully matched to the participants on education and WAIS scores (Table 1). Because lower education and reduced scores on tests of intelligence are consequences of ADHD, fully matching these variables would likely remove decision-making effects of ADHD mediated by education and intelligence, leading to a biased estimate of effects of ADHD on decision-making (de Zeeuw et al., 2017).Table 1.Sample characteristics Table 1. long description.ADHDControlsN (male/female)57 (20/37)60 (19/41) M SD M SDEducation (y)121.814.72.2Age (y)27.9627.45.7ASRS12.34.96.92.9WAIS similarities10.33.412.93WAIS matrices10.73.512.63.1Test interval (d)29.612.228.410.5A data table comparing sample characteristics between A D H D and Control groups across metrics like age, education, and intelligence scores. See long description. Note: ASRS, Adult ADHD Self-Report Scales; WAIS, Wechsler Adult Intelligence Scale; M, mean; SD, standard deviation; y, years; d, days. Table 2.Summary behavioral and modeling results (mITT sample) Table 2. long description.ParameterHCMPHPLCHC vs. PLCHC vs. MPHMPH vs. PLCAccuracy0.91 [0.90, 0.93]0.86 [0.83, 0.88]0.85 [0.82, 0.87]0.07 [0.04, 0.10]0.06 [0.03, 0.09]0.01 [−0.01, 0.03]Mean RT1.02 [0.97, 1.07]0.95 [0.90, 0.99]0.97 [0.92, 1.03]0.05 [−0.02, 0.12]0.07 [0.00, 0.14]−0.02 [−0.07, 0.01]SD RT0.36 [0.34, 0.37]0.33 [0.31, 0.35]0.36 [0.34, 0.38]−0.00 [−0.03, 0.02]0.03 [0.00, 0.05]−0.03 [−0.05, −0.01]Starting point bias0.53 [0.52, 0.55]0.51 [0.50, 0.53]0.51 [0.50, 0.53]0.02 [0.00, 0.04]0.02 [−0.00, 0.04]0.00 [−0.00, 0.01]Decision threshold2.08 [2.00, 2.17]1.87 [1.79, 1.96]1.91 [1.82, 2.00]0.18 [0.05, 0.30]0.21 [0.09, 0.33]−0.03 [−0.05, −0.01]Non-decision time0.42 [0.40, 0.44]0.39 [0.37, 0.41]0.37 [0.35, 0.39]0.05 [0.02, 0.08]0.03 [0.00, 0.06]0.02 [0.01, 0.02]Cost sensitivity1.02 [0.93, 1.12]0.85 [0.74, 0.95]0.65 [0.55, 0.75]0.37 [0.24, 0.52]0.18 [0.04, 0.32]0.20 [0.17, 0.23]Benefit sensitivity0.98 [0.90, 1.07]0.73 [0.65, 0.82]0.71 [0.62, 0.80]0.27 [0.15, 0.39]0.25 [0.13, 0.37]0.02 [−0.01, 0.05]Drift rate intercept0.07 [−0.00, 0.14]−0.00 [−0.08, 0.08]−0.01 [−0.09, 0.07]0.08 [−0.02, 0.19]0.08 [−0.03, 0.18]0.01 [−0.03, 0.05]A data table comparing behavioral and modeling parameters across healthy control, methylphenidate, and placebo groups. See long description. Note: HC, healthy control; MPH, methylphenidate; PLC, placebo. Mean and 95% credible intervals of posterior distributions.",
+   "printed": false
+  },
+  {
+   "para_id": 8,
+   "loc": "body",
+   "sec_title": "Task",
+   "text": "Participants performed a two-alternative value-based decision-making task (Basten, Biele, Heekeren, & Fiebach, 2010) (Figure 1a). During the training phase, which directly preceded the main task, participants learned to associate six shapes with different positive values (benefits) and six colors with different negative values (costs), or vice versa, in separate blocks. The training phase consisted of a minimum of 4 blocks of 45 trials each. During the training phase, participants learned stimulus–value associations through two-alternative choices. On each trial, two stimuli were presented, and an instruction indicated the block rule (‘choose the largest benefit’ or ‘choose the smallest cost’) (Supplementary Figure S2). Numeric values for both stimuli were provided as feedback following each response. Outcomes were deterministic, but values presented after a choice were drawn from nonoverlapping uniform distributions to make it more demanding. Participants with running accuracy below 95% at the end of block 4 completed two additional blocks to ensure that associations were learnt. Training trials were used for familiarization only and were not included in any analyses of main-phase performance or in the DDM fitting.",
+   "printed": true
+  },
+  {
+   "para_id": 9,
+   "loc": "body",
+   "sec_title": "Procedure",
+   "text": "To minimize acute medication effects during testing, ADHD participants were instructed to abstain from methylphenidate medication and alcohol for at least 20 hours before participation, and from caffeine for 4 hours prior. This interval was chosen because all medicated participants used methylphenidate formulations (Ritalin immediate-release tablets or Ritalin extended-release capsules), for which the adult elimination half-life is short and typically reported in the range of ~2–3.5 hours (Novartis Pharmaceuticals Corporation, 2025; Patrick, Mueller, Gualtieri, & Breese, 1987). Thus, a 20-hour abstinence period corresponds to multiple half-lives and was expected to allow substantial elimination of methylphenidate from both immediate- and extended-release formulations. Participants receiving doses not exactly within the four dose groups were allocated to the group most closely corresponding to their normal dose, after consultation with their psychiatrist, but were never given a dose higher than their prescription.",
+   "printed": true
+  },
+  {
+   "para_id": 10,
+   "loc": "body",
+   "sec_title": "Analysis",
+   "text": "Choice and response time data from the value-based decision-making task were analyzed in two ways: separately, using accuracy and response time models, and jointly, using the drift diffusion model (DDM). The analyses used hierarchical modeling to better estimate group and individual parameters (Kruschke, 2010). Posterior distributions were estimated through Markov-chain Monte Carlo (MCMC) simulations. Analyses were performed without nonresponse trials (2.0% of all trials) and without responses faster than 0.3 s (0.2% of all trials), that is, fast guesses.",
+   "printed": true
+  },
+  {
+   "para_id": 11,
+   "loc": "body",
+   "sec_title": "Bayesian inference for choices and response times",
+   "text": "Choice and response time data from the value-based decision-making task were analyzed with logistic and linear Bayesian hierarchical regression models, respectively, with the brms package (Bürkner, 2017) in R using uninformative priors.",
+   "printed": true
+  },
+  {
+   "para_id": 12,
+   "loc": "body",
+   "sec_title": "Drift diffusion modeling",
+   "text": "Choice and response time data from the value-based decision-making task were fit to the DDM using the brms package (Bürkner, 2017) in R. The model was run with weakly informative priors ranging from typical parameter estimates: μv~normal02mu v tilde normal 02 μa~normal1.51mu a tilde normal 1.51 μz~normal0.50.2mu z tilde normal 0.50 .2 μndt~normal0.20.1mu ndt tilde normal 0.20 .1 To link trial-wise offer values to decisions, we modeled the drift rate as a linear combination of the benefit value and cost value of the offer on trial t: vt=βbenefit∗valuebenefitt+βcost∗valuecosttvt equals beta benefit asterisk valuebenefitt plus beta cost asterisk valuecostt where xbenefittxbenefitt and xcosttxcostt are the benefit and cost cue values on trial t (z-scored across trials), and βbenefitbeta benefit and βcostbeta cost quantify sensitivity to benefits and costs, respectively. Positive v(t) biases accumulation toward accept, whereas negative v(t) biases accumulation toward reject. Under this parameterization, higher βbenefit>0beta benefit greater than 0 increases the extent to which benefits speed accumulation toward acceptance, while more negative βcost<0beta cost less than 0 increases the extent to which costs speed accumulation toward rejection. For ease of interpretation, we report ∣βcost∣vertical bar beta cost vertical bar so that larger values indicate greater cost sensitivity.",
+   "printed": false
+  },
+  {
+   "para_id": 13,
+   "loc": "body",
+   "sec_title": "Associations of individual parameters with prescribed dosage and symptom severity",
+   "text": "Further, we extracted individual estimates and tested for associations with symptom severity, measured with WURS (Ward et al., 1993), prescribed dosage, and ritalinic acid within the ADHD group. Specifically, we ran Bayesian linear regression models for each parameter (and for the drift rate, the sensitivity to cost and benefit), assessing the association of symptom severity and interaction with medication status: parameter~wurs∗medicationparameter tilde wurs asterisk medication Parameters and WURS were z-scored, and medication was dummy-coded (0 = Placebo, 1 = MPH) before analysis. For the association between parameter estimates and prescribed dosage, we restricted the analysis to estimated parameters from the MPH-condition: parameter~dosageparameter tilde dosage Parameters and prescribed medication dosage were z-scored before analysis. Finally, we tested for associations between parameter estimates and ritalinic acid in the MPH condition: parameter~ritalinic acidparameter tilde ritalinic acid Parameters and levels of ritalinic acid were z-scored before analysis.",
+   "printed": true
+  },
+  {
+   "para_id": 14,
+   "loc": "body",
+   "sec_title": "Drift diffusion model",
+   "text": "Combined response time and choice data from the value-based decision-making task were analyzed with the DDM. R^upper R caret values for all chains in the model were between 1 and 1.02, indicating that the chains converged successfully (Gelman & Rubin, 1992). Posterior predictive checks indicated that the model captured key behavioral structure in the task: (i) the probability of accepting increased as benefit values increased and decreased as cost values increased, and (ii) the model reproduced the observed acceptance patterns across the joint benefit–cost space (Supplementary Figures S3–S6). In addition, posterior-predicted accuracy and response times closely matched the observed group-level summaries (Supplementary Table S2), supporting that the model also regenerates between-group differences in performance. Finally, PSIS-LOO favored the reported separate-sensitivity model over the net-value model (ΔELPD = 23.12, SE = 8.68; Supplementary Table S3).",
+   "printed": true
+  },
+  {
+   "para_id": 15,
+   "loc": "body",
+   "sec_title": "Symptom severity",
+   "text": "We estimated the association of symptom severity, measured with WURS (Ward et al., 1993), to individual decision parameters in ADHD on and off medication (see Supplementary Table S1 for estimated group distributions and contrasts). In line with findings of reduced cost sensitivity in ADHD, we found that off medication, participants with more severe symptoms had reduced sensitivity to cost stimuli (βwurs = −0.36 [−0.62, −0.1]).",
+   "printed": true
+  },
+  {
+   "para_id": 16,
+   "loc": "body",
+   "sec_title": "Decision-making processes in ADHD",
+   "text": "We have previously derived predictions for the effect of ADHD on DDM parameters from neurobiological theories of ADHD (Ziegler et al., 2016). The theories predicted reduced drift rate and narrower decision thresholds as the drivers of deficient decision-making in ADHD. Our results are in line with these predictions as both drift rate and decision threshold were reduced in ADHD compared to controls. An extension of predicting catecholamine-dependent inefficient evidence accumulation and premature responding in ADHD is that increased catecholaminergic signaling should ameliorate these deficiencies. The predictions on the effect of stimulant medication were only partly confirmed; MPH partly ameliorated drift rate, but only through increasing sensitivity to costs, and decision thresholds were found to be further decreased compared to controls.",
+   "printed": true
+  },
+  {
+   "para_id": 17,
+   "loc": "body",
+   "sec_title": "Decision-making processes in ADHD",
+   "text": "Computational modeling studies of decision-making in ADHD reveal a consistent effect of impaired evidence accumulation across simple perceptual tasks and more cognitively demanding tasks (Fosco et al., 2017; Karalunas & Huang-Pollock, 2013; Karalunas, Huang-Pollock, & Nigg, 2012; Metin et al., 2013; Salum et al., 2014a, 2014b; Weigard & Huang‐Pollock, 2014). This effect could be driven by changes in catecholaminergic signaling, given the implication of DA and NE in decision-making processes. Dopamine improves the signal-to-noise ratio of cortical representations (Durstewitz, 2006), is involved in striatal filtering of cortical input (Nicola, Hopf, & Hjelmstad, 2004), and in maintaining decision values in working memory (Frank et al., 2007), while NE increases task-related activity and facilitates action selection (Berridge & Waterhouse, 2003). Together, these processes should all contribute to reducing noise in the decision process, translating to slower drift rates under lower levels of DA and NE in ADHD, and a positive effect of stimulant medication. Studies have found that MPH increases drift rate under perceptual decision-making in children with ADHD (Fosco et al., 2017) and healthy adults (Beste et al., 2018), and improves drift rate in adult ADHD participants during instrumental learning (Pedersen, Frank, & Biele, 2017), supporting the assumption that catecholamines modulate neural evidence accumulation (but see Mandali et al. [2021] for null-effect on drift rate).",
+   "printed": true
+  },
+  {
+   "para_id": 18,
+   "loc": "body",
+   "sec_title": "Decision-making processes in ADHD",
+   "text": "In our study, MPH selectively enhanced sensitivity to costs in driving the decision to accept or reject offers. Sensitivity to costs was also negatively associated with symptom severity in ADHD participants off medication, and prescribed dosage was positively associated with cost sensitivity when ADHD participants received medication. While healthy controls and ADHD participants on medication showed stronger sensitivity to costs compared to benefits, ADHD participants off medication showed stronger sensitivity to benefits than costs. These results suggest that ADHD is associated with alterations in balancing how cost-benefit information guides decisions. Although we modeled the main-phase choices as value-based evidence accumulation, task performance depends on learned stimulus–value associations acquired during training and on subsequent retrieval and integration of benefit and cost information. MPH could therefore influence estimated cost sensitivity indirectly by improving the fidelity of learned value representations, by enhancing working-memory–supported integration of cost and benefit cues, or by altering decision formation more directly via catecholaminergic modulation of evidence accumulation. Other studies have found that ADHD is associated with decreased sensitivity to losses in temporal discounting and gambling (Luman et al., 2008; Tanaka et al., 2018). Together, these results indicate that impaired real-life decisions could partly result from reduced consideration of the negative aspects of actions. This effect could be contrasted to that of reduced sensitivity to risk as a cause of poorer real-life decisions in ADHD (Barkley et al., 2002; Faregh & Derevensky, 2011; Flory et al., 2006; Lee et al., 2011; Molina & Pelham, 2003; Sarver et al., 2014). Interestingly, recent studies (Dekkers et al., 2021; Pollak et al., 2016; Pollak, Shalit, & Aran, 2018; Sørensen et al., 2017) have found participants with ADHD to not be more risk-prone than their peers if value and risk are decoupled. Instead, ADHD was found to be associated with suboptimal decision making (i.e. choosing options with lower value). Future studies could investigate the separate contribution of sensitivity to costs and benefits while also manipulating risk to directly compare their contributions to suboptimal decisions.",
+   "printed": true
+  },
+  {
+   "para_id": 19,
+   "loc": "body",
+   "sec_title": "Decision-making processes in ADHD",
+   "text": "The effect of ADHD and catecholamines on decision thresholds is less clear. Meta-analyses have not found conclusive effects of ADHD on decision boundaries (Karalunas et al., 2014; Mowinckel et al., 2015). Mulder and colleagues, on the other hand, found impairments in optimally adjusting the tradeoff of speed and accuracy in ADHD (Mulder et al., 2010). Despite striatal involvement in setting decision thresholds (Bogacz, Wagenmakers, Forstmann, & Nieuwenhuis, 2010; Forstmann et al., 2008), giving rise to assumptions of the involvement of DA in this process, neither MPH nor the dopamine receptor agonist Bromocriptine altered decision thresholds in healthy controls (Beste et al., 2018; Winkel et al., 2012). However, stimulant medication increased thresholds for ADHD participants during instrumental learning (Pedersen et al., 2017). In the current study, we found that MPH slightly reduced thresholds, which is inconsistent with predictions drawn from neurobiological theories of ADHD (Ziegler et al., 2016). One possible explanation is that a reduced threshold is a byproduct of an increased drift rate. Because ADHD participants accumulated evidence faster on than off MPH, they could reduce the decision threshold to ensure responding within the task response window while still maintaining a satisfactory level of accuracy. Indeed, we observed a higher rate of nonresponses in the placebo condition (PLC: 3.4%) compared to when ADHD participants were on medication (MPH: 1.3%), which may reflect insufficient evidence accumulation to reach a decision threshold within the time window in these trials. An implication of this explanation is that the threshold would not be reduced under MPH if participants were told to focus only on accuracy and/or were given a longer response window. In line with the potential benefits of MPH on decision thresholds, we found that higher MPH dosage was associated with wider decision thresholds. More studies are needed to understand under which conditions ADHD and DA are related to the optimization of speed-accuracy tradeoffs.",
+   "printed": true
+  },
+  {
+   "para_id": 20,
+   "loc": "body",
+   "sec_title": "Decision-making processes in ADHD",
+   "text": "Administration of the MPH led to an unexpected increase in nondecision time. Nondecision time captures stimulus encoding and motor response. Given the role of DA in improving the motor system (Birkmayer & Hornykiewicz, 1998), it could be that the effect observed here is associated with stimulus encoding (Huang-Pollock et al., 2017). A potential mechanism could be that spending more time on stimulus encoding improves the accuracy of the stimulus representation, which would contribute to the higher estimated drift rate we observed.",
+   "printed": true
+  },
+  {
+   "para_id": 21,
+   "loc": "body",
+   "sec_title": "Limitations",
+   "text": "Several task features beyond value sensitivity could contribute to the observed medication effects. First, MPH could influence learning during the training phase (Montague, Dayan, & Sejnowski, 1996) and thereby alter the precision of stimulus–value representations used in the main phase. While overall training accuracy did not differ between medication conditions, this does not rule out differences in learning dynamics (e.g. speed of acquisition or trial-to-trial variability) that could carry over to later choices. Second, the main phase requires retrieving the benefit and cost values associated with two stimulus features and integrating them to guide an accept/reject decision. MPH may improve working memory and value retrieval, potentially increasing the consistency with which costs are represented and incorporated into the decision process. Third, some participants may rely on approximate mental arithmetic or explicit comparison strategies (e.g. benefit minus cost), which could also be modulated by stimulants.",
+   "printed": true
+  },
+  {
+   "para_id": 22,
+   "loc": "back",
+   "sec_title": "Acknowledgments",
+   "text": "This research was supported by grants from the South-Eastern Norway Regional Health Authority (grant number 2012051), the Research Council of Norway (grant number 213736), the Department of Psychology, University of Oslo, and the National Norwegian ADHD network to M.L. Pedersen (# 51379). The funding sources were not involved in any part of the study. Data from the MRI cohort of the current study are also described in Mowinckel et al. (2017). All authors report no biomedical financial interests or potential conflicts of interest.",
+   "printed": true
+  }
+ ],
+ "links": [
+  {
+   "link_id": 1,
+   "url": "osf.io/5h932",
+   "url_raw": "https://osf.io/5h932/",
+   "href_jats": "https://osf.io/5h932/",
+   "repo_key": "osf:5h932",
+   "host_class": "osf",
+   "loc": "back",
+   "sec_title": "Data availability statement",
+   "source": "tagged",
+   "para_id": 1
+  }
+ ],
+ "links_optional": [
+  "accessdata.fda.gov/drugsatfda_docs/label/2025/021284s050lbl.pdf",
+  "creativecommons.org/licenses/by/4.0",
+  "doi:10.1007/s00213-019-05316-x",
+  "doi:10.1007/s00441-004-0929-z",
+  "doi:10.1007/s10519-017-9836-4",
+  "doi:10.1007/s10802-013-9715-2",
+  "doi:10.1007/s10802-016-0151-y",
+  "doi:10.1007/s10802-016-0222-0",
+  "doi:10.1007/s10899-010-9211-3",
+  "doi:10.1016/j.biopsych.2004.11.006",
+  "doi:10.1016/j.biopsych.2010.07.031",
+  "doi:10.1016/j.biopsych.2011.02.036",
+  "doi:10.1016/j.biopsych.2013.10.005",
+  "doi:10.1016/j.biopsych.2017.07.016",
+  "doi:10.1016/j.cpr.2011.01.006",
+  "doi:10.1016/j.neubiorev.2003.08.005",
+  "doi:10.1016/j.neubiorev.2016.09.002",
+  "doi:10.1016/j.neuropharm.2009.07.026",
+  "doi:10.1016/j.nicl.2017.03.008",
+  "doi:10.1016/j.psychres.2017.10.012",
+  "doi:10.1016/j.tins.2009.09.002",
+  "doi:10.1016/s0165-0173(03)00143-7",
+  "doi:10.1016/s1353-8020(98)00013-3",
+  "doi:10.1017/s0033291713000639",
+  "doi:10.1017/s0033291714000919",
+  "doi:10.1017/s0033291726104954",
+  "doi:10.1017/s0140525x05000075",
+  "doi:10.1017/s1355617702801345",
+  "doi:10.1037/0021-843x.112.3.497",
+  "doi:10.1037/0033-295x.111.2.333",
+  "doi:10.1037/0033-295x.95.3.385",
+  "doi:10.1037/a0029936",
+  "doi:10.1037/a0031533",
+  "doi:10.1037/a0037015",
+  "doi:10.1037/abn0000140",
+  "doi:10.1037/neu0000297",
+  "doi:10.1038/s41386-020-0746-4",
+  "doi:10.1038/s41398-020-01118-4",
+  "doi:10.1038/s41593-018-0210-5",
+  "doi:10.1038/s41598-018-24944-5",
+  "doi:10.1038/sj.npp.1301278",
+  "doi:10.1055/s-2006-931499",
+  "doi:10.1073/pnas.0805903105",
+  "doi:10.1073/pnas.0908104107",
+  "doi:10.1093/ijnp/pyy019",
+  "doi:10.1111/bcpt.12477",
+  "doi:10.1111/j.1469-7610.2008.01910.x",
+  "doi:10.1111/jcpp.12217",
+  "doi:10.1111/jcpp.12249",
+  "doi:10.1111/jcpp.12250",
+  "doi:10.1126/science.1102941",
+  "doi:10.1146/annurev-psych-122414-033645",
+  "doi:10.1146/annurev.neuro.29.051605.113038",
+  "doi:10.1162/jocn_a_01393",
+  "doi:10.1162/neco.2008.12-06-420",
+  "doi:10.1176/ajp.150.6.885",
+  "doi:10.1177/1087054714558872",
+  "doi:10.1177/1087054718815572",
+  "doi:10.1207/s15374424jccp3504_8",
+  "doi:10.1371/journal.pcbi.1008955",
+  "doi:10.1523/jneurosci.16-05-01936.1996",
+  "doi:10.18637/jss.v080.i01",
+  "doi:10.3389/fnins.2012.00126",
+  "doi:10.3758/s13423-016-1199-y",
+  "doi:10.7554/elife.90859"
+ ],
+ "own_doi": "doi:10.1017/s0033291726104954",
+ "citations": [
+  {
+   "cite_id": 1,
+   "para_id": 2,
+   "bib_id": 1,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 2,
+   "para_id": 2,
+   "bib_id": 19,
+   "marker": "2007",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 3,
+   "para_id": 2,
+   "bib_id": 52,
+   "marker": "2005",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 4,
+   "para_id": 2,
+   "bib_id": 56,
+   "marker": "2003",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 5,
+   "para_id": 2,
+   "bib_id": 60,
+   "marker": "2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 6,
+   "para_id": 2,
+   "bib_id": 9,
+   "marker": "2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 7,
+   "para_id": 2,
+   "bib_id": 21,
+   "marker": "2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 8,
+   "para_id": 2,
+   "bib_id": 12,
+   "marker": "2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 9,
+   "para_id": 2,
+   "bib_id": 61,
+   "marker": "2005",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 10,
+   "para_id": 3,
+   "bib_id": 2,
+   "marker": "2002",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 11,
+   "para_id": 3,
+   "bib_id": 14,
+   "marker": "2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 12,
+   "para_id": 3,
+   "bib_id": 15,
+   "marker": "2006",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 13,
+   "para_id": 3,
+   "bib_id": 31,
+   "marker": "2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 14,
+   "para_id": 3,
+   "bib_id": 37,
+   "marker": "2003",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 15,
+   "para_id": 3,
+   "bib_id": 55,
+   "marker": "2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 16,
+   "para_id": 4,
+   "bib_id": 29,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 17,
+   "para_id": 4,
+   "bib_id": 25,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 18,
+   "para_id": 4,
+   "bib_id": 34,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 19,
+   "para_id": 4,
+   "bib_id": 46,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 20,
+   "para_id": 4,
+   "bib_id": 49,
+   "marker": "1978",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 21,
+   "para_id": 4,
+   "bib_id": 50,
+   "marker": "2008",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 22,
+   "para_id": 4,
+   "bib_id": 51,
+   "marker": "2004",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 23,
+   "para_id": 4,
+   "bib_id": 17,
+   "marker": "2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 24,
+   "para_id": 4,
+   "bib_id": 23,
+   "marker": "2007",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 25,
+   "para_id": 4,
+   "bib_id": 58,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 26,
+   "para_id": 4,
+   "bib_id": 50,
+   "marker": "2008",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 27,
+   "para_id": 5,
+   "bib_id": 67,
+   "marker": "2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 28,
+   "para_id": 5,
+   "bib_id": 19,
+   "marker": "2007",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 29,
+   "para_id": 5,
+   "bib_id": 52,
+   "marker": "2005",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 30,
+   "para_id": 5,
+   "bib_id": 60,
+   "marker": "2009",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 31,
+   "para_id": 5,
+   "bib_id": 26,
+   "marker": "2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 32,
+   "para_id": 5,
+   "bib_id": 40,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 33,
+   "para_id": 5,
+   "bib_id": 18,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 34,
+   "para_id": 5,
+   "bib_id": 5,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 35,
+   "para_id": 5,
+   "bib_id": 20,
+   "marker": "2004",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 36,
+   "para_id": 5,
+   "bib_id": 10,
+   "marker": "2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 37,
+   "para_id": 5,
+   "bib_id": 33,
+   "marker": "2008",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 38,
+   "para_id": 5,
+   "bib_id": 59,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 39,
+   "para_id": 5,
+   "bib_id": 41,
+   "marker": "2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 40,
+   "para_id": 5,
+   "bib_id": 26,
+   "marker": "2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 41,
+   "para_id": 5,
+   "bib_id": 40,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 42,
+   "para_id": 5,
+   "bib_id": 18,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 43,
+   "para_id": 5,
+   "bib_id": 32,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 44,
+   "para_id": 5,
+   "bib_id": 63,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 45,
+   "para_id": 6,
+   "bib_id": 39,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 46,
+   "para_id": 7,
+   "bib_id": 66,
+   "marker": "2017",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 47,
+   "para_id": 8,
+   "bib_id": 3,
+   "marker": "2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 48,
+   "para_id": 9,
+   "bib_id": 43,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 49,
+   "para_id": 9,
+   "bib_id": 44,
+   "marker": "1987",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 50,
+   "para_id": 10,
+   "bib_id": 30,
+   "marker": "2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 51,
+   "para_id": 11,
+   "bib_id": 8,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 52,
+   "para_id": 12,
+   "bib_id": 8,
+   "marker": "2017",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 53,
+   "para_id": 13,
+   "bib_id": 62,
+   "marker": "1993",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 54,
+   "para_id": 14,
+   "bib_id": 22,
+   "marker": "1992",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 55,
+   "para_id": 15,
+   "bib_id": 62,
+   "marker": "1993",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 56,
+   "para_id": 16,
+   "bib_id": 67,
+   "marker": "2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 57,
+   "para_id": 17,
+   "bib_id": 18,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 58,
+   "para_id": 17,
+   "bib_id": 27,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 59,
+   "para_id": 17,
+   "bib_id": 28,
+   "marker": "2012",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 60,
+   "para_id": 17,
+   "bib_id": 36,
+   "marker": "2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 61,
+   "para_id": 17,
+   "bib_id": 53,
+   "marker": "2014a",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 62,
+   "para_id": 17,
+   "bib_id": 54,
+   "marker": "2014b",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 63,
+   "para_id": 17,
+   "bib_id": 64,
+   "marker": "2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 64,
+   "para_id": 17,
+   "bib_id": 13,
+   "marker": "2006",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 65,
+   "para_id": 17,
+   "bib_id": 42,
+   "marker": "2004",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 66,
+   "para_id": 17,
+   "bib_id": 19,
+   "marker": "2007",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 67,
+   "para_id": 17,
+   "bib_id": 4,
+   "marker": "2003",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 68,
+   "para_id": 17,
+   "bib_id": 18,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 69,
+   "para_id": 17,
+   "bib_id": 5,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 70,
+   "para_id": 17,
+   "bib_id": 45,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 71,
+   "para_id": 17,
+   "bib_id": 35,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 72,
+   "para_id": 18,
+   "bib_id": 33,
+   "marker": "2008",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 73,
+   "para_id": 18,
+   "bib_id": 59,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 74,
+   "para_id": 18,
+   "bib_id": 2,
+   "marker": "2002",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 75,
+   "para_id": 18,
+   "bib_id": 14,
+   "marker": "2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 76,
+   "para_id": 18,
+   "bib_id": 15,
+   "marker": "2006",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 77,
+   "para_id": 18,
+   "bib_id": 31,
+   "marker": "2011",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 78,
+   "para_id": 18,
+   "bib_id": 37,
+   "marker": "2003",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 79,
+   "para_id": 18,
+   "bib_id": 55,
+   "marker": "2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 80,
+   "para_id": 18,
+   "bib_id": 11,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 81,
+   "para_id": 18,
+   "bib_id": 47,
+   "marker": "2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 82,
+   "para_id": 18,
+   "bib_id": 48,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 83,
+   "para_id": 18,
+   "bib_id": 57,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 84,
+   "para_id": 19,
+   "bib_id": 26,
+   "marker": "2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 85,
+   "para_id": 19,
+   "bib_id": 40,
+   "marker": "2015",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 86,
+   "para_id": 19,
+   "bib_id": 41,
+   "marker": "2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 87,
+   "para_id": 19,
+   "bib_id": 7,
+   "marker": "2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 88,
+   "para_id": 19,
+   "bib_id": 16,
+   "marker": "2008",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 89,
+   "para_id": 19,
+   "bib_id": 5,
+   "marker": "2018",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 90,
+   "para_id": 19,
+   "bib_id": 65,
+   "marker": "2012",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 91,
+   "para_id": 19,
+   "bib_id": 45,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 92,
+   "para_id": 19,
+   "bib_id": 67,
+   "marker": "2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 93,
+   "para_id": 20,
+   "bib_id": 6,
+   "marker": "1998",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 94,
+   "para_id": 20,
+   "bib_id": 24,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 95,
+   "para_id": 21,
+   "bib_id": 38,
+   "marker": "1996",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 96,
+   "para_id": 22,
+   "bib_id": 39,
+   "marker": "2017",
+   "expanded": false,
+   "scored": true
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-ext-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "v1_bib_count": 67
+ }
+}

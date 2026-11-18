@@ -1,0 +1,840 @@
+{
+ "paper_id": "10.1371_journal.pcbi.1013640",
+ "paras": [
+  {
+   "para_id": 1,
+   "loc": "front",
+   "sec_title": "",
+   "text": "All data and code used for running experiments and model fitting is available on a GitHub repository at https://github.com/RanSuLab/MolFPKG-DILI.",
+   "printed": true
+  },
+  {
+   "para_id": 2,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Drug-induced liver injury (DILI) is a prevalent adverse reaction in clinical practice, ranging from mild elevation of liver enzymes to severe liver dysfunction and even liver failure, posing a significant threat to life [1]. Studies have shown that between 1990 and 2010, a total of 133 drugs were removed from the market due to safety concerns, approximately 27.1% of which were due to liver toxicity [2]. Therefore, it is crucial to assess the potential hepatotoxicity risk of drugs during the clinical development and application of drugs. Researchers commonly employ in vivo and in vitro experiments as well as animal studies to assess liver toxicity. However, these methods are time-consuming, costly [3], and the occurrence rate of idiosyncratic DILI in clinical studies is only around 0.1% or even lower [4]. Currently, the field of drug development is facing a dilemma of high investment with low returns, and there is an urgent need for new approaches to address the issue of predicting drug-induced hepatotoxicity.",
+   "printed": true
+  },
+  {
+   "para_id": 3,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "In recent years, an increasing number of studies have started to use computer technology to investigate drug-induced liver injury, providing relatively reliable predictions of DILI while reducing both financial and time costs. The most commonly used method in this field is based on predicting DILI using molecular fingerprints or chemical descriptors of drugs as features. Molecular fingerprints use fixed-length vectors to represent molecular structures, where each bit position indicates the presence of a particular substructure or functional group. Molecular descriptors (MDs) refer to the numerical representation of the physical and chemical information of drug molecules, covering details such as molecular weight, charge, and lipophilicity [5]. Ai et al. [6] used drug simplified molecular input line entry system (SMILES) to get molecular fingerprint profiles and constructed 36 classifiers using three machine learning algorithms and 12 types of molecular fingerprints, ultimately obtaining the best ensemble model composed of five base classifiers. Li et al. [7] used Mold2, Mol2vec, and the Molecular ACCess System (MACCS) fingerprint as drug descriptor features, and combined machine learning techniques with neural networks to propose DeepDILI (deep learning-powered DILI), further improving the accuracy of liver toxicity prediction. However, these features may not capture more complex structural characteristics within drug molecules, and these methods are unable to handle drug molecules with new structural components.",
+   "printed": true
+  },
+  {
+   "para_id": 4,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "In addition, some studies have also used drug molecular graph for DILI prediction. Compounds are inherently graph-structured, composed of atoms as nodes and chemical bonds as edges. These graph-based representations can potentially capture more detailed structural characteristics compared to fingerprint-based features. For instance, Wu et al. [8] extracted molecular representations from a pretrained three-dimentional spatial structure-based graph neural networks (GNN) model, and built an interpretable liver toxicity prediction model called GeoDILI. Lim et al. [4] used supervised subgraph mining methods to extract molecular graph features, further improving the prediction accuracy of DILI. The graph-based approaches can better capture the complex structural information within drug molecules, and are also able to handle drug molecules with new structural components. Additionally, some studies [9,10] have employed equivariant graph neural networks (E-GNN) to extract 3D structural features from various molecules, successfully achieving tasks such as de novo drug design and predicting protein-ligand interactions, yielding promising results. This approach provides a valuable reference for leveraging the 3D structural characteristics of drugs.",
+   "printed": true
+  },
+  {
+   "para_id": 5,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Molecular fingerprints pay more attention to the overall physicochemical properties of the drug, whereas molecular graphs encompass information regarding the connections between different atoms. By using both features, a more comprehensive representation of information can be obtained, thus better addressing the issue of liver toxicity prediction. Gu et al. [11] integrated molecular descriptor features into molecular graph representations and utilized a series of graph learning methods to predict DILI; Cai et al. [12] proposed the FP-GNN model, which combines molecular graphs and molecular fingerprints to predict drug properties such as toxicity and lipophilicity. But the above-mentioned methods simply concatenate the two types of features without considering that different features may contribute differently to liver toxicity prediction. He et al. [13] addressed the drug-drug interaction (DDI) problem by using molecular fingerprints as node features and drug pair association information as edge features, which were then input into a relational graph convolutional network (RGCN). They employed multi-head attention mechanisms to facilitate multi-level predictions of drug combinations and associated risks. This approach combines structural characteristics with interaction network information, offering new insights for feature design in liver toxicity prediction tasks.",
+   "printed": true
+  },
+  {
+   "para_id": 6,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Recently, some studies have employed knowledge graph (KG) data to address issues such as predicting adverse drug reaction (ADR) and DDIs. By incorporating entities such as indications, targets, genes, etc., knowledge graphs enrich the representation of drug nodes from different perspectives. Bean et al. [14] constructed a knowledge graph consisting of four types of nodes (drugs, protein targets, indications, and adverse reactions), utilizing machine learning algorithms to achieve the first-ever prediction of unknown ADRs. In other fileds, Chen et al. [15] proposed MSKG-DDI, which combines drug molecular graphs and knowledge graph information, utilizing multimodal features for DDI prediction. He et al. [16] defined multiple edge types, including drug-disease associations and disease similarity, and utilized a multi-aggregate graph convolutional network combined with a graph transformer to process heterogeneous graphs. This approach achieved a high performance in drug-disease association prediction. The pathogenesis and clinical phenotypes of DILI are complex and diverse, involving multiple organs and functions of the body. Leveraging knowledge graph to identify DILI allows for effective utilization of information related to other drug entities. This approach not only holds promise for achieving better DILI prediction results but also facilitates a deeper understanding of the mechanisms and manifestations of DILI, providing robust support for clinical treatment.",
+   "printed": true
+  },
+  {
+   "para_id": 7,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "The toxicity of a drug is not only determined by its molecular structural features but is also significantly influenced by dosage and pharmacokinetic (PK) parameters. For instance, acetaminophen is deemed safe at therapeutic doses; however, in cases of overdose, it can lead to liver failure due to the accumulation of the toxic metabolite N-acetyl-p-benzoquinone imine (NAPQI), which arises from metabolic saturation [17]. Pharmacokinetic parameters such as maximum plasma concentration (Cmax) and clearance (CL) directly affect the exposure level and distribution patterns of the drug within the body, thereby determining the likelihood of toxicity occurrence [18]. Although dose determines toxicity in clinical practice, the primary goal of the model proposed in this study is to make a preliminary prediction of the intrinsic hepatotoxicity of drugs based on molecular information. In future studies, drug dose-response data and pharmacokinetic parameters will be integrated to further improve the predictive power and practical applicability of the model.",
+   "printed": true
+  },
+  {
+   "para_id": 8,
+   "loc": "body",
+   "sec_title": "Data collection",
+   "text": "We collected drugs related to DILI from the DILIrank [19] and DILIst [20] databases. In DILIrank, compounds are categorized based on their DILI risk into four classes: Most-DILI-concern (192 drugs), Less-DILI-concern (278 drugs), No-DILI-concern (312 drugs), and Ambiguous DILI-concern (254 drugs). DILIst classifies compounds into two categories: DILI positives (768 drugs) and DILI negatives (511 drugs). We initially selected DILI-negative drugs from the DILIst, along with Most-DILI-concern and Less-DILI-concern drugs from the DILIrank. Subsequently, drugs without retrievable SMILES were excluded, resulting in 477 No-DILI and 453 DILI (including 182 Most-DILI and 271 Less-DILI). Association edges between drugs and other entities were extracted from four databases to construct a drug-related knowledge graph (see Sect 2.5.1 of Materials and methods for details). To ensure each drug had associated edges, relationship data from these four databases were matched against the collected drugs, with those lacking any association edges excluded. Ultimately, 824 drugs were obtained, comprising 404 No-DILI and 420 DILI (267 Less-DILI and 153 Most-DILI). Notably, in predicting strong and weak toxicity, to ensure data balance, we randomly selected an equal number of Less-DILI drugs to match the Most-DILI drugs for training, resulting in 153 Most-DILI and 153 Less-DILI drugs. Finally, we summarize the division of the training and test sets, along with the number of compounds in each category, in Table 1.",
+   "printed": true
+  },
+  {
+   "para_id": 9,
+   "loc": "body",
+   "sec_title": "Molecular fingerprint feature extraction",
+   "text": "Molecular fingerprints cover the local structural information of molecules, providing a simple and effective representation of their physicochemical properties. Each type of feature within these fingerprints is mutually independent, making them an excellent tool for characterizing molecular properties. In this study, we selected three types of molecular fingerprints: MACCS [21], Morgan [22], and the Pharmacophore ErG fingerprint [23]. These methods describe molecular features from different dimensions, ensuring a representative and comprehensive depiction of the molecules.",
+   "printed": true
+  },
+  {
+   "para_id": 10,
+   "loc": "body",
+   "sec_title": "Molecular graph feature extraction",
+   "text": "Inspired by the methods employed by Cai et al. [12] in their work for processing molecular graphs, we extracted eight features for each atom in the compound. These features included atomic number, degree, charge, chirality tag, number of surrounding hydrogen atoms, hybridization, aromatic ring, and atomic mass. These features were one-hot encoded and used as atomic node features, resulting in a dimensionality of 133. Based on the distribution of chemical bonds between atoms, an adjacency matrix was generated to construct the molecular graph. The molecular graph not only encompasses the overall structural information of the molecule but also considers unique atomic information such as charge and mass.",
+   "printed": true
+  },
+  {
+   "para_id": 11,
+   "loc": "table",
+   "sec_title": "Knowledge graph construction.",
+   "text": "SIDER database [24]",
+   "printed": true
+  },
+  {
+   "para_id": 12,
+   "loc": "table",
+   "sec_title": "Knowledge graph construction.",
+   "text": "DrugBank database [25]",
+   "printed": true
+  },
+  {
+   "para_id": 13,
+   "loc": "table",
+   "sec_title": "Knowledge graph construction.",
+   "text": "Drug-Path database [26]",
+   "printed": true
+  },
+  {
+   "para_id": 14,
+   "loc": "table",
+   "sec_title": "Knowledge graph construction.",
+   "text": "DGIdb database [27]",
+   "printed": true
+  },
+  {
+   "para_id": 15,
+   "loc": "table",
+   "sec_title": "Knowledge graph construction.",
+   "text": "DrugBank database [25]",
+   "printed": true
+  },
+  {
+   "para_id": 16,
+   "loc": "table",
+   "sec_title": "Knowledge graph construction.",
+   "text": "DrugBank database [25]",
+   "printed": true
+  },
+  {
+   "para_id": 17,
+   "loc": "table",
+   "sec_title": "Knowledge graph construction.",
+   "text": "DrugBank database [25]",
+   "printed": true
+  },
+  {
+   "para_id": 18,
+   "loc": "body",
+   "sec_title": "Knowledge graph construction.",
+   "text": "The drug_drug relationship is determined based on the Tanimoto score. Using the previously obtained Morgan molecular fingerprints, we calculated the Tanimoto scores between pairs of drugs. The score threshold is treated as a hyperparameter, and comparative experiments are conducted to evaluate its impact in S2 Text. The remaining relationships are primarily collected from four drug-related databases: the SIDER database [24], which contains adverse drug reactions and indications for 1,284 drugs; the Drug-Path database [26], which includes relationships between 1,824 drugs and 93 pathways; the DGIdb database [27], which provides 14,218 drug-gene relationships; and the DrugBank database [25], which contains multiple entities such as targets, enzymes, carriers, and transporters, offering various drug-related relationships.",
+   "printed": true
+  },
+  {
+   "para_id": 19,
+   "loc": "body",
+   "sec_title": "Comparative experiment with baselines",
+   "text": "The baseline models employed in this study can be categorized into four groups: (1) models utilizing only molecular fingerprint features, which include SVM(Support Vector Machine), RF(Random Forest), FPNN, DeepDILI [7], and 2020-DILI-CNN-MFE [28]; (2) models utilizing only molecular graph features, which include GCN (Graph Convolutional Network), GAT (Graph Attention Network) [29], GraphSAGE (Graph Sample and Aggregation) [30] and DILIGeNN [31]; (3) models combining both molecular fingerprint and molecular graph features, represented by FP-Graph; and (4) models using only knowledge graph, which include KGDNN [32], KG-SVM and KG-RF. Below is a brief introduction to each method, and please refer to S1 Text for more detailed information. The experimental scripts of baselines are available at https://github.com/RanSuLab/MolFPKG-DILI.",
+   "printed": true
+  },
+  {
+   "para_id": 20,
+   "loc": "body",
+   "sec_title": "Comparative experiment with baselines",
+   "text": "DeepDILI [7]: DeepDILI incorporates the idea of ensemble learning by training five traditional machine learning algorithms (KNN, LR, SVM, RF, XGBoost) using a neural network framework, and obtains model-level representations of these five algorithms.",
+   "printed": true
+  },
+  {
+   "para_id": 21,
+   "loc": "body",
+   "sec_title": "Comparative experiment with baselines",
+   "text": "2020-DILI-CNN-MFE [28]: This method combines the concept of word embedding from natural language processing (NLP) and utilizes convolutional neural networks (CNN) and molecular fingerprint-embedded features to achieve DILI classification.",
+   "printed": true
+  },
+  {
+   "para_id": 22,
+   "loc": "body",
+   "sec_title": "Comparative experiment with baselines",
+   "text": "GCN, GAT [29], GraphSAGE [30]: GCN performs convolutions on graph data to extract features and make predictions for nodes. GAT, unlike GCN, incorporates attention mechanisms to model relationships between nodes in the graph, enabling better capturing of complex node relationships. GraphSAGE aggregates neighbor node information to update node representations, with different weights assigned to different nodes, making it suitable for processing large-scale graph data.",
+   "printed": true
+  },
+  {
+   "para_id": 23,
+   "loc": "body",
+   "sec_title": "Comparative experiment with baselines",
+   "text": "DILIGeNN [31]: This method leverages molecular optimization to build a custom graph dataset enriched with chemical features (e.g., bond lengths, partial charges) and applies multiple GNN architectures (GCN, GAT, GraphSAGE and Graph Isomorphism Network [33]) for DILI and molecular property prediction tasks.",
+   "printed": true
+  },
+  {
+   "para_id": 24,
+   "loc": "body",
+   "sec_title": "Comparative experiment with baselines",
+   "text": "KGDNN [32]: This method relies on knowledge graph. It employs the Node2Vec algorithm to generate embedding features for nodes and designs a deep neural network to perform drug node classification.",
+   "printed": true
+  },
+  {
+   "para_id": 25,
+   "loc": "body",
+   "sec_title": "Independent validation",
+   "text": "To further validate the effectiveness of MolFPKG-DILI in predicting drug-induced liver injury, we selected the remaining drugs from the DILIst dataset as an independent validation set. The specific construction process is as follows: First, by comparing the DILIst and DILIrank datasets, we identified toxic drugs that are uniquely present in the DILIst dataset. Subsequently, we utilized LiverTox [34] to search for definitive evidence of liver toxicity associated with these drugs, excluding drugs that may be classified as Ambiguous-DILI. We further categorized the toxicity labels of these drugs according to the liver toxicity grading criteria from the DILIrank dataset. Eventually, we obtained 13 DILI drugs, comprising 7 Less-DILI and 6 Most-DILI. For No-DILI drug samples, we integrated the latest data from relevant databases of the knowledge graph and got 4 non-toxic drugs from the DILIst dataset. For the data collection process of the validation set, please refer to the S4 Text.",
+   "printed": true
+  },
+  {
+   "para_id": 26,
+   "loc": "body",
+   "sec_title": "The interpretation based on fingerprint.",
+   "text": "In this study, we introduced the SHapley Additive exPlanations (SHAP) method [35] to quantify the impact of molecular fingerprint features on predictive outcomes. The distribution of SHAP values for the three types of molecular fingerprint data used in the model is illustrated in Fig 5A, where positions 0-166 correspond to MACCS fingerprints, positions 167-1190 correspond to Morgan fingerprints, and positions 1191-1631 correspond to ErG fingerprints. We observed that all three fingerprint types contained multiple high-importance feature positions, indicating their significant role in the task of hepatotoxicity prediction. Notably, the ErG fingerprints exhibited the highest proportion of high-importance bits, contributing most substantially to the model’s predictions.",
+   "printed": true
+  },
+  {
+   "para_id": 27,
+   "loc": "body",
+   "sec_title": "The interpretation based on fingerprint.",
+   "text": "Fig 5B presents the distribution of the top 10 fingerprint features, with the X-axis representing the SHAP values. Positive and negative values indicate positive and negative contributions to the predictive outcome, respectively. For features F1314, F1216, F1392, F1213, and F1315, the presence of these features in a molecule resulted in positive SHAP values, suggesting a tendency to classify the drug as toxic. Conversely, features F1323, F1312, F1334, F1313, and F1221 exhibited the opposite conclusion, indicating that their presence may lead to classifying the drug as non-toxic. The five fingerprint positions significantly associated with hepatotoxicity identified in this study are all derived from ErG molecular fingerprints. The computational principle of ErG molecular fingerprints is based on the abstract processing of molecular structures: it extracts 6 types of core pharmacophore features, including hydrogen bond donors (D), hydrogen bond acceptors (Ac), hydrophobic endcaps (Hf), aromatic rings (Ar), positive charge centers (+), and negative charge centers (-), while ignoring specific atomic types and scaffold details. The shortest topological bond lengths between any two feature points are calculated using reduced graphs [23]. Therefore, each fingerprint position does not correspond to a specific molecular structure but rather represents the fuzzy quantification of \"pharmacophore feature pair-topological distance\".For example, F1314 corresponds to “(D, -, 19)”, indicating that hydrogen bond donors and negative charge centers are connected by 19 chemical bonds within the molecule, reflecting the topological synergy between these two features over long distances.",
+   "printed": true
+  },
+  {
+   "para_id": 28,
+   "loc": "body",
+   "sec_title": "The interpretation based on fingerprint.",
+   "text": "Wu et al. [8] previously constructed a DILI prediction model based on molecular geometric representation and identified seven substructures significantly associated with DILI. In this study, ErG fingerprint calculations were further performed on these substructures. The results showed that the substructure “NC1C(=O)N2C(=CCSC12)” exhibited significant values at fingerprint positions F1213 and F1392, while the substructure “CC1=C(C(=O)O)N2C(=O)CC2SC1” showed notable contributions at F1314, F1315, and F1392. These findings indicate a clear correspondence between the significant fingerprint positions identified by SHAP analysis and the toxicity-related substructures reported in previous studies, providing strong support for the reliability of the results in this study. Through the aforementioned SHAP analysis, we gained insights into the roles of various molecular fingerprint features in hepatotoxicity prediction, providing important reference points for subsequent drug development and safety assessment efforts.",
+   "printed": true
+  },
+  {
+   "para_id": 29,
+   "loc": "body",
+   "sec_title": "The interpretation based on molcular graph.",
+   "text": "To investigate the focal points of the model regarding molecular graph data, we utilized the Saliency method [36] to compute the importance of nodes and edges and performed visualizations. Specifically, we first calculated the gradients of the input molecular graph features with respect to the toxic class, resulting in an importance score for each node. And then, the importance scores of connected nodes were aggregated to derive the corresponding edge scores. This score can be considered as the model’s attention level towards the molecular graph data.",
+   "printed": true
+  },
+  {
+   "para_id": 30,
+   "loc": "body",
+   "sec_title": "The interpretation based on molcular graph.",
+   "text": "The study by Wu et al. [8] identified seven substructures of compounds significantly associated with DILI using various metrics. Based on this finding, we compared these substructures with our data. In this process, we discovered that two drugs were explicitly associated with the chlorobenzene moiety, and two drugs exhibited an association with the aniline moiety. Chlorobenzene is oxidized by CYP450 enzymes to generate epoxides, which can bind to proteins, DNA, and RNA, thereby inducing hepatocellular damage [8]. Additionally, clinical cases [37] have shown that acute high-dose exposure to chlorobenzene may trigger hepatotoxicity in humans. Aniline exerts toxic effects on primary cultured hepatocytes by inducing oxidative stress and apoptotic pathways, with mechanisms closely associated with the accumulation of reactive oxygen species (ROS), mitochondrial dysfunction, and DNA damage [38]. There have been multiple reports of liver damage caused by aniline [39].",
+   "printed": true
+  },
+  {
+   "para_id": 31,
+   "loc": "body",
+   "sec_title": "The interpretation based on knowledge graph.",
+   "text": "(1) P08684 and gene 1576 (CYP3A4): CYP3A4 is a cytochrome P450 monooxygenase predominantly expressed in the liver and small intestine, involved in the metabolism of sterols, steroid hormones, retinoids and fatty acids. Importantly, accumulating evidence demonstrates CYP3A4’s involvement in DILI through metabolic activation pathways. Kim et al. [40] reported that the CYP3A4-mediated metabolic process of the anticancer drug erlotinib gives rise to reactive intermediates, such as epoxides and quinone imines, which exert direct hepatotoxic effects. Their study further showed that CYP3A4 inducers exacerbate this toxicity by accelerating the production of these harmful metabolites. Similarly, Klarissa et al. [41] demonstrated that CYP3A4 inducers promote the metabolic activation of lapatinib, leading to increased generation of reactive toxic intermediates and subsequent hepatocellular damage.",
+   "printed": true
+  },
+  {
+   "para_id": 32,
+   "loc": "body",
+   "sec_title": "The interpretation based on knowledge graph.",
+   "text": "(2) hsa05322: The hsa05322 pathway is associated with systemic lupus erythematosus (SLE), a multisystem autoimmune disorder. The management of SLE generally necessitates the use of immunosuppressive medications [42]. Significantly, drug-induced liver injury is a commonly encountered therapeutic complication in patients with SLE. Takahashi et al. [43] conducted a comprehensive analysis of 123 SLE patients presenting with hepatic dysfunction and identified pharmacological agents as the causative factor in approximately 30.9% of cases. Additionally, there is currently evidence that aspirin and thiopurine analogs can lead to liver function impairment in some SLE patients [44].",
+   "printed": true
+  },
+  {
+   "para_id": 33,
+   "loc": "body",
+   "sec_title": "The interpretation based on knowledge graph.",
+   "text": "(3) P02768: P02768 refers to albumin, a principal plasma protein synthesized by the liver. It performs essential functions such as molecular transport, anti-oxidation, anti-inflammation, and the adjustment of capillary permeability, and is commonly used in the treatment of patients with liver cirrhosis and liver failure [45,46]. Albumin-related genes are highly expressed in the liver and are involved in the \"heme biosynthesis\" and \"heme degradation\" pathways, both of which are associated with the liver’s detoxification and metabolic functions. Research conducted by Sun et al. [46] indicates that various liver diseases are associated with impairments in albumin function, and dysfunction of albumin may be a new biomarker of early impairment in liver function.",
+   "printed": true
+  }
+ ],
+ "links": [
+  {
+   "link_id": 1,
+   "url": "github.com/ransulab/molfpkg-dili",
+   "url_raw": "https://github.com/RanSuLab/MolFPKG-DILI",
+   "href_jats": "https://github.com/RanSuLab/MolFPKG-DILI",
+   "repo_key": "github:ransulab/molfpkg-dili",
+   "host_class": "github",
+   "loc": "front",
+   "sec_title": "",
+   "source": "tagged",
+   "para_id": 1
+  }
+ ],
+ "links_optional": [
+  "arxiv.org/abs/1312.6034",
+  "creativecommons.org/licenses/by/4.0",
+  "doi:10.1002/hep.28323",
+  "doi:10.1002/minf.202200284",
+  "doi:10.1007/s12072-015-9665-6",
+  "doi:10.1007/s12328-011-0271-4",
+  "doi:10.1016/0016-5085(91)90416-i",
+  "doi:10.1016/j.compbiomed.2023.107900",
+  "doi:10.1016/j.csbj.2021.08.011",
+  "doi:10.1016/j.drudis.2016.02.015",
+  "doi:10.1016/j.drudis.2019.09.022",
+  "doi:10.1016/j.healthpol.2010.12.002",
+  "doi:10.1016/j.isci.2022.105677",
+  "doi:10.1016/j.jbi.2022.104122",
+  "doi:10.1016/j.jhep.2019.02.014",
+  "doi:10.1021/acs.chemrestox.0c00374",
+  "doi:10.1021/acs.chemrestox.3c00199",
+  "doi:10.1021/acsomega.0c03866",
+  "doi:10.1021/ci010132r",
+  "doi:10.1021/ci050457y",
+  "doi:10.1021/ci100050t",
+  "doi:10.1038/s41598-017-16674-x",
+  "doi:10.1080/07853890.2019.1693056",
+  "doi:10.1080/17425255.2022.2113379",
+  "doi:10.1093/bib/bbac408",
+  "doi:10.1093/database/bav061",
+  "doi:10.1093/nar/gkaa1084",
+  "doi:10.1093/nar/gkv1075",
+  "doi:10.1093/nar/gkx1037",
+  "doi:10.1093/toxsci/kfy121",
+  "doi:10.1109/jbhi.2024.3491318",
+  "doi:10.1109/tnnls.2025.3547300",
+  "doi:10.1124/dmd.113.054817",
+  "doi:10.1146/annurev-pathmechdis-051122-094016",
+  "doi:10.1186/s12859-024-05705-w",
+  "doi:10.1186/s12885-018-4891-7",
+  "doi:10.1186/s12967-024-05372-8",
+  "doi:10.1186/s13321-025-01068-3",
+  "doi:10.2169/internalmedicine.52.9458",
+  "doi:10.2174/1574886314666191004092520",
+  "doi:10.3390/ijerph13121188",
+  "doi:10.3760/cma.j.issn.0253-9624.2020.02.019",
+  "doi:10.4254/wjh.v6.i6.394",
+  "doi:10.48550/arxiv.1810.00826"
+ ],
+ "own_doi": "doi:10.1371/journal.pcbi.1013640",
+ "citations": [
+  {
+   "cite_id": 1,
+   "para_id": 2,
+   "bib_id": 1,
+   "marker": "1",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 2,
+   "para_id": 2,
+   "bib_id": 2,
+   "marker": "2",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 3,
+   "para_id": 2,
+   "bib_id": 3,
+   "marker": "3",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 4,
+   "para_id": 2,
+   "bib_id": 4,
+   "marker": "4",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 5,
+   "para_id": 3,
+   "bib_id": 5,
+   "marker": "5",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 6,
+   "para_id": 3,
+   "bib_id": 6,
+   "marker": "6",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 7,
+   "para_id": 3,
+   "bib_id": 7,
+   "marker": "7",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 8,
+   "para_id": 4,
+   "bib_id": 8,
+   "marker": "8",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 9,
+   "para_id": 4,
+   "bib_id": 4,
+   "marker": "4",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 10,
+   "para_id": 4,
+   "bib_id": 9,
+   "marker": "9",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 11,
+   "para_id": 4,
+   "bib_id": 10,
+   "marker": "10",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 12,
+   "para_id": 5,
+   "bib_id": 11,
+   "marker": "11",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 13,
+   "para_id": 5,
+   "bib_id": 12,
+   "marker": "12",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 14,
+   "para_id": 5,
+   "bib_id": 13,
+   "marker": "13",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 15,
+   "para_id": 6,
+   "bib_id": 14,
+   "marker": "14",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 16,
+   "para_id": 6,
+   "bib_id": 15,
+   "marker": "15",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 17,
+   "para_id": 6,
+   "bib_id": 16,
+   "marker": "16",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 18,
+   "para_id": 7,
+   "bib_id": 17,
+   "marker": "17",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 19,
+   "para_id": 7,
+   "bib_id": 18,
+   "marker": "18",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 20,
+   "para_id": 8,
+   "bib_id": 19,
+   "marker": "19",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 21,
+   "para_id": 8,
+   "bib_id": 20,
+   "marker": "20",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 22,
+   "para_id": 9,
+   "bib_id": 21,
+   "marker": "21",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 23,
+   "para_id": 9,
+   "bib_id": 22,
+   "marker": "22",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 24,
+   "para_id": 9,
+   "bib_id": 23,
+   "marker": "23",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 25,
+   "para_id": 10,
+   "bib_id": 12,
+   "marker": "12",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 26,
+   "para_id": 11,
+   "bib_id": 24,
+   "marker": "24",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 27,
+   "para_id": 12,
+   "bib_id": 25,
+   "marker": "25",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 28,
+   "para_id": 13,
+   "bib_id": 26,
+   "marker": "26",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 29,
+   "para_id": 14,
+   "bib_id": 27,
+   "marker": "27",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 30,
+   "para_id": 15,
+   "bib_id": 25,
+   "marker": "25",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 31,
+   "para_id": 16,
+   "bib_id": 25,
+   "marker": "25",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 32,
+   "para_id": 17,
+   "bib_id": 25,
+   "marker": "25",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 33,
+   "para_id": 18,
+   "bib_id": 24,
+   "marker": "24",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 34,
+   "para_id": 18,
+   "bib_id": 26,
+   "marker": "26",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 35,
+   "para_id": 18,
+   "bib_id": 27,
+   "marker": "27",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 36,
+   "para_id": 18,
+   "bib_id": 25,
+   "marker": "25",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 37,
+   "para_id": 19,
+   "bib_id": 7,
+   "marker": "7",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 38,
+   "para_id": 19,
+   "bib_id": 28,
+   "marker": "28",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 39,
+   "para_id": 19,
+   "bib_id": 29,
+   "marker": "29",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 40,
+   "para_id": 19,
+   "bib_id": 30,
+   "marker": "30",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 41,
+   "para_id": 19,
+   "bib_id": 31,
+   "marker": "31",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 42,
+   "para_id": 19,
+   "bib_id": 32,
+   "marker": "32",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 43,
+   "para_id": 20,
+   "bib_id": 7,
+   "marker": "7",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 44,
+   "para_id": 21,
+   "bib_id": 28,
+   "marker": "28",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 45,
+   "para_id": 22,
+   "bib_id": 29,
+   "marker": "29",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 46,
+   "para_id": 22,
+   "bib_id": 30,
+   "marker": "30",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 47,
+   "para_id": 23,
+   "bib_id": 31,
+   "marker": "31",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 48,
+   "para_id": 23,
+   "bib_id": 33,
+   "marker": "33",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 49,
+   "para_id": 24,
+   "bib_id": 32,
+   "marker": "32",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 50,
+   "para_id": 25,
+   "bib_id": 34,
+   "marker": "34",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 51,
+   "para_id": 26,
+   "bib_id": 35,
+   "marker": "35",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 52,
+   "para_id": 27,
+   "bib_id": 23,
+   "marker": "23",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 53,
+   "para_id": 28,
+   "bib_id": 8,
+   "marker": "8",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 54,
+   "para_id": 29,
+   "bib_id": 36,
+   "marker": "36",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 55,
+   "para_id": 30,
+   "bib_id": 8,
+   "marker": "8",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 56,
+   "para_id": 30,
+   "bib_id": 8,
+   "marker": "8",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 57,
+   "para_id": 30,
+   "bib_id": 37,
+   "marker": "37",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 58,
+   "para_id": 30,
+   "bib_id": 38,
+   "marker": "38",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 59,
+   "para_id": 30,
+   "bib_id": 39,
+   "marker": "39",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 60,
+   "para_id": 31,
+   "bib_id": 40,
+   "marker": "40",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 61,
+   "para_id": 31,
+   "bib_id": 41,
+   "marker": "41",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 62,
+   "para_id": 32,
+   "bib_id": 42,
+   "marker": "42",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 63,
+   "para_id": 32,
+   "bib_id": 43,
+   "marker": "43",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 64,
+   "para_id": 32,
+   "bib_id": 44,
+   "marker": "44",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 65,
+   "para_id": 33,
+   "bib_id": 45,
+   "marker": "45",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 66,
+   "para_id": 33,
+   "bib_id": 46,
+   "marker": "46",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 67,
+   "para_id": 33,
+   "bib_id": 46,
+   "marker": "46",
+   "expanded": false,
+   "scored": true
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-ext-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "v1_bib_count": 46
+ }
+}

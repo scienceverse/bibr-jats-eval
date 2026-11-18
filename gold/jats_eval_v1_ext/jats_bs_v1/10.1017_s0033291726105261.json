@@ -1,0 +1,507 @@
+{
+ "paper_id": "10.1017_s0033291726105261",
+ "paras": [
+  {
+   "para_id": 1,
+   "loc": "body",
+   "sec_title": "Methods",
+   "text": "Supplementary Materials are on the Open Science Framework: https://osf.io/tqsz5/",
+   "printed": true
+  },
+  {
+   "para_id": 2,
+   "loc": "body",
+   "sec_title": "",
+   "text": "Natural language processing offers a solution to this tradeoff by automating psychopathology assessment from personal narratives. An ability to extract information from natural language is important because a person’s description of themselves, their circumstances, and their problems – in their own words – is arguably the richest source of diagnostic information we have (Pennebaker, Mehl, & Niederhoffer, 2003). However, for decades, automated language processing alternatives to resource-intensive human raters were limited to simple metrics like word counts. Word counts ignore context and cannot capture the nuance needed to assess psychopathology. Newly introduced transformer-based language models are completely different. Transformer-based models are trained on massive amounts of natural language data to learn language patterns. Then, unlike older models that process discrete, decontextualized words, transformer-based models process sequences of words, considering their interrelationships. Owing to this technological advance, these newer models encode the meaning of words within the broader context of the narrative (Eichstaedt et al., 2021).",
+   "printed": true
+  },
+  {
+   "para_id": 3,
+   "loc": "body",
+   "sec_title": "",
+   "text": "Accounting for context in natural language analysis offers unprecedented capabilities for assessing psychopathology (Kjell, Kjell, & Schwartz, 2024b). This is because symptoms are often implied rather than stated. For example, the meaning implied by a sentence like ‘I keep doing things I’m supposed to enjoy, but nothing lands anymore’ is the experience of anhedonia even though a specific symptom is not named. Perhaps more fundamentally, discerning normality from clinical impairment hinges on the context of behavior (Hopwood, Wright, & Bleidorn, 2022). A phrase like ‘I felt stressed’ could indicate impairment if the stress is in response to a minor hassle and becomes overwhelming but could be normal if it was manageable stress in anticipation of a high-stakes job interview. Likewise, context is necessary to distinguish different kinds of psychopathology. For example, distinct forms of psychopathology would be implied by feeling stressed about social evaluation versus signs of physical illness. Transformer-based models, in principle, can make such nuanced distinctions when analyzing text. Accordingly, these models can then compare rich, diagnostic information detected in text to its trained knowledge base and predict the kind and severity of psychopathology evident (if any). In essence, transformer-based models could solve the scalability problem by performing functions of trained human raters in seconds or minutes rather than the days or months needed to train raters and hand-code texts.",
+   "printed": true
+  },
+  {
+   "para_id": 4,
+   "loc": "body",
+   "sec_title": "",
+   "text": "A small but growing literature supports the ability of transformer-based models to assess psychopathology from natural language. One approach has been to fine-tune models to predict specific diagnoses. Results show these bespoke models perform well – for example, depression scored from open-ended text about symptoms converges with self-reports (r = .83) (Gu, Kjell, Schwartz, & Kjell, 2025), and suicidal ideation scored from Reddit posts align with clinician ratings (AUC = .83) (Gaur et al., 2021). A downside of fine-tuned models is that they require substantial time and resources to create. Development entails training models in very large samples and technical expertise beyond that of a typical clinical scientist or practitioner interested in using them. Moreover, a new model must be developed for each psychopathology construct one wishes to assess, imposing major practical constraints on the breadth of assessment possible with this method. Thus, fine-tuned language models address some barriers to scalability while introducing new ones.",
+   "printed": true
+  },
+  {
+   "para_id": 5,
+   "loc": "body",
+   "sec_title": "",
+   "text": "A more scalable approach may be to assess psychopathology with commercially available large language models (LLMs) (e.g., ChatGPT) (Brickman, Gupta, & Oltmanns, 2025). LLMs are trained on billions of text documents from diverse internet-based sources, including scientific articles, digitized books, news articles, and social media. This massive training dataset likely contains information relevant to predicting virtually any form of psychopathology that’s been written about in human history. Because of their pretraining, LLMs can assess psychopathology from language without the need for fine-tuning, referred to as zero-shot. Indeed, results of studies using zero-shot approaches are promising. For example, it’s been shown that zero-shot ratings of depression and posttraumatic stress disorder from diagnostic interviews predict clinician ratings and self-reports with model accuracies ranging from .73 to .94 (Narita et al., 2025; Ohse et al., 2024), and LLM ratings of depression and suicidality from social media posts achieve accuracies up to .83 in predicting expert labels (Lamichhane, 2023; Xu et al., 2024).",
+   "printed": true
+  },
+  {
+   "para_id": 6,
+   "loc": "body",
+   "sec_title": "",
+   "text": "For zero-shot LLM assessments to be scalable and portable (i.e., measurable in the flow of daily life), psychopathology must be detectable in brief text samples – yet this has not been well-established. Performance of zero-shot assessments has mostly been studied using lengthy language samples that require significant effort to collect, such as clinical interviews and social media histories. If collecting the requisite language data is costly and burdensome, the efficiency afforded by LLMs on the backend is essentially moot. A small number of recent studies suggest that psychiatric symptoms can, in fact, be detected in brief text samples. For example, one study found strong agreement between LLM ratings and expert ratings of depression from participant’s short, open-ended descriptions of their depression (r = .81), and the LLM ratings converged with self-reports (r = .46) (Ganesan et al., 2024). While the convergent validity is impressive, responses to a prompt focused on specific symptoms narrow the range of information available to assess other constructs.",
+   "printed": true
+  },
+  {
+   "para_id": 7,
+   "loc": "body",
+   "sec_title": "",
+   "text": "Addressing the comprehensiveness-scalability tradeoff then requires language samples that are not only brief, but that also contain information needed to validly assess multiple forms of psychopathology. This is a tall order. Yet the solution may be simple: unconstrained narratives. Responses to minimally directed, open-ended prompts like ‘talk about the most significant event in your day’ may be an efficient way to sample the most relevant aspects of a person’s current psychological functioning. Without much direction, people will talk about personally salient experiences, including the relationships, events, and thoughts that matter most to them. This naturally occurring information selection process may serve as a filter, resulting in a diagnostically dense sample of language. There is some evidence supporting this possibility. Studies using zero-shot scoring with LLMs have shown depression severity can be assessed from aggregated responses to free-text daily diary entries (Shin et al., 2024) and routine voicemails left at a clinic (Kim et al., 2025), and posttraumatic stress symptom severity can be assessed from brief (~8 minute) responses to prompts about general life circumstances (Kjell et al., 2024a).",
+   "printed": true
+  },
+  {
+   "para_id": 8,
+   "loc": "body",
+   "sec_title": "",
+   "text": "Finally, although measuring psychopathology from brief narratives with LLMs could in principle be the holy grail of intensive longitudinal assessment by enabling comprehensive, low-burden monitoring, this has not been investigated. Results from two intensive longitudinal studies in the same sample hint at this possibility, finding negative affect and activation scored from free-text responses about daily events track momentary self-reported affect (Fisher et al., 2025a, 2025b). But with LLM’s advanced contextual reasoning, they may be capable of tracking much more than just emotional arousal and valence. To move from principle to reality, a first step is validating LLM ratings for both overall psychopathology and for tracking subtle, day-to-day symptom or behavior changes.",
+   "printed": true
+  },
+  {
+   "para_id": 9,
+   "loc": "body",
+   "sec_title": "Daily self-report psychopathology",
+   "text": "Daily psychopathology was self-reported at the end of each day with an 81-item inventory validated for ambulatory assessment (Wright, Ringwald, & Zimmermann, 2025). Each item included the stem ‘Over the past 24 hours…’ followed by a statement reflecting a daily manifestation of psychopathology (e.g., ‘I acted aggressively toward someone,’ ‘I worried about being abandoned’). Items were rated on a 101-point slider scale from 0 (not at all) to 100 (very much), then averaged for scores of daily Negative Affectivity, Detachment, Antagonism, Disinhibition, and Anankastia.",
+   "printed": true
+  },
+  {
+   "para_id": 10,
+   "loc": "body",
+   "sec_title": "Daily LLM-rated psychopathology",
+   "text": "Daily psychopathology was scored with LLMs from daily diary entries. Participants responded to the prompt, ‘Please think of the most significant event in your day today. Use the video to briefly (1 min) describe: what happened, who was there, how you behaved, and how you felt during the event.’ The average per-video word count was 120.2 (SD = 57.7). Audio from the videos was transcribed using Whisper (Radford et al., 2022), and LLMs scored the resulting text. LLM ratings were obtained using a zero-shot approach validated in our previous work (Wright et al., 2025). We employed six state-of-the-art, commercially available LLMs: GPT-5, Claude-Sonnet-4, Gemini-2.5-Flash, Grok-3, Llama-4-Maverick, and Qwen3-235B. We used the following scoring prompt: Your task is to assess the participant’s level of {domain} based on their daily diary entry describing the most significant event that occurred during their day.",
+   "printed": true
+  },
+  {
+   "para_id": 11,
+   "loc": "body",
+   "sec_title": "Daily LLM-rated psychopathology",
+   "text": "Domains were rated from 0 to 100. Scores produced by the LLMs were averaged because we have found that this provides a more robust score estimate than individual LLMs (Wright et al., 2025). Seed and temperature were set to zero to ensure score consistency. Average split-half reliability for the LLM scores was .70. Complete scoring procedure (Supplementary Table S1) and reliability results are in the Supplementary Materials (Supplementary Table S2).",
+   "printed": true
+  },
+  {
+   "para_id": 12,
+   "loc": "body",
+   "sec_title": "Baseline interview-rated psychopathology",
+   "text": "Clinical validity was assessed vis-à-vis psychopathology ascertained by the baseline clinical interview measures. Interviews were conducted by clinical psychology doctoral trainees. Negative Affectivity, Detachment, Antagonism, Disinhibition, and Anankastia were rated using data gathered by the Structured Interview for DSM-IV Personality (Pfohl, Blum, & Zimmerman, 1997; Ringwald, Woods, & Wright, 2024). Dimensional scores were also created for internalizing (major depressive disorder, generalized anxiety disorder, obsessive compulsive disorder, and social anxiety disorder symptom sum), harmful substance use (alcohol and substance use disorder symptom sum), and personality pathology (all personality disorder symptom sum) using ratings on the Structured Clinical Interview for DSM-5 (First, Williams, Karg, & Spitzer, 2016).",
+   "printed": true
+  },
+  {
+   "para_id": 13,
+   "loc": "body",
+   "sec_title": "Analysis plan",
+   "text": "Analyses used multilevel structural equation models (MSEMs) with Bayes estimation conducted in Mplus (Version 9) (Muthén & Muthén, 2025). MSEM handles the nested structure of data (i.e., days within participants) by decomposing repeated measures into within- and between-person latent variables. The between-person latent variables are random intercepts representing a person’s average levels of daily variables (e.g., average daily disinhibition). Baseline variables are also modeled at the between-person level (e.g., interview-rated disinhibition). The within-person latent variables reflect fluctuations in the daily variables from a person’s average level on a given day (e.g., how much more disinhibited a person is than their usual). These models allowed us to examine the validity of LLM ratings to assess overall levels of psychopathology (between-person level) and track day-to-day changes in psychopathology (within-person level). All available data were used regardless of how many days the participant was in the study. MSEM accommodates varying days per person by treating the unbalanced structure as a missing data problem and using data augmentation to produce precision-weighted estimates of the random effects.",
+   "printed": true
+  },
+  {
+   "para_id": 14,
+   "loc": "body",
+   "sec_title": "Analysis plan",
+   "text": "Concurrent validity was evaluated by indexing the similarity of the nomological nets for LLM-rated daily psychopathology and self-reported daily psychopathology. To do this, we first estimated correlations between LLM-rated and self-reported daily psychopathology with external variables at the within- and between-person levels. We then quantified their nomological similarity by calculating the correlation between the LLM and self-report profiles of associations with external variables. This profile correlation between LLM and self-report scales indexes how similar the two scales are in terms of capturing associations with external variables. Profile correlations ≥.85 indicate that the LLM and self-report scales are measuring very similar constructs (Lorenzo-Seva & Ten Berge, 2006).",
+   "printed": true
+  },
+  {
+   "para_id": 15,
+   "loc": "body",
+   "sec_title": "Convergent and discriminant validity",
+   "text": "At the between-person level, we additionally examined convergence of LLM ratings with baseline measures of the five domains, assessed by the Comprehensive Assessment of Traits Relevant to Personality Disorder (Ringwald et al., 2023; measure information in Supplementary Table S2). Overall, convergence between LLM ratings and the baseline measure was somewhat weaker, with an average convergent correlation of .28, and there were several cases in which off-diagonal correlations (i.e., nonconvergent) were strongest. Notably, correlations between average daily self-reports and the baseline self-report also had multiple strong off-diagonal correlations, suggesting poor discriminant validity is a property of the methods rather than a problem specific to the LLM ratings. Full results reported in Supplementary Table S4a,b.",
+   "printed": true
+  },
+  {
+   "para_id": 16,
+   "loc": "body",
+   "sec_title": "Exploratory analysis of LLM rationale for scores",
+   "text": "To gain insight into information used by LLMs to rate psychopathology, we prompted ChatGPT-5 (the best performing model; see Supplementary Table S4a,b) to provide rationales and exemplar quotes for high and low scorers for each domain. Rationales are not direct evidence for how ChatGPT-5 made ratings but are better understood as ‘post-hoc’ explanations generated by the model that can aid interpretability (Lipton, 2016). These rationales also may not completely represent the ‘logic’ of the aggregated scores we used. Select results are in Table 2.Table 2.Rationales and transcript quotes selected by ChatGPT-5 to support its ratings Table 2. long description.HighLowQuoteRationaleQuoteRationaleNegative affectivityI was upbeat and friendly, and everything was good. But as soon as it ended, and I’m back home now, I kind of feel a little bit depressed. A quick shift from positive to ‘a little bit depressed’ after a good event shows emotional lability toward negative mood.The baby was screaming, she was tired, and in her car seat, that was kind of unpleasant Brief irritation/stress is acknowledged due to the baby’s crying, but it is framed as mildly unpleasant rather than intensely distressing.I went to the liquor store and got a couple bottles of beer and kind of went down to the river and just kind of drank them by myself… an example of me needing to be by myself and kind of feeling not great about… about my life. Avoidant coping, including solitary drinking when feeling bad, indicates difficulty tolerating distress and a tendency to withdraw.I got the keys to move into my new place, so I’ll be moving in tomorrow, I’m excited to move A potentially stressful life event (moving) is framed with enthusiasm rather than apprehension or dread.AntagonismI had moments where I wanted to choke somebody. Hostile impulses surface under stress, suggesting irritability with aggressive ideation.I did spend a little bit too much time helping him when I could have probably gotten more help studying on my own. Consistently prosocial and empathic behavior; the diarist helps a less-prepared friend even at some personal cost, indicating low antagonism.First, I acted on impulse, and I wasn’t trying to hear it, I was trying to have everything just ran my way, done my way. She shows entitlement and a need for control, initially refusing others’ input during conflict with her mother.I’m just a socially awkward and anxious person, so it was a little bit embarrassing Self-effacing and anxious self-view rather than grandiosity or entitlement.DetachmentI had to force myself to play it, I just could not get any enjoyment out of it…. I just kind of push through like it’s something on a checklist…. I did not feel much of anything out of it. Clear anhedonia: pushing through an activity without enjoyment and reporting blunted affect toward it.My husband was there with me though. He stayed with me the whole time, which was awesome. So it was nice to be with somebody. Seeks and values closeness and support (with spouse, coworkers, friends), inconsistent with detachment or intimacy avoidance.Absolutely nothing. There was nothing significant in my day today… I just did not do anything today. I just did not feel up to doing anything. Several days of staying in, low activity, and lack of motivation suggest mild social withdrawal, though often attributed to weather or sleep issues rather than a pervasive emotional distancing.Very enjoyable and low-key, just spending time together and talking and hanging out. Consistent closeness and physical/emotional intimacy with her partner indicate low detachment.DisinhibitionSo I came out to a silent rave… and decided that this would be a good idea. Um, it’s exciting, but, I do not know, I maybe should have slept. Sensation seeking and difficulty delaying gratification are suggested by choosing an exciting event over sleep, indicating poor planning and short-term reward focus.We had food, and we drank, and it was a good time. Social events include drinking, but there is no indication of excess, risky behavior, or disregard for consequences; the tone is moderate and controlled.Everything that’s happened to the car so far, like tickets and scratches and towings, have all been my fault. Repeated mishaps with someone else’s car point to irresponsibility/poor planning and possible careless decision-making, a facet of disinhibition.Probably the most significant event I engaged in today was meeting with a professor about research stuff. Entries center on planned, structured commitments (interviews, meetings), which run counter to impulsivity or poor planningAnankastiaI pushed myself really hard working on it. My neck has been hurting working on the computer for so long. When I finished it wasn’t really exhilarating, but more just able to move on to the next thing, the next stressor, so it’s not exactly as relaxing as it should be. Overconscientious, driven work style with difficulty relaxing after completion suggests an anankastic focus on duty and next tasks rather than satisfaction.We’re still up because we took a nap… we just get to rock and have fun. Vacation behavior appears spontaneous and unstructured, not detail-focused or rule-bound.Usually I try to start studying about a week before the test. I basically just stopped. Stopped what I was doing, and got to work right away. Preference for structured planning and timely preparation; immediate corrective action when schedule tracking falls short.It’s another late night tonight, obviously, so good going me. Whatever. Just to try and clear my head a little bit. It was good. It was good, I think. I think it helped. I guess we’ll see. Attitude toward routines and slip-ups is relaxed, not over-conscientious or rule-bound; there is little sign of preoccupation with order or fear of errors.A complex table presenting rationales and transcript quotes selected by ChatGPT-5 to support ratings across five personality domains. See long description.",
+   "printed": true
+  },
+  {
+   "para_id": 17,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "We found LLM ratings converge with self-reports, both for assessing overall levels of psychopathology and tracking day-to-day changes in behavior. To put these results in perspective, the convergence we found between LLM ratings and self-reports (average r = .42) was nearly identical to meta-analytic estimates for self-informant agreement of psychopathology (rs = .43–.45) (Achenbach, Krukowski, Dumenci, & Ivanova, 2005; Oltmanns & Oltmanns, 2019). In other words, LLM scores made from brief narratives were as aligned with a person’s self-views as are judgments made by close friends, family, and skilled clinicians.",
+   "printed": true
+  },
+  {
+   "para_id": 18,
+   "loc": "body",
+   "sec_title": "Implications for measurement, clinical practice, and theory",
+   "text": "In clinical settings, LLMs could enable recommended assessment-based practices that are rarely implemented in the real world due to high patient/administrative burden (Krist et al., 2014; Lewis et al., 2019). In particular, our finding that psychopathology can be measured from undirected language presents novel solutions to this burden problem by using data already collected in the clinical workflow. For example, LLMs could make measurement-based care (i.e., symptom assessments at each clinical encounter) more feasible by assessing psychopathology from dialog in therapy sessions. LLMs could also facilitate comprehensive mental health screening in primary care by detecting psychopathology from patient–provider conversations in the clinic or voicemail messages. LLM-based assessment tools like these could promote early detection and treatment of psychopathology by enhancing clinical judgment. However, many open questions about LLMs need to be addressed before clinical implementation, which we turn to next.",
+   "printed": true
+  },
+  {
+   "para_id": 19,
+   "loc": "body",
+   "sec_title": "Open questions and future directions",
+   "text": "Like any new measurement tool, generalizability and bias need to be evaluated. Our findings are specific to brief, smartphone-based narratives completed by English-speaking adults in a research setting. This method of data collection and scoring may not produce the same results in samples with different demographics, who are non-English speaking, or in more acute clinical populations. Moreover, we were unable to test bias across demographic and cultural groups in our sample. Bias is a concern that applies to any diagnostic measure, including LLMs. LLMs can perpetuate biases present in the training data, meaning its ratings could be influenced by broad societal stereotypes, norms, and values related to psychopathology (e.g., Zack et al., 2024). Moreover, LLMs are trained on predominantly English text, which could mean inaccuracies when analyzing language of non-English speakers, pathologizing cultural normative behavior, or missing culture-specific manifestations of psychopathology (Timmons et al., 2023). Of course, because LLMs simply reflect existing human biases, gold standard interview measures suffer the same limitations. What differs is how bias can be mitigated – with LLMs, proposed solutions include, for example, targeted prompting strategies or ‘few-shot’ model training that involves exposing the model to underrepresented exemplars so that it learns culture-specific information (Shah, Schwartz, & Hovy, 2020). In principle, LLMs could eventually be less biased than interviewers because controls can be implemented in a consistent, standardized way.",
+   "printed": true
+  },
+  {
+   "para_id": 20,
+   "loc": "body",
+   "sec_title": "Open questions and future directions",
+   "text": "Another key consideration for zero-shot LLM ratings is the source of language data. It is logical to assume that data elicited with different formats (e.g., prompted versus naturalistic conversation) and in different settings (e.g., crisis calls versus routine patient–provider interactions) will produce different kinds of information for LLMs to score. Although very little work has directly compared LLM ratings derived from different sources, a meta-analysis showing that the predictive accuracy of language-based depression assessments varies by text source adds some empirical support for this idea (Fisher et al., 2026). Thus, at minimum, the reliability and validity of LLM scores should be tested for each type of format and setting. More broadly, research on what language data sources is optimal (or adequate) for scoring a given construct will produce vital scientific and practical knowledge for using psychiatric assessment with LLMs.",
+   "printed": true
+  },
+  {
+   "para_id": 21,
+   "loc": "body",
+   "sec_title": "Open questions and future directions",
+   "text": "Other methodological considerations specific to LLMs include the stability and validity of scores across model updates, ensuring sensitive information is not leaked into the training data (especially in clinical settings), and difficulty preventing or solving performance issues due to being a ‘black-box’ (Obradovich et al., 2024). Generally, the sheer unprecedentedness of LLM technology demands a cautious approach to implementation and human oversight for the foreseeable future. At the same time, our results add to growing evidence that it is exactly this unprecedentedness that poises LLMs as a method to overcome the comprehensiveness-scalability tradeoff that has plagued clinical science and practice.",
+   "printed": true
+  }
+ ],
+ "links": [
+  {
+   "link_id": 1,
+   "url": "osf.io/tqsz5",
+   "url_raw": "https://osf.io/tqsz5/",
+   "href_jats": "https://osf.io/tqsz5/",
+   "repo_key": "osf:tqsz5",
+   "host_class": "osf",
+   "loc": "body",
+   "sec_title": "Methods",
+   "source": "tagged",
+   "para_id": 1
+  }
+ ],
+ "links_optional": [
+  "creativecommons.org/licenses/by/4.0",
+  "doi:10.1001/jamapsychiatry.2018.3329",
+  "doi:10.1016/j.csl.2024.101663",
+  "doi:10.1016/j.psychres.2023.115667",
+  "doi:10.1016/s2589-7500(23)00225-x",
+  "doi:10.1017/s0033291726105261",
+  "doi:10.1027/1614-2241.2.2.57",
+  "doi:10.1037/0033-2909.131.3.361",
+  "doi:10.1037/met0000349",
+  "doi:10.1037/per0000663",
+  "doi:10.1038/s41562-025-02389-x",
+  "doi:10.1038/s41746-025-01969-5",
+  "doi:10.1038/s41746-026-02448-1",
+  "doi:10.1038/s44159-021-00004-0",
+  "doi:10.1038/s44277-024-00010-z",
+  "doi:10.1038/s44277-025-00045-w",
+  "doi:10.1093/oxfordhb/9780190912529.013.19",
+  "doi:10.1136/bmjdhai-2025-000042",
+  "doi:10.1145/3643540",
+  "doi:10.1146/annurev.psych.54.101601.145041",
+  "doi:10.1177/10731911221143343",
+  "doi:10.1177/10731911251364022",
+  "doi:10.1177/17456916221134490",
+  "doi:10.1177/21677026241291549",
+  "doi:10.1177/25152459251343582",
+  "doi:10.1370/afm.1710",
+  "doi:10.1371/journal.pone.0250448",
+  "doi:10.18653/v1/2020.acl-main.468",
+  "doi:10.21203/rs.3.rs-6414400/v1",
+  "doi:10.2196/54617",
+  "doi:10.31234/osf.io/xw24e",
+  "doi:10.48550/arxiv.1606.03490",
+  "doi:10.48550/arxiv.2212.04356",
+  "doi:10.48550/arxiv.2303.15727",
+  "doi:10.48550/arxiv.2411.13800"
+ ],
+ "own_doi": "doi:10.1017/s0033291726105261",
+ "citations": [
+  {
+   "cite_id": 1,
+   "para_id": 2,
+   "bib_id": 25,
+   "marker": "2003",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 2,
+   "para_id": 2,
+   "bib_id": 3,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 3,
+   "para_id": 3,
+   "bib_id": 14,
+   "marker": "2024b",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 4,
+   "para_id": 3,
+   "bib_id": 11,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 5,
+   "para_id": 4,
+   "bib_id": 10,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 6,
+   "para_id": 4,
+   "bib_id": 9,
+   "marker": "2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 7,
+   "para_id": 5,
+   "bib_id": 2,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 8,
+   "para_id": 5,
+   "bib_id": 21,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 9,
+   "para_id": 5,
+   "bib_id": 23,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 10,
+   "para_id": 5,
+   "bib_id": 16,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 11,
+   "para_id": 5,
+   "bib_id": 35,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 12,
+   "para_id": 6,
+   "bib_id": 8,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 13,
+   "para_id": 7,
+   "bib_id": 31,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 14,
+   "para_id": 7,
+   "bib_id": 12,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 15,
+   "para_id": 7,
+   "bib_id": 13,
+   "marker": "2024a",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 16,
+   "para_id": 8,
+   "bib_id": 5,
+   "marker": "2025a",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 17,
+   "para_id": 8,
+   "bib_id": 7,
+   "marker": "2025b",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 18,
+   "para_id": 9,
+   "bib_id": 34,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 19,
+   "para_id": 10,
+   "bib_id": 27,
+   "marker": "2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 20,
+   "para_id": 10,
+   "bib_id": 33,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 21,
+   "para_id": 11,
+   "bib_id": 33,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 22,
+   "para_id": 12,
+   "bib_id": 26,
+   "marker": "1997",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 23,
+   "para_id": 12,
+   "bib_id": 29,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 24,
+   "para_id": 12,
+   "bib_id": 4,
+   "marker": "2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 25,
+   "para_id": 13,
+   "bib_id": 20,
+   "marker": "2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 26,
+   "para_id": 14,
+   "bib_id": 19,
+   "marker": "2006",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 27,
+   "para_id": 15,
+   "bib_id": 28,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 28,
+   "para_id": 16,
+   "bib_id": 18,
+   "marker": "2016",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 29,
+   "para_id": 17,
+   "bib_id": 1,
+   "marker": "2005",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 30,
+   "para_id": 17,
+   "bib_id": 24,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 31,
+   "para_id": 18,
+   "bib_id": 15,
+   "marker": "2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 32,
+   "para_id": 18,
+   "bib_id": 17,
+   "marker": "2019",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 33,
+   "para_id": 19,
+   "bib_id": 36,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 34,
+   "para_id": 19,
+   "bib_id": 32,
+   "marker": "2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 35,
+   "para_id": 19,
+   "bib_id": 30,
+   "marker": "2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 36,
+   "para_id": 20,
+   "bib_id": 6,
+   "marker": "2026",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 37,
+   "para_id": 21,
+   "bib_id": 22,
+   "marker": "2024",
+   "expanded": false,
+   "scored": true
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-ext-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "v1_bib_count": 36
+ }
+}

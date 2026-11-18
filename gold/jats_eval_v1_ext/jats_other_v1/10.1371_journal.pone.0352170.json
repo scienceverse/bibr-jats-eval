@@ -1,0 +1,849 @@
+{
+ "paper_id": "10.1371_journal.pone.0352170",
+ "paras": [
+  {
+   "para_id": 1,
+   "loc": "front",
+   "sec_title": "",
+   "text": "To analyze de-identified individual participant data including neighborhood measures, researchers must receive authorization for access. This authorization is required to maintain the integrity of the data and protect participant privacy. Those wishing to access C4R data will need to submit a Data Access Request (DAR) through the database of Phenotypes and Genotypes (dbGaP) (https://www.ncbi.nlm.nih.gov/gap/). Authorized researchers can then access C4R data from BioData Catalyst® (BDC) (https://biodatacatalyst.nhlbi.nih.gov/). BioData Catalyst (BDC) is a cloud-based research ecosystem that permits access to and a platform for the analysis of scientific data supported by NHLBI. BDC currently hosts C4R datasets from 11 of the 14 C4R cohorts with additional C4R Data becoming accessible in the coming months. Cohort data from many of the C4R parent studies is also accessible through a dbGaP data access request. BDC provides instructions for finding and viewing C4R and cohort data as well as the steps to request authorization to use de-identified individual participant data for scientific analysis within BDC. For additional information or data, contact c4r@cumc.columbia.edu.",
+   "printed": true
+  },
+  {
+   "para_id": 2,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "As the coronavirus-19 (COVID) pandemic unfolded across the US, the burden of COVID infection, severity, poor recovery, and mortality were disproportionately high in low-income and lower resourced communities [1–3]. Extant research on how environmental factors within communities were associated with COVID outcomes [4–7] demonstrated higher infection and mortality rates in larger metropolitan areas [8], higher severity of COVID infection with higher levels of air pollution [9–11], and reduced risk of COVID mortality with greater greenspace exposure [12–14]. Despite the importance of social, natural, and built environments as powerful determinants of health behaviors and conditions, prior efforts to disentangle the role of environments during the COVID pandemic were limited by ecologic designs that lacked individual longitudinal data. These data are necessary to disentangle existing health trajectories and health risks that affect COVID susceptibility and severity from direct environmental impacts on COVID infection, outcomes, or long-term prognosis.",
+   "printed": true
+  },
+  {
+   "para_id": 3,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Several national, population-based longitudinal studies measure complex risk factor development, progression of disease, and longitudinal, life-course predictors of health. Within the context of the COVID pandemic, these cohorts presented a unique opportunity to examine how pre-existing health conditions and personal characteristics contributed to COVID risks. They also allow the examination of potential long-term changes in behaviors or health stemming from the pandemic period (e.g., decreased or increased physical activity from lockdown). Established early in the pandemic, the Collaborative Cohort of Cohorts for Covid-19 Research (C4R) brings together 14 cohort studies (S1 Table, list in abbreviations) that have followed participants across the US for between 10 and 50 years. All cohorts are listed in abbreviations; details on each cohort and C4R published elsewhere [15]. Briefly, C4R has collected information on COVID vaccination, infection, recovery, and mortality, as well as behavior and psychosocial outcomes from over 50,000 participants combined.",
+   "printed": true
+  },
+  {
+   "para_id": 4,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Outside of the efforts of C4R, many of these cohorts have previously collected spatial and neighborhood data about their participants, often over many exams and decades. These deeply phenotyped, longitudinal, well-characterized cohorts span diverse populations, life phases, and geographies. Thus, they offer sufficient variability to better understand how environmental context impacts COVID and other health outcomes. Yet efforts to operationalize environmental data across different cohorts have been decentralized and are often led by independent investigators, resulting in variable data collection protocols and metrics [16–19]. Collaboration among cohorts and harmonization of environmental data encourages the identification of factors impacting COVID outcomes and disparities. Specifically, harmonized geospatial infrastructure could support future longitudinal and comparative analyses. The first step toward this harmonization is to identify and quantify which data exist, at what times, and for which cohorts.",
+   "printed": true
+  },
+  {
+   "para_id": 5,
+   "loc": "body",
+   "sec_title": "Cohort study design",
+   "text": "The C4R Study design, as previously described [20], followed a cohort ancillary studies model. Researchers in each cohort study were directly responsible for accomplishing data collection in accordance with the standard protocols and under the supervision of their own observational studies monitoring board, steering committee, institutional review board (IRB), and any other applicable regulatory authorities. Columbia University served as the Data Coordination and Harmonization Center (DCHC) for C4R (Columbia University Institutional Review Board, IRB-AAAT3035). A full list of cohort IRBs supervising implementation of the C4R protocols is provided in S2 Table. For the purposes of the work presented in this manuscript, data were accessed at Drexel University from February 28, 2022, to April 26, 2024. Drexel IRB determined that work within this manuscript was not human subjects research. Cohort data inventories were conducted beginning February 28, 2022, and finalized January 9, 2023. Study data were previously recorded as part of the C4R Study and were handled in accordance with all applicable confidentiality and data protection regulations.",
+   "printed": true
+  },
+  {
+   "para_id": 6,
+   "loc": "body",
+   "sec_title": "Public Data Sources Linked to Geographic Coverage of C4R",
+   "text": "Utilizing the American Community Survey (ACS) 2015−2019 5-Year estimates and the geospatial data acquired for cohorts, we derived relevant population, social, and economic context information for a comparative analysis between areas where C4R participants have lived and those in which C4R participants have not lived. We used census tracts that match the 2015−2019 ACS boundaries, derived from the National Historical Geographic Information System (NHGIS) 2019 Census Tract Boundary File: United States and Puerto Rico [21]. These measures included total population density (pop/km2), median household income, as well as percentages of older adults (≥65 years, ≥ 85 years), non-Hispanic Whites, foreign-born residents, home ownership (% rent, % own), residents below poverty, residents with formal educations (% with high school (HS) degree, % with college degree), residents employed, commuting by car, and crowding. Index of Concentration at the Extremes (ICE) was calculated from ACS data using standard methods [22] for both the high-income White households versus low-income Black households and the high-income White non-Hispanic households versus low-income Hispanic households. ICE is scaled from −1 to +1 where −1 indicates that 100% of the population in the given area is concentrated among the most deprived group, and +1 means that 100% of the population is concentrated in the most privileged group.",
+   "printed": true
+  },
+  {
+   "para_id": 7,
+   "loc": "body",
+   "sec_title": "Public Data Sources Linked to Geographic Coverage of C4R",
+   "text": "Data regarding urbanicity were derived from the McAlexander et al. community type classification [23]. We operationalized urbanicity as the percent of total tracts that were classified as “high density urban”, “low density urban”, and “small town/suburban”, which make up all categories other than “rural” (and any undesignated tracts) as classified by McAlexander et al. To measure hospital access, we used staffed hospital bed counts per county from the Area Health Resources Files 2018–2019 to create a number of beds per 100,000 population density measure [24]. Data on greenness was derived from the 2019 National Land Cover Database (NLCD) [25] by including six categories of land cover previously used to generate a greenness measure (proportion of each category) at the census tract level [14]. We reclassified the categories into one single “green” category and used zonal statistics to get the percent areal coverage per census tract.",
+   "printed": true
+  },
+  {
+   "para_id": 8,
+   "loc": "body",
+   "sec_title": "Public Data Sources Linked to Geographic Coverage of C4R",
+   "text": "We captured metrics of neighborhood COVID burden from the Johns Hopkins COVID-19 dashboard (cases per quarter) and the Centers for Disease Control (CDC) COVID Data Tracker (vaccination rates) [26,27]. We aggregated daily COVID-19 case counts per county from the Johns Hopkins COVID-19 Dashboard to quarterly counts then used population to create a quarterly cases per 100,000 population density measure. The CDC publishes data on COVID-19 vaccination rates per county, which we used to indicate completed primary series vaccination rates at the end of each quarter (Jan-Dec). We examined case rates from Q1 of 2020 until Q4 of 2021, and vaccination rates from Q1 of 2021 (when a vaccine was available to a majority of the population) to Q4 of 2021. Despite access to data for 2022, we did not examine these rates due to a lack of reporting that likely makes these data not representative of overall COVID levels.",
+   "printed": true
+  },
+  {
+   "para_id": 9,
+   "loc": "table",
+   "sec_title": "C4R geospatial coverage",
+   "text": "4 ICE = Index of Concentration at the Extremes from calculated using standard equations [22].",
+   "printed": true
+  },
+  {
+   "para_id": 10,
+   "loc": "table",
+   "sec_title": "C4R geospatial coverage",
+   "text": "5 Data on Hospital Beds/100k population from the Area Health Resources Files 2018–2019 to create a number of beds per 100k population density measure [24]",
+   "printed": true
+  },
+  {
+   "para_id": 11,
+   "loc": "table",
+   "sec_title": "C4R geospatial coverage",
+   "text": "6 Greenness data from 2019 NLCD [25]",
+   "printed": true
+  },
+  {
+   "para_id": 12,
+   "loc": "body",
+   "sec_title": "Built environment data",
+   "text": "Built environment data were collected by nine cohorts (ARIC, CARDIA, FHS, HCHS/SOL, JHS, MASALA, MESA, NOMAS, REGARDS). The most common data collected by cohorts was access to food stores or food environment. These cohorts measured neighborhood amenities for retail food stores, such as wholesale clubs, grocery and convenience stores, chain stores, co-ops, fast-food, specialty, meat and fish, and supermarkets. Three cohorts (JHS, MESA, REGARDS) utilized data from the National Establishment Time Series (NETS) dataset to calculate changes in the business environments of their cohorts over time [28]. This dataset allows for cohorts to track the locations and types of businesses dating back to 1990, enabling longitudinal neighborhood change analysis. CARDIA, HCHS/SOL, JHS, MESA, and REGARDS all retained data on commercial buildings, land use, walkability, recreation/physical activity facilities, and alcohol/tobacco/marijuana outlets (counts per buffer or density per land area). These data were often derived from the NETS dataset, InfoUSA/ReferenceUSA, or similar dataset offerings from ESRI (i.e., ArcGIS Business Analyst). Traffic and road infrastructure, often primarily calculated using distance to arterial roads, were measured by eight cohorts (ARIC, CARDIA, HSCS/SOL, FHS, JHS, MESA, NOMAS, REGARDS); this was disparate from street connectivity, measured using both density of intersections, ratios of Network to Euclidean buffers, and other measures of connectivity.",
+   "printed": true
+  },
+  {
+   "para_id": 13,
+   "loc": "body",
+   "sec_title": "Social environment data",
+   "text": "Social environment data were the most plentiful data type connected to the C4R cohorts. Most cohorts have collected aggregated data on neighborhood socioeconomic status and data on urbanicity and population density, with all cohorts in possession of neighborhood-level data reporting some level of socioeconomic status. Most commonly, cohorts linked participant data to neighborhood employment data, median household income, education levels of residents, and poverty derived from the US decennial census and ACS. Cohorts that measured urbanicity of their participants’ communities often relied on rural-urban commuting area (RUCA) codes, a tract-based classification that uses standard census measures of population density, levels of urbanization, and journey-to-work commuting to characterize all US census tracts with respect to their rural/urban status [29].",
+   "printed": true
+  },
+  {
+   "para_id": 14,
+   "loc": "body",
+   "sec_title": "Social environment data",
+   "text": "Five cohorts reported measuring levels of neighborhood social engagement and cohesion (CARDIA, JHS, HCHS/SOL, MASALA, MESA). As expected for these types of constructs, these measures were assessed using survey tools administered to cohort participants. Uniquely, MESA measured these constructs simultaneously at the community level through administration of the survey to nearby, non-MESA participants and then created neighborhood estimates within a set buffer of MESA participant residences using Bayesian estimation techniques [30]. Five cohorts incorporated levels of violence and crime (HCSC/SOL, JHS, MASALA, MESA, REGARDS). Sometimes perceptions of violence or crime were measured (e.g., in MESA and their community survey), while other times crime data were GIS-based from local municipalities or the CrimeRisk Index (provided through ESRI from Applied Geographic Solutions) [31].",
+   "printed": true
+  },
+  {
+   "para_id": 15,
+   "loc": "body",
+   "sec_title": "Natural environment data",
+   "text": "Natural environment data were the least available construct of geospatial data available among cohorts. Nine measured air quality (ARIC, CARDIA, HCHS/SOL, FHS, JHS, MESA, NOMAS, REGARDS, SPIROMICS), five measured greenspace/parks (CARDIA, HCHS/SOL, JHS, MASALA, MESA, REGARDS), three measured bluespace (CARDIA, HCHS/SOL, REGARDS) and three measured temperature/weather (CARDIA, FHS, MESA), and only two measured hilliness/elevation (CARDIA, MESA). Cohorts that measured air quality included data on multiple pollutants, especially nitrogen dioxide, ozone, particulate matter less than 10 um or 2.5um (PM10, PM2.5), and nitrous oxide, measuring them in many different ways (e.g., modeling, averages during specific time periods). Some cohorts collected air quality data from EPA air pollution sensors [32], while many used more complex modeling techniques to estimate fine-scale air pollution [33]. Cohorts that measured greenspace/parks with park access generally quantified park density, size, and characteristics frequently sourced from local parks departments, city governments, or ParkServe [34]. When measuring natural vegetation, cohorts often used the National Land Cover Database from the USGS [25] or the Normalized Difference Vegetation Index (NDVI), a measure of vegetation calculated using ArcGIS from Landsat or Moderate Resolution Imaging Spectroradiometer (MODIS) satellite imagery [35]. Three cohorts measured some type of bluespace data (CARDIA, HCSC/SOL, REGARDS), measuring distances to the nearest shoreline and surface land use that is coded as water or ice. The three cohorts (CARDIA, FHS, MESA) that measured temperature (e.g., average variation, extreme temperature events) and weather (e.g., precipitation levels) tended to source data from the National Oceanic and Atmospheric Administration (NOAA) local climatological data archive [36] or local monitors (e.g., Logan International Airport). Almost no cohorts measured light pollution or noise, so these were not included in Fig 2.",
+   "printed": true
+  },
+  {
+   "para_id": 16,
+   "loc": "table",
+   "sec_title": "3.8.1. Sociodemographic, economic, environmental, and COVID representativeness of C4R geographics.",
+   "text": "1 COVID-related variables were derived from the Johns Hopkins COVID-19 dashboard (cases per quarter) and the CDC COVID Data Tracker (vaccination rates) [26,27].",
+   "printed": true
+  },
+  {
+   "para_id": 17,
+   "loc": "body",
+   "sec_title": "Application of findings to research questions",
+   "text": "Our inventory provides a comprehensive overview of environmental data available across C4R cohorts and highlights opportunities for future harmonization relevant to COVID research. The comprehensive characterization of pre- and mid-pandemic neighborhood conditions with sufficient geospatial variability and participant diversity can enable interdisciplinary research. Specifically, these pre- and mid-pandemic data allow the examination of environmental factors’ contribution to COVID risk and disparities, including on infection, morbidity, mortality, persistent symptoms, and vaccination uptake. Place-based differences in COVID impact by urbanization or city characteristics have been demonstrated across countries [37,38] and within the US [39]. Examinations of how neighborhoods impacted COVID outcomes informed previous prevention efforts, such as opening up park space or closing streets to create protected pedestrian spaces [40,41]. This work can also inform the creation of environments that are resilient to future public health disasters [39,42,43]. The geographic representation and sociodemographic diversity of the C4R cohorts, along with their combined sample size, permits research into how policies or neighborhoods contribute to COVID and related health disparities. Emergency measures in other domains implemented by some locales, such as eviction moratoriums, could be helpful to public health and used as a basis for future policies to protect populations [39,44–47].",
+   "printed": true
+  },
+  {
+   "para_id": 18,
+   "loc": "body",
+   "sec_title": "Application of findings to research questions",
+   "text": "The geographic and individual diversity of C4R could also be leveraged to understand how neighborhoods and policies differentially impact COVID and other health outcomes by participant characteristics such as race and ethnicity, sex/gender, age, and socioeconomic status. This may help identify the conditions and populations for which policies are most effective. Ultimately, while the COVID pandemic intensity wanes, lessons learned about neighborhoods during the COVID pandemic and recovery period can be applied to enhance future disaster preparedness [48]. However, this can only happen if efforts are made to integrate individual-level risk information to avoid both ecological bias [48] and confounding by prior conditions. Longitudinal data from C4R helps to overcome some of these limitations, allowing for better control of changing ecological conditions over time.",
+   "printed": true
+  },
+  {
+   "para_id": 19,
+   "loc": "body",
+   "sec_title": "Application of findings to research questions",
+   "text": "C4R cohorts’ neighborhood environment and contextual data could also be leveraged to understand critical shifts that occurred in built, social, and natural environments post-pandemic and their subsequent health impacts. These may be primary shifts that occurred early during the pandemic (e.g., policies around eviction, stay-home orders, pedestrianized streets) or enduring changes to retail environments, physical spaces, economic conditions, or population distributions. Evidence suggests that early pandemic prevention measures lowered pollution levels, limited access to public spaces, closed retail establishments, and produced lost income [49–51]. A number of cities made intentional health-supportive changes to their environments (e.g., pedestrianized streets, parklets), with varying success retaining these as the pandemic has progressed [52–54]. Similar evidence has begun to emerge regarding shifts in health-related contexts and social environments, including crime [55–57], neighborhood trust or social cohesion [58,59], and movement patterns [60–62]. As the country and world ease into a “new normal,” it is essential to understand long-term impacts of the pandemic period on our lived experience, including neighborhood conditions. Further, the addition of novel forthcoming geospatial measures (e.g., segregation, resilience to climate disasters) could be integrated into existing datasets to encourage additional inquiries as conditions evolve. Connecting C4R neighborhood data to the extensive pre-pandemic (1975–2020) and planned (2020-present) deep phenotyping in the cohorts on physical function, cardiac measures, brain measures, sleep, biomarkers, and genotyping, among others, overcomes confounding by lack of knowledge regarding previous health behaviors and trajectories. Linking neighborhood data with these cohorts would provide an opportunity to understand how the COVID pandemic and related neighborhood or community changes affected other health conditions commonly assessed across the cohorts, such as cardiovascular risk, aging, and related diseases.",
+   "printed": true
+  },
+  {
+   "para_id": 20,
+   "loc": "body",
+   "sec_title": "Conclusion",
+   "text": "In this study, we cataloged the geographic and spatial data available across a large geographically, socioeconomically, racially and ethnically diverse study of 14 pooled cohorts in the US. Our analyses described the spatial extent of the C4R population and examined representativeness compared to areas without C4R participants and compared to the nation overall, finding that C4R had relatively representative coverage of urban areas nationwide. We found that social environmental data were the most common types of contextual data collected, followed by built environment features. Our inventory also indicated that all cohorts were missing neighborhood COVID contextual data, several cohorts were lacking any geocoding or environmental data, and that even cohorts with contextual data had gaps in natural environment metrics, such as weather or heat, which may be relevant in an age of increasing climate-related events and vector-borne diseases [63–66]. Despite numerous advances in the assessment of neighborhood effects on health, our inventory of neighborhood measures highlights the need to develop a systematic methodology to facilitate harmonization. Agreement on common metrics, repositories of national environmental measures, and guidance documents for cohorts would encourage and enable valid and rigorous testing of the health effects of neighborhoods or their subsequent impacts on health disparities. Given the large quantity of data within the C4R project, methods will also need to be developed to integrate data across multiple spatial and temporal scales. Once harmonized, the associated data and methods could be shared widely to facilitate international collaborations and pooling of data for large-scale research projects (e.g., with the International Human Exposome Network (IHEN)). Work remains to understand the implications of the COVID pandemic on our neighborhoods, the way we interact with them, and their subsequent impact on our health and well-being. During a time when the environmental context is rapidly changing due to human activities and substantial climate change shifts, lessons learned from the pandemic period may help us create more resilient, health-supportive, equitable communities. This project opens possibilities for research collaborations to understand the health effects of neighborhood changes experienced during the pandemic and work toward sustainable, thoughtful neighborhood interventions to support health and well-being as future disasters arise.",
+   "printed": true
+  }
+ ],
+ "links": [
+  {
+   "link_id": 1,
+   "url": "ncbi.nlm.nih.gov/gap",
+   "url_raw": "https://www.ncbi.nlm.nih.gov/gap/",
+   "href_jats": "https://www.ncbi.nlm.nih.gov/gap/",
+   "repo_key": null,
+   "host_class": "other",
+   "loc": "front",
+   "sec_title": "",
+   "source": "tagged",
+   "para_id": 1
+  },
+  {
+   "link_id": 2,
+   "url": "biodatacatalyst.nhlbi.nih.gov",
+   "url_raw": "https://biodatacatalyst.nhlbi.nih.gov/",
+   "href_jats": "https://biodatacatalyst.nhlbi.nih.gov/",
+   "repo_key": null,
+   "host_class": "other",
+   "loc": "front",
+   "sec_title": "",
+   "source": "tagged",
+   "para_id": 1
+  }
+ ],
+ "links_optional": [
+  "creativecommons.org/licenses/by/4.0",
+  "doi:10.1001/jamanetworkopen.2021.29041",
+  "doi:10.1007/bf03391647",
+  "doi:10.1007/s11524-020-00482-2",
+  "doi:10.1007/s12103-020-09551-3",
+  "doi:10.1007/s40572-021-00307-7",
+  "doi:10.1007/s40572-021-00310-y",
+  "doi:10.1016/j.amepre.2009.01.005",
+  "doi:10.1016/j.annepidem.2020.10.011",
+  "doi:10.1016/j.cej.2020.126683",
+  "doi:10.1016/j.cities.2022.103909",
+  "doi:10.1016/j.envres.2021.111195",
+  "doi:10.1016/j.envres.2021.111331",
+  "doi:10.1016/j.envres.2021.111930",
+  "doi:10.1016/j.envres.2022.114155",
+  "doi:10.1016/j.jpubeco.2020.104344",
+  "doi:10.1016/j.jrurstud.2022.11.006",
+  "doi:10.1016/j.jue.2022.103489",
+  "doi:10.1016/j.scitotenv.2020.139864",
+  "doi:10.1016/j.scitotenv.2022.158056",
+  "doi:10.1016/j.scitotenv.2022.158333",
+  "doi:10.1016/j.scs.2021.103144",
+  "doi:10.1016/j.scs.2021.103261",
+  "doi:10.1016/j.socscimed.2009.10.018",
+  "doi:10.1016/j.socscimed.2016.08.047",
+  "doi:10.1016/j.ssaho.2022.100250",
+  "doi:10.1016/j.ssmph.2021.100769",
+  "doi:10.1016/j.worlddev.2020.105296",
+  "doi:10.1016/s1473-3099(20)30120-1",
+  "doi:10.1016/s2468-2667(22)00223-7",
+  "doi:10.1038/d41586-019-02071-z",
+  "doi:10.1038/s41467-021-22838-1",
+  "doi:10.1093/aje/kwab196",
+  "doi:10.1093/aje/kwac032",
+  "doi:10.1093/aje/kwm040",
+  "doi:10.1093/ppar/prac024",
+  "doi:10.1097/phh.0000000000001263",
+  "doi:10.1111/nyas.13950",
+  "doi:10.1111/pirs.12647",
+  "doi:10.1146/annurev-publhealth-052120-101420",
+  "doi:10.1183/16000617.0242-2020",
+  "doi:10.1186/s12877-022-02847-5",
+  "doi:10.1186/s40163-020-00117-6",
+  "doi:10.1289/ehp8888",
+  "doi:10.1371/journal.pone.0316198",
+  "doi:10.1377/hlthaff.2022.00750",
+  "doi:10.2105/ajph.2015.302955",
+  "doi:10.2105/ajph.2021.306353",
+  "doi:10.2105/ajph.2021.306708",
+  "doi:10.3390/ijerph14121546",
+  "doi:10.7189/jogh.11.05015",
+  "epa.gov/research-grants/star",
+  "nhlbi.nih.gov",
+  "nia.nih.gov",
+  "niddk.nih.gov",
+  "niehs.nih.gov",
+  "nimhd.nih.gov",
+  "ninds.nih.gov",
+  "pa.gov/agencies/health/research/research/cure",
+  "ssrn.com/abstract=3808326"
+ ],
+ "own_doi": "doi:10.1371/journal.pone.0352170",
+ "citations": [
+  {
+   "cite_id": 1,
+   "para_id": 2,
+   "bib_id": 1,
+   "marker": "1",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 2,
+   "para_id": 2,
+   "bib_id": 2,
+   "marker": "1–3",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 3,
+   "para_id": 2,
+   "bib_id": 3,
+   "marker": "3",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 4,
+   "para_id": 2,
+   "bib_id": 4,
+   "marker": "4",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 5,
+   "para_id": 2,
+   "bib_id": 5,
+   "marker": "4–7",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 6,
+   "para_id": 2,
+   "bib_id": 6,
+   "marker": "4–7",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 7,
+   "para_id": 2,
+   "bib_id": 7,
+   "marker": "7",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 8,
+   "para_id": 2,
+   "bib_id": 8,
+   "marker": "8",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 9,
+   "para_id": 2,
+   "bib_id": 9,
+   "marker": "9",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 10,
+   "para_id": 2,
+   "bib_id": 10,
+   "marker": "9–11",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 11,
+   "para_id": 2,
+   "bib_id": 11,
+   "marker": "11",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 12,
+   "para_id": 2,
+   "bib_id": 12,
+   "marker": "12",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 13,
+   "para_id": 2,
+   "bib_id": 13,
+   "marker": "12–14",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 14,
+   "para_id": 2,
+   "bib_id": 14,
+   "marker": "14",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 15,
+   "para_id": 3,
+   "bib_id": 15,
+   "marker": "15",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 16,
+   "para_id": 4,
+   "bib_id": 16,
+   "marker": "16",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 17,
+   "para_id": 4,
+   "bib_id": 17,
+   "marker": "16–19",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 18,
+   "para_id": 4,
+   "bib_id": 18,
+   "marker": "16–19",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 19,
+   "para_id": 4,
+   "bib_id": 19,
+   "marker": "19",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 20,
+   "para_id": 5,
+   "bib_id": 20,
+   "marker": "20",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 21,
+   "para_id": 6,
+   "bib_id": 21,
+   "marker": "21",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 22,
+   "para_id": 6,
+   "bib_id": 22,
+   "marker": "22",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 23,
+   "para_id": 7,
+   "bib_id": 23,
+   "marker": "23",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 24,
+   "para_id": 7,
+   "bib_id": 24,
+   "marker": "24",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 25,
+   "para_id": 7,
+   "bib_id": 25,
+   "marker": "25",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 26,
+   "para_id": 7,
+   "bib_id": 14,
+   "marker": "14",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 27,
+   "para_id": 8,
+   "bib_id": 26,
+   "marker": "26",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 28,
+   "para_id": 8,
+   "bib_id": 27,
+   "marker": "27",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 29,
+   "para_id": 9,
+   "bib_id": 22,
+   "marker": "22",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 30,
+   "para_id": 10,
+   "bib_id": 24,
+   "marker": "24",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 31,
+   "para_id": 11,
+   "bib_id": 25,
+   "marker": "25",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 32,
+   "para_id": 12,
+   "bib_id": 28,
+   "marker": "28",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 33,
+   "para_id": 13,
+   "bib_id": 29,
+   "marker": "29",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 34,
+   "para_id": 14,
+   "bib_id": 30,
+   "marker": "30",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 35,
+   "para_id": 14,
+   "bib_id": 31,
+   "marker": "31",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 36,
+   "para_id": 15,
+   "bib_id": 32,
+   "marker": "32",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 37,
+   "para_id": 15,
+   "bib_id": 33,
+   "marker": "33",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 38,
+   "para_id": 15,
+   "bib_id": 34,
+   "marker": "34",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 39,
+   "para_id": 15,
+   "bib_id": 25,
+   "marker": "25",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 40,
+   "para_id": 15,
+   "bib_id": 35,
+   "marker": "35",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 41,
+   "para_id": 15,
+   "bib_id": 36,
+   "marker": "36",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 42,
+   "para_id": 16,
+   "bib_id": 26,
+   "marker": "26",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 43,
+   "para_id": 16,
+   "bib_id": 27,
+   "marker": "27",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 44,
+   "para_id": 17,
+   "bib_id": 37,
+   "marker": "37",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 45,
+   "para_id": 17,
+   "bib_id": 38,
+   "marker": "38",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 46,
+   "para_id": 17,
+   "bib_id": 39,
+   "marker": "39",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 47,
+   "para_id": 17,
+   "bib_id": 40,
+   "marker": "40",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 48,
+   "para_id": 17,
+   "bib_id": 41,
+   "marker": "41",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 49,
+   "para_id": 17,
+   "bib_id": 39,
+   "marker": "39",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 50,
+   "para_id": 17,
+   "bib_id": 42,
+   "marker": "42",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 51,
+   "para_id": 17,
+   "bib_id": 43,
+   "marker": "43",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 52,
+   "para_id": 17,
+   "bib_id": 39,
+   "marker": "39",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 53,
+   "para_id": 17,
+   "bib_id": 44,
+   "marker": "44",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 54,
+   "para_id": 17,
+   "bib_id": 45,
+   "marker": "44–47",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 55,
+   "para_id": 17,
+   "bib_id": 46,
+   "marker": "44–47",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 56,
+   "para_id": 17,
+   "bib_id": 47,
+   "marker": "47",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 57,
+   "para_id": 18,
+   "bib_id": 48,
+   "marker": "48",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 58,
+   "para_id": 18,
+   "bib_id": 48,
+   "marker": "48",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 59,
+   "para_id": 19,
+   "bib_id": 49,
+   "marker": "49",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 60,
+   "para_id": 19,
+   "bib_id": 50,
+   "marker": "49–51",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 61,
+   "para_id": 19,
+   "bib_id": 51,
+   "marker": "51",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 62,
+   "para_id": 19,
+   "bib_id": 52,
+   "marker": "52",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 63,
+   "para_id": 19,
+   "bib_id": 53,
+   "marker": "52–54",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 64,
+   "para_id": 19,
+   "bib_id": 54,
+   "marker": "54",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 65,
+   "para_id": 19,
+   "bib_id": 55,
+   "marker": "55",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 66,
+   "para_id": 19,
+   "bib_id": 56,
+   "marker": "55–57",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 67,
+   "para_id": 19,
+   "bib_id": 57,
+   "marker": "57",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 68,
+   "para_id": 19,
+   "bib_id": 58,
+   "marker": "58",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 69,
+   "para_id": 19,
+   "bib_id": 59,
+   "marker": "59",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 70,
+   "para_id": 19,
+   "bib_id": 60,
+   "marker": "60",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 71,
+   "para_id": 19,
+   "bib_id": 61,
+   "marker": "60–62",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 72,
+   "para_id": 19,
+   "bib_id": 62,
+   "marker": "62",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 73,
+   "para_id": 20,
+   "bib_id": 63,
+   "marker": "63",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 74,
+   "para_id": 20,
+   "bib_id": 64,
+   "marker": "63–66",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 75,
+   "para_id": 20,
+   "bib_id": 65,
+   "marker": "63–66",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 76,
+   "para_id": 20,
+   "bib_id": 66,
+   "marker": "66",
+   "expanded": false,
+   "scored": true
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-ext-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "v1_bib_count": 66
+ }
+}

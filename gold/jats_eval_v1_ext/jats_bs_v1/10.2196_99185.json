@@ -1,0 +1,1014 @@
+{
+ "paper_id": "10.2196_99185",
+ "paras": [
+  {
+   "para_id": 1,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Depressive disorders are among the major challenges in psychiatry. These highly prevalent conditions are estimated to affect 30% to 40% of individuals during their life, across genders and regions worldwide [1]. Depression is a leading contributor to global disability and affects functioning and mortality. Depression remains underdiagnosed and undertreated worldwide [2].",
+   "printed": true
+  },
+  {
+   "para_id": 2,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Psychiatrists face distinct, complex assessment challenges in comparison to other medical specialties. Most medical fields rely on complementary investigations and paraclinical tests to assess the objective status of patients. Psychiatrists’ evaluation depends on interpreting patients’ subjective experiences in their own words, then mapping these diverse narratives onto standardized DSM (Diagnostic and Statistical Manual of Mental Disorders) criteria [3]. This “transformation” task, from individual expressions of suffering to fixed sets of symptoms and diagnoses, yields variable and modest interrater reliability [4,5]. Moreover, current standardized tools in psychiatry consist of rating scales (self-reported and clinician-administered) that rely on pre-established constructs [6,7]. Even when useful, they do not capture the full complexity of the lived experience of affective disorders [8].",
+   "printed": true
+  },
+  {
+   "para_id": 3,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "This modest interrater reliability is not due to inadequate clinical practice, but rather the inherent complexity of psychiatric phenomena and the current limitations of validated assessment tools. In 2021, while cardiology has over 700 US Food and Drug Administration–approved devices and neurology over 300 devices to support clinical decision-making, psychiatry has fewer than 20 devices [9], and no AI-powered devices have been adopted despite AI’s integration across other specialties [10]. This technology gap is particularly surprising given that patient language, the primary data source in psychiatric consultations, is rarely analyzed in a systematic way despite extensive evidence linking linguistic patterns to mood disorder symptomatology [11-13].",
+   "printed": true
+  },
+  {
+   "para_id": 4,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Language analysis and interpretation, or the qualitative analysis of patients’ speech content, is a central part of clinical practice. It helps clinicians understand patients’ narratives about themselves, their lives, and their illnesses, and it forms the basis of psychotherapy. However, producing reliable data on this topic is highly resource-intensive, as shown in a prior study [14]. This study required extensive collaborative workshops and global expert panels to identify how depression manifests through specific linguistic themes such as altered temporal experience, embodied distress, and existential emptiness. There is also a prognostic value when these themes are extracted: how patients narrate autobiographical memories predicts depression trajectory, with overgeneral vs specific memory styles serving as age-dependent markers [15]. Natural language processing has been used to analyze such narrative features automatically, classifying emotions in personal narratives from their underlying psychological components [16] and relating stylistic patterns to psychological states [17]. Yet, clinicians struggle to analyze and interpret the narratives of patients from minority groups, particularly when cultural differences shape expressions of distress [18]. While language analysis is routine in clinical psychiatry, producing reliable scientific data, generating fine-grained annotations, and conducting such analyses on large populations remain challenging.",
+   "printed": true
+  },
+  {
+   "para_id": 5,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Moreover, thematic analysis is particularly relevant in psychiatry because it resonates with the clinical focus on how people construct meaning from their experiences. As a qualitative method, thematic analysis identifies recurrent patterns in textual data and offers a structured approach to interpreting narratives through iterative annotation and inductive refinement of higher-order themes [19]. It can reveal phenomenological nuances during psychiatric disorders: how individuals experience emotions, self, embodiment, and social relatedness. The method has been used across diverse populations and data sources. However, when conducted manually, it is labor-intensive, often requiring trained coders or panels of expert clinicians to produce clinically validated themes [14]. It is also sensitive to clinician bias and typically constrained to small, monolingual corpora, limiting its scalability and generalizability [19].",
+   "printed": true
+  },
+  {
+   "para_id": 6,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Computational approaches to thematic analysis (commonly named topic modeling in natural language processing) represent documents in a shared vector space and discover structure via clustering or probabilistic topic models. Canonical methods (eg, latent Dirichlet allocation) treat documents as mixtures of latent topics [20]. Neural variants such as BERTopic embed textual data with transformer-based language models, reduce dimensionality, cluster, and summarize each cluster with keywords [21]. More recently, prompt-based frameworks delegate labeling to large language models (LLMs), yielding more specific, interpretable topic descriptions [22,23]. In mental health, topic modeling has been applied to peer-support forums [24], pandemic-era shifts in Reddit help-seeking [25], depression forums [26], and question-and-answer platforms [27]. Most relevant to our setting, it has been applied to free-response clinical speech, identifying depression-related topics in smartphone-collected recordings transcribed by automatic speech recognition [28].",
+   "printed": true
+  },
+  {
+   "para_id": 7,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Computational approaches offer 3 gains: reproducible annotation that limits researcher bias, substantial time savings over labor-intensive manual annotation, and the capacity to analyze larger datasets. However, many automated analyses remain shallow, relying on surface-level lexical statistics (eg, keyword counts and part-of-speech frequencies) to describe clusters [29], which can miss context, pragmatics (eg, sarcasm), and cultural idioms. Prior studies have also rarely addressed potential confounding factors. Language use may vary with demographics such as age and gender, independently of mental health status [30-32]. For example, adolescents with depression tend to discuss friends and school, whereas adults with depression might focus more on work and financial stressors [33]. Most topic modeling studies for mental health focus on a single language and data source (eg, one social media or one country’s clinical sample) [29,34-36]. Findings from a single cohort may not translate to other populations [37]. As a result, it remains unclear whether the topics identified in one group (eg, English-speaking social media users) also appear in other cultural or linguistic groups.",
+   "printed": true
+  },
+  {
+   "para_id": 8,
+   "loc": "body",
+   "sec_title": "French General Population Cohort",
+   "text": "Self-administered questionnaires assessed participants’ mental health status, including depressive symptoms using the Patient Health Questionnaire-9 (PHQ-9) [38] and the Beck Depression Inventory (BDI) [39]; anxiety using the Generalized Anxiety Disorder 7-item scale (GAD-7); insomnia using the Athens Insomnia Scale (AIS) [40]; and fatigue using the Multidimensional Fatigue Inventory (MFI) [41]. Using the PHQ-9 score, we obtained a control group (PHQ-9 ≤9) and a probable-depression group (PHQ-9 ≥10). PHQ-9 was at or above 10, the conventional threshold for probable depression, in 290 of 1809 (16%; 221 of 1338, 16.5% participants at first visit) assessments.",
+   "printed": true
+  },
+  {
+   "para_id": 9,
+   "loc": "body",
+   "sec_title": "Italian Clinical Population (Androids) Cohort",
+   "text": "The Androids cohort was specifically designed for automatic depression detection from speech [42], and includes 228 recordings from 116 native Italian speakers, collected across 2 tasks (a spontaneous interview task and a read-speech task). We analyzed the spontaneous interview task only. After removing duplicates and transcripts shorter than 20 characters, 110 transcripts entered the clustering analysis (Multimedia Appendix 1). Of the 116 participants, 64 participants were clinically diagnosed with depression by professional psychiatrists, providing a reliable characterization of individuals with depression compared to self-reported assessments. The interview task involved answering questions about everyday life (eg, “What did you do last weekend?”).",
+   "printed": true
+  },
+  {
+   "para_id": 10,
+   "loc": "body",
+   "sec_title": "Italian Clinical Population (Androids) Cohort",
+   "text": "Participants were native Italian speakers recruited across 5 Mental Health Centers in Italy. Depression was diagnosed by psychiatrists according to DSM-5 (Diagnostic and Statistical Manual of Mental Disorders [Fifth Edition]) criteria, spanning major depressive disorder (MDD), bipolar disorder in a depressive phase, and related depressive conditions [42]. The Androids corpus provides this binary clinical diagnosis (depressed vs control). Controls reported no prior mental health history and were selected to match the patient group on age, gender, and education.",
+   "printed": true
+  },
+  {
+   "para_id": 11,
+   "loc": "body",
+   "sec_title": "Chinese Clinical Population (MODMA) Cohort",
+   "text": "The multi-modal open dataset for mental-disorder analysis (MODMA) cohort [43] included 52 Chinese-speaking participants, with 23 outpatients diagnosed with MDD (16 males and 7 females, aged 18‐52 years) and 29 healthy controls (20 males and 9 females, aged 19‐52 years). MDD diagnoses were confirmed by clinical psychiatrists at Lanzhou University Second Hospital based on the Mini-International Neuropsychiatric Interview [44] and DSM-IV (Diagnostic and Statistical Manual of Mental Disorders [Fourth Edition]) diagnostic criteria [45].",
+   "printed": true
+  },
+  {
+   "para_id": 12,
+   "loc": "body",
+   "sec_title": "Chinese Clinical Population (MODMA) Cohort",
+   "text": "Speech samples consisted of responses to 18 interview questions derived from DSM-IV and the Hamilton Depression Rating Scale [46]. Following the dataset design [43], these questions are grouped by emotional valence into 6 positive, 6 neutral, and 6 negative questions. The analysis reported here and shown in Figure 1 uses the neutral-valence questions, everyday topics such as “describe one of your friends, including age, job, character, and hobbies.” For each participant, the answers to the questions within a valence group were concatenated into a single transcript before clustering. The positive-valence questions (such as “What is the best gift you have ever received, and how did you feel?”) and the negative-valence questions (such as “What makes you desperate?”) were analyzed separately (Multimedia Appendix 3).",
+   "printed": true
+  },
+  {
+   "para_id": 13,
+   "loc": "body",
+   "sec_title": "Spanish Clinical Population (VOCES) Cohort",
+   "text": "The Spanish clinical cohort for suicide-risk research (VOCES) cohort [47] comprised 90 Spanish-speaking adults who responded to open-ended questions such as: “Can you recall some recent good news you had and how did that make you feel?” “Do you get a characteristic feeling when you’re sad or down, and what do you normally do to cheer yourself up?” and “Describe your average day.”",
+   "printed": true
+  },
+  {
+   "para_id": 14,
+   "loc": "body",
+   "sec_title": "Spanish Clinical Population (VOCES) Cohort",
+   "text": "Suicidal risk was assessed by professional psychiatrists using the validated Spanish version of the Columbia Suicide Severity Rating Scale (C-SSRS) [48,49]. Each participant’s summed C-SSRS severity score ranged from 0 to 21 in this cohort (mean 9.2, SD 7.5). For analysis, participants were dichotomized into a suicidal-risk group, defined as any positive C-SSRS finding (a score of 1 or more, indicating suicidal ideation or behavior), and a no-risk group (a score of 0). This binary risk class is the outcome tested in Figure 2. A total of 60 of the 90 (67%) participants were in the suicidal-risk group.",
+   "printed": true
+  },
+  {
+   "para_id": 15,
+   "loc": "body",
+   "sec_title": "Audio Transcription",
+   "text": "We transcribed all speech recordings with Whisper large-v3-turbo, a state-of-the-art neural model for automatic speech recognition [50]. We removed duplicates and small transcripts (less than 20 characters).",
+   "printed": true
+  },
+  {
+   "para_id": 16,
+   "loc": "body",
+   "sec_title": "Text Embedding",
+   "text": "To obtain multilingual semantic representations, each transcript was mapped to a 4096-dimensional vector (also called an embedding) using Qwen3-Embedding-8B, a language model for text embedding [51]. We selected this model because, as of June 2025, it ranked first on the multilingual track of the Massive Text Embedding Benchmark [52], covering all 4 languages of our cohorts, and because it is released under a permissive open-weight (Apache-2.0) license, which allowed us to run the model ourselves, a requirement for processing sensitive clinical speech without transmitting data to any third-party or commercial service. The model turned every transcript into a point in a vector space: transcripts dealing with similar issues have similar vectors; hence, the clustering step can identify clusters that share the same topics.",
+   "printed": true
+  },
+  {
+   "para_id": 17,
+   "loc": "body",
+   "sec_title": "Dimension Reduction",
+   "text": "Dimension reduction transforms high-dimensional embeddings into a lower-dimensional representation that approximately preserves their geometric structure, thereby simplifying clustering and visualization. We projected the embeddings to a 5D space using UMAP (Uniform Manifold Approximation and Projection) [53]. Reducing embeddings with UMAP before density-based clustering is standard practice in modern topic modeling and is the default pipeline in BERTopic [21]. This step facilitates clustering, as we reduced the search space from 4096 to 5 dimensions. The number of components is not a sensitive design choice: the clinical associations are essentially unchanged when it is varied from 2 to 10. The choice of reduction method does matter. Replacing UMAP with a linear (principal component analysis) or alternative nonlinear (t-distributed stochastic neighbor embedding) reduction recovers weaker associations, because neither preserves the local neighborhood density that density-based clustering relies on (Multimedia Appendix 4). A neighborhood-preserving nonlinear reduction such as UMAP is therefore an important part of the method, whereas its exact dimensionality is not.",
+   "printed": true
+  },
+  {
+   "para_id": 18,
+   "loc": "body",
+   "sec_title": "Clustering",
+   "text": "Clustering consisted of finding groups of patients with semantically similar transcripts. These transcripts may contain common topics that are clinically relevant. We extracted clusters using HDBSCAN (Hierarchical Density-Based Spatial Clustering of Applications With Noise) [54], an algorithm that (1) requires no a priori specification of the number of clusters, (2) adapts to variable-density clusters, and (3) labels ambiguous points as noise.",
+   "printed": true
+  },
+  {
+   "para_id": 19,
+   "loc": "body",
+   "sec_title": "Cluster Description",
+   "text": "We automatically labeled each cluster by randomly sampling 30 transcripts and asking a language model to summarize them, focusing on what is common between the transcripts. This sample size was chosen because (1) descriptions generated from 30 transcripts are reproducible across resampling, repeated generation, and prompt wording (Multimedia Appendix 6), and (2) it approaches the maximum input that fits within the model’s context window (40,960 tokens for Qwen3-14B). As clustered transcripts are semantically similar by construction, 30 samples typically capture the cluster’s core themes without redundancy. The model received only the transcripts, so the generated descriptions are produced independently of any clinical score or demographic variable. As with the embedding model, we required an open-weight model under a permissive license, so that sensitive clinical speech was never sent to a third-party or commercial service. We used Qwen3-14B [55], an instruction-tuned 14-billion-parameter model from a leading open-weight family, with strong multilingual coverage and a context window large enough to take the 30-transcript input in a single pass. We automatically obtained textual descriptions of clusters that contain several topics. This generative approach yields fine-grained topic descriptions automatically and at scale, going beyond keyword-based descriptions, which stay coarse, and manual coding, which does not scale. The prompt is provided in Multimedia Appendix 5.",
+   "printed": true
+  },
+  {
+   "para_id": 20,
+   "loc": "body",
+   "sec_title": "Statistical Analysis",
+   "text": "For continuous scores such as PHQ-9, we performed a Kruskal-Wallis H test to determine whether the clusters follow the same distribution or not. If we rejected the null hypothesis, we performed a pairwise Dunn test (with Benjamini-Hochberg corrections) to find significant differences between clusters. We reported effect sizes using eta-squared (η²=(H−k+1)/(n−k), where H is the Kruskal-Wallis statistic, k the number of clusters, and n the number of transcripts), interpreted following Cohen conventions: 0.01=small, 0.06=medium, and 0.14=large [56]. We also report adjusted P values.",
+   "printed": true
+  },
+  {
+   "para_id": 21,
+   "loc": "body",
+   "sec_title": "Content Not Captured by the Clinical Scales",
+   "text": "Not every question or cluster was strongly associated with the clinical scales, and these weaker results are themselves informative. The questions about past or future events yielded stable clusters (Multimedia Appendix 4) whose descriptions summarize life circumstances, yet their associations with the symptom scores were small (η² at or below 0.05; Multimedia Appendix 3). Sociodemographic factors likewise shaped topic content independently of clinical status. In both cases, the pipeline recovered coherent content from speech that the symptom scales do not measure. We read this not as a shortcoming of the pipeline but as a reminder that a clinical scale quantifies a predefined set of symptoms and does not capture the full complexity of the lived experience of depression. Standard depression scales share little of their symptom content with one another [57]. What patients consider recovery extends beyond symptom relief [8]. First-person accounts of the lived experience of depression describe dimensions that no symptom scale measures [14]. As the descriptions render this content in human-readable language rather than reducing it to a score, the approach reports content that a purely score-based analysis would leave out.",
+   "printed": true
+  },
+  {
+   "para_id": 22,
+   "loc": "body",
+   "sec_title": "Transcription and Model Biases",
+   "text": "Although we used state-of-the-art speech-to-text models, transcript noise remains a potential source of bias. Mental disorders can alter speech production (eg, reduced energy and dysfluencies) [58], which may increase automatic speech recognition error rates that propagate to embeddings and clusters. We could not measure word or character error rates on our recordings, because no human reference transcripts were collected for any of the 4 cohorts. Published evaluations of the Whisper family report strong recognition accuracy for French, Italian, and Spanish and a higher error rate for Mandarin Chinese [50]. A further concern is differential error. If transcription quality varies with clinical status, transcription error could itself contribute to the associations between cluster membership and the clinical scales. We have no human reference transcripts to test this directly, and because recognition is weakest for Chinese, the Chinese cohort warrants the most caution here. Creating reference transcripts for a small subset would permit direct error-rate measurement and is a worthwhile direction for future work. Additionally, the language models used to embed transcripts and generate cluster descriptions may encode cultural or demographic biases [59]. LLMs also differ systematically in the values they prioritize in the text they generate [60]. As all cluster descriptions in this study were generated by a single model, Qwen3-14B, they may reflect that model’s value priorities rather than entirely neutral summaries of the transcripts.",
+   "printed": true
+  },
+  {
+   "para_id": 23,
+   "loc": "body",
+   "sec_title": "Exploratory Cross-Cohort Observations",
+   "text": "The descriptions also surfaced content specific to individual cohorts. In the Italian cohort, participants expressed strong regional identity and affiliation with Naples. In the Chinese cohort, family communication challenges and feelings of inadequacy featured prominently in higher-risk clusters. These cases show the pipeline captures cohort-specific themes a generic analysis might miss. Whether such content reflects broader cultural patterns or the cohorts’ particular recruitment and interview design cannot be determined from these nonparallel datasets, and would require dedicated cross-cultural studies with parallel protocols [18].",
+   "printed": true
+  },
+  {
+   "para_id": 24,
+   "loc": "body",
+   "sec_title": "Risk and Protective Topics for Depression",
+   "text": "Several clusters recapitulate established risk topics. Clusters with sleep disturbance or fatigue align with meta-analyses showing a bidirectional link between insomnia and depressive morbidity [61]. Stressor-laden clusters (stress due to unemployment or financial difficulties) track established longitudinal associations between adverse psychosocial work environments or job loss and increased depression risk [62]. Student-specific clusters may contain topics such as examination pressure that show associations between academic stressors and depressive symptoms [63].",
+   "printed": true
+  },
+  {
+   "para_id": 25,
+   "loc": "body",
+   "sec_title": "Risk and Protective Topics for Depression",
+   "text": "Other clusters map onto protective topics. Clusters emphasizing arts participation and creative activity correspond to the WHO scoping review concluding that arts engagement contributes to prevention and symptom reduction in mental health [64]. Gardening and nature exposure clusters show consistency with evidence of small-to-moderate improvements in depressive symptoms from horticultural and green-space activities [65]. Mentions of holidays or travel appear predominantly in low-severity clusters and are congruent with longitudinal work showing short-lived but reliable gains in mood and well-being during vacations [66]. Finally, physical activity topics align with prospective meta-analyses, indicating that even subguideline levels of activity are associated with lower incident depression [67].",
+   "printed": true
+  },
+  {
+   "para_id": 26,
+   "loc": "body",
+   "sec_title": "Comparison With Keyword-Based Topic Modeling",
+   "text": "Prior work on topic modeling in depression has relied on keyword-based approaches that surface topics as word lists. For instance, the study by Zhang et al [28] applied BERTopic to free-response speech in the RADAR-MDD dataset and identified 29 topics represented by keywords such as \"daughter,\" \"son,\" \"parents,\" \"hospital,\" \"operation,\" \"pain,\" \"sleep,\" \"tired,\" and \"rest.\" While such keywords indicate broad thematic areas, they lack the semantic context and narrative coherence that clinicians use when interpreting patient discourse. That study is the closest precedent to our work. It analyzes a single English-language dataset, represents each topic as a keyword list, and relates the topics to Patient Health Questionnaire-8 depression scores. Our study builds on this line of work and broadens it to 4 cohorts in 4 languages, including a large general-population sample and 3 clinical cohorts, and to several clinical constructs (depression, anxiety, insomnia, fatigue, and suicide risk).",
+   "printed": true
+  },
+  {
+   "para_id": 27,
+   "loc": "body",
+   "sec_title": "Comparison With Keyword-Based Topic Modeling",
+   "text": "Our approach produces qualitatively different outputs and requires no manual post hoc categorization: the language model directly produces interpretable summaries, whereas keyword-based approaches typically require researchers to manually group and label topics. To make this concrete on our own data, we labeled the same clusters in 2 ways, with keyword labels from a standard keyword-based topic model (BERTopic, which ranks the words most distinctive to each cluster after removing common stopwords in each language) and with our language-model descriptions. We hold the clustering fixed, so every statistical association is unchanged and only what a reader can take from the label differs. The descriptions state the clinical character in a single readable sentence and disambiguate context a bare keyword cannot, whereas keyword lists mix the theme with idiosyncratic or generic words that carry no clinical content. For example, the most depressed cluster in the Chinese cohort carries the keyword label \"feeling,\" especially, \"think,\" \"before,\" \"now,\" \"nothing,\" \"seem,\" \"do not want,\" \"life,\" which conveys little clinical content, whereas its language-model description names physical health issues and emotional struggles such as \"depression,\" \"anxiety,\" and \"loss of motivation.\" In the Spanish sadness-and-coping cohort, the description reports self-inflicted physical pain as a maladaptive coping strategy that the cluster’s keywords (\"sad,\" \"bad,\" \"to feel,\" \"sensation,\" \"going out,\" \"music,\" \"week,\" \"news,\" and \"Madrid\") do not surface. This contrast is not specific to our pipeline. Evaluations of topic models report that keyword-coherence metrics capture surface word statistics rather than the semantic quality a human reader needs, whereas language-model readings of topics align with human judgment [68,69]. The full side-by-side examples for every cohort, with the descriptions reproduced verbatim, are provided in Multimedia Appendix 8.",
+   "printed": true
+  },
+  {
+   "para_id": 28,
+   "loc": "body",
+   "sec_title": "Bridging Qualitative Research and Clinical Practice",
+   "text": "Our introduction highlighted that manual thematic analysis, while clinically valuable, is too resource-intensive for routine care [14]. The cost is concrete. Full thematic analysis of a single qualitative interview study can require more than 100 hours of researcher time [70], and reliable manual coding further depends on trained coders and repeated double-coding to reach acceptable agreement [71]. The present study shows that language models can generate cluster descriptions consistent with core psychiatric constructs identified in labor-intensive qualitative research. For instance, our clusters containing sleep disturbance, emotional dysregulation, and impaired functioning align with the phenomenological dimensions of depression (altered temporal experience, embodied distress, and existential emptiness) identified through expert consensus [14].",
+   "printed": true
+  },
+  {
+   "para_id": 29,
+   "loc": "body",
+   "sec_title": "Bridging Qualitative Research and Clinical Practice",
+   "text": "This convergence indicates that automated methods can help bridge the gap between what qualitative analysis reveals as clinically important and what clinicians can feasibly assess at scale. Where the expert-consensus approach to identifying clinically validated themes required collaborative workshops and international expert panels [14], our pipeline recovered comparable thematic structure automatically, across 4 languages and thousands of transcripts, without trained coders. It performs the labor-intensive early stages of thematic analysis—familiarization with the material, initial coding, and theme generation—in a single automated pass, while validation and clinical interpretation remain with the clinician. On our own data, the gain in speed and cost is concrete. On a single NVIDIA A100 GPU, the pipeline clustered and labeled a French interview question in minutes of compute, at a cloud-equivalent cost under US $1. The familiarization, initial coding, and theme-generation stages it automates would take an estimated 90 to 170 analyst-hours by hand, and roughly double that under the independent double-coding that reliable analysis requires [71]. Across all 4 cohorts, the estimated manual effort runs to several hundred analyst-hours (Multimedia Appendix 10). This is an illustrative comparison of scale rather than a claim of equivalence. The pipeline is an automated topic-modeling procedure of embedding, clustering, and language-model description, and it accelerates these early stages, not the interpretive coding and clinical judgment that a full manual thematic analysis brings. This pattern matches the broader literature: generative-AI thematic analysis reproduced most human-derived themes while reducing analyst time by about 97% [72], with substantial reliability reported for automated content coding [73]. Blinded comparisons find LLMs comparable to human analysts when applying predefined codes, with low hallucination rates [74] and language-model theme summaries reaching substantial agreement with human-derived themes [75]. Our approach identified clinically relevant content from speech records across diverse cohorts. The language model generated meaningful syntheses using clinically agnostic prompts, without pre-established theory or domain-specific information.",
+   "printed": true
+  }
+ ],
+ "links": [],
+ "links_optional": [
+  "accessdata.fda.gov/scripts/cdrh/cfdocs/cfmaude/search.cfm",
+  "aclanthology.org/2020.smm4h-1.11",
+  "creativecommons.org/licenses/by/4.0",
+  "doi:10.1001/archpsyc.1961.01710120031004",
+  "doi:10.1001/jamapsychiatry.2022.0609",
+  "doi:10.1002/wps.20050",
+  "doi:10.1002/wps.21111",
+  "doi:10.1007/s00799-025-00429-5",
+  "doi:10.1007/s10902-012-9345-3",
+  "doi:10.1016/0022-3999(94)00125-o",
+  "doi:10.1016/j.jad.2016.10.019",
+  "doi:10.1016/j.jad.2023.05.027",
+  "doi:10.1016/j.jad.2024.03.106",
+  "doi:10.1016/j.neures.2023.04.006",
+  "doi:10.1016/j.pmedr.2016.11.007",
+  "doi:10.1016/j.rpsm.2016.02.002",
+  "doi:10.1016/j.specom.2015.03.004",
+  "doi:10.1016/s0140-6736(21)02141-3",
+  "doi:10.1016/s0924-9338(97)83296-8",
+  "doi:10.1016/s2215-0366(20)30191-7",
+  "doi:10.1017/s0033291721001343",
+  "doi:10.1038/s41597-022-01211-x",
+  "doi:10.1038/s41598-024-79164-x",
+  "doi:10.1038/s41746-024-01270-x",
+  "doi:10.1057/s41599-025-04698-y",
+  "doi:10.1073/pnas.2319837121",
+  "doi:10.1111/j.1600-0447.2007.01139.x",
+  "doi:10.1136/bmj.l1476",
+  "doi:10.1136/bmjopen-2017-019993",
+  "doi:10.1136/bmjopen-2021-058486",
+  "doi:10.1136/jnnp.23.1.56",
+  "doi:10.1162/tacl_a_00744",
+  "doi:10.1176/appi.ajp.2011.10111704",
+  "doi:10.1176/appi.books.9780890425596",
+  "doi:10.1177/1609406919899220",
+  "doi:10.1186/1471-2296-10-53",
+  "doi:10.1186/1741-7015-9-90",
+  "doi:10.1186/s12888-016-1073-5",
+  "doi:10.1186/s12888-024-06253-6",
+  "doi:10.1191/1478088706qp063oa",
+  "doi:10.1192/bja.2024.60",
+  "doi:10.1371/journal.pdig.0001189",
+  "doi:10.18653/v1/2020.findings-emnlp.337",
+  "doi:10.18653/v1/2023.eacl-main.148",
+  "doi:10.18653/v1/2023.latechclfl-1.8",
+  "doi:10.18653/v1/2024.naacl-long.164",
+  "doi:10.18653/v1/2025.emnlp-main.371",
+  "doi:10.18653/v1/k15-1011",
+  "doi:10.21105/joss.00205",
+  "doi:10.21437/interspeech.2023-894",
+  "doi:10.2196/22635",
+  "doi:10.2196/29487",
+  "doi:10.2196/37142",
+  "doi:10.2196/54482",
+  "doi:10.2196/57257",
+  "doi:10.2196/59050",
+  "doi:10.2196/64447",
+  "doi:10.26615/issn.2603-2821.2023_004",
+  "doi:10.3115/v1/w15-1203",
+  "doi:10.3389/fpsyg.2023.1287706",
+  "doi:10.3389/fpsyg.2024.1355734",
+  "doi:10.3389/frma.2023.1243407",
+  "doi:10.3390/ijerph17238789",
+  "doi:10.48550/arxiv.1802.03426",
+  "doi:10.48550/arxiv.2203.05794",
+  "doi:10.48550/arxiv.2212.04356",
+  "doi:10.48550/arxiv.2505.09388",
+  "doi:10.48550/arxiv.2506.05176",
+  "doi:10.48550/arxiv.2506.12617",
+  "doi:10.63317/2x489fw7wi5m",
+  "doi:10.63317/372jegsog7nt",
+  "jmlr.csail.mit.edu/papers/v3/blei03a.html",
+  "mental.jmir.org",
+  "ncbi.nlm.nih.gov/books/nbk553773",
+  "utstat.toronto.edu/~brunner/oldclass/378f16/readings/cohenpower.pdf"
+ ],
+ "own_doi": "doi:10.2196/99185",
+ "citations": [
+  {
+   "cite_id": 1,
+   "para_id": 1,
+   "bib_id": 1,
+   "marker": "1",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 2,
+   "para_id": 1,
+   "bib_id": 2,
+   "marker": "2",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 3,
+   "para_id": 2,
+   "bib_id": 3,
+   "marker": "3",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 4,
+   "para_id": 2,
+   "bib_id": 4,
+   "marker": "4",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 5,
+   "para_id": 2,
+   "bib_id": 5,
+   "marker": "5",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 6,
+   "para_id": 2,
+   "bib_id": 6,
+   "marker": "6",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 7,
+   "para_id": 2,
+   "bib_id": 7,
+   "marker": "7",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 8,
+   "para_id": 2,
+   "bib_id": 8,
+   "marker": "8",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 9,
+   "para_id": 3,
+   "bib_id": 9,
+   "marker": "9",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 10,
+   "para_id": 3,
+   "bib_id": 10,
+   "marker": "10",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 11,
+   "para_id": 3,
+   "bib_id": 11,
+   "marker": "11",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 12,
+   "para_id": 3,
+   "bib_id": 12,
+   "marker": "11–13",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 13,
+   "para_id": 3,
+   "bib_id": 13,
+   "marker": "13",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 14,
+   "para_id": 4,
+   "bib_id": 14,
+   "marker": "14",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 15,
+   "para_id": 4,
+   "bib_id": 15,
+   "marker": "15",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 16,
+   "para_id": 4,
+   "bib_id": 16,
+   "marker": "16",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 17,
+   "para_id": 4,
+   "bib_id": 17,
+   "marker": "17",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 18,
+   "para_id": 4,
+   "bib_id": 18,
+   "marker": "18",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 19,
+   "para_id": 5,
+   "bib_id": 19,
+   "marker": "19",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 20,
+   "para_id": 5,
+   "bib_id": 14,
+   "marker": "14",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 21,
+   "para_id": 5,
+   "bib_id": 19,
+   "marker": "19",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 22,
+   "para_id": 6,
+   "bib_id": 20,
+   "marker": "20",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 23,
+   "para_id": 6,
+   "bib_id": 21,
+   "marker": "21",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 24,
+   "para_id": 6,
+   "bib_id": 22,
+   "marker": "22",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 25,
+   "para_id": 6,
+   "bib_id": 23,
+   "marker": "23",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 26,
+   "para_id": 6,
+   "bib_id": 24,
+   "marker": "24",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 27,
+   "para_id": 6,
+   "bib_id": 25,
+   "marker": "25",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 28,
+   "para_id": 6,
+   "bib_id": 26,
+   "marker": "26",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 29,
+   "para_id": 6,
+   "bib_id": 27,
+   "marker": "27",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 30,
+   "para_id": 6,
+   "bib_id": 28,
+   "marker": "28",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 31,
+   "para_id": 7,
+   "bib_id": 29,
+   "marker": "29",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 32,
+   "para_id": 7,
+   "bib_id": 30,
+   "marker": "30",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 33,
+   "para_id": 7,
+   "bib_id": 31,
+   "marker": "30–32",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 34,
+   "para_id": 7,
+   "bib_id": 32,
+   "marker": "32",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 35,
+   "para_id": 7,
+   "bib_id": 33,
+   "marker": "33",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 36,
+   "para_id": 7,
+   "bib_id": 29,
+   "marker": "29",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 37,
+   "para_id": 7,
+   "bib_id": 34,
+   "marker": "34",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 38,
+   "para_id": 7,
+   "bib_id": 35,
+   "marker": "34–36",
+   "expanded": true,
+   "scored": true
+  },
+  {
+   "cite_id": 39,
+   "para_id": 7,
+   "bib_id": 36,
+   "marker": "36",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 40,
+   "para_id": 7,
+   "bib_id": 37,
+   "marker": "37",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 41,
+   "para_id": 8,
+   "bib_id": 38,
+   "marker": "38",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 42,
+   "para_id": 8,
+   "bib_id": 39,
+   "marker": "39",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 43,
+   "para_id": 8,
+   "bib_id": 40,
+   "marker": "40",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 44,
+   "para_id": 8,
+   "bib_id": 41,
+   "marker": "41",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 45,
+   "para_id": 9,
+   "bib_id": 42,
+   "marker": "42",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 46,
+   "para_id": 10,
+   "bib_id": 42,
+   "marker": "42",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 47,
+   "para_id": 11,
+   "bib_id": 43,
+   "marker": "43",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 48,
+   "para_id": 11,
+   "bib_id": 44,
+   "marker": "44",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 49,
+   "para_id": 11,
+   "bib_id": 45,
+   "marker": "45",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 50,
+   "para_id": 12,
+   "bib_id": 46,
+   "marker": "46",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 51,
+   "para_id": 12,
+   "bib_id": 43,
+   "marker": "43",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 52,
+   "para_id": 13,
+   "bib_id": 47,
+   "marker": "47",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 53,
+   "para_id": 14,
+   "bib_id": 48,
+   "marker": "48",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 54,
+   "para_id": 14,
+   "bib_id": 49,
+   "marker": "49",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 55,
+   "para_id": 15,
+   "bib_id": 50,
+   "marker": "50",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 56,
+   "para_id": 16,
+   "bib_id": 51,
+   "marker": "51",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 57,
+   "para_id": 16,
+   "bib_id": 52,
+   "marker": "52",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 58,
+   "para_id": 17,
+   "bib_id": 53,
+   "marker": "53",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 59,
+   "para_id": 17,
+   "bib_id": 21,
+   "marker": "21",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 60,
+   "para_id": 18,
+   "bib_id": 54,
+   "marker": "54",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 61,
+   "para_id": 19,
+   "bib_id": 55,
+   "marker": "55",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 62,
+   "para_id": 20,
+   "bib_id": 56,
+   "marker": "56",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 63,
+   "para_id": 21,
+   "bib_id": 57,
+   "marker": "57",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 64,
+   "para_id": 21,
+   "bib_id": 8,
+   "marker": "8",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 65,
+   "para_id": 21,
+   "bib_id": 14,
+   "marker": "14",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 66,
+   "para_id": 22,
+   "bib_id": 58,
+   "marker": "58",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 67,
+   "para_id": 22,
+   "bib_id": 50,
+   "marker": "50",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 68,
+   "para_id": 22,
+   "bib_id": 59,
+   "marker": "59",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 69,
+   "para_id": 22,
+   "bib_id": 60,
+   "marker": "60",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 70,
+   "para_id": 23,
+   "bib_id": 18,
+   "marker": "18",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 71,
+   "para_id": 24,
+   "bib_id": 61,
+   "marker": "61",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 72,
+   "para_id": 24,
+   "bib_id": 62,
+   "marker": "62",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 73,
+   "para_id": 24,
+   "bib_id": 63,
+   "marker": "63",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 74,
+   "para_id": 25,
+   "bib_id": 64,
+   "marker": "64",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 75,
+   "para_id": 25,
+   "bib_id": 65,
+   "marker": "65",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 76,
+   "para_id": 25,
+   "bib_id": 66,
+   "marker": "66",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 77,
+   "para_id": 25,
+   "bib_id": 67,
+   "marker": "67",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 78,
+   "para_id": 26,
+   "bib_id": 28,
+   "marker": "28",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 79,
+   "para_id": 27,
+   "bib_id": 68,
+   "marker": "68",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 80,
+   "para_id": 27,
+   "bib_id": 69,
+   "marker": "69",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 81,
+   "para_id": 28,
+   "bib_id": 14,
+   "marker": "14",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 82,
+   "para_id": 28,
+   "bib_id": 70,
+   "marker": "70",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 83,
+   "para_id": 28,
+   "bib_id": 71,
+   "marker": "71",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 84,
+   "para_id": 28,
+   "bib_id": 14,
+   "marker": "14",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 85,
+   "para_id": 29,
+   "bib_id": 14,
+   "marker": "14",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 86,
+   "para_id": 29,
+   "bib_id": 71,
+   "marker": "71",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 87,
+   "para_id": 29,
+   "bib_id": 72,
+   "marker": "72",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 88,
+   "para_id": 29,
+   "bib_id": 73,
+   "marker": "73",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 89,
+   "para_id": 29,
+   "bib_id": 74,
+   "marker": "74",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 90,
+   "para_id": 29,
+   "bib_id": 75,
+   "marker": "75",
+   "expanded": false,
+   "scored": true
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-ext-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "v1_bib_count": 75
+ }
+}

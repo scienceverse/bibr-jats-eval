@@ -1,0 +1,1136 @@
+{
+ "paper_id": "10.7554_elife.108559",
+ "paras": [
+  {
+   "para_id": 1,
+   "loc": "body",
+   "sec_title": "Strain Agreement Index",
+   "text": "We evaluated the φ index for each face considering the stretching in this neighborhood. As a first step, we projected the selected stretch vectors onto a plane identified by the centroids of the selected faces, using the fitPlane and projLineOnPlane functions of the geom3d library (http://github.com/mattools/matGeom/, Legland et al., 2026). In the second step, we calculated the angle formed by each stretch vector with the remaining vectors. We then evaluated the Agreement Index as the percentage of vectors whose angle diverged from ±10°. The percentage value, ranging between 0 and 100%, was converted into a color code and plotted for each mesh.",
+   "printed": true
+  },
+  {
+   "para_id": 2,
+   "loc": "body",
+   "sec_title": "Software",
+   "text": "We recommend opening the 3D mesh with the open-source software ‘MeshLab’ (https://www.meshlab.net/). In ParaView (https://www.paraview.org), you can plot the MaxStrain vectors. Once the .vtk file is imported, the vectors can be visualized using the Glyph representation. It is recommended to display the vectors as lines for better visual interpretation.",
+   "printed": true
+  },
+  {
+   "para_id": 3,
+   "loc": "body",
+   "sec_title": "Software",
+   "text": "To view and use the in silico Fate Map, the .ims data needs to be imported into Imaris Viewer (https://imaris.oxinst.com/imaris-viewer), the free version of the Imaris visualization software.",
+   "printed": true
+  },
+  {
+   "para_id": 4,
+   "loc": "back",
+   "sec_title": "Data availability",
+   "text": "All image data generated during this study are publicly available in Mendeley Data at https://doi.org/10.17632/nd3kmj3cnx.1. The computational model is openly accessible at https://github.com/MorRaiola/BarrelHeartModel (copy archived at Raiola, 2026).",
+   "printed": true
+  },
+  {
+   "para_id": 5,
+   "loc": "back",
+   "sec_title": "Funding Information",
+   "text": "https://ror.org/0472cxd90European Research Council 10.3030/101142005 to Miguel Torres.",
+   "printed": false
+  },
+  {
+   "para_id": 6,
+   "loc": "back",
+   "sec_title": "",
+   "text": "AcknowledgementsWe thank members of the Torres group for inspiring discussions and advice. We thank members of the Microscopy and Dynamic Imaging, Transgenesis, and Animal Facility CNIC units for excellent support. MR was a recipient of a Marie Skłodowska-Curie doctoral contract from H2020-MSCA-ITN-2016-722427. This work was funded by grants PGC2018-096486-B-I00 and PID2022-140058NB-C31 from the Agencia Estatal de Investigación to MT; Comunidad de Madrid grant P2022/BMD-7245 CARDIOBOOST-CM to MT; European Research Council AdG ref 101142005 to MT. The CNIC Unit of Microscopy and Dynamic Imaging is supported by FEDER ‘Una manera de hacer Europa’ (ReDIB ICTS infrastructure TRIMA@CNIC, MCIN). The CNIC is supported by the Instituto de Salud Carlos III (ISCIII), the Ministerio de Ciencia, Innovación y Universidades (MICIU), and the Pro CNIC Foundation, and is a Severo Ochoa Center of Excellence (grant CEX2020-001041-S funded by MICIU/AEI/10.13039/501100011033).",
+   "printed": true
+  },
+  {
+   "para_id": 7,
+   "loc": "back",
+   "sec_title": "",
+   "text": "Data availabilityAll image data generated during this study are publicly available in Mendeley Data at https://doi.org/10.17632/nd3kmj3cnx.1. The computational model is openly accessible at https://github.com/MorRaiola/BarrelHeartModel (copy archived at Raiola, 2026).The following datasets were generated: RaiolaM TorresM 2025Quantitative computerized analysis demonstrates strongly compartmentalized tissue deformation patterns underlying mammalian heart tube formationMendeley Data10.17632/nd3kmj3cnx.1PMC1339108242478151 RaiolaM TorresM 2025A method for analysing tissue motion and deformation during mammalian cardiogenesis. Raiola et al.2025bMendeley Data10.17632/54gbvnsgnp.1PMC1254889541091733",
+   "printed": false
+  },
+  {
+   "para_id": 8,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Quantifying tissue morphogenesis at the cellular level is essential for understanding developmental mechanisms, addressing congenital heart disease, and designing tissue engineering strategies. In mammals, the heart is the first organ to form and function. Heart morphogenesis is particularly challenging to study because it involves extreme tissue deformation and occurs concurrently with the onset of cardiac beating. Early cardiogenesis involves extensive reorganization and progressive differentiation of the cardiogenic fields to rapidly create a pumping structure (Ivanovitch et al., 2017; Kelly et al., 2014; Meilhac et al., 2014; Buckingham et al., 2005; Moorman and Christoffels, 2003). In mice, the first differentiation wave produces a simple single layer known as the cardiac crescent (CC). The CC then undergoes a series of deep deformations, gradually forming the heart tube (HT), a sophisticated three-dimensional structure with inflow (IFT) and outflow (OFT) tracts and the ability to support embryonic circulation (de Boer et al., 2012). While the evolution of tissue shape during cardiogenesis has been characterized and quantitatively analyzed (Ebrahimi et al., 2022; Esteban et al., 2022; Kawahira et al., 2020; Le Garrec et al., 2013), understanding how tissues deform during morphogenesis requires the definition of cell displacement and rearrangement patterns.",
+   "printed": true
+  },
+  {
+   "para_id": 9,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Recent advances in microscopy and genetic cell labeling have opened new avenues for investigating tissue dynamics. Live-imaging techniques, enabling non-invasive observation of biological phenomena, have opened new opportunities and perspectives in this field (Dominguez et al., 2023; Raiola et al., 2023; Sendra et al., 2022; Ivanovitch et al., 2017; Le Garrec et al., 2017). These new approaches have provided access to datasets that include tissue deformation and cellular tracks; however, these datasets remain underexploited for global, multiscale analysis of tissue deformation during cardiogenesis.",
+   "printed": true
+  },
+  {
+   "para_id": 10,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "While some studies have focused on the dynamic analysis of discrete morphogenetic events of early heart development (Sendra et al., 2025; Ivanovitch et al., 2017; Buckingham et al., 2005; Meilhac et al., 2004), the global dynamic analysis of tissue and cell dynamics during mammalian heart development has not been achieved. A thorough understanding of the morphogenetic mechanisms of early heart development requires adopting a multiscale approach that incorporates the behavior of individual cells, but at the same time describes the global dynamics at the tissue level.",
+   "printed": true
+  },
+  {
+   "para_id": 11,
+   "loc": "body",
+   "sec_title": "Introduction",
+   "text": "Here, we address this challenge by applying a previously developed and validated computational workflow, described in detail in Raiola et al., 2025, to quantify and compare tissue deformation patterns by integrating motion profiles estimated from multiple 3D live fluorescence microscopy datasets. The workflow is based on a non-invasive analysis of individual live images and quantifies tissue kinematics to compute deformation fields and principal strain directions, without modeling the forces underlying such motion. To align the individual motion profiles of multiple specimens over time, the workflow incorporates a staging system that synchronizes 3D live images with a previously described pseudo-dynamic Atlas of tissue geometry during heart morphogenesis (Esteban et al., 2022). This strategy allows the deduction of deformation patterns with spatial and temporal resolution, capturing both instantaneous features and their cumulative history. In this study, we use this framework to extract and interpret biologically meaningful deformation patterns during heart development. By applying this established workflow to heart development, we report new essential features of cardiogenic tissue deformation, including a strong spatiotemporal compartmentalization of cell behaviors. The 3D+t model generated also enables in silico fate map analysis at the cellular or regional level, which provides a tool to interrogate specific features of the dynamics of cardiac cells during HT morphogenesis. This model lays the groundwork for future predictive simulations of the forces driving heart morphogenesis.",
+   "printed": true
+  },
+  {
+   "para_id": 12,
+   "loc": "body",
+   "sec_title": "Estimating myocardial motion and deformation from multiple time-lapse datasets",
+   "text": "We applied a workflow that consists of four steps summarized in Figure 1: (A) Individual time-lapse analysis to capture the geometry of the myocardium from the CC to the linear HT; (B) Integration of multiple time-lapse datasets through spatiotemporal registration into a previously described 3D+t Atlas (Esteban et al., 2022); (C) Quantification of cardiac spatiotemporal deformation patterns during CC to HT morphogenesis; and (D) In silico fate mapping to investigate how different CC regions contribute to the forming HT. The full methodology is detailed in a co-submitted manuscript (Raiola et al., 2025).",
+   "printed": true
+  },
+  {
+   "para_id": 13,
+   "loc": "body",
+   "sec_title": "Estimating myocardial motion and deformation from multiple time-lapse datasets",
+   "text": "We analyzed both published (Ivanovitch et al., 2017) and new datasets consisting of 3D+t live images (Raiola et al., 2025), including 16 embryos from early CC formation to the onset of heart looping. Myocardial cells were labeled using various reporter strategies, including Nkx2.5GFP (Wu et al., 2006) or a combination of Nkx2.5Cre (Stanley et al., 2004) with different fluorescent reporter alleles. To enable individual cell tracking, Nkx2.5GFP embryos carried sparse genetic labels induced by low-dose tamoxifen using the RERT allele (CreERT2 knocked-in under the control of RNApol2 promoter; Guerra et al., 2003); these labels were used exclusively as fiducial markers for validation, not for quantitative single-cell analysis. Additional embryos expressed Mesp1Cre to mark all mesodermal cells, or Islet1Cre to label cardiac progenitor populations, including second heart field (SHF)-derived regions. Importantly, no lineage-specific or strain-dependent biological comparisons are performed in this study; fluorescent labeling is used solely to visualize and track tissue motion. Acquisitions were performed at a variety of temporal windows and with variable time-lapse periods. The procedures developed therefore cope with a diversity of labeling strategies, temporal rates, and embryonic periods of acquisition (Raiola et al., 2025).",
+   "printed": true
+  },
+  {
+   "para_id": 14,
+   "loc": "body",
+   "sec_title": "Estimating myocardial motion and deformation from multiple time-lapse datasets",
+   "text": "To estimate tissue motion, we applied the Medical Image Registration Toolbox (MIRT) (Myronenko and Song, 2010), which calculates displacement tensors across time on raw images (Figure 1A; Raiola et al., 2025; Myronenko and Song, 2010). This algorithm produces Tensor vectors (T) that describe the displacement of each image point over time (Figure 1A, orange grid). To validate these computational predictions, we compared them to manual tracking of >9000 genetically labeled cells derived from 9 embryos through consecutive frames (Raiola et al., 2025). The validation metric was based on the distance between predicted and experimentally measured positions. The results show that the predicted displacements closely match real cell movements, with an average error at the subcellular level, confirming that MIRT provides high-resolution and accurate quantification of tissue deformation during HT formation.",
+   "printed": true
+  },
+  {
+   "para_id": 15,
+   "loc": "body",
+   "sec_title": "Estimating myocardial motion and deformation from multiple time-lapse datasets",
+   "text": "To generate a unified model of cardiac tissue motion, we registered each time-lapse sequence to the 3D+t Atlas of heart development (Esteban et al., 2022). First, we segmented the myocardial tissue in each specimen of the time-lapse datasets and produced a dense mesh of triangles that describes the tissue surface (Raiola et al., 2025). These meshes describe the dynamics of myocardial tissue motion and were named ‘Live-Shapes’. Second, we applied a machine learning-based staging system that uses morphometric features to align live images of different specimens over time, allowing the assignment of each specific specimen and stage to the corresponding Atlas geometry (Figure 1B; Raiola et al., 2025). Third, we mapped specimens onto the Atlas to address shape variability between equally staged hearts (Figure 1B; Raiola et al., 2025).",
+   "printed": true
+  },
+  {
+   "para_id": 16,
+   "loc": "body",
+   "sec_title": "Extracting deformation patterns from the continuous description of HT morphogenesis",
+   "text": "To analyze tissue deformation patterns in the collection of Live-Shapes, we applied the continuous mechanics laws to the deformation of the mesh triangles (Figure 2A, Raiola et al., 2025). Deformation was calculated between consecutive time points for 11 embryos, each with at least two shapes classified in successive Atlas stages. A subset of embryos was excluded because a substantial portion of the IFT was lost due to embryo drift, ensuring that all regions of the cardiac tissue are represented by the same number of embryos in the cumulative deformation analysis. The resulting pattern was then mapped onto the following stage shape, capturing the immediate deformation history. For each triangle, we computed local shape changes and applied smoothing (Raiola et al., 2025) to estimate local tissue growth rate (J), tissue anisotropy (θ), and the magnitude and direction of tissue deformation (ε) (Figure 2B). In addition, we introduced a new parameter; ‘Strain Agreement Index’ (φ), which quantifies local coordination of strain directions. This metric distinguishes regions of coordinated deformation (ordered) from areas with locally discrepant deformation directions (chaotic). It would also identify borders between regions with coherent but discrepant strain directions (Figure 2B, Materials and methods—Strain Agreement Index). All deformation measurements are invariant to translation and rotation, making them robust to embryo drift during acquisition.",
+   "printed": true
+  },
+  {
+   "para_id": 17,
+   "loc": "body",
+   "sec_title": "Extracting deformation patterns from the continuous description of HT morphogenesis",
+   "text": "We then examined myocardial deformation pattern in two complementary ways: stepwise, by comparing deformation between consecutive stages; and cumulatively, by integrating the stepwise deformations through several stages (Figure 2C). To specifically focus on HT morphogenesis driven by tissue deformation, we excluded Atlas stage 1, given that between stages 1 and 2 substantial cell addition to the HT through myocardial differentiation takes place (Esteban et al., 2022).",
+   "printed": true
+  },
+  {
+   "para_id": 18,
+   "loc": "body",
+   "sec_title": "Stepwise deformation pattern analysis",
+   "text": "In stage 9, the most prominent feature was the rightward rotation of the ventricle (Figure 2—figure supplement 3), a phenomenon related to heart looping (Le Garrec et al., 2017). This was accompanied by a sharp increase in growth and decrease in anisotropy at the left junction between the IFT and the ventricle, whereas the opposite took place on the right side (Figure 2—figure supplement 3). As in stage 8, higher growth was also observed in the ventral left side of the ventricle, suggesting its relationship to ventricle rotation.",
+   "printed": true
+  },
+  {
+   "para_id": 19,
+   "loc": "body",
+   "sec_title": "Cumulative deformation pattern analysis",
+   "text": "To determine the accumulated changes through several stages, we applied an additional strategy to analyze tissue deformation in chosen time windows (Raiola et al., 2025). The purpose was to recreate the continuous motion profile of the heart tissue during its transformation from CC to HT, exploiting the extracted kinetic information from individual live-imaging sequences. This strategy concatenates the motion profiles derived from the live images to fully cover from stage 2 to stage 9, allowing the cumulative deformation analysis (Raiola et al., 2025; Figure 3A).",
+   "printed": true
+  },
+  {
+   "para_id": 20,
+   "loc": "body",
+   "sec_title": "Cumulative deformation pattern analysis",
+   "text": "We used the projections of the Live-Shapes onto the Atlas, which we called ‘SurfaceMap’ (Figure 3B), to establish correspondence between specimens and concatenate their motion profiles (Raiola et al., 2025). In this way, we could map the accumulated growth from stage 2 through the different stages. We found that the highest growth accumulated in the IFTs and at bilateral ventrolateral areas of the forming ventricle, whereas the midline and the arterial pole remained at low growth rates (Figure 3C). The two ventricular bilateral growth regions appeared as focal areas, with a clear single center from which growth rates decline concentrically (Figure 3C, ventral view). These high-growth foci progressively displace medially during development but always keeping bilaterality up to stage 9. The rim of the myocardium in contact with the prospective dorsal pericardium again showed two distinct regions; a bilateral distal region of relatively high growth in the IFTs, and the region of the dorsal closure, which shows low growth (Figure 3C). In contrast, anisotropic deformation accumulated along the ventral midline and the dorsal closure region of the myocardial rim, whereas it remained low in the expanding regions of the tissue (Figure 3D). These results confirm the strong compartmentalization of growth and deformation, with growth predominating in lateral regions, and deformation along the craniocaudal direction in medial regions.",
+   "printed": true
+  },
+  {
+   "para_id": 21,
+   "loc": "body",
+   "sec_title": "In silico fate map analysis and its use in determining tissue motion during HT morphogenesis",
+   "text": "Next, we used the concatenation strategy to create a deterministic in silico fate map reproducing the motion profile of the myocardium during early morphogenesis. This strategy involved displacing the reference SurfaceMap nodes in accordance with the motion profile, generating a ‘Dynamic Atlas’ as described in Raiola et al., 2025. In this Dynamic Atlas, every vertex of the model can be tracked from stage 2 to stage 9 (see Figure 4—video 1). Given the correspondence between the model and the actual cell displacement (Raiola et al., 2025), the resulting in silico fate map can be interpreted in terms of pseudo-cellular displacement within the myocardium. We next validated the Dynamic Atlas by developing the tool ‘fate map’, which allows us to label any position/s and determine its fate in silico. At the regional level, we compared the predicted regional growth in the Dynamic Atlas with that directly measured from the ex vivo labeled cultured embryo. We performed experiments on ex vivo cultured embryos using the TAT-Cre injection (Sendra et al., 2023) and dye labeling (Domínguez et al., 2012) to experimentally determine the fate of specific CC regions (Supplementary file 1). Using the TAT-Cre technique, we labeled a discrete group of cells in the medial CC and tracked the positions of the cell progeny after culturing the embryo for 20 hr (Figure 4A). An equivalent label generated in the stage 2 virtual model generated a labeled region in the stage 8 virtual model similar to that obtained in the experimental setting (Figure 4A, A’). Next, we labeled a group of embryonic cells with dye and examined the fate of the label after 15 hr (Figure 4B). We then labeled equivalent positions in the stage 2 virtual model and found that the fate of this region in the stage 6 virtual model was similar to that obtained in the experimental setting (Figure 4B, B’).",
+   "printed": true
+  },
+  {
+   "para_id": 22,
+   "loc": "body",
+   "sec_title": "In silico fate map analysis and its use in determining tissue motion during HT morphogenesis",
+   "text": "Next, to understand how the ventricular barrel shape is produced, we used the virtual model to label groups of cells at regular spacing along the rims between the splanchnic mesoderm and the CC at stage 2 (Figure 5). These two rims define two lines, one between the CC and the juxta-cardiac field (Figure 5A; D2, as described in Esteban et al., 2022) and another between the CC and the SHF (Figure 5B; D1, as described in Esteban et al., 2022).",
+   "printed": true
+  },
+  {
+   "para_id": 23,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Here, we applied a previously established image-based pipeline (Raiola et al., 2025) to extract and compare myocardial deformation during HT morphogenesis in the mouse embryo. Our analysis comprises 16 specimens that have been staged into 9 different canonical shapes at nominal ages ranging from E7.75 to E8.25 (approximately 12 hr). The canonical shapes provide a spatiotemporal reference for comparing and compiling the motion and deformation of multiple specimens.",
+   "printed": true
+  },
+  {
+   "para_id": 24,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Given that tissue compression inhibits proliferation through the activation of the Hippo pathway (von Gise et al., 2012), we propose that one of the factors contributing to the lower growth of the medial regions might be tissue compression. Alternatively, or in addition, it is possible that forces arise from the splanchnic mesoderm, which is highly proliferative (de Boer et al., 2012) and could contribute to the anisotropic deformation of the mesocardial rim of the myocardium.",
+   "printed": true
+  },
+  {
+   "para_id": 25,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Based on these findings, we propose a model for mouse primitive HT morphogenesis in which areas of growth are predominantly lateral in the CC and later become ventrocaudal during the formation of the ventricle. Given that the lateral extension of the heart remains stable during HT formation (Esteban et al., 2022), we propose that the growth of these lateral regions causes the medial convergence of the tissue. This convergence is driven by two belts that constrain the CC toward the midline, a cranial one that coincides with the arterial pole and a caudal one at the boundary between the ventricle primordium and the juxta-cardiac field (Figure 6D). In between these two belt-like constraints, the ventricle adopts a bulging barrel shape (Figure 6B). Surprisingly, ventricle morphogenesis at this stage does not involve localized areas of growth but rather extensive remodeling to recruit lateral tissue and relocate it along the craniocaudal direction (Figure 6B). The model thus proposes complementary regions in which growth and deformation are anticorrelated. Concomitant with this recruitment to medial regions, HT tissue is deformed in the craniocaudal directions, so that the cranial and caudal belts move apart from each other and the HT adopts its longitudinal disposition (Figure 6B).",
+   "printed": true
+  },
+  {
+   "para_id": 26,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "Between stages 7 and 9, we observed a difference in growth rate between the two sides of the forming ventricle, consistent with de Boer et al., 2012. This bias could be the first input for the looping process. Increased growth in the left region, as observed in the chicken model, could influence the direction of cardiac looping and result in a rightward C-shape (Kidokoro et al., 2008). As a consequence of the slight bending, the tissue could undergo compression on the right side. Alternatively, the observed bias could derive from differential growth of myocardial cells during looping (Ebrahimi et al., 2022; Shi et al., 2014). In addition, differential L–R proliferation in the dorsal pericardial wall may also influence heart looping by influencing the dorsal myocardial rim (Desgrange et al., 2020).",
+   "printed": true
+  },
+  {
+   "para_id": 27,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "By concatenating the motion profiles of multiple specimens, we present the first in silico fate map, which enables virtual analyses of the dynamics of HT formation. The resulting Dynamic Atlas is a deterministic, descriptive representation of tissue morphogenesis, obtained by integrating individually derived motion fields within a common reference frame. This baseline is essential for studying heart defects, as deviations from normal tissue motion and deformation patterns can reveal developmental defects like altered growth or wrong motion paths. Due to its deterministic nature, the framework does not allow predictions of system responses to perturbations, but it provides a robust baseline for characterizing HT tissue dynamics. This approach reveals strong anisotropic deformation of the tissue, particularly in the ventricle and the dorsal myocardial boundary, where cumulative deformation analysis indicates the greatest anisotropy. Although the accuracy of the kinetic motion captured by the fate map has not been directly validated, we believe it can reliably track cardiomyocyte movement in these regions, as confirmed by comparison with the video-microscopy dataset (Raiola et al., 2025). We propose the Dynamic Atlas and its associated tool, the ‘fate map’, as a valuable approach for exploring HT morphogenesis.",
+   "printed": true
+  },
+  {
+   "para_id": 28,
+   "loc": "body",
+   "sec_title": "Discussion",
+   "text": "In conclusion, by applying a previously established workflow (Raiola et al., 2025), we provide detailed kinetics of myocardial motion and the tissue deformations underlying early mammalian heart development. The fate map is proposed as an innovative tool to shed light on regionalized cell coordination, generating new questions about the biological and genetic factors that regulate the cardiac development process.",
+   "printed": true
+  },
+  {
+   "para_id": 29,
+   "loc": "table",
+   "sec_title": "Materials and methods",
+   "text": "Guerra et al., 2003",
+   "printed": true
+  },
+  {
+   "para_id": 30,
+   "loc": "table",
+   "sec_title": "Materials and methods",
+   "text": "Stanley et al., 2004",
+   "printed": true
+  },
+  {
+   "para_id": 31,
+   "loc": "table",
+   "sec_title": "Materials and methods",
+   "text": "Lescroart et al., 2014",
+   "printed": true
+  },
+  {
+   "para_id": 32,
+   "loc": "table",
+   "sec_title": "Materials and methods",
+   "text": "Cai et al., 2003",
+   "printed": true
+  },
+  {
+   "para_id": 33,
+   "loc": "table",
+   "sec_title": "Materials and methods",
+   "text": "Madisen et al., 2010",
+   "printed": true
+  },
+  {
+   "para_id": 34,
+   "loc": "table",
+   "sec_title": "Materials and methods",
+   "text": "Sousa et al., 2009",
+   "printed": true
+  },
+  {
+   "para_id": 35,
+   "loc": "table",
+   "sec_title": "Materials and methods",
+   "text": "Nowotschin et al., 2013",
+   "printed": true
+  },
+  {
+   "para_id": 36,
+   "loc": "table",
+   "sec_title": "Materials and methods",
+   "text": "Gu et al., 2018",
+   "printed": true
+  },
+  {
+   "para_id": 37,
+   "loc": "table",
+   "sec_title": "Materials and methods",
+   "text": "Schindelin et al., 2012",
+   "printed": true
+  },
+  {
+   "para_id": 38,
+   "loc": "table",
+   "sec_title": "Materials and methods",
+   "text": "Yushkevich et al., 2006",
+   "printed": true
+  },
+  {
+   "para_id": 39,
+   "loc": "table",
+   "sec_title": "Materials and methods",
+   "text": "Cignoni et al., 2008.",
+   "printed": true
+  },
+  {
+   "para_id": 40,
+   "loc": "body",
+   "sec_title": "Embryo culture and live imaging",
+   "text": "Live-imaging procedures were performed following the protocol described by Sendra et al., 2022. Mouse embryos (E6.5–E7.5) were collected and dissected in dissection medium consisting of DMEM supplemented with 10% fetal bovine serum, 25 mM HEPES–NaOH (pH 7.2), and penicillin–streptomycin (50 µg/ml each). Embryos were cultured in a medium composed of 50% Janvier Labs Rat Serum (Sprague Dawley RjHan SD, male only) and 50% DMEM FluoroBrite (Thermo Fisher Scientific, A1896701) at 37°C under 7% CO2. Two-photon live imaging was performed on a Zeiss LSM780 microscope equipped with a 20×objective (NA = 1) and a MaiTai laser tuned to 980 nm for two-channel acquisition. Fluorescence signals were detected using non-descanned detectors with cyan-yellow (BP450–500/BP520–560), green-red (BP500–520/BP570–610), and yellow-red (BP520–560/BP645–710) filter sets. Image acquisition was controlled using Zen software (Zeiss) with an output power of 250 mW, a pixel dwell time of 14.8 µs, line averaging of two, and an image size of 1024 × 1024 pixels.",
+   "printed": true
+  },
+  {
+   "para_id": 41,
+   "loc": "body",
+   "sec_title": "Cell tracking with TAT-Cre microinjection and dye microinjection",
+   "text": "Embryos at stages E6.5–E7.5 were dissected and cultured as described above using the same dissection and culture media. For microinjection experiments, embryos were maintained in a hypoxic chamber incubator at 37°C with 5% O2 and 7% CO2. Embryos were microinjected with TAT-Cre recombinase or fluorescent dyes as previously described (Sendra et al., 2023). Microinjection needles were prepared with a 2-µm gauge and inserted into the anterior side of the embryo until penetrating the endodermal layer, using specified pressure conditions. The embryos were handled and positioned carefully, ensuring that the anterior and posterior sides were oriented accordingly during the procedure to achieve successful microinjections.",
+   "printed": true
+  },
+  {
+   "para_id": 42,
+   "loc": "body",
+   "sec_title": "Cell tracking with TAT-Cre microinjection and dye microinjection",
+   "text": "We utilized mouse embryos that carried both the reporter genes ROSA26CAG–TdTomato (R26RtdTomato) and ROSA26CAG–EGFP (R26REGFP) in transheterozygosis. We fixed, imaged, and annotated fluorescent cells within anatomical regions. ‘Clusters’ were defined as groups of cells (either Tomato or GFP) originating from a single TAT-Cre injection. For dye microinjections, mouse embryos were labeled by injection of a lipophilic carbocyanine, DiI (1,1′-dioctadecyl-3,3,3′,3′-tetramethylindocarbocyanine perchlorate) and DiD (1,1′-dioctadecyl-3,3,3′,3′-tetramethylindodicarbocyanine), as described previously (Domínguez et al., 2012, Franco et al., 2001). Subsequently, embryos were incubated in increasing sucrose concentrations (10%, 20%, and 30%) for tissue cryoprotection, embedded, and cryosectioned using a cryostat. Images were acquired by confocal microscopy.",
+   "printed": true
+  },
+  {
+   "para_id": 43,
+   "loc": "body",
+   "sec_title": "Computational workflow",
+   "text": "The computational workflow is detailed in Raiola et al., 2025. Here, we describe only the additional analysis introduced in this study that was not included in the methodological paper.",
+   "printed": true
+  },
+  {
+   "para_id": 44,
+   "loc": "back",
+   "sec_title": "Additional files",
+   "text": "eCre(20h) image was captured with Flash procedure (Messal et al., 2021).",
+   "printed": true
+  }
+ ],
+ "links": [
+  {
+   "link_id": 1,
+   "url": "github.com/mattools/matgeom",
+   "url_raw": "http://github.com/mattools/matGeom/",
+   "href_jats": "http://github.com/mattools/matGeom/",
+   "repo_key": "github:mattools/matgeom",
+   "host_class": "github",
+   "loc": "body",
+   "sec_title": "Strain Agreement Index",
+   "source": "tagged",
+   "para_id": 1
+  },
+  {
+   "link_id": 2,
+   "url": "meshlab.net",
+   "url_raw": "https://www.meshlab.net/",
+   "href_jats": "https://www.meshlab.net/",
+   "repo_key": null,
+   "host_class": "other",
+   "loc": "body",
+   "sec_title": "Software",
+   "source": "tagged",
+   "para_id": 2
+  },
+  {
+   "link_id": 3,
+   "url": "paraview.org",
+   "url_raw": "https://www.paraview.org",
+   "href_jats": "https://www.paraview.org",
+   "repo_key": null,
+   "host_class": "other",
+   "loc": "body",
+   "sec_title": "Software",
+   "source": "tagged",
+   "para_id": 2
+  },
+  {
+   "link_id": 4,
+   "url": "imaris.oxinst.com/imaris-viewer",
+   "url_raw": "https://imaris.oxinst.com/imaris-viewer",
+   "href_jats": "https://imaris.oxinst.com/imaris-viewer",
+   "repo_key": null,
+   "host_class": "other",
+   "loc": "body",
+   "sec_title": "Software",
+   "source": "tagged",
+   "para_id": 3
+  },
+  {
+   "link_id": 5,
+   "url": "doi:10.17632/nd3kmj3cnx.1",
+   "url_raw": "https://doi.org/10.17632/nd3kmj3cnx.1",
+   "href_jats": "https://doi.org/10.17632/nd3kmj3cnx.1",
+   "repo_key": "doi:10.17632/nd3kmj3cnx.1",
+   "host_class": "doi",
+   "loc": "back",
+   "sec_title": "Data availability",
+   "source": "tagged",
+   "para_id": 4
+  },
+  {
+   "link_id": 6,
+   "url": "github.com/morraiola/barrelheartmodel",
+   "url_raw": "https://github.com/MorRaiola/BarrelHeartModel",
+   "href_jats": "https://github.com/MorRaiola/BarrelHeartModel",
+   "repo_key": "github:morraiola/barrelheartmodel",
+   "host_class": "github",
+   "loc": "back",
+   "sec_title": "Data availability",
+   "source": "tagged",
+   "para_id": 4
+  },
+  {
+   "link_id": 7,
+   "url": "doi:10.3030/101142005",
+   "url_raw": "10.3030/101142005",
+   "href_jats": "",
+   "repo_key": "doi:10.3030/101142005",
+   "host_class": "doi",
+   "loc": "back",
+   "sec_title": "Funding Information",
+   "source": "regex",
+   "para_id": 5
+  },
+  {
+   "link_id": 8,
+   "url": "doi:10.13039/501100011033",
+   "url_raw": "10.13039/501100011033).",
+   "href_jats": "",
+   "repo_key": "doi:10.13039/501100011033",
+   "host_class": "doi",
+   "loc": "back",
+   "sec_title": "Acknowledgements",
+   "source": "regex",
+   "para_id": 6
+  },
+  {
+   "link_id": 9,
+   "url": "doi:10.17632/54gbvnsgnp.1",
+   "url_raw": "10.17632/54gbvnsgnp.1",
+   "href_jats": "",
+   "repo_key": "doi:10.17632/54gbvnsgnp.1",
+   "host_class": "doi",
+   "loc": "back",
+   "sec_title": "Data availability",
+   "source": "regex",
+   "para_id": 7
+  }
+ ],
+ "links_optional": [
+  "archive.softwareheritage.org/swh:1:dir:aa5972a48dc99bf1fe615f9969f7bc37f04c8d78;origin=https://github.com/morraiola/barrelheartmodel;visit=swh:1:snp:6c5fdeab2e263532d1ec98067f3c04d68f2849fa;anchor=swh:1:rev:aad22e69b7b74b26080ae3df0448aad9ce7c2135",
+  "creativecommons.org/licenses/by/4.0",
+  "doi:10.1002/dvdy.1135",
+  "doi:10.1002/dvdy.21662",
+  "doi:10.1016/j.cell.2006.10.028",
+  "doi:10.1016/j.cell.2023.01.001",
+  "doi:10.1016/j.celrep.2020.02.071",
+  "doi:10.1016/j.devcel.2020.10.008",
+  "doi:10.1016/j.devcel.2025.05.002",
+  "doi:10.1016/j.isci.2022.104600",
+  "doi:10.1016/j.neuroimage.2006.01.015",
+  "doi:10.1016/j.ydbio.2012.05.001",
+  "doi:10.1016/s1534-5807(03)00363-0",
+  "doi:10.1016/s1535-6108(03)00191-0",
+  "doi:10.1038/nbt.4166",
+  "doi:10.1038/ncb3024",
+  "doi:10.1038/nmeth.2019",
+  "doi:10.1038/nn.2467",
+  "doi:10.1038/nrg1710",
+  "doi:10.1038/s41596-020-00414-z",
+  "doi:10.1038/s44161-022-00065-1",
+  "doi:10.1073/pnas.1116136109",
+  "doi:10.1083/jcb.200309160",
+  "doi:10.1093/cercor/bhp038",
+  "doi:10.1101/2025.06.27.661906",
+  "doi:10.1101/2025.08.03.668375",
+  "doi:10.1101/cshperspect.a013888",
+  "doi:10.1101/cshperspect.a015750",
+  "doi:10.1109/tmi.2010.2053043",
+  "doi:10.1152/physrev.00006.2003",
+  "doi:10.1161/circresaha.112.271247",
+  "doi:10.1186/1471-213x-13-15",
+  "doi:10.1242/dev.087940",
+  "doi:10.1242/dev.201206",
+  "doi:10.3389/fphys.2014.00297",
+  "doi:10.3390/jcdd10040145",
+  "doi:10.3791/64273",
+  "doi:10.7554/elife.108559.1",
+  "doi:10.7554/elife.108559.1.sa1",
+  "doi:10.7554/elife.108559.1.sa2",
+  "doi:10.7554/elife.108559.1.sa3",
+  "doi:10.7554/elife.108559.1.sa4",
+  "doi:10.7554/elife.108559.2",
+  "doi:10.7554/elife.108559.2.sa1",
+  "doi:10.7554/elife.108559.2.sa2",
+  "doi:10.7554/elife.108559.2.sa3",
+  "doi:10.7554/elife.108559.2.sa4",
+  "doi:10.7554/elife.28951",
+  "doi:10.7554/elife.30668",
+  "identifiers.org/rrid:imsr_jax:007914",
+  "identifiers.org/rrid:imsr_jax:017585",
+  "identifiers.org/rrid:imsr_jax:020942",
+  "identifiers.org/rrid:imsr_jax:024637",
+  "identifiers.org/rrid:imsr_jax:034720",
+  "identifiers.org/rrid:mmrrc_032037-jax",
+  "identifiers.org/rrid:msr_jax:024242",
+  "identifiers.org/rrid:scr_001622",
+  "identifiers.org/rrid:scr_002285",
+  "identifiers.org/rrid:scr_002516",
+  "identifiers.org/rrid:scr_007370",
+  "identifiers.org/rrid:scr_016479",
+  "identifiers.org/rrid:scr_017341",
+  "identifiers.org/rrid:scr_027065"
+ ],
+ "own_doi": "doi:10.7554/elife.108559",
+ "citations": [
+  {
+   "cite_id": 1,
+   "para_id": 8,
+   "bib_id": 13,
+   "marker": "Ivanovitch et al., 2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 2,
+   "para_id": 8,
+   "bib_id": 15,
+   "marker": "Kelly et al., 2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 3,
+   "para_id": 8,
+   "bib_id": 23,
+   "marker": "Meilhac et al., 2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 4,
+   "para_id": 8,
+   "bib_id": 1,
+   "marker": "Buckingham et al., 2005",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 5,
+   "para_id": 8,
+   "bib_id": 25,
+   "marker": "Moorman and Christoffels, 2003",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 6,
+   "para_id": 8,
+   "bib_id": 4,
+   "marker": "de Boer et al., 2012",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 7,
+   "para_id": 8,
+   "bib_id": 8,
+   "marker": "Ebrahimi et al., 2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 8,
+   "para_id": 8,
+   "bib_id": 9,
+   "marker": "Esteban et al., 2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 9,
+   "para_id": 8,
+   "bib_id": 14,
+   "marker": "Kawahira et al., 2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 10,
+   "para_id": 8,
+   "bib_id": 17,
+   "marker": "Le Garrec et al., 2013",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 11,
+   "para_id": 9,
+   "bib_id": 7,
+   "marker": "Dominguez et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 12,
+   "para_id": 9,
+   "bib_id": 28,
+   "marker": "Raiola et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 13,
+   "para_id": 9,
+   "bib_id": 32,
+   "marker": "Sendra et al., 2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 14,
+   "para_id": 9,
+   "bib_id": 13,
+   "marker": "Ivanovitch et al., 2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 15,
+   "para_id": 9,
+   "bib_id": 18,
+   "marker": "Le Garrec et al., 2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 16,
+   "para_id": 10,
+   "bib_id": 34,
+   "marker": "Sendra et al., 2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 17,
+   "para_id": 10,
+   "bib_id": 13,
+   "marker": "Ivanovitch et al., 2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 18,
+   "para_id": 10,
+   "bib_id": 1,
+   "marker": "Buckingham et al., 2005",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 19,
+   "para_id": 10,
+   "bib_id": 22,
+   "marker": "Meilhac et al., 2004",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 20,
+   "para_id": 11,
+   "bib_id": 29,
+   "marker": "Raiola et al., 2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 21,
+   "para_id": 11,
+   "bib_id": 9,
+   "marker": "Esteban et al., 2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 22,
+   "para_id": 12,
+   "bib_id": 9,
+   "marker": "Esteban et al., 2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 23,
+   "para_id": 12,
+   "bib_id": 29,
+   "marker": "Raiola et al., 2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 24,
+   "para_id": 13,
+   "bib_id": 13,
+   "marker": "Ivanovitch et al., 2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 25,
+   "para_id": 13,
+   "bib_id": 29,
+   "marker": "Raiola et al., 2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 26,
+   "para_id": 13,
+   "bib_id": 39,
+   "marker": "Wu et al., 2006",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 27,
+   "para_id": 13,
+   "bib_id": 37,
+   "marker": "Stanley et al., 2004",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 28,
+   "para_id": 13,
+   "bib_id": 12,
+   "marker": "Guerra et al., 2003",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 29,
+   "para_id": 13,
+   "bib_id": 29,
+   "marker": "Raiola et al., 2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 30,
+   "para_id": 14,
+   "bib_id": 26,
+   "marker": "Myronenko and Song, 2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 31,
+   "para_id": 14,
+   "bib_id": 29,
+   "marker": "Raiola et al., 2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 32,
+   "para_id": 14,
+   "bib_id": 26,
+   "marker": "Myronenko and Song, 2010",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 33,
+   "para_id": 14,
+   "bib_id": 29,
+   "marker": "Raiola et al., 2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 34,
+   "para_id": 15,
+   "bib_id": 9,
+   "marker": "Esteban et al., 2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 35,
+   "para_id": 15,
+   "bib_id": 29,
+   "marker": "Raiola et al., 2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 36,
+   "para_id": 15,
+   "bib_id": 29,
+   "marker": "Raiola et al., 2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 37,
+   "para_id": 15,
+   "bib_id": 29,
+   "marker": "Raiola et al., 2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 38,
+   "para_id": 16,
+   "bib_id": 29,
+   "marker": "Raiola et al., 2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 39,
+   "para_id": 16,
+   "bib_id": 29,
+   "marker": "Raiola et al., 2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 40,
+   "para_id": 17,
+   "bib_id": 9,
+   "marker": "Esteban et al., 2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 41,
+   "para_id": 18,
+   "bib_id": 18,
+   "marker": "Le Garrec et al., 2017",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 42,
+   "para_id": 19,
+   "bib_id": 29,
+   "marker": "Raiola et al., 2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 43,
+   "para_id": 19,
+   "bib_id": 29,
+   "marker": "Raiola et al., 2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 44,
+   "para_id": 20,
+   "bib_id": 29,
+   "marker": "Raiola et al., 2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 45,
+   "para_id": 21,
+   "bib_id": 29,
+   "marker": "Raiola et al., 2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 46,
+   "para_id": 21,
+   "bib_id": 29,
+   "marker": "Raiola et al., 2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 47,
+   "para_id": 21,
+   "bib_id": 33,
+   "marker": "Sendra et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 48,
+   "para_id": 21,
+   "bib_id": 6,
+   "marker": "Domínguez et al., 2012",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 49,
+   "para_id": 22,
+   "bib_id": 9,
+   "marker": "Esteban et al., 2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 50,
+   "para_id": 22,
+   "bib_id": 9,
+   "marker": "Esteban et al., 2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 51,
+   "para_id": 23,
+   "bib_id": 29,
+   "marker": "Raiola et al., 2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 52,
+   "para_id": 24,
+   "bib_id": 38,
+   "marker": "von Gise et al., 2012",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 53,
+   "para_id": 24,
+   "bib_id": 4,
+   "marker": "de Boer et al., 2012",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 54,
+   "para_id": 25,
+   "bib_id": 9,
+   "marker": "Esteban et al., 2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 55,
+   "para_id": 26,
+   "bib_id": 4,
+   "marker": "de Boer et al., 2012",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 56,
+   "para_id": 26,
+   "bib_id": 16,
+   "marker": "Kidokoro et al., 2008",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 57,
+   "para_id": 26,
+   "bib_id": 8,
+   "marker": "Ebrahimi et al., 2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 58,
+   "para_id": 26,
+   "bib_id": 35,
+   "marker": "Shi et al., 2014",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 59,
+   "para_id": 26,
+   "bib_id": 5,
+   "marker": "Desgrange et al., 2020",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 60,
+   "para_id": 27,
+   "bib_id": 29,
+   "marker": "Raiola et al., 2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 61,
+   "para_id": 28,
+   "bib_id": 29,
+   "marker": "Raiola et al., 2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 62,
+   "para_id": 29,
+   "bib_id": 12,
+   "marker": "Guerra et al., 2003",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 63,
+   "para_id": 30,
+   "bib_id": 37,
+   "marker": "Stanley et al., 2004",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 64,
+   "para_id": 31,
+   "bib_id": 20,
+   "marker": "Lescroart et al., 2014",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 65,
+   "para_id": 32,
+   "bib_id": 2,
+   "marker": "Cai et al., 2003",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 66,
+   "para_id": 33,
+   "bib_id": 21,
+   "marker": "Madisen et al., 2010",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 67,
+   "para_id": 34,
+   "bib_id": 36,
+   "marker": "Sousa et al., 2009",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 68,
+   "para_id": 35,
+   "bib_id": 27,
+   "marker": "Nowotschin et al., 2013",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 69,
+   "para_id": 36,
+   "bib_id": 11,
+   "marker": "Gu et al., 2018",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 70,
+   "para_id": 37,
+   "bib_id": 31,
+   "marker": "Schindelin et al., 2012",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 71,
+   "para_id": 38,
+   "bib_id": 40,
+   "marker": "Yushkevich et al., 2006",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 72,
+   "para_id": 39,
+   "bib_id": 3,
+   "marker": "Cignoni et al., 2008",
+   "expanded": false,
+   "scored": false
+  },
+  {
+   "cite_id": 73,
+   "para_id": 40,
+   "bib_id": 32,
+   "marker": "Sendra et al., 2022",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 74,
+   "para_id": 41,
+   "bib_id": 33,
+   "marker": "Sendra et al., 2023",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 75,
+   "para_id": 42,
+   "bib_id": 6,
+   "marker": "Domínguez et al., 2012",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 76,
+   "para_id": 42,
+   "bib_id": 10,
+   "marker": "Franco et al., 2001",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 77,
+   "para_id": 43,
+   "bib_id": 29,
+   "marker": "Raiola et al., 2025",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 78,
+   "para_id": 1,
+   "bib_id": 19,
+   "marker": "Legland et al., 2026",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 79,
+   "para_id": 44,
+   "bib_id": 24,
+   "marker": "Messal et al., 2021",
+   "expanded": false,
+   "scored": true
+  },
+  {
+   "cite_id": 80,
+   "para_id": 4,
+   "bib_id": 30,
+   "marker": "Raiola, 2026",
+   "expanded": false,
+   "scored": true
+  }
+ ],
+ "provenance": {
+  "labeler": "jats-ext-proj@1",
+  "source": "PMC OpenData publisher JATS, checked against the PDF text layer",
+  "v1_bib_count": 40
+ }
+}
